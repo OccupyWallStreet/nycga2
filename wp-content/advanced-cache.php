@@ -5,8 +5,8 @@ function wpcache_broken_message() {
 		echo "<!-- WP Super Cache is installed but broken. The path to wp-cache-phase1.php in wp-content/advanced-cache.php must be fixed! -->";
 }
 
-if ( !include_once( '/var/www/vhosts/loudfeed.org/httpdocs/wp-content/plugins/wp-super-cache/' . 'wp-cache-phase1.php' ) ) {
-	if ( !@is_file( '/var/www/vhosts/loudfeed.org/httpdocs/wp-content/plugins/wp-super-cache/' . 'wp-cache-phase1.php' ) ) {
+if ( !include_once( '/var/www/nycga.net/web/wp-content/plugins/wp-super-cache/' . 'wp-cache-phase1.php' ) ) {
+	if ( !@is_file( '/var/www/nycga.net/web/wp-content/plugins/wp-super-cache/' . 'wp-cache-phase1.php' ) ) {
 		define( 'ADVANCEDCACHEPROBLEM', 1 );
 		register_shutdown_function( 'wpcache_broken_message' );
 	}
