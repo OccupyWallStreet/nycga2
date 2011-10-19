@@ -5,6 +5,11 @@ WP-Cache Config Sample File
 See wp-cache.php for author details.
 */
 
+$wp_cache_preload_on = 1; //Added by WP-Cache Manager
+$wp_cache_preload_email_volume = 'less'; //Added by WP-Cache Manager
+$wp_cache_preload_email_me = 0; //Added by WP-Cache Manager
+$wp_cache_preload_interval = 0; //Added by WP-Cache Manager
+$wp_cache_preload_posts = 'all'; //Added by WP-Cache Manager
 $wp_cache_mobile_groups = ''; //Added by WP-Cache Manager
 $wp_cache_mobile_prefixes = 'w3c , w3c-, acs-, alav, alca, amoi, audi, avan, benq, bird, blac, blaz, brew, cell, cldc, cmd-, dang, doco, eric, hipt, htc_, inno, ipaq, ipod, jigs, kddi, keji, leno, lg-c, lg-d, lg-g, lge-, lg/u, maui, maxo, midp, mits, mmef, mobi, mot-, moto, mwbp, nec-, newt, noki, palm, pana, pant, phil, play, port, prox, qwap, sage, sams, sany, sch-, sec-, send, seri, sgh-, shar, sie-, siem, smal, smar, sony, sph-, symb, t-mo, teli, tim-, tosh, tsm-, upg1, upsi, vk-v, voda, wap-, wapa, wapi, wapp, wapr, webc, winw, winw, xda , xda-'; //Added by WP-Cache Manager
 $wp_cache_refresh_single_only = '0'; //Added by WP-Cache Manager
@@ -15,10 +20,10 @@ $wp_cache_slash_check = 1; //Added by WP-Cache Manager
 if ( ! defined('WPCACHEHOME') )
 	define( 'WPCACHEHOME', WP_CONTENT_DIR . "/plugins/wp-super-cache/" ); //Added by WP-Cache Manager
 
-$cache_compression = 0; // Super cache compression
+$cache_compression = 1; //Added by WP-Cache Manager
 $cache_enabled = true; //Added by WP-Cache Manager
 $super_cache_enabled = true; //Added by WP-Cache Manager
-$cache_max_time = 3600; //in seconds
+$cache_max_time = 300; //Added by WP-Cache Manager
 //$use_flock = true; // Set it true or false if you know what to use
 $cache_path = WP_CONTENT_DIR . '/cache/';
 $file_prefix = 'wp-cache-';
@@ -49,7 +54,7 @@ if( defined( 'VHOST' ) ) {
 // Array of files that have 'wp-' but should still be cached 
 $cache_acceptable_files = array( 'wp-comments-popup.php', 'wp-links-opml.php', 'wp-locations.php' );
 
-$cache_rejected_uri = array('wp-.*\\.php', 'index\\.php');
+$cache_rejected_uri = array ( 0 => '', ); //Added by WP-Cache Manager
 $cache_rejected_user_agent = array ( 0 => 'bot', 1 => 'ia_archive', 2 => 'slurp', 3 => 'crawl', 4 => 'spider', 5 => 'Yandex' );
 
 $cache_rebuild_files = 1; //Added by WP-Cache Manager

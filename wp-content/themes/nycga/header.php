@@ -55,9 +55,14 @@
 		</div> <!-- header-section -->
 		<?php do_action( 'bp_after_header' ) ?>
 		<?php do_action( 'bp_before_container' ) ?>
-
-		<div id="blurb" style="background-color:#F80;color:black;font-weight:bold;padding:10px;text-align:center;font-size:16px;">
-			The site will go down at 10:00pm - Please finish what you are doing and take the night off. Get some sleep!
+		
+		<? if( ! is_user_logged_in() ){ ?>
+		<div id="blurb" style="padding:10px 0 14px;background-color:#fc0;text-align:center;">
+			Welcome to the new and improved New York General Assembly web site for the #occupywallstreet movement. <a href="/resources/web-site-help/">Learn more</a>
+			<div style="margin-top:12px;font-size:14px;">
+				<a href="/register">Create an Account</a> <em>or</em> <a href="#">Login</a> // Join some <a href="/groups">groups</a> // Get stuff done!
+			</div>
 		</div>
+		<? } ?>
 
 		<div id="container">
