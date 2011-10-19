@@ -1,6 +1,6 @@
 <?php
-ini_set('display_errors',1); 
-error_reporting(E_ALL);
+/*ini_set('display_errors',1); 
+error_reporting(E_ALL);*/
 class STATUS extends BP_Group_Extension {
 	var $status = false;
 	
