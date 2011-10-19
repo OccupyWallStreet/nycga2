@@ -4,7 +4,7 @@ error_reporting(E_ALL);*/
 class STATUS extends BP_Group_Extension {
 	var $status = false;
 	
-	var $slug = 'statustab';
+	var $slug = 'status';
 	var $name = false;
 	var $nav_item_name = false;
 
@@ -12,7 +12,7 @@ class STATUS extends BP_Group_Extension {
 	var $visibility = true;
 
 	var $create_step_position = 5;
-	var $nav_item_position = 15;
+	var $nav_item_position = 16;
 
 	var $enable_create_step = true; // will set to true in future version
 	var $enable_nav_item = false;
@@ -27,7 +27,7 @@ class STATUS extends BP_Group_Extension {
                 
                 
 		// populate extra extras data in global var
-		$bp->groups->current_group->statustab = groups_get_groupmeta($bp->groups->current_group->id, 'status');
+		//$bp->groups->current_group->statustab = groups_get_groupmeta($bp->groups->current_group->id, 'status');
 		
 		// Display or Hide top menu from group non-members
 		$this->visibility = /*$bp->groups->current_group->statustab['display_page'] ? $bp->groups->current_group->statustab['display_page'] :*/ 'public';
@@ -140,34 +140,94 @@ class STATUS extends BP_Group_Extension {
 	
 	// Save extra fields in groupmeta
 	function edit_group_fields_save($group_id){
-		global $bp;
-		
-		if ( $bp->current_component == $bp->groups->slug && 'edit-details' == $bp->action_variables[0] ) {
-			if ( $bp->is_item_admin || $bp->is_item_mod  ) {
-				// If the edit form has been submitted, save the edited details
-				if ( isset( $_POST['save'] ) ) {
-					/* Check the nonce first. */
-					if ( !check_admin_referer( 'groups_edit_group_details' ) )
-						return false;
-					
-					foreach($_POST as $data => $value){
-						if ( substr($data, 0, 7) === 'status-' )
-							$to_save[$data] =  $value;
-					}
+            global $bp;
+            if ( $bp->current_component == $bp->groups->slug && 'edit-details' == $bp->action_variables[0] ) {
+                if ( $bp->is_item_admin || $bp->is_item_mod  ) {
+                    // If the edit form has been submitted, save the edited details
+                    if ( isset( $_POST['save'] ) ) {
+                        /* Check the nonce first. */
+                        if ( !check_admin_referer( 'groups_edit_group_details' ) )
+                            return false;
+                        $to_save = array();
+                        foreach($_POST as $data => $value){
+                            if ( substr($data, 0, 7) === 'status-' ){
+                                $oldvalue = groups_get_groupmeta($bp->groups->current_group->id, substr($data,7));
+                                if($oldvalue != $value){
+                                    $to_save[$data] =  $value;
+                                }
+                            }
+                        }
 
-					foreach($to_save as $key => $value){
-					
-						$key = substr($key, 7);
-						if ( ! is_array($value) ) {
-							$value = wp_kses_data($value);
-							$value = force_balance_tags($value);
-						}
-						groups_update_groupmeta($group_id, $key, $value);
-					}
-				}
+                        if(count($to_save) > 0){
+                            foreach($to_save as $key => $value){
+                                $key = substr($key, 7);
+                                if ( ! is_array($value) ) {
+                                    $value = wp_kses_data($value);
+                                    $value = force_balance_tags($value);
+                                }
+                                groups_update_groupmeta($group_id, $key, $value);
+                            }
+                            $this->save_activity();
 			}
+                    }
 		}
+            }
 	}
+        
+        function save_activity(){
+            global $bp;
+            //Throttle duplicate activity items when fields are edited multiple times in a short timespan
+            $duplicate_args = array(
+            'max' => 1,
+            'sort' => 'DESC',
+            'show_hidden' => 1, // We need to compare against all activity
+            'filter' => array(
+            'user_id' => $bp->loggedin_user->id,
+            'action' => 'status_update', // BP bug. 'action' is type
+            'item_id' => $bp->groups->current_group->id // We don't really care about the item_id for these purposes (it could have been changed)
+                ),
+            );
+
+            $duplicate_activity = bp_activity_get( $duplicate_args );
+                   
+            // If any activity items are found, compare its date_recorded with time() to
+            // see if it's within the allotted throttle time. If so, don't record the
+            // activity item
+            if ( !empty( $duplicate_activity['activities'] ) ) {
+                $date_recorded 	= $duplicate_activity['activities'][0]->date_recorded;
+                $drunix 	= strtotime( $date_recorded );
+                if ( time() - $drunix <= apply_filters( 'bp_status_edit_activity_throttle_time', 60*45 ) )
+                    return;
+            }
+                                            
+            // Record this in activity streams
+            if ( function_exists( 'bp_is_current_component' ) ) {
+                foreach ( $bp->active_components as $comp => $value ) {
+                        if ( bp_is_current_component( $comp ) ) {
+                            $component = $comp;
+                            break;
+                        }
+                }
+            } else {
+                $component = bp_current_component();
+            }
+    
+            $primary_link = bp_get_group_permalink( $bp->groups->current_group ) . 'status/';
+            $activity_action = sprintf( __( '%1$s updated the status information for the %2$s group', 'buddypress'), bp_core_get_userlink( $bp->loggedin_user->id ), '<a href="' . $primary_link . '">' . $bp->groups->current_group->name . '</a>');
+    
+            $args = array(
+                'user_id'               => $bp->loggedin_user->id,
+                'action'                => apply_filters( 'groups_activity_status_update_action',       $activity_action ),
+                'primary_link'          => apply_filters( 'groups_activity_status_update_primary_link', $primary_link ),
+                'component'		=> $component,
+                'type'			=> 'status_update',
+                'item_id'		=> $bp->groups->current_group->id, // Set to the group/user/etc id, for better consistency with other BP components
+                'secondary_item_id'	=> false, 
+                'recorded_time'		=> bp_core_current_time(),
+                'hide_sitewide'		=> apply_filters( 'bp_ga_status_hide_sitewide', false, $bp->groups->current_group->id, $component ) // Filtered to allow plugins and integration pieces to dictate
+            );
+            bp_activity_add( apply_filters( 'bp_status_activity_args', $args ) );
+        }
 	
 	function widget_display() {
 		echo '';
@@ -310,7 +370,7 @@ class STATUS extends BP_Group_Extension {
 	// save all changes into DB
 	function edit_screen_save() {
 		global $bp;
-		if ( $bp->current_component == $bp->groups->slug && 'statustab' == $bp->action_variables[0] ) {
+		if ( $bp->current_component == $bp->groups->slug && 'status' == $bp->action_variables[0] ) {
 			if ( !$bp->is_item_admin )
 				return false;
 			// Save general settings

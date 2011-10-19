@@ -7,10 +7,10 @@ function status_js_all() {
 	$bp->action_variable[1] = fields | fields-manage
 	*/
 	if (is_admin())
-		wp_enqueue_script('STATUS_ADMIN_JS', WP_PLUGIN_URL.'/GA-Status/_inc/admin-scripts.js', array('jquery') );
+		wp_enqueue_script('STATUS_ADMIN_JS', WP_PLUGIN_URL.'/ga-status/_inc/admin-scripts.js', array('jquery') );
 		
 	if ( $bp->current_component == $bp->groups->slug && $bp->is_single_item && 'admin' == $bp->current_action && $bp->action_variables[0] == 'extras' ){
-		wp_enqueue_script('STATUS_EXTRA_JS', WP_PLUGIN_URL.'/GA-Status/_inc/extra-scripts.js', array('jquery') );
+		wp_enqueue_script('STATUS_EXTRA_JS', WP_PLUGIN_URL.'/ga-status/_inc/extra-scripts.js', array('jquery') );
 		// localize js string
 		add_action('wp_head', 'status_js_localize', 5);
 		wp_enqueue_script('jquery-ui-sortable');
@@ -34,9 +34,9 @@ function status_css_all() {
 	global $bp;
 
 	if (is_admin())
-		wp_enqueue_style('STATUS_ADMIN_CSS', WP_PLUGIN_URL.'/GA-Status/_inc/admin-styles.css');
+		wp_enqueue_style('STATUS_ADMIN_CSS', WP_PLUGIN_URL.'/ga-status/_inc/admin-styles.css');
 		
 	if ( $bp->current_component == $bp->groups->slug && $bp->is_single_item && 'admin' == $bp->current_action && $bp->action_variables[0] == 'extras' ) 
-		wp_enqueue_style('STATUS_EXTRA_CSS', WP_PLUGIN_URL.'/GA-Status/_inc/extra-styles.css');
+		wp_enqueue_style('STATUS_EXTRA_CSS', WP_PLUGIN_URL.'/ga-status/_inc/extra-styles.css');
 		
 }
