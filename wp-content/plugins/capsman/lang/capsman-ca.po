@@ -1,0 +1,384 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Capability Manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-29 15:03+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jordi Canals <devel@jcanals.cat>\n"
+"Language-Team: Jordi Canals | http://alkivia.org <devel@jcanals.cat>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../capsman.php:53
+msgid "Warning:"
+msgstr "Atenció:"
+
+#: ../capsman.php:54
+#, php-format
+msgid "The active plugin %s is not compatible with your PHP version."
+msgstr "L'extensió activa %s no és compatible amb la teva versió de PHP."
+
+#: ../capsman.php:56
+#, php-format
+msgid "%s is required for this plugin."
+msgstr "Es requereix %s per aquesta extensió."
+
+#: ../includes/admin.php:36
+msgid "Roles and Capabilities"
+msgstr "Rols i Competències"
+
+#: ../includes/admin.php:45
+#, php-format
+msgid "Capabilities for %s"
+msgstr "Competències per %s"
+
+#: ../includes/admin.php:92
+msgid "Level:"
+msgstr "Nivell:"
+
+#: ../includes/admin.php:115
+#: ../includes/manager.php:319
+msgid "Save Changes"
+msgstr "Desa els canvis"
+
+#: ../includes/admin.php:117
+msgid "Delete this role"
+msgstr "Elimina aquest rol"
+
+#: ../includes/admin.php:117
+#, php-format
+msgid ""
+"You are about to delete the %s role.\n"
+" 'Cancel' to stop, 'OK' to delete."
+msgstr ""
+"Estàs apunt d'eliminar el rol %s.\n"
+"  'Cancel·la' per sortir, 'D'acord' per eliminar."
+
+#: ../includes/admin.php:117
+msgid "Delete Role"
+msgstr "Eliminar Rol"
+
+#: ../includes/admin.php:128
+msgid "Select New Role"
+msgstr "Selecciona un nou Rol"
+
+#: ../includes/admin.php:136
+#: ../includes/manager.php:296
+msgid "Change"
+msgstr "Canvia"
+
+#: ../includes/admin.php:141
+msgid "Create New Role"
+msgstr "Crear rol nou"
+
+#: ../includes/admin.php:144
+#: ../includes/manager.php:300
+msgid "Create"
+msgstr "Crear"
+
+#: ../includes/admin.php:149
+msgid "Copy this role to"
+msgstr "Copia aquest rol a"
+
+#: ../includes/admin.php:152
+#: ../includes/manager.php:309
+msgid "Copy"
+msgstr "Copiar"
+
+#: ../includes/admin.php:157
+msgid "Add Capability"
+msgstr "Afegeix Competència"
+
+#: ../includes/admin.php:160
+#: ../includes/manager.php:323
+msgid "Add to role"
+msgstr "Afegir al rol"
+
+#: ../includes/backup.php:33
+msgid "Backup Tool for Capability Manager"
+msgstr "Eina de Copies de Seguretat per a Capability Manager"
+
+#: ../includes/backup.php:42
+msgid "Backup and Restore"
+msgstr "Copia i Restaura"
+
+#: ../includes/backup.php:46
+msgid "Select action:"
+msgstr "Selecciona una acció:"
+
+#: ../includes/backup.php:49
+msgid "Backup roles and capabilities"
+msgstr "Desa una copia de rols i competències"
+
+#: ../includes/backup.php:50
+msgid "Restore last saved backup"
+msgstr "Recupera la darrera còpia de seguretat"
+
+#: ../includes/backup.php:52
+msgid "Do Action"
+msgstr "Executa l'Acció"
+
+#: ../includes/backup.php:60
+msgid "Reset WordPress Defaults"
+msgstr "Restaura valors predeterminats de WordPress"
+
+#: ../includes/backup.php:62
+msgid "WARNING:"
+msgstr "ATENCIÓ:"
+
+#: ../includes/backup.php:62
+msgid "Reseting default Roles and Capabilities will set them to the WordPress install defaults."
+msgstr "Restaurant els valors predeterminats per a Rols i Competències, els configurarà als valors predeterminats de la instal·lació de WordPress."
+
+#: ../includes/backup.php:63
+msgid "If you have installed any plugin that adds new roles or capabilities, these will be lost."
+msgstr "Si has instal·lat alguna extensió que afegeix nous rols o competències, aquests es perdran."
+
+#: ../includes/backup.php:64
+msgid "It is recommended to use this only as a last resource!"
+msgstr "Es recomana utilitzar aquesta opció només com a últim recurs!"
+
+#: ../includes/backup.php:65
+msgid "Reset Roles and Capabilities to WordPress defaults"
+msgstr "Restaura Rols i Competències als valors predeterminats de WordPress"
+
+#: ../includes/backup.php:65
+msgid ""
+"You are about to reset Roles and Capabilities to WordPress defaults.\n"
+" 'Cancel' to stop, 'OK' to reset."
+msgstr ""
+"Estàs apunt de restaurar els valors predeterminats de WordPress per a Rols i Competències.\n"
+"  'Cancel·la' per abandonarr, 'D'acord' per restaurar."
+
+#: ../includes/backup.php:65
+msgid "Reset to WordPress defaults"
+msgstr "Restaura els valors predeterminats de WordPress"
+
+#: ../includes/manager.php:139
+#: ../includes/manager.php:140
+msgid "Capability Manager"
+msgstr "Administrador de Compoetències"
+
+#: ../includes/manager.php:139
+msgid "Capabilities"
+msgstr "Competències"
+
+#: ../includes/manager.php:220
+#: ../includes/manager.php:256
+msgid "What do you think you're doing?!?"
+msgstr "Que et penses que fas?"
+
+#: ../includes/manager.php:283
+msgid "Bad form Received"
+msgstr "S'ha rebut un formulari incorrecte."
+
+#: ../includes/manager.php:302
+#: ../includes/manager.php:312
+msgid "New role created."
+msgstr "S'ha creat el nou rol."
+
+#: ../includes/manager.php:305
+#: ../includes/manager.php:315
+msgid "Error: Failed creating the new role."
+msgstr "Error: No s'ha pogut crear el nou rol."
+
+#: ../includes/manager.php:320
+msgid "New capabilities saved."
+msgstr "S'han desat les noves competències."
+
+#: ../includes/manager.php:328
+msgid "New capability added to role."
+msgstr "Nova competència afegida al rol."
+
+#: ../includes/manager.php:330
+msgid "Incorrect capability name."
+msgstr "Nom incorrecte de competència."
+
+#: ../includes/manager.php:334
+msgid "Bad form received."
+msgstr "S'ha rebut un formulari incorrecte."
+
+#: ../includes/manager.php:354
+msgid "New backup saved."
+msgstr "S'ha creat la copia de seguretat."
+
+#: ../includes/manager.php:360
+msgid "Roles and Capabilities restored from last backup."
+msgstr "S'han recuperat els Rols i Competències des de la copia de seguretat."
+
+#: ../includes/manager.php:362
+msgid "Restore failed. No backup found."
+msgstr "Ha fallat la recuperació. No s'ha trobat cap copia de seguretat."
+
+#: ../includes/manager.php:384
+#, php-format
+msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
+msgstr "No es pot eliminar el rol predeterminat. <a href=\"%s\" Abans has de canviar-lo</a>."
+
+#: ../includes/manager.php:405
+#, php-format
+msgid "Role has been deleted. %1$d users moved to default role %2$s."
+msgstr "El rol ha estat eliminat. S'han mogut %1$d usuaris al rol predeterminat %2$s."
+
+#: ../includes/manager.php:419
+msgid "Needed function to create default roles not found!"
+msgstr "La funció per crear els rols predeterminats no s'ha trobat!"
+
+#: ../includes/manager.php:431
+msgid "Roles and Capabilities reset to WordPress defaults"
+msgstr "S'han restaurat Rols i Competències als valors predeterminats de WordPress."
+
+#: ../includes/manager.php:606
+msgid "You cannot remove Manage Capabilities from Administrators"
+msgstr "No pots eliminar 'Manage Capabilities' dels administradors"
+
+#~ msgid "Option blocked by administrator."
+#~ msgstr "Opció desactivada per l'administrador."
+#~ msgid "The active plugin %s is not compatible with your WordPress version."
+#~ msgstr ""
+#~ "L'extensió activa %s no és compatible amb la teva versió de WordPress."
+#~ msgid "WordPress %s is required to run this plugin."
+#~ msgstr "Aquesta extensió requereix com a mínim WordPress %s."
+#~ msgid "Standard sidebar functions are not present."
+#~ msgstr "Les funcions de la barra lateral estàndard no es troben presents."
+#~ msgid "It is required to use the standard sidebar to run %s"
+#~ msgstr "És necessari utilitzar la barra lateral estàndard per executar %s"
+#~ msgid "Settings saved."
+#~ msgstr "Opcions desades."
+#~ msgid "Just Now"
+#~ msgstr "Ara mateix"
+#~ msgid "1 minute ago"
+#~ msgstr "Fa 1 minut"
+#~ msgid "1 hour ago"
+#~ msgstr "Fa 1 hora"
+#~ msgid "Today at %s"
+#~ msgstr "Avui a les %s"
+#~ msgid "Yesterday at %s"
+#~ msgstr "Ahir a les %s"
+#~ msgid "Plugin Homepage"
+#~ msgstr "Pàgina web de l'extensió"
+#~ msgid "Theme Homepage"
+#~ msgstr "Pàgina web del tema"
+#~ msgid "Documentation"
+#~ msgstr "Documentació"
+#~ msgid "Support Forum"
+#~ msgstr "Forum d'Ajuda"
+#~ msgid "Author Homepage"
+#~ msgstr "Lloc web de l'autor"
+#~ msgid "Donate to project"
+#~ msgstr "Fes un donatiu"
+#~ msgid "File error. Please try again."
+#~ msgstr "Error de fitxer. Si us plau, torneu-ho a provar."
+#~ msgid "Local file doesn't exist."
+#~ msgstr "El fitxer local no existeix."
+#~ msgid "Local file is not readable."
+#~ msgstr "El fitxer local no es pot llegir."
+#~ msgid ""
+#~ "File upload error (the uploaded file exceeds the upload_max_filesize "
+#~ "directive in php.ini)."
+#~ msgstr ""
+#~ "Error de pujada de fitxer (El fitxer pujat excedeix de la directiva "
+#~ "upload_max_filesize de php.ini)."
+#~ msgid ""
+#~ "File upload error (the uploaded file exceeds the MAX_FILE_SIZE directive "
+#~ "that was specified in the html form)."
+#~ msgstr ""
+#~ "Error pujant el fitxer (el fitxer pujat excedeix la directiva "
+#~ "MAX_FILE_SIZE que s'ha especificat al formulari HTML)."
+#~ msgid "File upload error (the uploaded file was only partially uploaded)."
+#~ msgstr "Error pujant el fitxer (El fitxer només s'ha rebut parcialment)."
+#~ msgid "File upload error (no file was uploaded)."
+#~ msgstr "Error pujant el fitxer (No s'ha rebut cap fitxer)."
+#~ msgid "File upload error (missing a temporary folder)."
+#~ msgstr "Error pujant el fitxer (manca la carpeta temporal)."
+#~ msgid "File upload error (failed to write file to disk)."
+#~ msgstr "Error pujant el fitxer (No s'ha pogut escriure al disc)."
+#~ msgid "File upload error (file upload stopped by extension)."
+#~ msgstr "Error pujant el fitxer (El fitxer s'ha bloquejat per extensió)."
+#~ msgid "File upload error (unknown error code)."
+#~ msgstr "Error pujant el fitxer (Codi d'error desconegut)."
+#~ msgid "File upload error. Please try again."
+#~ msgstr ""
+#~ "S'ha produït un error pujant el fitxer. Torneu-ho a provar d'aquí una "
+#~ "estona."
+#~ msgid "File too big."
+#~ msgstr "Fitxer massa gran."
+#~ msgid "MIME type can't be detected."
+#~ msgstr "No es pot detectar el tipus MIME."
+#~ msgid "Incorrect type of file."
+#~ msgstr "Tipus d'arxiu invàlid"
+#~ msgid "Image too wide."
+#~ msgstr "Imatge massa ample."
+#~ msgid "Image too narrow."
+#~ msgstr "Imatge massa estreta."
+#~ msgid "Image too high."
+#~ msgstr "Imatge massa alta."
+#~ msgid "Image too short."
+#~ msgstr "Imatge massa baixa."
+#~ msgid "Image ratio too high (image too wide)."
+#~ msgstr "Ratio d'imatge massa gran (Imatge massa ample)."
+#~ msgid "Image ratio too low (image too high)."
+#~ msgstr "Ratio d'imatge massa baix (Imatge massa alta)."
+#~ msgid "Image has too many pixels."
+#~ msgstr "La imatge té massa píxels."
+#~ msgid "Image has not enough pixels."
+#~ msgstr "La imatge no té prou píxels."
+#~ msgid "File not uploaded. Can't carry on a process."
+#~ msgstr "No s'ha pujat el fitxer. No s'ha pogut executar el procés."
+#~ msgid "%s already exists. Please change the file name."
+#~ msgstr "El fitxer %s ja existeix. Si en plau canvieu-ne el nom."
+#~ msgid "No correct temp source file. Can't carry on a process."
+#~ msgstr "El fitxer temporal no es correcte. No es pot executar el procés."
+#~ msgid "No correct uploaded source file. Can't carry on a process."
+#~ msgstr "El fitxer original no es correcte. No es pot executar el procés."
+#~ msgid "Destination directory can't be created. Can't carry on a process."
+#~ msgstr ""
+#~ "No es pot crear el directori de destí. No es pot executar el procés."
+#~ msgid "Destination directory doesn't exist. Can't carry on a process."
+#~ msgstr "El directori de destí no existeix. No es pot executar el procés."
+#~ msgid "Destination path is not a directory. Can't carry on a process."
+#~ msgstr "La ruta de destí no és un directori. No es pot executar el procés."
+#~ msgid ""
+#~ "Destination directory can't be made writeable. Can't carry on a process."
+#~ msgstr ""
+#~ "No es pot canviar a 'escriure' els drets del directori de destí. No es "
+#~ "pot executar el procés."
+#~ msgid "Destination path is not a writeable. Can't carry on a process."
+#~ msgstr ""
+#~ "No es pot escriure en el directori de destí. No es pot executar el procés."
+#~ msgid "Can't create the temporary file. Can't carry on a process."
+#~ msgstr "No es pot crear un fitxer temporal. No es pot executar el procés."
+#~ msgid "Source file is not readable. Can't carry on a process."
+#~ msgstr "El fitxer d'origen no es pot llegir. No es pot executar el procés."
+#~ msgid "No create from %s support."
+#~ msgstr "No hi ha funcions per crear des de %s."
+#~ msgid "Error in creating %s image from source."
+#~ msgstr "Error creant la imatge %s des de l'original."
+#~ msgid "Can't read image source. Not an image?."
+#~ msgstr "No es pot llegir la imatge original. És una imatge?"
+#~ msgid "GD doesn't seem to be present."
+#~ msgstr "No sembla que la llibreria GD estigui present."
+#~ msgid "No create from %s support, can't read watermark."
+#~ msgstr ""
+#~ "No hi ha funcions per crear des de %s, no es pot llegir la marca a "
+#~ "l'aigua."
+#~ msgid "No %s read support, can't create watermark."
+#~ msgstr ""
+#~ "No hi ha funcions per llegir %s, no es pot crear la marca a l'aigua."
+#~ msgid "Unknown image format, can't read watermark."
+#~ msgstr "Format d'imatge desconegut, no es pot llegir la marca a l'aigua."
+#~ msgid "No %s create support."
+#~ msgstr "No hi ha funcions per crear %s."
+#~ msgid "No conversion type defined."
+#~ msgstr "No s'ha definit cap tipus de conversió."
+#~ msgid "Error copying file on the server. copy() failed."
+#~ msgstr "Error copiant el fitxer al serivor. copy() ha fallat."
+#~ msgid "Error reading the file."
+#~ msgstr "Error llegint el fitxer."
+#~ msgid "Help donating"
+#~ msgstr "Ajuda donant"
+

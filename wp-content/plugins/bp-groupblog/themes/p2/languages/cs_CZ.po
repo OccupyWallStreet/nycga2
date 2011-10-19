@@ -1,0 +1,703 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: P2 v1.1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2010-05-04 22:21+0000\n"
+"Last-Translator: márty <martin@jurica.info>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Czech\n"
+"X-Poedit-Country: CZECH REPUBLIC\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: comment-form.php:11
+#: comment-form.php:62
+#: entry.php:30
+#: entry.php:32
+#: functions.php:203
+#: functions.php:441
+#@ p2
+msgid "Reply"
+msgstr "Odpovědět"
+
+#: comment-form.php:17
+#, php-format
+#@ p2
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>."
+msgstr "Přihlášen jako <a href=\"%1$s\">%2$s</a>."
+
+#: comment-form.php:19
+#@ p2
+msgid "Log out of this account"
+msgstr "Odhlásit se"
+
+#: comment-form.php:20
+#@ p2
+msgid "Log out &rarr;"
+msgstr "Odhlásit &rarr;"
+
+#: comment-form.php:28
+#, php-format
+#@ p2
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Je třeba se <a href=\\\"%s\\\">přihlásit</a>, aby bylo možno komentovat."
+
+#: comment-form.php:44
+#@ p2
+msgid "Name <em>(required)</em>"
+msgstr "Jméno <em>(vyžadováno)</em>"
+
+#: comment-form.php:48
+#@ p2
+msgid "Email <em>(required)</em>"
+msgstr "E-mail <em>(vyžadováno)</em>"
+
+#: comment-form.php:52
+#@ p2
+msgid "Web Site"
+msgstr "Web"
+
+#: comment-form.php:66
+#: inc/js.php:36
+#: post-form.php:76
+#@ p2
+msgid "Loading..."
+msgstr "Načítání..."
+
+#: entry.php:7
+#: entry.php:18
+#, php-format
+#@ p2
+msgid "Posts by %s"
+msgstr "Příspěvky od %s"
+
+#: entry.php:29
+#: functions.php:123
+#: functions.php:211
+#@ p2
+msgid "Permalink"
+msgstr "Permalink"
+
+#: entry.php:36
+#: functions.php:123
+#: functions.php:207
+#@ p2
+msgid "Edit"
+msgstr "Upravit"
+
+#: entry.php:41
+#@ p2
+msgid "<br />Tags:"
+msgstr "<br /> Tagy:"
+
+#: entry.php:53
+#: entry.php:66
+#: entry.php:72
+#: inc/template-tags.php:134
+#@ p2
+msgid "(More ...)"
+msgstr "(Více ...)"
+
+#: entry.php:81
+#@ p2
+msgid "Toggle Comments"
+msgstr "Zobrazit/Skrýt komentáře"
+
+#: footer.php:8
+#, php-format
+#@ p2
+msgid "P2 theme by %s."
+msgstr "Vzhled P2 vytvořil %s."
+
+#: footer.php:16
+#@ p2
+msgid "compose new post"
+msgstr "napsat nový příspěvek"
+
+#: footer.php:17
+#@ p2
+msgid "next post/next comment"
+msgstr "další příspěvek/komentář"
+
+#: footer.php:18
+#@ p2
+msgid "previous post/previous comment"
+msgstr "předchozí příspěvek/komentář"
+
+#: footer.php:19
+#@ p2
+msgid "reply"
+msgstr "odpověď"
+
+#: footer.php:20
+#@ p2
+msgid "edit"
+msgstr "upravit"
+
+#: footer.php:21
+#@ p2
+msgid "show/hide comments"
+msgstr "zobrazit/skrýt komentáře"
+
+#: footer.php:22
+#@ p2
+msgid "go to top"
+msgstr "zpět na začátek"
+
+#: footer.php:23
+#@ p2
+msgid "go to login"
+msgstr "k přihlášení"
+
+#: footer.php:24
+#@ p2
+msgid "show/hide help"
+msgstr "Zobrazit/skrýt nápovědu"
+
+#: footer.php:25
+#@ p2
+msgid "cancel"
+msgstr "zrušit"
+
+#: functions.php:123
+#@ p2
+msgid "on"
+msgstr "on"
+
+#: functions.php:128
+#: functions.php:209
+#@ p2
+msgid "Your comment is awaiting moderation."
+msgstr "Váš komentář čeká na schválení."
+
+#: functions.php:207
+#@ p2
+msgid "Edit comment"
+msgstr "Upravit komentář"
+
+#: functions.php:281
+#@ p2
+msgid "Video Post"
+msgstr "Video"
+
+#: functions.php:283
+#@ p2
+msgid "Image Post"
+msgstr "Obrázek"
+
+#: functions.php:442
+#@ p2
+msgid "Log in to Reply"
+msgstr "Přihlaste se pro odpověď"
+
+#: functions.php:485
+#, php-format
+#@ p2
+msgid "<strong>%1$s</strong> is proudly powered by %2$s."
+msgstr "<strong>%1$s</strong> pohání %2$s."
+
+#: functions.php:490
+#@ p2
+msgid "Blog at WordPress.com"
+msgstr "Blog na WordPress.com"
+
+#: inc/ajax.php:19
+#: inc/ajax.php:52
+#: inc/ajax.php:63
+#: inc/ajax.php:104
+#: inc/ajax.php:133
+#@ p2
+msgid "Error: not logged in."
+msgstr "Chyba: nejste přihlášen"
+
+#: inc/ajax.php:24
+#: inc/ajax.php:70
+#@ p2
+msgid "Error: not allowed to edit post."
+msgstr "Chyba: úprava příspěvku nepovolena."
+
+#: inc/ajax.php:112
+#@ p2
+msgid "Error: not allowed to edit this comment."
+msgstr "Chyba: úprava komentáře nepovolena."
+
+#: inc/ajax.php:138
+#@ p2
+msgid "Error: not allowed to post."
+msgstr "Chyba: publikování příspěvku nepovoleno."
+
+#: inc/ajax.php:145
+#: inc/js.php:28
+#: post-form.php:68
+#: post-form.php:69
+#: post-form.php:70
+#@ p2
+msgid "Tag it"
+msgstr "klíčová slova - tagy"
+
+#: inc/ajax.php:229
+#@ p2
+msgid "Error: you must be logged in to post a comment."
+msgstr "Chyba: Pro psaní komentáře se musíte přihlásit."
+
+#: inc/ajax.php:240
+#@ p2
+msgid "Error: please fill the required fields (name, email)."
+msgstr "Chyba: prosím vyplňte povinné údaje (jméno, e-mail)."
+
+#: inc/ajax.php:242
+#@ p2
+msgid "Error: please enter a valid email address."
+msgstr "Chyba: Zadejte prosím platnou e-mailovou adresu."
+
+#: inc/ajax.php:246
+#@ p2
+msgid "Error: Please type a comment."
+msgstr "Chyba: Zadejte prosím komentář."
+
+#: inc/ajax.php:260
+#@ p2
+msgid "Error: Unknown error occured. Comment not posted."
+msgstr "Chyba: Hopla! Něco se rozbilo... Komentář nebyl přidán, zkuste to později."
+
+#: inc/js.php:29
+#@ p2
+msgid "Go to homepage"
+msgstr "Zpět na domovskou stránku"
+
+#: inc/js.php:31
+#, php-format
+#@ p2
+msgid "%d new update(s)"
+msgstr "%d nových aktualizací"
+
+#: inc/js.php:32
+#, php-format
+#@ p2
+msgid "%d new comment(s)"
+msgstr "%d nových komentářů"
+
+#: inc/js.php:33
+#@ p2
+msgid "Jump to top"
+msgstr "Skok na začátek"
+
+#: inc/js.php:34
+#@ p2
+msgid "An error has occured, your post was not posted"
+msgstr "Hopla! Něco se rozbilo... Příspěvek nebyl zveřejněn, zkuste to později."
+
+#: inc/js.php:35
+#@ p2
+msgid "You update has been posted"
+msgstr "Vaše aktualizace byla odeslána"
+
+#: inc/js.php:37
+#@ p2
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: inc/js.php:38
+#@ p2
+msgid "Save"
+msgstr "Uložit"
+
+#: inc/js.php:39
+#: single.php:12
+#@ p2
+msgid "Hide threads"
+msgstr "Skrýt vlákna"
+
+#: inc/js.php:40
+#@ p2
+msgid "Show threads"
+msgstr "Zobrazit vlákna"
+
+#: inc/js.php:41
+#@ p2
+msgid "Your comments or posts will be lost if you continue."
+msgstr "Váš komentář či příspěvek bude ztracen, pokud budete pokračovat."
+
+#: inc/js.php:42
+#: inc/template-tags.php:253
+#, php-format
+#@ p2
+msgid "%1$s <em>on</em> %2$s"
+msgstr "v %1$s <em>dne</em> %2$s"
+
+#: inc/options-page.php:19
+#: inc/options-page.php:76
+#@ p2
+msgid "P2 Options"
+msgstr "Nastavení P2"
+
+#: inc/options-page.php:49
+#: inc/options-page.php:154
+msgid "Whatcha' up to?"
+msgstr ""
+
+#: inc/options-page.php:70
+#@ p2
+msgid "Options saved."
+msgstr "Nastavení uloženo."
+
+#: inc/options-page.php:81
+#@ p2
+msgid "Functionality Options"
+msgstr "Nastavení funkcí"
+
+#: inc/options-page.php:89
+#@ p2
+msgid "Posting Access:"
+msgstr "Možnosti publikování:"
+
+#: inc/options-page.php:105
+#@ p2
+msgid "Hide Threads:"
+msgstr "Skrýt vlákna:"
+
+#: inc/options-page.php:109
+#@ p2
+msgid "Hide comment threads by default"
+msgstr "Skrýt vlákna komentářů ve výchozím nastavení"
+
+#: inc/options-page.php:120
+#@ p2
+msgid "Design Options"
+msgstr "Možnosti vzhledu"
+
+#: inc/options-page.php:126
+#@ p2
+msgid "Custom Background Color:"
+msgstr "Vlastní barva pozadí:"
+
+#: inc/options-page.php:128
+#@ buddypress
+msgid "Pick a Color"
+msgstr ""
+
+#: inc/options-page.php:134
+#@ p2
+msgid "Background Image:"
+msgstr "Obrázek na pozadí:"
+
+#: inc/options-page.php:136
+#@ p2
+msgid "None"
+msgstr "Žádný"
+
+#: inc/options-page.php:137
+#@ p2
+msgid "Bubbles"
+msgstr "Bublinky"
+
+#: inc/options-page.php:138
+#@ p2
+msgid "Polka Dots"
+msgstr "Polka"
+
+#: inc/options-page.php:139
+#@ p2
+msgid "Squares"
+msgstr "Čtverce"
+
+#: inc/options-page.php:140
+#@ p2
+msgid "Plaid"
+msgstr "Pléd"
+
+#: inc/options-page.php:141
+#@ p2
+msgid "Stripes"
+msgstr "Pruhy"
+
+#: inc/options-page.php:145
+#@ p2
+msgid "Sidebar display:"
+msgstr "Zobrazení postranního panelu:"
+
+#: inc/options-page.php:148
+#@ p2
+msgid "Hide the Sidebar"
+msgstr "Skrýt postranní panel"
+
+#: inc/options-page.php:152
+#@ p2
+msgid "Post prompt:"
+msgstr "Úvod příspěvku:"
+
+#: inc/options-page.php:155
+#@ p2
+msgid "if empty, defaults to <strong>Whatcha up to?</strong>"
+msgstr "bude-li prázdné, výchozí hodnota je <strong>Jak se vede?</strong>"
+
+#: inc/options-page.php:159
+#@ p2
+msgid "Post Titles:"
+msgstr "Titulky příspěvků:"
+
+#: inc/options-page.php:162
+#@ p2
+msgid "Display titles"
+msgstr "Zobrazovat titulky"
+
+#: inc/options-page.php:172
+#@ p2
+msgid "Update Options"
+msgstr "Možnosti update"
+
+#: inc/options-page.php:227
+msgid "Hide Text"
+msgstr ""
+
+#: inc/options-page.php:233
+msgid "Show Text"
+msgstr ""
+
+#: inc/template-tags.php:97
+#@ p2
+msgid ", and "
+msgstr "a"
+
+#: inc/template-tags.php:117
+#, php-format
+#@ p2
+msgid " and %s others are discussing."
+msgstr "a dalších %s diskutuje."
+
+#: inc/template-tags.php:119
+#@ p2
+msgid " and one other person are discussing."
+msgstr "a jedna další osoba diskutují."
+
+#: inc/template-tags.php:122
+#@ p2
+msgid " is discussing."
+msgstr "diskutuje."
+
+#: inc/template-tags.php:124
+#@ p2
+msgid " are discussing."
+msgstr "diskutují."
+
+#: inc/template-tags.php:166
+#, php-format
+#@ p2
+msgid "Hi, %s. %s"
+msgstr "Vítej,  %s. %s"
+
+#: inc/template-tags.php:166
+#@ p2
+msgid "Whatcha up to?"
+msgstr "Jak se vede?"
+
+#: inc/widgets/recent-comments.php:5
+#@ p2
+msgid "P2 Recent Comments"
+msgstr "poslední komentáře P2"
+
+#: inc/widgets/recent-comments.php:5
+#@ p2
+msgid "Recent comments with avatars."
+msgstr "Poslední komentáře s avatary."
+
+#: inc/widgets/recent-comments.php:30
+#@ p2
+msgid "No avatar"
+msgstr "Bez avataru"
+
+#: inc/widgets/recent-comments.php:34
+#: inc/widgets/recent-tags.php:19
+#@ p2
+msgid "Title:"
+msgstr "Nadpis:"
+
+#: inc/widgets/recent-comments.php:40
+#@ p2
+msgid "Number of comments to show:"
+msgstr "Počet zobrazovaných komentářů:"
+
+#: inc/widgets/recent-comments.php:46
+#@ p2
+msgid "Avatars:"
+msgstr "Avatary:"
+
+#: inc/widgets/recent-comments.php:67
+#@ p2
+msgid "Recent comments"
+msgstr "Poslední komentáře"
+
+#: inc/widgets/recent-comments.php:126
+#@ p2
+msgid "Anonymous"
+msgstr "Anonym"
+
+#: inc/widgets/recent-comments.php:157
+#, php-format
+#@ p2
+msgid "%s on <a href='%s' class='tooltip' title='%s'>%s</a>"
+msgstr "%s - <a href='%s' class='tooltip' title='%s'>%s</a>"
+
+#: inc/widgets/recent-tags.php:5
+#@ p2
+msgid "P2 Recent Tags"
+msgstr "Poslední tagy P2"
+
+#: inc/widgets/recent-tags.php:5
+#@ p2
+msgid "The tags from the latest posts."
+msgstr "Tagy z posledních příspěvků."
+
+#: inc/widgets/recent-tags.php:25
+#@ p2
+msgid "Number of tags to show:"
+msgstr "Počet zobrazovaných tagů:"
+
+#: inc/widgets/recent-tags.php:41
+#@ p2
+msgid "Recent tags"
+msgstr "Poslední tagy"
+
+#: inc/widgets/recent-tags.php:61
+#@ p2
+msgid "All Updates RSS"
+msgstr "Všechny aktualizace RSS"
+
+#: index.php:11
+#@ p2
+msgid "Recent Updates"
+msgstr "Poslední aktualizace"
+
+#: index.php:11
+#, php-format
+#@ p2
+msgid "Page %s"
+msgstr "Strana %s"
+
+#: index.php:16
+#, php-format
+#@ p2
+msgid "Updates from %s|name"
+msgstr "Aktualizace od %s|name"
+
+#: index.php:21
+#, php-format
+#@ p2
+msgid "Posts Mentioning %s|name"
+msgstr "Příspěvky zmiňující %s|name"
+
+#: index.php:26
+#, php-format
+#@ p2
+msgid "Updates from %s|month"
+msgstr "Aktualizace z %s|month"
+
+#: index.php:31
+#@ p2
+msgid "Toggle Comment Threads"
+msgstr "Přepnout zobrazení vláken komentářů"
+
+#: index.php:31
+#: single.php:14
+#@ p2
+msgid "Keyboard Shortcuts"
+msgstr "Klávesové zkratky"
+
+#: index.php:45
+#: single.php:27
+#@ p2
+msgid "No posts yet!"
+msgstr "Zatím tu nic není..."
+
+#: index.php:52
+#: search.php:27
+#: tag.php:28
+#@ p2
+msgid "&larr;&nbsp;Newer&nbsp;Posts"
+msgstr "&larr;&nbsp;Novější&nbsp;příspěvky"
+
+#: index.php:52
+#: search.php:27
+#: tag.php:28
+#@ p2
+msgid "Older&nbsp;Posts&nbsp;&rarr;"
+msgstr "Starší&nbsp;příspěvky&nbsp;&rarr;"
+
+#: post-form.php:3
+#: post-form.php:10
+#: post-form.php:49
+#: post-form.php:50
+#@ p2
+msgid "Post Title"
+msgstr "Titulek"
+
+#: post-form.php:28
+#@ p2
+msgid "Status Update"
+msgstr "Status"
+
+#: post-form.php:29
+#@ p2
+msgid "Blog Post"
+msgstr "Článek"
+
+#: post-form.php:30
+#@ p2
+msgid "Quote"
+msgstr "Citace"
+
+#: post-form.php:31
+#@ p2
+msgid "Link"
+msgstr "Odkaz"
+
+#: post-form.php:59
+#: post-form.php:61
+#: post-form.php:62
+#: post-form.php:63
+#@ p2
+msgid "Citation"
+msgstr "Komentář k citaci"
+
+#: post-form.php:71
+#@ p2
+msgid "Post it"
+msgstr "Odeslat"
+
+#: search.php:6
+#, php-format
+#@ p2
+msgid "Search Results for: %s"
+msgstr "Výsledky hledání pro: %s"
+
+#: search.php:21
+#: tag.php:22
+#@ p2
+msgid "No posts found!"
+msgstr "Žádné příspěvky nebyly nalezeny!"
+
+#: single.php:34
+#@ p2
+msgid "&larr;&nbsp;Older&nbsp;Posts"
+msgstr "&larr;&nbsp;Starší&nbsp;příspěvky"
+
+#: single.php:34
+#@ p2
+msgid "Newer&nbsp;Posts&nbsp;&rarr;"
+msgstr "Novější&nbsp;příspěvky&nbsp;&rarr;"
+
+#: tag.php:7
+#, php-format
+#@ p2
+msgid "Tagged: %s"
+msgstr "Tagy: %s"
+

@@ -1,0 +1,240 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Capability Manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-29 15:03+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Wedin <me@jenswedin.com>\n"
+"Language-Team: Jordi Canals | http://alkivia.org <devel@jcanals.cat>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_c;_x:2c,1\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../capsman.php:53
+msgid "Warning:"
+msgstr "Varning:"
+
+#: ../capsman.php:54
+#, php-format
+msgid "The active plugin %s is not compatible with your PHP version."
+msgstr "Det aktuella pluginet % är inte kompatibelt med din version av PHP."
+
+#: ../capsman.php:56
+#, php-format
+msgid "%s is required for this plugin."
+msgstr "%s krävs för detta plugin."
+
+#: ../includes/admin.php:36
+msgid "Roles and Capabilities"
+msgstr "Roller och behörigheter"
+
+#: ../includes/admin.php:45
+#, php-format
+msgid "Capabilities for %s"
+msgstr "Behörighet för %s"
+
+#: ../includes/admin.php:92
+msgid "Level:"
+msgstr "Nivå:"
+
+#: ../includes/admin.php:115
+#: ../includes/manager.php:319
+msgid "Save Changes"
+msgstr "Spara ändringar"
+
+#: ../includes/admin.php:117
+msgid "Delete this role"
+msgstr "Ta bort roll"
+
+#: ../includes/admin.php:117
+#, php-format
+msgid ""
+"You are about to delete the %s role.\n"
+" 'Cancel' to stop, 'OK' to delete."
+msgstr ""
+"Du håller på att ta bort %s rollen.\n"
+"'Avbryt' för att stoppa, 'OK' för att ta bort."
+
+#: ../includes/admin.php:117
+msgid "Delete Role"
+msgstr "Ta bort roll"
+
+#: ../includes/admin.php:128
+msgid "Select New Role"
+msgstr "Välj ny roll"
+
+#: ../includes/admin.php:136
+#: ../includes/manager.php:296
+msgid "Change"
+msgstr "Ändra"
+
+#: ../includes/admin.php:141
+msgid "Create New Role"
+msgstr "Skapa ny roll"
+
+#: ../includes/admin.php:144
+#: ../includes/manager.php:300
+msgid "Create"
+msgstr "Skapa"
+
+#: ../includes/admin.php:149
+msgid "Copy this role to"
+msgstr "Kopiera rollen till"
+
+#: ../includes/admin.php:152
+#: ../includes/manager.php:309
+msgid "Copy"
+msgstr "Kopiera"
+
+#: ../includes/admin.php:157
+msgid "Add Capability"
+msgstr "Lägg till behörigheter"
+
+#: ../includes/admin.php:160
+#: ../includes/manager.php:323
+msgid "Add to role"
+msgstr "Lägg till, till roll"
+
+#: ../includes/backup.php:33
+msgid "Backup Tool for Capability Manager"
+msgstr "Säkerhetetskopiering för Capability Manager"
+
+#: ../includes/backup.php:42
+msgid "Backup and Restore"
+msgstr "Säkerhetskopiera och Återställ"
+
+#: ../includes/backup.php:46
+msgid "Select action:"
+msgstr "Välj alternativ:"
+
+#: ../includes/backup.php:49
+msgid "Backup roles and capabilities"
+msgstr "Återställ roller och behörigheter"
+
+#: ../includes/backup.php:50
+msgid "Restore last saved backup"
+msgstr "Återställ senaste versionen säkerhetskopian"
+
+#: ../includes/backup.php:52
+msgid "Do Action"
+msgstr "Gör"
+
+#: ../includes/backup.php:60
+msgid "Reset WordPress Defaults"
+msgstr "Återställ WordPress standardvärden"
+
+#: ../includes/backup.php:62
+msgid "WARNING:"
+msgstr "VARNING:"
+
+#: ../includes/backup.php:62
+msgid "Reseting default Roles and Capabilities will set them to the WordPress install defaults."
+msgstr "Att återställa standardvärderna för roller och och behörigheter kommer att återställa dem till WordPress standardvärden."
+
+#: ../includes/backup.php:63
+msgid "If you have installed any plugin that adds new roles or capabilities, these will be lost."
+msgstr "Om du har installerat något plugin som lägger till nya roller och behörigheter kommer dessa att försvinna."
+
+#: ../includes/backup.php:64
+msgid "It is recommended to use this only as a last resource!"
+msgstr "Det är rekommenderat att använda detta som en sista utväg!  "
+
+#: ../includes/backup.php:65
+msgid "Reset Roles and Capabilities to WordPress defaults"
+msgstr "Återställ roller och behörigheter till Wordpress standardvärden"
+
+#: ../includes/backup.php:65
+msgid ""
+"You are about to reset Roles and Capabilities to WordPress defaults.\n"
+" 'Cancel' to stop, 'OK' to reset."
+msgstr ""
+"Du håller på att återställa roller och behörigheter till WordPress standardvärden.\n"
+"'Avbryt' för att stoppa, 'OK' för att återställa."
+
+#: ../includes/backup.php:65
+msgid "Reset to WordPress defaults"
+msgstr "Återställ till WordPress standardvärden"
+
+#: ../includes/manager.php:139
+#: ../includes/manager.php:140
+msgid "Capability Manager"
+msgstr "Ändra behörighet"
+
+#: ../includes/manager.php:139
+msgid "Capabilities"
+msgstr "Behörigheter"
+
+#: ../includes/manager.php:220
+#: ../includes/manager.php:256
+msgid "What do you think you're doing?!?"
+msgstr "Vad tror du håller på med?!?"
+
+#: ../includes/manager.php:283
+msgid "Bad form Received"
+msgstr "Ett felande formulär har skickats"
+
+#: ../includes/manager.php:302
+#: ../includes/manager.php:312
+msgid "New role created."
+msgstr "Ny roll har skapats"
+
+#: ../includes/manager.php:305
+#: ../includes/manager.php:315
+msgid "Error: Failed creating the new role."
+msgstr "Fel: Det gick inte att skapa en ny roll."
+
+#: ../includes/manager.php:320
+msgid "New capabilities saved."
+msgstr "Nya behörigheter har skapats."
+
+#: ../includes/manager.php:328
+msgid "New capability added to role."
+msgstr "Nu behörighet har skapats."
+
+#: ../includes/manager.php:330
+msgid "Incorrect capability name."
+msgstr "Fel på namnet för behörigheten"
+
+#: ../includes/manager.php:334
+msgid "Bad form received."
+msgstr "Felande formulär har skickats."
+
+#: ../includes/manager.php:354
+msgid "New backup saved."
+msgstr "Ny säkerhetskopiering har sparats."
+
+#: ../includes/manager.php:360
+msgid "Roles and Capabilities restored from last backup."
+msgstr "Roller och behörigheter har återskapats från senaste säkerhetskopian."
+
+#: ../includes/manager.php:362
+msgid "Restore failed. No backup found."
+msgstr "Återställningen misslyckades. Ingen säkerhetskopia hittades."
+
+#: ../includes/manager.php:384
+#, php-format
+msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
+msgstr "Kan inte ta bort standard rollen. Du <a href=\"%s\">måste ändra den först</a>."
+
+#: ../includes/manager.php:405
+#, php-format
+msgid "Role has been deleted. %1$d users moved to default role %2$s."
+msgstr "Rollen har tagits bort. %1$d användare har flyttats till standardrollen %2$s."
+
+#: ../includes/manager.php:419
+msgid "Needed function to create default roles not found!"
+msgstr "En viss funktion saknas för att skapa en standardroll."
+
+#: ../includes/manager.php:431
+msgid "Roles and Capabilities reset to WordPress defaults"
+msgstr "Roller och behörigheter har återställts till WordPress standardvärden"
+
+#: ../includes/manager.php:606
+msgid "You cannot remove Manage Capabilities from Administrators"
+msgstr "Du kan inte ta bort 'Ändra rättigheter' för Administratörer"
+

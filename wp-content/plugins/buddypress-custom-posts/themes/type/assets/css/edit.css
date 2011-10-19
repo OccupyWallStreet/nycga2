@@ -1,0 +1,148 @@
+.mceContentBody {
+	font:13px/19px Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+	margin:0;
+	padding:0.6em;
+}
+
+#post-body {
+	position: relative;
+}
+
+#post-body-content {
+	padding-right: 30%;
+}
+
+#post-content {
+	color: #000;
+	padding: 0;
+	-moz-border-radius: 0;
+}
+	#editorcontainer {
+		-moz-border-radius-topright: 5px;
+		-moz-border-radius-bottomleft: 5px;
+		border: solid 1px #dfdfdf;
+		width: 95%;
+	}
+
+#bpcp-sidebar {
+	width: 28%;
+	padding: 0 2%;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#postdiv {
+	margin-top: 20px;
+}
+
+/* The editing form. */
+#post_title {
+	-moz-border-radius: 5px;
+	font-size: 24px;
+}
+
+.edit-form input[type="text"], .edit-form textarea {
+	border: solid #eee 1px;
+	font-size: 14px;
+	width: 95%;
+}
+
+#edButtonHTML, #edButtonPreview {
+	background-color: #eee;
+	padding: 5px 10px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	font-size: 14px;
+	cursor: default;
+}
+
+#edButtonHTML.active , #edButtonPreview.active {
+	color: #000;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+#ed_toolbar {
+	border: solid #eee 1px;
+	background-color: #eee;
+	-moz-border-radius-topright: 5px;
+	width: 95%;
+}
+	#ed_toolbar input {
+		padding: 5px;
+		margin: 1px;
+	}
+
+.theEditor {
+	padding: 0;
+	width: 100%;
+}
+
+.mceIframeContainer {
+	border-left: solid 1px #eee;
+	border-right: solid 1px #eee;
+}
+
+.edit-form label {
+	display: block;
+	font-weight: bold;
+	margin: 15px 0 5px;
+}
+
+.mceFirst, .mceLast {
+	border: solid #eee 1px;
+	background-color: #eee;
+}
+
+#bpcp_thumbnail {
+	overflow: hidden;
+}
+
+/* the_editor generates a 0 sized button -- I can't determine it's purpose. Instead of resizing, simply not displaying. */
+.zerosize { display: none; }
+
+#publish {
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+}
+
+#media-buttons {
+	float: right;
+	margin-right: 5%;
+}
+	#media-buttons .thickbox {
+		cursor: default;
+		padding: 5px;
+	}
+
+/**
+ * Metabox beautification
+ */
+
+.postbox {
+	margin: 15px 0;
+}
+	.postbox .handlediv {
+		display: none;
+	}
+	.hndle {
+		color: #ffa200;
+		background-color: #fff9db;
+		-moz-border-radius-topright: 5px;
+		-moz-border-radius-topleft: 5px;
+		border-right: solid 1px #ffe8c4;
+		border-bottom: solid 1px #ffe8c4;
+		font-size: 16px;
+		padding: 5px;
+		margin: 0;
+	}
+	.postbox .inside {
+		background-color: #fafafa;
+		-moz-border-radius-bottomright: 5px;
+		-moz-border-radius-bottomleft: 5px;
+		border-right: solid #dfdfdf 1px;
+		border-bottom: solid #dfdfdf 1px;
+		padding: 5px;
+	}

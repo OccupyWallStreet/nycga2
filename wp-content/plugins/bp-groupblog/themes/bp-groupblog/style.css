@@ -1,0 +1,17 @@
+/*
+Theme Name: BuddyPress Group Blog
+Theme URI: http://buddypress.org/
+Description: A BuddyPress Child Theme, for use as a Group Blog theme for BuddyPress. This Theme should be used together with the <a href="http://wordpress.org/extend/plugins/bp-groupblog/">BuddyPress Group Blog</a> plugin which enables blogs to be associated with BuddyPress groups.
+Author: Marius Ooms
+Author URI: http://oomsonline.com
+Template: bp-default
+Version: 1.2
+Tags: buddypress, groupblog
+*/
+ 
+
+/* Inherit the default theme styles */
+@import url( ../../plugins/buddypress/bp-themes/bp-default/_inc/css/default.css );
+
+/* Inherit the default theme adminbar styles */
+@import url( ../../plugins/buddypress/bp-themes/bp-default/_inc/css/adminbar.css );

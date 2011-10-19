@@ -1,0 +1,169 @@
+/**
+ * Alkivia Framework.
+ * Styles for admin dashboard.
+ * Based on the styles for Maintenance Mode plugin by Michael Wöhrer
+ *
+ * @version		$Rev: 198515 $
+ * @author		Jordi Canals
+ * @copyright   Copyright (C) 2009, 2010 Jordi Canals
+ * @license		GNU General Public License version 2
+ * @link		http://alkivia.org
+ * @package		Alkivia
+ * @subpackage	Framework
+ *
+
+	Copyright 2009, 2010 Jordi Canals <devel@jcanals.cat>
+
+	This program is free software; you can redistribute it and/or
+	modify it under the terms of the GNU General Public License
+	version 2 as published by the Free Software Foundation.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =========================================================== SETTINGS */
+
+table#akmin {
+	width: 100%;
+	border: 0 none;
+	padding: 0;
+	margin:0;
+	}
+	
+table#akmin fieldset {
+	border: 0 none;
+	padding: 0;
+	margin:0;
+	}
+	
+table#akmin td {
+	vertical-align: top;
+	}
+
+table#akmin td dl {
+	padding: 0;
+	margin: 10px 0 20px 0;
+	background-color: white;
+	border: 1px solid #dfdfdf;
+	}
+	
+table#akmin td dl {
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	}
+	
+table#akmin dl dt {
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0;
+	padding: 4px 10px 4px 10px;
+	background: #dfdfdf url('images/dl-bg-gray.png') repeat-x left top;
+	}
+
+table#akmin p {
+	padding: 5px 0 5px 0;
+	margin: 0;
+	}
+
+table#akmin .footer {
+	text-align: center;
+	font-size: 10.5px;
+	}
+			
+table#akmin .footer a {
+	font-size: 10.5px;
+	text-decoration: none;
+	}
+	
+table#akmin .footer a:hover {
+	text-decoration: underline;
+	}
+table#akmin td small {
+	font-size: 10.5px;
+	}
+	
+table#akmin hr {
+	border: none 0;
+	border-top: 1px solid #bbbbbb;
+	height: 1px;
+	}
+
+table#akmin ul {
+	list-style: none;
+	}
+	
+table#akmin ul.bullet {
+	list-style-type: disc;
+	padding-left: 20px;
+	}
+
+/* ====================================================== ADMIN CONTENT */
+
+table#akmin td.content {
+	padding: 0 8px 0 0;
+	}
+
+table#akmin td.content dd {
+	margin: 0;
+	padding: 10px 20px 10px 20px;
+	}
+
+/* ====================================================== ADMIN SIDEBAR */
+
+table#akmin td.sidebar {
+	width: 200px;
+	padding: 0 0 0 8px;
+	}
+	
+table#akmin td.sidebar ul, table#akmin td.sidebar ul li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	}
+
+table#akmin td.sidebar a {
+	text-decoration: none;
+	background-position: 0px 60%;
+	background-repeat: no-repeat;
+	padding: 4px 0px 4px 22px;
+	border: 0 none;
+	display: block;
+	}
+
+table#akmin td.sidebar ul li {
+	margin: 0;
+	border-bottom: 1px dotted gray;
+	}
+
+table#akmin td.sidebar dd {
+	margin: 0;
+	padding: 5px 10px 5px 10px;
+	}
+
+/* ====================================================== SIDEBAR ICONS */
+
+td.sidebar a.docs {
+	background-image: url('images/docs.png');
+}
+
+td.sidebar a.help {
+	background-image: url('images/help.png');
+	}
+	
+td.sidebar a.home {
+	background-image: url('images/alkivia.png');
+	}
+
+td.sidebar a.donate {
+	background-image: url('images/paypal.png');
+	}
+	
+/* EOF */

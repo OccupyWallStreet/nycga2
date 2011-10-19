@@ -1,0 +1,20 @@
+/*
+Theme Name: P2 BuddyPress
+Theme URI: http://buddypress.org/
+Description: A BuddyPress based P2 child theme included with the <a href="http://wordpress.org/extend/plugins/bp-groupblog/">GroupBlog</a> plugin. This theme gives you the features of P2 in a BuddyPress style. Requires P2 in your theme directory.
+Author: Marius Ooms
+Author URI: http://oomsonline.com
+Template: p2
+Tags: buddypress, groupblog, p2
+Version: 0.1
+*/
+
+
+/* Inherit the default theme styles */
+@import url( ../p2/style.css );
+
+/* Inherit the default theme adminbar styles */
+@import url( ../../plugins/buddypress/bp-themes/bp-default/_inc/css/adminbar.css );
+
+/* Load the custom buddypress style, mostly overrides P2 styles */
+@import url( groupblog/_inc/css/default.css );

@@ -1,0 +1,41 @@
+<?php
+/*
+Plugin Name:  GoGadget Weather and Weatherforecast Widget - SHORTCODE Plugin
+Plugin URI: http://www.go-gadget-blog.com/shortcode
+Description: Shortcode for GoGadget Weather and Weatherforecast Widget
+Version: 3.0
+Author: Guido Osterwald
+Author URI: http://www.go-gadget-blog.com/shortcode
+*/
+include_once 'weather_widget.php';
+add_action('wp_print_styles', 'GG_func_sc_stylesheet');
+add_shortcode('GoGadgetWeather','GG_func_sc_shortcode');
+
+function GG_func_sc_stylesheet() {
+        $myStyleUrl = plugins_url('style_sc.css', __FILE__); 
+        $myStyleFile = WP_PLUGIN_DIR . '/weather-and-weather-forecast-widget/style_sc.css';
+        if ( file_exists($myStyleFile) ) {
+            wp_register_style('myStyleSheets', $myStyleUrl);
+            wp_enqueue_style( 'myStyleSheets');
+        }
+    }
+
+function GG_func_sc_shortcode($args)
+{ 
+  
+  $shortcode_array = shortcode_atts( array(
+		'title' => '',
+    'flag' => '1',
+    'location' => '',
+		'layout' => 'today',
+		'language' => 'en',
+		'float' => 'no',
+		'sidechange' => 'no',
+		'scale' => '1',
+	), $args ) ;
+ 
+  $content=GG_func_widget_weather_and_weather_forecast($shortcode_array);
+  //echo "content:".$content;
+  return $content;
+}
+?>

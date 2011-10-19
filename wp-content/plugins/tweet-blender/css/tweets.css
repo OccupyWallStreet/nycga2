@@ -1,0 +1,148 @@
+/*
+	Tweet Blender CSS
+*/
+
+/* general container */
+#tweetblender {
+	padding:5px 0;
+	margin-bottom:12px;
+}
+
+/* header */
+div.tb_header {
+	height: 25px;
+	width:100%;
+}
+
+img.tb_twitterlogo {
+	width: 86px;
+	height: 20px;
+	margin-bottom: 5px;
+	float:left;
+	border:none;
+}
+
+div.tb_tools {
+	float:right;
+	height:22px;
+	width:28px;
+	background-repeat:no-repeat;
+}
+
+a.tb_refreshlink {
+	display:inline;
+	float:right;
+	height:16px;
+	width:16px;
+	-moz-opacity:.30; filter:alpha(opacity=30); opacity:.30;
+	margin-right: 5px;
+	margin-top:3px;
+	margin-right:7px;
+}
+a.tb_refreshlink:hover, a.tb_refreshlink.loading {
+	-moz-opacity:1; filter:alpha(opacity=100); opacity:1;
+}
+a.tb_refreshlink img {
+	border:none;
+}
+
+a.tb_infolink {
+	display:none;
+	float:right;
+	height:16px;
+	width:16px;
+	-moz-opacity:.30; filter:alpha(opacity=30); opacity:.30;
+	margin-bottom:10px;
+	margin-right: 7px;
+	margin-top:3px;
+}
+a.tb_infolink:hover {
+	-moz-opacity:1; filter:alpha(opacity=100); opacity:1;
+}
+
+/* messages below header and above list */
+#tb_loading {
+	text-align:center;
+	clear:right;
+}
+
+/* tweets list */
+div.tb_tweetlist {
+	margin:0;
+	padding:0;
+	border-bottom: dotted 1px #ccc;
+}
+
+div.tb_tweet {
+	border-top: dotted 1px #ccc;
+	padding: 2px;
+	min-height: 60px;
+	list-style:none;
+	background:none;
+	overflow:hidden;
+}
+
+div.tb_tweet-tools {
+	text-align:right;
+	clear:both;
+}
+
+a.tb_photo {
+	display:block;
+	float:left;
+	border:none;
+}
+
+a.tb_photo img {
+	margin-right: 4px;
+	width: 48px;
+	padding: 3px;
+	border: 1px solid #ddd;
+}
+
+.tb_author {
+	font-weight:normal;
+}
+
+div.tb_msg {
+	min-height: 40px;
+	clear:right;
+	padding:5px;
+	background-color:#FFFFCC;
+	border:1px solid #FFFF66;
+}
+
+.tb_tweet-info {
+	color: #ccc;
+	font-style:italic;
+}
+
+.tb_tweet-info a {
+	color: #ccc;
+	text-decoration:none;
+}
+
+.tb_tweet-info a:hover {
+	text-decoration:underline;
+}
+
+.tooltip { 
+	position: absolute; 
+	top: 0; left: 0; 
+	z-index: 300; 
+	display: none; 
+	background-color:#FFFFCC; 
+	padding: 2px 8px; 
+}
+
+/* footer */
+
+div.tb_footer {
+	margin-bottom:8px;
+}
+
+a.tb_archivelink {
+	margin-left: 5px;
+	float:right;
+}
+

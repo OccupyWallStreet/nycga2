@@ -1,0 +1,133 @@
+a.wangguard-domain , a.wangguard-splogger {
+	color: #BC0B0B
+}
+
+a.wangguard-recheck {
+
+}
+
+.wangguard-status-splogguer {
+	color: #BC0B0B;
+	font-weight:bold;
+}
+
+.wangguard-status-error {
+	color: #BC0B0B;
+	font-weight:normal;
+}
+
+.wangguard-delete-question {
+	color: #BC0B0B;
+	font-weight:normal;
+	font-size: 11px;
+	text-decoration: none;
+}
+
+.wangguard-status-checked {
+	color: #00a000;
+}
+
+.wangguard-status-not-checked {
+	color: #d54e21;
+}
+
+.wangguard-rollback {
+	color: #d54e21;
+}
+
+.wangguard-status-no-status {
+	color: #d54e21;
+}
+
+#wangguard-questions {
+	border-top: 1px solid #cFcFcF;
+	border-bottom: 1px solid #cFcFcF;
+}
+.wangguard-question {
+	padding: 10px 0;
+	margin-top: 10px;
+	border-top: 1px solid #cFcFcF;
+}
+
+#wangguardnewquestionerror {
+	margin: 15px 0;
+	padding: 10px;
+	font-size: 11px;
+	color: #BC0B0B;
+	border: 1px solid #BC0B0B;
+	display: none;
+}
+
+.wangguard-sep {
+	border-bottom: 1px solid #cFcFcF;
+}
+
+#wangguard-bp-register-form {
+	float: right;
+	width: 48%;
+}
+
+.wangguard-mu-register-field {
+	font-size:24px;
+	margin:5px 0;
+	width:100%;
+}
+
+.wpreg-wangguardquestansw {
+	background:#FBFBFB none repeat scroll 0 0;
+	border:1px solid #E5E5E5;
+	font-size:24px;
+	margin-bottom:16px;
+	margin-right:6px;
+	margin-top:2px;
+	padding:3px;
+	width:97%;
+}
+#icon-wangguard {
+	background: url("wangguardadmin32.png") no-repeat scroll transparent;
+}
+
+#toplevel_page_wangguard-key-config.wp-menu-open div.wp-menu-image ,
+#toplevel_page_wangguard-key-config div.wp-menu-image ,
+#toplevel_page_wangguard_conf.wp-menu-open div.wp-menu-image ,
+#toplevel_page_wangguard_conf div.wp-menu-image {
+	background: url("wangguardadmin.png") no-repeat scroll 6px -28px transparent;
+}
+
+li#toplevel_page_wangguard-key-config.wp-has-current-submenu div.wp-menu-image,
+#toplevel_page_wangguard-key-config:hover div.wp-menu-image , 
+li#toplevel_page_wangguard_conf.wp-has-current-submenu div.wp-menu-image,
+#toplevel_page_wangguard_conf:hover div.wp-menu-image{
+	background: url("wangguardadmin.png") no-repeat scroll 6px 0px transparent;
+}
+
+#wangguard-progressbar {
+	width: 500px;
+	height: 12px;
+	border: 1px solid #C6C6C6;
+	text-align: left;
+	display: inline-block;
+	overflow: hidden;
+}
+#wangguard-progressbar #wangguard-progressbar-fill {
+	width: 0;
+	background-color: #c6c6c6;
+	display: inline-block;
+	overflow: hidden;
+	height: 12px;
+}
+
+li#wangguard-report-menu-noop {
+	background: none !important;
+}
+
+
+#wangguard-stats-container h2 {
+	margin: 40px 0 10px 0;
+}
+#wangguard-stats-container div {
+	border: 1px solid #c3c3c3 !important; 
+	width: 97% !important;; 
+	height: 500px !important;; 
+	margin:0 auto !important;;
+}

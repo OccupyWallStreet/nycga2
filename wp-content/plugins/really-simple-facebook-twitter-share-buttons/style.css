@@ -1,0 +1,30 @@
+/* REALLY SIMPLE FACEBOOK TWITTER SHARE BUTTONS STYLE */
+
+div.really_simple_share {
+	padding-top:2px; padding-bottom:2px; clear:both;
+}
+
+/* ALL DIVS ARE FLOATING LEFT WITH PADDING */
+div.really_simple_share div {
+	float:left;
+	padding-left:10px;
+}
+/* EXCEPT FOR THE FIRST ONE */
+div.really_simple_share div:first-child {
+	padding-left:0;
+}
+
+/* BUTTON SPECIFIC STYLES */
+div.really_simple_share_facebook {
+	width:100px;
+}
+div.really_simple_share_email {
+	width:30px;
+}
+div.really_simple_share_flattr {
+	width:120px;
+}
+div.really_simple_share_tipy {
+	width:120px;
+}
+

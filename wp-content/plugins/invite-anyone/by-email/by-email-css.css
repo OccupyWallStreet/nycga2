@@ -1,0 +1,261 @@
+#subnav #invite-new-members {
+  padding-left:20px;
+  background: url(../images/invite_bullet.gif) no-repeat 0 50%;
+}
+
+#subnav #sent-invites {
+  padding-left:20px;
+  background: url(../images/email_go.png) no-repeat 0 50%;
+}
+#welcome-message,
+#sent-invites-intro {font-size:14px;}
+
+#invite-anyone-email-fields {
+	margin: 15px 30px 0 0;
+	list-style-type: lower-alpha;
+}
+
+#invite-anyone-steps {
+	margin: 0 20px;
+	list-style-type: decimal;
+}
+
+#invite-anyone-steps li {
+	margin: 20px;
+}
+
+#invite-anyone-steps label,
+#invite-anyone-steps p {font-weight:bold;}
+
+#invite-anyone-steps label {
+  display:block;
+  margin-bottom:5px;
+}
+
+#invite-anyone-email-fields {
+	width: 380px;
+}
+
+.invite-anyone-email-field {
+	width: 380px;
+}
+
+#invite-anyone-custom-subject {
+	width: 400px;
+	height: 30px;
+}
+
+label span.disabled-subject {
+  font-style:italic;
+  color:#8f8f8f;
+  font-size:11px;
+}
+
+#invite-anyone-custom-message {
+	width: 400px;
+	height: 130px;
+	margin-bottom: 10px;
+}
+
+#invite-anyone-group-list {
+	margin: 0;
+	padding: 0;
+	clear: both;
+  overflow:hidden;
+  width:100%;
+<<<<<<< HEAD
+
+=======
+>>>>>>> ef3663091faf6e7c70fbaa3f1639e5febef8d0f0
+}
+
+#invite-anyone-group-list li {
+	width: 200px;
+	margin: 5px 10px 10px 10px;
+	float: left;
+	height:60px;
+	min-height: 60px;
+	font-size: 11px;
+}
+
+#invite-anyone-group-list li img {
+	margin-right: 5px;
+	float: left;
+	vertical-align:center;
+}
+
+#invite-anyone-group-list label {margin-bottom:0;}
+
+#invite-anyone-group-list label,
+#invite-anyone-group-list input {
+  cursor:pointer;
+}
+
+#invite-anyone-group-list label span {
+  font-weight:normal;
+  line-height:30px;
+}
+
+#invite-anyone-group-list li input {
+	float: left;
+	margin:10px 6px;
+	width:20px;
+}
+
+.invite-anyone-group-name {
+	float: left;
+}
+
+.invite-new-members .submit {
+	clear: both;
+	padding: 20px;
+}
+
+.invite-anyone-sent-invites {
+	text-align: left;
+}
+
+thead tr {border-bottom:2px solid #555;}
+
+thead tr th a.DESC {
+  padding-right:20px;
+  background: url(../images/sort-col-desc.gif) no-repeat 100% 50% ;
+}
+
+thead tr th a.ASC {
+  padding-right:20px;
+  background: url(../images/sort-col-asc.gif) no-repeat 100% 0 ;
+}
+
+.invite-anyone-sent-invites tbody tr {
+  border:2px solid #fff;
+  border-left:none;
+  border-right:none;
+}
+
+.invite-anyone-sent-invites th a {
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.invite-anyone-sent-invites th.sort-by-me a {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.invite-anyone-sent-invites tbody tr td:first-child {
+	width: 30px;
+	text-align: center;
+}
+
+.invite-anyone-sent-invites tr td:first-child a {
+	text-decoration: none;
+}	
+
+.invite-anyone-sent-invites tr.over {
+  background: #FFFEF3;
+}
+
+.invite-anyone-sent-invites tr.accepted {
+  background:#FFFFE3;
+}
+
+.invite-anyone-sent-invites tr.accepted td {
+  color: #70B479;
+}
+
+.invite-anyone-sent-invites tr.accepted td.date-joined {
+  background: url(../images/tick.gif) no-repeat 0 50%;
+  padding-left:25px;
+}
+  
+.clear-entry,
+.clear-entry span {
+  width:18px;
+  height:16px;
+}
+
+.clear-entry {
+  position:relative;
+  display:block;
+  text-indent:-999em;
+}
+
+.clear-entry span {
+  position:absolute;
+  left:0;
+  background:  url(../images/clear-x.gif) no-repeat 0 0;
+  cursor:pointer;
+}
+
+.clear-entry span:hover {background-position: 0 100%;}
+
+tr#batch-clear {
+  border-top:1px solid #8f8f8f;
+}
+
+ul#invite-anyone-clear-links {
+  overflow:hidden;
+  width:100%; 
+}
+ 
+ul#invite-anyone-clear-links li {
+  float:left;
+}
+
+ul#invite-anyone-clear-links li a {
+  padding-right:10px; 
+  border-right: 1px solid #555;
+}
+
+ul#invite-anyone-clear-links li.last a {
+  padding-left:10px;
+  border:none;
+}
+
+#invite-anyone-steps div.invite-anyone-error p,
+div.invite-anyone-error p {
+	display: inline-block;
+	font-weight: normal;
+	border-bottom: 1px solid #FFE8C4;
+	border-right: 1px solid #FFE8C4;
+	margin: 15px 0;
+	text-decoration: none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	padding: 10px 15px;
+	font-size: 12px;
+	display: block;
+	background: #e41717;
+	color: #fff;
+	border-color: #a71a1a;
+	clear: left;
+}
+
+textarea.invite-anyone-email-addresses {
+	width: 400px;
+	height: 130px;
+}
+
+.ia-pagination {
+	position: relative;
+	height: 30px;
+	margin-top: 10px;
+	color: #555;
+	font-size: 11px;
+}
+	.ia-pagination .currently-viewing {
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-style: italic;
+	}
+	.ia-pagination .pag-links {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	.ia-pagination .page-numbers {
+		margin-left: 8px;
+	}

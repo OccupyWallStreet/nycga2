@@ -1,0 +1,281 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Capability Manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-29 15:03+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jordi Canals <devel@jcanals.cat>\n"
+"Language-Team: Alkivia | http://alkivia.org <alkivia@jcanals.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../capsman.php:53
+msgid "Warning:"
+msgstr "WARNUNG:"
+
+#: ../capsman.php:54
+#, php-format
+msgid "The active plugin %s is not compatible with your PHP version."
+msgstr "Das aktive Plugin %s ist mit der PHP Version nicht kompatibel."
+
+#: ../capsman.php:56
+#, php-format
+msgid "%s is required for this plugin."
+msgstr "%s wird für dieses Plugin benötigt."
+
+#: ../includes/admin.php:36
+msgid "Roles and Capabilities"
+msgstr "Rollen und Berechtigungen"
+
+#: ../includes/admin.php:45
+#, php-format
+msgid "Capabilities for %s"
+msgstr "Berechtigungen für %s"
+
+#: ../includes/admin.php:92
+msgid "Level:"
+msgstr "Berechtigungslevel:"
+
+#: ../includes/admin.php:115
+#: ../includes/manager.php:319
+msgid "Save Changes"
+msgstr "Einstellungen speichern"
+
+#: ../includes/admin.php:117
+msgid "Delete this role"
+msgstr "Diese Rolle löschen"
+
+#: ../includes/admin.php:117
+#, php-format
+msgid ""
+"You are about to delete the %s role.\n"
+" 'Cancel' to stop, 'OK' to delete."
+msgstr ""
+"Sicher dass die Rolle %s gelöscht werden soll?\n"
+"  'Abbrechen' um zu stoppen, 'OK' zum löschen."
+
+#: ../includes/admin.php:117
+msgid "Delete Role"
+msgstr "Rolle löschen"
+
+#: ../includes/admin.php:128
+msgid "Select New Role"
+msgstr "Neue Rolle auswählen"
+
+#: ../includes/admin.php:136
+#: ../includes/manager.php:296
+msgid "Change"
+msgstr "ändern"
+
+#: ../includes/admin.php:141
+msgid "Create New Role"
+msgstr "Neue Rolle anlegen "
+
+#: ../includes/admin.php:144
+#: ../includes/manager.php:300
+msgid "Create"
+msgstr "erstellen"
+
+#: ../includes/admin.php:149
+msgid "Copy this role to"
+msgstr "Diese Rolle kopieren"
+
+#: ../includes/admin.php:152
+#: ../includes/manager.php:309
+msgid "Copy"
+msgstr "kopieren"
+
+#: ../includes/admin.php:157
+msgid "Add Capability"
+msgstr "Berechtigung hinzufügen"
+
+#: ../includes/admin.php:160
+#: ../includes/manager.php:323
+msgid "Add to role"
+msgstr "zur Rolle hinzufügen"
+
+#: ../includes/backup.php:33
+msgid "Backup Tool for Capability Manager"
+msgstr "Backup-Tool für den Berechtigungsmanager (Capability Manager)"
+
+#: ../includes/backup.php:42
+msgid "Backup and Restore"
+msgstr "Sichern und Wiederherstellen"
+
+#: ../includes/backup.php:46
+msgid "Select action:"
+msgstr "Aktion auswählen"
+
+#: ../includes/backup.php:49
+msgid "Backup roles and capabilities"
+msgstr "Backup der Rollen und Berechtigungen"
+
+#: ../includes/backup.php:50
+msgid "Restore last saved backup"
+msgstr "Zuletzt gespeichertes Sicherung wiederherstellen"
+
+#: ../includes/backup.php:52
+msgid "Do Action"
+msgstr "ausführen"
+
+#: ../includes/backup.php:60
+msgid "Reset WordPress Defaults"
+msgstr "Wordpress Standardeinstellungen wiederherstellen"
+
+#: ../includes/backup.php:62
+msgid "WARNING:"
+msgstr "WARNUNG:"
+
+#: ../includes/backup.php:62
+msgid "Reseting default Roles and Capabilities will set them to the WordPress install defaults."
+msgstr "das Wiederherstellen von Rollen und Berechtigungen erfolgt auf den Wordpress Standard!"
+
+#: ../includes/backup.php:63
+msgid "If you have installed any plugin that adds new roles or capabilities, these will be lost."
+msgstr "Einstellungen zu Rollen und Berechtigungen die nicht mit dem Berechtigungs-Manager erstellt wurden, werden gelöscht!"
+
+#: ../includes/backup.php:64
+msgid "It is recommended to use this only as a last resource!"
+msgstr "Es wird empfohlen, dies als letzte Möglichkeit anzuwenden!"
+
+#: ../includes/backup.php:65
+msgid "Reset Roles and Capabilities to WordPress defaults"
+msgstr "Rollen und Berechtigungen auf den Wordpress Standard zurücksetzen"
+
+#: ../includes/backup.php:65
+msgid ""
+"You are about to reset Roles and Capabilities to WordPress defaults.\n"
+" 'Cancel' to stop, 'OK' to reset."
+msgstr ""
+"Du bist dabei die Rollen und Berechtigungen auf den Wordpress Standard zurückzusetzen!\n"
+" 'Abbrechen' um dies nicht zu tun, 'OK' um auf Standardwerte zurückzusetzen."
+
+#: ../includes/backup.php:65
+msgid "Reset to WordPress defaults"
+msgstr "Wordpress Standardwerte wiederherstellen."
+
+#: ../includes/manager.php:139
+#: ../includes/manager.php:140
+msgid "Capability Manager"
+msgstr "Berechtigungs Manager"
+
+#: ../includes/manager.php:139
+msgid "Capabilities"
+msgstr "Berechtigungen"
+
+#: ../includes/manager.php:220
+#: ../includes/manager.php:256
+msgid "What do you think you're doing?!?"
+msgstr "Was glaubst du, was Du tust?"
+
+#: ../includes/manager.php:283
+msgid "Bad form Received"
+msgstr "Fehlerhaftes Formular empfangen."
+
+#: ../includes/manager.php:302
+#: ../includes/manager.php:312
+msgid "New role created."
+msgstr "Neue Rolle wurde erstellt."
+
+#: ../includes/manager.php:305
+#: ../includes/manager.php:315
+msgid "Error: Failed creating the new role."
+msgstr "FEHLER: Rolle konnte nicht angelegt werden."
+
+#: ../includes/manager.php:320
+msgid "New capabilities saved."
+msgstr "Neue Berechtigung gespeichert."
+
+#: ../includes/manager.php:328
+msgid "New capability added to role."
+msgstr "Neue Berechtigung zur Rolle hinzugefügt."
+
+#: ../includes/manager.php:330
+msgid "Incorrect capability name."
+msgstr "Berechtigungsname ist nicht zulässig."
+
+#: ../includes/manager.php:334
+msgid "Bad form received."
+msgstr "Fehlerhaftes Formular empfangen."
+
+#: ../includes/manager.php:354
+msgid "New backup saved."
+msgstr "Neues Backup wurde erfolgreich gespeichert."
+
+#: ../includes/manager.php:360
+msgid "Roles and Capabilities restored from last backup."
+msgstr "Rollen und Berechtigungen der letzten Sicherung wiederhergestellt."
+
+#: ../includes/manager.php:362
+msgid "Restore failed. No backup found."
+msgstr "Wiederherstellen fehlgeschlagen - kein Backup gefunden!"
+
+#: ../includes/manager.php:384
+#, php-format
+msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
+msgstr "Standardrolle (default) konnte nicht gelöscht werden. Zuerst <a href=\"%s\">ändern</a>."
+
+#: ../includes/manager.php:405
+#, php-format
+msgid "Role has been deleted. %1$d users moved to default role %2$s."
+msgstr "Rolle wurde gelöscht. %1$d Benutzer auf Standardrolle (default) gesetzt %2$s."
+
+#: ../includes/manager.php:419
+msgid "Needed function to create default roles not found!"
+msgstr "Benötigte Funktion zum Erstellen der Standardrolle (default) nicht gefunden!"
+
+#: ../includes/manager.php:431
+msgid "Roles and Capabilities reset to WordPress defaults"
+msgstr "Rollen und Berechtigungen auf Wordpress Standard zurücksetzen"
+
+#: ../includes/manager.php:606
+msgid "You cannot remove Manage Capabilities from Administrators"
+msgstr "Administratoren dürfen keine Berechtigungen entzogen werden!"
+
+#~ msgid "The active plugin %s is not compatible with your WordPress version."
+#~ msgstr ""
+#~ "Das Plugin %s ist zu der aktuellen Wordpressversion nicht kompatibel!"
+#~ msgid "WordPress %s is required to run this plugin."
+#~ msgstr "WordPress %s wird für dieses Plugin benötigt."
+#~ msgid "Standard sidebar functions are not present."
+#~ msgstr "Standard Sidebarfunktionen stehen nicht zur Verfügung!"
+#~ msgid "It is required to use the standard sidebar to run %s"
+#~ msgstr "Standard Sidebaroptionen werden benötigt, to run %s"
+#~ msgid "Settings saved."
+#~ msgstr "Einstellungen gespeichert"
+#~ msgid "Plugin Homepage"
+#~ msgstr "Plugin Homepage"
+
+#, fuzzy
+#~ msgid "Theme Homepage"
+#~ msgstr "Author Homepage"
+
+#, fuzzy
+#~ msgid "Documentation"
+#~ msgstr "ausführen"
+#~ msgid "Support Forum"
+#~ msgstr "Support Forum"
+#~ msgid "Author Homepage"
+#~ msgstr "Author Homepage"
+
+#, fuzzy
+#~ msgid "Incorrect type of file."
+#~ msgstr "Berechtigungsname ist nicht zulässig."
+
+#, fuzzy
+#~ msgid "Error in creating %s image from source."
+#~ msgstr "FEHLER: Rolle konnte nicht angelegt werden."
+
+#, fuzzy
+#~ msgid "Error reading the file."
+#~ msgstr "FEHLER: Rolle konnte nicht angelegt werden."
+#~ msgid "Help donating"
+#~ msgstr "Spenden"
+#~ msgid "Managing %s"
+#~ msgstr "Administrando %s"
+

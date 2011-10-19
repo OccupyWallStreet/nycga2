@@ -1,0 +1,88 @@
+P2 Theme - Changes
+---------------------------
+
+1.1.6 - Aug 2010
+- Improve textarea auto-resizing in quick post form
+- Fix IE8 comment visibility toggle
+- Add styles for network signup form
+- Fix for IE prompting user when leaving a page after comment
+- Fix minor PHP undefined and redeclared errors and deprecated function calls
+- Use built-in WordPress comment_form()
+- Don't show comments for password-protected posts
+- Add automatic feed links support
+- Enable custom background
+- Replace includes with get_template_part
+- Fix missing after_widget in recent comments widget
+- Add 404.php template
+- Fix post nav for older/newer with correct placement
+- Improve search.php message and add inline search form
+- Norwegian translation by Peter Holme (http://code.google.com/p/no-wp/)
+
+1.1.5 - 8 June 2010
+- Supported by >=3.0
+- Fixed case where Post Title was used as title for new post
+- Fixed media URLs
+- Fixed reply link in comment form being appended to wrong post
+- Better support for custom header images
+- Fixed Edit Page link
+- Belorussian translation by  Marcis G. (http://pc.de/)
+- Czech translation by Martin Jurica (http://www.jurica.info/)
+
+1.1.4 - 8 Jan 2010
+- Nicolas Friedli French translations.
+- Two sidebars for custom css
+- Updated CSS
+
+1.1.3 - 5 Dec 2009
+- Fix for subdirectory installs and media uploads
+- RTL updates
+- Template tag updates
+
+1.1.2 - 2 Dec 2009
+- Fix for subdirectory installs (with root directory "homes") and media uploads
+- Fix for PHP4 issues with str_ireplace
+
+1.1 - 26 Nov 2009
+- Supported by >=2.9 beta
+- @name support
+- Proper child theme support
+- Completely restructured XHR code
+- New files to manage functions, including template-tags.php
+- iPhone style support
+- Refactored JavaScript
+- Speed improvements
+- Large modifications to backend JS and theme management
+- Options for simple style changes, including a custom header
+
+1.0.5 - 12 May 2009
+- Proper 304 response for ajax updates
+- ajax updates for each template page
+- Fixed posts may create blank titles still
+- added hover affect for postbox
+- added postbox to every page.
+- es translations thanks to Luxiano http://www.luxiano.com.ar
+
+1.0.4 - 7 May 2009
+- Danish translations (props Adamsen)
+- Italian translations (props webmaster@giuda.it)
+- Update for short tags problem.
+- Update for navigation issues on single.php
+- Fixed keyboard shortcuts menu layout
+- Added ability for any title that is not auto-generated, to appear as a large title. This is an option which you can turn on and off.
+- Made trackbacks only visible from archive pages.
+- Fix Older/Newer link text.
+- Move logout link.
+- Comment permalink fix.
+- Fixed title count for frontpage showing up on single posts.
+- Fixed bug if posting to an empty blog.
+
+1.0.3 - 15 April 2009
+- Fixed JSON class loading twice
+- Japanese Translations (props OKAMOTO Wataru)
+
+1.0.2 - 13 April 2009
+- Lots of bug fixes.
+- Released to themes directory.
+
+1.0.1 - 11 Mar 2009
+- Prevent scheduled posts from appearing

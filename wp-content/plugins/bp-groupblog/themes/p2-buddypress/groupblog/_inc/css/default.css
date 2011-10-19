@@ -1,0 +1,543 @@
+/*
+buddypress.css
+This file is loaded by the p2-groupblog functions.php and is only loaded on the page template specified by bp-groupblog.
+*/
+
+/*** Custom Styles *****************************************
+ ***************************************************************/
+
+/* > Template Page Elements
+-------------------------------------------------------------- */
+.heading {
+	margin: 0 0 10px 0;
+	color: #888;
+	font-size: 18px;
+	font-family: Georgia,times,serif;
+}
+
+span.heading {
+	float: left;
+	margin: 10px 20px 0 0;
+}
+
+.align-left { float: left; padding-right: 15px; }
+.align-right { float: right; padding-left: 15px; }
+
+/* > Featured section
+-------------------------------------------------------------- */
+
+div.post .date img {
+	margin: 0 5px 0 0;
+} 
+
+div.post img.alignleft {
+	margin-right: 20px;
+} 
+
+#featured div.post {
+	margin-bottom: 20px;
+}
+
+/* > Status section
+-------------------------------------------------------------- */
+
+.status-content {
+	font-size: 17px;
+	line-height: 140%;
+	letter-spacing: -1px;
+	margin: 0 0 45px 70px;
+	padding: 10px;
+	background-color: #eee;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+/* > Latest Posts section
+-------------------------------------------------------------- */
+
+#statuses,
+#latest ul {
+	overflow: hidden;
+}
+
+#latest li {
+	width: 29%;
+	float: left;
+	padding: 15px;
+	margin-right: 21px;
+	border-top: 1px solid #e4e4e4;
+}
+	#latest li:last-child {
+		margin-right: -20px;
+	}
+	
+#latest-content h2 {
+	font-size: 14px;
+	margin-bottom: 15px;
+}
+
+#latest li div.post {
+	margin-bottom: 20px;
+}
+
+/* > Photos section
+-------------------------------------------------------------- */
+
+#photos ul {
+	overflow: hidden;
+}
+
+#photos li {
+	margin: 0 28px 0 0;
+	width: 220px;
+	float: left;
+}
+	#photos li:last-child {
+		margin-right: -20px;
+	}
+
+#photos h2 {
+	margin: 10px 0;
+	font-size: 12px;
+}
+
+#photos h2 em {
+	color: #888;
+	font-weight: normal;
+	font-family: Georgia,times,serif;
+}
+
+#bp-default #photos h2 em a {
+	color: #1FB3DD;
+	text-decoration: underline;
+}
+
+#photos img {
+	display: block;
+	max-width: 198px;
+	height: auto;
+	margin: 0 auto;
+	border: 1px solid #eee;
+	padding: 10px;
+}
+
+/* > Video Section
+-------------------------------------------------------------- */
+
+#video-content {
+	position: relative;
+}
+
+#video-content div.post {
+	margin-left: 420px;
+	min-height: 325px;
+}
+
+#video embed,
+#video object {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#video object,
+#video embed {
+	max-width: 400px !important;
+	max-height: 325px !important;
+}
+
+
+/*** BuddyPress Styles *****************************************
+ ***************************************************************/
+ 
+/* > Reset Global Elements to BuddyPress
+-------------------------------------------------------------- */
+
+#bp-default a {
+	text-decoration: underline;
+	color: #1FB3DD;
+}
+	#bp-default a:hover, #bp-default a:active {
+		color: #888;
+		border: none;
+	}
+
+#bp-default a.button, input[type="submit"], 
+#bp-default input[type="button"], 
+#bp-default ul.button-nav li a, 
+#bp-default div.generic-button a,
+#bp-default #admin-bar-logo,
+#bp-default div.item-list-tabs ul li a, 
+#bp-default div.item-list-tabs ul li span,
+#bp-default .activity-list .activity-header a:first-child, 
+#bp-default span.highlight,
+#bp-default .activity-list div.activity-meta a,
+#bp-default h2.posttitle a,
+#bp-default .status-content a {
+	text-decoration: none;
+}
+
+#bp-default h1, h2, h3 {
+	color: #555 !important;
+	font-family: Arial, Tahoma, Verdana, sans-serif !important;
+	font-weight: bold;
+}
+
+/* > Admin Bar
+-------------------------------------------------------------- */
+
+#bp-default #admin-bar-logo {
+	color: #fff;
+}
+
+/* > Header
+-------------------------------------------------------------- */
+
+#header {
+	width: 100%;
+}
+
+#header h1 a {
+	color: #FFF !important;
+	font-weight: bold;
+}
+
+/* > Tabs
+-------------------------------------------------------------- */
+		
+div.item-list-tabs ul li.selected a,
+div.item-list-tabs ul li.current a {
+	color: #555;
+}
+
+/* > Activity Links / Buttons
+-------------------------------------------------------------- */
+
+ul.activity-list > li.mini:first-child {
+	padding-top: 20px !important;
+}
+
+#bp-default .activity-list .activity-header a:first-child, 
+#bp-default span.highlight {
+	color: #059AE7;
+	border-bottom: 1px solid #a1dcfa !important;
+	border-right: 1px solid #a1dcfa !important;
+}
+
+#bp-default .activity-list div.activity-meta a.acomment-reply {
+	color: #FFA200;
+	border-bottom: 1px solid #FFE8C4 !important;
+	border-right: 1px solid #FFE8C4 !important;
+}
+	#bp-default div.activity-meta a.acomment-reply:hover {
+		color: #FFF;
+		border-color: #F7740A;
+	}
+
+#bp-default .activity-list div.activity-meta a {
+	color: #999;
+}
+	#bp-default .activity-list div.activity-meta a:hover {
+		color: #FFF;
+		border-color: #AAA;
+	}
+
+#bp-default a.button:hover, #bp-default a.button:focus, 
+#bp-default input[type=submit]:hover, #bp-default input[type=button]:hover, 
+#bp-default ul.button-nav li a:hover, #bp-default ul.button-nav li.current a, 
+#bp-default div.generic-button a:hover {
+		border: 1px solid #AAA;
+		color: #555;
+	}
+
+#bp-default .activity-list div.activity-meta .users-who-like a {
+	color: #777;
+	text-decoration: underline;
+}
+	#bp-default .activity-list div.activity-meta .users-who-like a:hover {
+		color: #222;
+	}
+
+.activity-list a.fav,
+.activity-list a.unfav {
+	-moz-border-radius: 4px 4px 4px 4px;
+	background: #F4F4F4;
+	border-bottom: 1px solid #DDDDDD;
+	border-right: 1px solid #DDDDDD;
+	font-size: 11px;
+	margin-right: 3px;
+	padding: 4px 8px;
+	text-decoration: none !important;
+	color: #999999 !important;
+}
+
+/* > Entries
+-------------------------------------------------------------- */
+
+#bp-default div.entry {
+	overflow: hidden;
+}
+
+#bp-default h2.posttitle a {
+	color: #666;
+}
+
+#bp-default ul#blog-stream div.entry {
+	margin: 15px 0 0 0;
+}
+
+ul#blog-stream li.groups {
+	border-bottom: none; 
+	padding: 0;
+}
+	
+#blog-stream .activity-post .tags {
+	float: right;
+}
+
+div.post p.postmetadata {
+	padding: 3px 0 5px 0;
+}
+
+.postmetadata a {
+	padding-right: 5px;
+}
+	.postmetadata .tags a {
+		padding-right: 0;
+	}
+
+div.activity-comments,
+div.post ul {
+	margin-left: 0px;
+}
+
+#respond p {
+	float: none;
+}
+
+/* > Sidebar
+-------------------------------------------------------------- */
+	
+#bp-default #sidebar {
+	padding: 0;
+}
+
+#sidebar ul li {
+	padding: 0;
+}
+/* > Footer
+-------------------------------------------------------------- */
+
+#bp-default #footer {
+	margin: 0;
+	width: 100%;
+	border: none;
+	background: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+#bp-default #footer p,
+#bp-default #footer a {
+	color: #BBB;
+}
+
+#bp-default #footer p {
+	font-size: 100%;
+	margin: 0;
+}
+
+/*** P2 Styles *************************************************
+ ***************************************************************/
+
+/* > Post Form
+-------------------------------------------------------------- */
+
+div#message p {
+	margin-top: 30px;
+}
+
+#new_post_wrapper {
+	position: relative;
+	padding-bottom: 20px;
+}
+
+#create_post {
+	position: absolute;
+	right: 0;
+	top: -7px;
+	padding: 7px;
+	background-color: #eee;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	z-index: 1;
+}
+
+form#new_post {
+	margin-bottom: 5px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #f0f0f0;
+	overflow: hidden;
+}
+	#item-body form#new_post {
+		margin: 20px 0;
+	}
+	
+form#new_post #whats-new-avatar {
+	float: left;
+	margin-right: 12px;
+}
+
+#new_post h5 {
+	font-size: 12px;
+	font-weight: normal;
+	color: #888;
+	margin: 0;
+	padding: 1px 0 10px 0;
+}
+
+ul#post-types {
+	margin: 0;
+	float: left;
+}
+
+#post-types #status,
+#post-types #post,
+#post-types #quote,
+#post-types #link {
+	padding: 0;
+	background: none;
+}
+
+ul#post-types li a {
+	font-size: 11px;
+	background: #f4f4f4 !important;
+	border-width: 0px 1px 1px 0px !important;
+	border-color: #ddd;
+	color: #999;
+	padding: 4px 8px !important;
+	text-decoration: none;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	margin-right: 3px;
+}
+	ul#post-types li a:focus { outline: none; }
+	ul#post-types li a.selected,
+	ul#post-types li a:hover,
+	ul#post-types li a.selected:hover {
+		background: #aaa !important;
+		color: #fff !important;
+		border-bottom: 1px solid #aaa;
+		border-right: 1px solid #aaa;
+	}
+	ul#post-types li a.selected,
+	ul#post-types li a.selected:hover {
+		background: #059AE7 !important;
+	}
+
+#whats-new-title {
+	overflow: hidden;
+}
+
+#whats-new-status,
+#whats-new-post {
+	float: left;
+	width: 440px !important;
+}
+
+#whats-new-type {
+	padding: 0 0 12px 0;
+	overflow: hidden;
+}
+
+form#new_post {
+	margin-top: 0;
+}
+
+form#new_post #whats-new-content {
+	margin-left: 54px;
+	padding-left: 22px;
+}
+	
+form#new_post #whats-new-textarea,
+form#new_post #whats-new-post,
+form#new_post #whats-new-quote,
+form#new_post #whats-new-tags,
+#respond textarea {
+	padding: 8px;
+	border: 1px inset #ccc;
+	background: #fff;
+	margin-bottom: 10px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+form#new_post textarea,
+#whats-new-post input#posttitle,
+#whats-new-quote input#postcitation,
+#whats-new-tags input#tags {
+	width: 100%;
+	height: 60px;
+	font-size: 12px;
+	font-family: inherit;
+	color: #888;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+form#new_post #whats-new-post,
+form#new_post #whats-new-quote,
+form#new_post #whats-new-tags {
+	width: 230px;
+	padding: 2px 4px;
+	float: left;
+}
+/*
+	form#new_post #whats-new-post,
+	form#new_post #whats-new-quote {
+		width: 99%;
+		float: none;	
+	}
+*/
+
+#whats-new-post input#posttitle,
+#whats-new-quote input#postcitation,
+#whats-new-tags input#tags {
+	height: auto;
+}
+
+form#new_post .progress {
+	left: auto;
+	bottom: auto;
+	right: 100px;
+	top: 158px;
+}
+
+form#new_post #whats-new-submit {
+	float: right;
+	margin: 0;
+}
+
+#bp-default .disabled, #bp-default .disabled:hover {
+	color: #aaa !important;
+	background: transparent !important;
+	border-color: transparent;
+}
+
+form.standard-form input:focus, form.standard-form textarea:focus, form.standard-form select:focus {
+	background: #fafafa !important;
+	color: #555 !important;
+}
+
+#char-count {
+	color: #999;
+	font-weight: bold;
+	float: right;
+	font-size: 16px;
+	padding-top: 1px;
+}

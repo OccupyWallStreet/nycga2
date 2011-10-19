@@ -1,0 +1,75 @@
+a.info-icon {
+	-moz-opacity:.30; filter:alpha(opacity=30); opacity:.30;
+}
+
+a.info-icon:hover {
+	-moz-opacity:1; filter:alpha(opacity=100); opacity:1;
+}
+
+a.info-icon img {
+	vertical-align: middle;
+}
+
+#admin-links {
+	float:right;
+	display:inline;
+	padding-right:15px;
+	text-align:center;
+}
+
+.form-table {
+	clear:none;
+	display:inline;
+}
+
+.setting-description {
+	font-style:italic;
+	font-size:80%;
+}
+.pass {
+	color:#00A000;
+}
+.fail {
+	color:#BB0000;
+}
+
+.ui-tabs .ui-tabs-hide {
+     display: none;
+}
+
+#icon-tweetblender {
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent url(/wp-content/plugins/tweet-blender/img/tweetblender-logo_32x32.png) no-repeat;
+}
+
+img.tb-addon-screenshot {
+	border: 3px solid #EEE;
+}
+
+div.centered {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+div.box-left {
+	width: 45%;
+	display: inline-block;
+	float: left;
+}
+
+div.box-right {
+	width: 45%;
+	float: right;
+}
+
+ol.feature-set {
+	margin: 25px;
+}
+
+#filter_bad_strings {
+	wrap-option:soft-wrap;
+}

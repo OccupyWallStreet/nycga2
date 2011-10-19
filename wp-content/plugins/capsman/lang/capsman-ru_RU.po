@@ -1,0 +1,281 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Capability Manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-29 15:03+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jordi Canals <devel@jcanals.cat>\n"
+"Language-Team: Fat Cow <gpl@alkivia.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../capsman.php:53
+msgid "Warning:"
+msgstr "Предупреждение:"
+
+#: ../capsman.php:54
+#, php-format
+msgid "The active plugin %s is not compatible with your PHP version."
+msgstr "Плагин %s не совместим с вашей версией PHP."
+
+#: ../capsman.php:56
+#, php-format
+msgid "%s is required for this plugin."
+msgstr "%s необходим лоя плагина."
+
+#: ../includes/admin.php:36
+msgid "Roles and Capabilities"
+msgstr "Роли и возможности"
+
+#: ../includes/admin.php:45
+#, php-format
+msgid "Capabilities for %s"
+msgstr "Возможность для %s"
+
+#: ../includes/admin.php:92
+msgid "Level:"
+msgstr "Уровень:"
+
+#: ../includes/admin.php:115
+#: ../includes/manager.php:319
+msgid "Save Changes"
+msgstr "Сохранить настройки"
+
+#: ../includes/admin.php:117
+msgid "Delete this role"
+msgstr "Удалить эту роль"
+
+#: ../includes/admin.php:117
+#, php-format
+msgid ""
+"You are about to delete the %s role.\n"
+" 'Cancel' to stop, 'OK' to delete."
+msgstr ""
+"Вы об удалении роли %s.\n"
+"  'Отменить' для остановки, 'ОК' для удаления."
+
+#: ../includes/admin.php:117
+msgid "Delete Role"
+msgstr "Удаление роли"
+
+#: ../includes/admin.php:128
+msgid "Select New Role"
+msgstr "Выбрать новую роль"
+
+#: ../includes/admin.php:136
+#: ../includes/manager.php:296
+msgid "Change"
+msgstr "Изменить"
+
+#: ../includes/admin.php:141
+msgid "Create New Role"
+msgstr "Создать новую роль"
+
+#: ../includes/admin.php:144
+#: ../includes/manager.php:300
+msgid "Create"
+msgstr "Создать"
+
+#: ../includes/admin.php:149
+msgid "Copy this role to"
+msgstr "Копия этой роли"
+
+#: ../includes/admin.php:152
+#: ../includes/manager.php:309
+msgid "Copy"
+msgstr "Копия"
+
+#: ../includes/admin.php:157
+msgid "Add Capability"
+msgstr "Добавить возможность"
+
+#: ../includes/admin.php:160
+#: ../includes/manager.php:323
+msgid "Add to role"
+msgstr "Добавить роль"
+
+#: ../includes/backup.php:33
+msgid "Backup Tool for Capability Manager"
+msgstr "Инструмент для создания резервной копии для Capability Manager"
+
+#: ../includes/backup.php:42
+msgid "Backup and Restore"
+msgstr "Резервная копия и восстановление"
+
+#: ../includes/backup.php:46
+msgid "Select action:"
+msgstr "Выбрать действие:"
+
+#: ../includes/backup.php:49
+msgid "Backup roles and capabilities"
+msgstr "Резерв. копия ролей и возможностей"
+
+#: ../includes/backup.php:50
+msgid "Restore last saved backup"
+msgstr "Восстановить из последнего сохраненного бэкапа"
+
+#: ../includes/backup.php:52
+msgid "Do Action"
+msgstr "Нет действий"
+
+#: ../includes/backup.php:60
+msgid "Reset WordPress Defaults"
+msgstr "Сбростить настройки WordPress по умолчанию"
+
+#: ../includes/backup.php:62
+msgid "WARNING:"
+msgstr "ВНИМАНИЕ:"
+
+#: ../includes/backup.php:62
+msgid "Reseting default Roles and Capabilities will set them to the WordPress install defaults."
+msgstr "Сброс стандартных ролей и возможностей должен сбросить настройки по умолчанию при установвке в WordPress."
+
+#: ../includes/backup.php:63
+msgid "If you have installed any plugin that adds new roles or capabilities, these will be lost."
+msgstr "Если вы установили другой плагин, который добавляет новые роли или возможности, это должно исчезнуть. "
+
+#: ../includes/backup.php:64
+msgid "It is recommended to use this only as a last resource!"
+msgstr "Это рекомендуется дя использования только как последный ресурс!"
+
+#: ../includes/backup.php:65
+msgid "Reset Roles and Capabilities to WordPress defaults"
+msgstr "Сбросить роли и воможности"
+
+#: ../includes/backup.php:65
+msgid ""
+"You are about to reset Roles and Capabilities to WordPress defaults.\n"
+" 'Cancel' to stop, 'OK' to reset."
+msgstr ""
+"Вы об сбросе ролей и возможностей %s.\n"
+"  'Отменить' для остановки, 'ОК' для сброса."
+
+#: ../includes/backup.php:65
+msgid "Reset to WordPress defaults"
+msgstr "Сбросить настройки WordPress"
+
+#: ../includes/manager.php:139
+#: ../includes/manager.php:140
+msgid "Capability Manager"
+msgstr "Capability Manager"
+
+#: ../includes/manager.php:139
+msgid "Capabilities"
+msgstr "Возможности"
+
+#: ../includes/manager.php:220
+#: ../includes/manager.php:256
+msgid "What do you think you're doing?!?"
+msgstr "Вы знаете, что делаете?!?"
+
+#: ../includes/manager.php:283
+msgid "Bad form Received"
+msgstr "Se ha recibido un formulario incorrecto."
+
+#: ../includes/manager.php:302
+#: ../includes/manager.php:312
+msgid "New role created."
+msgstr "Новая роль создана."
+
+#: ../includes/manager.php:305
+#: ../includes/manager.php:315
+msgid "Error: Failed creating the new role."
+msgstr "Ошибка: Новая роль не создана."
+
+#: ../includes/manager.php:320
+msgid "New capabilities saved."
+msgstr "Новые возможности сохранены."
+
+#: ../includes/manager.php:328
+msgid "New capability added to role."
+msgstr "Новая воможность добавлена к роли."
+
+#: ../includes/manager.php:330
+msgid "Incorrect capability name."
+msgstr "Некорректное имя возможности."
+
+#: ../includes/manager.php:334
+msgid "Bad form received."
+msgstr "Плохая форма отправки."
+
+#: ../includes/manager.php:354
+msgid "New backup saved."
+msgstr "Новый бэкап сохранен."
+
+#: ../includes/manager.php:360
+msgid "Roles and Capabilities restored from last backup."
+msgstr "Роли и возможности восстановлены с последнего бэкапа."
+
+#: ../includes/manager.php:362
+msgid "Restore failed. No backup found."
+msgstr "Восстановление остановлено. Не найдено бэкапов.  "
+
+#: ../includes/manager.php:384
+#, php-format
+msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
+msgstr "Не удалена стандартная роль. Вы <a href=\"%s\">должны сначала изменить это</a>."
+
+#: ../includes/manager.php:405
+#, php-format
+msgid "Role has been deleted. %1$d users moved to default role %2$s."
+msgstr "Роль была удалена. %1$d пользователей перемещена в стандартную роль %2$s."
+
+#: ../includes/manager.php:419
+msgid "Needed function to create default roles not found!"
+msgstr "Необходимая функция по созданию ролей не найдена!"
+
+#: ../includes/manager.php:431
+msgid "Roles and Capabilities reset to WordPress defaults"
+msgstr "Роли и возможности сброшены к стандартным для WordPress "
+
+#: ../includes/manager.php:606
+msgid "You cannot remove Manage Capabilities from Administrators"
+msgstr "Вы не можете удалить Manage Capabilities через администраторов ."
+
+#~ msgid "The active plugin %s is not compatible with your WordPress version."
+#~ msgstr "Активный плагин %s не совместим с текущей версией WordPress."
+#~ msgid "WordPress %s is required to run this plugin."
+#~ msgstr "WordPress %s необходим для запуска этого плагина."
+#~ msgid "Standard sidebar functions are not present."
+#~ msgstr "Стандартные функции боковой панели не представлены."
+#~ msgid "It is required to use the standard sidebar to run %s"
+#~ msgstr ""
+#~ "Это необходимо для использования стандартной боковой панели для запуска %s"
+#~ msgid "Settings saved."
+#~ msgstr "Настройки сохранены."
+#~ msgid "Plugin Homepage"
+#~ msgstr "Домашняя страница плагина"
+
+#, fuzzy
+#~ msgid "Theme Homepage"
+#~ msgstr "Домашняя страница автора"
+
+#, fuzzy
+#~ msgid "Documentation"
+#~ msgstr "Нет действий"
+#~ msgid "Support Forum"
+#~ msgstr "Форум поддержки"
+#~ msgid "Author Homepage"
+#~ msgstr "Домашняя страница автора"
+
+#, fuzzy
+#~ msgid "Incorrect type of file."
+#~ msgstr "Некорректное имя возможности."
+
+#, fuzzy
+#~ msgid "Error in creating %s image from source."
+#~ msgstr "Ошибка: Новая роль не создана."
+
+#, fuzzy
+#~ msgid "Error reading the file."
+#~ msgstr "Ошибка: Новая роль не создана."
+#~ msgid "Help donating"
+#~ msgstr "Помощь через пожертвования"
+#~ msgid "Managing %s"
+#~ msgstr "Administrando %s"
+

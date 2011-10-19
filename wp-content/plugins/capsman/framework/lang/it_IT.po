@@ -1,0 +1,417 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SidePosts WordPress Widget in italiano\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-06 01:15+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jordi Canals <devel@jcanals.cat>\n"
+"Language-Team: Gianni Diurno | http://gidibao.net/ <gidibao@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: \n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SearchPath-0: \n"
+
+#: ../classes/abstract/module.php:599
+msgid "Option blocked by administrator."
+msgstr "Opzione bloccata dall'amministratore"
+
+#: ../classes/abstract/plugin.php:344
+#: ../classes/abstract/plugin.php:363
+msgid "Warning:"
+msgstr "Avvertimento:"
+
+#: ../classes/abstract/plugin.php:345
+#, php-format
+msgid "The active plugin %s is not compatible with your WordPress version."
+msgstr "Il plugin attivo %s non é compatibile con la tua versione WordPress."
+
+#: ../classes/abstract/plugin.php:347
+#, php-format
+msgid "WordPress %s is required to run this plugin."
+msgstr "E' necessario WordPress %s affinché questo plugin possa funzionare."
+
+#: ../classes/abstract/plugin.php:364
+msgid "Standard sidebar functions are not present."
+msgstr "Non sono presenti le funzioni standard della sidebar."
+
+#: ../classes/abstract/plugin.php:365
+#, php-format
+msgid "It is required to use the standard sidebar to run %s"
+msgstr "E' necessario l'utilizzo della sidebar standard affinché funzioni %s"
+
+#: ../classes/abstract/plugin.php:412
+msgid "Activate Components"
+msgstr ""
+
+#: ../classes/abstract/plugin.php:421
+msgid "Yes"
+msgstr "Sí"
+
+#: ../classes/abstract/plugin.php:422
+msgid "No"
+msgstr "No"
+
+#: ../lib/formating.php:52
+msgid "Settings saved."
+msgstr "Le impostazioni sono state salvate"
+
+#: ../lib/formating.php:160
+msgid "Just Now"
+msgstr "In questo momento"
+
+#: ../lib/formating.php:163
+#, php-format
+msgid "1 minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "1 minuto fa"
+msgstr[1] "%d minuti fa"
+
+#: ../lib/formating.php:166
+#, php-format
+msgid "1 hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "1 ora fa"
+msgstr[1] "%d ore fa"
+
+#: ../lib/formating.php:170
+#, php-format
+msgid "Today at %s"
+msgstr "Oggi alle %s"
+
+#: ../lib/formating.php:170
+#, php-format
+msgid "Yesterday at %s"
+msgstr "Ieri alle %s"
+
+#: ../lib/themes.php:160
+msgid "Plugin Homepage"
+msgstr ""
+
+#: ../lib/themes.php:164
+msgid "Theme Homepage"
+msgstr ""
+
+#: ../lib/themes.php:168
+msgid "Documentation"
+msgstr ""
+
+#: ../lib/themes.php:172
+msgid "Support Forum"
+msgstr ""
+
+#: ../lib/themes.php:176
+msgid "Author Homepage"
+msgstr ""
+
+#: ../lib/themes.php:180
+msgid "Donate to project"
+msgstr ""
+
+#: ../vendor/upload/class.upload.php:2171
+msgid "File error. Please try again."
+msgstr "Errore file. Riprova."
+
+#: ../vendor/upload/class.upload.php:2172
+msgid "Local file doesn't exist."
+msgstr "Il file locale non esiste."
+
+#: ../vendor/upload/class.upload.php:2173
+msgid "Local file is not readable."
+msgstr "Il file locale non é leggibile."
+
+#: ../vendor/upload/class.upload.php:2174
+msgid "File upload error (the uploaded file exceeds the upload_max_filesize directive in php.ini)."
+msgstr "Errore caricamento file (il file eccede il limite fissato dalla direttiva upload_max_filesize impostato in php.ini)."
+
+#: ../vendor/upload/class.upload.php:2175
+msgid "File upload error (the uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the html form)."
+msgstr "Errore caricamento file (il file eccede il limite fissato dalla direttiva MAX_FILE_SIZE specificata nel modulo html)."
+
+#: ../vendor/upload/class.upload.php:2176
+msgid "File upload error (the uploaded file was only partially uploaded)."
+msgstr "Errore caricamento file (il file é stato pazialmente caricato)."
+
+#: ../vendor/upload/class.upload.php:2177
+msgid "File upload error (no file was uploaded)."
+msgstr "Errore caricamento file (nessun file é stato caricato)."
+
+#: ../vendor/upload/class.upload.php:2178
+msgid "File upload error (missing a temporary folder)."
+msgstr "Errore caricamento file (cartella temporanea inesistente)."
+
+#: ../vendor/upload/class.upload.php:2179
+msgid "File upload error (failed to write file to disk)."
+msgstr "Errore caricamento file (non é stato possibile scrivere il file nel disco)."
+
+#: ../vendor/upload/class.upload.php:2180
+msgid "File upload error (file upload stopped by extension)."
+msgstr "Errore caricamento file (blocco caricamento file dovuto alla estensione)."
+
+#: ../vendor/upload/class.upload.php:2181
+msgid "File upload error (unknown error code)."
+msgstr "Errore caricamento file (codice errore sconosciuto)."
+
+#: ../vendor/upload/class.upload.php:2182
+msgid "File upload error. Please try again."
+msgstr "Errore caricamento file. Riprova."
+
+#: ../vendor/upload/class.upload.php:2183
+msgid "File too big."
+msgstr "File troppo grande."
+
+#: ../vendor/upload/class.upload.php:2184
+msgid "MIME type can't be detected."
+msgstr "Non é possibile rilevare il formato MIME."
+
+#: ../vendor/upload/class.upload.php:2185
+msgid "Incorrect type of file."
+msgstr "Tipo di file non corretto."
+
+#: ../vendor/upload/class.upload.php:2186
+msgid "Image too wide."
+msgstr "Immagine troppo larga."
+
+#: ../vendor/upload/class.upload.php:2187
+msgid "Image too narrow."
+msgstr "Immagine troppo stretta."
+
+#: ../vendor/upload/class.upload.php:2188
+msgid "Image too high."
+msgstr "Immagine troppo alta."
+
+#: ../vendor/upload/class.upload.php:2189
+msgid "Image too short."
+msgstr "Immagine troppo piccola."
+
+#: ../vendor/upload/class.upload.php:2190
+msgid "Image ratio too high (image too wide)."
+msgstr "Proporzione immagine troppo elevata (immagine eccessivamente larga)."
+
+#: ../vendor/upload/class.upload.php:2191
+msgid "Image ratio too low (image too high)."
+msgstr "Proporzione immagine troppo bassa (immagine eccessivamente alta)."
+
+#: ../vendor/upload/class.upload.php:2192
+msgid "Image has too many pixels."
+msgstr "Immagine con troppi pixel."
+
+#: ../vendor/upload/class.upload.php:2193
+msgid "Image has not enough pixels."
+msgstr "Immagine con pochi pixel."
+
+#: ../vendor/upload/class.upload.php:2194
+msgid "File not uploaded. Can't carry on a process."
+msgstr "Il file non é stato caricato. Non é possibile proseguire l'operazione."
+
+#: ../vendor/upload/class.upload.php:2195
+#, php-format
+msgid "%s already exists. Please change the file name."
+msgstr "%s già esiste. Modifica il nome del file."
+
+#: ../vendor/upload/class.upload.php:2196
+msgid "No correct temp source file. Can't carry on a process."
+msgstr "File temporaneo sorgente non valido. Non é possibile proseguire l'operazione."
+
+#: ../vendor/upload/class.upload.php:2197
+msgid "No correct uploaded source file. Can't carry on a process."
+msgstr "Il file sorgente che é stato caricato non è valido. Non é possibile proseguire l'operazione."
+
+#: ../vendor/upload/class.upload.php:2198
+msgid "Destination directory can't be created. Can't carry on a process."
+msgstr "La cartella di destinazione non può essere creata. Non é possibile proseguire l'operazione."
+
+#: ../vendor/upload/class.upload.php:2199
+msgid "Destination directory doesn't exist. Can't carry on a process."
+msgstr "La cartella di destinazione non esiste. Non é possibile proseguire l'operazione."
+
+#: ../vendor/upload/class.upload.php:2200
+msgid "Destination path is not a directory. Can't carry on a process."
+msgstr "Il percorso di destinazione non conduce ad una cartella. Non é possibile proseguire l'operazione."
+
+#: ../vendor/upload/class.upload.php:2201
+msgid "Destination directory can't be made writeable. Can't carry on a process."
+msgstr "La cartella di destinazione non può essere resa scrivibile. Non é possibile proseguire l'operazione."
+
+#: ../vendor/upload/class.upload.php:2202
+msgid "Destination path is not a writeable. Can't carry on a process."
+msgstr "Il percorso di destinazione non é scrivibile. Non é possibile proseguire l'operazione."
+
+#: ../vendor/upload/class.upload.php:2203
+msgid "Can't create the temporary file. Can't carry on a process."
+msgstr "Non é stato possibile creare un file temporaneo. Non é possibile proseguire l'operazione."
+
+#: ../vendor/upload/class.upload.php:2204
+msgid "Source file is not readable. Can't carry on a process."
+msgstr "Il file sorgente non é leggibile. Non é possibile proseguire l'operazione."
+
+#: ../vendor/upload/class.upload.php:2205
+#, php-format
+msgid "No create from %s support."
+msgstr "Impossibile creare dal supporto %s."
+
+#: ../vendor/upload/class.upload.php:2206
+#, php-format
+msgid "Error in creating %s image from source."
+msgstr "Errore durante la creazione della immagine %s (via sorgente)."
+
+#: ../vendor/upload/class.upload.php:2207
+msgid "Can't read image source. Not an image?."
+msgstr "Impossibile la lettura del sorgente immagine. Forse, non é una immagine!"
+
+#: ../vendor/upload/class.upload.php:2208
+msgid "GD doesn't seem to be present."
+msgstr "Pare che la libreria GD non sia presente."
+
+#: ../vendor/upload/class.upload.php:2209
+#, php-format
+msgid "No create from %s support, can't read watermark."
+msgstr "Nessuna creazione dal supporto %s. Impossibile leggere la filigrana."
+
+#: ../vendor/upload/class.upload.php:2210
+#, php-format
+msgid "No %s read support, can't create watermark."
+msgstr "Nessun supporto di lettura %s. Impossibile creare la filigrana."
+
+#: ../vendor/upload/class.upload.php:2211
+msgid "Unknown image format, can't read watermark."
+msgstr "Formato immagine sconosciuto. Impossibile leggere la filigrana."
+
+#: ../vendor/upload/class.upload.php:2212
+#, php-format
+msgid "No %s create support."
+msgstr "Nessuna creazione dal supporto %s."
+
+#: ../vendor/upload/class.upload.php:2213
+msgid "No conversion type defined."
+msgstr "Non é stato definito alcun tipo di conversione."
+
+#: ../vendor/upload/class.upload.php:2214
+msgid "Error copying file on the server. copy() failed."
+msgstr "Errore durante la copia del file sul server. copy() failed."
+
+#: ../vendor/upload/class.upload.php:2215
+msgid "Error reading the file."
+msgstr "Errore nella lettura del file."
+
+#~ msgid "The active plugin %s is not compatible with your PHP version."
+#~ msgstr "Il plugin attivo %s non é compatibile con la tua versione PHP."
+#~ msgid "%s is required for this plugin."
+#~ msgstr "%s necessario per questo plugin."
+#~ msgid "A widget to move posts to the sidebar."
+#~ msgstr "Un widget per poter spostare gli articoli nella barra laterale."
+#~ msgid "Category not selected."
+#~ msgstr "La categoria non é stata selezionata."
+#~ msgid "Read more &raquo;"
+#~ msgstr "Prosegui la lettura &raquo;"
+#~ msgid "No Comments"
+#~ msgstr "Nessun commento"
+#~ msgid "1 Comment"
+#~ msgstr "1 Commento"
+#~ msgid "% Comments"
+#~ msgstr "% Commenti"
+#~ msgid "Comments closed"
+#~ msgstr "I commenti sono stati disattivati"
+#~ msgid "Archive for"
+#~ msgstr "Archivo per"
+#~ msgid "Title:"
+#~ msgstr "Titolo:"
+#~ msgid "Category:"
+#~ msgstr "Categoria:"
+#~ msgid "-- PRIVATE POSTS --"
+#~ msgstr "-- ARTICOLI PRIVATI --"
+#~ msgid "Number of posts:"
+#~ msgstr "Numero di articoli:"
+#~ msgid "(At most %d)"
+#~ msgstr "(massimo %d)"
+#~ msgid "Show:"
+#~ msgstr "Mostra:"
+#~ msgid "Full Post"
+#~ msgstr "Articolo completo"
+#~ msgid "Post Excerpt"
+#~ msgstr "Riassunto dell'articolo"
+#~ msgid "Excerpts with thumbnails"
+#~ msgstr "Riassunti con miniatura"
+#~ msgid "Photo Blog"
+#~ msgstr "Photo Blog"
+#~ msgid "Only Post Title"
+#~ msgstr "Solo il titolo del post"
+#~ msgid "Show category on all feeds"
+#~ msgstr "Mostra la categoria in tutti i feed"
+#~ msgid "Image width:"
+#~ msgstr "Larghezza immagine:"
+#~ msgid "pixels"
+#~ msgstr "pixel"
+#~ msgid "Align thumbnail to right"
+#~ msgstr "Allinea la miniatura a destra"
+#~ msgid "Read full post &raquo;"
+#~ msgstr "Leggi l'articolo completo &raquo;"
+#~ msgid "No posts found"
+#~ msgstr "Non é stato trovato alcun articolo"
+#~ msgid "Incompatible System"
+#~ msgstr "Sistema incompatibile"
+#~ msgid "Read More..."
+#~ msgstr "Continua..."
+#~ msgid "DailyTube Plugin Settings"
+#~ msgstr "Configuración de DailyTube"
+#~ msgid ""
+#~ "DailyTube plugin has been updated. Please, check your plugin settings."
+#~ msgstr ""
+#~ "La extensión DailyTube ha sido actualizada. Por favor, revisa la "
+#~ "configuración de esta extensión."
+#~ msgid ""
+#~ "CAUTION: You updated from a version prior to 1.0. For this reason your "
+#~ "settings have been reverted to defaults."
+#~ msgstr ""
+#~ "ATENCION: Has actualizado desde una versión anterior a 1.0. Por este "
+#~ "motivo, las opciones se han revertido a valores por defecto."
+#~ msgid "DailyTube Settings"
+#~ msgstr "Configuración DailyTube"
+#~ msgid "<strong>Note:</strong> All sizes must be entered as Width x Height"
+#~ msgstr "<strong>Nota:</strong> Todos los tamaños son Ancho x Alto"
+#~ msgid "Content tag:"
+#~ msgstr "Etiqueta de contenido:"
+#~ msgid "Video Size:"
+#~ msgstr "Tamaño de vídeo:"
+#~ msgid "Show Related Videos?"
+#~ msgstr "¿Mostrar vídeos relacionados?"
+#~ msgid "Player Color:"
+#~ msgstr "Color del reproductor:"
+#~ msgid "Show Border?"
+#~ msgstr "¿Mostrar marco?"
+#~ msgid "Enhanced Genie Menu?"
+#~ msgstr "¿Utilizar menú \"Genie\"?"
+#~ msgid "Wide format tag:"
+#~ msgstr "Marcador formato panorámico:"
+#~ msgid "Square format tag:"
+#~ msgstr "Marcador de formato cuadrado:"
+#~ msgid "Wide Video Size"
+#~ msgstr "Tamaño de vídeo panorámico"
+#~ msgid "Square Video Size"
+#~ msgstr "Tamaño de vídeo cuadrado"
+#~ msgid "Allow FullScreen?"
+#~ msgstr "¿Permitir pantalla completa?"
+#~ msgid "Global Settings"
+#~ msgstr "Opciones Generales"
+#~ msgid "Video Align:"
+#~ msgstr "Alineación del vídeo:"
+#~ msgid "None"
+#~ msgstr "Ninguna"
+#~ msgid "Left"
+#~ msgstr "Izquierda"
+#~ msgid "Center"
+#~ msgstr "Centro"
+#~ msgid "Right"
+#~ msgstr "Derecha"
+#~ msgid "Save Changes"
+#~ msgstr "Guardar Cambios"
+#~ msgid "YouTube & Google Video Size"
+#~ msgstr "Tamaño de vídeo YouTube y Google"
+#~ msgid "or"
+#~ msgstr "o"
+

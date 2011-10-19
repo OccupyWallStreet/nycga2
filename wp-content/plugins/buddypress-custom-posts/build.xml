@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="BuddyPress Custom Posts" default="build">
+    <taskdef name="yuimin" classname="phing.tasks.my.YUIMinTask" />
+    <taskdef name="wppot" classname="phing.tasks.my.WPPotTask" />
+
+    <!-- ============================================  -->
+    <!-- Target: jsmin                                 -->
+    <!-- ============================================  -->
+    <target name="jsmin">
+        <echo msg="Compressing JavaScript Files" />
+	<yuimin showwarnings="false" path="~/builds/yuicompressor-2.4.2/build/yuicompressor-2.4.2.jar" >
+	    <fileset dir="themes/">
+	        <include name="**/*.js" />
+	        <exclude name="**/*.min.js" />
+	    </fileset>
+	    <mapper type="regexp" from="^(.*)\.js" to="\1.min.js"/>
+	</yuimin>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: cssmin                                -->
+    <!-- ============================================  -->
+    <target name="cssmin">
+        <echo msg="Compressing CSS Files" />
+	<yuimin showwarnings="false" path="~/builds/yuicompressor-2.4.2/build/yuicompressor-2.4.2.jar" >
+	    <fileset dir="themes/">
+	        <include name="**/*.css" />
+	        <exclude name="**/*.min.css" />
+	    </fileset>
+	    <mapper type="regexp" from="^(.*)\.css" to="\1.min.css"/>
+	</yuimin>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: translate                             -->
+    <!-- ============================================  -->
+    <target name="translate">
+	<echo msg="Generating a new .pot file" />
+	<wppot path="~/builds/i18n" output="buddypress-custom-posts.pot" type="wp-plugin"/>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: build                               -->
+    <!-- ============================================  -->
+    <target name="build" depends="jsmin,cssmin,translate">
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: commit                                -->
+    <!-- ============================================  -->
+    <target name="commit" depends="build">
+    	<echo msg = "Committing to code.google.com/p/buddypress-custom-posts/" />
+	<propertyprompt propertyName="COMMIT_MESSAGE" defaultValue="New commit." promptText="Enter the commit message" />
+	<svncommit workingcopy = "." message = "${COMMIT_MESSAGE}" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: version                               -->  
+    <!-- ============================================  -->
+    <target name="dist" depends="build">
+    </target>
+
+    <!-- ============================================ -->
+    <!-- Target: tar                                  -->  
+    <!-- ============================================ -->
+    <target name="tar" depends="build">
+    </target>
+</project>

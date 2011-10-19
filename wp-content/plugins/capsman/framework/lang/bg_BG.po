@@ -1,0 +1,352 @@
+# Petar Toushkov <pt.launchpad@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: Alkivia SidePosts\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-06 01:15+0100\n"
+"PO-Revision-Date: 2010-02-06 01:15+0100\n"
+"Last-Translator: Jordi Canals <devel@jcanals.cat>\n"
+"Language-Team: Bulgarian <dict@fsa-bg.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_c\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Lokalize 1.0\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../classes/abstract/module.php:599
+msgid "Option blocked by administrator."
+msgstr "Опцията е блокирана от администратора."
+
+#: ../classes/abstract/plugin.php:344
+#: ../classes/abstract/plugin.php:363
+msgid "Warning:"
+msgstr "Предупреждение: "
+
+#: ../classes/abstract/plugin.php:345
+#, php-format
+msgid "The active plugin %s is not compatible with your WordPress version."
+msgstr "Активната приставка %s е несъвместима с вашата версия на WordPress."
+
+#: ../classes/abstract/plugin.php:347
+#, php-format
+msgid "WordPress %s is required to run this plugin."
+msgstr "ЗА работата на тази приставка се изисква WordPress %s."
+
+#: ../classes/abstract/plugin.php:364
+msgid "Standard sidebar functions are not present."
+msgstr "Стандартните функция за страничната лента не са налични."
+
+#: ../classes/abstract/plugin.php:365
+#, php-format
+msgid "It is required to use the standard sidebar to run %s"
+msgstr "За да работи %s трябва да работи стандартната странична лента."
+
+#: ../classes/abstract/plugin.php:412
+msgid "Activate Components"
+msgstr ""
+
+#: ../classes/abstract/plugin.php:421
+msgid "Yes"
+msgstr ""
+
+#: ../classes/abstract/plugin.php:422
+msgid "No"
+msgstr ""
+
+#: ../lib/formating.php:52
+msgid "Settings saved."
+msgstr "Настройките бяха запазени."
+
+#: ../lib/formating.php:160
+msgid "Just Now"
+msgstr "Току-що"
+
+#: ../lib/formating.php:163
+#, php-format
+msgid "1 minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "преди 1 минута"
+msgstr[1] "преди %d минути"
+
+#: ../lib/formating.php:166
+#, php-format
+msgid "1 hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "преди един час"
+msgstr[1] "преди %d часа"
+
+#: ../lib/formating.php:170
+#, php-format
+msgid "Today at %s"
+msgstr "Днес в %s"
+
+#: ../lib/formating.php:170
+#, php-format
+msgid "Yesterday at %s"
+msgstr "Вчера в %s"
+
+#: ../lib/themes.php:160
+msgid "Plugin Homepage"
+msgstr ""
+
+#: ../lib/themes.php:164
+msgid "Theme Homepage"
+msgstr ""
+
+#: ../lib/themes.php:168
+msgid "Documentation"
+msgstr ""
+
+#: ../lib/themes.php:172
+msgid "Support Forum"
+msgstr ""
+
+#: ../lib/themes.php:176
+msgid "Author Homepage"
+msgstr ""
+
+#: ../lib/themes.php:180
+msgid "Donate to project"
+msgstr ""
+
+#: ../vendor/upload/class.upload.php:2171
+msgid "File error. Please try again."
+msgstr "Грешка във файла. Моля, опитайте отново."
+
+#: ../vendor/upload/class.upload.php:2172
+msgid "Local file doesn't exist."
+msgstr "Локалният файл не съществува."
+
+#: ../vendor/upload/class.upload.php:2173
+msgid "Local file is not readable."
+msgstr "Локалният файл не може да бъде прочетен."
+
+#: ../vendor/upload/class.upload.php:2174
+msgid "File upload error (the uploaded file exceeds the upload_max_filesize directive in php.ini)."
+msgstr "Грешка при качването на файла (каченият файл надхвърля upload_max_filesize директивата в php.ini)."
+
+#: ../vendor/upload/class.upload.php:2175
+msgid "File upload error (the uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the html form)."
+msgstr "Грешка при качването на файла (каченият файл надхвърля  MAX_FILE_SIZE директивата, указана в HTML формата)."
+
+#: ../vendor/upload/class.upload.php:2176
+msgid "File upload error (the uploaded file was only partially uploaded)."
+msgstr "Грешка при качването на файла (файлът беше качен частично)."
+
+#: ../vendor/upload/class.upload.php:2177
+msgid "File upload error (no file was uploaded)."
+msgstr "Грешка при качването на файла (не беше качен файл)."
+
+#: ../vendor/upload/class.upload.php:2178
+msgid "File upload error (missing a temporary folder)."
+msgstr "Грешка при качването на файла (отсъства временна директория)."
+
+#: ../vendor/upload/class.upload.php:2179
+msgid "File upload error (failed to write file to disk)."
+msgstr "Грешка при качването на файла (неуспех при запис върху диска)."
+
+#: ../vendor/upload/class.upload.php:2180
+msgid "File upload error (file upload stopped by extension)."
+msgstr "Грешка при качването на файла (качването беше преустановено от приставката)."
+
+#: ../vendor/upload/class.upload.php:2181
+msgid "File upload error (unknown error code)."
+msgstr "Грешка при качването на файла (неизвестен код за грешка)."
+
+#: ../vendor/upload/class.upload.php:2182
+msgid "File upload error. Please try again."
+msgstr "Грешка при качването на файла. Моля, опитайте отново."
+
+#: ../vendor/upload/class.upload.php:2183
+msgid "File too big."
+msgstr "Файлът е прекалено голям."
+
+#: ../vendor/upload/class.upload.php:2184
+msgid "MIME type can't be detected."
+msgstr "Неустановен тип (MIME type)."
+
+#: ../vendor/upload/class.upload.php:2185
+msgid "Incorrect type of file."
+msgstr "Неправилен файлов тип."
+
+#: ../vendor/upload/class.upload.php:2186
+msgid "Image too wide."
+msgstr "Изображението е прекалено широко."
+
+#: ../vendor/upload/class.upload.php:2187
+msgid "Image too narrow."
+msgstr "Изображението е прекалено тясно."
+
+#: ../vendor/upload/class.upload.php:2188
+msgid "Image too high."
+msgstr "Изображението е прекалено високо."
+
+#: ../vendor/upload/class.upload.php:2189
+msgid "Image too short."
+msgstr "Изображението е прекалено ниско."
+
+#: ../vendor/upload/class.upload.php:2190
+msgid "Image ratio too high (image too wide)."
+msgstr "Съотношението на изображението е прекалено високо (изображението е прекалено широко)."
+
+#: ../vendor/upload/class.upload.php:2191
+msgid "Image ratio too low (image too high)."
+msgstr "Съотношението на изображението е прекалено ниско (изображението е прекалено високо)."
+
+#: ../vendor/upload/class.upload.php:2192
+msgid "Image has too many pixels."
+msgstr "Изображението има прекалено много пиксели."
+
+#: ../vendor/upload/class.upload.php:2193
+msgid "Image has not enough pixels."
+msgstr "Изображението няма достатъчно пиксели."
+
+#: ../vendor/upload/class.upload.php:2194
+msgid "File not uploaded. Can't carry on a process."
+msgstr "Файлът не беше качен. Процесът не може да продължи."
+
+#: ../vendor/upload/class.upload.php:2195
+#, php-format
+msgid "%s already exists. Please change the file name."
+msgstr "%s вече съществува. Моля, преименувайте."
+
+#: ../vendor/upload/class.upload.php:2196
+msgid "No correct temp source file. Can't carry on a process."
+msgstr "Неправилен временен файлов източник. Процесът не може да продължи."
+
+#: ../vendor/upload/class.upload.php:2197
+msgid "No correct uploaded source file. Can't carry on a process."
+msgstr "Неправилен файлов източник за качване. Процесът не може да продължи."
+
+#: ../vendor/upload/class.upload.php:2198
+msgid "Destination directory can't be created. Can't carry on a process."
+msgstr "Целевата директория не може да бъде създадена. Процесът не може да продължи."
+
+#: ../vendor/upload/class.upload.php:2199
+msgid "Destination directory doesn't exist. Can't carry on a process."
+msgstr "Целевата директория не съществува. Процесът не може да продължи."
+
+#: ../vendor/upload/class.upload.php:2200
+msgid "Destination path is not a directory. Can't carry on a process."
+msgstr "Целевият път не е директория. Процесът не може да продължи."
+
+#: ../vendor/upload/class.upload.php:2201
+msgid "Destination directory can't be made writeable. Can't carry on a process."
+msgstr "Целевата директория не може да получи права за запис. Процесът не може да продължи."
+
+#: ../vendor/upload/class.upload.php:2202
+msgid "Destination path is not a writeable. Can't carry on a process."
+msgstr "Целевият път е недостъпен за запис. Процесът не може да продължи."
+
+#: ../vendor/upload/class.upload.php:2203
+msgid "Can't create the temporary file. Can't carry on a process."
+msgstr "Неуспех при създаването на временния файл. Процесът не може да продължи."
+
+#: ../vendor/upload/class.upload.php:2204
+msgid "Source file is not readable. Can't carry on a process."
+msgstr "Файловият източник не може да бъде прочетен. Процесът не може да продължи."
+
+#: ../vendor/upload/class.upload.php:2205
+#, php-format
+msgid "No create from %s support."
+msgstr "Няма поддръжка за създаване от %s."
+
+#: ../vendor/upload/class.upload.php:2206
+#, php-format
+msgid "Error in creating %s image from source."
+msgstr "Грешка при създаването на %s изображение от източника."
+
+#: ../vendor/upload/class.upload.php:2207
+msgid "Can't read image source. Not an image?."
+msgstr "Неуспех при четенето на източника на изображението. Изображение ли е?"
+
+#: ../vendor/upload/class.upload.php:2208
+msgid "GD doesn't seem to be present."
+msgstr "Изглежда, GD не е налично."
+
+#: ../vendor/upload/class.upload.php:2209
+#, php-format
+msgid "No create from %s support, can't read watermark."
+msgstr "Няма поддръжка за създаване от %s, неуспех при четенето на водния знак."
+
+#: ../vendor/upload/class.upload.php:2210
+#, php-format
+msgid "No %s read support, can't create watermark."
+msgstr "Няма поддръжка за четене на %s, неуспех при четенето на водния знак."
+
+#: ../vendor/upload/class.upload.php:2211
+msgid "Unknown image format, can't read watermark."
+msgstr "Неизвестен формат на изображението, неуспех при четенето на водния знак."
+
+#: ../vendor/upload/class.upload.php:2212
+#, php-format
+msgid "No %s create support."
+msgstr "Няма поддръжка за създаване на %s."
+
+#: ../vendor/upload/class.upload.php:2213
+msgid "No conversion type defined."
+msgstr "Няма дефиниран тип преобразуване."
+
+#: ../vendor/upload/class.upload.php:2214
+msgid "Error copying file on the server. copy() failed."
+msgstr "Грешка при копирането на файла на сървъра. copy() failed."
+
+#: ../vendor/upload/class.upload.php:2215
+msgid "Error reading the file."
+msgstr "Грешка при четенето на файла."
+
+#~ msgid "The active plugin %s is not compatible with your PHP version."
+#~ msgstr "Активната приставка %s е несъвместима с вашата PHP версия."
+#~ msgid "%s is required for this plugin."
+#~ msgstr "За тази приставка се изисква %s."
+#~ msgid "A widget to move posts to the sidebar."
+#~ msgstr "Джаджа за прехвърляне на публикации в страничната лента."
+#~ msgid "Category not selected."
+#~ msgstr "Не е избрана категория."
+#~ msgid "Read more &raquo;"
+#~ msgstr "Прочетете още &raquo;"
+#~ msgid "No Comments"
+#~ msgstr "Няма коментари"
+#~ msgid "1 Comment"
+#~ msgstr "1 коментар"
+#~ msgid "% Comments"
+#~ msgstr "% коментари"
+#~ msgid "Comments closed"
+#~ msgstr "Коментарите са забранени"
+#~ msgid "Archive for"
+#~ msgstr "Архив за"
+#~ msgid "Title:"
+#~ msgstr "Заглавие:"
+#~ msgid "Category:"
+#~ msgstr "Категория:"
+#~ msgid "-- PRIVATE POSTS --"
+#~ msgstr "-- ЛИЧНИ ПУБЛИКАЦИИ --"
+#~ msgid "Number of posts:"
+#~ msgstr "Брой на публикациите:"
+#~ msgid "(At most %d)"
+#~ msgstr "(Най-много %d)"
+#~ msgid "Show:"
+#~ msgstr "Показване:"
+#~ msgid "Full Post"
+#~ msgstr "Цялата публикация"
+#~ msgid "Post Excerpt"
+#~ msgstr "Извадка от публикацията"
+#~ msgid "Excerpts with thumbnails"
+#~ msgstr "Извадки с умалени изображения"
+#~ msgid "Photo Blog"
+#~ msgstr "Фото блог"
+#~ msgid "Only Post Title"
+#~ msgstr "Само заглавието на публикацията"
+#~ msgid "Show category on all feeds"
+#~ msgstr "Показване на категорията във всички емисии"
+#~ msgid "Image width:"
+#~ msgstr "Ширина на изображението:"
+#~ msgid "pixels"
+#~ msgstr "пиксела"
+#~ msgid "Align thumbnail to right"
+#~ msgstr "Подравняване на изображението надясно"
+

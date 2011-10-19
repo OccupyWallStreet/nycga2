@@ -1,0 +1,622 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Joseph Scott, Matt Thomas, Noel Jackson, and Automattic
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: P2 1.0.5\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/p2\n"
+"POT-Creation-Date: 2010-03-04 09:39-0700\n"
+"PO-Revision-Date: 2010-07-02 07:23+0100\n"
+"Last-Translator: Peter Holme <peter@holme.se>\n"
+"Language-Team: http://code.google.com/p/no-wp/ <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Norwegian Bokmal\n"
+"X-Poedit-Country: NORWAY\n"
+
+#: comment-form.php:2
+#: comment-form.php:53
+#: entry.php:30
+#: entry.php:32
+#: functions.php:216
+#: functions.php:454
+msgid "Reply"
+msgstr "Svar"
+
+#: comment-form.php:8
+#, php-format
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>."
+msgstr "Logget inn som <a href=\"%1$s\">%2$s</a>."
+
+#: comment-form.php:10
+msgid "Log out of this account"
+msgstr "Logg ut av denne kontoen"
+
+#: comment-form.php:11
+msgid "Log out &rarr;"
+msgstr "Logg ut &rarr;"
+
+#: comment-form.php:19
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Du må være <a href=\"%s\">logget inn</a> for å kommentere."
+
+#: comment-form.php:35
+msgid "Name <em>(required)</em>"
+msgstr "Navn <em>(obligatorisk)</em>"
+
+#: comment-form.php:39
+msgid "Email <em>(required)</em>"
+msgstr "E-post <em>(obligatorisk)</em>"
+
+#: comment-form.php:43
+msgid "Web Site"
+msgstr "Nettsted"
+
+#: comment-form.php:57
+#: inc/js.php:36
+#: post-form.php:76
+msgid "Loading..."
+msgstr "Laster..."
+
+#: entry.php:7
+#: entry.php:18
+#, php-format
+msgid "Posts by %s"
+msgstr "Innlegg av %s"
+
+#: entry.php:29
+#: functions.php:136
+#: functions.php:224
+msgid "Permalink"
+msgstr "Permalenke"
+
+#: entry.php:36
+#: functions.php:136
+#: functions.php:220
+msgid "Edit"
+msgstr "Rediger"
+
+#: entry.php:41
+msgid "<br />Tags:"
+msgstr "<br />Stikkord:"
+
+#: entry.php:53
+#: entry.php:66
+#: entry.php:72
+#: inc/template-tags.php:134
+msgid "(More ...)"
+msgstr "(Mer...)"
+
+#: entry.php:81
+msgid "Toggle Comments"
+msgstr "Vis/skjul kommentarer"
+
+#: footer.php:8
+#, php-format
+msgid "P2 theme by %s."
+msgstr "P2-temaet av %s."
+
+#: footer.php:16
+msgid "compose new post"
+msgstr "lag nytt innlegg"
+
+#: footer.php:17
+msgid "next post/next comment"
+msgstr "neste innlegg/neste kommentar"
+
+#: footer.php:18
+msgid "previous post/previous comment"
+msgstr "forrige innlegg/forrige kommentar"
+
+#: footer.php:19
+msgid "reply"
+msgstr "svar"
+
+#: footer.php:20
+msgid "edit"
+msgstr "rediger"
+
+#: footer.php:21
+msgid "show/hide comments"
+msgstr "vis/skjul kommentarer"
+
+#: footer.php:22
+msgid "go to top"
+msgstr "gå til toppen"
+
+#: footer.php:23
+msgid "go to login"
+msgstr "gå til innlogging"
+
+#: footer.php:24
+msgid "show/hide help"
+msgstr "vis/skjul hjelp"
+
+#: footer.php:25
+msgid "cancel"
+msgstr "avbryt"
+
+#: functions.php:136
+msgid "on"
+msgstr "-"
+
+#: functions.php:141
+#: functions.php:222
+msgid "Your comment is awaiting moderation."
+msgstr "Din kommentar venter på godkjenning."
+
+#: functions.php:220
+msgid "Edit comment"
+msgstr "Rediger kommentar"
+
+#: functions.php:294
+msgid "Video Post"
+msgstr "Videoinnlegg"
+
+#: functions.php:296
+msgid "Image Post"
+msgstr "Bildeinnlegg"
+
+#: functions.php:455
+msgid "Log in to Reply"
+msgstr "Logg inn for å svare"
+
+#: functions.php:498
+#, php-format
+msgid "<strong>%1$s</strong> is proudly powered by %2$s."
+msgstr "<strong>%1$s</strong> er drevet av %2$s."
+
+#: functions.php:503
+msgid "Blog at WordPress.com"
+msgstr "Blogg på WordPress.com"
+
+#: inc/ajax.php:20
+#: inc/ajax.php:53
+#: inc/ajax.php:64
+#: inc/ajax.php:105
+#: inc/ajax.php:134
+msgid "Error: not logged in."
+msgstr "Feil: ikke logget inn."
+
+#: inc/ajax.php:25
+#: inc/ajax.php:71
+msgid "Error: not allowed to edit post."
+msgstr "Feil: ikke tillatt å redigere innlegg."
+
+#: inc/ajax.php:113
+msgid "Error: not allowed to edit this comment."
+msgstr "Feil: ikke tillatt å redigere denne kommentaren."
+
+#: inc/ajax.php:139
+msgid "Error: not allowed to post."
+msgstr "Feil: ikke tillatt å skrive innlegg."
+
+#: inc/ajax.php:146
+#: inc/js.php:28
+#: post-form.php:68
+#: post-form.php:69
+#: post-form.php:70
+msgid "Tag it"
+msgstr "Gi stikkord"
+
+#: inc/ajax.php:230
+msgid "Error: you must be logged in to post a comment."
+msgstr "Feil: du må være logget inn for å kommentere."
+
+#: inc/ajax.php:241
+msgid "Error: please fill the required fields (name, email)."
+msgstr "Feil: vennligst fyll ut de obligatoriske feltene (navn, e-post)."
+
+#: inc/ajax.php:243
+msgid "Error: please enter a valid email address."
+msgstr "Feil: vennligst skriv inn en gyldig e-postadresse."
+
+#: inc/ajax.php:247
+msgid "Error: Please type a comment."
+msgstr "Feil: vennligst skriv en kommentar."
+
+#: inc/ajax.php:261
+msgid "Error: Unknown error occurred. Comment not posted."
+msgstr "Feil: ukjent feil skjedde. Kommentaren ble ikke sendt."
+
+#: inc/js.php:29
+msgid "Go to homepage"
+msgstr "Gå til forside"
+
+#: inc/js.php:31
+#, php-format
+msgid "%d new update(s)"
+msgstr "%d ny(e) oppdatering(er)"
+
+#: inc/js.php:32
+#, php-format
+msgid "%d new comment(s)"
+msgstr "%d ny(e) kommentar(er)"
+
+#: inc/js.php:33
+msgid "Jump to top"
+msgstr "Hopp til toppen"
+
+#: inc/js.php:34
+msgid "An error has occurred, your post was not posted"
+msgstr "En feil har skjedd, ditt innlegg ble ikke sendt"
+
+#: inc/js.php:35
+msgid "Your update has been posted"
+msgstr "Din oppdatering har blitt sendt"
+
+#: inc/js.php:37
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: inc/js.php:38
+msgid "Save"
+msgstr "Lagre"
+
+#: inc/js.php:39
+#: single.php:12
+msgid "Hide threads"
+msgstr "Skjul tråder"
+
+#: inc/js.php:40
+msgid "Show threads"
+msgstr "Vis tråder"
+
+#: inc/js.php:41
+msgid "Your comments or posts will be lost if you continue."
+msgstr "Dine kommentarer eller innlegg vil gå tapt hvis du fortsetter."
+
+#: inc/js.php:42
+#: inc/template-tags.php:253
+#, php-format
+msgid "%1$s <em>on</em> %2$s"
+msgstr "%1$s <em>-</em> %2$s"
+
+#: inc/options-page.php:19
+#: inc/options-page.php:76
+msgid "P2 Options"
+msgstr "P2-innstillinger"
+
+#: inc/options-page.php:49
+#: inc/options-page.php:154
+msgid "Whatcha' up to?"
+msgstr "Hva skjer'a?"
+
+#: inc/options-page.php:70
+msgid "Options saved."
+msgstr "Innstillinger lagret."
+
+#: inc/options-page.php:81
+msgid "Functionality Options"
+msgstr "Valg for funksjonalitet"
+
+#: inc/options-page.php:89
+msgid "Posting Access:"
+msgstr "Tilgang til publisering:"
+
+#: inc/options-page.php:105
+msgid "Hide Threads:"
+msgstr "Skjul tråder:"
+
+#: inc/options-page.php:109
+msgid "Hide comment threads by default"
+msgstr "Skjul kommentartråder som standard"
+
+#: inc/options-page.php:120
+msgid "Design Options"
+msgstr "Designinnstillinger"
+
+#: inc/options-page.php:126
+msgid "Custom Background Color:"
+msgstr "Tilpasset bakgrunnsfarge:"
+
+#: inc/options-page.php:128
+msgid "Pick a Color"
+msgstr "Velg en farge"
+
+#: inc/options-page.php:134
+msgid "Background Image:"
+msgstr "Bakgrunnsbilde:"
+
+#: inc/options-page.php:136
+msgid "None"
+msgstr "Ingen"
+
+#: inc/options-page.php:137
+msgid "Bubbles"
+msgstr "Bobler"
+
+#: inc/options-page.php:138
+msgid "Polka Dots"
+msgstr "Polkaprikker"
+
+#: inc/options-page.php:139
+msgid "Squares"
+msgstr "Firkanter"
+
+#: inc/options-page.php:140
+msgid "Plaid"
+msgstr "Skotskrutet"
+
+#: inc/options-page.php:141
+msgid "Stripes"
+msgstr "Striper"
+
+#: inc/options-page.php:145
+msgid "Sidebar display:"
+msgstr "Visning av sidekolonne:"
+
+#: inc/options-page.php:148
+msgid "Hide the Sidebar"
+msgstr "Skjul sidekolonne"
+
+#: inc/options-page.php:152
+msgid "Post prompt:"
+msgstr "Innledning ved redigering"
+
+#: inc/options-page.php:155
+msgid "if empty, defaults to <strong>Whatcha up to?</strong>"
+msgstr "hvis tom, tilbakestilles den til <strong>Hva skjer'a?</strong>"
+
+#: inc/options-page.php:159
+msgid "Post Titles:"
+msgstr "Innleggstitler:"
+
+#: inc/options-page.php:162
+msgid "Display titles"
+msgstr "Vis titler"
+
+#: inc/options-page.php:172
+msgid "Update Options"
+msgstr "Oppdater innstillinger"
+
+#: inc/options-page.php:227
+msgid "Hide Text"
+msgstr "Skjul tekst"
+
+#: inc/options-page.php:233
+msgid "Show Text"
+msgstr "Vis tekst"
+
+#: inc/template-tags.php:97
+msgid ", and "
+msgstr ", og "
+
+#: inc/template-tags.php:117
+#, php-format
+msgid " and %s others are discussing."
+msgstr " og %s andre diskuterer."
+
+#: inc/template-tags.php:119
+msgid " and one other person are discussing."
+msgstr " og en annen person diskuterer."
+
+#: inc/template-tags.php:122
+msgid " is discussing."
+msgstr " diskuterer."
+
+#: inc/template-tags.php:124
+msgid " are discussing."
+msgstr " diskuterer."
+
+#: inc/template-tags.php:166
+#, php-format
+msgid "Hi, %s. %s"
+msgstr "Hei, %s. %s"
+
+#: inc/template-tags.php:166
+msgid "Whatcha up to?"
+msgstr "Hva skjer'a?"
+
+#: inc/widgets/recent-comments.php:5
+msgid "P2 Recent Comments"
+msgstr "P2 Siste kommentarer"
+
+#: inc/widgets/recent-comments.php:5
+msgid "Recent comments with avatars."
+msgstr "Siste kommentarer med avatarer."
+
+#: inc/widgets/recent-comments.php:30
+msgid "No avatar"
+msgstr "Ingen avatarer"
+
+#: inc/widgets/recent-comments.php:34
+#: inc/widgets/recent-tags.php:19
+msgid "Title:"
+msgstr "Tittel:"
+
+#: inc/widgets/recent-comments.php:40
+msgid "Number of comments to show:"
+msgstr "Antall kommentarer å vise:"
+
+#: inc/widgets/recent-comments.php:46
+msgid "Avatars:"
+msgstr "Avatarer:"
+
+#: inc/widgets/recent-comments.php:67
+msgid "Recent comments"
+msgstr "Siste kommentarer"
+
+#: inc/widgets/recent-comments.php:126
+msgid "Anonymous"
+msgstr "Anonym"
+
+#: inc/widgets/recent-comments.php:157
+#, php-format
+msgid "%s on <a href='%s' class='tooltip' title='%s'>%s</a>"
+msgstr "%s til <a href='%s' class='tooltip' title='%s'>%s</a>"
+
+#: inc/widgets/recent-tags.php:5
+msgid "P2 Recent Tags"
+msgstr "P2 Siste stikkord"
+
+#: inc/widgets/recent-tags.php:5
+msgid "The tags from the latest posts."
+msgstr "Stikkordene fra de siste innleggene."
+
+#: inc/widgets/recent-tags.php:25
+msgid "Number of tags to show:"
+msgstr "Antall stikkord å vise:"
+
+#: inc/widgets/recent-tags.php:41
+msgid "Recent tags"
+msgstr "Siste stikkord"
+
+#: inc/widgets/recent-tags.php:61
+msgid "All Updates RSS"
+msgstr "RSS med alle oppdateringer"
+
+#: index.php:11
+msgid "Recent Updates"
+msgstr "Siste oppdateringer"
+
+#: index.php:11
+#, php-format
+msgid "Page %s"
+msgstr "Side %s"
+
+#: index.php:16
+#, php-format
+msgid "Updates from %s|name"
+msgstr "Oppdateringer fra %s|navn"
+
+#: index.php:21
+#, php-format
+msgid "Posts Mentioning %s|name"
+msgstr "Innlegg som nevner %s|navn"
+
+#: index.php:26
+#, php-format
+msgid "Updates from %s|month"
+msgstr "Oppdateringer fra %s|måned"
+
+#: index.php:31
+msgid "Toggle Comment Threads"
+msgstr "Vis/skjul kommentartråder"
+
+#: index.php:31
+#: single.php:14
+msgid "Keyboard Shortcuts"
+msgstr "Tastatursnarveier"
+
+#: index.php:45
+#: single.php:27
+msgid "No posts yet!"
+msgstr "Ingen innlegg ennå!"
+
+#: index.php:52
+#: search.php:27
+#: tag.php:28
+msgid "&larr;&nbsp;Newer&nbsp;Posts"
+msgstr "&larr;&nbsp;Nyere&nbsp;innlegg"
+
+#: index.php:52
+#: search.php:27
+#: tag.php:28
+msgid "Older&nbsp;Posts&nbsp;&rarr;"
+msgstr "Eldre&nbsp;innlegg&nbsp;&rarr;"
+
+#: post-form.php:3
+#: post-form.php:10
+#: post-form.php:49
+#: post-form.php:50
+msgid "Post Title"
+msgstr "Innleggstittel"
+
+#: post-form.php:28
+msgid "Status Update"
+msgstr "Statusoppdatering"
+
+#: post-form.php:29
+msgid "Blog Post"
+msgstr "Blogginnlegg"
+
+#: post-form.php:30
+msgid "Quote"
+msgstr "Sitat"
+
+#: post-form.php:31
+msgid "Link"
+msgstr "Lenke"
+
+#: post-form.php:59
+#: post-form.php:61
+#: post-form.php:62
+#: post-form.php:63
+msgid "Citation"
+msgstr "Kilde"
+
+#: post-form.php:71
+msgid "Post it"
+msgstr "Send"
+
+#: search.php:6
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Søkeresultater for: %s"
+
+#: search.php:21
+#: tag.php:22
+msgid "No posts found!"
+msgstr "Ingen innlegg funnet!"
+
+#: single.php:34
+msgid "&larr;&nbsp;Older&nbsp;Posts"
+msgstr "&larr;&nbsp;Eldre&nbsp;innlegg"
+
+#: single.php:34
+msgid "Newer&nbsp;Posts&nbsp;&rarr;"
+msgstr "Nyere&nbsp;innlegg&nbsp;&rarr;"
+
+#: tag.php:7
+#, php-format
+msgid "Tagged: %s"
+msgstr "Merket: %s"
+
+#. Theme Name of an extension
+msgid "P2"
+msgstr "P2"
+
+#. Description of an extension
+msgid "A group blog theme for short update messages, inspired by Twitter. Featuring: Hassle-free posting from the front page. Perfect for group blogging, or as a liveblog theme. Dynamic page updates. Threaded comment display on the front page. In-line editing for posts and comments. Live tag suggestion based on previously used tags. A show/hide feature for comments, to keep things tidy. Real-time notifications when a new comment or update is posted. Super-handy keyboard shortcuts. Helvetica Neue for you modern font lovers. And more to come..."
+msgstr "Et gruppebloggtema for korte oppdateringer, inspirert av Twitter. Det beste med P2: Skriv enkelt oppdateringer fra forsiden. Nøstede kommentarer vises på forsiden. Rediger innlegg og kommentarer rett fra siden. Foreslår stikkord basert på tidligere brukte stikkord. Vis/skjul-funksjon for kommentarer, for å holde ting ryddig, Realtidoppdateringer når nye kommentarer eller oppdateringer blir sendt. Supereffektive tastatursnarveier. Helvetica Neue for alle dere moderne font-elskere. Og mer kommer..."
+
+#. Author of an extension
+msgid "Joseph Scott, Matt Thomas, Noel Jackson, and Automattic"
+msgstr "Joseph Scott, Matt Thomas, Noel Jackson, og Automattic"
+
+#. Author URI of an extension
+msgid "http://automattic.com/"
+msgstr "http://automattic.com/"
+
+#. Tags of an extension
+msgid "blue, two-columns, fixed-width, rtl-language-support, right-sidebar, white, light, front-page-post-form"
+msgstr "blå, to-kolonner, fast-bredde, rtl-språk-støtte, høyre-sidekolonne, hvit, lys, skriv-på-forsiden"
+
+#~ msgid "Read the rest of this page &rarr;"
+#~ msgstr "Les resten av denne siden &rarr;"
+
+#~ msgid "Pages:"
+#~ msgstr "Sider:"
+
+#~ msgid "Greeting text:"
+#~ msgstr "Velkomsttekst:"
+
+#~ msgid "(at most 15)"
+#~ msgstr "(15 som mest)"
+
+#~ msgid "Avatar Size (px):"
+#~ msgstr "Avatarstørrelse (px):"
+
+#~ msgid "Avatar background color:"
+#~ msgstr "Avatarers bakgrunnsfarge:"
+
+#~ msgid "Hi, %s. Whatcha up to?"
+#~ msgstr "Hei, %s. Hva skjer'a?"
+
+#~ msgid "blue, two columns, fixed width, threaded comments, microblog, rtl"
+#~ msgstr "blå, to kolonner, fast bredde, nøstede kommentarer, mikroblogg, rtl"

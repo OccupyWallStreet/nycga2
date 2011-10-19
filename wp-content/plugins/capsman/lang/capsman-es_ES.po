@@ -1,0 +1,392 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Capability Manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-29 15:03+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jordi Canals <devel@jcanals.cat>\n"
+"Language-Team: Jordi Canals | http://alkivia.org <devel@jcanals.cat>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../capsman.php:53
+msgid "Warning:"
+msgstr "Atención:"
+
+#: ../capsman.php:54
+#, php-format
+msgid "The active plugin %s is not compatible with your PHP version."
+msgstr "La extensión activa %s no es compatible con tu versión de PHP."
+
+#: ../capsman.php:56
+#, php-format
+msgid "%s is required for this plugin."
+msgstr "Se require %s para utilizar esta extensión."
+
+#: ../includes/admin.php:36
+msgid "Roles and Capabilities"
+msgstr "Roles y Permisos"
+
+#: ../includes/admin.php:45
+#, php-format
+msgid "Capabilities for %s"
+msgstr "Permisos para %s"
+
+#: ../includes/admin.php:92
+msgid "Level:"
+msgstr "Nivel:"
+
+#: ../includes/admin.php:115
+#: ../includes/manager.php:319
+msgid "Save Changes"
+msgstr "Guardar cambios"
+
+#: ../includes/admin.php:117
+msgid "Delete this role"
+msgstr "Eliminar este rol"
+
+#: ../includes/admin.php:117
+#, php-format
+msgid ""
+"You are about to delete the %s role.\n"
+" 'Cancel' to stop, 'OK' to delete."
+msgstr ""
+"Estás a intentando eliminar el rol %s.\n"
+"  'Aceptar' para borrar, 'Cancelar' para salir."
+
+#: ../includes/admin.php:117
+msgid "Delete Role"
+msgstr "Eliminar Rol"
+
+#: ../includes/admin.php:128
+msgid "Select New Role"
+msgstr "Seleccionar nuevo Rol"
+
+#: ../includes/admin.php:136
+#: ../includes/manager.php:296
+msgid "Change"
+msgstr "Cambiar"
+
+#: ../includes/admin.php:141
+msgid "Create New Role"
+msgstr "Crear nuevo Rol"
+
+#: ../includes/admin.php:144
+#: ../includes/manager.php:300
+msgid "Create"
+msgstr "Crear"
+
+#: ../includes/admin.php:149
+msgid "Copy this role to"
+msgstr "Copiar este rol a"
+
+#: ../includes/admin.php:152
+#: ../includes/manager.php:309
+msgid "Copy"
+msgstr "Copiar"
+
+#: ../includes/admin.php:157
+msgid "Add Capability"
+msgstr "Añadir Permiso"
+
+#: ../includes/admin.php:160
+#: ../includes/manager.php:323
+msgid "Add to role"
+msgstr "Añadir al rol"
+
+#: ../includes/backup.php:33
+msgid "Backup Tool for Capability Manager"
+msgstr "Herramienta de copias de seguridad para Capability Manager"
+
+#: ../includes/backup.php:42
+msgid "Backup and Restore"
+msgstr "Salvar y Recuperar"
+
+#: ../includes/backup.php:46
+msgid "Select action:"
+msgstr "Selecciona una acción:"
+
+#: ../includes/backup.php:49
+msgid "Backup roles and capabilities"
+msgstr "Crea una copia de seguridad de roles y permisos"
+
+#: ../includes/backup.php:50
+msgid "Restore last saved backup"
+msgstr "Recupera la última copia de seguridad"
+
+#: ../includes/backup.php:52
+msgid "Do Action"
+msgstr "Ejecutar Acción"
+
+#: ../includes/backup.php:60
+msgid "Reset WordPress Defaults"
+msgstr "Restaurar valores por defecto de WordPress"
+
+#: ../includes/backup.php:62
+msgid "WARNING:"
+msgstr "ATENCIÓN:"
+
+#: ../includes/backup.php:62
+msgid "Reseting default Roles and Capabilities will set them to the WordPress install defaults."
+msgstr "Restaurando los Roles y Premisos por defecto, los devolverá al estado por defecto de la instalación de WordPress."
+
+#: ../includes/backup.php:63
+msgid "If you have installed any plugin that adds new roles or capabilities, these will be lost."
+msgstr "Si has instalado algún plugin que añade roles o permisos, estos se perderán."
+
+#: ../includes/backup.php:64
+msgid "It is recommended to use this only as a last resource!"
+msgstr "¡Se recomienda utilitzar esta opción solo como último recurso!"
+
+#: ../includes/backup.php:65
+msgid "Reset Roles and Capabilities to WordPress defaults"
+msgstr "Restaura Roles y Permisos a los valores por defecto de WordPress"
+
+#: ../includes/backup.php:65
+msgid ""
+"You are about to reset Roles and Capabilities to WordPress defaults.\n"
+" 'Cancel' to stop, 'OK' to reset."
+msgstr ""
+"Estás a intentando restaurar los valores por defecto de WordPress para Roles y Permisos.\n"
+"  'Aceptar' para restaurar, 'Cancelar' para abandonar."
+
+#: ../includes/backup.php:65
+msgid "Reset to WordPress defaults"
+msgstr "Restaura los valores por defecto de WordPress"
+
+#: ../includes/manager.php:139
+#: ../includes/manager.php:140
+msgid "Capability Manager"
+msgstr "Administrador de Permisos"
+
+#: ../includes/manager.php:139
+msgid "Capabilities"
+msgstr "Permisos"
+
+#: ../includes/manager.php:220
+#: ../includes/manager.php:256
+msgid "What do you think you're doing?!?"
+msgstr "¿Que piensas que estás haciendo?"
+
+#: ../includes/manager.php:283
+msgid "Bad form Received"
+msgstr "Se ha recibido un formulario incorrecto."
+
+#: ../includes/manager.php:302
+#: ../includes/manager.php:312
+msgid "New role created."
+msgstr "Se ha creado el nuevo rol."
+
+#: ../includes/manager.php:305
+#: ../includes/manager.php:315
+msgid "Error: Failed creating the new role."
+msgstr "Error: No se ha podido crear el nuevo rol."
+
+#: ../includes/manager.php:320
+msgid "New capabilities saved."
+msgstr "Se han actualizado los nuevos permisos."
+
+#: ../includes/manager.php:328
+msgid "New capability added to role."
+msgstr "Nuevos permiso añadido al rol."
+
+#: ../includes/manager.php:330
+msgid "Incorrect capability name."
+msgstr "Nombre incorrecto de permiso ."
+
+#: ../includes/manager.php:334
+msgid "Bad form received."
+msgstr "Se ha recibido un formulario incorrecto."
+
+#: ../includes/manager.php:354
+msgid "New backup saved."
+msgstr "Se ha creado una nueva copia de seguridad."
+
+#: ../includes/manager.php:360
+msgid "Roles and Capabilities restored from last backup."
+msgstr "Roles y permisos restaurados de la última copia de seguridad."
+
+#: ../includes/manager.php:362
+msgid "Restore failed. No backup found."
+msgstr "Ha fallado la recuperación. No se encontró ninguna copia de seguridad."
+
+#: ../includes/manager.php:384
+#, php-format
+msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
+msgstr "No se puede eliminar el rol predeterminado. <a href=\"%s\">Debes cambiarlo antes</a>."
+
+#: ../includes/manager.php:405
+#, php-format
+msgid "Role has been deleted. %1$d users moved to default role %2$s."
+msgstr "El rol ha sido eliminado. Se ha asignado el rol predeterminado %2$s a %1$d usuarios."
+
+#: ../includes/manager.php:419
+msgid "Needed function to create default roles not found!"
+msgstr "¡No se encontró la función necesaria para crear los roles por defecto!"
+
+#: ../includes/manager.php:431
+msgid "Roles and Capabilities reset to WordPress defaults"
+msgstr "Roles y Permisos restaurados a los valores por defecto de WordPress"
+
+#: ../includes/manager.php:606
+msgid "You cannot remove Manage Capabilities from Administrators"
+msgstr "No se puede eliminar 'Manage Capabilities' de los administradores."
+
+#~ msgid "Option blocked by administrator."
+#~ msgstr "Opción bloqueada por el administrador."
+#~ msgid "The active plugin %s is not compatible with your WordPress version."
+#~ msgstr ""
+#~ "La extensión activa %s no es compatible con tu versión de WordPress."
+#~ msgid "WordPress %s is required to run this plugin."
+#~ msgstr "Se require WordPress %s para ejecutar esta extensión."
+#~ msgid "Standard sidebar functions are not present."
+#~ msgstr ""
+#~ "No se han encontrado algunas funciones de la barra lateral estándar."
+#~ msgid "It is required to use the standard sidebar to run %s"
+#~ msgstr "Es preciso utilizar la barra lateral estándar para ejectutar %s"
+#~ msgid "Settings saved."
+#~ msgstr "Opciones guardadas."
+#~ msgid "Just Now"
+#~ msgstr "Ahora mismo"
+#~ msgid "1 minute ago"
+#~ msgstr "Hace 1 minuto"
+#~ msgid "1 hour ago"
+#~ msgstr "Hace una hora"
+#~ msgid "Today at %s"
+#~ msgstr "Hoy a las %s"
+#~ msgid "Yesterday at %s"
+#~ msgstr "Ayer a las %s"
+#~ msgid "Plugin Homepage"
+#~ msgstr "Página del plugin"
+#~ msgid "Theme Homepage"
+#~ msgstr "Página del tema"
+#~ msgid "Documentation"
+#~ msgstr "Documentación"
+#~ msgid "Support Forum"
+#~ msgstr "Foro de soporte"
+#~ msgid "Author Homepage"
+#~ msgstr "Página del autor"
+#~ msgid "Donate to project"
+#~ msgstr "Haz un donativo"
+#~ msgid "File error. Please try again."
+#~ msgstr "Error de archivo. Por favor, reintentalo de nuevo."
+#~ msgid "Local file doesn't exist."
+#~ msgstr "El archivo local no existe."
+#~ msgid "Local file is not readable."
+#~ msgstr "El archivo local no es legible."
+#~ msgid ""
+#~ "File upload error (the uploaded file exceeds the upload_max_filesize "
+#~ "directive in php.ini)."
+#~ msgstr ""
+#~ "Error de carga de archivo (el archivo cargado excede la directiva "
+#~ "UPLOAD_MAX_FILESIZE de PHP)."
+#~ msgid ""
+#~ "File upload error (the uploaded file exceeds the MAX_FILE_SIZE directive "
+#~ "that was specified in the html form)."
+#~ msgstr ""
+#~ "Error de carga de archivo (el archivo enviado excede la directiva "
+#~ "MAX_FILE_SIZE especificada en el formulario)."
+#~ msgid "File upload error (the uploaded file was only partially uploaded)."
+#~ msgstr ""
+#~ "Error de carga de archivo (el archivo sólo se recibió parcialmente)."
+#~ msgid "File upload error (no file was uploaded)."
+#~ msgstr "Error de carga de archivo (no se recibió archivo)."
+#~ msgid "File upload error (missing a temporary folder)."
+#~ msgstr "Error de carga de archivo (falta la carpeta temporal)."
+#~ msgid "File upload error (failed to write file to disk)."
+#~ msgstr "Error de carga de archivo (no se pudo escribir en el disco)."
+#~ msgid "File upload error (file upload stopped by extension)."
+#~ msgstr ""
+#~ "Error de carga de archivo (se ha bloquedao el archivo por extensión)."
+#~ msgid "File upload error (unknown error code)."
+#~ msgstr "Error de carga de archivo (código de error desconocido)."
+#~ msgid "File upload error. Please try again."
+#~ msgstr "Error de carga de archivo. Por favor, reinténtalo."
+#~ msgid "File too big."
+#~ msgstr "Archivo demasiado grande."
+#~ msgid "MIME type can't be detected."
+#~ msgstr "No se pudo detectar el tipo MIME."
+#~ msgid "Incorrect type of file."
+#~ msgstr "Tipo de archivo incorrecto."
+#~ msgid "Image too wide."
+#~ msgstr "Imagen demasiado ancha."
+#~ msgid "Image too narrow."
+#~ msgstr "Imagen demasiado estrecha."
+#~ msgid "Image too high."
+#~ msgstr "Imagen demasiado alta."
+#~ msgid "Image too short."
+#~ msgstr "Imagen demasiado baja."
+#~ msgid "Image ratio too high (image too wide)."
+#~ msgstr "Ratio de imagen demariado alto (imagen demasiado ancha)."
+#~ msgid "Image ratio too low (image too high)."
+#~ msgstr "Ratio de imagen demasiado bajo (imagen demasiado alta)."
+#~ msgid "Image has too many pixels."
+#~ msgstr "La imágen tiene demasiados píxeles."
+#~ msgid "Image has not enough pixels."
+#~ msgstr "La imagen no tiene suficientes píxeles."
+#~ msgid "File not uploaded. Can't carry on a process."
+#~ msgstr "No se ha cargado el archivo. No se puede ejecutar el proceso."
+#~ msgid "%s already exists. Please change the file name."
+#~ msgstr "El archivo %s ya existe. Por favor, cambia el nombre de archivo."
+#~ msgid "No correct temp source file. Can't carry on a process."
+#~ msgstr "El archivo temporal es incorrecto. No se puede ejecutar el proceso."
+#~ msgid "No correct uploaded source file. Can't carry on a process."
+#~ msgstr "Archivo original incorrecto. No se puede ejecutar el proceso."
+#~ msgid "Destination directory can't be created. Can't carry on a process."
+#~ msgstr ""
+#~ "No se puede crear el directorio de destino. No se puede realizar el "
+#~ "proceso."
+#~ msgid "Destination directory doesn't exist. Can't carry on a process."
+#~ msgstr ""
+#~ "El directorio de destino no existe.  No se puede realizar el proceso."
+#~ msgid "Destination path is not a directory. Can't carry on a process."
+#~ msgstr ""
+#~ "La ruta de destino no es un directorio.  No se puede realizar el proceso."
+#~ msgid ""
+#~ "Destination directory can't be made writeable. Can't carry on a process."
+#~ msgstr ""
+#~ "El directorio de destino no se puede cambiar a escribible.  No se puede "
+#~ "realizar el proceso."
+#~ msgid "Destination path is not a writeable. Can't carry on a process."
+#~ msgstr ""
+#~ "No se puede escribir en la ruta de destino.  No se puede realizar el "
+#~ "proceso."
+#~ msgid "Can't create the temporary file. Can't carry on a process."
+#~ msgstr ""
+#~ "No se puede crar un archivo temporal. No se puede ejecutar el proceso."
+#~ msgid "Source file is not readable. Can't carry on a process."
+#~ msgstr ""
+#~ "No se puede leer el archivo original. No se puede ejecutar el proceso."
+#~ msgid "No create from %s support."
+#~ msgstr "No hay soporte para crear desde %s."
+#~ msgid "Error in creating %s image from source."
+#~ msgstr "Error creacdo la imagen %s desde el original."
+#~ msgid "Can't read image source. Not an image?."
+#~ msgstr "No se puede leer la imagen orginal. ¿Es una imagen?"
+#~ msgid "GD doesn't seem to be present."
+#~ msgstr "No se ha detectado la libreria GD."
+#~ msgid "No create from %s support, can't read watermark."
+#~ msgstr ""
+#~ "No hay soporte para crear desde %s. No se puede leer la marca de agua."
+#~ msgid "No %s read support, can't create watermark."
+#~ msgstr "No hay soporte para leer %s. No se puede crear la marca de agua."
+#~ msgid "Unknown image format, can't read watermark."
+#~ msgstr "Formato de imagen desconocido. No se puede leer la marca al agua."
+#~ msgid "No %s create support."
+#~ msgstr "No hay soporte para crear %s."
+#~ msgid "No conversion type defined."
+#~ msgstr "No se ha definido el tipo de conversión."
+#~ msgid "Error copying file on the server. copy() failed."
+#~ msgstr "Error coipiando el archivo en el servidor. Ha fallado copy()."
+#~ msgid "Error reading the file."
+#~ msgstr "Error leyendo el archivo."
+#~ msgid "Help donating"
+#~ msgstr "Ayuda donando"
+#~ msgid "Managing %s"
+#~ msgstr "Administrando %s"
+

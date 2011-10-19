@@ -1,0 +1,206 @@
+/* @override http://beta.bravenewcode.com/wordpress/wp-content/plugins/wptouch/admin-css/bnc-global.css */
+
+/* Global styles applied to BraveNewCode plugins */
+
+/* @group Global Plugin Styles */
+
+#bnc-global {
+	color: #444;
+	margin-bottom: 35px;
+	width: 98%;
+}
+
+#bnc-global .postbox {
+	position: relative;
+	overflow: hidden;
+	background-color: #fff;
+	padding: 10px;
+}
+
+#bnc-global .postbox h3 {
+	margin: -10px -10px 0;
+	cursor: default;
+}
+
+#bnc-global a {
+	text-decoration: none;
+}
+
+#bnc-global a.orange-link {
+	color: #d54e21;
+}
+
+#bnc-global a.orange-link:hover {
+	color: #3c627f;
+}
+
+#bnc-global a.fancylink {
+	color: red;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+#bnc-global, #bnc-global .postbox, #bnc-global .postbox ul, #bnc-global .postbox p, #bnc-global p {
+	margin-top: 10px;
+}
+
+#bnc-global .left-content {
+	width: 28%;
+	float: left;
+	padding-right: 10px;
+	margin-top: 10px;
+	position: relative;
+}
+
+#bnc-global .left-content h4 {
+	margin: 2px 0 0;
+	padding: 0 0 4px;
+	letter-spacing: 0;
+	color: #d54e21;
+}
+
+#bnc-global .left-content p {
+	margin-top: 0;
+}
+
+#bnc-global .left-content ul {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+#bnc-global .left-content li {
+	color: #536e90;
+	margin: 0 5px;
+	padding: 1px 0;
+	list-style-type: circle;
+	list-style-position: inside;
+}
+
+#bnc-global .right-content li {
+	list-style-type: none;
+}
+
+#bnc-global .right-content {
+	width: 63%;
+	float: left;
+	margin-left: 3%;
+	border-left: 1px solid #e6e6e6;
+	padding-left: 10px;
+	padding-bottom: 50px;
+}
+
+#bnc-global .bnc-clearer {
+	clear: both;
+}
+
+#bnc-global select {
+	vertical-align: baseline;
+	width: 176px;
+	margin-right: 5px;
+}
+
+#bnc-global input.checkbox {
+	margin-right: 5px;
+	vertical-align: middle;
+	width: auto;
+	border-style: none;
+}
+
+#bnc-global input {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	margin-right: 7px;
+	width: 177px;
+	color: #555;
+	margin-left: 5px;
+}
+
+#bnc-global input:focus {
+	background-color: #fff;
+}
+
+#bnc-global ul.wptouch-make-li-italic li {
+	font-style: italic;
+}
+
+/* @end */
+
+/* @group Global H3 Icons */
+
+#bnc-global h3 span {
+	background: no-repeat 0 0;
+	height: 16px;
+	margin-right: 5px;
+	width: 16px;
+	display: block;
+	float: left;
+	bottom: 2px;
+	position: relative;
+}
+
+#bnc-global h3 span.global-settings {
+	background: url(../images/h3_icons/general.png);
+}
+
+#bnc-global h3 span.advanced-options {
+	background: url(../images/h3_icons/advanced.png);
+}
+
+#bnc-global h3 span.push-options {
+	background: url(../images/h3_icons/push.png);
+}
+
+#bnc-global h3 span.style-options {
+	background: url(../images/h3_icons/style.png);
+}
+
+#bnc-global h3 span.icon-options {
+	background: url(../images/h3_icons/iconpool.png);
+}
+
+#bnc-global h3 span.page-options {
+	background: url(../images/h3_icons/page.png);
+}
+
+#bnc-global h3 span.adsense-options {
+	background: url(../images/h3_icons/adsense.png);
+}
+
+#bnc-global h3 span.plugin-options {
+	background: url(../images/h3_icons/plugin.png);
+}
+
+#bnc-global h3 span.rss-head {
+	background: url(../images/h3_icons/rss.png) 0 1px;
+}
+
+#bnc-global h3 span.news-head {
+	background: url(../images/h3_icons/megaphone.png) 0 1px;
+}
+
+/* @end */
+
+/* @group Save/Restore Button Area */
+
+#bnc-global input#bnc-button {
+	color: #fff;
+}
+
+#bnc-global input#bnc-button, #bnc-global input#bnc-button-reset {
+	border: 2px solid #b2cfe4;
+	float: left;
+	width: 12%;
+	padding: 4px;
+}
+
+#bnc-global input#bnc-button-reset:hover {
+	border-color: red;
+	color: red;
+}
+
+#bnc-global input#bnc-button:hover {
+	border: 2px solid #305769;
+	color: #cdebfd;
+}
+
+/* @end */

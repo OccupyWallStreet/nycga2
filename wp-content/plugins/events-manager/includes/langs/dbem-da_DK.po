@@ -1,0 +1,5510 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Events Manager 4.0.83\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/events-manager\n"
+"POT-Creation-Date: 2011-06-30 14:49:00+00:00\n"
+"PO-Revision-Date: 2011-09-29 19:36+0100\n"
+"Last-Translator: Marcus Sykes <noreply@wp-events-plugin.com>\n"
+"Language-Team:  <kim@ingolf.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Danish\n"
+"X-Poedit-Country: DENMARK\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: Event Manage\n"
+
+#@ dbem
+#: admin/em-options.php:302
+#: buddypress/bp-em-core.php:55
+#: buddypress/bp-em-core.php:123
+#: buddypress/bp-em-core.php:134
+#: buddypress/bp-em-notifications.php:44
+#: buddypress/screens/profile.php:27
+#: em-actions.php:108
+#: em-install.php:325
+#: em-install.php:368
+#: em-install.php:407
+#: em-install.php:408
+#: em-install.php:430
+#: em-install.php:548
+#: em-template-tags.php:74
+#: events-manager.php:319
+#: widgets/em-events.php:13
+msgid "Events"
+msgstr "Events"
+
+#@ dbem
+#: events-manager.php:208
+#, php-format
+msgid "You do not have permission to publish %s"
+msgstr "Du har ikke tilladelse til at udgive %s"
+
+#@ dbem
+#: admin/em-options.php:362
+#: admin/em-options.php:363
+#: admin/em-options.php:389
+#: admin/em-options.php:390
+#: events-manager.php:208
+#: events-manager.php:210
+#: events-manager.php:214
+#: events-manager.php:216
+#: events-manager.php:221
+msgid "events"
+msgstr "events"
+
+#@ dbem
+#: events-manager.php:209
+#: events-manager.php:217
+#: events-manager.php:220
+#: events-manager.php:221
+#, php-format
+msgid "You do not have permission to edit %s"
+msgstr "Du har ikke tilladelse  til at redigere %s"
+
+#@ dbem
+#: admin/em-options.php:376
+#: admin/em-options.php:377
+#: admin/em-options.php:378
+#: admin/em-options.php:379
+#: admin/em-options.php:380
+#: classes/em-category.php:100
+#: events-manager.php:209
+msgid "categories"
+msgstr "kategori"
+
+#@ dbem
+#: events-manager.php:210
+#: events-manager.php:211
+#, php-format
+msgid "You do not have permission to delete others %s"
+msgstr "Du har ikke tilladelse til at slette andres %s"
+
+#@ dbem
+#: admin/em-options.php:348
+#: admin/em-options.php:349
+#: admin/em-options.php:350
+#: admin/em-options.php:351
+#: admin/em-options.php:352
+#: classes/em-location.php:157
+#: classes/em-location.php:199
+#: events-manager.php:211
+#: events-manager.php:212
+#: events-manager.php:215
+#: events-manager.php:217
+#: events-manager.php:219
+msgid "locations"
+msgstr "lokationer"
+
+#@ dbem
+#: events-manager.php:212
+#: events-manager.php:214
+#, php-format
+msgid "You do not have permission to edit others %s"
+msgstr "Du har ikke tilladelse til at redigere andres %s"
+
+#@ dbem
+#: events-manager.php:213
+#, php-format
+msgid "You do not have permission to manage others %s"
+msgstr "Du har ikke tilladelse til at administrere andres %s"
+
+#@ dbem
+#: events-manager.php:213
+#: events-manager.php:218
+msgid "bookings"
+msgstr "tilmeldinger"
+
+#@ dbem
+#: events-manager.php:215
+#: events-manager.php:216
+#, php-format
+msgid "You do not have permission to delete %s"
+msgstr "Du har ikke tilladelse til at administrere %s"
+
+#@ dbem
+#: events-manager.php:218
+#, php-format
+msgid "You do not have permission to manage %s"
+msgstr "Du har ikke tilladelse til at administrere %s"
+
+#@ dbem
+#: events-manager.php:219
+#, php-format
+msgid "You cannot to view others %s"
+msgstr "Du kan ikke se andres %s"
+
+#@ dbem
+#: events-manager.php:220
+msgid "recurrences"
+msgstr "gentagelser"
+
+#@ dbem
+#: admin/em-event.php:574
+#: buddypress/bp-em-core.php:185
+#: classes/em-event.php:808
+#: events-manager.php:322
+#: templates/forms/event-editor.php:366
+msgid "Edit"
+msgstr "Rediger"
+
+#@ dbem
+#: events-manager.php:323
+msgid "Add new"
+msgstr "Tilføj ny"
+
+#@ dbem
+#: admin/em-locations.php:41
+#: admin/em-locations.php:52
+#: admin/em-locations.php:55
+#: admin/em-options.php:346
+#: admin/em-options.php:348
+#: admin/em-options.php:349
+#: admin/em-options.php:350
+#: admin/em-options.php:351
+#: admin/em-options.php:352
+#: em-actions.php:170
+#: em-install.php:372
+#: em-install.php:373
+#: events-manager.php:324
+#: templates/buddypress/my-locations.php:27
+#: templates/buddypress/my-locations.php:30
+msgid "Locations"
+msgstr "Lokationer"
+
+#@ dbem
+#: admin/em-events.php:163
+#: em-events.php:134
+#: events-manager.php:325
+#: templates/buddypress/my-events.php:115
+msgid "Bookings"
+msgstr "Tilmeldinger"
+
+#@ dbem
+#: events-manager.php:326
+msgid "Event Categories"
+msgstr "Event-kategorier"
+
+#@ dbem
+#: admin/em-categories.php:57
+#: admin/em-options.php:374
+#: admin/em-options.php:376
+#: admin/em-options.php:377
+#: admin/em-options.php:378
+#: admin/em-options.php:379
+#: admin/em-options.php:380
+#: em-install.php:397
+#: em-install.php:399
+#: events-manager.php:326
+msgid "Categories"
+msgstr "Kategori"
+
+#@ dbem
+#: events-manager.php:327
+msgid "Events Manager Settings"
+msgstr "Event Manager indstillinger"
+
+#@ dbem
+#: events-manager.php:327
+#: events-manager.php:473
+msgid "Settings"
+msgstr "Indstillinger"
+
+#@ dbem
+#: admin/em-help.php:10
+#: events-manager.php:328
+msgid "Getting Help for Events Manager"
+msgstr "Få hjælp til Events manager"
+
+#@ dbem
+#: events-manager.php:328
+msgid "Help"
+msgstr "Hjælp"
+
+#@ dbem
+#: events-manager.php:456
+msgid "Add an event"
+msgstr "Tilføj en event"
+
+#@ dbem
+#: admin/em-docs.php:15
+msgid "Do a search for this string within event name, details and location address."
+msgstr "Søg efter denne streng indenfor eventnavn, detaljer og lokationsadresse."
+
+#@ dbem
+#: admin/em-docs.php:16
+msgid "See the events lists limit option on the settings page."
+msgstr "Se event-tabellernes afgrænsningsmuligheder på indstillingssiden."
+
+#@ dbem
+#: admin/em-docs.php:17
+#: admin/em-docs.php:33
+msgid "Choose what fields to order your results by. You can supply a single field or multiple comma-seperated fields (e.g. \"start_date,name\")."
+msgstr "Vælg hvilke felter dine resultater skal sorteres efter. Du kan tilføje et enkelt felt eller flere komma-seperarede felter (f.eks. \"start_date,name\")."
+
+#@ dbem
+#: admin/em-docs.php:17
+#: admin/em-docs.php:18
+msgid "See the event lists ordering option on the settings page."
+msgstr "Se events-tabellernes sorteringsmulighed på indstillingssiden."
+
+#@ dbem
+#: admin/em-docs.php:31
+msgid "If set to 1 will only show locations that have at least one event occurring during the scope."
+msgstr "Hvis 1vælges vil der kun vises lokationer der har mindst ét event der forekommer inden for definerede indhold."
+
+#@ dbem
+#: admin/em-docs.php:32
+msgid "If set to 1 will only show locations that have no events occurring during the scope."
+msgstr "Hvis 1 vælges vil der kun vises lokationer der ikke har events der forekommer inden for det definerede indhold."
+
+#@ dbem
+#: admin/em-docs.php:35
+msgid "Search for locations in this town (no partial matches, case sensitive)."
+msgstr "Søg efter lokationer i denne by (ingen delvist matchende, store og små bogstaver)."
+
+#@ dbem
+#: admin/em-docs.php:22
+#: admin/em-docs.php:23
+#: admin/em-docs.php:24
+#: admin/em-docs.php:25
+#: admin/em-docs.php:26
+#: admin/em-docs.php:35
+#: admin/em-docs.php:36
+#: admin/em-docs.php:37
+#: admin/em-docs.php:38
+#: admin/em-docs.php:39
+msgid "none"
+msgstr "ingen"
+
+#@ dbem
+#: admin/em-docs.php:36
+msgid "Search for locations in this state (no partial matches, case sensitive)."
+msgstr "Søg efter lokationer i denne stat (ingen delvist matchende, store og små bogstaver)."
+
+#@ dbem
+#: admin/em-docs.php:37
+msgid "Search for locations in this region (no partial matches, case sensitive)."
+msgstr "Søg efter lokationer i denne region (ingen delvist matchende, store og små bogstaver)."
+
+#@ dbem
+#: admin/em-docs.php:38
+msgid "Search for locations in this country (no partial matches, case sensitive)."
+msgstr "Søg efter lokationer i dette land (ingen delvist matchende, store og små bogstaver)."
+
+#@ dbem
+#: admin/em-docs.php:39
+msgid "Search for locations in this postcode (no partial matches, case sensitive)."
+msgstr "Søg efter lokationer i på dette postnummer (ingen delvist matchende, store og små bogstaver)."
+
+#@ dbem
+#: admin/em-docs.php:42
+msgid "If set to 1 it will display a full calendar that shows event names."
+msgstr "Hvis 1 vælges vil der vises en komplet kalender med eventnavne."
+
+#@ dbem
+#: admin/em-docs.php:43
+msgid "If set to 1, will show events that last longer than a day."
+msgstr "Hvis 1 vælges, vil der vises events der varer mere end én dag."
+
+#@ dbem
+#: admin/em-docs.php:44
+msgid "Same as for events."
+msgstr "Det samme som for events."
+
+#@ dbem
+#: admin/em-docs.php:49
+msgid "Limits the amount of values returned to this number."
+msgstr "Begrænser antallet af værdier der returneres til dette nummer."
+
+#@ dbem
+#: admin/em-docs.php:50
+msgid "Choose the time frame of events to show. Accepted values are \"future\", \"past\" or \"all\" events. Additionally you can supply dates (in format of YYYY-MM-DD), either single for events on a specific date or two dates seperated by a comma (e.g. 2010-12-25,2010-12-31) for events ocurring between these dates."
+msgstr "Vælg perioden for de events der skal vises. Accepterede værdier er \"future\", \"past\" eller \"all\" events. Derudover kan du tilføje datoer (i formatet YYYY-MM-DD), enten enkelstående for events på en bestemt dato, eller to datoer adskilt af et komma (f.eks 2010-12-25,2010-12-31) for events indtruffet mellem disse datoer."
+
+#@ dbem
+#: admin/em-docs.php:51
+msgid "Indicates the order of the events. Choose between ASC (ascending) and DESC (descending)."
+msgstr "Indikerer sorteringsrækkefølgen på events. Vælg mellem ASC (stigende) og DESC (faldende)."
+
+#@ dbem
+#: admin/em-docs.php:52
+msgid "Choose what fields to order your results by. You can supply a single field or multiple comma-seperated fields (e.g. \"start_date,name\"). See specific instances (e.g. events, locations, etc.) for field names."
+msgstr "Vælg hvilke felter dine resultater skal sorteres efter. Du kan tilføje et enkelt felt eller flere komma-separerede felter (f.eks, \"start_date,name\"). Se de specifikke tilfælde for feltnavne (f.eks. events, lokationer, etc.)."
+
+#@ dbem
+#: admin/em-docs.php:53
+msgid "If you are displaying some information with the shortcode or function (e.g. listing events), you can supply the html and placeholders here."
+msgstr "Hvis du viser informaton med en shortcode eller funktion (f.eks. listing events), så kan du tilføje html og pladsholdere her."
+
+#@ dbem
+#: admin/em-docs.php:53
+msgid "The relevant default format will be taken from the settings page."
+msgstr "Relevant standardformat bliver hentet fra indstillingssiden."
+
+#@ dbem
+#: admin/em-docs.php:54
+msgid "Supply a single id or comma-seperated ids (e.g. \"1,2,3\") to limit the search to events with these id(s)."
+msgstr "Tilføj et enkelt id eller kommaseparerede id'er (f.eks. \"1,2,3\") for at afgrænse søgningen til events med disse id'er."
+
+#@ dbem
+#: admin/em-docs.php:55
+msgid "Supply a single id or comma-seperated ids (e.g. \"1,2,3\") to limit the search to events in these categories."
+msgstr "Tilføj et enkelt id eller kommaseparerede id'er (f.eks. \"1,2,3\") for at afgrænse søgningen til events i disse kategorier."
+
+#@ dbem
+#: admin/em-docs.php:56
+msgid "Supply a single id or comma-seperated ids to limit the search to these locations (or events in these locations)."
+msgstr "Tilføj et enkelt id eller kommaseparerede id'er for at afgrænse søgningen til disse lokationer (eller events på disse lokationer)."
+
+#@ dbem
+#: admin/em-docs.php:57
+msgid "For example, if you have ten results, if you set this to 5, only the last 5 results will be returned. Useful for pagination."
+msgstr "For eksempel, hvis du har ti resultater, og du sætter denne til 5, er det kun de 5 sidste  resultater der returneres. Brugbart for sideinddeling."
+
+#@ dbem
+#: admin/em-docs.php:58
+msgid "If set to 1, will show only events that are recurring (i.e. events that are repeated over different dates)."
+msgstr "Sættes denne til 1, vises kun events der er gentaget (dvs. events som gentages på forskellige datoer)."
+
+#@ dbem
+#: admin/em-docs.php:59
+msgid "If set to 1, will only show recurring event templates. Only useful if you know what you're doing, use recurrence if you want events that are recurrences."
+msgstr "Sættes denne til 1, vises kun gentaget eventskabeloner. Dette er kun brugbart hvis du ved hvad du laver, benyt gentagelse hvis du ønsker events der gentages."
+
+#@ dbem
+#: admin/em-docs.php:60
+msgid "If set to a month (1 to 12) only events that start or end during this month/year will be retured. Must be used in conjunction with year and does not work as intended if used with scope."
+msgstr "Hvis sat til en måned (1 til 12) er det kun events som begynder eller slutter i denne måned/år der returneres. Skal benyttes sammen med år og virker ikke efter hensigten hvis den benyttes sammen med indhold."
+
+#@ dbem
+#: admin/em-docs.php:61
+msgid "If set to a year (e.g. 2010) only events that start or end during this year/month will be returned. Does not work as intended if used with scope."
+msgstr "Hvis sat til år (f.eks. 2010) er det kun events der begynder eller slutter i dette år/måned der returneres. Virker ikke efter hensigten hvis det benyttes sammen med indhold."
+
+#@ dbem
+#: admin/em-docs.php:62
+msgid "If you supply this as an argument, the returned data will be in an array, no objects (only useful wen using PHP, not shortcodes)"
+msgstr "Hvis du tilføjer dette som et argument, returneres data i en tabel, ingen objekter (kun brugbar når PHP benyttes, ikke shortcodes)"
+
+#@ dbem
+#: admin/em-docs.php:63
+msgid "When using a function or shortcode that outputs items (e.g. [events_list] for events, [locations_list] for locations), if the number of items supercede the limit of items to show, setting this to 1 will show page links under the list."
+msgstr "Når en funktion eller shortcode benyttes som udskriver elementer (f.eks. [events_list] for events, [locations_list] for lokationer), og hvis antallet af elementer overskrider grænsen for maksimalt viste elementer, vil indstilling af denne til 1 vise side-links under tabellen."
+
+#@ dbem
+#: admin/em-docs.php:71
+msgid "Displays the name of the event."
+msgstr "Viser navnet på event."
+
+#@ dbem
+#: admin/em-docs.php:72
+msgid "Shows the description of the event."
+msgstr "Viser beskrivelse af event."
+
+#@ dbem
+#: admin/em-docs.php:73
+msgid "If you added a <a href=\"http://en.support.wordpress.com/splitting-content/more-tag/\">more tag</a> to your event description, only the content before this tag will show (currently, no read more link is added)."
+msgstr "Hvis du tilføjede en <a href=\"http://en.support.wordpress.com/splitting-content/more-tag/\">flere tag</a>til din eventbeskrivelse, er det kun indholdet før denne tag der vises (for øjeblikket, intet læs-mere link tilføjes)."
+
+#@ dbem
+#: admin/em-docs.php:74
+msgid "Shows the event corresponding ID number in the database table."
+msgstr "Viser det tilhørende ID-nummer i databasetabellen."
+
+#@ dbem
+#: admin/em-docs.php:75
+#: admin/em-docs.php:147
+msgid "Shows the event image, if available."
+msgstr "Viser eventbillede, hvis det er tilgængeligt."
+
+#@ dbem
+#: admin/em-docs.php:83
+msgid "Displays the start time in a 24 hours format (e.g. 16:30)."
+msgstr "Viser starttidspunkt i 24 timers format (f.eks. 16:30)."
+
+#@ dbem
+#: admin/em-docs.php:84
+msgid "Displays the end time in a 24 hours format (e.g. 18:30)."
+msgstr "Viser sluttidspunkt i 24 timers format (f.eks. 18:30)."
+
+#@ dbem
+#: admin/em-docs.php:85
+msgid "Displays the start time in a 12 hours format (e.g. 4:30 PM)."
+msgstr "Viser starttidspunkt i 12 timers format (f.eks. 4:30 PM)."
+
+#@ dbem
+#: admin/em-docs.php:86
+msgid "Displays the end time in a 12 hours format (e.g. 6:30 PM)."
+msgstr "Viser slutttidspunkt i 12 timers format (f.eks. 6:30 PM)."
+
+#@ dbem
+#: admin/em-docs.php:90
+msgid "Events Manager allows extremely flexible date formatting by using <a href=\"http://www.php.net/manual/en/function.date.php\">PHP date syntax format characters</a> along with placeholders."
+msgstr "Events Manager tillader særdeles fleksibel datoformatering ved brug af <a href=\"http://www.php.net/manual/en/function.date.php\">PHP dato syntax tegn</a> sammen med pladsholdere."
+
+#@ dbem
+#: admin/em-docs.php:92
+msgid "Prepend <code>#</code> or <code>#@</code> before a valid PHP date syntax format character to show start and end date/time information respectively (e.g. <code>#F</code> will show the starting month name like \"January\", #@h shows the end hour)."
+msgstr "Tilføjes i begyndelsen <code>#</code> eller <code>#@</code>før et gyldig PHP dato syntax tegn for henholdsvis at vise start og slutdato/tidsinformation (f.eks. vil <code>#F</code> vise begyndelsesmånedsnavnet og  \"Januar\", #@h viser sluttidspunktet)."
+
+#@ dbem
+#: admin/em-docs.php:99
+msgid "Simply prints the event URL. You can use this placeholder to build your own customised links."
+msgstr "Udskriver blot event URL. Du kan bruge denne pladsholder til at bygge dine egne tilpassede links."
+
+#@ dbem
+#: admin/em-docs.php:77
+#: admin/em-docs.php:100
+msgid "Shows the event image url, if available."
+msgstr "Viser url for eventbillede, hvis det er tilgængeligt."
+
+#@ dbem
+#: admin/em-docs.php:101
+msgid "Displays the event name with a link to the event page."
+msgstr "Viser eventnavn med et link til eventsiden."
+
+#@ dbem
+#: admin/em-docs.php:102
+msgid "Inserts a link to the admin  or buddypress (if activated) edit event page, only if a user is logged in and is allowed to edit the event."
+msgstr "Indsætter et link til admin- eller buddypress- 'rediger eventside', men kun hvis en bruger er logget ind og har rettigheder til at redigere denne event."
+
+#@ dbem
+#: admin/em-docs.php:103
+msgid "Inserts a url to the admin or buddypress (if activated) edit event page, only if a user is logged in and is allowed to edit the event."
+msgstr "Indsætter en url til admin- eller buddypress- 'rediger eventside', men kun hvis en bruger er logget ind og har rettigheder til at redigere denne event."
+
+#@ dbem
+#: admin/em-docs.php:107
+msgid "Events Manager allows you to create dynamic attributes to your events, which act as extra information fields for your events (e.g. \"Dress Code\"). For more information see <a href=\"http://wp-events-plugin.com/documentation/categories-and-attributes/\">our online documentation</a> for more info on attributes."
+msgstr "Events Manager lader dig oprette dynamiske attributter til dine events, der fungerer som ekstra oplysningsfelter til dine events (f.eks. \"Dress Code\"). For mere information se <a href=\"http://wp-events-plugin.com/documentation/categories-and-attributes/\">vores online dokumentation</a> for mere information om attributter."
+
+#@ dbem
+#: admin/em-docs.php:109
+msgid "This key will appear as an option when adding attributes to your event."
+msgstr "Denne nøgle vises som en valgmulighed ved tilføjelse af attributter til dit event."
+
+#@ dbem
+#: admin/em-docs.php:110
+msgid "This key will appear as an option when adding attributes to your event. The text in the second braces will appear if the attribute is not defined or left blank for that event."
+msgstr "Denne nøgle vises som en valgmulighed ved tilføjelse af attributter til dit event. Teksten i den anden parantes vises, hvis der ikke er defineret en attribut eller hvis den ikke er udfyldt for denne event."
+
+#@ dbem
+#: admin/em-docs.php:111
+msgid "This key will appear as an option when adding attributes to your event. The second braces are optional and will use a select box with these values as input. If no valid value is defined, the first option is used."
+msgstr "Denne nøgle vises som en valgmulighed ved tilføjelse af attributter til dit event. Teksten i den anden parantes er valgfri, og benytter et udvælgelsesvindue indeholdende disse input-værdier. Hvis en ugyldig værdi defineres benyttes den første valgmulighed."
+
+#@ dbem
+#: admin/em-docs.php:117
+msgid "Adds a booking forms for this event."
+msgstr "Tilføjer en tilmeldingsformular til denne event."
+
+#@ dbem
+#: admin/em-docs.php:118
+msgid "Shows available spaces for the event."
+msgstr "Viser tilgængelige pladser til denne event."
+
+#@ dbem
+#: admin/em-docs.php:119
+msgid "Shows the amount of currently booked spaces for the event."
+msgstr "Viser det øjeblikkelige antal af tilmeldte pladser til hvert event."
+
+#@ dbem
+#: admin/em-docs.php:120
+msgid "Shows the amount of pending spaces for the event."
+msgstr "Viser antal pladser på events  der afventer godkendelse."
+
+#@ dbem
+#: admin/em-docs.php:121
+msgid "Shows the total spaces for the event."
+msgstr "Viser det samlede antal pladser for en event."
+
+#@ dbem
+#: admin/em-docs.php:122
+msgid "Shows the list of user avatars attending events."
+msgstr "Viser tabellen over bruger-avatars der deltager i events."
+
+#@ dbem
+#: admin/em-docs.php:123
+msgid "A single button that will appear to logged in users, if they click on it, they apply for a booking. This button will only display if there is one ticket."
+msgstr "En enkelt knap der vises for brugere der er logget ind, hvis de klikker på den foretager de en tilmelding. Denne knap vil kun vises hvis der en billet."
+
+#@ dbem
+#: admin/em-docs.php:124
+msgid "Shows the url to the admin or buddypress (if activated) bookings management page for this event. Only shown if user is logged in and able to manage bookings."
+msgstr "Viser url til administrator eller buddypress (hvis aktiveret) tilmeldingsadministrationsside for denne event. Vises kun hvis brugeren er logget ind og har rettigheder til at administrere tilmeldinger."
+
+#@ dbem
+#: admin/em-docs.php:125
+msgid "Shows a link to the admin or buddypress (if activated) bookings management page for this event. Only shown if user is logged in and able to manage bookings."
+msgstr "Viser et link til administrator eller buddypress (hvis aktiveret) tilmeldingsadministrationsside for denne event. Vises kun hvis brugeren er logget ind og har rettigheder til at administrere tilmeldinger."
+
+#@ dbem
+#: admin/em-docs.php:129
+msgid "The values here are taken from the chosen contact for the specific event, or the default contact in the settings page."
+msgstr "Disse værdier er taget fra den valgte kontaktperson på det specifikke event, eller standard kontaktperson på indstillingssiden."
+
+#@ dbem
+#: admin/em-docs.php:131
+msgid "Name of the contact person for this event (as shown in the dropdown when adding an event)."
+msgstr "Navnet på kontaktpersonen på denne event (som vist i rullegardin-menuen når en event tilføjes)."
+
+#@ dbem
+#: admin/em-docs.php:132
+msgid "Contact person's username."
+msgstr "Kontaktpersons brugernavn."
+
+#@ dbem
+#: admin/em-docs.php:133
+msgid "E-mail of the contact person for this event."
+msgstr "E-mail på denne events kontaktperson."
+
+#@ dbem
+#: admin/em-docs.php:134
+msgid "Phone number of the contact person for this event. Can be set in the user profile page."
+msgstr "Telefonnummer på kontaktpersonen på denne event. Kan indstilles på brugerprofilsiden."
+
+#@ dbem
+#: admin/em-docs.php:135
+msgid "Contact person's avatar."
+msgstr "Avatar for kontaktperson."
+
+#@ dbem
+#: admin/em-docs.php:136
+msgid "Contact person's \"Profile\" link. Only works with BuddyPress enabled."
+msgstr "Kontaktpersons  \"Profil\" link. Virker kun med BuddyPress aktiveret."
+
+#@ dbem
+#: admin/em-docs.php:137
+msgid "Contact person's profile url. Only works with BuddyPress enabled."
+msgstr "Kontaktpersons  \"Profil\" url. Virker kun med BuddyPress aktiveret."
+
+#@ dbem
+#: admin/em-docs.php:138
+msgid "Contact person's wordpress user ID."
+msgstr "Kontaktpersons wordpress bruger-id."
+
+#@ dbem
+#: admin/em-docs.php:145
+msgid "Shows the category name of the event."
+msgstr "Viser kategorinavn for event."
+
+#@ dbem
+#: admin/em-docs.php:146
+msgid "Shows the category ID of the event."
+msgstr "Viser event kategori-id "
+
+#@ dbem
+#: admin/em-docs.php:150
+#: admin/em-docs.php:175
+msgid "Shows the location description."
+msgstr "Viser lokationsbeskrivelsen."
+
+#@ dbem
+#: admin/em-docs.php:167
+msgid "Displays the location name."
+msgstr "Viser lokationsnavn."
+
+#@ dbem
+#: admin/em-docs.php:168
+msgid "Displays the address."
+msgstr "Viser adressen."
+
+#@ dbem
+#: admin/em-docs.php:169
+msgid "Displays the town."
+msgstr "Viser byen."
+
+#@ dbem
+#: admin/em-docs.php:170
+msgid "Displays the state/county."
+msgstr "Viser stat/provins."
+
+#@ dbem
+#: admin/em-docs.php:171
+msgid "Displays the postcode."
+msgstr "Viser postnummeret."
+
+#@ dbem
+#: admin/em-docs.php:172
+msgid "Displays the region."
+msgstr "Viser regionen."
+
+#@ dbem
+#: admin/em-docs.php:173
+msgid "Displays the country."
+msgstr "Viser land."
+
+#@ dbem
+#: admin/em-docs.php:174
+msgid "Displays a google map showing where the event is located (Will not show if maps are disabled in the settings page)"
+msgstr "Viser et google kort hvor event er lokaliseret (vises ikke hvis kort er deaktiveret på indstillingssiden)"
+
+#@ dbem
+#: admin/em-docs.php:176
+msgid "If you added a <a href=\"http://en.support.wordpress.com/splitting-content/more-tag/\">more tag</a> to your location description, only the content before this tag will show (currently, no read more link is added)."
+msgstr "Hvis du tilføjede en <a href=\"http://en.support.wordpress.com/splitting-content/more-tag/\">flere tag</a> til din lokationsbeskrivelse, er det kun indholdet før denne tag der vises (for øjeblikket er der intet læs-mere-link tilføjet)."
+
+#@ dbem
+#: admin/em-docs.php:177
+msgid "Shows the location image."
+msgstr "Viser lokationsbillede."
+
+#@ dbem
+#: admin/em-docs.php:166
+msgid "Displays the location ID number."
+msgstr "Viser lokationens id-nummer."
+
+#@ dbem
+#: admin/em-docs.php:184
+msgid "Simply prints the location URL. You can use this placeholder to build your own customised links."
+msgstr "Udskriver lokations URL. Du kan bruge denne pladsholder til at bygge dine egne tilpassede links."
+
+#@ dbem
+#: admin/em-docs.php:185
+msgid "Displays the location name with a link to the location page."
+msgstr "Viser lokationsnavnet med et link til lokationssiden."
+
+#@ dbem
+#: admin/em-docs.php:189
+msgid "You can show lists of other events that are being held at this location. The formatting of the list is the same as a normal events list."
+msgstr "Du kan vise tabeller for andre events, der finder sted på denne lokation. Formatet på tabellen er den samme som en normal eventtabel."
+
+#@ dbem
+#: admin/em-docs.php:191
+msgid "Will show a list of all past events at this location."
+msgstr "Vil vise en tabel med alle tidligere events på denne lokation."
+
+#@ dbem
+#: admin/em-docs.php:192
+msgid "Will show a list of all future events at this location."
+msgstr "Vil vise en tabel med alle fremtidige events på denne lokation."
+
+#@ dbem
+#: admin/em-docs.php:193
+msgid "Will show a list of all events at this location."
+msgstr "Vil vise en tabel med alle events på denne lokation."
+
+#@ dbem
+#: admin/em-docs.php:199
+msgid "When a specific booking is displayed (on screen and on email), you can use these placeholders to show specific information about the booking. For contact details of the contact of this event, see the events placeholders."
+msgstr "Når en konkret tilmelding vises (på skærm og på E-mail), kan du benytte disse pladsholdere til at vise specifik information om tilmeldingen. Se events-pladsholdere for kontaktdetaljer på kontaktperson for denne event."
+
+#@ dbem
+#: admin/em-docs.php:201
+msgid "Name of person who made the booking."
+msgstr "Navn på person som har udført denne tilmelding."
+
+#@ dbem
+#: admin/em-docs.php:202
+msgid "Email of person who made the booking."
+msgstr "E-mail på person som har udført denne tilmelding."
+
+#@ dbem
+#: admin/em-docs.php:203
+msgid "Phone number of person who made the booking."
+msgstr "Telefonnummer på person som har udført denne tilmelding."
+
+#@ dbem
+#: admin/em-docs.php:204
+msgid "Number of spaces the person has booked."
+msgstr "Antal pladser som personen har tilmeldt."
+
+#@ dbem
+#: admin/em-docs.php:205
+msgid "Any specific comments made by the person who made the booking."
+msgstr "Eventuelle specifikke bemærkninger fra den person, der har foretaget tilmeldingen."
+
+#@ dbem
+#: admin/em-docs.php:206
+msgid "Name of the ticket booked. Useful in single ticket mode, if multiple tickets are booked a random ticket is used."
+msgstr "Navn på den tilmeldte billet. Brugbart i enkeltbillet funktion, hvis multiple billetter er tilmeldte, bruges en tilfældig billet."
+
+#@ dbem
+#: admin/em-docs.php:207
+msgid "Description of the ticket booked. Useful in single ticket mode, if multiple tickets are booked a random ticket is used."
+msgstr "Beskrivelse af den tilmeldte billet. Brugbart i enkeltbillet funktion, hvis multiple billetter er tilmeldte, bruges en tilfældig billet."
+
+#@ dbem
+#: admin/em-docs.php:208
+msgid "Booked ticket price with currency symbol (e.g. $ 10.00). Useful in single ticket mode, if multiple tickets are booked a random ticket is used."
+msgstr "Tilmeldt billetpris med valutasymbol (f.eks. $ 10.00). Brugbar i enkeltbillet funktion, hvis multiple billetter er tilmeldte, bruges en tilfældig billet."
+
+#@ dbem
+#: admin/em-docs.php:209
+msgid "A list of booked tickets. You can modify this by using template files and modifying templates/emails/bookingtickets.php"
+msgstr "En liste med tilmeldte billetter. Du kan tilpasse denne ved at benytte skabelon-filer og tilpasse templates/emails/bookingtickets.php"
+
+#@ dbem
+#: admin/em-docs.php:215
+msgid "People are able to manage their bookings. Below are some placeholder which automatically provides correctly formatted urls"
+msgstr "Personer er i stand til at administrere deres tilmeldinger. Nedenfor er nogle pladsholdere der automatisk tilføjer korrekt formaterede urls"
+
+#@ dbem
+#: admin/em-docs.php:217
+msgid "URL to page showing that users booked events."
+msgstr "URL til siden der viser brugers tilmeldte events."
+
+#@ dbem
+#: admin/em-help.php:25
+msgid "Placeholders for customizing event pages"
+msgstr "Pladsholdere for tilpasning af eventsider"
+
+#@ dbem
+#: admin/em-help.php:26
+#, php-format
+msgid "In the <a href='%s'>settings page</a>, you'll find various textboxes where you can edit how event information looks, such as for event and location lists. Using the placeholders below, you can choose what information should be displayed."
+msgstr "På <a href='%s'>indstillingssiden</a>, finder du forskellige tekstbokse, hvor du kan redigere hvorledes event-informationer vises, som f.eks. for event- og lokationstabeller. Ved at benytte pladsholderne herunder, kan du vælge hvilken information der skal vises."
+
+#@ dbem
+#: admin/em-help.php:28
+#: admin/em-options.php:58
+msgid "Event Related Placeholders"
+msgstr "Event relateret pladsholdere"
+
+#@ dbem
+#: admin/em-help.php:31
+#: admin/em-options.php:61
+msgid "Category Related Placeholders"
+msgstr "Kategori relateret pladsholdere"
+
+#@ dbem
+#: admin/em-help.php:34
+#: admin/em-options.php:59
+msgid "Location Related Placeholders"
+msgstr "Lokationsrelateret pladsholdere"
+
+#@ dbem
+#: admin/em-help.php:37
+#: admin/em-options.php:60
+msgid "Booking Related Placeholders"
+msgstr "Tilmelding af relaterede pladsholdere"
+
+#@ dbem
+#: admin/em-categories.php:21
+msgid "The category has been added."
+msgstr "Kategorien er tilføjet."
+
+#@ dbem
+#: admin/em-categories.php:23
+msgid "The category has been updated."
+msgstr "Kategorien er opdateret."
+
+#@ dbem
+#: admin/em-categories.php:39
+msgid "Categories Deleted"
+msgstr "Kategorier slettet"
+
+#@ dbem
+#: admin/em-categories.php:58
+#: admin/em-events.php:43
+#: admin/em-locations.php:42
+#: templates/buddypress/my-events.php:37
+#: templates/buddypress/my-locations.php:25
+msgid "Add New"
+msgstr "Tilføj ny"
+
+#@ dbem
+#: admin/em-categories.php:71
+#: admin/em-categories.php:78
+msgid "ID"
+msgstr "ID"
+
+#@ dbem
+#: admin/em-bookings.php:151
+#: admin/em-bookings.php:211
+#: admin/em-categories.php:72
+#: admin/em-categories.php:79
+#: admin/em-event.php:290
+#: admin/em-events.php:121
+#: admin/em-locations.php:78
+#: admin/em-locations.php:88
+#: classes/em-person.php:60
+#: templates/buddypress/group-events.php:12
+#: templates/buddypress/my-events.php:73
+#: templates/buddypress/my-group-events.php:12
+#: templates/buddypress/my-locations.php:53
+#: templates/buddypress/my-locations.php:62
+#: templates/forms/bookingform/booking-fields.php:10
+#: templates/forms/tickets-form.php:4
+#: templates/templates/bookings-event-printable.php:24
+msgid "Name"
+msgstr "Navn"
+
+#@ dbem
+#: admin/em-categories.php:102
+msgid "No categories have been inserted yet!"
+msgstr "Der er endnu ikke indsat kategorier!"
+
+#@ dbem
+#: admin/em-bookings.php:78
+#: admin/em-bookings.php:134
+#: admin/em-bookings.php:184
+#: admin/em-bookings.php:351
+#: admin/em-categories.php:118
+#: admin/em-event.php:14
+#: admin/em-locations.php:125
+#: admin/em-people.php:8
+#: templates/forms/event-editor-guest.php:16
+#: templates/forms/event-editor.php:6
+#: templates/forms/location-editor.php:7
+msgid "Unauthorized Access"
+msgstr "Uautoriseret adgang"
+
+#@ dbem
+#: admin/em-categories.php:128
+msgid "Edit category"
+msgstr "Rediger kategori"
+
+#@ dbem
+#: admin/em-categories.php:145
+msgid "Category name"
+msgstr "Kategorinavn"
+
+#@ dbem
+#: admin/em-categories.php:149
+msgid "The name of the category"
+msgstr "Navnet på kategorien"
+
+#@ dbem
+#: admin/em-categories.php:150
+#: admin/em-event.php:296
+#: admin/em-locations.php:162
+msgid "View Slug"
+msgstr "Se Slug"
+
+#@ dbem
+#: admin/em-categories.php:157
+#: admin/em-event.php:303
+#: admin/em-locations.php:169
+msgid "Hide Slug"
+msgstr "Skjul Slug"
+
+#@ dbem
+#: admin/em-categories.php:166
+#: admin/em-locations.php:178
+#, php-format
+msgid "%s Slug"
+msgstr "%s-Slug"
+
+#@ dbem
+#: admin/em-categories.php:166
+#: admin/em-event.php:264
+#: admin/em-options.php:382
+#: classes/em-category.php:90
+#: classes/em-category.php:96
+#: em-actions.php:240
+#: templates/buddypress/my-events.php:136
+msgid "Category"
+msgstr "Kategori"
+
+#@ dbem
+#: admin/em-categories.php:168
+#: admin/em-event.php:314
+#: admin/em-locations.php:180
+msgid "The event slug. If the event slug already exists, a random number will be appended to the end."
+msgstr "Event slug. Hvis event slug allerede eksisterer, tilføjes et tilfældigt nummer til sidst."
+
+#@ dbem
+#: admin/em-categories.php:175
+#: admin/em-event.php:463
+#: admin/em-locations.php:274
+#: templates/forms/event-editor-guest.php:318
+#: templates/forms/event-editor.php:221
+#: templates/forms/location-editor.php:95
+msgid "Details"
+msgstr "Detaljer"
+
+#@ dbem
+#: admin/em-categories.php:182
+msgid "Details about the category"
+msgstr "Dataljer om kategorien"
+
+#@ dbem
+#: admin/em-categories.php:188
+msgid "Category image"
+msgstr "Kategoribillede"
+
+#@ dbem
+#: admin/em-categories.php:194
+msgid "No image uploaded for this category yet"
+msgstr "Intet billede overført endnu for denne kategori"
+
+#@ dbem
+#: admin/em-categories.php:197
+#: admin/em-event.php:485
+#: admin/em-locations.php:296
+#: templates/forms/location-editor.php:112
+msgid "Upload/change picture"
+msgstr "Send/ændr billede"
+
+#@ dbem
+#: admin/em-categories.php:204
+msgid "Update category"
+msgstr "Opdater kategori"
+
+#@ dbem
+#: admin/em-locations.php:52
+#: em-events.php:134
+#: templates/buddypress/my-locations.php:27
+#, php-format
+msgid "My %s"
+msgstr "Min %s"
+
+#@ dbem
+#: admin/em-locations.php:55
+#: templates/buddypress/my-locations.php:30
+#, php-format
+msgid "All %s"
+msgstr "Alle %s"
+
+#@ dbem
+#@ default
+#: admin/bookings/em-cancelled.php:49
+#: admin/bookings/em-confirmed.php:50
+#: admin/bookings/em-events.php:57
+#: admin/bookings/em-pending.php:64
+#: admin/bookings/em-person.php:51
+#: admin/bookings/em-rejected.php:49
+#: admin/em-events.php:78
+#: admin/em-locations.php:62
+#: templates/buddypress/my-locations.php:37
+msgid "Bulk Actions"
+msgstr "Bulk-handlinger"
+
+#@ dbem
+#: admin/bookings/em-events.php:58
+#: admin/em-events.php:79
+#: admin/em-locations.php:63
+#: templates/buddypress/my-locations.php:38
+msgid "Delete selected"
+msgstr "Slet valgte"
+
+#@ default
+#: admin/bookings/em-events.php:60
+#: admin/em-events.php:81
+#: admin/em-locations.php:65
+#: templates/buddypress/my-locations.php:40
+msgid "Apply"
+msgstr "Anvend"
+
+#@ dbem
+#: admin/em-locations.php:79
+#: admin/em-locations.php:89
+#: templates/buddypress/my-locations.php:54
+#: templates/buddypress/my-locations.php:63
+msgid "Address"
+msgstr "Adresse"
+
+#@ dbem
+#: admin/em-locations.php:80
+#: admin/em-locations.php:90
+msgid "Town"
+msgstr "By"
+
+#@ dbem
+#: admin/em-locations.php:81
+#: admin/em-locations.php:91
+#: templates/buddypress/my-locations.php:55
+#: templates/buddypress/my-locations.php:64
+msgid "State"
+msgstr "Stat"
+
+#@ dbem
+#: admin/em-locations.php:82
+#: admin/em-locations.php:92
+#: templates/buddypress/my-locations.php:56
+#: templates/buddypress/my-locations.php:65
+msgid "Country"
+msgstr "Land"
+
+#@ dbem
+#: admin/em-locations.php:113
+#: templates/buddypress/my-locations.php:85
+msgid "No venues have been inserted yet!"
+msgstr "Ingen steder er indsat endnu!"
+
+#@ dbem
+#: admin/em-locations.php:125
+msgid "You do not have the rights to manage this location."
+msgstr "Du har ikke rettigheder til at administrere denne lokation."
+
+#@ dbem
+#: admin/em-locations.php:130
+#: templates/forms/location-editor.php:12
+msgid "Add location"
+msgstr "Tilføj lokation"
+
+#@ dbem
+#: admin/em-locations.php:133
+#: templates/forms/location-editor.php:15
+msgid "Edit location"
+msgstr "Rediger lokation"
+
+#@ dbem
+#: admin/em-locations.php:135
+#: templates/forms/location-editor.php:17
+msgid "required"
+msgstr "påkrævet"
+
+#@ dbem
+#: admin/em-locations.php:156
+#: templates/forms/location-editor.php:32
+msgid "Location Name"
+msgstr "Lokationsnavn"
+
+#@ dbem
+#: admin/em-locations.php:161
+#: templates/forms/location-editor.php:37
+msgid "The name of the location"
+msgstr "Navnet på lokationen"
+
+#@ dbem
+#: admin/em-bookings.php:106
+#: admin/em-event.php:365
+#: admin/em-events.php:123
+#: admin/em-locations.php:178
+#: admin/em-locations.php:211
+#: admin/em-options.php:354
+#: classes/em-location.php:142
+#: classes/em-location.php:150
+#: classes/em-location.php:194
+#: classes/em-location.php:196
+#: em-actions.php:170
+#: templates/buddypress/group-events.php:13
+#: templates/buddypress/my-events.php:75
+#: templates/buddypress/my-group-events.php:13
+#: templates/forms/location-editor.php:41
+msgid "Location"
+msgstr "Lokation"
+
+#@ dbem
+#: admin/em-locations.php:187
+msgid "Location Owner"
+msgstr "Lokationsejer"
+
+#@ dbem
+#: admin/em-event.php:164
+#: admin/em-locations.php:192
+msgid "Select..."
+msgstr "Vælg..."
+
+#@ dbem
+#: admin/em-event.php:355
+#: admin/em-locations.php:201
+msgid "Coordinates"
+msgstr "Kordinater"
+
+#@ dbem
+#: admin/em-locations.php:214
+#: templates/forms/location-editor.php:44
+msgid "If you're using the Google Maps, the more detail you provide, the more accurate Google can be at finding your location. If your address isn't being found, please <a='http://maps.google.com'>try it on maps.google.com</a> by adding all the fields below seperated by commas."
+msgstr "Hvis du bruger Google Maps, jo flere detaljer du tilføjer, jo mere præcis er Google til at finde din lokation. Hvis din adresse ikke bliver fundet, så prøv venligst på <a='http://maps.google.com'> maps.google.com </ a> ved at tilføje alle felterne nedenfor adskilt af kommaer."
+
+#@ dbem
+#@ default
+#: admin/em-event.php:402
+#: admin/em-locations.php:218
+#: templates/forms/event-editor-guest.php:259
+#: templates/forms/location-editor.php:48
+msgid "Address:"
+msgstr "Adresse:"
+
+#@ dbem
+#@ default
+#: admin/em-event.php:408
+#: admin/em-locations.php:224
+#: templates/forms/event-editor-guest.php:265
+#: templates/forms/location-editor.php:54
+msgid "City/Town:"
+msgstr "By:"
+
+#@ dbem
+#@ default
+#: admin/em-event.php:415
+#: admin/em-locations.php:230
+#: templates/forms/event-editor-guest.php:272
+#: templates/forms/location-editor.php:60
+msgid "State/County:"
+msgstr "Stat/Provins:"
+
+#@ dbem
+#@ default
+#: admin/em-event.php:422
+#: admin/em-locations.php:236
+#: templates/forms/event-editor-guest.php:279
+#: templates/forms/location-editor.php:66
+msgid "Postcode:"
+msgstr "Postnummer:"
+
+#@ dbem
+#@ default
+#: admin/em-event.php:428
+#: admin/em-locations.php:242
+#: templates/forms/event-editor-guest.php:285
+msgid "Region:"
+msgstr "Region:"
+
+#@ dbem
+#@ default
+#: admin/em-event.php:435
+#: admin/em-locations.php:249
+#: templates/forms/event-editor-guest.php:292
+#: templates/forms/location-editor.php:72
+msgid "Country:"
+msgstr "Land:"
+
+#@ dbem
+#: admin/em-event.php:438
+#: admin/em-locations.php:252
+#: templates/forms/event-editor-guest.php:295
+#: templates/forms/location-editor.php:75
+msgid "none selected"
+msgstr "Ingen er valgt"
+
+#@ dbem
+#: admin/em-event.php:452
+#: admin/em-locations.php:262
+#: templates/forms/event-editor-guest.php:308
+#: templates/forms/event-editor.php:214
+#: templates/forms/location-editor.php:85
+msgid "Location not found"
+msgstr "Lokation ikke fundet"
+
+#@ dbem
+#: admin/em-locations.php:281
+#: templates/forms/location-editor.php:99
+msgid "Details about the location"
+msgstr "Detaljer om lokationen"
+
+#@ dbem
+#: admin/em-locations.php:287
+#: templates/forms/location-editor.php:103
+msgid "Location image"
+msgstr "Lokationsbillede"
+
+#@ dbem
+#: admin/em-locations.php:293
+#: templates/forms/location-editor.php:109
+msgid "No image uploaded for this location yet"
+msgstr "Der er endnu ikke sendt et billede for denne lokation"
+
+#@ dbem
+#: admin/em-locations.php:306
+#: templates/forms/location-editor.php:117
+msgid "Update location"
+msgstr "Opdater lokation"
+
+#@ dbem
+#: admin/bookings/em-events.php:13
+#: admin/em-events.php:47
+#: em-functions.php:143
+msgid "Past events"
+msgstr "Tidligere events"
+
+#@ dbem
+#: admin/bookings/em-events.php:14
+#: admin/em-events.php:48
+#: em-functions.php:141
+msgid "All events"
+msgstr "Alle events"
+
+#@ dbem
+#: admin/bookings/em-events.php:15
+#: admin/em-events.php:49
+#: em-functions.php:142
+msgid "Future events"
+msgstr "Kommende events"
+
+#@ dbem
+#: admin/bookings/em-events.php:51
+#: admin/em-events.php:63
+msgid "Total"
+msgstr "Alle"
+
+#@ dbem
+#: admin/em-events.php:65
+#: classes/em-booking.php:101
+#: classes/em-event.php:208
+msgid "Approved"
+msgstr "Godkendt"
+
+#@ dbem
+#: admin/bookings/em-events.php:136
+#: admin/em-events.php:66
+#: admin/em-events.php:166
+#: classes/em-booking.php:100
+#: classes/em-event.php:207
+#: templates/buddypress/my-events.php:41
+#: templates/buddypress/my-events.php:118
+msgid "Pending"
+msgstr "Afventer godkendelse"
+
+#@ dbem
+#: admin/em-events.php:70
+#: admin/em-events.php:72
+#: templates/buddypress/my-events.php:46
+#: templates/buddypress/my-events.php:48
+#: templates/templates/events-search.php:10
+msgid "Search Events"
+msgstr "Søg events"
+
+#@ default
+#: admin/bookings/em-events.php:72
+#: admin/em-events.php:92
+msgid "Filter"
+msgstr "Filter"
+
+#@ dbem
+#: admin/bookings/em-events.php:91
+#: admin/em-events.php:111
+#: templates/buddypress/my-events.php:63
+msgid "no events"
+msgstr "ingen events"
+
+#@ dbem
+#: admin/bookings/em-events.php:102
+#: admin/em-events.php:124
+#: templates/buddypress/group-events.php:14
+#: templates/buddypress/my-events.php:76
+#: templates/buddypress/my-group-events.php:14
+msgid "Date and time"
+msgstr "Dato og klokkeslæt"
+
+#@ dbem
+#: admin/em-events.php:164
+#: templates/buddypress/my-events.php:116
+#: templates/templates/bookings-event-printable.php:42
+msgid "Booked"
+msgstr "Tilmeldt"
+
+#@ dbem
+#: admin/bookings/em-cancelled.php:113
+#: admin/bookings/em-confirmed.php:118
+#: admin/bookings/em-pending.php:134
+#: admin/bookings/em-person.php:127
+#: admin/bookings/em-rejected.php:113
+#: admin/em-event.php:576
+#: admin/em-events.php:171
+#: admin/em-events.php:203
+#: templates/buddypress/my-events.php:124
+#: templates/buddypress/my-events.php:167
+#: templates/buddypress/my-events.php:169
+#: templates/forms/event-editor.php:368
+msgid "Delete"
+msgstr "Slet"
+
+#@ dbem
+#: admin/bookings/em-cancelled.php:52
+#: admin/bookings/em-confirmed.php:53
+#: admin/bookings/em-pending.php:67
+#: admin/bookings/em-pending.php:132
+#: admin/bookings/em-person.php:54
+#: admin/bookings/em-person.php:115
+#: admin/bookings/em-rejected.php:52
+#: admin/bookings/em-rejected.php:111
+#: admin/em-events.php:173
+msgid "Approve"
+msgstr "Godkend"
+
+#@ dbem
+#: admin/em-events.php:178
+#: templates/buddypress/my-events.php:129
+msgid "Duplicate this event"
+msgstr "Dubliker denne event"
+
+#@ dbem
+#: admin/em-events.php:198
+#: templates/buddypress/my-events.php:162
+msgid "WARNING! You will delete ALL recurrences of this event, including booking history associated with any event in this recurrence. To keep booking information, go to the relevant single event and save it to detach it from this recurrence series."
+msgstr "ADVARSEL! Du vil slette ALLE gentagelser af denne event, herunder tilmeldingshistorik tilknyttet ethvert event i denne gentagelse. For at beholde tilmeldingsoplysninger, så gå til det relevante single event, og gem den for at løsne det fra denne gentagelse."
+
+#@ dbem
+#: admin/em-event.php:23
+#: admin/em-event.php:90
+#: admin/em-events.php:202
+#: templates/buddypress/my-events.php:155
+#: templates/buddypress/my-events.php:166
+#: templates/forms/event-editor-guest.php:176
+#: templates/forms/event-editor.php:13
+#: templates/forms/event-editor.php:174
+msgid "Reschedule"
+msgstr "Rediger tidsplan"
+
+#@ dbem
+#: admin/bookings/em-cancelled.php:38
+#: admin/bookings/em-cancelled.php:40
+#: admin/bookings/em-confirmed.php:39
+#: admin/bookings/em-confirmed.php:41
+#: admin/bookings/em-pending.php:53
+#: admin/bookings/em-pending.php:55
+#: admin/bookings/em-person.php:40
+#: admin/bookings/em-person.php:42
+#: admin/bookings/em-rejected.php:38
+#: admin/bookings/em-rejected.php:40
+#: templates/templates/events-search.php:96
+#: templates/templates/events-search.php:146
+msgid "Search"
+msgstr "Søg"
+
+#@ dbem
+#: admin/bookings/em-cancelled.php:55
+#: admin/bookings/em-confirmed.php:56
+#: admin/bookings/em-pending.php:70
+#: admin/bookings/em-person.php:57
+#: admin/bookings/em-rejected.php:55
+msgid "Decline"
+msgstr "Afvis"
+
+#@ dbem
+#: admin/bookings/em-cancelled.php:111
+#: admin/bookings/em-person.php:121
+msgid "Restore"
+msgstr "Genskab"
+
+#@ dbem
+#: admin/bookings/em-cancelled.php:112
+#: admin/bookings/em-confirmed.php:119
+#: admin/bookings/em-pending.php:135
+#: admin/bookings/em-person.php:126
+#: admin/bookings/em-rejected.php:112
+msgid "Edit/View"
+msgstr "Rediger/læs"
+
+#@ dbem
+#: admin/bookings/em-cancelled.php:125
+msgid "No cancelled bookings."
+msgstr "Ingen annulleret tilmeldinger."
+
+#@ dbem
+#: admin/bookings/em-rejected.php:125
+msgid "No rejected bookings."
+msgstr "Ingen afviste tilmeldinger."
+
+#@ dbem
+#: admin/bookings/em-events.php:29
+#: templates/buddypress/my-events.php:43
+msgid "Past Events"
+msgstr "Tidligere events"
+
+#@ dbem
+#: admin/bookings/em-events.php:32
+msgid "All Events"
+msgstr "Alle events"
+
+#@ dbem
+#: admin/bookings/em-events.php:35
+msgid "Future Events"
+msgstr "Kommende events"
+
+#@ dbem
+#: admin/bookings/em-events.php:101
+#: admin/bookings/em-pending.php:101
+#: admin/bookings/em-person.php:86
+#: admin/em-event.php:14
+#: admin/em-options.php:311
+#: admin/em-options.php:332
+#: admin/em-options.php:360
+#: admin/em-options.php:387
+#: buddypress/bp-em-core.php:185
+#: classes/em-event.php:554
+#: classes/em-event.php:808
+#: em-actions.php:108
+#: em-install.php:372
+#: em-install.php:397
+#: templates/forms/event-editor-guest.php:16
+#: templates/forms/event-editor.php:6
+#: templates/templates/my-bookings.php:46
+msgid "Event"
+msgstr "Event"
+
+#@ dbem
+#: admin/bookings/em-events.php:134
+#: admin/em-event.php:525
+#: templates/forms/event-editor.php:317
+msgid "Booked Spaces"
+msgstr "Tilmeldte pladser"
+
+#@ dbem
+#: admin/bookings/em-confirmed.php:114
+#: admin/bookings/em-person.php:118
+msgid "Unapprove"
+msgstr "Tilbagekald godkendelse"
+
+#@ dbem
+#: admin/bookings/em-confirmed.php:116
+#: admin/bookings/em-pending.php:133
+#: admin/bookings/em-person.php:124
+msgid "Reject"
+msgstr "Afvis"
+
+#@ dbem
+#: admin/bookings/em-confirmed.php:131
+#: admin/bookings/em-person.php:139
+msgid "No confirmed bookings."
+msgstr "Ingen bekræftet tilmeldinger."
+
+#@ dbem
+#: admin/bookings/em-pending.php:147
+msgid "No pending bookings."
+msgstr "Ingen tilmeldinger der afventer godkendelse."
+
+#@ dbem
+#: admin/em-event.php:14
+#: classes/em-tickets-bookings.php:163
+#: templates/forms/event-editor-guest.php:16
+#: templates/forms/event-editor.php:6
+#: templates/forms/location-editor.php:7
+#, php-format
+msgid "You do not have the rights to manage this %s."
+msgstr "Du har ikke tilladelse til at administrere denne %s."
+
+#@ dbem
+#: admin/em-event.php:25
+#: buddypress/screens/my-events.php:54
+#: templates/forms/event-editor.php:15
+msgid "Edit Event"
+msgstr "Rediger event"
+
+#@ dbem
+#: admin/em-event.php:29
+#: templates/forms/event-editor-guest.php:22
+#: templates/forms/event-editor.php:19
+msgid "Insert New Event"
+msgstr "Indsæt nyt event"
+
+#@ default
+#: admin/em-event.php:56
+msgid "Mon"
+msgstr "Man"
+
+#@ default
+#: admin/em-event.php:56
+msgid "Tue"
+msgstr "Tir"
+
+#@ default
+#: admin/em-event.php:56
+msgid "Wed"
+msgstr "Ons"
+
+#@ default
+#: admin/em-event.php:56
+msgid "Thu"
+msgstr "Tors"
+
+#@ default
+#: admin/em-event.php:56
+msgid "Fri"
+msgstr "Fre"
+
+#@ default
+#: admin/em-event.php:56
+msgid "Sat"
+msgstr "Lør"
+
+#@ default
+#: admin/em-event.php:56
+msgid "Sun"
+msgstr "Søn"
+
+#@ dbem
+#: admin/em-event.php:81
+msgid "Recurrence"
+msgstr "Gentagelse"
+
+#@ dbem
+#: admin/em-event.php:98
+msgid "Repeated event"
+msgstr "Gentaget event"
+
+#@ dbem
+#: admin/em-event.php:105
+#: templates/forms/event-editor-guest.php:129
+#: templates/forms/event-editor.php:127
+msgid "Daily"
+msgstr "Dagligt"
+
+#@ dbem
+#: admin/em-event.php:105
+#: templates/forms/event-editor-guest.php:129
+#: templates/forms/event-editor.php:127
+msgid "Weekly"
+msgstr "Ugentligt"
+
+#@ dbem
+#: admin/em-event.php:105
+#: templates/forms/event-editor-guest.php:129
+#: templates/forms/event-editor.php:127
+msgid "Monthly"
+msgstr "Månedligt"
+
+#@ dbem
+#: admin/em-event.php:111
+#: admin/em-event.php:134
+msgid "Every"
+msgstr "Hver"
+
+#@ dbem
+#: admin/em-event.php:114
+#: templates/forms/event-editor-guest.php:136
+#: templates/forms/event-editor.php:134
+msgid "day"
+msgstr "dag"
+
+#@ dbem
+#: admin/em-event.php:116
+#: templates/forms/event-editor-guest.php:138
+#: templates/forms/event-editor.php:136
+msgid "days"
+msgstr "dage"
+
+#@ dbem
+#: admin/em-event.php:118
+msgid "week"
+msgstr "uge"
+
+#@ dbem
+#: admin/em-event.php:120
+msgid "weeks"
+msgstr "uger"
+
+#@ dbem
+#: admin/em-event.php:122
+msgid "month"
+msgstr "måned"
+
+#@ dbem
+#: admin/em-event.php:124
+msgid "months"
+msgstr "måneder"
+
+#@ dbem
+#: admin/em-event.php:137
+#: templates/forms/event-editor-guest.php:157
+#: templates/forms/event-editor.php:155
+msgid "first"
+msgstr "første"
+
+#@ dbem
+#: admin/em-event.php:137
+#: templates/forms/event-editor-guest.php:157
+#: templates/forms/event-editor.php:155
+msgid "second"
+msgstr "anden"
+
+#@ dbem
+#: admin/em-event.php:137
+#: templates/forms/event-editor-guest.php:157
+#: templates/forms/event-editor.php:155
+msgid "third"
+msgstr "tredje"
+
+#@ dbem
+#: admin/em-event.php:137
+#: templates/forms/event-editor-guest.php:157
+#: templates/forms/event-editor.php:155
+msgid "fourth"
+msgstr "fjerde"
+
+#@ dbem
+#: admin/em-event.php:137
+#: templates/forms/event-editor-guest.php:157
+#: templates/forms/event-editor.php:155
+msgid "last"
+msgstr "sidste"
+
+#@ dbem
+#: admin/em-event.php:148
+#: templates/forms/event-editor-guest.php:169
+#: templates/forms/event-editor.php:167
+msgid "Check if your event happens more than once according to a regular pattern"
+msgstr "Kontroller om dit event optræder mere en en enkelt gang i et bestemt mønster"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:181
+#: templates/forms/event-editor.php:179
+msgid "This is't a recurrent event"
+msgstr "Dette er ikke et gentaget event"
+
+#@ dbem
+#: admin/em-event.php:160
+msgid "Event Owner/Contact Person"
+msgstr "Arrangemets-ejer/Kontaktperson"
+
+#@ dbem
+#: admin/em-event.php:191
+msgid "Group Ownership"
+msgstr "Gruppe-ejerskab"
+
+#@ dbem
+#: admin/em-event.php:205
+#: templates/forms/event-editor-guest.php:89
+#: templates/forms/event-editor.php:87
+msgid "Select a group you admin to attach this event to it. Note that all other admins of that group can modify the booking, and you will not be able to unattach the event without deleting it."
+msgstr "Vælg en gruppe du administrerer for at tilknytte denne event til denne. Bemærk at alle andre administratorer i denne gruppe kan redigere tilmeldingen, og du vil ikke være i stand til at fjerne denne event igen uden at slette det."
+
+#@ dbem
+#: admin/em-event.php:217
+msgid "Bookings Stats"
+msgstr "Tilmeldingsstatistikker"
+
+#@ dbem
+#: admin/em-event.php:228
+msgid "Available Spaces"
+msgstr "Ledige pladser"
+
+#@ dbem
+#: admin/em-event.php:229
+msgid "Confirmed Spaces"
+msgstr "Bekræftet pladser"
+
+#@ dbem
+#: admin/em-event.php:230
+msgid "Pending Spaces"
+msgstr "Pladser der afventer godkendelse"
+
+#@ dbem
+#: admin/em-event.php:237
+#: templates/forms/event-editor.php:287
+msgid "manage bookings"
+msgstr "Administrer tilmeldinger"
+
+#@ dbem
+#: admin/em-event.php:238
+#: templates/forms/event-editor.php:288
+msgid "printable view"
+msgstr "printvisning"
+
+#@ dbem
+#: admin/em-bookings.php:95
+#: admin/em-event.php:239
+#: templates/forms/event-editor.php:289
+msgid "export csv"
+msgstr "Eksportér csv"
+
+#@ dbem
+#: admin/em-event.php:248
+msgid "No responses yet!"
+msgstr "Ingen tilbagemeldinger endnu!"
+
+#@ dbem
+#: admin/em-event.php:275
+#, php-format
+msgid "No categories available, <a href=\"%s\">create one here first</a>"
+msgstr "Ingen kategorier tilgængelige, <a href=\"%s\">opret først en her</a>"
+
+#@ dbem
+#: admin/em-event.php:295
+#: templates/forms/event-editor-guest.php:63
+#: templates/forms/event-editor.php:61
+msgid "The event name. Example: Birthday party"
+msgstr "Eventsnavn. Eksempel: Fødselsdagsfest"
+
+#@ dbem
+#: admin/em-event.php:312
+msgid "Event Slug"
+msgstr "Event Slug"
+
+#@ dbem
+#: admin/em-event.php:319
+msgid "Event date"
+msgstr "Dato for event"
+
+#@ dbem
+#: admin/em-event.php:320
+msgid "Recurrence dates"
+msgstr "Tilbagevendende datoer"
+
+#@ dbem
+#: admin/em-event.php:329
+msgid "The event date."
+msgstr "Eventdatoen."
+
+#@ dbem
+#: admin/em-event.php:332
+msgid "When not reoccurring, this event spans between the beginning and end date."
+msgstr "Når den ikke gentages, vil denne event optræde mellem start- og slutdatoen."
+
+#@ dbem
+#: admin/em-event.php:337
+msgid "The recurrence beginning and end date."
+msgstr "Gentagelsens start- og slutdato."
+
+#@ dbem
+#: admin/em-event.php:343
+msgid "Event time"
+msgstr "Eventtidspunkt"
+
+#@ dbem
+#: admin/em-event.php:350
+msgid "The time of the event beginning and end"
+msgstr "Event start- og sluttidspunkt"
+
+#@ dbem
+#: admin/em-event.php:372
+#: templates/forms/event-editor-guest.php:229
+msgid "Location:"
+msgstr "Lokation:"
+
+#@ dbem
+#: admin/em-event.php:388
+#: templates/forms/event-editor-guest.php:245
+msgid "The name of the location where the event takes place. You can use the name of a venue, a square, etc"
+msgstr "Navnet på lokationen hvor event finder sted. Du kan tilføje navnet på et sted, en plads, etc."
+
+#@ dbem
+#@ default
+#: admin/em-event.php:393
+#: templates/forms/event-editor-guest.php:250
+msgid "Name:"
+msgstr "Navn:"
+
+#@ dbem
+#: admin/em-event.php:397
+#: templates/forms/event-editor-guest.php:254
+msgid "Create a location or start typing to search a previously created location."
+msgstr "Opret en lokation eller begynd at taste for at søge efter en tidligere oprettet lokation."
+
+#@ dbem
+#: admin/em-event.php:398
+#: templates/forms/event-editor-guest.php:255
+msgid "You cannot edit saved locations here."
+msgstr "Du kan ikke redigere gemte lokationer her."
+
+#@ dbem
+#: admin/em-event.php:398
+#: templates/forms/event-editor-guest.php:255
+msgid "Reset this form to create a location."
+msgstr "Nulstil denne formular for at oprette en lokation."
+
+#@ dbem
+#: admin/em-event.php:443
+#: templates/forms/event-editor-guest.php:300
+msgid "Filling this in first will allow you to quickly find previously filled states and regions for the country."
+msgstr "Ved at indtaste dette først kan du hurtigt finde frem til tidligere indtastet stater og regioner i landet."
+
+#@ dbem
+#: admin/em-event.php:470
+msgid "Details about the event"
+msgstr "Detaljer om event"
+
+#@ dbem
+#: admin/em-event.php:476
+msgid "Event image"
+msgstr "Eventbillede"
+
+#@ dbem
+#: admin/em-event.php:482
+msgid "No image uploaded for this event yet"
+msgstr "Der er endnu intet billede sendt for denne event"
+
+#@ dbem
+#: admin/em-event.php:493
+#: templates/forms/event-editor.php:281
+msgid "Bookings/Registration"
+msgstr "Tilmeldinger/Registrering"
+
+#@ dbem
+#: admin/em-event.php:499
+#: templates/forms/event-editor.php:285
+msgid "Enable registration for this event"
+msgstr "Tillad registrering til dette event"
+
+#@ dbem
+#: admin/em-event.php:514
+#: templates/forms/event-editor.php:306
+msgid "Tickets"
+msgstr "Billetter"
+
+#@ dbem
+#: admin/em-event.php:515
+#: templates/forms/event-editor.php:307
+msgid "You have single or multiple tickets, where certain tickets become availalble under certain conditions, e.g. early bookings, group discounts, maximum bookings per ticket, etc."
+msgstr "Du har enkeltbilletter eller multiple billetter, hvoraf nogle billetter bliver tilgængelige under visse betingelser, f.eks. tidlige tilmeldinger, grupperabatter,maks antal tilmeldinger per billet, etc."
+
+#@ dbem
+#: admin/em-event.php:520
+#: templates/forms/event-editor.php:312
+msgid "Ticket Name"
+msgstr "Billetnavn"
+
+#@ dbem
+#: admin/em-bookings.php:153
+#: admin/em-bookings.php:249
+#: admin/em-event.php:521
+#: em-bookings.php:115
+#: templates/forms/bookingform/ticket-single.php:8
+#: templates/forms/bookingform/tickets-list.php:9
+#: templates/forms/event-editor.php:313
+#: templates/forms/ticket-form.php:9
+#: templates/forms/tickets-form.php:6
+msgid "Price"
+msgstr "Pris"
+
+#@ dbem
+#: admin/em-event.php:522
+#: templates/forms/event-editor.php:314
+msgid "Min/Max"
+msgstr "Min/Max"
+
+#@ dbem
+#: admin/em-event.php:523
+#: templates/forms/event-editor.php:315
+msgid "Start/End"
+msgstr "Start/Slut"
+
+#@ dbem
+#: admin/em-event.php:524
+#: templates/forms/event-editor.php:316
+msgid "Avail. Spaces"
+msgstr "Tilgæng. pladser"
+
+#@ dbem
+#: admin/em-event.php:532
+#: templates/forms/event-editor.php:324
+msgid "Add new ticket"
+msgstr "Tilføj ny billet"
+
+#@ dbem
+#: admin/em-event.php:545
+#: templates/forms/event-editor.php:337
+msgid "Free"
+msgstr "Gratis"
+
+#@ dbem
+#: admin/em-event.php:578
+#: templates/forms/event-editor.php:370
+msgid "View Bookings"
+msgstr "Vis tilmeldinger"
+
+#@ dbem
+#: admin/em-event.php:610
+msgid "Attributes"
+msgstr "Attributter"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:359
+msgid "No Value"
+msgstr "Ingen værdi"
+
+#@ dbem
+#: admin/em-event.php:654
+#, php-format
+msgid "You don't have any custom attributes defined in any of your Events Manager template settings. Please add them the <a href='%s'>settings page</a>"
+msgstr "Du har ingen brugerdefinerede attributter i nogen af dine Events-Manager-skabelonindstillinger. Tilføj dem venligst på <a href='%s'>indstillingssiden</a>"
+
+#@ dbem
+#: admin/em-event.php:661
+msgid "Depreciated Attributes"
+msgstr "Afskrevet attributter"
+
+#@ default
+#: admin/em-event.php:662
+msgid "If you see any attributes under here, that means they're not used in Events Manager anymore. To add them, you need to add the custom attribute again to a formatting option in the settings page. To remove any of these depreciated attributes, give it a blank value and save."
+msgstr "Hvis du ser nogen attributter herunder, betyder det at de ikke længere er i brug i Events Manager. For at tilføje dem, skal du tilføje den brugerdefinerede attribut igen til en formateringsindstilling på indstillingssiden. For at fjerne nogen af disse afskrevne attributter, give den en tom værdi og gem."
+
+#@ dbem
+#: admin/em-event.php:693
+msgid "In order to use attributes, you must define some in your templates, otherwise they'll never show. Go to Events > Settings to add attribute placeholders."
+msgstr "For at kunne anvende attributter, skal du definere nogle i dine skabeloner, ellers vil de aldrig vises. Gå til Events > Indstillinger for at tilføje attribut pladsholdere."
+
+#@ dbem
+#: admin/em-event.php:708
+msgid "WARNING! You are about to re-create all your recurrent events including erasing your old booking data! Are you sure you want to do this?"
+msgstr "ADVARSEL! Du er ved at genskabe alle dine gentaget events herunder sletning af dine gamle tilmeldingsdata! Er du sikker på du vil gøre dette?"
+
+#@ dbem
+#: admin/em-event.php:712
+#: templates/forms/event-editor-guest.php:380
+#: templates/forms/event-editor.php:402
+msgid "Submit Event"
+msgstr "Tilføj event"
+
+#@ dbem
+#: admin/em-event.php:733
+#: templates/forms/event-editor.php:414
+msgid "Are you sure you want to reschedule this recurring event? If you do this, you will lose all booking information and the old recurring events will be deleted."
+msgstr "Er du sikker på du ønsker at omlægge dette gentaget event? Hvis du gør dette, vil du miste alle tilmeldingsinformationer og de tidligere gentaget events vil blive slettet."
+
+#@ dbem
+#: admin/em-event.php:743
+#: templates/forms/event-editor.php:423
+msgid "Are you sure you want to disable bookings? If you do this and save, you will lose all previous bookings. If you wish to prevent further bookings, reduce the number of spaces available to the amount of bookings you currently have"
+msgstr "Er du sikker på du vil deaktivere tilmeldinger? Hvis du gør dette og klikker gem, vil du miste alle de tidligere tilmeldinger. Hvis du ønsker at forhindre yderligere tilmeldinger, så reducer antal tilgængelige pladser til det antal tilmeldinger som du har i øjeblikket"
+
+#@ dbem
+#: admin/em-bookings.php:56
+msgid "Event Bookings Dashboard"
+msgstr "Event tilmeldingspanel"
+
+#@ dbem
+#: admin/em-bookings.php:60
+#: admin/em-bookings.php:111
+#: admin/em-bookings.php:162
+msgid "Pending Bookings"
+msgstr "Tilmeldinger der afventer godkendelse"
+
+#@ dbem
+#: admin/em-bookings.php:63
+msgid "Events With Bookings Enabled"
+msgstr "Events med tilmeldinger aktiveret"
+
+#@ dbem
+#: admin/em-bookings.php:78
+#: admin/em-bookings.php:184
+#: admin/em-bookings.php:351
+#: admin/em-people.php:8
+msgid "You do not have the rights to manage this event."
+msgstr "Du har ikke rettigheder til at administrere denne event."
+
+#@ dbem
+#: admin/em-bookings.php:90
+#, php-format
+msgid "Manage %s Bookings"
+msgstr "Administrer %s tilmeldinger"
+
+#@ dbem
+#: admin/em-bookings.php:91
+#: admin/em-bookings.php:145
+msgid "View/Edit Event"
+msgstr "Vis/rediger event"
+
+#@ dbem
+#: admin/em-bookings.php:97
+#: templates/forms/event-editor-guest.php:59
+#: templates/forms/event-editor.php:57
+msgid "Event Name"
+msgstr "Eventnavn"
+
+#@ dbem
+#: admin/em-bookings.php:98
+msgid "Spaces confirmed"
+msgstr "Pladser bekræftet"
+
+#@ dbem
+#: admin/em-bookings.php:100
+#: templates/templates/my-bookings.php:47
+msgid "Date"
+msgstr "Dato"
+
+#@ dbem
+#: admin/em-bookings.php:114
+#: admin/em-bookings.php:165
+msgid "Confirmed Bookings"
+msgstr "Bekræftet tilmeldinger"
+
+#@ dbem
+#: admin/em-bookings.php:116
+#: admin/em-bookings.php:167
+msgid "Rejected Bookings"
+msgstr "Afviste tilmeldinger"
+
+#@ dbem
+#: admin/em-bookings.php:118
+#: admin/em-bookings.php:169
+msgid "Cancelled Bookings"
+msgstr "Annullerede tilmeldinger"
+
+#@ dbem
+#: admin/em-bookings.php:134
+msgid "You do not have the rights to manage this ticket."
+msgstr "Du har ikke rettigheder til at administrere denne billet."
+
+#@ dbem
+#: admin/em-bookings.php:144
+#, php-format
+msgid "Ticket for %s"
+msgstr "Billet til %s"
+
+#@ dbem
+#: admin/em-bookings.php:146
+msgid "View Event Bookings"
+msgstr "Vis event-tilmeldinger"
+
+#@ dbem
+#: admin/em-bookings.php:152
+#: templates/forms/ticket-form.php:32
+#: templates/forms/tickets-form.php:5
+msgid "Description"
+msgstr "Beskrivelse"
+
+#@ dbem
+#: admin/bookings/em-cancelled.php:87
+#: admin/bookings/em-confirmed.php:88
+#: admin/bookings/em-pending.php:105
+#: admin/bookings/em-person.php:87
+#: admin/bookings/em-rejected.php:87
+#: admin/em-bookings.php:154
+#: admin/em-bookings.php:248
+#: em-bookings.php:116
+#: em-bookings.php:144
+#: templates/forms/bookingform/ticket-single.php:13
+#: templates/forms/bookingform/tickets-list.php:11
+#: templates/forms/ticket-form.php:11
+#: templates/templates/bookings-event-printable.php:27
+#: templates/templates/my-bookings.php:48
+msgid "Spaces"
+msgstr "Pladser"
+
+#@ dbem
+#: admin/em-bookings.php:155
+msgid "Min"
+msgstr "Min"
+
+#@ dbem
+#: admin/em-bookings.php:156
+msgid "Max"
+msgstr "Max"
+
+#@ dbem
+#: admin/em-bookings.php:157
+msgid "Start"
+msgstr "Start"
+
+#@ dbem
+#: admin/em-bookings.php:158
+msgid "End"
+msgstr "Slut"
+
+#@ dbem
+#: admin/em-bookings.php:194
+msgid "Edit Booking"
+msgstr "Rediger tilmelding"
+
+#@ dbem
+#: admin/em-bookings.php:202
+msgid "Event Details"
+msgstr "Event detaljer"
+
+#@ dbem
+#: admin/em-bookings.php:213
+msgid "Date/Time"
+msgstr "Dato/klokkeslæt"
+
+#@ dbem
+#: admin/em-bookings.php:225
+#: admin/em-bookings.php:373
+msgid "Personal Details"
+msgstr "Personlige detaljer"
+
+#@ dbem
+#: admin/em-bookings.php:233
+msgid "Booking Details"
+msgstr "Detaljer om tilmelding"
+
+#@ dbem
+#: admin/bookings/em-person.php:88
+#: admin/em-bookings.php:242
+#: templates/templates/my-bookings.php:49
+msgid "Status"
+msgstr "Status"
+
+#@ dbem
+#: admin/em-bookings.php:247
+#: em-bookings.php:114
+#: templates/forms/bookingform/tickets-list.php:7
+msgid "Ticket Type"
+msgstr "Billet type"
+
+#@ dbem
+#: admin/em-bookings.php:279
+msgid "Totals"
+msgstr "Totaler"
+
+#@ dbem
+#: admin/em-bookings.php:295
+#: em-bookings.php:158
+#: templates/forms/bookingform/booking-fields.php:24
+#: templates/templates/bookings-event-printable.php:28
+msgid "Comment"
+msgstr "Kommentar"
+
+#@ dbem
+#: admin/em-bookings.php:307
+msgid "Booking Notes"
+msgstr "Tilmeldingsnoter"
+
+#@ dbem
+#: admin/em-bookings.php:310
+msgid "You can add private notes below for internal reference that only event managers will see."
+msgstr "Du kan tilføje private noter herunder for interne henvisninger som kun Event administratorer kan se."
+
+#@ dbem
+#: admin/em-bookings.php:315
+msgid "wrote"
+msgstr "skrev"
+
+#@ dbem
+#: admin/em-bookings.php:361
+msgid "Manage Person's Booking"
+msgstr "Administrer en persons tilmelding"
+
+#@ dbem
+#: admin/em-bookings.php:363
+msgid "Edit User"
+msgstr "Rediger bruger"
+
+#@ dbem
+#: admin/em-bookings.php:384
+msgid "Past And Present Bookings"
+msgstr "Tidligere og nuværende tilmeldinger"
+
+#@ dbem
+#: admin/em-admin.php:53
+#, php-format
+msgid "<strong>Events Manager has some new features!</strong><ul><li>Bookings can now be approved before they count towards your event's space allocations.</li><li>Events now have owners, and you can restrict users so they can only manage events/locations/categories they create.<br/><br/>These new permissions are enabled by default, but since you upgraded it has been disabled to maintain the previous plugin behaviour. You can re-enable it from the <a href=\"%s\">settings page</a>. <a href=\"%s\">Dismiss</a>"
+msgstr "<strong>Events Manager har enkelte nye funktioner!</strong><ul><li>Tilmeldinger kan nu godkendes før de tæller med i dine eventsplads allokeringer.</li><li>Events har nu ejere, og du kan begrænse brugeres rettigheder, således at de kun kan administrere events/lokationer/kategorier som de selv opretter.<br/><br/>Disse nye tilladelser er som standard aktiveret, men siden du opgraderede har de været deaktiveret for at opretholde den forrige plugins opførsel. Du kan genaktivere den på <a href=\"%s\">indstillingssiden</a>. <a href=\"%s\">Afvis</a>"
+
+#@ dbem
+#: admin/em-admin.php:66
+#, php-format
+msgid "Uh Oh! For some reason wordpress could not create an events page for you (or you just deleted it). Not to worry though, all you have to do is create an empty page, name it whatever you want, and select it as your events page in your <a href=\"%s\">settings page</a>. Sorry for the extra step! If you know what you are doing, you may have done this on purpose, if so <a href=\"%s\">ignore this message</a>"
+msgstr "Ups! Wordpress kunne af en eller anden grund ikke oprette en eventsside til dig (eller du kom til at slette den). Der er dog ingen grund til bekymring, det eneste du skal gøre er at oprette en tom side, navngiv den som du ønsker, og vælg den som din eventsside på din <a href=\"%s\">indstillingsside</a>. Undskyld for dette ekstra trin! Hvis du ved hvad du foretager dig, har du måske gjort det med vilje, hvis dette er tilfældet så <a href=\"%s\">ignorer denne meddelelse</a>"
+
+#@ default
+#: admin/em-admin.php:78
+#, php-format
+msgid "A <strong>LOT</strong> has changed since Events Manager 3. We recommend you take a look at the <a href=\"%s\">settings page</a> for new features and upgrade instructions, and you may particualarly be interested in modifying permissions. <a href=\"%s\">Dismiss</a>"
+msgstr "En <strong>DEL</strong> har ændret sig siden Events Manager 3. Vi anbefaler dig at kigge på <a href=\"%s\">indstillingssiden</a> for nye funktioner og opgraderingsinstruktioner,og du er måske specielt interesseret i administrationsrettigheder. <a href=\"%s\">Afvis</a>"
+
+#@ dbem
+#: admin/em-admin.php:103
+#, php-format
+msgid "This page corresponds to <strong>Events Manager</strong> events page. Its content will be overriden by Events Manager, although if you include the word CONTENTS (exactly in capitals) and surround it with other text, only CONTENTS will be overwritten. If you want to change the way your events look, go to the <a href='%s'>settings</a> page. "
+msgstr "Denne side svare til  <strong>Events Manager</strong> eventsside. Indholdet vil blive overskrevet af Events Manager, men hvis du inkludere ordet CONTENTS (præcis som skrevet med store bogstaver) og omgiver det med anden tekst, vil kun CONTENTS blive overskrevet. Hvis du vil ændre den måde hvorpå events ser ud, så gå til <a href='%s'>settings</a> siden"
+
+#@ dbem
+#: admin/em-admin.php:130
+#, php-format
+msgid "Displaying %s&#8211;%s of %s"
+msgstr "Viser %s&#8211;%s af %s"
+
+#@ dbem
+#: admin/em-options.php:42
+msgid "Changes saved."
+msgstr "Ændringer gemt."
+
+#@ dbem
+#: admin/em-options.php:62
+#, php-format
+msgid "This accepts %s and %s placeholders."
+msgstr "Her accepterers %s og %s pladsholdere."
+
+#@ dbem
+#: admin/em-options.php:63
+#: admin/em-options.php:64
+#, php-format
+msgid "This accepts %s placeholders."
+msgstr "Her accepteres %s pladsholdere."
+
+#@ dbem
+#: admin/em-options.php:65
+#, php-format
+msgid "This accepts %s, %s and %s placeholders."
+msgstr "Her accepteres %s, %s og %s pladsholdere."
+
+#@ dbem
+#@ default
+#: admin/em-options.php:67
+#: admin/em-options.php:650
+msgid "Save Changes"
+msgstr "Gem ændringer"
+
+#@ dbem
+#: admin/em-options.php:67
+msgid "All"
+msgstr "Alle"
+
+#@ dbem
+#: admin/em-options.php:69
+msgid "Only Network Admins see this"
+msgstr "Kun netværksadministratorer ser dette"
+
+#@ dbem
+#: admin/em-options.php:73
+msgid "Collapse All"
+msgstr "Sammenfold alle"
+
+#@ dbem
+#: admin/em-options.php:74
+msgid "Expand All"
+msgstr "Udfold alle"
+
+#@ dbem
+#: admin/em-options.php:102
+msgid "Event Manager Options"
+msgstr "Event Manager indstillinger"
+
+#@ dbem
+#: admin/em-options.php:151
+#: admin/em-options.php:167
+#: admin/em-options.php:209
+#: admin/em-options.php:299
+#: admin/em-options.php:322
+#: admin/em-options.php:343
+#: admin/em-options.php:371
+#: admin/em-options.php:398
+#: admin/em-options.php:413
+#: admin/em-options.php:434
+#: admin/em-options.php:468
+#: admin/em-options.php:520
+#: admin/em-options.php:539
+#: admin/em-options.php:553
+#: admin/em-options.php:617
+msgid "Click to toggle"
+msgstr "Klik for at skifte"
+
+#@ dbem
+#: admin/em-options.php:151
+msgid "Multi Site Options"
+msgstr "Multi-site indstillinger"
+
+#@ dbem
+#: admin/em-options.php:155
+msgid "Enable global tables mode?"
+msgstr "Aktiver globale tabeller-funktion?"
+
+#@ dbem
+#: admin/em-options.php:155
+msgid "Setting this to yes will make all events save in the main site event tables (EM must also be activated). This allows you to share events across different blogs, such as showing events in your network whilst allowing users to display and manage their events within their own blog. Bear in mind that activating this will mean old events created on the sub-blogs will not be accessible anymore, and if you switch back they will be but new events created during global events mode will only remain on the main site."
+msgstr "Sæt denne til ja, og alle events vil blive sikret på hovedsiden for eventtabeller (EM skal også være aktiveret). Dette giver dig rettigheder til at dele events på forskellige blogs, som f.eks. at vise events i dit netværk mens du tillader brugerne at vise og administrere events på deres egen blog. Tænk på, at hvis denne aktiveres vil gamle events oprettet på en under-blog ikke være tilgængelige mere; hvis du skifter tilbage vil de være tilgængelige igen, men nye events oprettet med global eventfunktion vil kun bibeholdes på hovedsiden."
+
+#@ dbem
+#: admin/em-options.php:156
+msgid "Display global events on main blog?"
+msgstr "Vis globale events på hoved-blog?"
+
+#@ dbem
+#: admin/em-options.php:156
+msgid "Displays events from all sites on the network by default. You can still restrict events by blog using shortcodes and template tags coupled with the <code>blog</code> attribute. Requires global tables to be turned on."
+msgstr "Viser events fra alle sider på netværket som standard. Du kan stadigvæk begrænse events per blog ved brug af shortcodes og skabelon tags kombineret sammen med <code>blog</code> attribut. Dette kræver at globale tabeller aktiveres."
+
+#@ dbem
+#: admin/em-options.php:157
+msgid "Link sub-site events directly to sub-site?"
+msgstr "Tilknyt sub-site events direkte til sub-site?"
+
+#@ dbem
+#: admin/em-options.php:157
+msgid "When displaying global events on the main site you have the option of users viewing the event details on the main site or being directed to the sub-site."
+msgstr "Når global events vises på hovedsiden har du muligheden for at brugerne kan se eventdetaljer på denne eller at de omdirigeres til under-siden."
+
+#@ dbem
+#: admin/em-options.php:167
+msgid "General options"
+msgstr "Generelle indstillinger"
+
+#@ dbem
+#: admin/em-options.php:171
+msgid "Use dropdown for locations?"
+msgstr "Brug rullegardin-menu for lokationer?"
+
+#@ dbem
+#: admin/em-options.php:171
+msgid "Select yes to select location from a drow-down menu; location selection will be faster, but you will lose the ability to insert locations with events"
+msgstr "Sæt til ja for at vælge lokation fra en rullegardin-menu; valg af lokation vil gå hurtigere, men du vil miste muligheden for at indsætte lokationer sammen med events"
+
+#@ dbem
+#: admin/em-options.php:172
+msgid "Use recurrence?"
+msgstr "Brug gentagelse?"
+
+#@ dbem
+#: admin/em-options.php:172
+msgid "Select yes to enable the recurrence features feature"
+msgstr "Vælg ja for at aktivere gentagelsesfunktionen"
+
+#@ dbem
+#: admin/em-options.php:173
+msgid "Enable bookings?"
+msgstr "Aktivér tilmeldinger?"
+
+#@ dbem
+#: admin/em-options.php:173
+msgid "Select yes to allow bookings and tickets for events."
+msgstr "Vælg ja for at tillade tilmeldinger og billetter til events."
+
+#@ dbem
+#: admin/em-options.php:174
+msgid "Use categories?"
+msgstr "Brug kategorier?"
+
+#@ dbem
+#: admin/em-options.php:174
+msgid "Select yes to enable the category features"
+msgstr "Vælg ja for at aktivere kategorifunktioner"
+
+#@ dbem
+#: admin/em-options.php:175
+msgid "Use event attributes?"
+msgstr "Brug eventsattributter?"
+
+#@ dbem
+#: admin/em-options.php:175
+msgid "Select yes to enable the attributes feature"
+msgstr "Vælg ja for at aktivere attributfunktioner"
+
+#@ dbem
+#: admin/em-options.php:179
+msgid "no default category"
+msgstr "Ingen standard-kategori"
+
+#@ dbem
+#: admin/em-options.php:184
+msgid "Default Category"
+msgstr "Standard kategori"
+
+#@ dbem
+#: admin/em-options.php:184
+msgid "This option allows you to select the default category when adding an event."
+msgstr "Denne valgmulighed giver dig mulighed for at vælge en standard kategori når du tilføjer en event."
+
+#@ dbem
+#: admin/em-options.php:184
+#: admin/em-options.php:193
+msgid "(not applicable with event ownership on presently, coming soon!)"
+msgstr "(for øjeblikket ikke anvendelig med event ejerskab slået til, kommer snart!)"
+
+#@ dbem
+#: admin/em-options.php:188
+msgid "no default location"
+msgstr "Ingen standard lokation"
+
+#@ dbem
+#: admin/em-options.php:193
+msgid "Default Location"
+msgstr "Standard lokation"
+
+#@ dbem
+#: admin/em-options.php:193
+msgid "This option allows you to select the default location when adding an event."
+msgstr "Denne valgmulighed giver dig mulighed for at vælge en standard lokation når du tilføjer en event."
+
+#@ dbem
+#: admin/em-options.php:196
+msgid "Default Location Country"
+msgstr "Standard lokationsland"
+
+#@ dbem
+#: admin/em-options.php:196
+msgid "no default country"
+msgstr "Intet standard-land"
+
+#@ dbem
+#: admin/em-options.php:196
+msgid "If you select a default country, that will be pre-selected when creating a new location."
+msgstr "Hvis du vælger et standard land, vil det blive sat som standard når der oprettes en ny lokation."
+
+#@ dbem
+#: admin/em-options.php:198
+msgid "Event Attributes"
+msgstr "Eventsattributter"
+
+#@ dbem
+#: admin/em-options.php:198
+#, php-format
+msgid "You can also add event attributes here, one per line in this format <code>#_ATT{key}</code>. They will not appear on event pages unless you insert them into another template below, but you may want to store extra information about an event for other uses. <a href='%s'>More information on placeholders.</a>"
+msgstr "Du kan også tilføje event-attributter her, én pr. linje i dette format <code>#_ATT{key}</code>. De vil ikke vises på eventsiderne, undtagen hvis du indsætter dem i en anden skabelon herunder, men du vil måske gerne gemme ekstra information om en event for at genbruge denne igen. <a href='%s'>Mere information om pladsholdere.</a>"
+
+#@ dbem
+#: admin/em-options.php:200
+msgid "Show some love?"
+msgstr "Vis lidt kærlighed?"
+
+#@ dbem
+#: admin/em-options.php:200
+msgid "Hundreds of free hours have gone into making this free plugin, show your support and add a small link to the plugin website at the bottom of your event pages."
+msgstr "Hundredevis af fritimer er gået med at programmere dette gratis plugin, vis din opbakning og tilføj et lille link til hjemmesiden for dette plugin i bunden af din eventsider."
+
+#@ dbem
+#: admin/em-options.php:209
+#: admin/em-options.php:223
+msgid "Events page"
+msgstr "Eventsside"
+
+#@ dbem
+#: admin/em-options.php:218
+msgid "[No Events Page]"
+msgstr "[No Events Page]"
+
+#@ dbem
+#: admin/em-options.php:223
+msgid "This option allows you to select which page to use as an events page"
+msgstr "Denne valgmulighed giver dig mulighed for at vælge hvilken side der skal benyttes som eventsside"
+
+#@ dbem
+#: admin/em-options.php:226
+msgid "Show events page in lists?"
+msgstr "Vis eventssider i tabeller?"
+
+#@ dbem
+#: admin/em-options.php:226
+msgid "Check this option if you want the events page to appear together with other pages in pages lists."
+msgstr "Afkryds denne valgmulighed hvis du ønsker at eventssiden vises sammen med andre sider i tabeller."
+
+#@ dbem
+#: admin/em-options.php:227
+msgid "Display calendar in events page?"
+msgstr "Vis kalender på eventssider?"
+
+#@ dbem
+#: admin/em-options.php:227
+msgid "This options allows to display the calendar in the events page, instead of the default list. It is recommended not to display both the calendar widget and a calendar page."
+msgstr "Denne valgmulighed tillader at kalenderen vises på eventssiden, i stedet for standard tabellen. Det anbefales ikke at vise både en kalender-widget og en kalenderside."
+
+#@ dbem
+#: admin/em-options.php:227
+msgid "If you would like to show events that span over more than one day, see the Calendar section on this page."
+msgstr "Hvis du gerne vil vise events som løber over mere end én dag, så se kalendersektionen på denne side."
+
+#@ dbem
+#: admin/em-options.php:228
+msgid "Disable title rewriting?"
+msgstr "Slå titel-omskrivning fra?"
+
+#@ dbem
+#: admin/em-options.php:228
+msgid "Some wordpress themes don't follow best practices when generating navigation menus, and so the automatic title rewriting feature may cause problems, if your menus aren't working correctly on the event pages, try setting this to 'Yes', and provide an appropriate HTML title format below."
+msgstr "Nogle Wordpress temaer følger ikke \"best practice\" når de genererer navigationsmenuer, og derfor kan den automatiske genskrivningsfunktion skabe problemer; hvis dine menuer ikke virker korrekt på eventsiderne, prøv at sætte denne til 'Ja', og skriv et passende HTML titelformat herunder."
+
+#@ dbem
+#: admin/em-options.php:229
+msgid "Event Manager titles"
+msgstr "Event Manager titler"
+
+#@ dbem
+#: admin/em-options.php:229
+msgid "This only setting only matters if you selected 'Yes' to above. You will notice the events page titles aren't being rewritten, and you have a new title underneath the default page name. This is where you control the HTML of this title. Make sure you keep the #_PAGETITLE placeholder here, as that's what is rewritten by events manager. To control what's rewritten in this title, see settings further down for page titles."
+msgstr "Denne indstilling betyder kun noget hvis du valgte 'Ja' herover. Du vil bemærke at eventsside-titler ikke omskrives, og at du har en ny titel under standardside navnet. Det er her du kontrollere HTML for denne titel. Vær sikker på at du beholder #_PAGETITLE pladsholderen her, da det er hvad der omskrives af af events manager. For at kontrollere hvad der omskrives i denne titel, se indstillingerne længere nede for sidetitler."
+
+#@ dbem
+#: admin/em-options.php:230
+msgid "Event List Limits"
+msgstr "Eventtabel begrænsninger"
+
+#@ dbem
+#: admin/em-options.php:230
+msgid "This will control how many events are shown on one list by default."
+msgstr "Dette kontrollerer hvor mange events der vises i en tabel som standard."
+
+#@ dbem
+#: admin/em-options.php:231
+msgid "Are current events past events?"
+msgstr "Er nuværende events tidligere events?"
+
+#@ dbem
+#: admin/em-options.php:231
+msgid "By default, events that are have an end date later than today will be included in searches, set this to yes to consider events that started 'yesterday' as past."
+msgstr "Events som har en slutdato senere end i dag, vil som standard blive inkluderet i søgninger, indstil denne til ja for at medtage events som startede 'i går' som de tidligste."
+
+#@ dbem
+#: admin/em-options.php:232
+msgid "Show events search?"
+msgstr "Vis event-søgning"
+
+#@ dbem
+#: admin/em-options.php:232
+msgid "If set to yes, a search form will appear just above your list of events."
+msgstr "Hvis sat til ja, vises en søge-rubrik lige over din tabel med events."
+
+#@ dbem
+#: admin/em-options.php:235
+msgid "Default event list ordering"
+msgstr "Standard sortering på eventtabel"
+
+#@ dbem
+#: admin/em-options.php:240
+msgid "Order by start date, start time, then event name"
+msgstr "Sorter efter startdato, starttidspunkt, og eventnavn"
+
+#@ dbem
+#: admin/em-options.php:241
+msgid "Order by name, start date, then start time"
+msgstr "Sorter efter navn, startdato, og starttidspunkt"
+
+#@ dbem
+#: admin/em-options.php:242
+msgid "Order by name, end date, then end time"
+msgstr "Sorter efter navn, slutdato, og sluttidspunkt"
+
+#@ dbem
+#: admin/em-options.php:243
+msgid "Order by end date, end time, then event name"
+msgstr "Sorter efter slutdato, sluttidspunkt, og eventnavn"
+
+#@ dbem
+#: admin/em-options.php:254
+#: widgets/em-events.php:117
+msgid "Ascending"
+msgstr "Stigende"
+
+#@ dbem
+#: admin/em-options.php:255
+#: widgets/em-events.php:118
+msgid "Descending"
+msgstr "Faldende"
+
+#@ dbem
+#: admin/em-options.php:257
+msgid "All Ascending"
+msgstr "Sorter alle stigende"
+
+#@ dbem
+#: admin/em-options.php:260
+msgid "All Descending"
+msgstr "Sorter alle faldende"
+
+#@ dbem
+#: admin/em-options.php:274
+msgid "When Events Manager displays lists of events the default behaviour is ordering by start date in ascending order. To change this, modify the values above."
+msgstr "Når Events Manager viser tabeller over events, så er sorteringen som standard sat til startdato i stigende rækkefølge. For at ændrer dette kan du tilpasse indstillingerne herover."
+
+#@ dbem
+#: admin/em-options.php:278
+msgid "Event list scope"
+msgstr "Eventtabel indhold"
+
+#@ dbem
+#: admin/em-options.php:288
+msgid "Only show events starting within a certain time limit on the events page. Default is future events with no end time limit."
+msgstr "Vis kun events der begynder indenfor en afgrænset tidsperiode på eventssiden. Standard er kommende events uden en tidsafgrænsning på slutdatoen."
+
+#@ dbem
+#: admin/em-options.php:299
+msgid "Events format"
+msgstr "Eventsformat"
+
+#@ dbem
+#: admin/em-options.php:302
+#: admin/em-options.php:346
+#: admin/em-options.php:374
+#, php-format
+msgid "%s Page"
+msgstr "% s-side"
+
+#@ dbem
+#: admin/em-options.php:304
+msgid "Events page title"
+msgstr "Events sidetitel"
+
+#@ dbem
+#: admin/em-options.php:304
+msgid "The title on the multiple events page."
+msgstr "Titel på  multiple eventsside."
+
+#@ dbem
+#: admin/em-options.php:305
+msgid "Default event list format header"
+msgstr "Standard eventtabel sidehovedformat"
+
+#@ dbem
+#: admin/em-options.php:305
+msgid "This content will appear just above your code for the default event list format. Default is blank"
+msgstr "Dette indhold vises lige over din kode for standard event-tabelformat. Standard er ingenting."
+
+#@ dbem
+#: admin/em-options.php:306
+msgid "Default event list format"
+msgstr "Standard eventtabel format"
+
+#@ dbem
+#: admin/em-options.php:306
+msgid "The format of any events in a list."
+msgstr "Formatet på ethvert event i en tabel."
+
+#@ dbem
+#: admin/em-options.php:307
+msgid "Default event list format footer"
+msgstr "Standard eventtabel sidefodformat"
+
+#@ dbem
+#: admin/em-options.php:307
+msgid "This content will appear just below your code for the default event list format. Default is blank"
+msgstr "Dette indhold vises lige under din kode for standard eventtabel format. Standard er ingenting."
+
+#@ dbem
+#: admin/em-options.php:308
+msgid "No events message"
+msgstr "Ingen eventbesked"
+
+#@ dbem
+#: admin/em-options.php:308
+msgid "The message displayed when no events are available."
+msgstr "Den viste besked, når der ikke er nogen events tilgængelige."
+
+#@ dbem
+#: admin/em-options.php:309
+msgid "List events by date title"
+msgstr "Sorter events efter dato titel"
+
+#@ dbem
+#: admin/em-options.php:309
+msgid "If viewing a page for events on a specific date, this is the title that would show up. To insert date values, use <a href=\"http://www.php.net/manual/en/function.date.php\">PHP time format characters</a>  with a <code>#</code> symbol before them, i.e. <code>#m</code>, <code>#M</code>, <code>#j</code>, etc.<br/>"
+msgstr "Vises en eventsside på en bestemt dato, er dette titlen som vises. For at indsætte datoformater, benyt <a href=\"http://www.php.net/manual/en/function.date.php\">PHP tidsformat karakterer</a>  med et <code>#</code> foranstillet symbol,f.eks. <code>#m</code>, <code>#M</code>, <code>#j</code>, etc.<br/>"
+
+#@ dbem
+#: admin/em-options.php:311
+#: admin/em-options.php:354
+#: admin/em-options.php:382
+#, php-format
+msgid "Single %s Page"
+msgstr "Single-%s side"
+
+#@ dbem
+#: admin/em-options.php:313
+msgid "Single event page title format"
+msgstr "Single-event sidetitel format"
+
+#@ dbem
+#: admin/em-options.php:313
+msgid "The format of a single event page title."
+msgstr "Titel format på en single-event side."
+
+#@ dbem
+#: admin/em-options.php:314
+msgid "Default single event format"
+msgstr "Standard single-event format"
+
+#@ dbem
+#: admin/em-options.php:314
+msgid "The format of a single event page."
+msgstr "Formatet på en single-eventside."
+
+#@ dbem
+#: admin/em-options.php:322
+msgid "Calendar format"
+msgstr "Kalenderformat"
+
+#@ dbem
+#: admin/em-options.php:326
+msgid "Small calendar title"
+msgstr "Lille kalendertitel"
+
+#@ dbem
+#: admin/em-options.php:326
+msgid "The format of the title, corresponding to the text that appears when hovering on an eventful calendar day."
+msgstr "Titelformatet på den tekst der vises når musen trækkes over en event-kalenderdag."
+
+#@ dbem
+#: admin/em-options.php:327
+msgid "Small calendar title separator"
+msgstr "Lille kalendertitel skilletegn"
+
+#@ dbem
+#: admin/em-options.php:327
+msgid "The separator appearing on the above title when more than one events are taking place on the same day."
+msgstr "Skilletegnet der vises i ovenstående titel, når mere end en event finder sted på samme dag."
+
+#@ dbem
+#: admin/em-options.php:328
+msgid "Full calendar events format"
+msgstr "Komplet eventskalender format"
+
+#@ dbem
+#: admin/em-options.php:328
+msgid "The format of each event when displayed in the full calendar. Remember to include <code>li</code> tags before and after the event."
+msgstr "Formatet på hvert event når de vises i komplet kalenderformat. Husk at inkludere <code>li</code> tags før og efter event."
+
+#@ dbem
+#: admin/em-options.php:329
+msgid "Show long events on calendar pages?"
+msgstr "Vis længerevarende events på kalendersider?"
+
+#@ dbem
+#: admin/em-options.php:329
+msgid "If you are showing a calendar on the events page (see Events format section on this page), you have the option of showing events that span over days on each day it occurs."
+msgstr "Hvis du viser en kalender på eventsiden (se Events formatsektionen på denne side), har du mulighed for at vise events som løber over flere dage hver eneste dag de optræder."
+
+#@ dbem
+#: admin/em-options.php:330
+msgid "Show list on day with single event?"
+msgstr "Vis tabeller på dage med single-event?"
+
+#@ dbem
+#: admin/em-options.php:330
+msgid "By default, if a calendar day only has one event, it display a single event when clicking on the link of that calendar date. If you select Yes here, you will get always see a list of events."
+msgstr "Hvis en kalenderdag kun har én event, vises denne som standard som en single-event når der klikkes på kalenderdatoens link. Hvis du vælger Ja her, vil du altid se en tabel med events."
+
+#@ dbem
+#: admin/em-options.php:343
+msgid "Locations format"
+msgstr "Lokationsformat"
+
+#@ dbem
+#: admin/em-options.php:348
+#: admin/em-options.php:376
+#, php-format
+msgid "%s page title"
+msgstr "%s-sidetitel"
+
+#@ dbem
+#: admin/em-options.php:348
+#: admin/em-options.php:376
+#, php-format
+msgid "The title on the multiple %s page."
+msgstr "Titel på multiple %s-side."
+
+#@ dbem
+#: admin/em-options.php:349
+#: admin/em-options.php:377
+#, php-format
+msgid "%s list header format"
+msgstr "%s-tabel sidehovedformat"
+
+#@ dbem
+#: admin/em-options.php:349
+#: admin/em-options.php:377
+#, php-format
+msgid "This content will appear just above your code for the %s list format below. Default is blank"
+msgstr "Dette indhold vises lige over din kode for alle %s-tabelformater herunder. Standard er ingenting"
+
+#@ dbem
+#: admin/em-options.php:350
+#: admin/em-options.php:378
+#, php-format
+msgid "%s list item format"
+msgstr "%s-tabel elementformat"
+
+#@ dbem
+#: admin/em-options.php:350
+#: admin/em-options.php:378
+#, php-format
+msgid "The format of a single %s in a list."
+msgstr "Formatet for single-%s i en tabel."
+
+#@ dbem
+#: admin/em-options.php:351
+#: admin/em-options.php:379
+#, php-format
+msgid "%s list footer format"
+msgstr "%s-tabel sidefodformat"
+
+#@ dbem
+#: admin/em-options.php:351
+#: admin/em-options.php:379
+#, php-format
+msgid "This content will appear just below your code for the %s list format above. Default is blank"
+msgstr "Dette indhold vises lige under din kode for alle %s-tabelformater herover. Standard er ingenting"
+
+#@ dbem
+#: admin/em-options.php:352
+#: admin/em-options.php:363
+#: admin/em-options.php:380
+#: admin/em-options.php:390
+#, php-format
+msgid "No %s message"
+msgstr "Ingen %s besked"
+
+#@ dbem
+#: admin/em-options.php:352
+#: admin/em-options.php:380
+#, php-format
+msgid "The message displayed when no %s are available."
+msgstr "Beskeden der vises hvis når ingen %s er tilgængelige."
+
+#@ dbem
+#: admin/em-options.php:356
+#: admin/em-options.php:384
+#, php-format
+msgid "Single %s title format"
+msgstr "Single-%s titelformat"
+
+#@ dbem
+#: admin/em-options.php:356
+#: admin/em-options.php:357
+#: classes/em-location.php:144
+#: classes/em-location.php:152
+#: templates/forms/location-editor.php:7
+msgid "location"
+msgstr "lokation"
+
+#@ dbem
+#: admin/em-options.php:356
+msgid "The format of a single location page title."
+msgstr "Titelformat på en single-lokationsside."
+
+#@ dbem
+#: admin/em-options.php:357
+#: admin/em-options.php:385
+#, php-format
+msgid "Single %s page format"
+msgstr "Single-%s sideformat"
+
+#@ dbem
+#: admin/em-options.php:357
+msgid "The format of a single location page."
+msgstr "Formatet på en single-lokationsside."
+
+#@ dbem
+#: admin/em-options.php:358
+msgid "Default location balloon format"
+msgstr "Standard lokation-ballonformat"
+
+#@ dbem
+#: admin/em-options.php:358
+msgid "The format of of the text appearing in the baloon describing the location a single location map."
+msgstr "Format på den tekst der vises i ballonen der beskriver lokationen på et single-lokationskort."
+
+#@ dbem
+#: admin/em-options.php:362
+#: admin/em-options.php:389
+#, php-format
+msgid "Default %s list format"
+msgstr "Standard %s-tabelformat"
+
+#@ dbem
+#: admin/em-options.php:371
+msgid "Categories format"
+msgstr "Kategoriformat"
+
+#@ dbem
+#: admin/em-options.php:384
+#: admin/em-options.php:385
+#: classes/em-categories.php:206
+msgid "category"
+msgstr "kategori"
+
+#@ dbem
+#: admin/em-options.php:384
+msgid "The format of a single category page title."
+msgstr "Titelformat på en single-kategoriside."
+
+#@ dbem
+#: admin/em-options.php:385
+msgid "The format of a single category page."
+msgstr "Formatet på en single-kategoriside."
+
+#@ dbem
+#: admin/em-options.php:398
+msgid "RSS feed format"
+msgstr "RSS feed-format"
+
+#@ dbem
+#: admin/em-options.php:402
+msgid "RSS main title"
+msgstr "RSS titel"
+
+#@ dbem
+#: admin/em-options.php:402
+msgid "The main title of your RSS events feed."
+msgstr "Hovedtitlen på dine RSS feed events."
+
+#@ dbem
+#: admin/em-options.php:403
+msgid "RSS main description"
+msgstr "RSS beskrivelse"
+
+#@ dbem
+#: admin/em-options.php:403
+msgid "The main description of your RSS events feed."
+msgstr "Hovedbeskrivelsen af dine RSS feed events."
+
+#@ dbem
+#: admin/em-options.php:404
+msgid "RSS title format"
+msgstr "RSS titelformat"
+
+#@ dbem
+#: admin/em-options.php:404
+msgid "The format of the title of each item in the events RSS feed."
+msgstr "Titelformat på hvert punkt i event RSS feed."
+
+#@ dbem
+#: admin/em-options.php:405
+msgid "RSS description format"
+msgstr "RSS beskrivelsesformat"
+
+#@ dbem
+#: admin/em-options.php:405
+msgid "The format of the description of each item in the events RSS feed."
+msgstr "Beskrivelsesformat på hvert punkt i event RSS feed."
+
+#@ dbem
+#: admin/em-options.php:413
+msgid "Maps and geotagging"
+msgstr "Kort og geotagging"
+
+#@ dbem
+#: admin/em-options.php:418
+msgid "Enable Google Maps integration?"
+msgstr "Aktiver Google Maps integration?"
+
+#@ default
+#@ dbem
+#: admin/em-options.php:420
+#: buddypress/bp-em-notifications.php:45
+#: em-functions.php:442
+msgid "Yes"
+msgstr "Ja"
+
+#@ default
+#@ dbem
+#: admin/em-options.php:421
+#: buddypress/bp-em-notifications.php:46
+#: em-functions.php:443
+msgid "No"
+msgstr "Nej"
+
+#@ dbem
+#: admin/em-options.php:422
+msgid "Check this option to enable Goggle Map integration."
+msgstr "Afkryds denne valgmulighed for at aktivere Google Maps integration."
+
+#@ dbem
+#: admin/em-options.php:426
+msgid "Map text format"
+msgstr "Kort tekstformat"
+
+#@ dbem
+#: admin/em-options.php:426
+msgid "The text format inside the map balloons."
+msgstr "Tekstformatet i kort-ballonerne."
+
+#@ dbem
+#: admin/em-options.php:434
+msgid "Booking and Ticketing Options"
+msgstr "Tilmeldings- og Billetindstillinger"
+
+#@ dbem
+#: admin/em-options.php:438
+msgid "Approval Required?"
+msgstr "Godkendelse påkrævet?"
+
+#@ dbem
+#: admin/em-options.php:438
+msgid "Bookings will not be confirmed until the event administrator approves it."
+msgstr "Tilmeldinger vil ikke blive bekræftet før event-administrator godkender dem."
+
+#@ dbem
+#: admin/em-options.php:439
+msgid "Currency"
+msgstr "Valuta"
+
+#@ dbem
+#: admin/em-options.php:439
+msgid "Choose your currency for displaying event pricing."
+msgstr "Vælg din valuta for at vise eventpriser."
+
+#@ dbem
+#: admin/em-options.php:440
+msgid "Single ticket mode?"
+msgstr "Enkeltbillet funktion?"
+
+#@ dbem
+#: admin/em-options.php:440
+msgid "In single ticket mode, users can only create one ticket per booking (and will not see options to add more tickets)."
+msgstr "I enkeltbillet funktion kan brugere kun oprette én billet per tilmelding (og vil ikke se valgmuligheden for tilføjelse af flere billetter)."
+
+#@ dbem
+#: admin/em-options.php:441
+msgid "Show ticket table in single ticket mode?"
+msgstr "Vis billet-tabel i enkeltbillet funktion?"
+
+#@ dbem
+#: admin/em-options.php:441
+msgid "If you prefer a ticket table like with multiple tickets, even for single ticket events, enable this."
+msgstr "Hvis du foretrækker en billet-tabel som med multiple billetter, selv for en enkelt-billet event, så aktiver denne."
+
+#@ dbem
+#: admin/em-options.php:442
+msgid "Show unavailable tickets?"
+msgstr "Vis ikke tilgængelige billetter?"
+
+#@ dbem
+#: admin/em-options.php:442
+msgid "You can choose whether or not to show unavailable tickets to visitors."
+msgstr "Du kan vælge om du vil vise ikke-tilgængelige billetter for besøgende."
+
+#@ dbem
+#: admin/em-options.php:443
+msgid "Reserved unconfirmed spaces?"
+msgstr "Reserver ubekræftet pladser?"
+
+#@ dbem
+#: admin/em-options.php:443
+msgid "By default, event spaces become unavailable once there are enough CONFIRMED bookings. To reserve spaces even if unnapproved, choose yes."
+msgstr "Event-pladser bliver som standard utilgængelige når der er tilstrækkeligt med BEKRÆFTEDE tilmeldinger. For at reservere pladser selvom de ikke er godkendt, vælg ja."
+
+#@ dbem
+#: admin/em-options.php:444
+msgid "Show multiple tickets if logged out?"
+msgstr "Vis multiple billetter hvis logget ud?"
+
+#@ dbem
+#: admin/em-options.php:444
+msgid "If logged out, a user will be asked to register in order to book. However, we can show available tickets if you have more than one ticket."
+msgstr "Hvis en bruger ikke er logget ind vil han blive spurgt om at lade sig registrere. Dog er vi stand til at vise tilgængelige billetter hvis du har mere end én billet."
+
+#@ dbem
+#: admin/em-options.php:445
+msgid "Allow overbooking when approving?"
+msgstr "Tillad overbooking?"
+
+#@ dbem
+#: admin/em-options.php:445
+msgid "If you get a lot of pending bookings and you decide to allow more bookings than spaces allow, setting this to yes will allow you to override the event space limit when manually approving."
+msgstr "Hvis du modtager mange tilmeldinger der afventer godkendelse, kan du vælge at tillade flere tilmeldinger end der er pladser; sæt denne til ja og du kan tilsidesætte event pladsbegrænsningerne, når du godkender manuelt."
+
+#@ dbem
+#: admin/em-options.php:446
+msgid "Allow guest bookings?"
+msgstr "Tillad gæstetilmeldinger?"
+
+#@ dbem
+#: admin/em-options.php:446
+msgid "If enabled, guest visitors can supply an email address and a user account will automatically be created for them along with their booking. They will be also be able to log back in with that newly created account."
+msgstr "Hvis aktiveret, kan gæste-besøgende oplyse deres E-mailadresse, og bliver automatisk oprettet en brugerkonto sammen med tilmeldingen."
+
+#@ dbem
+#: admin/em-options.php:448
+msgid "Display login form?"
+msgstr "Vis logind-formular?"
+
+#@ dbem
+#: admin/em-options.php:448
+msgid "Choose whether or not to display a login form in the booking form area to remind your members to log in before booking."
+msgstr "Vælg om der skal vises en logind rubrik på tilmeldingssiden for at påminde dine medlemmer om at logge ind før tilmelding."
+
+#@ dbem
+#: admin/em-options.php:468
+msgid "Booking Email Templates"
+msgstr "Tilmeldingsskablon for E-mails"
+
+#@ dbem
+#: admin/em-options.php:472
+msgid "Default contact person"
+msgstr "Standard kontaktperson"
+
+#@ dbem
+#: admin/em-options.php:472
+msgid "Select the default contact person. This user will be employed whenever a contact person is not explicitly specified for an event"
+msgstr "Vælg standard kontaktperson. Denne bruger vil blive anvendt, når en specifik kontaktperson ikke er angivet for en event."
+
+#@ dbem
+#: admin/em-options.php:473
+msgid "Email events admin?"
+msgstr "Send E-mail til eventsadministrator?"
+
+#@ dbem
+#: admin/em-options.php:473
+msgid "If you would like every event booking confirmation email sent to an administrator write their email here (leave blank to not send an email)."
+msgstr "Hvis du vil have at hver eneste event tilmeldingsbekræftelses E-mail afsendes til en administrator, skriv hans E-mail her (efterlad blank for ikke at afsende en E-mail)."
+
+#@ dbem
+#: admin/em-options.php:474
+msgid "Email contact person?"
+msgstr "Send E-mail til kontaktperson?"
+
+#@ dbem
+#: admin/em-options.php:474
+msgid "Check this option if you want the event contact to receive an email when someone books places. An email will be sent when a booking is first made (regardless if confirmed or pending)"
+msgstr "Afkryds denne valgmulighed hvis du vil have at event-kontaktpersonen modtager en E-mail, når en bruger foretager en pladstilmelding. Der afsendes en E-mail når den første tilmelding er gennemført (uanset om den er bekræftet eller afventer godkendelse)"
+
+#@ dbem
+#: admin/em-options.php:475
+msgid "Disable new registration email?"
+msgstr "Deaktiver ny registrerings E-mail?"
+
+#@ dbem
+#: admin/em-options.php:475
+msgid "Check this option if you want to prevent the wordpress registration email from going out when a user anonymously books an event."
+msgstr "Afkryds denne valgmulighed hvis du vil forhindre Wordpress registrerings E-mail fra at blive afsendt, når en bruger foretager en anonym tilmelding."
+
+#@ dbem
+#: admin/em-options.php:477
+msgid "Contact person booking confirmed"
+msgstr "Kontaktperson tilmelding bekræftet"
+
+#@ dbem
+#: admin/em-options.php:478
+msgid "An email will be sent to the event contact when a booking is first made."
+msgstr "Der bliver sendt en E-mail til event-kontaktpersonen første gang en tilmelding gennemføres."
+
+#@ dbem
+#: admin/em-options.php:480
+msgid "Contact person email subject"
+msgstr "Kontaktperson E-mail emnefelt"
+
+#@ dbem
+#: admin/em-options.php:481
+msgid "Contact person email"
+msgstr "Konaktperson E-mail"
+
+#@ dbem
+#: admin/em-options.php:483
+msgid "Contact person booking cancelled"
+msgstr "Kontaktperson tilmelding annulleret"
+
+#@ dbem
+#: admin/em-options.php:484
+msgid "An email will be sent to the event contact if someone cancels their booking."
+msgstr "Der bliver sendt en E-mail til event-kontaktpersonen hvis en tilmelding aflyses."
+
+#@ dbem
+#: admin/em-options.php:486
+msgid "Contact person cancellation subject"
+msgstr "Kontaktperson aflysning emnefelt"
+
+#@ dbem
+#: admin/em-options.php:487
+msgid "Contact person cancellation email"
+msgstr "Kontaktperson aflysning E-mail"
+
+#@ dbem
+#: admin/em-options.php:489
+msgid "Confirmed booking email"
+msgstr "Bekræftet tilmelding E-mail"
+
+#@ dbem
+#: admin/em-options.php:490
+msgid "This is sent when a person's booking is confirmed. This will be sent automatically if approvals are required and the booking is approved. If approvals are disabled, this is sent out when a user first submits their booking."
+msgstr "Dette fremsendes når en persons tilmelding er bekræftet. Det afsendes automatisk hvis godkendelser er påkrævet og tilmeldingen bliver godkendt. Hvis godkendelser er deaktiveret, afsendes dette når en bruger tilføjer en tilmelding."
+
+#@ dbem
+#: admin/em-options.php:492
+msgid "Booking confirmed email subject"
+msgstr "Tilmelding bekræftet E-mail emnefelt"
+
+#@ dbem
+#: admin/em-options.php:493
+msgid "Booking confirmed email"
+msgstr "Tilmelding bekræftet E-mail"
+
+#@ dbem
+#: admin/em-options.php:495
+msgid "Pending booking email"
+msgstr "Afventer godkendelse E-mail"
+
+#@ dbem
+#: admin/em-options.php:496
+msgid "This will be sent to the person when they first submit their booking. Not relevant if bookings don't require approval."
+msgstr "Dette afsendes til personen når han tilføjer en tilmelding. Det er ikke relevant hvis tilmeldinger ikke kræver godkendelse."
+
+#@ dbem
+#: admin/em-options.php:498
+msgid "Booking pending email subject"
+msgstr "Tilmelding afventer godkendelse E-mail emnefelt"
+
+#@ dbem
+#: admin/em-options.php:499
+msgid "Booking pending email"
+msgstr "Tilmelding afventer godkendelse E-mail"
+
+#@ dbem
+#: admin/em-options.php:501
+msgid "Rejected booking email"
+msgstr "Afvist tilmelding E-mail"
+
+#@ dbem
+#: admin/em-options.php:502
+msgid "This will be sent automatically when a booking is rejected. Not relevant if bookings don't require approval."
+msgstr "Dette afsendes automatisk når en tilmelding afvises. Det er ikke relevant hvis tilmeldinger ikke kræver godkendelse."
+
+#@ dbem
+#: admin/em-options.php:504
+msgid "Booking rejected email subject"
+msgstr "Tilmelding afvist E-mail emnefelt"
+
+#@ dbem
+#: admin/em-options.php:504
+msgid "The subject of the email sent to the person making a booking that is awaiting administrator approval. Not relevant if bookings don't require approval."
+msgstr "Emnefeltet på den afsendte E-mail til personen der opretter en tilmelding der afventer administrator-godkendelse. Ikke relevant hvis tilmeldinger ikke kræver godkendelse."
+
+#@ dbem
+#: admin/em-options.php:505
+msgid "Booking rejected email"
+msgstr "Tilmelding afvist E-mail"
+
+#@ dbem
+#: admin/em-options.php:505
+msgid "The body of the email which will be sent to the person if the booking is rejected. Not relevant if bookings don't require approval."
+msgstr "Brødteksten på den E-mail der afsendes til en person hvis tilmeldingen afvises. Ikke relevant hvis tilmeldinger ikke kræver godkendelse."
+
+#@ dbem
+#: admin/em-options.php:508
+#: em-bookings.php:74
+msgid "Booking cancelled"
+msgstr "Tilmelding annulleret"
+
+#@ dbem
+#: admin/em-options.php:509
+msgid "This will be sent when a user cancels their booking."
+msgstr "Dette vil blive sendt hvis en bruger aflyser hans tilmelding."
+
+#@ dbem
+#: admin/em-options.php:511
+msgid "Booking cancelled email subject"
+msgstr "Tilmelding annulleret E-mail emnefelt"
+
+#@ dbem
+#: admin/em-options.php:512
+msgid "Booking cancelled email"
+msgstr "Tilmelding annulleret E-mail"
+
+#@ dbem
+#: admin/em-options.php:520
+msgid "Email Settings"
+msgstr "E-mail indstilinger"
+
+#@ dbem
+#: admin/em-options.php:524
+msgid "Notification sender name"
+msgstr "Meddelelsens afsendernavn"
+
+#@ dbem
+#: admin/em-options.php:524
+msgid "Insert the display name of the notification sender."
+msgstr "Indsæt navnevisning på afsender af meddelelsen."
+
+#@ dbem
+#: admin/em-options.php:525
+msgid "Notification sender address"
+msgstr "Meddelelsens afsenderadresse"
+
+#@ dbem
+#: admin/em-options.php:525
+msgid "Insert the address of the notification sender."
+msgstr "Indsæt adressen på afsender af meddelelsen."
+
+#@ dbem
+#: admin/em-options.php:526
+msgid "The port through which you e-mail notifications will be sent. Make sure the firewall doesn't block this port"
+msgstr "Port som dine E-mail meddelelser sendes kommunikerer over. Sikre dig at din firewall ikke blokerer denne port."
+
+#@ dbem
+#: admin/em-options.php:527
+msgid "Mail sending method"
+msgstr "E-mail afsender metode"
+
+#@ dbem
+#: admin/em-options.php:527
+msgid "PHP mail function"
+msgstr "PHP e-mail funktion"
+
+#@ dbem
+#: admin/em-options.php:527
+msgid "Select the method to send email notification."
+msgstr "Vælg metode hvormed E-mail meddelelser afsendes."
+
+#@ dbem
+#: admin/em-options.php:528
+msgid "Use SMTP authentication?"
+msgstr "Brug SMTP godkendelse?"
+
+#@ dbem
+#: admin/em-options.php:528
+msgid "SMTP authentication is often needed. If you use GMail, make sure to set this parameter to Yes"
+msgstr "SMTP autorisation er ofte påkrævet. Hvis du benytter GMail, så sikre dig at dette parameter sættes til Ja"
+
+#@ dbem
+#: admin/em-options.php:529
+msgid "The SMTP host. Usually it corresponds to 'localhost'. If you use GMail, set this value to 'ssl://smtp.gmail.com:465'."
+msgstr "SMTP host. Svare normalt til 'localhost'. Hvis du benytter GMail, så sæt denne værdi til  'ssl://smtp.gmail.com:465'."
+
+#@ dbem
+#: admin/em-options.php:530
+msgid "SMTP username"
+msgstr "SMTP brugernavn"
+
+#@ dbem
+#: admin/em-options.php:530
+msgid "Insert the username to be used to access your SMTP server."
+msgstr "Indsæt brugernavn der benyttes for adgang til din SMTP server"
+
+#@ dbem
+#: admin/em-options.php:531
+msgid "SMTP password"
+msgstr "SMTP adgangskode"
+
+#@ dbem
+#: admin/em-options.php:531
+msgid "Insert the password to be used to access your SMTP server"
+msgstr "Indsæt adgangskoden der benyttes for adgang til din SMTP server"
+
+#@ dbem
+#: admin/em-options.php:539
+msgid "Images size"
+msgstr "Billedestørrelse"
+
+#@ dbem
+#: admin/em-options.php:543
+msgid "Maximum width (px)"
+msgstr "Maksimum bredde (px)"
+
+#@ dbem
+#: admin/em-options.php:543
+msgid "The maximum allowed width for images uploades"
+msgstr "Maksimal tilladt bredde på indsendte billeder"
+
+#@ dbem
+#: admin/em-options.php:544
+msgid "Maximum height (px)"
+msgstr "Maksimum højde (px)"
+
+#@ dbem
+#: admin/em-options.php:544
+msgid "The maximum allowed height for images uploaded, in pixels"
+msgstr "Maksimal tilladt højde på indsendte billeder, i pixels"
+
+#@ dbem
+#: admin/em-options.php:545
+msgid "Maximum size (bytes)"
+msgstr "Maksimum størrelse (bytes)"
+
+#@ dbem
+#: admin/em-options.php:545
+msgid "The maximum allowed size for images uploaded, in bytes"
+msgstr "Maksimal tilladt størrelse på indsendte billeder, i bytes"
+
+#@ dbem
+#: admin/em-options.php:553
+msgid "User Capabilities"
+msgstr "Brugerfunktioner"
+
+#@ dbem
+#: admin/em-options.php:557
+msgid "Warning: Changing these values may result in exposing previously hidden information to all users."
+msgstr "Advarsel: Hvis du ændre disse værdier kan det resultere i eksponering af hidtil skjulte oplysninger til alle brugere."
+
+#@ dbem
+#: admin/em-options.php:564
+msgid "You can now give fine grained control with regards to what your users can do with events. Each user role can have perform different sets of actions."
+msgstr "Nu kan du opsætte en finkornet kontrol med hensyn til, hvad dine brugere kan gøre med events. Hver brugerrolle kan udføre forskellige slags handlinger."
+
+#@ dbem
+#: admin/em-options.php:572
+msgid "Users can publish events and skip any admin approval."
+msgstr "Brugere kan offentliggøre events og droppe enhver admin godkendelse."
+
+#@ dbem
+#: admin/em-options.php:573
+msgid "User can edit the global categories."
+msgstr "Bruger kan redigere de globale kategorier."
+
+#@ dbem
+#: admin/em-options.php:574
+msgid "User can delete other users events."
+msgstr "Bruger kan slette andre brugeres events."
+
+#@ dbem
+#: admin/em-options.php:575
+msgid "User can delete other users locations."
+msgstr "Bruger kan slette andre brugeres lokationer."
+
+#@ dbem
+#: admin/em-options.php:576
+msgid "User can edit other users locations."
+msgstr "Bruger kan redigere andre brugeres lokationer."
+
+#@ dbem
+#: admin/em-options.php:577
+msgid "User can manage other users individual bookings and event booking settings."
+msgstr "Bruger kan administrere andre brugeres individuelle tilmeldinger og event tilmeldingsindstillinger."
+
+#@ dbem
+#: admin/em-options.php:578
+msgid "User can edit other users events."
+msgstr "Bruger kan redigere andre brugeres events."
+
+#@ dbem
+#: admin/em-options.php:579
+msgid "User can delete their own locations."
+msgstr "Bruger kan slette egne lokationer."
+
+#@ dbem
+#: admin/em-options.php:580
+msgid "User can delete their events."
+msgstr "Bruger kan slette egne events."
+
+#@ dbem
+#: admin/em-options.php:581
+msgid "User can edit their locations."
+msgstr "Bruger kan redigere egne lokationer."
+
+#@ dbem
+#: admin/em-options.php:582
+msgid "User can use and manage bookings with their events."
+msgstr "Bruger kan benytte og administrere tilmeldinger med deres egne events."
+
+#@ dbem
+#: admin/em-options.php:583
+msgid "User can view other users locations, to make locations shared by all users allow all event user roles to view all locations."
+msgstr "Bruger kan se andre brugeres lokationer, for at dele lokationer med alle brugere, tillad alle event brugerroller at se alle lokationer."
+
+#@ dbem
+#: admin/em-options.php:584
+msgid "User can create recurrent events."
+msgstr "Bruger kan oprette gentaget events."
+
+#@ dbem
+#: admin/em-options.php:585
+msgid "User can create and edit their events."
+msgstr "Bruger kan oprettes og redigere egne events."
+
+#@ dbem
+#: admin/em-options.php:617
+msgid "Anonymous Event Submission"
+msgstr "Anonym event indlæg"
+
+#@ dbem
+#: admin/em-options.php:621
+msgid "You can allow users to publicly submit events on your blog by using the [event_form] shortcode, and enabling anonymous submissions below."
+msgstr "Du kan tillade brugere at offentliggøre events på din blog ved at bruge [event_form] shortcode, og give mulighed for anonyme indlæg nedenfor."
+
+#@ dbem
+#: admin/em-options.php:624
+msgid "Allow anonymous event submissions?"
+msgstr "Tillad anonyme event indlæg?"
+
+#@ dbem
+#: admin/em-options.php:624
+msgid "Would you like to allow users to submit bookings anonymously? If so, you can use the new [event_form] shortcode or <code>em_event_form()</code> template tag with this enabled."
+msgstr "Vil du tillade brugere at indsende tilmeldinger anonymt? Hvis det er tilfældet, kan du bruge den nye [event_form] shortcode eller <code>em_event_form()</code> skabelon-tag med denne aktiveret."
+
+#@ dbem
+#: admin/em-options.php:625
+msgid "Guest Default User"
+msgstr "Standard gæste bruger"
+
+#@ dbem
+#: admin/em-options.php:625
+msgid "Events require a user to own them. In order to allow events to be submitted anonymously you need to assign that event a specific user. We recommend you create a \"Anonymous\" subscriber with a very good password and use that."
+msgstr "Events kræver at en bruger ejer dem. For at tillade tilføjelse af anonyme events, er du nødt til at tildele den pågældende event til en bestemt bruger. Vi anbefaler at du opretter en \"Anonymous\" abonnent med en meget god adgangskode og benytte denne."
+
+#@ dbem
+#: admin/em-options.php:626
+msgid "Success Message"
+msgstr "Besked ved gennemført"
+
+#@ dbem
+#: admin/em-options.php:626
+msgid "Anonymous submitters cannot see or modify their event once submitted. You can customize the success message they see here."
+msgstr "Anonyme indsendere kan ikke se eller ændre deres event når den er afsendt. Du kan tilpasse gennemført-beskeden, de ser her."
+
+#@ dbem
+#: templates/templates/bookings-event-printable.php:21
+msgid "Bookings data"
+msgstr "Tilmeldingsdata"
+
+#@ dbem
+#: admin/bookings/em-cancelled.php:85
+#: admin/bookings/em-confirmed.php:86
+#: admin/bookings/em-pending.php:103
+#: admin/bookings/em-rejected.php:85
+#: templates/forms/bookingform/booking-fields.php:18
+#: templates/templates/bookings-event-printable.php:25
+msgid "E-mail"
+msgstr "E-mail"
+
+#@ dbem
+#: admin/bookings/em-cancelled.php:86
+#: admin/bookings/em-confirmed.php:87
+#: admin/bookings/em-pending.php:104
+#: admin/bookings/em-rejected.php:86
+#: templates/templates/bookings-event-printable.php:26
+msgid "Phone number"
+msgstr "Telefonnummer:"
+
+#@ dbem
+#: templates/templates/bookings-event-printable.php:47
+msgid "Available"
+msgstr "Tilgængelig"
+
+#@ dbem
+#: admin/em-people.php:24
+#: classes/em-person.php:62
+#: templates/forms/bookingform/booking-fields.php:14
+msgid "Phone"
+msgstr "Telefon"
+
+#@ dbem
+#: admin/em-people.php:24
+msgid "Events Manager"
+msgstr "Events Manager"
+
+#@ dbem
+#: templates/placeholders/locationmap.php:15
+#: templates/templates/map-global.php:15
+msgid "Loading Map...."
+msgstr "Indlæser kort..."
+
+#@ dbem
+#: templates/templates/events-search.php:28
+msgid "between"
+msgstr "mellem"
+
+#@ dbem
+#: templates/forms/ticket-form.php:26
+#: templates/templates/events-search.php:31
+msgid "and"
+msgstr "og"
+
+#@ dbem
+#: templates/templates/events-search.php:38
+msgid "All Categories"
+msgstr "Alle kategorier"
+
+#@ dbem
+#: templates/templates/events-search.php:46
+msgid "All Countries"
+msgstr "Alle lande"
+
+#@ dbem
+#: em-actions.php:478
+#: templates/templates/events-search.php:60
+msgid "All Regions"
+msgstr "Alle regioner"
+
+#@ dbem
+#: em-actions.php:455
+#: templates/templates/events-search.php:77
+msgid "All States"
+msgstr "Alle stater"
+
+#@ dbem
+#: templates/templates/events-search.php:102
+#: templates/templates/events-search.php:103
+#: templates/templates/events-search.php:117
+msgid "Loading..."
+msgstr "Indlæser..."
+
+#@ dbem
+#: templates/templates/events-search.php:143
+msgid "Searching..."
+msgstr "Søger..."
+
+#@ dbem
+#: templates/templates/ical.php:9
+#: widgets/em-calendar.php:13
+msgid "Calendar"
+msgstr "Kalender"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:95
+#: templates/forms/event-editor.php:93
+msgid "When"
+msgstr "Hvornår"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:98
+#: templates/forms/event-editor.php:96
+msgid "Starts on "
+msgstr "Starter den "
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:101
+#: templates/forms/event-editor.php:99
+msgid "from"
+msgstr "fra"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:103
+#: templates/forms/event-editor.php:101
+#: templates/forms/ticket-form.php:18
+msgid "to"
+msgstr "til"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:105
+#: templates/forms/event-editor.php:103
+msgid "and ends on"
+msgstr "og slutter den"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:111
+#: templates/forms/event-editor.php:109
+msgid "This event spans every day between the beginning and end date, with start/end times applying to each day."
+msgstr "Denne event løber hver dag mellem start- og slutdato, med start- og sluttidspunkt gældende for hver dag."
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:114
+#: templates/forms/event-editor.php:112
+msgid "For a recurring event, a one day event will be created on each recurring date within this date range."
+msgstr "Vedrørende en gentaget event, en éndagsevent oprettes på hver gentaget dato inden for dette datointerval."
+
+#@ dbem
+#@ default
+#: classes/em-event.php:1254
+#: templates/forms/event-editor-guest.php:122
+#: templates/forms/event-editor.php:120
+msgid "Monday"
+msgstr "mandag"
+
+#@ dbem
+#@ default
+#: classes/em-event.php:1254
+#: templates/forms/event-editor-guest.php:122
+#: templates/forms/event-editor.php:120
+msgid "Tuesday"
+msgstr "Tirsdag"
+
+#@ dbem
+#@ default
+#: classes/em-event.php:1254
+#: templates/forms/event-editor-guest.php:122
+#: templates/forms/event-editor.php:120
+msgid "Wednesday"
+msgstr "onsdag"
+
+#@ dbem
+#@ default
+#: classes/em-event.php:1254
+#: templates/forms/event-editor-guest.php:122
+#: templates/forms/event-editor.php:120
+msgid "Thursday"
+msgstr "torsdag"
+
+#@ dbem
+#@ default
+#: classes/em-event.php:1254
+#: templates/forms/event-editor-guest.php:122
+#: templates/forms/event-editor.php:120
+msgid "Friday"
+msgstr "fredag"
+
+#@ dbem
+#@ default
+#: classes/em-event.php:1254
+#: templates/forms/event-editor-guest.php:122
+#: templates/forms/event-editor.php:120
+msgid "Saturday"
+msgstr "lørdag"
+
+#@ dbem
+#@ default
+#: classes/em-event.php:1254
+#: templates/forms/event-editor-guest.php:122
+#: templates/forms/event-editor.php:120
+msgid "Sunday"
+msgstr "søndag"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:126
+#: templates/forms/event-editor.php:124
+msgid "This event repeats"
+msgstr "Denne event gentages"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:133
+#: templates/forms/event-editor.php:131
+msgid "every"
+msgstr "hver"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:140
+#: templates/forms/event-editor.php:138
+msgid "week on"
+msgstr "uge den"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:142
+#: templates/forms/event-editor.php:140
+msgid "weeks on"
+msgstr "uger den"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:144
+#: templates/forms/event-editor.php:142
+msgid "month on the"
+msgstr "måned den"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:146
+#: templates/forms/event-editor.php:144
+msgid "months on the"
+msgstr "måneder den"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:164
+#: templates/forms/event-editor.php:162
+msgid "of each month"
+msgstr "i hver måned"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:188
+#: templates/forms/event-editor.php:186
+msgid "Where"
+msgstr "Hor"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:222
+#: templates/forms/event-editor.php:210
+msgid "Choose from one of your locations"
+msgstr "Vælg blandt en af dine lokationer"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:222
+#: templates/forms/event-editor.php:210
+#, php-format
+msgid "or <a href=\"%s\">add a new location</a>"
+msgstr "eller <a href=\"%s\">tilføj en ny lokation</a>"
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:323
+#: templates/forms/event-editor.php:226
+msgid "Details about the event."
+msgstr "Detaljer om event."
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:323
+#: templates/forms/event-editor.php:226
+msgid "HTML Allowed."
+msgstr "HTML tilladt."
+
+#@ dbem
+#: templates/forms/event-editor-guest.php:330
+#: templates/forms/event-editor.php:233
+msgid "Category:"
+msgstr "Kategori:"
+
+#@ dbem
+#: templates/templates/my-bookings.php:75
+msgid "Are you sure you want to cancel your booking?"
+msgstr "Er du sikker på at du vil annullere din tilmelding?"
+
+#@ dbem
+#: templates/templates/my-bookings.php:75
+msgid "Cancel"
+msgstr "Annullér"
+
+#@ dbem
+#: templates/templates/my-bookings.php:91
+msgid "You do not have any bookings."
+msgstr "Du har ingen tilmeldinger."
+
+#@ dbem
+#: templates/templates/my-bookings.php:101
+#, php-format
+msgid "Please <a href=\"%s\">Log In</a> to view your bookings."
+msgstr "Venligst <a href=\"%s\">logind</a> for at se dine tilmeldinger."
+
+#@ dbem
+#: templates/buddypress/group-events.php:31
+#: templates/buddypress/my-group-events.php:31
+msgid "edit"
+msgstr "rediger"
+
+#@ dbem
+#: em-install.php:498
+#: templates/buddypress/group-events.php:41
+#: templates/buddypress/my-group-events.php:41
+#: templates/buddypress/profile.php:19
+msgid "No Events"
+msgstr "Ingen events"
+
+#@ dbem
+#: templates/buddypress/my-events.php:39
+msgid "Upcoming"
+msgstr "Kommende"
+
+#@ dbem
+#: templates/placeholders/bookingbutton.php:2
+msgid "Book Now"
+msgstr "Tilmeld dig nu"
+
+#@ dbem
+#: templates/placeholders/bookingbutton.php:3
+msgid "Booking..."
+msgstr "Tilmelder..."
+
+#@ dbem
+#: templates/placeholders/bookingbutton.php:4
+msgid "Booking Submitted"
+msgstr "Tilmelding tilføjet"
+
+#@ dbem
+#: templates/placeholders/bookingbutton.php:5
+msgid "Booking Error. Try again?"
+msgstr "Tilmeldingsfejl. Forsøg igen?"
+
+#@ dbem
+#: templates/placeholders/locationmap.php:27
+msgid "Map Unavailable"
+msgstr "kort utilgængelig"
+
+#@ dbem
+#: templates/placeholders/bookingform.php:10
+#, php-format
+msgid "You are currently attending this event. <a href=\"%s\">Manage my bookings</a>"
+msgstr "Du deltager allerede i denne event. <a href=\"%s\">Administrer mine tilmeldinger</a>"
+
+#@ dbem
+#: templates/placeholders/bookingform.php:12
+msgid "Online bookings are not available for this event."
+msgstr "Online-tilmeldinger er ikke mulige til denne event."
+
+#@ dbem
+#: templates/placeholders/bookingform.php:14
+msgid "Bookings are closed for this event."
+msgstr "Tilmeldinger er lukket til denne event."
+
+#@ dbem
+#: classes/em-event.php:881
+#: em-bookings.php:129
+#: em-bookings.php:151
+#: templates/forms/bookingform/ticket-single.php:19
+#: templates/forms/bookingform/tickets-list.php:26
+msgid "N/A"
+msgstr "Ikke tilgængelig"
+
+#@ dbem
+#: em-bookings.php:162
+#: templates/placeholders/bookingform.php:52
+msgid "Send your booking"
+msgstr "Send din tilmelding"
+
+#@ dbem
+#: em-actions.php:434
+#: templates/placeholders/bookingform.php:59
+msgid "You must log in before you make a booking."
+msgstr "Du skal logge ind før du foretager en tilmelding."
+
+#@ dbem
+#: templates/forms/bookingform/login.php:3
+msgid "Log in if you already have an account with us."
+msgstr "Logind hvis du allerede har en brugerkonto hos os."
+
+#@ dbem
+#: templates/forms/bookingform/login.php:5
+msgid "Username"
+msgstr "Brugernavn"
+
+#@ dbem
+#: templates/forms/bookingform/login.php:9
+msgid "Password"
+msgstr "Adgangskode"
+
+#@ dbem
+#: templates/forms/bookingform/login.php:13
+msgid "Log In"
+msgstr "Logind"
+
+#@ dbem
+#: templates/forms/bookingform/login.php:14
+msgid "Remember Me"
+msgstr "Husk mig"
+
+#@ dbem
+#: templates/forms/bookingform/login.php:29
+msgid "Sign Up"
+msgstr "Tilmeld dig"
+
+#@ dbem
+#: templates/forms/bookingform/login.php:33
+msgid "Password Lost and Found"
+msgstr "Adgangskode mistet og fundet"
+
+#@ dbem
+#: templates/forms/bookingform/login.php:33
+msgid "Lost your password?"
+msgstr "Har du mistet din adgangskode?"
+
+#@ dbem
+#: em-bookings.php:169
+#: templates/placeholders/bookingform.php:69
+msgid "No more tickets available at this time."
+msgstr "Der er ikke flere billetter tilgængelige på dette tidspunkt."
+
+#@ dbem
+#: templates/placeholders/bookingform.php:86
+msgid "Please wait while the booking is being submitted."
+msgstr "Vent venligst mens tilmeldingen indsendes."
+
+#@ dbem
+#: templates/forms/ticket-form.php:12
+msgid "If blank, there's no space limit."
+msgstr "Hvis tom, er der ingen pladsbegrænsninger."
+
+#@ dbem
+#: templates/forms/ticket-form.php:15
+msgid "Available from"
+msgstr "Tilgængelig fra"
+
+#@ dbem
+#: templates/forms/ticket-form.php:21
+msgid "Add a start or end date (or both) to impose time constraints on ticket availability. Leave either blank for no upper/lower limit."
+msgstr "Tilføj start eller slutdato (eller begge) for at indføre tidsmæssige begrænsninger på billet-tilgængeligheden. Efterlad begge tomme for ingen øvre / nedre grænse."
+
+#@ dbem
+#: templates/forms/ticket-form.php:24
+msgid "Bookings must order between"
+msgstr "Tilmeldinger skal sorteres mellem"
+
+#@ dbem
+#: templates/forms/ticket-form.php:28
+msgid "spaces."
+msgstr "pladser."
+
+#@ dbem
+#: templates/forms/ticket-form.php:29
+msgid "Leave either blank for no upper/lower limit."
+msgstr "Lad begge være tomme for ingen øvre/nedre grænse."
+
+#@ dbem
+#: templates/forms/tickets-form.php:2
+msgid "Create a ticket"
+msgstr "Opret en billet"
+
+#@ dbem
+#: templates/forms/tickets-form.php:8
+msgid "Available ticket spaces"
+msgstr "Tilgængelige billet-pladser"
+
+#@ dbem
+#: templates/forms/tickets-form.php:10
+msgid "Start date of ticket availability"
+msgstr "Startdato for billet-tilgængelighed"
+
+#@ dbem
+#: templates/forms/tickets-form.php:11
+msgid "End date of ticket availability"
+msgstr "Slutdato for billet-tilgængelighed"
+
+#@ dbem
+#: templates/forms/tickets-form.php:12
+msgid "Minimum tickets required per booking"
+msgstr "Minimum antal billetter påkrævet per tilmelding"
+
+#@ dbem
+#: templates/forms/tickets-form.php:13
+msgid "Maximum tickets required per booking"
+msgstr "Maksimum antal billetter påkrævet per tilmelding"
+
+#@ dbem
+#: templates/forms/tickets-form.php:18
+msgid "Add Ticket"
+msgstr "Tilføj billet"
+
+#@ dbem
+#: buddypress/bp-em-admin.php:33
+msgid "Events Admin"
+msgstr "Event-admin"
+
+#@ dbem
+#: buddypress/bp-em-admin.php:36
+msgid "Settings Updated."
+msgstr "Indstillinger opdateret."
+
+#@ dbem
+#: buddypress/bp-em-admin.php:42
+msgid "Option One"
+msgstr "Valgmulighed et"
+
+#@ dbem
+#: buddypress/bp-em-admin.php:47
+msgid "Option Two"
+msgstr "Valgmulighed to"
+
+#@ dbem
+#: buddypress/bp-em-admin.php:54
+#: buddypress/screens/settings.php:46
+msgid "Save Settings"
+msgstr "Gem indstillinger"
+
+#@ dbem
+#: buddypress/bp-em-activity.php:67
+#, php-format
+msgid "%s added the event %s"
+msgstr "%s tilføjede event %s"
+
+#@ dbem
+#: buddypress/bp-em-activity.php:101
+#, php-format
+msgid "%s is attending %s."
+msgstr "%s deltager i %s."
+
+#@ dbem
+#: buddypress/bp-em-activity.php:103
+#, php-format
+msgid "%s will not be attending %s anymore."
+msgstr "%s vil ikke deltage i %s længere"
+
+#@ dbem
+#: buddypress/bp-em-core.php:76
+#: buddypress/screens/attending.php:23
+#: templates/buddypress/profile.php:24
+msgid "Events I'm Attending"
+msgstr "Events jeg deltager i"
+
+#@ dbem
+#: buddypress/screens/profile.php:11
+msgid "You are currently viewing your public page, this is what other users will see."
+msgstr "Du ser lige nu din offentlige side, dette er hvad andre brugere vil se."
+
+#@ dbem
+#: buddypress/bp-em-core.php:87
+#: buddypress/screens/my-events.php:40
+#: templates/buddypress/profile.php:6
+msgid "My Events"
+msgstr "Mine events"
+
+#@ dbem
+#: buddypress/screens/group-events.php:17
+#: buddypress/screens/my-group-events.php:17
+msgid "Group Events"
+msgstr "Sorter events"
+
+#@ dbem
+#: buddypress/screens/my-events.php:56
+#: templates/buddypress/profile.php:19
+msgid "Add Event"
+msgstr "Tilføj event"
+
+#@ dbem
+#: buddypress/bp-em-core.php:99
+#: buddypress/screens/my-locations.php:47
+msgid "My Locations"
+msgstr "Mine lokationer"
+
+#@ dbem
+#: buddypress/screens/my-locations.php:61
+msgid "Edit Location"
+msgstr "Rediger lokation"
+
+#@ dbem
+#: buddypress/screens/my-locations.php:63
+msgid "Add Location"
+msgstr "Tilføj lokation"
+
+#@ dbem
+#: buddypress/bp-em-core.php:111
+#: buddypress/screens/my-bookings.php:32
+msgid "My Event Bookings"
+msgstr "Mine event-tilmeldinger"
+
+#@ dbem
+#: buddypress/screens/settings.php:26
+msgid "Events Settings Header"
+msgstr "Events-indstillinger sidehoved"
+
+#@ dbem
+#: buddypress/screens/settings.php:30
+msgid "Events Settings"
+msgstr "Events-indstillinger"
+
+#@ dbem
+#: buddypress/screens/settings.php:38
+msgid "Changes Saved."
+msgstr "Ændringer gemt."
+
+#@ dbem
+#: buddypress/screens/settings.php:44
+msgid "Do you love clicking checkboxes?"
+msgstr "Elsker du at klikke på afkrydsningsfelter?"
+
+#@ dbem
+#: buddypress/bp-em-core.php:66
+msgid "My Profile"
+msgstr "Min profil"
+
+#@ dbem
+#: buddypress/bp-em-core.php:155
+#, php-format
+msgid "Events (%s)"
+msgstr "Events (%s)"
+
+#@ dbem
+#: buddypress/bp-em-notifications.php:50
+msgid "Action One"
+msgstr "Anden handling"
+
+#@ dbem
+#: buddypress/bp-em-notifications.php:56
+msgid "Action Two"
+msgstr "Første handling"
+
+#@ dbem
+#: buddypress/bp-em-notifications.php:87
+#: buddypress/bp-em-notifications.php:89
+#: buddypress/bp-em-notifications.php:96
+#: buddypress/bp-em-notifications.php:98
+#: buddypress/bp-em-notifications.php:104
+#: buddypress/bp-em-notifications.php:106
+#: em-install.php:491
+msgid "My Bookings"
+msgstr "Mine tilmeldinger"
+
+#@ dbem
+#: buddypress/bp-em-notifications.php:87
+msgid "You have a pending booking"
+msgstr "Du har en tilmelding der afventer godkendelse"
+
+#@ dbem
+#: buddypress/bp-em-notifications.php:89
+#, php-format
+msgid "You have %s pending bookings"
+msgstr "Du har %s tilmeldinger der afventer godkendelse"
+
+#@ dbem
+#: buddypress/bp-em-notifications.php:96
+msgid "You have a confirmed booking"
+msgstr "Du har en bekræftet tilmelding"
+
+#@ dbem
+#: buddypress/bp-em-notifications.php:98
+#, php-format
+msgid "You have %s confirmed bookings"
+msgstr "Du har %s bekræftet tilmeldinger"
+
+#@ dbem
+#: buddypress/bp-em-notifications.php:104
+msgid "A user cancelled a booking"
+msgstr "En bruger annullerede en tilmelding"
+
+#@ dbem
+#: buddypress/bp-em-notifications.php:106
+#, php-format
+msgid "%s users cancelled bookings."
+msgstr "%s brugere annullerede tilmeldinger."
+
+#@ dbem
+#: widgets/em-locations.php:13
+msgid "Event Locations"
+msgstr "Event-lokationer"
+
+#@ dbem
+#: widgets/em-locations.php:19
+msgid "Display a list of event locations on Events Manager."
+msgstr "Viser en tabel over event-lokationer på Events Manager."
+
+#@ dbem
+#: widgets/em-locations.php:44
+msgid "No locations"
+msgstr "Ingen lokationer"
+
+#@ dbem
+#: widgets/em-calendar.php:60
+#: widgets/em-events.php:77
+#: widgets/em-locations.php:67
+msgid "Title"
+msgstr "Titel"
+
+#@ dbem
+#: widgets/em-locations.php:71
+msgid "Show number of locations"
+msgstr "Vis antal af lokationer"
+
+#@ dbem
+#: widgets/em-locations.php:75
+msgid "Scope of the locations"
+msgstr "Indhold af lokationer"
+
+#@ dbem
+#: widgets/em-locations.php:85
+msgid "Order of the locations"
+msgstr "Sortering af lokationerne"
+
+#@ dbem
+#: widgets/em-locations.php:87
+msgid "Ascendant"
+msgstr "Stigende"
+
+#@ dbem
+#: widgets/em-locations.php:88
+msgid "Descendant"
+msgstr "Faldende"
+
+#@ dbem
+#: widgets/em-events.php:134
+#: widgets/em-locations.php:92
+msgid "List item format"
+msgstr "Tabel element format"
+
+#@ dbem
+#: widgets/em-events.php:22
+#: widgets/em-events.php:53
+#: widgets/em-events.php:143
+msgid "all events"
+msgstr "alle events"
+
+#@ dbem
+#: widgets/em-events.php:24
+msgid "Display a list of events on Events Manager."
+msgstr "Viser en tabel på events på  Events Manager."
+
+#@ dbem
+#: widgets/em-events.php:50
+msgid "No events"
+msgstr "Ingen events"
+
+#@ dbem
+#: widgets/em-events.php:81
+msgid "Number of events"
+msgstr "Antal events"
+
+#@ dbem
+#: widgets/em-events.php:85
+msgid "Scope"
+msgstr "Indhold"
+
+#@ dbem
+#: widgets/em-events.php:95
+msgid "Order By"
+msgstr "Bestilt af"
+
+#@ dbem
+#: widgets/em-events.php:99
+msgid "start date, start time, event name"
+msgstr "startdato, startstidspunkt, eventnavn"
+
+#@ dbem
+#: widgets/em-events.php:100
+msgid "name, start date, start time"
+msgstr "navn, startdato, starttidspunkt"
+
+#@ dbem
+#: widgets/em-events.php:101
+msgid "name, end date, end time"
+msgstr "navn, slutdato, sluttidspunkt"
+
+#@ dbem
+#: widgets/em-events.php:102
+msgid "end date, end time, event name"
+msgstr "slutdato, sluttidspunkt, eventnavn"
+
+#@ dbem
+#: widgets/em-events.php:113
+msgid "Order"
+msgstr "Sortering"
+
+#@ dbem
+#: widgets/em-events.php:138
+msgid "Show all events link at bottom?"
+msgstr "Vis link til alle events i bunden?"
+
+#@ dbem
+#: widgets/em-events.php:142
+msgid "All events link text?"
+msgstr "Tekst på alle events link"
+
+#@ dbem
+#: widgets/em-calendar.php:17
+msgid "Display your events in a calendar widget."
+msgstr "Viser dine events i en kalender-widget."
+
+#@ dbem
+#: widgets/em-calendar.php:18
+msgid "Events Calendar"
+msgstr "Event-kalender"
+
+#@ dbem
+#: widgets/em-calendar.php:64
+msgid "Show Long Events?"
+msgstr "Vis længerevarende events?"
+
+#@ dbem
+#: classes/em-booking.php:142
+#: classes/em-booking.php:143
+#: classes/em-booking.php:151
+#: classes/em-booking.php:161
+#: classes/em-booking.php:167
+#: classes/em-tickets-bookings.php:69
+#: classes/em-tickets-bookings.php:70
+msgid "There was a problem saving the booking."
+msgstr "Der opstod et problem da tilmeldingen skulle gemmes."
+
+#@ dbem
+#: classes/em-tickets-bookings.php:99
+#: em-install.php:456
+msgid "Booking cannot be made, not enough spaces available!"
+msgstr "Tilmelding kan ikke udføres, der er ikke ledige pladser nok!"
+
+#@ dbem
+#: classes/em-booking.php:163
+#: classes/em-booking.php:169
+#: classes/em-booking.php:380
+#: classes/em-booking.php:382
+#: classes/em-bookings.php:109
+#: classes/em-tickets-bookings.php:163
+msgid "Booking"
+msgstr "Tilmelding"
+
+#@ dbem
+#: classes/em-tickets.php:130
+msgid "Standard"
+msgstr "Standard"
+
+#@ dbem
+#: classes/em-categories.php:206
+#: classes/em-location.php:144
+#: classes/em-location.php:152
+#, php-format
+msgid "Could not save the %s details due to a database error."
+msgstr "Kunne ikke gemme %s detaljer på grund af en databasefejl."
+
+#@ dbem
+#: classes/em-mailer.php:67
+msgid "Please supply a valid email format."
+msgstr "Oplys venligst et gyldigt E-mail format."
+
+#@ dbem
+#: classes/em-ticket.php:51
+msgid "Standard Ticket"
+msgstr "Standard billet"
+
+#@ dbem
+#: classes/em-booking.php:133
+#: classes/em-ticket-booking.php:68
+#: classes/em-ticket.php:101
+msgid "Changes saved"
+msgstr "Ændringer gemt"
+
+#@ dbem
+#: classes/em-ticket.php:106
+msgid "Ticket created"
+msgstr "Billet oprettet"
+
+#@ dbem
+#: classes/em-ticket.php:109
+#: classes/em-ticket.php:110
+#: classes/em-ticket.php:114
+#: classes/em-ticket.php:115
+msgid "There was a problem saving the ticket."
+msgstr "Der opstod et problem da billetten skulle gemmes."
+
+#@ dbem
+#@ default
+#: classes/em-event.php:579
+#: classes/em-ticket-booking.php:111
+#: classes/em-ticket.php:159
+msgid "Missing fields: "
+msgstr "Manglende felter: "
+
+#@ dbem
+#: classes/em-ticket.php:276
+msgid "You cannot delete a ticket that has a booking on it."
+msgstr "Du kan ikke slette en billet som har en tilmelding tilknyttet."
+
+#@ dbem
+#: classes/em-ticket-booking.php:77
+msgid "Ticket booking created"
+msgstr "Billet tilmelding oprettet"
+
+#@ dbem
+#: classes/em-ticket-booking.php:84
+#: classes/em-ticket-booking.php:85
+#: classes/em-ticket-booking.php:89
+#: classes/em-ticket-booking.php:90
+msgid "There was a problem saving the ticket booking."
+msgstr " Der opstod et problem da billet tilmeldingen skulle gemmes."
+
+#@ dbem
+#: classes/em-tickets.php:104
+msgid "You cannot delete tickets if there are any bookings associated with them. Please delete these bookings first."
+msgstr "Du kan ikke slette billetter hvis der er tilmeldinger tilknyttet disse. Slet venligst disse tilmeldinger først."
+
+#@ dbem
+#: classes/em-location.php:50
+msgid "The location name"
+msgstr "Lokations-navn"
+
+#@ dbem
+#: classes/em-location.php:50
+msgid "The location address"
+msgstr "Lokations-adresse"
+
+#@ dbem
+#: classes/em-location.php:50
+msgid "The location town"
+msgstr "Lokations-by"
+
+#@ dbem
+#: classes/em-location.php:50
+msgid "The country"
+msgstr "Landet"
+
+#@ dbem
+#: classes/em-category.php:70
+#: classes/em-location.php:111
+#: classes/em-location.php:113
+msgid " is required."
+msgstr "er påkrævet."
+
+#@ dbem
+#: classes/em-category.php:90
+#: classes/em-location.php:142
+#, php-format
+msgid "%s successfully updated."
+msgstr "%s opdateret med succes."
+
+#@ dbem
+#: classes/em-category.php:96
+#: classes/em-location.php:150
+#, php-format
+msgid "%s successfully added."
+msgstr "%s tilføjet med succes."
+
+#@ dbem
+#: classes/em-category.php:100
+#: classes/em-location.php:157
+#, php-format
+msgid "You do not have permission to create/edit %s."
+msgstr "Du har ikke tilladelse til at oprette/redigere %s."
+
+#@ dbem
+#: classes/em-location.php:194
+#: em-actions.php:110
+#, php-format
+msgid "%s successfully deleted."
+msgstr "%s slettet med succes."
+
+#@ dbem
+#: classes/em-location.php:196
+#: em-actions.php:113
+#, php-format
+msgid "%s could not be deleted."
+msgstr "%s kunne ikke slettes."
+
+#@ dbem
+#: classes/em-location.php:199
+#, php-format
+msgid "You do not have permission to delete %s."
+msgstr "Du har ikke tilladelse til at slette %s."
+
+#@ dbem
+#: classes/em-event.php:213
+msgid "WARNING: This is a recurring event."
+msgstr "ADVARSEL: Dette er en gentaget event."
+
+#@ dbem
+#: classes/em-event.php:213
+msgid "Modifications to this event will cause all recurrences of this event to be deleted and recreated and previous bookings will be deleted! You can edit individual recurrences and disassociate them with this recurring event."
+msgstr "Ændringer på denne event vil forårsage at alle gentagelser af denne event vil blive slettet og genskabt, og tidligere tilmeldinger vil blive slettet! Du kan redigere de enkelte gentagelser hver for sig, og fjerne tilknytningen til dette gentaget event."
+
+#@ dbem
+#: classes/em-event.php:215
+msgid "WARNING: This is a recurrence in a set of recurring events."
+msgstr "ADVARSEL: Dette er en gentagelse i en række af gentagne events."
+
+#@ dbem
+#: classes/em-event.php:215
+msgid "If you update this event data and save, it will become an independent event, and will not be deleted or modified automatically if you reschedule the original recurring event details."
+msgstr "Hvis du opdaterer disse event-data og gemmer dem, vil det blive en uafhængig event. Den vil derfor ikke blive slettet eller ændret automatisk, hvis du omlægger de oprindelige gentaget-event detaljer."
+
+#@ dbem
+#: classes/em-event.php:218
+#, php-format
+msgid "WARNING: This is a event belonging to the group \"%s\". Other group admins can also modify this event."
+msgstr "ADVARSEL: Dette er en event tilhørende gruppen \"%s\". Andre gruppeadministratorer kan også redigere dette event."
+
+#@ dbem
+#: classes/em-event.php:340
+msgid "There was a problem saving the location so event was not saved."
+msgstr "Der var et problem med at gemme lokationen, så event blev ikke gemt."
+
+#@ dbem
+#: classes/em-event.php:381
+#: classes/em-event.php:432
+msgid "Something went wrong with creating tickets."
+msgstr "Et eller andet gik galt med oprettelse af billetter."
+
+#@ dbem
+#: classes/em-event.php:393
+#: classes/em-event.php:443
+msgid "Something went wrong with the recurrence update..."
+msgstr "Et eller andet gik galt med den gentagtagne opdatering..."
+
+#@ dbem
+#: classes/em-event.php:394
+#: classes/em-event.php:444
+msgid "There was a problem saving the recurring events."
+msgstr "Der var et problem med at gemme gentaget events."
+
+#@ dbem
+#: classes/em-event.php:399
+msgid "New recurrent event inserted!"
+msgstr "Nyt gentaget event indsat!"
+
+#@ dbem
+#: classes/em-event.php:403
+msgid "New event successfully inserted!"
+msgstr "Nyt event indsat med succes."
+
+#@ dbem
+#: classes/em-event.php:406
+#: classes/em-event.php:451
+msgid "Could not save the event details due to a database error."
+msgstr "Kunne ikke gemme eventdetaljerne på grund af en databasefejl."
+
+#@ dbem
+#: classes/em-event.php:430
+#: classes/em-event.php:455
+msgid "updated"
+msgstr "opdateret"
+
+#@ dbem
+#: classes/em-event.php:447
+msgid "Recurrence updated!"
+msgstr "Gentagelse opdateret!"
+
+#@ dbem
+#: classes/em-event.php:532
+#, php-format
+msgid "Event %s."
+msgstr "Event %s."
+
+#@ dbem
+#: classes/em-booking.php:448
+#: classes/em-booking.php:449
+#: classes/em-event.php:536
+#, php-format
+msgid "Booking could not be %s."
+msgstr "Tilmelding kunne ikke være s."
+
+#@ dbem
+#: classes/em-event.php:554
+#, php-format
+msgid "%s successfully duplicated."
+msgstr "%s duplikeret med succes."
+
+#@ dbem
+#: classes/em-event.php:558
+#, php-format
+msgid "You are not allowed to manage this %s."
+msgstr "Du har ikke tilladelse til at administrere denne %s."
+
+#@ dbem
+#: classes/em-event.php:558
+#: em-actions.php:94
+msgid "event"
+msgstr "event"
+
+#@ dbem
+#: classes/em-event.php:582
+msgid "Since the event is repeated, you must specify an event date."
+msgstr "Da det er et gentaget event, skal du angive en eventdato."
+
+#@ dbem
+#: classes/em-event.php:586
+msgid "Events cannot start after they end."
+msgstr "Events kan ikke starte efter de slutter."
+
+#@ dbem
+#: classes/em-event.php:589
+msgid "Dates must have correct formatting. Please use the date picker provided."
+msgstr "Datoformatet skal være korrekt. Benyt venligst den viste datovælger."
+
+#@ dbem
+#: classes/em-event.php:891
+#: classes/em-event.php:900
+msgid "Profile"
+msgstr "Profil"
+
+#@ dbem
+#: classes/em-event.php:1255
+#, php-format
+msgid "the first %s of the month"
+msgstr "den første %s i måneden"
+
+#@ dbem
+#: classes/em-event.php:1255
+#, php-format
+msgid "the second %s of the month"
+msgstr "den anden %s i måneden"
+
+#@ dbem
+#: classes/em-event.php:1255
+#, php-format
+msgid "the third %s of the month"
+msgstr "den tredje %s i måneden"
+
+#@ dbem
+#: classes/em-event.php:1255
+#, php-format
+msgid "the fourth %s of the month"
+msgstr "den fjerde %s i måneden"
+
+#@ dbem
+#: classes/em-event.php:1255
+#, php-format
+msgid "the last %s of the month"
+msgstr "den sidste %s i måneden"
+
+#@ dbem
+#: classes/em-event.php:1256
+#, php-format
+msgid "From %1$s to %2$s"
+msgstr "Fra %1$s til %2$s"
+
+#@ dbem
+#: classes/em-event.php:1258
+msgid "everyday"
+msgstr "alle dage"
+
+#@ dbem
+#: classes/em-event.php:1260
+#, php-format
+msgid "every %s days"
+msgstr "hver %s dage"
+
+#@ dbem
+#: classes/em-event.php:1269
+msgid "every week"
+msgstr "alle uger"
+
+#@ dbem
+#: classes/em-event.php:1271
+#, php-format
+msgid "every %s weeks"
+msgstr "alle %s uger"
+
+#@ dbem
+#: classes/em-event.php:1282
+#, php-format
+msgid "every %s months"
+msgstr "alle %s måneder"
+
+#@ dbem
+#: classes/em-person.php:61
+msgid "Email"
+msgstr "E-mail"
+
+#@ dbem
+#: em-install.php:454
+msgid "Booking successful, pending confirmation (you will also receive an email once confirmed)."
+msgstr "Tilmelding gennemført, bekræftelse afventer godkendelse (du vil også modtage en E-mail efter at den er bekræftet)."
+
+#@ dbem
+#: em-install.php:455
+msgid "Booking successful."
+msgstr "Tilmelding fuldført."
+
+#@ dbem
+#: em-install.php:458
+msgid "However, there were some problems whilst sending confirmation emails to you and/or the event contact person. You may want to contact them directly and letting them know of this error."
+msgstr "Men, der var nogle problemer ved afsendelse af en bekræftelses E-mails til dig og / eller event-kontaktperson. Du ønsker måske at kontakte dem direkte, og lade dem vide af denne fejl."
+
+#@ dbem
+#: em-install.php:459
+msgid "Booking could not be created"
+msgstr "Tilmelding kunne ikke oprettes"
+
+#@ dbem
+#: classes/em-bookings.php:109
+#, php-format
+msgid "%s created."
+msgstr "%s oprettet"
+
+#@ dbem
+#: classes/em-bookings.php:252
+#: classes/em-bookings.php:258
+#, php-format
+msgid "Bookings %s. Mails Sent."
+msgstr "Tilmeldinger %s. E-mails afsendt."
+
+#@ dbem
+#: classes/em-bookings.php:262
+msgid "An error occurred."
+msgstr "Der opstod en fejl."
+
+#@ dbem
+#: templates/templates/csv-event-bookings.php:16
+#, php-format
+msgid "Booking details for \"%s\" as of %s"
+msgstr "Tilmeldingsdetaljer for \"%s\" fra og med %s"
+
+#@ dbem
+#: classes/em-category.php:31
+msgid "The category name"
+msgstr "Kategorinavnet"
+
+#@ dbem
+#: classes/em-booking.php:102
+msgid "Rejected"
+msgstr "Afvist"
+
+#@ dbem
+#: classes/em-booking.php:103
+#: em-actions.php:366
+msgid "Cancelled"
+msgstr "Annulleret"
+
+#@ dbem
+#: classes/em-booking.php:104
+msgid "Awaiting Online Payment"
+msgstr "Afventer Online betaling"
+
+#@ dbem
+#: classes/em-booking.php:105
+msgid "Awaiting Payment"
+msgstr "Afventer betaling"
+
+#@ dbem
+#: classes/em-booking.php:138
+msgid "Your booking has been recorded"
+msgstr "Din tilmelding er registreret"
+
+#@ dbem
+#: classes/em-booking.php:163
+#: classes/em-booking.php:169
+#, php-format
+msgid "You cannot manage this %s."
+msgstr "Du kan ikke administrere denne %s."
+
+#@ dbem
+#: classes/em-booking.php:220
+msgid "You are trying to book a non-existent ticket for this event."
+msgstr "Du prøver at tilmelde en ikke-eksisterende billet til denne event."
+
+#@ dbem
+#: em-install.php:464
+msgid "You must request at least one space to book an event."
+msgstr "Du skal anmode om mindst en plads for at tilmelde en event."
+
+#@ dbem
+#: classes/em-booking.php:380
+#, php-format
+msgid "%s deleted"
+msgstr "%s slettet"
+
+#@ dbem
+#: classes/em-booking.php:382
+#, php-format
+msgid "%s could not be deleted"
+msgstr "%s kunne ikke slettes"
+
+#@ dbem
+#: classes/em-booking.php:426
+msgid "Not approved, spaces full."
+msgstr "Ikke godkendt, ingen ledige pladser."
+
+#@ dbem
+#: classes/em-booking.php:435
+#, php-format
+msgid "Booking %s."
+msgstr "Tilmelding %s."
+
+#@ dbem
+#: classes/em-booking.php:438
+msgid "Mail Sent."
+msgstr "E-mail afsendt."
+
+#@ dbem
+#: classes/em-booking.php:441
+#: classes/em-booking.php:442
+msgid "ERROR : Mail Not Sent."
+msgstr "FEJL : E-mail ikke sendt."
+
+#@ dbem
+#: classes/em-booking.php:464
+msgid "Booking note successfully added."
+msgstr "Tilmeldingsnote tilføjet med succes."
+
+#@ dbem
+#: classes/em-booking.php:549
+msgid "Confirmation email could not be sent to contact person. Registrant should have gotten their email (only admin see this warning)."
+msgstr "Bekræftelses E-mail kunne ikke sendes til kontaktpersonen. Registranten skulle have modtaget hans E-mal (kun administrator ser denne advarsel)."
+
+#@ dbem
+#: classes/em-booking.php:556
+msgid "Confirmation email could not be sent to admin. Registrant should have gotten their email (only admin see this warning)."
+msgstr "Bekræftelses E-mail kunne ikke sendes til administrator. Registranten skulle have modtaget hans E-mal (kun administrator ser denne advarsel)."
+
+#@ dbem
+#: classes/em-object.php:734
+msgid "However, the image could not be saved."
+msgstr "Men, billedet kunne ikke gemmes."
+
+#@ dbem
+#: classes/em-object.php:736
+msgid "The image could not be saved"
+msgstr "Billedet kunne ikke gemmes"
+
+#@ dbem
+#: classes/em-object.php:740
+msgid "However, the image could not be saved:"
+msgstr "Men, billedet kunne ikke gemmes:"
+
+#@ dbem
+#: classes/em-object.php:759
+msgid "The image file is too big! Maximum size:"
+msgstr "Billedet er for stort! Maksimum størrelse:"
+
+#@ dbem
+#: classes/em-object.php:764
+msgid "The image is too big! Maximum size allowed:"
+msgstr "Billedet er for stort! Maksimum tilladte størrelse:"
+
+#@ dbem
+#: classes/em-object.php:767
+msgid "The image is in a wrong format!"
+msgstr "Billedeformat er forkert!"
+
+#@ dbem
+#: classes/em-people.php:81
+msgid "User deleted by administrators"
+msgstr "Bruger slettet af administratorer"
+
+#@ dbem
+#: em-install.php:249
+msgid "Uncategorized"
+msgstr "Ikke kategoriseret"
+
+#@ dbem
+#: em-install.php:304
+msgid "#_BOOKINGNAME (#_BOOKINGEMAIL) will attend #_NAME on #F #j, #Y. He wants to reserve #_BOOKINGSPACES spaces.<br/> Now there are #_BOOKEDSPACES spaces reserved, #_AVAILABLESPACES are still available.<br/>Yours faithfully,<br/>Events Manager - http://wp-events-plugin.com"
+msgstr "#_BOOKINGNAME (#_BOOKINGEMAIL) deltager #_NAME den #F #j, #Y. Han ønsker at reservere #_BOOKINGSPACES pladser.<br/> Nu er der reserveret #_BOOKEDSPACES pladser, #_AVAILABLESPACES er stadig tilgængelige.<br/>Venlig hilsen,<br/>Events Manager - http://wp-events-plugin.com"
+
+#@ dbem
+#: em-install.php:304
+#: em-install.php:305
+#: em-install.php:306
+#: em-install.php:307
+#: em-install.php:308
+#: em-install.php:309
+msgid "<br/><br/>-------------------------------<br/>Powered by Events Manager - http://wp-events-plugin.com"
+msgstr "<br/><br/>-------------------------------<br/>Leveret af Events Manager - http://wp-events-plugin.com"
+
+#@ dbem
+#: em-install.php:305
+msgid "#_BOOKINGNAME (#_BOOKINGEMAIL) cancelled his booking at #_NAME on #F #j, #Y. He wanted to reserve #_BOOKINGSPACES spaces.<br/> Now there are #_BOOKEDSPACES spaces reserved, #_AVAILABLESPACES are still available.<br/>Yours faithfully,<br/>Events Manager - http://wp-events-plugin.com"
+msgstr "#_BOOKINGNAME (#_BOOKINGEMAIL) annullerede hans tilmelding #_NAME den #F #j, #Y. Han ønskede at reservere #_BOOKINGSPACES pladser.<br/> Nu er der reserveret #_BOOKEDSPACES pladser, #_AVAILABLESPACES er stadig tilgængelige.<br/>Venlig hilsen,<br/>Events Manager - http://wp-events-plugin.com"
+
+#@ dbem
+#: em-install.php:306
+msgid "Dear #_BOOKINGNAME, <br/>you have successfully reserved #_BOOKINGSPACES space/spaces for #_NAME.<br/>Yours faithfully,<br/>#_CONTACTNAME"
+msgstr "Kære #_BOOKINGNAME, <br/>du har med succes reserveret #_BOOKINGSPACES plads/pladser til #_NAME.<br/>Venlig hilsen,<br/>#_CONTACTNAME"
+
+#@ dbem
+#: em-install.php:307
+msgid "Dear #_BOOKINGNAME, <br/>You have requested #_BOOKINGSPACES space/spaces for #_NAME.<br/>Your booking is currently pending approval by our administrators. Once approved you will receive an automatic confirmation.<br/>Yours faithfully,<br/>#_CONTACTNAME"
+msgstr "Kære #_BOOKINGNAME, <br/>du har anmodet om #_BOOKINGSPACES plads/pladser til #_NAME.<br/> Din tilmelding afventer godkendelse af vores adminstratorer. Når den er godkendt modtager du automatisk en bekræftelse.<br/>Venlig hilsen,<br/>#_CONTACTNAME"
+
+#@ dbem
+#: em-install.php:308
+msgid "Dear #_BOOKINGNAME, <br/>Your requested booking for #_BOOKINGSPACES spaces at #_NAME on #F #j, #Y has been rejected.<br/>Yours faithfully,<br/>#_CONTACTNAME"
+msgstr "Kære #_BOOKINGNAME, <br/>Din anmodning om tilmelding af #_BOOKINGSPACES pladser til #_NAME den #F #j, #Y er blevet afvist.<br/>Venlig hilsen,<br/>#_CONTACTNAME"
+
+#@ dbem
+#: em-install.php:309
+msgid "Dear #_BOOKINGNAME, <br/>Your requested booking for #_BOOKINGSPACES spaces at #_NAME on #F #j, #Y has been cancelled.<br/>Yours faithfully,<br/>#_CONTACTNAME"
+msgstr "Kære #_BOOKINGNAME, <br/>Din anmodning om tilmelding af #_BOOKINGSPACES pladser til #_NAME den #F #j, #Y er blevet annulleret.<br/>Venlig hilsen,<br/>#_CONTACTNAME"
+
+#@ dbem
+#: em-install.php:368
+#: em-install.php:373
+#: em-install.php:399
+#, php-format
+msgid "No %s"
+msgstr "Ingen %s"
+
+#@ dbem
+#: em-debug.php:18
+#: em-install.php:392
+msgid "<li>No events in this location</li>"
+msgstr "<li>Ingen events på denne lokation</li>"
+
+#@ dbem
+#: em-install.php:469
+msgid "New booking"
+msgstr "Ny tilmelding"
+
+#@ dbem
+#: em-install.php:471
+#: em-install.php:479
+msgid "Booking Cancelled"
+msgstr "Tilmelding annulleret"
+
+#@ dbem
+#: em-install.php:473
+msgid "Booking Pending"
+msgstr "Tilmelding afventer godkendelse"
+
+#@ dbem
+#: em-install.php:475
+msgid "Booking Rejected"
+msgstr "Tilmelding afvist"
+
+#@ dbem
+#: em-install.php:477
+msgid "Booking Confirmed"
+msgstr "Tilmelding bekræftet"
+
+#@ dbem
+#: em-install.php:482
+msgid "Powered by"
+msgstr "Leveret af"
+
+#@ dbem
+#: em-install.php:483
+msgid "Bookings - #_NAME"
+msgstr "Tilmeldinger - #_NAME"
+
+#@ dbem
+#: em-template-tags-depreciated.php:146
+msgid "Ach, some problems here:"
+msgstr "Arrg, nogle problemer her:"
+
+#@ dbem
+#: em-actions.php:31
+msgid "No ticket id provided"
+msgstr "Ingen bille- id oplyst"
+
+#@ dbem
+#: em-actions.php:94
+#, php-format
+msgid "You are now viewing the duplicated %s."
+msgstr "Du ser nu den duplikerede %s."
+
+#@ dbem
+#: em-actions.php:171
+#: em-actions.php:241
+#, php-format
+msgid "%s successfully deleted"
+msgstr "%s slettet med succes"
+
+#@ dbem
+#: em-actions.php:240
+msgid "EM_Categories"
+msgstr "EM_Categories"
+
+#@ dbem
+#: em-install.php:461
+msgid "A new user account has been created for you. Please check your email for access details."
+msgstr "En ny brugerkonto er oprettet til dig. Kontroller venligst din E-mail for adgangsdetaljer."
+
+#@ dbem
+#: em-install.php:460
+msgid "This email already exists in our system, please log in to register to proceed with your booking."
+msgstr "Denne E-mail eksisterer allerede i vores system, venligst logind for at fortsætte med din tilmelding."
+
+#@ dbem
+#: em-install.php:462
+msgid "There was a problem creating a user account, please contact a website administrator."
+msgstr "Der var et problem med oprettelse af en brugerkonto, kontakt venligst en administrator på hjemmesiden."
+
+#@ dbem
+#: em-install.php:457
+msgid "You must log in or register to make a booking."
+msgstr "Du skal logge ind eller registrere dig for at oprette en tilmelding."
+
+#@ dbem
+#: em-install.php:463
+msgid "You already have booked a seat at this event."
+msgstr "Du har allerede tilmeldt dig en plads til denne event."
+
+#@ dbem
+#: em-actions.php:366
+#, php-format
+msgid "Booking %s"
+msgstr "Tilmelding %s"
+
+#@ dbem
+#: em-actions.php:378
+#: em-bookings.php:77
+msgid "You must log in to cancel your booking."
+msgstr "Du skal logge ind for at annullere din tilmelding."
+
+#@ dbem
+#: em-bookings.php:97
+msgid "Book now!"
+msgstr "Tilmeld nu!"
+
+#@ dbem
+#: em-bookings.php:171
+#, php-format
+msgid "You must <a href=\"%s\">register</a> or <a href=\"%s\">log in</a> in order to create and manage your bookings."
+msgstr "Du skal <a href=\"%s\">registrere dig</a> eller <a href=\"%s\">logge ind</a> for at oprette og administrere dine tilmeldinger."
+
+#@ dbem
+#: em-bookings.php:219
+#: em-bookings.php:233
+msgid "Cancel your booking"
+msgstr "Annuller din tilmelding"
+
+#@ default
+#: em-debug.php:44
+#, php-format
+msgid "You are in Events Manager debug mode. To turn debug mode off, go to the <a href=\"%s\">settings</a> page."
+msgstr "Du er i Events Manager fejlfindingstilstand. For at slukke for fejlfindingstilstand, gå til siden <a href=\"%s\">indstillinger</a>."
+
+#@ dbem
+#: em-functions.php:144
+msgid "Today's events"
+msgstr "Dagens events"
+
+#@ dbem
+#: em-functions.php:145
+msgid "Tomorrow's events"
+msgstr "Events i morgen"
+
+#@ dbem
+#: em-functions.php:146
+msgid "Events this month"
+msgstr "Denne måneds events"
+
+#@ dbem
+#: em-functions.php:147
+msgid "Events next month"
+msgstr "Næste måneds events"
+
+#@ dbem
+#: em-functions.php:149
+msgid "Events within 2 months"
+msgstr "De næste 2 måneders events"
+
+#@ dbem
+#: em-functions.php:150
+msgid "Events within 3 months"
+msgstr "De næste 3 måneders events"
+
+#@ dbem
+#: em-functions.php:151
+msgid "Events within 6 months"
+msgstr "De næste 6 måneders events"
+
+#@ dbem
+#: em-functions.php:152
+msgid "Events within 12 months"
+msgstr "Events inden for 12 måneder"
+
+#@ dbem
+#: em-functions.php:184
+msgid "Trying to perform an illegal action."
+msgstr "Forsøg på udførsel af ugyldig handling."
+
+#@ dbem
+#: em-functions.php:256
+msgid "<strong>ERROR</strong>: Please enter a username."
+msgstr "<strong>ERROR</strong>: Indtast venligst et brugernavn.."
+
+#@ dbem
+#: em-functions.php:258
+msgid "<strong>ERROR</strong>: This username is invalid because it uses illegal characters. Please enter a valid username."
+msgstr "<strong>ERROR</strong>: Dette brugernavn er ugyldigt, da det indeholder ugyldige tegn. Angiv et gyldigt brugernavn."
+
+#@ default
+#: em-functions.php:261
+msgid "<strong>ERROR</strong>: This username is already registered, please choose another one."
+msgstr "<strong>ERROR</strong>: Dette brugernavn eksisterer allerede, vælg venligst et andet."
+
+#@ dbem
+#: em-functions.php:266
+msgid "<strong>ERROR</strong>: Please type your e-mail address."
+msgstr "<strong>ERROR</strong>: Indtast venligst din E-mailadresse."
+
+#@ dbem
+#: em-functions.php:268
+msgid "<strong>ERROR</strong>: The email address isn&#8217;t correct."
+msgstr "<strong>ERROR</strong>: E-mailadressen er ikke korrekt."
+
+#@ default
+#: em-functions.php:271
+msgid "<strong>ERROR</strong>: This email is already registered, please choose another one."
+msgstr "<strong>ERROR</strong>: Denne E-mailadresse eksisterer allerede, vælg venligst en anden."
+
+#@ dbem
+#: em-functions.php:291
+#, php-format
+msgid "<strong>ERROR</strong>: Couldn&#8217;t register you... please contact the <a href=\"mailto:%s\">webmaster</a> !"
+msgstr "<strong>ERROR</strong>: Var ikke istand til at registrere dig... kontakt venligst <a href=\"mailto:%s\">webmaster</a> !"
+
+#@ dbem
+#: em-functions.php:326
+#, php-format
+msgid "New user registration on your blog %s:"
+msgstr "Ny bruger-tilmelding på din blog %s:"
+
+#@ dbem
+#: em-functions.php:327
+#, php-format
+msgid "Username: %s"
+msgstr "Brugernavn: %s"
+
+#@ dbem
+#: em-functions.php:328
+#, php-format
+msgid "E-mail: %s"
+msgstr "E-mail: %s"
+
+#@ dbem
+#: em-functions.php:329
+#, php-format
+msgid "[%s] New User Registration"
+msgstr "[%s] Ny bruger registrering"
+
+#@ dbem
+#: em-functions.php:340
+#, php-format
+msgid "[%s] Your username and password"
+msgstr "[%s] Dit brugernavn og adgangskode"
+
+#@ dbem
+#: admin/bookings/em-cancelled.php:84
+#: admin/bookings/em-confirmed.php:85
+#: admin/bookings/em-pending.php:99
+#: admin/bookings/em-rejected.php:84
+msgid "Booker"
+msgstr "Registrant"
+
+#@ dbem
+#: admin/em-admin.php:19
+#, php-format
+msgid "<p>Events Manager is ready to go! It is highly recommended you read the <a href='%s'>Getting Started</a> guide on our site, as well as checking out the <a href='%s'>Settings Page</a>. <a href='%s' title='Don't show this advice again'>Dismiss</a></p>"
+msgstr "<p>Events Manager er klar! Det anbefales kraftigt at du læser <a href='%s'>Kom godt i gang</a> guiden på vores hjemmeside, og samtidig checke <a href='%s'>Indstillingssiden</a>. <a href='%s' title='Vis ikke dette råd mere'>Afbryd</a></p>"
+
+#@ dbem
+#: admin/em-bookings.php:98
+msgid "Availability"
+msgstr "Tilgængelighed"
+
+#@ dbem
+#: admin/em-bookings.php:286
+msgid "Modify Booking"
+msgstr "Tilpas tilmelding"
+
+#@ dbem
+#: admin/em-bookings.php:291
+msgid "<strong>Note:</strong> ticket availability not taken into account (i.e. you can overbook). Confirmation email is not resent automatically."
+msgstr "<strong>Bemærk:</strong> billetters tilgængelighed er ikke taget i betragtning (du kan f.eks. overtegne). Bekræftelses E-mail afsendes ikke automatisk.."
+
+#@ dbem
+#: admin/em-docs.php:76
+msgid "Shows the event image thumbnail, x and y are width and height respectively, both being numbers e.g. <code>#_EVENTIMAGE{100,100}</code>"
+msgstr "Viser eventbillede miniature, x og y er hhv. bredde og højde, begge er tal. Eksempel <code>#_EVENTIMAGE{100,100}</code>"
+
+#@ dbem
+#: admin/em-docs.php:93
+msgid ""
+"You can also create a date format without prepending # to each character by wrapping a valid php date() format in <code>#{}</code> or <code>#@{}</code> (e.g. <code>#_{d/m/Y}</code>). If there is no end date (or is same as start date), the value is not shown. This is useful if you want to show event end dates only on events that are longer than on day, e.g. <code>#j #M #Y #@_{ \\u\n"
+"\\t\\i\\l j M Y}</code>."
+msgstr ""
+"Du kan også oprette et datoformat uden at foranstille # foran hver karakter ved at inkludere et gyldigt php date() format i <code>#{}</code> eller <code>#@{}</code> (f.eks. <code>#_{d/m/Y}</code>). Hvis der ikke er en slutdato (eller hvis den er den samme som startdatoen), vises værdien ikke. Dette er brugbart hvis du kun vil vise event-slutdatoer for events som er længere end én dag, f.eks. <code>#j #M #Y #@_{ \\u\n"
+"\\t\\i\\l j M Y}</code>."
+
+#@ dbem
+#: admin/em-docs.php:115
+msgid "These placeholders will only show if bookings are enabled for the given event and in the events manager settings page. Spaces placeholders will default to 0"
+msgstr "Disse pladsholdere vil kun vises hvis tilmeldinger er aktiveret for den aktuelle event, og på events managerIndstillingssiden. Pladsholder for 'antal pladser' er som standard sat till 0"
+
+#@ dbem
+#: admin/em-docs.php:148
+msgid "Shows the category image thumbnail, x and y are width and height respectively, both being numbers e.g. <code>#_CATEGORYIMAGE{100,100}</code>"
+msgstr "Viser kategori miniature-billede, x og y er henholdsvis bredde og højde, hvor begge er tal f.eks. <code>#_CATEGORYIMAGE{100,100}</code>"
+
+#@ dbem
+#: admin/em-docs.php:149
+msgid "Shows the category image url, if available."
+msgstr "Viser kategori-billede url, hvis tilgængelig."
+
+#@ dbem
+#: admin/em-docs.php:154
+msgid "You can show lists of other events belonging to this category. The formatting of the list is the same as a normal events list."
+msgstr "Du kan vise tabeller af andre events der tilhører denne kategori. Opstillingen af denne tabel er den samme som en normal event-tabel."
+
+#@ dbem
+#: admin/em-docs.php:156
+msgid "Will show a list of all past events at this category."
+msgstr "Viser en tabel med alle tidligere events i denne kategori."
+
+#@ dbem
+#: admin/em-docs.php:157
+msgid "Will show a list of all future events at this category."
+msgstr "Viser en tabel med alle fremtidige events i denne kategori."
+
+#@ dbem
+#: admin/em-docs.php:158
+msgid "Will show a list of all events at this category."
+msgstr "Viser en tabel med alle events i denne kategori."
+
+#@ dbem
+#: admin/em-docs.php:178
+msgid "Shows the location image thumbnail, x and y are width and height respectively, both being numbers e.g. <code>#_LOCATIONIMAGE{100,100}</code>"
+msgstr "Viser lokations miniature-billede, x og y er henholdsvis bredde og højde, hvor begge er tal f.eks. <code>#_LOCATIONIMAGE{100,100}</code>"
+
+#@ dbem
+#: admin/em-docs.php:179
+msgid "Shows the cattegory image url, if available."
+msgstr "Viser kategori-billede url, hvis tilgængelig."
+
+#@ dbem
+#: admin/em-docs.php:210
+#, php-format
+msgid "(<a href=\"%s\">pro only</a>) Shows booking form custom fields. The field_id value must match that of your custom booking form field."
+msgstr "(<a href=\"%s\">pro only</a>) Viser tilmeldingsformulars brugerdefinerbare felter. field_id skal svare til værdien i dit brugerdefinerbare tilmeldingsformular-felt."
+
+#@ dbem
+#: admin/em-docs.php:211
+#, php-format
+msgid "(<a href=\"%s\">pro only</a>) Shows booking form custom fields that are used for guest user registration. The field_id value must match that of your custom booking form field."
+msgstr "(<a href=\"%s\">pro only</a>) Viser tilmeldingsformulars brugerdefinerbare felter som benyttes til gæste-bruger registrering. field_id skal svare til værdien i dit brugerdefinerbare tilmeldingsformular-felt."
+
+#@ dbem
+#: admin/em-options.php:332
+msgid "iCal Feed Settings"
+msgstr "iCal Feed indstillinger"
+
+#@ dbem
+#: admin/em-options.php:334
+msgid "iCal Title"
+msgstr "iCal titel"
+
+#@ dbem
+#: admin/em-options.php:334
+msgid "The title that will appear in the calendar."
+msgstr "Titlen som vises i kalenderen."
+
+#@ dbem
+#: admin/em-options.php:335
+msgid "iCal Limit"
+msgstr "iCal begrænsning"
+
+#@ dbem
+#: admin/em-options.php:335
+msgid "Limits the number of future events shown (0 = unlimited)."
+msgstr "Begrænser antallet af fremtidige events der vises (0 = ubegrænset)."
+
+#@ dbem
+#: admin/em-options.php:360
+#: admin/em-options.php:387
+#, php-format
+msgid "%s List Formats"
+msgstr "%s tabelformater"
+
+#@ dbem
+#: admin/em-options.php:362
+msgid "The format of the events the list inserted in the location page through the <code>#_LOCATIONNEXTEVENTS</code>, <code>#_LOCATIONNEXTEVENTS</code> and <code>#_LOCATIONALLEVENTS</code> element."
+msgstr "Format på eventstabel indsat på lokationssiden med <code>#_LOCATIONNEXTEVENTS</code>, <code>#_LOCATIONNEXTEVENTS</code> og <code>#_LOCATIONALLEVENTS</code> element."
+
+#@ dbem
+#: admin/em-options.php:363
+msgid "The message to be displayed in the list generated by <code>#_LOCATIONNEXTEVENTS</code>, <code>#_LOCATIONNEXTEVENTS</code> and <code>#_LOCATIONALLEVENTS</code> when no events are available."
+msgstr "Beskeden der skal vises i tabellen genereret af<code>#_LOCATIONNEXTEVENTS</code>, <code>#_LOCATIONNEXTEVENTS</code> og <code>#_LOCATIONALLEVENTS</code> når der ikke er nogen events tilgængelige."
+
+#@ dbem
+#: admin/em-options.php:389
+msgid "The format of the events the list inserted in the category page through the <code>#_CATEGORYNEXTEVENTS</code>, <code>#_CATEGORYNEXTEVENTS</code> and <code>#_CATEGORYALLEVENTS</code> element."
+msgstr "Opstillingen på events tabellen indsat på kategorisiden ved brug af <code>#_CATEGORYNEXTEVENTS</code>, <code>#_CATEGORYNEXTEVENTS</code> og <code>#_CATEGORYALLEVENTS</code> element."
+
+#@ dbem
+#: admin/em-options.php:390
+msgid "The message to be displayed in the list generated by <code>#_CATEGORYNEXTEVENTS</code>, <code>#_CATEGORYNEXTEVENTS</code> and <code>#_CATEGORYALLEVENTS</code> when no events are available."
+msgstr "Beskeden der skal vises i tabellen genereret af <code>#_CATEGORYNEXTEVENTS</code>, <code>#_CATEGORYNEXTEVENTS</code> og <code>#_CATEGORYALLEVENTS</code> når der ikke er nogen events tilgængelige."
+
+#@ dbem
+#: buddypress/bp-em-activity.php:78
+#, php-format
+msgid "%s added the event %s of the %s group."
+msgstr "%s tilføjede event %s i %s gruppen."
+
+#@ dbem
+#: buddypress/bp-em-activity.php:110
+#, php-format
+msgid "%s is attending %s of the group %s."
+msgstr "%s deltager %s i gruppe %s."
+
+#@ dbem
+#: buddypress/bp-em-activity.php:112
+#, php-format
+msgid "%s will not be attending %s of group %s anymore."
+msgstr "%s vil ikke deltage %s i gruppe %s mere."
+
+#@ dbem
+#: em-functions.php:9
+#, php-format
+msgid ""
+"<p>Hey, <strong>%s</strong>, welcome to <strong>Events Manager</strong>! We hope you like it around here.</p> \n"
+"\t\t<p>Now it's time to insert events lists through  <a href='%s' title='Widgets page'>widgets</a>, <a href='%s' title='Template tags documentation'>template tags</a> or <a href='%s' title='Shortcodes documentation'>shortcodes</a>.</p>\n"
+"\t\t<p>By the way, have you taken a look at the <a href='%s' title='Change settings'>Settings page</a>? That's where you customize the way events and locations are displayed.</p>\n"
+"\t\t<p>What? Tired of seeing this advice? I hear you, <a href='%s' title='Don't show this advice again'>click here</a> and you won't see this again!</p>"
+msgstr ""
+"<p>Hej, <strong>% s</strong>, velkommen til <strong>Events Manager</strong>! Vi håber du kan lide det her inde. </p> \n"
+"\\\t\\\t<p> Nu er det tid til at indsætte event-tabeller ved brug af <a href='%s' title='Widgets side\\\">widgets</a> , <a href='%s' title='Skabelon-tags dokumentation'>skabelon tags</a> eller <a href='%s' title='Shortcodes dokumentation'>shortcodes</a>.</p>\n"
+"\\\t\\\t<p> Har du forresten taget et kig på  <a href='%s' title='Ændr indstillinger'>Indstillingsside</a>? Det er her du tilpasser den måde events og lokationer vises.</p>\n"
+"\\\t\\\t<p> Hvad? Træt af at se dette råd? Jeg hører dig, <a href='%s' title='Vis ikke dette råd igen'>klik her</a> og du vil ikke se det igen!</p>"
+
+#@ dbem
+#: em-functions.php:148
+msgid "Events current and next month"
+msgstr "Events i denne og næste måned"
+
+#@ dbem
+#: em-install.php:402
+msgid "<li>No events in this category</li>"
+msgstr "<li>Ingen events i denne kategori</li>"
+
+#@ dbem
+#: templates/buddypress/profile.php:37
+msgid "Not attending any events yet."
+msgstr "Deltager ikke i nogen events endnu."
+
+#@ dbem
+#: widgets/em-calendar.php:68
+#: widgets/em-events.php:129
+msgid "Category IDs"
+msgstr "Kategori id'er"
+
+#@ dbem
+#: widgets/em-calendar.php:70
+#: widgets/em-events.php:131
+msgid "1,2,3 or 2 (0 = all)"
+msgstr "1,2,3 or 2 (0 = alle)"
+
+#@ dbem
+#: admin/em-categories.php:199
+#: admin/em-event.php:487
+#: admin/em-locations.php:298
+#: templates/forms/location-editor.php:114
+msgid "Delete Image?"
+msgstr "Slet billede?"
+
+#@ dbem
+#: admin/em-docs.php:19
+msgid "Include only events with bookings enabled."
+msgstr "Inkluder kun events med Tilmeldinger aktiveret."
+
+#@ dbem
+#: admin/em-docs.php:20
+msgid "Limit search to events with a spefic status (1 is active, 0 is pending approval)"
+msgstr "Begræns søgning til events med en specifik status (1 er aktiv, 0 afventer godkendelse)"
+
+#@ dbem
+#: admin/em-docs.php:21
+msgid "Limit search to events created in a specific blog (MultiSite only)"
+msgstr "Begræns søgning til events oprettet i en specifik blog (kun Multi-site)"
+
+#@ dbem
+#: admin/em-docs.php:22
+msgid "Search for events in this town (no partial matches, case sensitive)."
+msgstr "Søg efter events i denne by (ingen delvise resultater, store og små bogstaver)."
+
+#@ dbem
+#: admin/em-docs.php:23
+msgid "Search for events in this state (no partial matches, case sensitive)."
+msgstr "Søg efter events i denne stat (ingen delvise resultater, store og små bogstaver)."
+
+#@ dbem
+#: admin/em-docs.php:24
+msgid "Search for events in this region (no partial matches, case sensitive)."
+msgstr "Søg efter events i denne region (ingen delvise resultater, store og små bogstaver)."
+
+#@ dbem
+#: admin/em-docs.php:25
+msgid "Search for events in this country (no partial matches, case sensitive)."
+msgstr "Søg efter events i dette land (ingen delvise resultater, store og små bogstaver)."
+
+#@ dbem
+#: admin/em-docs.php:26
+msgid "Search for events in this postcode (no partial matches, case sensitive)."
+msgstr "Søg efter events på dette postnummer (ingen delvise resultater, store og små bogstaver)."
+
+#@ dbem
+#: admin/em-docs.php:27
+msgid "When displaying event lists, you can supply specific HTML to replace the default header from the settings page."
+msgstr "Når eventstabeller vises, kan du tilføje specifik HTML for at erstatte standard-overskriften defineret på indstillingssiden."
+
+#@ dbem
+#: admin/em-docs.php:28
+msgid "When displaying event lists, you can supply specific HTML to replace the default footer from the settings page."
+msgstr "Når eventstabeller vises, kan du tilføje specifik HTML for at erstatte standard sidefoden defineret på indstillingssiden."
+
+#@ dbem
+#: admin/em-docs.php:64
+msgid "Limits returned results to a specific owner, identified by their usaer id (e.g. list events or locations owned by user)"
+msgstr "Afgrænser returnerede resultater til en bestemt ejer, identificeret ved bruger-id (f.eks. vis events eller lokationer der ejes af brugeren)"
+
+#@ dbem
+#: admin/em-options.php:447
+msgid "Allow double bookings?"
+msgstr "Tillad dobbelt booking?"
+
+#@ dbem
+#: admin/em-options.php:447
+msgid "If enabled, users can book an event more than once."
+msgstr "Hvis aktiveret, kan brugere tilmelde en event mere end én gang."
+
+#@ dbem
+#: admin/em-options.php:450
+msgid "Booking form feedback messages"
+msgstr "Tilmeldingsblanket Feedback beskeder"
+
+#@ dbem
+#: admin/em-options.php:451
+msgid "When a booking is made by a user, a feedback message is shown depending on the result, which can be customized below."
+msgstr "Når en tilmelding er foretaget af en bruger vises en Feedback besked afhængig af resultatet, beskeden kan tilpasses herunder."
+
+#@ dbem
+#: admin/em-options.php:453
+msgid "Successful booking"
+msgstr "Vellykket tilmelding"
+
+#@ dbem
+#: admin/em-options.php:453
+msgid "When a booking is registered and confirmed."
+msgstr "Når en tilmelding er registreret og bekræftet."
+
+#@ dbem
+#: admin/em-options.php:454
+msgid "Successful pending booking"
+msgstr "Vellykket tilmelding der afventer godkendelse"
+
+#@ dbem
+#: admin/em-options.php:454
+msgid "When a booking is registered but pending."
+msgstr "Når en tilmelding er registreret, men afventer godkendelse."
+
+#@ dbem
+#: admin/em-options.php:455
+msgid "Not enough spaces"
+msgstr "Ikke nok pladser"
+
+#@ dbem
+#: admin/em-options.php:455
+msgid "When a booking cannot be made due to lack of spaces."
+msgstr "Når en tilmelding ikke kan foretages på grund af manglende pladser."
+
+#@ dbem
+#: admin/em-options.php:456
+msgid "Errors"
+msgstr "Fejl"
+
+#@ dbem
+#: admin/em-options.php:456
+msgid "When a booking cannot be made due to an error when filling the form. Below this, there will be a dynamic list of errors."
+msgstr "Når en tilmelding ikke kan foretages på grund af en fejl ved udfyldning af formularen. Nedenfor, vil der være en dynamisk liste med fejl."
+
+#@ dbem
+#: admin/em-options.php:457
+msgid "User must log in"
+msgstr "Bruger skal logge ind"
+
+#@ dbem
+#: admin/em-options.php:457
+msgid "When a user must log in before making a booking."
+msgstr "Når en bruger skal logge ind før der foretages en tilmelding."
+
+#@ dbem
+#: admin/em-options.php:458
+msgid "Error mailing user"
+msgstr "Fejl ved afsendelse af mail til bruger"
+
+#@ dbem
+#: admin/em-options.php:458
+msgid "If a booking is made and an email cannot be sent, this is added to the success message."
+msgstr "Hvis en tilmelding er foretaget, og der ikke kan afsendes en e-mail, tilføjes dette til 'Vellykket tilmelding' meddelelsen ."
+
+#@ dbem
+#: admin/em-options.php:459
+msgid "Already booked"
+msgstr "Allerede tilmeldt"
+
+#@ dbem
+#: admin/em-options.php:459
+msgid "If the user made a previous booking and cannot double-book."
+msgstr "Hvis brugeren har oprettet en tidligere tilmelding, og ikke kan foretage dobbelt booking."
+
+#@ dbem
+#: admin/em-options.php:460
+msgid "No spaces booked"
+msgstr "Ingen pladser tilmeldt"
+
+#@ dbem
+#: admin/em-options.php:460
+msgid "If the user tries to make a booking without requesting any spaces."
+msgstr "Hvis brugeren forsøger at foretage en tilmelding uden at forespørge på pladser."
+

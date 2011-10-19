@@ -1,0 +1,51 @@
+/* position the rating links up near the admin links */
+.rfp-rate { position: absolute; right: 150px; top: 15px; }
+
+.rfp-rate a { cursor:pointer; color: #888; }
+.rfp-rate .counter { font-weight: bold; margin: 0 5px; font-size: 12px; }
+
+/* status message */
+.rfp-rate i { background-color: #FFF9DB; color: #883; padding: 5px 8px; margin-right: 5px; display: none; font-style: normal; }
+
+/* helper text 'rate this post' */
+.rfp-rate b { color: #aaa; margin-right: 5px; font-size: 10px; text-transform: uppercase; font-weight: normal; }
+
+/* comment out these two lines to remove thumbs up / thumbs down */
+.rfp-rate .pos { background:url(thumbs-up.png) center right no-repeat; padding:0 18px 0 0; font-size: 18px; }
+.rfp-rate .neg { background:url(thumbs-down.png) center right no-repeat; padding:0 18px 0 0; font-size: 18px; }
+
+/* color rollover if using text link */
+.rfp-rate a.pos:hover { cursor:pointer; color: #3A3; }  
+.rfp-rate a.neg:hover { cursor:pointer; color: #A33; }
+
+/* .rfp-topic-rating { margin-left: 5px; font-size: 11px; color: #777; } */
+
+
+
+/* this section alters the forum posts depending on how many positives and negatives */
+
+/* very positive */
+ul#topic-post-list li.rfp-superboost, .rfp-superboost { background: #FFFFCC; }
+
+/* positive */
+ul#topic-post-list li.rfp-boost, .rfp-boost { background: #FFFFEE; }
+
+/* negative - dim whole post down a bit */
+ul#topic-post-list li.rfp-diminish, .rfp-diminish  { opacity: 0.5; filter:alpha(opacity=50); }
+
+/* very negative - dim post and hide content (can be shown with a link) */
+
+ul#topic-post-list li.rfp-hide .post-content, .rfp-hide .rfp-admin-content { display: none; }
+ul#topic-post-list li.rfp-hide, .rfp-hide  { opacity: 0.5; filter:alpha(opacity=50); }
+
+/* link to show hidden posts */
+.rfp-show { cursor:pointer; }
+.rfp-show:hover { color: #1FB3DD; }
+
+/* karma (reputation) points*/
+.rfp-karma { background-color: #d7d7d7; color: #333; padding: 2px 3px; margin: 0 5px; font-size: 10px; font-style: normal; 
+	  -moz-border-radius: 4px; -webkit-border-radius: 4px; -khtml-border-radius: 4px; border-radius: 4px; }
+.rfp-k1 { background-color: #E1E1C5; }
+.rfp-k2 { background-color: #EBEBA5; }
+.rfp-k3 { background-color: #F5F555; }
+.rfp-k4 { background-color: #FFFF00; border-bottom: solid #FF9900 1px; border-right: solid #FF9900 1px; bor}

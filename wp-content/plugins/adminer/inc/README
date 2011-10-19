@@ -1,0 +1,18 @@
+Changes on ADMINER
+
+rename functions:
+- is_mail() --> is_adminer_mail()
+- is_ajax() --> is_adminer_ajax()
+- js_escape() --> js_adminer_escape()
+
+<body --> without jaavscript for check version
+only: <body class="<?php echo lang('ltr'); ?> nojs"<?php echo ($_POST ? "" : " onclick=\"return bodyClick(event, '" . h(js_escape(DB) . "', '" . js_adminer_escape($_GET["ns"])) . "');\""); // avoid re-post confirmation after refreshing the next page in Google Chrome ?> ">
+
+iframe
+remove: header("X-Frame-Options: deny");
+
+sourceforge url
+set FALSE to var jushRoot 
+
+Filter of $query for Magic Quotes
+$query = $_POST["query"]; --> $query = stripslashes($_POST["query"]);

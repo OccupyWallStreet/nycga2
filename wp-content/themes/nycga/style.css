@@ -1,0 +1,675 @@
+  /*
+Theme Name: NYCGA 
+Description: Based on Buddypress Default
+Version: 1.0
+Author: Internet Working Group of the NY General Assembly
+Template: bp-default
+Author URI: http://www.nycga.cc
+Tags: buddypress, multi-site
+*/
+
+@import url('events.css');
+
+/* > Global Elements
+
+-------------------------------------------------------------- */
+
+
+a {
+	color:#A25047;
+}
+
+
+p {
+	font-size: 14px;
+}
+
+.small-print {
+	font-size:11px;
+}
+div.item-list-tabs ul li a, div.item-list-tabs ul li span {
+display: block;
+padding: 5px 10px;
+text-decoration: none;
+}
+
+form#search-form {
+	display: none;
+}
+
+/* buttons */
+
+.like,
+.view-likes {
+background: #e0ebf6; /* Old browsers */
+background: -moz-linear-gradient(top, #e0ebf6 0%, #c6daee 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e0ebf6), color-stop(100%,#c6daee)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #e0ebf6 0%,#c6daee 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #e0ebf6 0%,#c6daee 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #e0ebf6 0%,#c6daee 100%); /* IE10+ */
+background: linear-gradient(top, #e0ebf6 0%,#c6daee 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0ebf6', endColorstr='#c6daee',GradientType=0 ); /* IE6-9 */
+border: 1px solid #ccc;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+color: #777;
+cursor: pointer;
+font: normal 12px/20px Arial, Tahoma, Verdana, sans-serif;
+outline: none;
+padding: 4px 10px;
+text-align: center;
+text-decoration: none;
+line-height: 14px;
+}
+.like:hover,
+.view-likes:hover {
+background: #b8d1ea; /* Old browsers */
+background: -moz-linear-gradient(top, #b8d1ea 0%, #a1c2e3 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b8d1ea), color-stop(100%,#a1c2e3)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #b8d1ea 0%,#a1c2e3 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #b8d1ea 0%,#a1c2e3 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #b8d1ea 0%,#a1c2e3 100%); /* IE10+ */
+background: linear-gradient(top, #b8d1ea 0%,#a1c2e3 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8d1ea', endColorstr='#a1c2e3',GradientType=0 ); /* IE6-9 */
+border: 1px solid #bbb;
+color: #555;
+outline: none;
+text-decoration: none;
+}
+
+.view-likes {}
+
+.button.delete-activity,
+.button.delete-activity-single {
+background: #f9b9a9; /* Old browsers */
+background: -moz-linear-gradient(top, #f9b9a9 0%, #f6a38e 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9b9a9), color-stop(100%,#f6a38e)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #f9b9a9 0%,#f6a38e 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #f9b9a9 0%,#f6a38e 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #f9b9a9 0%,#f6a38e 100%); /* IE10+ */
+background: linear-gradient(top, #f9b9a9 0%,#f6a38e 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9b9a9', endColorstr='#f6a38e',GradientType=0 ); /* IE6-9 */
+border-color: #CC9991;
+}
+.button.delete-activity:hover,
+.button.delete-activity-single:hover {
+background: #f58f75; /* Old browsers */
+background: -moz-linear-gradient(top, #f58f75 0%, #f37b5d 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f58f75), color-stop(100%,#f37b5d)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #f58f75 0%,#f37b5d 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #f58f75 0%,#f37b5d 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #f58f75 0%,#f37b5d 100%); /* IE10+ */
+background: linear-gradient(top, #f58f75 0%,#f37b5d 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f58f75', endColorstr='#f37b5d',GradientType=0 ); /* IE6-9 */
+}
+
+/************* header **************************************/
+
+h1#logo {
+	text-indent: -9000px;
+}
+#header-link {
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+#header-link a {
+	
+	padding:120px 150px;
+}
+
+
+/* #header-section #header {
+	background-image: url(http://ga.loudfeed.org/files/2011/10/Header4.jpg);
+	background-repeat:no-repeat;
+} */
+
+#search-bar {
+	position: absolute;
+	z-index: 1000;
+	right: 22px;
+	top: -26px;
+}
+
+
+#header-section {
+	position:relative;
+}
+
+div#header {
+	z-index: 800;
+}
+/**************** Hide Elements **************************/
+
+.hideme {
+  display: none	
+}
+
+/* Get rid of buttons that say the last time there was activity */
+span.activity {
+  display: none;
+}
+
+/* Remove "Sites" from profile subnav & top skinny nav */
+li#blogs-personal-li {
+	display: none;
+}
+
+
+/* FIX DISPLAY ON NEWS FEED ENTRY ON HOME PAGE*/
+
+.home-page div#whats-new-post-in-box {
+  display: none;
+}
+
+
+p.comments-closed.pings-open {
+	display: none
+}
+
+/**************  admin nav **************/
+
+#bp-adminbar-visitrandom-menu {
+	display: none;
+}
+
+#wp-admin-bar ul li a#bp-admin-blogs {
+  display: none;
+}
+
+#wp-admin-bar {
+	z-index: 900;
+}
+
+
+/**************** home page - news feed fix ***************/
+
+.home-page div#whats-new-options {
+  float: left;
+  width: 30%;
+}
+
+.home-page div.bpfb_actions_container {
+  float: left;
+  width: 70%;
+}
+
+.home-page div.bpfb_form_container {
+  background-color: #fff;
+}
+
+.home-page div.bpfb_toolbar_container {
+  margin-top: 5px;
+}
+
+/**************** home page blurb ***************/
+.home-page #blurb {
+  display: block !important;
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background-color: white;
+  margin: -10px 0px 8px 0px;
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 1.2em;
+  font-weight: bold;
+  border-bottom-left-radius: 6px 6px;  
+}
+
+/****************nav bar ***************/
+
+
+#nav li.selected a {
+	color: black;
+	font-size:14px;
+}
+
+#nav li a {
+	font-size: 14px;
+}
+
+.menu-item-type-post_type, .menu-item-type-taxonomy {
+	background: black;
+	border-radius: 6px 6px 0px 0px;
+	color: white;
+}
+
+#nav a {
+	font-size:14px;
+}
+
+#nav ul li a, #nav ul ul li a {
+	font-size:14px;
+}
+
+#nav > ul li.sfhover a,
+#nav > ul li:hover a {
+	color: #F0D1A2;
+}
+/************ Groups loop **************/
+.groups #groups-list li {
+	width: 220px;
+	height: 250px;
+	float: left;
+	margin-top: 20px;
+	padding: 15px 0px 20px 0px
+}
+
+.groups #groups-list li .item-title {
+	font-size:18px;
+	text-align:center;
+	width:100%;
+}
+
+.groups #groups-list li .item {
+	text-align:center;
+}
+
+.groups #groups-list li .item-avatar {
+	text-align:center;
+}
+
+.groups #groups-list li img.avatar {
+	float:none;
+	margin:0;
+}
+
+.groups #groups-list li .action {
+	position: relative;
+	top: 0;
+	right: 0;
+	text-align:center;
+}
+
+.groups div.pagination {
+	padding: 3px 20px;
+}
+
+.groups div#pag-bottom {
+	margin-top: -1px;
+	clear:both;
+}
+
+.group-button {
+	margin-top: 15px;	
+}
+
+/****************** members list **************************/
+
+.members ul.item-list li {
+	padding: 15px 5px;
+	float: left;
+	width: 150px;
+}
+
+.members ul.item-list li img {
+	padding:0 50px;
+}
+
+.members ul.item-list li h5 {
+	text-align: center;
+}
+
+.members h5 a{
+text-align: center;
+}
+
+.members ul.item-list li img.avatar {
+	text-align:center;
+	float:none;
+}
+/**************** Group Page *************/
+
+div.item-list-tabs ul li:hover a, div.item-list-tabs ul li:active a {
+	color:#eb0;
+}
+
+div.item-list-tabs ul li#members-groups-li a, div.item-list-tabs ul li#nav-notifications-groups-li a {
+	color:#999;
+}
+
+.group-create textarea#group-desc {
+	display: block;
+}
+
+/* Make numbers in item list tabs light gray with black text */
+div.item-list-tabs ul li a span, div.item-list-tabs ul li.selected a span, div.item-list-tabs ul li.current a span {
+	background-color: #ccc;
+	color: black;
+}
+
+/**************** group & activity pages - news feed fix ***************/
+
+.groups div #whats-new-options, /*.activity div#whats-new-options*/ {
+	position: relative;
+	bottom: 55px;
+}
+
+.groups div.bpfb_form_container, .activity div.bpfb_form_container {
+  background-color: #fff;
+}
+
+.groups div.bpfb_toolbar_container, .activity div.bpfb_toolbar_container {
+  margin-top: 5px;
+}
+
+/********************* forum *********************/
+
+.forum div.topic-tags {
+	font-size: 11px;
+	float: right;
+	margin-top: -25px;
+	max-width: 255px;
+}
+
+.forum div#topic-meta h3 {
+	font-size: 20px;
+	margin: 5px 0;
+	max-width: 650px;
+}
+/********************pages ********************/
+
+div.entry {
+	margin: 0;
+	padding: 0 20px;
+}
+
+div.entry h3{
+	padding-top: 20px;
+}
+
+/***************** how to help *****************/
+#post-359 form p {
+	width:10px;
+	float:left;
+	padding:0;
+	margin:0;
+}
+
+#post-359 #widgetbox_widget_div_0 {
+	background:#eee;
+	padding: 30px;
+}
+
+#donate {
+	background:#eee;
+	padding: 20px 30px 30px;
+	margin-bottom:20px;
+	}
+
+/******************* share *********************/
+
+.really_simple_share {
+	margin:30px 0 0 0;
+}
+
+div.really_simple_share_facebook {
+	width:65px;
+}
+dic.really_simple_share_facebook_like {
+
+}
+div.really_simple_share_email {
+width: 35px;
+}
+
+div.really_simple_share div {
+float: left;
+padding-left: 5px;
+}
+
+div.really_simple_share_google1 {
+	width:65px !important;
+}
+
+div.really_simple_share_twitter {
+	padding-left:20px;
+}	
+
+/*********** Bulletin Board **********************/
+.page-template-page-3-sidebars-php #content .padder {
+	margin:0;
+}
+
+.page-template-page-3-sidebars-php .widget {
+	margin-bottom:20px;
+	padding-bottom:20px;
+	border-bottom:1px solid #ccc;
+}
+
+ #sidebar-2 {
+	width:50%;
+	float:left;
+}
+
+ #sidebar-3 {
+	width: 25%;
+	margin:0;
+	float:left;
+}
+ #sidebar-4 {
+	width:25%;
+	margin:0;
+	float:left;
+}
+
+div#sidebar-2 .padder, div#sidebar-3 .padder  {
+	margin-right: 20px;
+}
+
+
+div#sidebar-4 .padder {
+	margin-right: 20px;
+}
+
+
+/******************* Events *************/
+
+.em-warning
+{
+	font-weight: normal;
+	background: #FFF9DB;
+	border-bottom: 1px solid #FFE8C4;
+	border-right: 1px solid #FFE8C4;
+/* 	color: #ffa200; */
+	color: #ED9200;
+	text-decoration: none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	margin: 15px 0;
+	padding: 10px 15px;
+	font-size: 12px;
+	display:block;
+}
+
+.event-date {
+	font-family:Georgia,serf;
+	text-align:center;
+}
+
+.event-year {
+	background-color:#eee;
+	font-size:small;
+}
+
+.event-month {
+	background-color: #844;
+	color: #eee;
+	font-size: 2em;
+	padding: 8px;
+}
+
+.event-time div {
+	font-size:2em;
+	font-weight:bold;
+	padding: 4px;
+}
+
+.events-table th
+{
+	text-align: left;
+}
+
+.events-table th,
+.events-table td
+{
+	padding-left: 16px;
+}
+
+a.add-new-h2
+{
+	margin: 8px 0;
+	display: inline-block;
+}
+
+/******************* sidebar *************/
+
+#text-3 h3 {
+	background-color: #EB0 !important;
+	color: #420 !important;
+}
+
+.bigBtn {
+	-moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
+	box-shadow:inset 0px 1px 0px 0px #fff6af;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23) );
+	background:-moz-linear-gradient( center top, #ffec64 5%, #ffab23 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23');
+	background-color:#ffec64;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	color:#333333;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffee66;
+}.bigBtn:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64) );
+	background:-moz-linear-gradient( center top, #ffab23 5%, #ffec64 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64');
+	background-color:#ffab23;
+	color:#333333;
+}.bigBtn:active {
+	position:relative;
+	top:1px;
+}
+
+/************ toggler **************/
+#desc-container {
+	position:relative;
+}
+#top-group-desc {
+	display:none;
+}
+
+#top-group-desc-excerpt {
+	display:block;
+}
+#principles-solidarity-text {
+	display:none;
+}
+
+
+/***************** footer menu *************/
+
+
+.menu-item-type-post_type, .menu-item-type-taxonomy {
+	background: white;
+}
+
+#menu-site-map li ul li {
+	margin: 0 0 0 20px;
+}
+
+
+/****************** other ****************/
+
+
+
+
+
+/* Bug fix on tag results page */
+
+div#gtags-results {
+	margin-bottom: 30px;
+}
+
+/* Resize photo/vid/link icons */
+
+.bpfb_toolbar_container a img {
+	height: 24px;
+	width: 24px;
+}
+
+div.faq p.question {
+	font-weight: bold;
+}
+
+
+/************************ small screen ***********/
+
+@media only screen and (max-width: 768px) {
+
+#header .padder {
+	padding: 37px;
+}
+
+#header {
+	margin-bottom: 0;
+}
+
+ #sidebar-2 {
+	width:100%;
+	float:left;
+	border-bottom: 1px solid #ddd;
+}
+
+ #sidebar-3 {
+	width: 50%;
+	margin:0;
+	float:left;
+	border-right:1px solid #ddd;
+}
+ #sidebar-4 {
+	width:50%;
+	margin:0;
+	float:left;
+}	
+	
+}
+
+div.updated {
+	display: inline-block;
+	font-size: 11px;
+	font-weight: normal;
+	background: #FFF9DB;
+	border-bottom: 1px solid #FFE8C4;
+	border-right: 1px solid #FFE8C4;
+	color: #ffa200;
+	padding: 1px 8px;
+	margin-top: 6px;
+	text-decoration: none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	margin: 15px 0;
+	padding: 10px 15px;
+	font-size: 12px;
+	display:block;
+	background: #dffcd9;
+	color: #1a9b00;
+	border-color: #c4e9bd;
+	}

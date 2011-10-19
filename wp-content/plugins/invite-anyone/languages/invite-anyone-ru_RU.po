@@ -1,0 +1,470 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Invite Anyone RU\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/invite-anyone\n"
+"POT-Creation-Date: 2010-04-23 17:18+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jettochkin <milord_k@mail.ru>\n"
+"Language-Team: Jettochkin <milordk@milordk.ru>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#. #-#-#-#-#  plugin.pot (Invite Anyone 0.6 bleeding)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/admin-panel.php:4
+#: widgets/widgets.php:38
+#: widgets/widgets.php:95
+msgid "Invite Anyone"
+msgstr ""
+
+#: admin/admin-panel.php:15
+msgid "Settings"
+msgstr "Настройки"
+
+#: admin/admin-panel.php:34
+msgid "Invite Anyone Settings"
+msgstr "Настройки Invite Anyone"
+
+#: admin/admin-panel.php:40
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: admin/admin-panel.php:53
+msgid "General Settings"
+msgstr "Основные настройки"
+
+#: admin/admin-panel.php:55
+msgid "Replacement patterns for email text fields"
+msgstr "Замена для полей в тексте сообщения"
+
+#: admin/admin-panel.php:57
+msgid "Text of email invitation subject line"
+msgstr "Текст темы приглашения"
+
+#: admin/admin-panel.php:59
+msgid "Main text of email invitation message"
+msgstr "Основной тест для приглашения по e-mail"
+
+#: admin/admin-panel.php:61
+msgid "Footer text of email invitation message (not editable by users)"
+msgstr "Текст подвала сообщения-приглашения (не редактируемое пользователем)"
+
+#: admin/admin-panel.php:64
+msgid "Allow users to customize invitation"
+msgstr "Позволить пользователям настраивать приглашение"
+
+#: admin/admin-panel.php:67
+msgid "Number of email invitations users are permitted to send at a time"
+msgstr "Количество разрешённых e-mail приглашений, посылаемых за один раз"
+
+#: admin/admin-panel.php:69
+msgid "Allow users to send group invitations along with email invitations"
+msgstr "Позволить пользователям посылать приглашения в группы посредством e-mail приглашений"
+
+#: admin/admin-panel.php:72
+msgid "Access Settings"
+msgstr "Настройка доступа"
+
+#: admin/admin-panel.php:74
+msgid "Allow email invitations to be sent by"
+msgstr "Разрешить приглашать через e-mail"
+
+#: admin/admin-panel.php:76
+msgid "Limit group invitations"
+msgstr "Ограничения приглашения в группы"
+
+#: admin/admin-panel.php:89
+msgid "Control the default behavior of Invite Anyone."
+msgstr "Управление поведением Invite Anyone по-умолчанию"
+
+#: admin/admin-panel.php:99
+msgid "name of your website"
+msgstr "имя вашего веб-сайта"
+
+#: admin/admin-panel.php:100
+msgid "display name of the inviter"
+msgstr "показывать имя приглашающего"
+
+#: admin/admin-panel.php:101
+msgid "URL to the profile of the inviter"
+msgstr "Ссылка на профиль приглашающего"
+
+#: admin/admin-panel.php:102
+msgid "Link that invited users can click to accept the invitation"
+msgstr "Ссылка для приёма приглашения"
+
+#: admin/admin-panel.php:103
+msgid "Link that invited users can click to opt out of future invitations"
+msgstr "Ссылка для отсрочки принятия приглашения"
+
+#: admin/admin-panel.php:142
+msgid "Subject line"
+msgstr "Тема"
+
+#: admin/admin-panel.php:146
+msgid "Message body"
+msgstr "Тест сообщения"
+
+#: admin/admin-panel.php:154
+msgid "Control which members are able to send various kinds of invitations."
+msgstr "Контролировать, кто может посылать различные виды приглашений"
+
+#: admin/admin-panel.php:163
+msgid "All users"
+msgstr "Все пользователи"
+
+#: admin/admin-panel.php:165
+msgid "A limited set of users"
+msgstr "Установка лимита для пользователей"
+
+#: admin/admin-panel.php:169
+msgid "Only users who have been members of the site for a minimum number of days:"
+msgstr "Активность пользователей, минимальное количество дней:"
+
+#: admin/admin-panel.php:174
+msgid "Only users who have at least the following role on this blog:"
+msgstr "Только пользователи, которые обладают по крайней мере следующими ролями:"
+
+#: admin/admin-panel.php:176
+msgid "Subscriber"
+msgstr "Подписчик"
+
+#: admin/admin-panel.php:177
+msgid "Contributor"
+msgstr "Участник"
+
+#: admin/admin-panel.php:178
+msgid "Author"
+msgstr "Автор"
+
+#: admin/admin-panel.php:179
+msgid "Editor"
+msgstr "Редактор"
+
+#: admin/admin-panel.php:180
+msgid "Administrator"
+msgstr "Администратор"
+
+#: admin/admin-panel.php:185
+msgid "Provide a comma-separated list of users (identified by their numerical user ids) who <strong>cannot</strong> send invitations by email:"
+msgstr "Список пользователей через запятую (ID) кто <strong>не может</strong> отправлять приглашения по e-mail:"
+
+#: admin/admin-panel.php:200
+msgid "Invite Anyone extends BuddyPress's default group invitation settings. Instead of allowing you to invite only friends to a group, this plugin allows you to invite any member of the site. Use these settings to limit possible invitees for different group roles."
+msgstr "Настройки по-умолчанию расширения Invite Anyone для BuddyPress's для приглашения в группы. Плагин позволяет приглашать в группы не только друзей, но и пользователей сайта. Используйте настройки для ограничения возможности приглашения в различные группы по ролям."
+
+#: admin/admin-panel.php:202
+msgid "<strong>Site admins</strong> can send group invitations to: "
+msgstr "<strong>Администратор сайта</strong> может посылать групповые  приглашения для:"
+
+#: admin/admin-panel.php:204
+#: admin/admin-panel.php:212
+#: admin/admin-panel.php:220
+#: admin/admin-panel.php:228
+msgid "Anyone"
+msgstr "Любой"
+
+#: admin/admin-panel.php:205
+#: admin/admin-panel.php:213
+#: admin/admin-panel.php:221
+#: admin/admin-panel.php:229
+msgid "Friends"
+msgstr "Друзья"
+
+#: admin/admin-panel.php:206
+#: admin/admin-panel.php:214
+#: admin/admin-panel.php:222
+#: admin/admin-panel.php:230
+msgid "No one"
+msgstr "Не один"
+
+#: admin/admin-panel.php:210
+msgid "<strong>Group admins</strong> can send group invitations to: "
+msgstr "<strong>Администратор группы</strong> может посылать групповые  приглашения для:"
+
+#: admin/admin-panel.php:218
+msgid "<strong>Group mods</strong> can send group invitations to: "
+msgstr "<strong>Модератор группы</strong> может посылать групповые  приглашения для:"
+
+#: admin/admin-panel.php:226
+msgid "<strong>Group members</strong> can send group invitations to: "
+msgstr "<strong>Пользователь группы</strong> может посылать групповые  приглашения для:"
+
+#: by-email/by-email.php:56
+msgid "Opt Out"
+msgstr "Отказаться"
+
+#: by-email/by-email.php:57
+msgid "Accept Invitation"
+msgstr "Принятые приглашения"
+
+#: by-email/by-email.php:61
+#, php-format
+msgid "To opt out of future invitations to %s, make sure that your email is entered in the field below and click \"Opt Out\"."
+msgstr "Чтобы отказать от приглашений на будущее, %s, введите ваш e-mail и нажмите \"Отказаться\"."
+
+#: by-email/by-email.php:63
+#, php-format
+msgid "If you are here by mistake and would like to accept your invitation to %s, click \"Accept Invitation\" instead."
+msgstr "Если вы оказались здесь по ошибка и хотите принять приглашение в %s, нажмите \"Принять приглашение\"."
+
+#: by-email/by-email.php:76
+msgid "You have successfully opted out. No more invitation emails will be sent to you by this site."
+msgstr "Вы успешно отказались. Вам более не будут приходить приглашения на e-mail с этого сайта."
+
+#: by-email/by-email.php:79
+msgid "Sorry, there was an error in processing your request"
+msgstr "Извините, произошла ошибка при обработке вашего запроса"
+
+#: by-email/by-email.php:100
+msgid "Email:"
+msgstr "E-mail:"
+
+#: by-email/by-email.php:122
+msgid "It looks like you're trying to accept an invitation to join the site, but some information is missing. Please try again by clicking on the link in the invitation email."
+msgstr "Похоже, что вы пытаетесь принять приглашение присоединиться к сайту, но некоторая информация отсутствует. Пожалуйста, попробуйте еще раз, нажав на ссылку в пригласительном письме."
+
+#: by-email/by-email.php:164
+#, php-format
+msgid "Welcome! You've been invited %s to join the site. Please fill out the information below to create your account."
+msgstr "Добро пожаловать! Вы приглашены на сайт - %s . Пожалуйста, заполните поля для создания учетной записи  на сайте!"
+
+#: by-email/by-email.php:228
+#: by-email/by-email.php:470
+#: group-invites/group-invites.php:83
+#: group-invites/group-invites.php:236
+#: group-invites/group-invites.php:334
+msgid "Send Invites"
+msgstr "Отправить приглашения"
+
+#: by-email/by-email.php:240
+#: by-email/by-email.php:412
+msgid "Invite New Members"
+msgstr "Пригласить новых пользователей"
+
+#: by-email/by-email.php:250
+#: by-email/by-email.php:524
+msgid "Sent Invites"
+msgstr "Отправленные приглашения"
+
+#: by-email/by-email.php:382
+#: widgets/widgets.php:61
+msgid "email address"
+msgstr "e-mail адрес"
+
+#: by-email/by-email.php:407
+#, php-format
+msgid "Invite friends to join %s by following these steps:"
+msgstr "Чтобы пригласить друзей в %s, выполните следующие шаги:"
+
+#: by-email/by-email.php:416
+msgid "Enter email addresses in the fields below."
+msgstr "Ниже введите e-mail."
+
+#: by-email/by-email.php:416
+msgid "You can only invite people whose email addresses end in one of the following domains:"
+msgstr "Вы можите приглашать только тех людей у которых e-mail находится на следующих доменах:"
+
+#: by-email/by-email.php:423
+msgid "(optional) Customize the subject line of the invitation email."
+msgstr "(опционально) Настроить тему для пригласительных e-mail."
+
+#: by-email/by-email.php:426
+msgid "Subject:"
+msgstr "Тема:"
+
+#: by-email/by-email.php:435
+msgid "(optional) Customize the text of the invitation."
+msgstr "(опционально) Настройка теста приглашения."
+
+#: by-email/by-email.php:438
+msgid "Message:"
+msgstr "Сообщение:"
+
+#: by-email/by-email.php:443
+msgid "The message will also contain a custom footer containing links to accept the invitation or opt out of further email invitations from this site."
+msgstr "Данное сообщение будет также содержать ссылки на принятие приглашения или отказаза от приглашений с этого сайта."
+
+#: by-email/by-email.php:449
+msgid "(optional) Select some groups. Invitees will receive invitations to these groups when they join the site."
+msgstr "(опционально) Выберите несколько групп. Приглашенные получат приглашения в эти группы когда присоединятся к сайту."
+
+#: by-email/by-email.php:487
+msgid "Your invitations were sent successfully!"
+msgstr "Ваши приглашения успешно отправлены!"
+
+#: by-email/by-email.php:489
+msgid "Sorry, there was a problem sending your invitations. Please try again."
+msgstr "Извините, при отправке приглашений произошла ошибка. Попробуйте еще раз."
+
+#: by-email/by-email.php:528
+msgid "You have sent invitations to the following people."
+msgstr "Вы отправили приглашения следующим людям:"
+
+#: by-email/by-email.php:533
+msgid "Invited email address"
+msgstr "Приглашенные e-mail"
+
+#: by-email/by-email.php:534
+msgid "Group invitations"
+msgstr "Приглашения в группу"
+
+#: by-email/by-email.php:535
+msgid "Sent"
+msgstr "Отправлено"
+
+#: by-email/by-email.php:536
+msgid "Accepted"
+msgstr "Принято"
+
+#: by-email/by-email.php:546
+msgid "Clear this invitation"
+msgstr "Удалить это приглашение"
+
+#: by-email/by-email.php:579
+msgid "Clear all accepted invitations"
+msgstr "Удалить все принятые приглашения"
+
+#: by-email/by-email.php:580
+msgid "Clear all invitations"
+msgstr "Удалить все приглашения"
+
+#: by-email/by-email.php:585
+msgid "You haven't sent any email invitations yet."
+msgstr "Вы еще не отправляли приглашение на e-mail."
+
+#: by-email/by-email.php:627
+#, php-format
+msgid "An invitation to join the %s community."
+msgstr "Приглашение присоединиться к сообществу %s."
+
+#: by-email/by-email.php:651
+#, php-format
+msgid ""
+"You have been invited by %%INVITERNAME%% to join the %s community. \\n"
+"\\r\\n"
+"\\rVisit %%INVITERNAME%%'s profile at %%INVITERURL%%."
+msgstr ""
+"Вы приглашены %%INVITERNAME%%  в сообщество %s \\n"
+"\\r\\n"
+"Посмотрите профайл %%INVITERNAME%%' по ссылке %%INVITERURL%%."
+
+#: by-email/by-email.php:671
+#, php-format
+msgid "To accept this invitation, please visit %%ACCEPTURL%%"
+msgstr "Для принятия приглашения, пожалуйста посетите %%ACCEPTURL%%"
+
+#: by-email/by-email.php:675
+#, php-format
+msgid "To opt out of future invitations to this site, please visit %%OPTOUTURL%%"
+msgstr "Для отказа от приглашений с сайта, пожалуйста посетите %%OPTOUTURL%%"
+
+#: by-email/by-email.php:743
+msgid "You didn't include any email addresses!"
+msgstr "Вы не можете включать другие e-mail!"
+
+#: by-email/by-email.php:753
+msgid "Sorry, $email has opted out of email invitations from this site."
+msgstr "Извините, $email запрешен для отправки приглашений с сайта."
+
+#: by-email/by-email.php:758
+msgid "Sorry, $email is already a registered user of the site. "
+msgstr "Извините, но $email принадлежит уже зарегистрированному на сайте человеку."
+
+#: by-email/by-email.php:763
+msgid "Sorry, $email is not a permitted email address."
+msgstr "Извините, $email не разрешен."
+
+#: by-email/by-email.php:768
+msgid "Sorry, $email is not a valid email address. Please make sure that you have typed it correctly."
+msgstr "Извините, $email - не правильный адрес. Проверьте корректность ввода."
+
+#: by-email/by-email.php:773
+msgid "Sorry, $email is not a permitted email address. Please make sure that you have typed the domain name correctly."
+msgstr "Извините, $email неправильный адрес. Проверьте правильность введенного домена."
+
+#: by-email/by-email.php:779
+msgid "Please remove the email address and try again."
+msgstr "Пожалуйста удалите e-mail и попробуйте еще раз."
+
+#: group-invites/group-invites.php:141
+msgid "Group invites sent."
+msgstr "Приглашение в групу отправлено."
+
+#: group-invites/group-invites.php:143
+msgid "Group created successfully."
+msgstr "Группа успешно создана"
+
+#: group-invites/group-invites.php:176
+#: group-invites/group-invites.php:270
+msgid "Search for members to invite:"
+msgstr "Поиск пользователей для приглашения:"
+
+#: group-invites/group-invites.php:184
+#: group-invites/group-invites.php:278
+msgid "Select members from the directory:"
+msgstr "Выберите пользователей из директории:"
+
+#: group-invites/group-invites.php:199
+msgid "Select people to invite."
+msgstr "Выберите пользователей для приглашения."
+
+#: group-invites/group-invites.php:219
+#: group-invites/group-invites.php:315
+#: group-invites/group-invites.php:466
+msgid "Remove Invite"
+msgstr "Удалить приглашение"
+
+#: group-invites/group-invites.php:260
+msgid "Want to invite someone to the group who is not yet a member of the site?"
+msgstr "Хотите пригласить в группу того кто не является участником сайта?"
+
+#: group-invites/group-invites.php:260
+msgid "Send invitations by email."
+msgstr "Отправить приглашения по e-mail"
+
+#: group-invites/group-invites.php:295
+msgid "Select people to invite from your friends list."
+msgstr "Выберите людей для приглашения из списка друзей."
+
+#: widgets/widgets.php:44
+#: widgets/widgets.php:101
+msgid "Invite friends to join the site by entering their email addresses below."
+msgstr "Пригласите друзей присоединиться к сайту, указав их адреса электронной почты ниже."
+
+#: widgets/widgets.php:77
+msgid "Continue"
+msgstr "Продолжить"
+
+#: widgets/widgets.php:104
+msgid "Title:"
+msgstr "Заголовок:"
+
+#: widgets/widgets.php:106
+msgid "Text to display in widget:"
+msgstr "Тест для отображения в виджете:"
+
+#: widgets/widgets.php:110
+msgid "Number of email fields to display in widget:"
+msgstr "Количество e-mail для отображения в виджете:"
+
+#. Plugin URI of the plugin/theme
+msgid "http://teleogistic.net/code/buddypress/invite-anyone/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Allows group admins to invite any BuddyPress member to a group, whether or not they are friends"
+msgstr "Позволяет администраторам группы пригласить любого члена BuddyPress к группе, независимо от того являются они другом  или нет"
+
+#. Author of the plugin/theme
+msgid "Boone Gorges"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://teleogistic.net"
+msgstr ""
+

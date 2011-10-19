@@ -1,0 +1,329 @@
+/********************************************************
+ * BEGIN >> General styling
+*/
+p.wsd-error-summary {
+	background-color: #F9EFAC;
+	border: 1px dotted #f00;
+	color: #DC143C;
+	padding: 5px 10px;
+	margin: 10px;
+	font-weight: bold;
+	cursor: default;
+}
+
+span.wsd-error-summary-detail {
+	color: #000;
+	font-weight: normal;
+	font-size: 11px;
+	cursor: default;
+}
+
+
+p.wsd-success-summary {
+	background-color: #90EE90;
+	border: 1px dotted #f00;
+	color: #000;
+	padding: 5px 10px;
+	margin: 10px;
+	font-weight: bold;
+	cursor: default;
+}
+
+span.wsd-success-summary-detail {
+	color: #000;
+	font-weight: normal;
+	font-size: 11px;
+	cursor: default;
+}
+
+
+p.wsd-login-notice {
+	font-weight: bold;
+	color: #000;
+	margin-top: -10px;
+	margin-bottom: 20px;
+}
+
+.wsd-inside {
+	padding: 10px;
+    font-family: Verdana, Arial, sans-serif !important;
+    font-size: 100% !important;
+}
+
+p.wsd-error-summary a, .wsd-inside a {
+	color: #CC0000;
+	text-decoration: none;
+}
+
+p.wsd-error-summary a:hover, .wsd-inside a:hover {
+	color: #CC0000;
+	text-decoration: underline;
+}
+
+/********************************************************
+ * BEGIN >> Login form styling
+*/
+#wsd_login_form {
+	margin: 0px;
+}
+
+#wsd_login_form .wsd-login-section {
+	display: block;
+	float: left;
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+#wsd_login_form .wsd-login-section label {
+	display: block;
+	float: left;
+	width: 70px;
+	padding-top: 6px;
+}
+
+#wsd_login_form .wsd-login-section input {
+	display: block;
+	width: 200px;
+	float: left;
+}
+
+#wsd_login_form #wsd-login {
+	clear: left;
+	margin-left: 70px;
+}
+
+
+
+/********************************************************
+ * BEGIN >> Registration form styling
+*/
+#wsd_new_user_form {
+	margin: 0px;
+}
+
+#wsd_new_user_form .wsd-new-user-section {
+	display: block;
+	float: left;
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+#wsd_new_user_form .wsd-new-user-section label {
+	display: block;
+	float: left;
+	width: 120px;
+	padding-top: 6px;
+}
+
+#wsd_new_user_form .wsd-new-user-section input {
+	display: block;
+	width: 200px;
+	float: left;
+}
+
+#wsd_new_user_form #wsd-login {
+	clear: left;
+	margin-left: 70px;
+}
+
+
+
+/********************************************************
+ * BEGIN >> Initial scan widget styling
+*/
+#wsd-information-scan-list {
+	list-style-type: disc;
+	margin: 10px;
+	padding-left: 20px;
+}
+
+
+
+#wsd-initial-scan { }
+
+#wsd-initial-scan .wsd-initial-scan-section {
+	line-height: 1.4em;
+	display: block;
+    color: #090;
+}
+
+
+/********************************************************
+ * BEGIN >> Target update form styling
+*/
+#wsd_target_id_form {
+	width: 100%;
+}
+
+#wsd_target_id_form #targetid {
+	width: 300px;
+}
+
+
+
+/********************************************************
+ * BEGIN >> Status content styling
+*/
+div#wsd-target-status-holder {
+	overflow: hidden;
+}
+
+p.wsd-target-status-title {
+	font-weight: bold;
+}
+
+div.wsd-target-status-section {
+	display: block;
+	float: left;
+	margin-right: 5px;
+}
+
+span.wsd-target-status-section-label {
+	display: block;
+	padding: 5px 4px;
+	float: left;
+	color: #999999
+}
+
+span.wsd-target-status-section-enabled {
+	display: block;
+	padding: 5px 0px;
+	background-color: #0f0;
+	color: #000;
+	float: left;
+	width: 50px;
+	height: 24px;
+	        border-radius: 3px;
+	   -moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	text-align: center;
+	font-weight: bold;
+
+	background: url('../images/agent-green.png') no-repeat scroll left top transparent;
+}
+
+span.wsd-target-status-section-disabled {
+	display: block;
+	padding: 5px 0px;
+	background-color: #f00;
+	color: #fff;
+	float: left;
+	width: 50px;
+	height: 24px;
+	        border-radius: 3px;
+	   -moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	text-align: center;
+	font-weight: bold;
+
+	background: url('../images/agent-red.png') no-repeat scroll left top transparent;
+}
+
+
+
+
+/********************************************************
+ * BEGIN >> Password meter styling
+*/
+#wsd_new_user_form label.password-meter {
+	display: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	font-weight: bolder;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 12px;
+	color: #000;
+	width: 80px;
+	margin-left: 20px;
+	padding: 4px;
+	cursor: default;
+}
+
+
+/*
+* 3.0.2
+*/
+.scanpass { color: #090; }
+
+.mrt_wpss_note {
+	text-align: center;
+	color: grey;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.wpss_icon {
+	background: url(../images/wsd-logo.png) no-repeat left center;
+	margin-top: 10px !important;
+    padding: 5px 0 3px 50px !important;
+}
+
+.wsd_user_notify {
+    border: solid 1px #fc0; background: #ffc;
+    padding: 5px 5px;
+    font-size: 100%;
+}
+.wsd_user_information {
+    border: solid 1px #324FB2; background: #E5EAF0;
+    padding: 5px 5px;
+    font-size: 100%;
+}
+.wsd_user_success {
+    border: solid 1px #030; background: #090;
+    padding: 5px 5px;
+    font-size: 100%;
+    color: #fff;
+}
+.wsd_info_list {
+    list-style-type: disc;
+    list-style-position: outside;
+    margin: 0 0 10px 25px; 
+}
+div.wsd_user_information, div.wsd_user_notify, div.wsd_user_success { margin: 1em 0 !important; }
+
+#Words { overflow: hidden; min-height: 1px; margin: 0 0 0 0 !important; padding: 0 0 0 0 !important; }
+#Words p { float: left; display: block; width: 150px; line-height: normal !important; padding: 0 0 0 0; margin: 6px 0 0 0 !important; }
+#Words p.indicator { height: 4px; }
+#Words p.indicator-1 { background: #f00;}
+#Words p.indicator-2 { background: #990000; }
+#Words p.indicator-3 { background: #990099; }
+#Words p.indicator-4 { background: #000099; }
+#Words p.indicator-5 { background: #0000ff; }
+#Words p.indicator-6 { background: #ffffff; }
+#Words p+p {margin: 0 0 0 5px !important; padding: 0 0 0 0 !important; line-height: normal !important;}
+#wsd_pwdtool { margin-top: 10px; }
+
+.wsd_commonList {
+    list-style-type: none;
+    margin: 0 0 10px 0;
+    padding-left: 0;
+}
+.wsd_commonList li {
+    font-style: italic !important;
+    background: url('../images/wsd-logo-small-list.png') no-repeat 0 50%;
+    padding: 2px 0 2px 20px !important;
+}
+
+.wsd-inside p, .wsd-inside ul, .wsd-inside ol, .wsd-inside blockquote, .wsd-inside input, .wsd-inside select {
+    font-size: 100%;
+}
+
+.wsd-inside, .wsd-inside p, .wsd-inside li, .wsd-inside dl, .wsd-inside dd, .wsd-inside dt {
+    line-height: normal !important;
+}
+
+#wsd_db_wrapper .inner-sidebar1 { margin: 10px 10px 0  10px; }
+#wsd_db_wrapper, #wsd_db_wrapper .metabox-holder {overflow:hidden; min-height:1px; }
+#wsd_permissions_table { margin: 15px 0; }
+#wsd_permissions_table th,
+#wsd_permissions_table td { text-align: left; }
+#wsd_permissions_table td { padding: 1px 7px;}
+#wsd_tables_list_block { clear: both;}
+
+.wsd_cursor_help { cursor: help; border-bottom: dotted 1px #000; }
+
+
+
+
+

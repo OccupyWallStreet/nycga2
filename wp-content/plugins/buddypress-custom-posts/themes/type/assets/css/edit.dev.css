@@ -1,0 +1,441 @@
+iframe#tinymce {
+	font:13px/19px Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+	margin:0;
+	padding:0.6em;
+	background-color: #fff;
+}
+
+#post-body {
+	position: relative;
+	background-color: #fff;
+}
+
+#post-body-content {
+	padding-right: 30%;
+}
+
+#post-content {
+	color: #000;
+	padding: 0;
+	-moz-border-radius: 0;
+}
+	#editorcontainer {
+		-moz-border-radius-topright: 5px;
+		-moz-border-radius-bottomleft: 5px;
+		border: solid 1px #dfdfdf;
+		width: 95%;
+	}
+
+#bpcp-sidebar {
+	width: 28%;
+	padding: 0 2%;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#postdiv {
+	margin-top: 20px;
+}
+
+/* The editing form. */
+#post_title {
+	-moz-border-radius: 5px;
+	font-size: 24px;
+}
+
+.edit-form input[type="text"], .edit-form textarea {
+	border: solid #eee 1px;
+	font-size: 14px;
+	width: 95%;
+}
+
+#edButtonHTML, #edButtonPreview {
+	background-color: #eee;
+	padding: 5px 10px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	font-size: 14px;
+	cursor: default;
+}
+
+#edButtonHTML.active , #edButtonPreview.active {
+	color: #000;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+#ed_toolbar {
+	border: solid #eee 1px;
+	background-color: #eee;
+	-moz-border-radius-topright: 5px;
+	width: 95%;
+}
+	#ed_toolbar input {
+		padding: 5px;
+		margin: 1px;
+	}
+
+.theEditor {
+	padding: 0;
+	width: 100%;
+}
+
+.mceIframeContainer {
+	border-left: solid 1px #eee;
+	border-right: solid 1px #eee;
+}
+
+.edit-form label {
+	display: block;
+	font-weight: bold;
+	margin: 15px 0 5px;
+}
+
+.mceFirst, .mceLast {
+	border: solid #eee 1px;
+	background-color: #efefef;
+}
+
+#bpcp_thumbnail {
+	overflow: hidden;
+}
+
+/* the_editor generates a 0 sized button -- I can't determine it's purpose. Instead of resizing, simply not displaying. */
+.zerosize { display: none; }
+
+#publish {
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+}
+
+#media-buttons {
+	float: right;
+	margin-right: 5%;
+}
+	#media-buttons .thickbox {
+		cursor: default;
+		padding: 5px;
+	}
+
+/**
+ * Metabox beautification
+ */
+
+.postbox {
+	margin: 15px 0;
+}
+	.postbox .handlediv {
+		display: none;
+	}
+	.hndle {
+		color: #ffa200;
+		background-color: #fff9db;
+		-moz-border-radius-topright: 5px;
+		-moz-border-radius-topleft: 5px;
+		border-right: solid 1px #ffe8c4;
+		border-bottom: solid 1px #ffe8c4;
+		font-size: 16px;
+		padding: 5px;
+		margin: 0;
+	}
+	.postbox .inside {
+		background-color: #fafafa;
+		-moz-border-radius-bottomright: 5px;
+		-moz-border-radius-bottomleft: 5px;
+		border-right: solid #dfdfdf 1px;
+		border-bottom: solid #dfdfdf 1px;
+		padding: 5px;
+	}
+
+
+/* Distraction Free Writing mode
+ * =Overlay Styles
+-------------------------------------------------------------- */
+.fullscreen-overlay {
+	z-index: 149999;
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	filter: inherit;
+}
+
+.fullscreen-active .fullscreen-overlay,
+.fullscreen-active #wp-fullscreen-body {
+	display: block;
+}
+
+.fullscreen-fader {
+	z-index: 200000;
+}
+
+.fullscreen-active .fullscreen-fader {
+	display: none;
+}
+
+/* =Overlay Body
+-------------------------------------------------------------- */
+#wp-fullscreen-body {
+	width: 100%;
+	z-index: 150005;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#wp-fullscreen-wrap {
+	margin: 0 auto 50px;
+	position: relative;
+	padding-top: 60px;
+}
+
+#wp-fullscreen-title {
+    font-size: 1.7em;
+    line-height: 100%;
+    outline: medium none;
+    padding: 6px 7px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+#wp-fullscreen-container {
+	padding: 4px 10px 50px;
+}
+
+#wp-fullscreen-title,
+#wp-fullscreen-container {
+	-moz-border-radius: 0;
+	-khtml-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	border: 1px dashed transparent;
+	background: transparent;
+	-moz-transition-property: border-color;
+	-moz-transition-duration: 0.6s;
+	-webkit-transition-property: border-color;
+	-webkit-transition-duration: 0.6s;
+	-o-transition-property: border-color;
+	-o-transition-duration: 0.6s;
+	transition-property: border-color;
+	transition-duration: 0.6s;
+}
+
+
+#wp_mce_fullscreen {
+	width: 100%;
+	min-height: 300px;
+	border: 0;
+	background: transparent;
+	font-family: Consolas, Monaco, monospace;
+	line-height: 1.6em;
+	padding: 0;
+	overflow-y: hidden;
+	outline: none;
+	resize: none;
+}
+
+#wp-fullscreen-tagline {
+	color: #BBBBBB;
+	font-size: 18px;
+	float: right;
+	padding-top: 5px;
+}
+
+/* =Top bar
+-------------------------------------------------------------- */
+#fullscreen-topbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 150050;
+	border-bottom-style: solid;
+    border-bottom-width: 1px;
+	min-width: 800px;
+	width: 100%;
+	height: 40px;
+}
+
+#wp-fullscreen-toolbar {
+	padding: 6px 10px 0;
+	clear: both;
+	max-width: 1100px;
+	min-width: 820px;
+	margin: 0 auto;
+}
+
+#wp-fullscreen-mode-bar,
+#wp-fullscreen-button-bar,
+#wp-fullscreen-close,
+#wp-fullscreen-count {
+	float: left;
+}
+
+#wp-fullscreen-save {
+	float: right;
+}
+
+#wp-fullscreen-save {
+	padding: 2px 2px 0 5px;
+}
+
+#wp-fullscreen-count,
+#wp-fullscreen-close {
+	padding-top: 5px;
+}
+
+#wp-fullscreen-central-toolbar {
+	margin: auto;
+	padding: 0;
+}
+
+#wp-fullscreen-buttons > div {
+	float: left;
+}
+
+#wp-fullscreen-mode-bar {
+	padding: 1px 14px 0 0;
+}
+
+#wp-fullscreen-modes a {
+	display: block;
+	font-size: 11px;
+	text-decoration: none;
+	float: left;
+	margin: 1px 0 0 0;
+	padding: 2px 6px 2px;
+	border-width: 1px 1px 1px 0;
+	border-style: solid;
+	border-color: #bbb;
+	color: #777;
+	text-shadow: 0 1px 0 #fff;
+	background-color: #f4f4f4;
+	background-image: -moz-linear-gradient(bottom,  #e4e4e4,  #f9f9f9);
+	background-image: -webkit-gradient(linear, left bottom, left top, from(#e4e4e4), to(#f9f9f9));
+}
+
+#wp-fullscreen-modes a:hover,
+.wp-html-mode #wp-fullscreen-modes a:last-child,
+.wp-tmce-mode #wp-fullscreen-modes a:first-child {
+	color: #333;
+	border-color: #999;
+	background-color: #eee;
+	background-image: -moz-linear-gradient(bottom,  #f9f9f9,  #e0e0e0);
+	background-image: -webkit-gradient(linear, left bottom, left top, from(#f9f9f9), to(#e0e0e0));
+}
+
+#wp-fullscreen-modes a:first-child {
+	border-width: 1px;
+	-moz-border-radius: 3px 0 0 3px;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-khtml-border-top-left-radius: 3px;
+	-khtml-border-bottom-left-radius: 3px;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+#wp-fullscreen-modes a:last-child {
+	-moz-border-radius: 0 3px 3px 0;
+	-webkit-border-top-right-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-khtml-border-top-right-radius: 3px;
+	-khtml-border-bottom-right-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+#wp-fullscreen-buttons .active a {
+	background: inherit;
+}
+
+#wp-fullscreen-buttons .hidden {
+	display: none;
+}
+
+#wp-fullscreen-buttons .disabled {
+	opacity: 0.5;
+}
+
+.wp-html-mode #wp-fullscreen-buttons div {
+	display: none;
+}
+
+.wp-html-mode #wp-fullscreen-buttons div.wp-fullscreen-both {
+	display: block;
+}
+
+#fullscreen-topbar.fullscreen-make-sticky {
+	display: block !important;
+}
+
+#wp-fullscreen-save img {
+	vertical-align: middle;
+}
+
+#wp-fullscreen-save img,
+#wp-fullscreen-save span {
+	padding-right: 4px;
+	display: none;
+}
+
+#wp-fullscreen-buttons .mce_image .mce_image {
+	background-image: url("../images/menu.png?ver=20100531");
+	background-position: -124px -38px;
+}
+
+#wp-fullscreen-buttons .mce_image .mce_image:hover {
+	background-position: -124px -6px;
+}
+
+/* =Thickbox Adjustments
+-------------------------------------------------------------- */
+.fullscreen-active #TB_overlay {
+	z-index: 150100;
+}
+
+.fullscreen-active #TB_window {
+	z-index: 150102;
+}
+
+/* =TinyMCE Adjustments
+-------------------------------------------------------------- */
+#wp_mce_fullscreen_ifr {
+	background: transparent;
+}
+
+#wp_mce_fullscreen_parent #wp_mce_fullscreen_tbl tr.mceFirst {
+	display : none;
+}
+
+#wp-fullscreen-container .wp_themeSkin table td {
+	vertical-align: top;
+}
+
+#fullscreen-topbar {
+	background-color: #f1f1f1; /* Fallback */
+	background-image: -ms-linear-gradient(top, #f9f9f9, #ececec); /* IE10 */
+	background-image: -moz-linear-gradient(top, #f9f9f9, #ececec); /* Firefox */
+	background-image: -o-linear-gradient(top, #f9f9f9, #ececec); /* Opera */
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#ececec)); /* old Webkit */
+	background-image: -webkit-linear-gradient(top, #f9f9f9, #ececec); /* new Webkit */
+	background-image: linear-gradient(top, #f9f9f9, #ececec); /* proposed W3C Markup */
+}
+
+/* full screen */
+.fullscreen-overlay {
+	background: #fff;
+}
+
+.wp-fullscreen-focus #wp-fullscreen-title,
+.wp-fullscreen-focus #wp-fullscreen-container {
+	border-color: #ccc;
+}
+
+#fullscreen-topbar {
+	border-bottom-color: #DFDFDF;
+}
