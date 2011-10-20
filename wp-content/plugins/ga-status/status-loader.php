@@ -41,18 +41,6 @@ class STATUS extends BP_Group_Extension {
 		
 		add_action('groups_custom_group_fields_editable', array($this, 'edit_group_fields'));
 		add_action('groups_group_details_edited', array($this, 'edit_group_fields_save'));
-                if ( bp_has_groups() ){
-                    while ( bp_groups() ) : bp_the_group();
-                    	$fields = $this->get_all_fields(bp_get_group_id());
-                        if ( empty($fields) ){
-                            $this->add_default_field('What\'s the ' . bp_get_group_name() . ' group up to?','','textarea',0,1, 'current_status', bp_get_group_id());
-                            $this->add_default_field('What challenges is ' . bp_get_group_name() . ' facing?','','textarea',0,1,  'challenges', bp_get_group_id());
-                            $this->add_default_field('What does ' . bp_get_group_name() . ' need?','','textarea',0,1, 'requests', bp_get_group_id());
-                            $this->add_default_field('What does ' . bp_get_group_name() . ' have to offer?','','textarea',0,1, 'offers', bp_get_group_id());
-                            $this->add_default_field('Other Announcements','','textarea',0,1, 'announcements', bp_get_group_id());
-                        }
-                    endwhile;
-                }
 	}
 	
 	// Public page with already saved content
@@ -77,7 +65,7 @@ class STATUS extends BP_Group_Extension {
 					$emptytab=false;
                                 }
 				echo '<h4 title="' . ( ! empty($field->desc)  ? esc_attr($field->desc) : '')  .'">' . $field->title .'</h4>';
-                                $data = $this->auto_link($data);
+                            $data = $this->auto_link($data);
 				echo '<p>' . apply_filters('groups_ga_custom_tab',$data) . '</p>';
 			}
                         if($emptytab==true){
@@ -516,7 +504,7 @@ class STATUS extends BP_Group_Extension {
 		if (!$fields){
 		$fields = array();
 		}
-                
+
 		$new = new Stdclass;
 		$new->title = htmlspecialchars(strip_tags($title));
                 $new->slug = $slug; // will be used as unique identifier 
