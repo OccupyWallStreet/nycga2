@@ -40,15 +40,15 @@ form#search-form {
 /* buttons */
 
 .like,
-.view-likes {
-background: #e0ebf6; /* Old browsers */
-background: -moz-linear-gradient(top, #e0ebf6 0%, #c6daee 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e0ebf6), color-stop(100%,#c6daee)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #e0ebf6 0%,#c6daee 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #e0ebf6 0%,#c6daee 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #e0ebf6 0%,#c6daee 100%); /* IE10+ */
-background: linear-gradient(top, #e0ebf6 0%,#c6daee 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0ebf6', endColorstr='#c6daee',GradientType=0 ); /* IE6-9 */
+.view-likes,
+.unlike {
+background: white;
+background: -moz-linear-gradient(top, white 0%, #EDEDED 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white), color-stop(100%,#EDEDED));
+background: -webkit-linear-gradient(top, white 0%,#EDEDED 100%);
+background: -o-linear-gradient(top, white 0%,#EDEDED 100%);
+background: -ms-linear-gradient(top, white 0%,#EDEDED 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
 border: 1px solid #ccc;
 -moz-border-radius: 3px;
 -webkit-border-radius: 3px;
@@ -82,18 +82,10 @@ text-decoration: none;
 
 .button.delete-activity,
 .button.delete-activity-single {
-background: #f9b9a9; /* Old browsers */
-background: -moz-linear-gradient(top, #f9b9a9 0%, #f6a38e 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9b9a9), color-stop(100%,#f6a38e)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #f9b9a9 0%,#f6a38e 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #f9b9a9 0%,#f6a38e 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #f9b9a9 0%,#f6a38e 100%); /* IE10+ */
-background: linear-gradient(top, #f9b9a9 0%,#f6a38e 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9b9a9', endColorstr='#f6a38e',GradientType=0 ); /* IE6-9 */
-border-color: #CC9991;
 }
 .button.delete-activity:hover,
-.button.delete-activity-single:hover {
+.button.delete-activity-single:hover,
+.unlike:hover {
 background: #f58f75; /* Old browsers */
 background: -moz-linear-gradient(top, #f58f75 0%, #f37b5d 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f58f75), color-stop(100%,#f37b5d)); /* Chrome,Safari4+ */
@@ -102,6 +94,7 @@ background: -o-linear-gradient(top, #f58f75 0%,#f37b5d 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top, #f58f75 0%,#f37b5d 100%); /* IE10+ */
 background: linear-gradient(top, #f58f75 0%,#f37b5d 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f58f75', endColorstr='#f37b5d',GradientType=0 ); /* IE6-9 */
+color:#422;
 }
 
 /************* header **************************************/
@@ -205,7 +198,7 @@ p.comments-closed.pings-open {
 }
 
 /**************** home page blurb ***************/
-.home-page #blurb {
+#blurb {
   display: block !important;
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
@@ -216,7 +209,6 @@ p.comments-closed.pings-open {
   background-color: white;
   margin: -10px 0px 8px 0px;
   padding: 4px 8px;
-  font-size: 14px;
   line-height: 1.2em;
   font-weight: bold;
   border-bottom-left-radius: 6px 6px;  
@@ -238,6 +230,10 @@ p.comments-closed.pings-open {
 	background: black;
 	border-radius: 6px 6px 0px 0px;
 	color: white;
+}
+
+#nav .sfhover ul li, #nav :hover ul li {
+width: 175px;
 }
 
 #nav a {
@@ -410,7 +406,7 @@ div.entry h3{
 }
 
 div.really_simple_share_facebook {
-	width:65px;
+	width:95px;
 }
 dic.really_simple_share_facebook_like {
 
@@ -532,7 +528,7 @@ a.add-new-h2
 /******************* sidebar *************/
 
 #text-3 h3 {
-	background-color: #EB0 !important;
+	background-color: #FC0 !important;
 	color: #420 !important;
 }
 
