@@ -38,18 +38,7 @@ class CONTACT extends BP_Group_Extension {
 		$this->nav_item_name = contact_names('name');
 		
 		add_action('groups_custom_group_fields_editable', array($this, 'edit_group_fields'));
-		add_action('groups_group_details_edited', array($this, 'edit_group_fields_save'));
-                if ( bp_has_groups() ){
-                    while ( bp_groups() ) : bp_the_group();
-                    	$fields = $this->get_all_fields(bp_get_group_id());
-                        if ( empty($fields) ){
-                            $this->add_default_field('Phone','','text',0,1, bp_get_group_id());
-                            $this->add_default_field('E-mail','','text',0,1, bp_get_group_id());
-                            $this->add_default_field('Twitter','','text',0,1, bp_get_group_id());
-                            $this->add_default_field('Mailing List','','text',0,1, bp_get_group_id());
-                        }
-                    endwhile;
-                }                
+		add_action('groups_group_details_edited', array($this, 'edit_group_fields_save'));                
                 
 	}
 	

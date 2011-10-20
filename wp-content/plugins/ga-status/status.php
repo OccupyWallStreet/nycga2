@@ -3,7 +3,7 @@
 Plugin Name: GA Status Tab 
 Plugin URI: http://ovirium.com/
 Description: Adding extra group fields and some other missing functionality to groups
-Version: 1.0
+Version: 1.1
 Author: slaFFik
 Author URI: http://cosydale.com/
 */
