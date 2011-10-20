@@ -716,3 +716,4 @@ function nycga_remove_dashboard_access()
 		wp_die( __('You do not have sufficient permissions to access this page.') );
 	}
 }
+//jessica
