@@ -111,7 +111,7 @@
 							foreach ( $categories as $EM_Category ){
 								if ($EM_Category->id != '2')
 								{
-									$selected = (current($_POST['event_categories']) == $EM_Category->id || $EM_Event->get_categories()->has($EM_Category->id)) ? "selected='selected'": ''; 
+									$selected = (is_array($_POST['event_categories']) && current($_POST['event_categories']) == $EM_Category->id || $EM_Event->get_categories()->has($EM_Category->id)) ? "selected='selected'": ''; 
 									?>
 									<option value="<?php echo $EM_Category->id ?>" <?php echo $selected ?>>
 									<?php echo $EM_Category->name ?></span>
