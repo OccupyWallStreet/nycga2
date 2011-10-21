@@ -1,38 +1,38 @@
 <?php
 	global $EM_Event, $current_user, $localised_date_formats, $EM_Notices, $bp;
-	if( empty($EM_Event->group_id) ) {
-		// check that group_id was passed and that the group exists
-		if ( ! ( is_numeric($_REQUEST['group_id']) 
-			&& $group = groups_get_group( array( 'group_id' => $_REQUEST['group_id'] ) )
-		) )
+	if( empty($EM_Event->id) ) { 
+	// creating a new event
+		if ( ! ( is_numeric($_REQUEST['group_id']) && $group = groups_get_group( array( 'group_id' => $_REQUEST['group_id'] ) ) ) )
 		{
+			// invalid group id (or no group id) passed
 			?>
 			<div class="wrap"><h2><?php _e('Unauthorized Access','dbem'); ?></h2><p><?php echo sprintf(__('You do not have the rights to manage this %s.','dbem'),__('Event','dbem')); ?></p></div>
 			<?php
 			return false;
 		}
 		
-		// check if current user is admin or mod of the passed group
-		if ( ! ( groups_is_user_admin(get_current_user_id(), $group->id ) || groups_is_user_mod(get_current_user_id(), $group->id ) ) )
+		if ( ! ( current_user_can('admin') || (groups_is_user_admin(get_current_user_id(), $group->id ) || groups_is_user_mod(get_current_user_id(), $group->id )) ) )
 		{
+			// user is not a site admin, or admin or mod of the passed group
 			?>
 			<div class="wrap"><h2><?php _e('Unauthorized Access','dbem'); ?></h2><p><?php echo sprintf(__('You do not have the rights to manage this %s.','dbem'),__('Event','dbem')); ?></p></div>
 			<?php
 			return false;
 		}
 	} else {
-		// if event already has a group
-		$group = groups_get_group( array( 'group_id' => $EM_Event->group_id ) );
+		if( ! $EM_Event->can_manage('edit_events','edit_others_events') ){
+		// user does not have permission to edit this event
+			?>
+			<div class="wrap"><h2><?php _e('Unauthorized Access','dbem'); ?></h2><p><?php echo sprintf(__('You do not have the rights to manage this %s.','dbem'),__('Event','dbem')); ?></p></div>
+			<?php
+			return false;
+		}
+		// set up the group
+		$group = $EM_Event->group_id ? groups_get_group( array( 'group_id' => $EM_Event->group_id ) ) : 0;
 	}
 ?>	
 <?php
 	//check that user can access this page
-	if( is_object($EM_Event) && !$EM_Event->can_manage('edit_events','edit_others_events') ){
-		?>
-		<div class="wrap"><h2><?php _e('Unauthorized Access','dbem'); ?></h2><p><?php echo sprintf(__('You do not have the rights to manage this %s.','dbem'),__('Event','dbem')); ?></p></div>
-		<?php
-		return false;
-	}
 	
 	if( is_object($EM_Event) && $EM_Event->id > 0 ){
 		if($EM_Event->is_recurring()){
