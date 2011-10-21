@@ -87,7 +87,7 @@
 			<legend>Basic Info</legend>
 
 			<?php do_action('em_front_event_form_header'); ?>
-			<?php if (empty($EM_Event->event_owner)) : ?>
+			<?php if (empty($EM_Event->owner)) : ?>
 				<input type="hidden" name="event_owner" value="<?php echo get_current_user_id() ?>" />
 			<?php endif; ?>
 			<div class="inside event-form-name">
@@ -95,7 +95,9 @@
 				<input type="text" name="event_name" id="event-name" value="<?php echo htmlspecialchars($EM_Event->name,ENT_QUOTES); ?>" />
 <!-- 				<p class="note"><?php _e ( 'The event name. Example: Birthday party', 'dbem' )?></p> -->
 				<?php if( empty($EM_Event->group_id) ): ?>
-				<input type="hidden" name="group_id" value="<?php echo $EM_Event->group_id ? $EM_Event->group_id : $_REQUEST['group_id'] ?>" />
+					<input type="hidden" name="group_id" value="<?php echo $_REQUEST['group_id'] ?>" />
+				<?php else : ?>
+					<input type="hidden" name="group_id" value="<?php echo $EM_Event->group_id ?>" />
 				<?php endif; ?>
 			</div>
 			<label for="group">Group</label><input type="text" style="color: #555; border: 0; padding: 6px;" readonly="readonly" value="<?php echo $group->name; ?>"/>
