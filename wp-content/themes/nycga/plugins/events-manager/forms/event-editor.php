@@ -1,38 +1,38 @@
 <?php
 	global $EM_Event, $current_user, $localised_date_formats, $EM_Notices, $bp;
-	if( empty($EM_Event->group_id) ) {
-		// check that group_id was passed and that the group exists
-		if ( ! ( is_numeric($_REQUEST['group_id']) 
-			&& $group = groups_get_group( array( 'group_id' => $_REQUEST['group_id'] ) )
-		) )
+	if( empty($EM_Event->id) ) { 
+	// creating a new event
+		if ( ! ( is_numeric($_REQUEST['group_id']) && $group = groups_get_group( array( 'group_id' => $_REQUEST['group_id'] ) ) ) )
 		{
+			// invalid group id (or no group id) passed
 			?>
 			<div class="wrap"><h2><?php _e('Unauthorized Access','dbem'); ?></h2><p><?php echo sprintf(__('You do not have the rights to manage this %s.','dbem'),__('Event','dbem')); ?></p></div>
 			<?php
 			return false;
 		}
 		
-		// check if current user is admin or mod of the passed group
-		if ( ! ( groups_is_user_admin(get_current_user_id(), $group->id ) || groups_is_user_mod(get_current_user_id(), $group->id ) ) )
+		if ( ! ( current_user_can('admin') || (groups_is_user_admin(get_current_user_id(), $group->id ) || groups_is_user_mod(get_current_user_id(), $group->id )) ) )
 		{
+			// user is not a site admin, or admin or mod of the passed group
 			?>
 			<div class="wrap"><h2><?php _e('Unauthorized Access','dbem'); ?></h2><p><?php echo sprintf(__('You do not have the rights to manage this %s.','dbem'),__('Event','dbem')); ?></p></div>
 			<?php
 			return false;
 		}
 	} else {
-		// if event already has a group
-		$group = groups_get_group( array( 'group_id' => $EM_Event->group_id ) );
+		if( ! $EM_Event->can_manage('edit_events','edit_others_events') ){
+		// user does not have permission to edit this event
+			?>
+			<div class="wrap"><h2><?php _e('Unauthorized Access','dbem'); ?></h2><p><?php echo sprintf(__('You do not have the rights to manage this %s.','dbem'),__('Event','dbem')); ?></p></div>
+			<?php
+			return false;
+		}
+		// set up the group
+		$group = $EM_Event->group_id ? groups_get_group( array( 'group_id' => $EM_Event->group_id ) ) : 0;
 	}
 ?>	
 <?php
 	//check that user can access this page
-	if( is_object($EM_Event) && !$EM_Event->can_manage('edit_events','edit_others_events') ){
-		?>
-		<div class="wrap"><h2><?php _e('Unauthorized Access','dbem'); ?></h2><p><?php echo sprintf(__('You do not have the rights to manage this %s.','dbem'),__('Event','dbem')); ?></p></div>
-		<?php
-		return false;
-	}
 	
 	if( is_object($EM_Event) && $EM_Event->id > 0 ){
 		if($EM_Event->is_recurring()){
@@ -87,7 +87,7 @@
 			<legend>Basic Info</legend>
 
 			<?php do_action('em_front_event_form_header'); ?>
-			<?php if (empty($EM_Event->event_owner)) : ?>
+			<?php if (empty($EM_Event->owner)) : ?>
 				<input type="hidden" name="event_owner" value="<?php echo get_current_user_id() ?>" />
 			<?php endif; ?>
 			<div class="inside event-form-name">
@@ -95,7 +95,9 @@
 				<input type="text" name="event_name" id="event-name" value="<?php echo htmlspecialchars($EM_Event->name,ENT_QUOTES); ?>" />
 <!-- 				<p class="note"><?php _e ( 'The event name. Example: Birthday party', 'dbem' )?></p> -->
 				<?php if( empty($EM_Event->group_id) ): ?>
-				<input type="hidden" name="group_id" value="<?php echo $EM_Event->group_id ? $EM_Event->group_id : $_REQUEST['group_id'] ?>" />
+					<input type="hidden" name="group_id" value="<?php echo $_REQUEST['group_id'] ?>" />
+				<?php else : ?>
+					<input type="hidden" name="group_id" value="<?php echo $EM_Event->group_id ?>" />
 				<?php endif; ?>
 			</div>
 			<label for="group">Group</label><input type="text" style="color: #555; border: 0; padding: 6px;" readonly="readonly" value="<?php echo $group->name; ?>"/>
@@ -111,7 +113,7 @@
 							foreach ( $categories as $EM_Category ){
 								if ($EM_Category->id != '2')
 								{
-									$selected = (current($_POST['event_categories']) == $EM_Category->id || $EM_Event->get_categories()->has($EM_Category->id)) ? "selected='selected'": ''; 
+									$selected = (is_array($_POST['event_categories']) && current($_POST['event_categories']) == $EM_Category->id || $EM_Event->get_categories()->has($EM_Category->id)) ? "selected='selected'": ''; 
 									?>
 									<option value="<?php echo $EM_Category->id ?>" <?php echo $selected ?>>
 									<?php echo $EM_Category->name ?></span>
