@@ -452,13 +452,11 @@ if (defined('EM_VERSION'))
 	}
 	
 	add_action('toplevel_page_events-manager', 'nycga_limit_events_list');
-	add_action('events_page_events-manager-event', 'nycga_limit_events_list');
 	
 	add_action('admin_menu', 'nycga_override_em_admin_list', 100);
 	function nycga_override_em_admin_list()
 	{
 		remove_action('toplevel_page_events-manager', 'em_admin_events_page');
-		remove_action('events_page_events-manager-event', 'em_admin_events_page');
 	}
 
 	function nycga_limit_events_list()
