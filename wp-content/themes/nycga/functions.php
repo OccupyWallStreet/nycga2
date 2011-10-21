@@ -297,15 +297,20 @@ if (defined('EM_VERSION'))
 		?><script type="text/javascript" src="<?php echo bloginfo('stylesheet_directory') ?>/events.js"></script><?php
 	}
 
-	// allow moderator events to be attached to a group
+	// allow site admins & group mods to attach eventsto a group, 
+	// allow group to be changed or removed (by admin only, in dashboard only)
 	add_action('em_event_save_pre','nycga_group_event_save',2,1);
 	function nycga_group_event_save($EM_Event){
-		if( is_object($EM_Event) && empty($EM_Event->group_id) && !empty($_REQUEST['group_id']) && is_numeric($_REQUEST['group_id']) ){
+		if( is_object($EM_Event) && !empty($_REQUEST['group_id']) && is_numeric($_REQUEST['group_id']) ){
 			//we have been requested an event creation tied to a group, so does this group exist, and does this person have admin rights to it?
-			if( groups_is_user_admin(get_current_user_id(), $_REQUEST['group_id']) || groups_is_user_mod(get_current_user_id(), $_REQUEST['group_id'])){
+			if( current_user_can('admin') || groups_is_user_admin(get_current_user_id(), $_REQUEST['group_id']) || groups_is_user_mod(get_current_user_id(), $_REQUEST['group_id'])){
 				$EM_Event->group_id = $_REQUEST['group_id'];
 			}				
-		}	
+		}
+		if (is_admin() && current_user_can('admin') && empty($_POST['group_id']))
+		{
+			unset($EM_Event->group_id);
+		}
 		return $EM_Event;
 	}
 
@@ -691,6 +696,43 @@ if (defined('EM_VERSION'))
 			</form>
 		</div>
 		<?php
+	}
+	
+	// add groups dropdown to dashboard event edit form
+	add_action('em_admin_event_form_side_header', 'nycga_admin_group_dropdown');
+	function nycga_admin_group_dropdown()
+	{
+		if (current_user_can('admin'))
+		{
+			global $EM_Event;
+			if ( ! is_object($EM_Event))
+			{
+				$EM_Event = new EM_Event();
+			}
+			?>
+			<style type="text/css">
+				div#group-data
+				{
+					display: none;
+				}
+			</style>
+			<div class="postbox ">
+				<div class="handlediv"><br />
+				</div>
+				<h3 class='hndle'><span><?php _e ( 'Group Ownership', 'dbem' ); ?></span></h3>
+				<div class="inside">
+				<?php if ( bp_has_groups('per_page=0&page=0') ) : ?> 
+				<select name="group_id" class="em-events-search-category">
+					<option value=''><?php _e('No Group','dbem'); ?></option>
+					<?php while ( bp_groups() ) : bp_the_group(); ?>
+		    			 <option value="<?php echo bp_group_id(); ?>" <?php echo (!empty($EM_Event->group_id) && $EM_Event->group_id == bp_get_group_id()) ? 'selected="selected"':''; ?>><?php echo bp_group_name(); ?></option>
+					<?php endwhile; ?>
+				</select>
+				<?php endif; ?>
+				</div>
+			</div> 
+			<?php
+		}
 	}
 
 } // if defined('EM_DIR')
