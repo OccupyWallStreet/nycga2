@@ -31,6 +31,8 @@ if( $events_count > 0 ){ ?>
 					require_once(EM_DIR . '/admin/em-admin.php');
 					$events_nav = em_admin_paginate( $events_count, $args['limit'], $args['page']);
 					echo $events_nav; ?>
+					<a id="events-list-ics" class="ics-download" href="events.ics">Download .ics of all NYCGA events</a>
+					<a id="events-list-rss" class="events-rss" title="RSS Feed" href="/events/rss/">Events RSS</a>
 					<div style="clear: both"></div>
 					</div>
 				<?php endif; ?>
