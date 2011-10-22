@@ -182,6 +182,20 @@ function nycga_my_events_include_general( $conditions, $args ){
 	return $conditions;
 }
 
+add_filter('em_events_build_sql_conditions','nycga_events_fix_future',10,2);
+function nycga_events_fix_future( $conditions, $args )
+{
+	if ($args['scope'] == 'future')
+	{
+		$today = date('Y-m-d', strtotime('today'));
+		$conditions['scope'] = " event_start_date >= CAST('$today' AS DATE)";
+		if( !get_option('dbem_events_current_are_past') ){
+			$conditions['scope'] .= " OR (event_end_date >= CAST('$today' AS DATE) AND event_end_date != '0000-00-00' AND event_end_date IS NOT NULL)";
+		}
+	}
+	return $conditions;
+}
+
 // render strip of edit/delete buttons
 function nycga_em_edit_strip($event, $url, $echo = true)
 {
@@ -563,4 +577,10 @@ function nycga_admin_group_dropdown()
 		</div> 
 		<?php
 	}
+}
+
+add_action('wp_head', 'nycga_set_timezone');
+function nycga_set_timezone()
+{
+	date_default_timezone_set('America/New_York');
 }
