@@ -15,6 +15,7 @@ global $bp;
 
 $url = $bp->events->link . 'my-events/'; //url to this page
 
+$args['scope'] = !empty($_REQUEST['scope'])? $_REQUEST['scope'] : 'future';
 $events_count = EM_Events::get($args, true);
 $args['limit'] = get_option('dbem_events_default_limit') ? get_option('dbem_events_default_limit') : 20;
 $args['page'] = (!empty($_REQUEST['pno']) && is_numeric($_REQUEST['pno']) )? $_REQUEST['pno'] : 1;
@@ -31,6 +32,8 @@ if( $events_count > 0 ){ ?>
 					require_once(EM_DIR . '/admin/em-admin.php');
 					$events_nav = em_admin_paginate( $events_count, $args['limit'], $args['page']);
 					echo $events_nav; ?>
+					<a id="events-list-ics" class="ics-download" href="events.ics">Download .ics of all NYCGA events</a>
+					<a id="events-list-rss" class="events-rss" title="RSS Feed" href="/events/rss/">Events RSS</a>
 					<div style="clear: both"></div>
 					</div>
 				<?php endif; ?>

@@ -388,3 +388,34 @@ table.events-table tr.alternate
 {
 	margin-bottom: 5px;
 }
+
+a.ics-download
+{
+	background-image: url("img/system/icon-ics.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	display: -moz-inline-box;
+	display: inline-block;
+	margin-left: 18px;
+	padding-left: 18px;
+	position: relative;
+	top: 7px;
+}
+
+a.events-rss
+{
+	background-image: url("/wp-content/plugins/buddypress/bp-themes/bp-default/_inc/images/rss.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	display: -moz-inline-box;
+	display: inline-block;
+	margin-left: 18px;
+	padding-left: 18px;
+	position: relative;
+	top: 7px;
+}
+
+div.tablenav
+{
+	position: relative;
+}
