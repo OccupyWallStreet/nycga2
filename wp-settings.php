@@ -19,6 +19,7 @@ define( 'WPINC', 'wp-includes' );
 
 // Include files required for initialization.
 require( ABSPATH . WPINC . '/load.php' );
+
 require( ABSPATH . WPINC . '/default-constants.php' );
 require( ABSPATH . WPINC . '/version.php' );
 
@@ -31,7 +32,6 @@ wp_check_php_mysql_versions();
 // Disable magic quotes at runtime. Magic quotes are added using wpdb later in wp-settings.php.
 set_magic_quotes_runtime( 0 );
 @ini_set( 'magic_quotes_sybase', 0 );
-
 // Set default timezone in PHP 5.
 if ( function_exists( 'date_default_timezone_set' ) )
 	date_default_timezone_set( 'UTC' );
@@ -48,7 +48,6 @@ wp_fix_server_vars();
 // Check if we have received a request due to missing favicon.ico
 wp_favicon_request();
 
-// Check if we're in maintenance mode.
 wp_maintenance();
 
 // Start loading timer.
@@ -61,6 +60,7 @@ wp_debug_mode();
 if ( WP_CACHE )
 	WP_DEBUG ? include( WP_CONTENT_DIR . '/advanced-cache.php' ) : @include( WP_CONTENT_DIR . '/advanced-cache.php' );
 
+// Check if we're in maintenance mode.
 // Define WP_LANG_DIR if not set.
 wp_set_lang_dir();
 
