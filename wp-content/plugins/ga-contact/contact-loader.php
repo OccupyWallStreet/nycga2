@@ -50,14 +50,15 @@ class CONTACT extends BP_Group_Extension {
 		$fields = $this->get_all_fields($bp->groups->current_group->id);
 		if (empty($fields))
 			return false;
-			
+		//Temp fix for bug
+		$listed = array();			
 		echo '<div class="extra-data">';
 			foreach($fields as $field){
 				$data = groups_get_groupmeta($bp->groups->current_group->id, $field->slug);	
 				if ( is_array($data))
 					$data = implode(', ', $data);
 
-				if ( $field->display != 1 || empty($data)){
+				if ( $field->display != 1 || empty($data) || in_array($field->slug, $listed) ){
 					continue;
 				}
                                 elseif( $emptytab == true ){
@@ -65,7 +66,8 @@ class CONTACT extends BP_Group_Extension {
                                 }
 				echo '<h4 title="' . ( ! empty($field->desc)  ? esc_attr($field->desc) : '')  .'">' . $field->title .'</h4>';
 				$data = $this->auto_link($data);
-				echo '<p>' . apply_filters('groups_ga_custom_tab',$data) . '</p>';                     
+				echo '<p>' . apply_filters('groups_ga_custom_tab',$data) . '</p>'; 
+				array_push($listed, $field->slug);                    
 			}
                         if($emptytab==true){
                             echo '<p>This group has not added any contact information yet. </p>';
