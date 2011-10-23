@@ -32,7 +32,42 @@ if( $events_count > 0 ){ ?>
 					require_once(EM_DIR . '/admin/em-admin.php');
 					$events_nav = em_admin_paginate( $events_count, $args['limit'], $args['page']);
 					echo $events_nav; ?>
-					<a id="events-list-ics" class="ics-download" href="events.ics">Download .ics of all NYCGA events</a>
+					<script type="text/javascript">
+						jQuery(document).ready(function($){
+							$('#events-list-ics').click(function(){
+								$this = $(this);
+								$icsLink = $('#ics-link');
+								$icsLink.position({
+									    my:        "left top",
+									    at:        "left bottom",
+									    of:        $this, // or $("#otherdiv)
+									    offset:    '0 10'
+									})
+								if ($icsLink.css('visibility') == 'hidden')
+								{
+									$icsLink.css('visibility', 'visible');
+									$('input', $icsLink).select()
+								}
+								else
+								{
+									$icsLink.css('visibility', 'hidden');
+								}
+								return false;
+							})
+							$('#close-ics').click(function()
+							{
+								$('#ics-link').css('visibility', 'hidden');
+								return false;
+							})
+						})
+					</script>
+					<a id="events-list-ics" class="ics-download" href="#">Subscribe</a>
+					<div id="ics-link">
+						<a id="close-ics" href="#">[x]</a>
+						<h4>Subscribe to NYCGA Events</h4>
+						<p>Copy this link to your favorite calendar application:</p>
+						<input type="text" value="<?php bloginfo('siteurl') ?>/events.ics" />
+					</div>
 					<a id="events-list-rss" class="events-rss" title="RSS Feed" href="/events/rss/">Events RSS</a>
 					<div style="clear: both"></div>
 					</div>
