@@ -187,8 +187,8 @@ function nycga_events_fix_future( $conditions, $args )
 {
 	if ($args['scope'] == 'future')
 	{
-		$today = date('Y-m-d', strtotime('today'));
-		$conditions['scope'] = " event_start_date >= CAST('$today' AS DATE)";
+		$now = date('Y-m-d H:i:s', strtotime('now'));
+		$conditions['scope'] = " CONCAT(event_start_date, ' ', event_start_time)  >= CAST('$now' AS DATETIME)";
 		if( !get_option('dbem_events_current_are_past') ){
 			$conditions['scope'] .= " OR (event_end_date >= CAST('$today' AS DATE) AND event_end_date != '0000-00-00' AND event_end_date IS NOT NULL)";
 		}
