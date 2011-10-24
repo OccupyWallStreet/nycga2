@@ -1,0 +1,99 @@
+div#message-wrap {
+	position: fixed;
+	bottom: 50%;
+	left: 50%;
+	margin-left: -25%;
+	width: 50%;
+	z-index: 10;
+	text-align: center;
+}
+
+div#message {
+	margin: 15px 0 0 0;
+}
+div#message p {
+	line-height: 100%;
+}
+
+div#wphttps-main div#post-body {
+	overflow: hidden;	
+}
+
+form#wordpress-https {
+	float: left;
+	margin-top: 15px;
+}
+form#wordpress-https h3 {
+	margin-bottom: .5em;
+}
+form#wordpress-https fieldset {
+	margin-bottom: 20px;
+}
+form#wordpress-https fieldset p {
+	margin: 2px 0 5px 0;
+}
+
+div#wphttps-sidebar {
+	margin: 20px 0 0 -300px;
+	clear: right;
+	float: right;
+	width: 300px;
+}
+div#wphttps-sidebar div.wphttps-widget {
+	margin: 0 auto 20px auto;
+	width: 285px;
+}
+div.wphttps-widget-content {
+	background: #F1F1F1;
+	padding: 5px 20px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	-moz-border-radius-bottomleft: 8px;
+	-moz-border-radius-bottomright: 8px;
+	border: 1px solid #DDD;
+	border-top: 0;
+}
+div.wphttps-widget h3 {
+	font-size: 13px;
+	height: 19px;
+	margin: 0;
+	overflow: hidden;
+	padding: 5px 12px;
+	white-space: nowrap;
+	background: url(images/widget-title.png) repeat-x;
+	border: 1px solid #636363;
+	border-bottom: 0;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	-moz-border-radius-topleft:8px;
+	-moz-border-radius-topright:8px;
+	color: #FFF;
+	text-shadow:0 -1px 0 #3F3F3F;
+}
+
+div.wphttps-widget#wphttps-updates img#updates-loading {
+	display: block;
+	margin: 1em auto;	
+}
+
+div.wphttps-widget#wphttps-donate form {
+	text-align: center;
+}
+
+img.waiting {
+	display: none;
+}
+img#submit-waiting {
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+p.description {
+	color: #666;
+	font-size: 12px;
+	font-style: italic;
+}
+
+input#wordpress-https_sharedssl_host {
+	width: 350px;
+}
