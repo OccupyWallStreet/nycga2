@@ -1,0 +1,286 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-minify\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-24 22:14-0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jurko Chervony <info@skinik.name>\n"
+"Language-Team: UA Wordpress <skinik@wordpress.co.ua>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Ukrainian\n"
+"X-Poedit-Country: UKRAINE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: common.php:77
+#, php-format
+msgid "You are using WordPress version %s."
+msgstr "Ви використовуєте WordPress версії %s."
+
+#: common.php:78
+#, php-format
+msgid "%s recommends that you use WordPress %s or newer."
+msgstr "%s рекомендує використовувати WordPress %s або більш пізньої версії."
+
+#: common.php:81
+#, php-format
+msgid "%sPlease update!%s"
+msgstr "%sБудь ласка, оновіть!%s"
+
+#: common.php:88
+#, php-format
+msgid "%s options has been updated."
+msgstr "Опції %s оновлено"
+
+#: common.php:94
+#, php-format
+msgid "%s options has been upgraded."
+msgstr "Опції %s оновлено."
+
+#: common.php:100
+#, php-format
+msgid "%s options has been reset."
+msgstr "Опції %s скинуто."
+
+#: common.php:106
+#, php-format
+msgid "%s cache has been cleared."
+msgstr "Кеш %s очищено."
+
+#: common.php:112
+#, php-format
+msgid "%s options imported."
+msgstr "Опції %s імпортовано."
+
+#: common.php:118
+#, php-format
+msgid "%s options import failed!"
+msgstr "Імпортування опції %s невдале!"
+
+#: common.php:124
+#, php-format
+msgid "Did not receive any file to be imported. %s options import failed!"
+msgstr "Неможливо отримати доступ до файлу. %s опції імпортувати не вдалося!"
+
+#: common.php:130
+#, php-format
+msgid "Found syntax errors in file being imported. %s options import failed!"
+msgstr "Знайдено синтаксичні помилки у файлі імпорту. %s параметри імпортувати не вдалося!"
+
+#: options-generic.php:3
+msgid "All of options will return to default settings.  Are you sure you want to reset all settings?"
+msgstr "Усі налаштування буде видалено. Ви справді хочете повернутися до стандартних налаштувань?"
+
+#: options-generic.php:18
+#: options-generic.php:71
+msgid "Show Advanced Options"
+msgstr "Показати розширені опції"
+
+#: options-generic.php:35
+#: options-generic.php:66
+msgid "Hide Advanced Options"
+msgstr "Сховати розширені опції"
+
+#: options-generic.php:88
+msgid "Support this plugin!"
+msgstr "Підтримайте цей плаґін!"
+
+#: options-generic.php:89
+msgid "Display \"Page optimized by WP Minify\" link in the footer"
+msgstr "Показувати в підвалі «Page optimized by WP Minify»"
+
+#: options-generic.php:90
+msgid "Do not display \"Page optimized by WP Minify\" link."
+msgstr "Не показувати «Page optimized by WP Minify»"
+
+#: options-generic.php:91
+msgid "I will donate and/or write about this plugin"
+msgstr "Я хочу зробити благодійний внесок чи написати про плаґін"
+
+#: options-generic.php:100
+#: wp-minify.php:370
+msgid "General Configuration"
+msgstr "Загальні опції"
+
+#: options-generic.php:101
+msgid "Enable JavaScript Minification"
+msgstr "Включити мінімізацію JavaScript"
+
+#: options-generic.php:102
+msgid "Enable CSS Minification"
+msgstr "Включити мінімізацію CSS"
+
+#: options-generic.php:103
+msgid "Enable HTML Minification"
+msgstr "Включити мінімізацію HTML"
+
+#: options-generic.php:112
+msgid "Debugging"
+msgstr "Режим відлагодження"
+
+#: options-generic.php:113
+msgid "Don't use \"pretty\" URL\""
+msgstr "Не використовувати «гарні» URL"
+
+#: options-generic.php:114
+msgid "Combine files but do not minify"
+msgstr "Об’єднати файли, але не мінімізувати"
+
+#: options-generic.php:115
+msgid "Show minify errors through FirePHP"
+msgstr "Показувати помилки мінімізації у FirePHP"
+
+#: options-generic.php:124
+msgid "Local Files Minification"
+msgstr "Мінімізація локальних файлів"
+
+#: options-generic.php:125
+msgid "JavaScript files to exclude from minify (line delimited)."
+msgstr "Файли Javascript для виключення (у кожному рядку по файлу)."
+
+#: options-generic.php:126
+msgid "CSS files to exclude from minify (line delimited)."
+msgstr "CSS файли для виключення (у кожному рядку по файлу)."
+
+#: options-generic.php:127
+msgid "URIs on which WP-Minify parsing will be disabled (line delimited)"
+msgstr "Адреси URI, на яких WP-Minify  буде відключено (у кожному рядку по файлу)"
+
+#: options-generic.php:136
+msgid "Non-Local Files Minification"
+msgstr "Мінімізація НЕ локальних файлів"
+
+#: options-generic.php:137
+msgid "Enable minification on external files"
+msgstr "Включити мінімізацію сторонніх файлів"
+
+#: options-generic.php:138
+msgid "Not recommended unless you want to exclude a bunch of external .js/.css files"
+msgstr "Не рекомендується, якщо ви хочете виключити купу зовнішніх .js /.css файлів"
+
+#: options-generic.php:139
+msgid "External JavaScript files to include into minify."
+msgstr "Сторонні файли JavaScript для включення в мінімізацію."
+
+#: options-generic.php:140
+#: options-generic.php:143
+msgid "Only useful if \"Minification on external files\" is unchecked"
+msgstr "Має сенс тільки тоді, коли «Включити мінімізацію сторонніх файлів» НЕ увімкнено"
+
+#: options-generic.php:141
+#: options-generic.php:144
+#: options-generic.php:164
+msgid "more info"
+msgstr "більше інформації"
+
+#: options-generic.php:142
+msgid "External CSS files to include into minify."
+msgstr "Зовнішні CSS-файли, які будуть включені в мінімізацію."
+
+#: options-generic.php:151
+msgid "Caching"
+msgstr "Кешування"
+
+#: options-generic.php:152
+msgid "Cache expires after every"
+msgstr "Видаляти кеш кожні"
+
+#: options-generic.php:153
+msgid "seconds"
+msgstr "секунд"
+
+#: options-generic.php:154
+msgid "Manually Clear Cache"
+msgstr "Очистити кеш вручну"
+
+#: options-generic.php:161
+msgid "Tweaking/Tuning"
+msgstr "Тонка настройка/Тюнінґ"
+
+#: options-generic.php:162
+msgid "Place Minified JavaScript in footer"
+msgstr "Розмістити мінімізовані файли JavaScript у підвалі"
+
+#: options-generic.php:163
+msgid "Not recommended"
+msgstr "Не рекомендовано"
+
+#: options-generic.php:170
+msgid "Force all JavaScript/CSS calls to be HTTPS on HTTPS pages"
+msgstr ""
+
+#: options-generic.php:177
+msgid "Automatically set your Minify base per siteurl setting (recommended)"
+msgstr ""
+
+#: options-generic.php:178
+msgid "Extra arguments to pass to minify engine. This value will get append to calls to URL \"wp-minify/min/?f=file1.js,file2.js,...,fileN.js\"."
+msgstr ""
+
+#: options-generic.php:179
+msgid "e.g. You can specify this value to be b=somepath to specify the base path for all files passed into Minify."
+msgstr ""
+
+#: options-generic.php:190
+msgid "Update Options"
+msgstr "Оновити опції"
+
+#: options-generic.php:191
+msgid "Reset ALL Options"
+msgstr "Скинути ВСІ опції"
+
+#: wp-minify.php:331
+msgid "Cache directory is not writable. Please grant your server write permissions to the directory"
+msgstr "Директорія кешу не має прав на запис. Поставте права на запис."
+
+#: wp-minify.php:339
+msgid "Minify Engine config.php is not writable. Please grant your server write permissions to file"
+msgstr "Файл налаштувань config.php не має прав на запис. Будь ласка, надайте права на запис"
+
+#: wp-minify.php:346
+msgid "Some option settings are missing (possibly from plugin upgrade)."
+msgstr "Деякі параметри налаштування відсутні (можливо, через оновлення плаґіну)."
+
+#: wp-minify.php:350
+msgid "Minify Engine config.php was configured automatically."
+msgstr "Файл config.php налаштовано автоматично."
+
+#: wp-minify.php:369
+msgid "WP Minify Options"
+msgstr "Опції WP Minify"
+
+#: wp-minify.php:371
+msgid "Documentation"
+msgstr "Документація"
+
+#: wp-minify.php:418
+msgid "Error: Could not fetch and cache URL"
+msgstr "Помилка: не вдалося отримати і закешувати URL"
+
+#: wp-minify.php:419
+msgid "You might need to exclude this file in WP Minify options."
+msgstr "Вам може знадобитися виключити цей файл в опціях WP Minify."
+
+#~ msgid "Debug mode"
+#~ msgstr "Режим розробника"
+
+#~ msgid ""
+#~ "WordPress path from web root (e.g. Use \"blog/wordpress\" if your blog is "
+#~ "installed under \"http://example.com/blog/wordpress\".  Leave empty if "
+#~ "your blog is installed in the web root.)"
+#~ msgstr ""
+#~ "Шлях до теки WordPress (наприклад, використайте \"blog/wordpress\", якщо "
+#~ "Ваш сайт розміщено за адресою \"http://example.com/blog/wordpress\".  "
+#~ "Нічого не вказуйте, якщо сайт розміщено у кореневій теці.)"
+
+#~ msgid "Additional Javascript files to minify (line delimited)"
+#~ msgstr ""
+#~ "Додаткові файли Javascript для мінімізації (у кожному рядку по файлу)"
+
+#~ msgid "Additional CSS files to minify (line delimited)"
+#~ msgstr "Додаткові файли CSS для мінімізації (у кожному рядку по файлу)"
+
+#~ msgid "Reactivate"
+#~ msgstr "Повторно активувати"
