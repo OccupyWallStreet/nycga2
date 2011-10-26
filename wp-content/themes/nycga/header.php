@@ -4,7 +4,8 @@
 	<head profile="http://gmpg.org/xfn/11">
 		<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ) ?>; charset=<?php bloginfo( 'charset' ) ?>" />
 		<title><?php wp_title( '|', true, 'right' ); bloginfo( 'name' ); ?></title>
-
+		<meta name="description" content="The official website of the Occupy Wall Street Movement and the New York City General Assembly (NYCGA)." />
+ 	 10	
 		<?php do_action( 'bp_head' ) ?>
 
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ) ?>" />
