@@ -1,0 +1,273 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Minify in italiano\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-05-09 22:34+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Gianni Diurno (aka gidibao) <gidibao[at]gmail[dot]com>\n"
+"Language-Team: Gianni Diurno | gidibao.net\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: common.php:77
+#, php-format
+msgid "You are using WordPress version %s."
+msgstr "Stai utilizzando la versione %s di WordPress."
+
+#: common.php:78
+#, php-format
+msgid "%s recommends that you use WordPress %s or newer."
+msgstr "%s si raccomanda l'utilizzo di WordPress %s o superiore."
+
+#: common.php:81
+#, php-format
+msgid "%sPlease update!%s"
+msgstr "%sAggiorna!%s"
+
+#: common.php:88
+#, php-format
+msgid "%s options has been updated."
+msgstr "%s le opzioni sono state aggiornate."
+
+#: common.php:94
+#, php-format
+msgid "%s options has been upgraded."
+msgstr "%s le opzioni sono state aggiornate alla superiore."
+
+#: common.php:100
+#, php-format
+msgid "%s options has been reset."
+msgstr "%s le opzioni sono state ripristinate."
+
+#: common.php:106
+#, php-format
+msgid "%s cache has been cleared."
+msgstr "%s la cache é stata svuotata."
+
+#: common.php:112
+#, php-format
+msgid "%s options imported."
+msgstr "%s le opzioni sono state importate."
+
+#: common.php:118
+#, php-format
+msgid "%s options import failed!"
+msgstr "%s la importazione delle opzioni é fallita!"
+
+#: common.php:124
+#, php-format
+msgid "Did not receive any file to be imported. %s options import failed!"
+msgstr "Non é stato ricevuto alcun file che possa essere importato. %s l'importazione delle opzioni é fallita!"
+
+#: common.php:130
+#, php-format
+msgid "Found syntax errors in file being imported. %s options import failed!"
+msgstr "E' stato riscontrato un errore di sintassi nel file di importazione. %s l'importazione delle opzioni non é avvenuta!"
+
+#: options-generic.php:3
+msgid "All of options will return to default settings.  Are you sure you want to reset all settings?"
+msgstr "Tutte le opzioni ritorneranno alla impostazioni predefinite.  Sei certo di volere procedere?"
+
+#: options-generic.php:18
+#: options-generic.php:71
+msgid "Show Advanced Options"
+msgstr "Mostra opzioni avanzate"
+
+#: options-generic.php:35
+#: options-generic.php:66
+msgid "Hide Advanced Options"
+msgstr "Nascondi opzioni avanzate"
+
+#: options-generic.php:88
+msgid "Support this plugin!"
+msgstr "Sostieni questo plugin!"
+
+#: options-generic.php:89
+msgid "Display \"Page optimized by WP Minify\" link in the footer"
+msgstr "Mostra nel footer il link \"Ottimizzazione pagina via WP Minify\""
+
+#: options-generic.php:90
+msgid "Do not display \"Page optimized by WP Minify\" link."
+msgstr "Non mostrare il link \"Ottimizzazione pagina via WP Minify\"."
+
+#: options-generic.php:91
+msgid "I will donate and/or write about this plugin"
+msgstr "Ho scritto e/o donato per questo plugin"
+
+#: options-generic.php:100
+#: wp-minify.php:370
+msgid "General Configuration"
+msgstr "Configurazione generale"
+
+#: options-generic.php:101
+msgid "Enable JavaScript Minification"
+msgstr "Attiva minimizzazione per i JavaScript"
+
+#: options-generic.php:102
+msgid "Enable CSS Minification"
+msgstr "Attiva minimizzazione CSS"
+
+#: options-generic.php:103
+msgid "Enable HTML Minification"
+msgstr "Attiva minimizzazione HTML"
+
+#: options-generic.php:111
+msgid "Debugging"
+msgstr "Debugging"
+
+#: options-generic.php:112
+msgid "Combine files but do not minify"
+msgstr "Unire i file senza minimizzarli"
+
+#: options-generic.php:113
+msgid "Show minify errors through FirePHP"
+msgstr "Mostra errori minimizzazione via FirePHP"
+
+#: options-generic.php:122
+msgid "Local Files Minification"
+msgstr "Minimizzazione file locali"
+
+#: options-generic.php:123
+msgid "JavaScript files to exclude from minify (line delimited)."
+msgstr "File JavaScript da escludere dalla minimizzazione (uno per riga)."
+
+#: options-generic.php:124
+msgid "CSS files to exclude from minify (line delimited)."
+msgstr "File CSS da escludere dalla minimizzazione (uno per riga)."
+
+#: options-generic.php:125
+msgid "URIs on which WP-Minify parsing will be disabled (line delimited)"
+msgstr "URI da escludere dal parsing di WP-Minify (uno per riga)"
+
+#: options-generic.php:134
+msgid "Non-Local Files Minification"
+msgstr "Minimizzazione file non locali"
+
+#: options-generic.php:135
+msgid "Enable minification on external files"
+msgstr "Attiva minimizzazione per i file esterni"
+
+#: options-generic.php:136
+msgid "Not recommended unless you want to exclude a bunch of external .js/.css files"
+msgstr "Non consigliabile a patto che tu non voglia escludere un gruppo di file .js/.css esterni"
+
+#: options-generic.php:137
+msgid "External JavaScript files to include into minify."
+msgstr "File JavaScript esterni da includere alla minimizzazione."
+
+#: options-generic.php:138
+#: options-generic.php:141
+msgid "Only useful if \"Minification on external files\" is unchecked"
+msgstr "Utile solo se \"Minimizzazione file esterni\" non attiva"
+
+#: options-generic.php:139
+#: options-generic.php:142
+#: options-generic.php:166
+msgid "more info"
+msgstr "ulteriori informazioni"
+
+#: options-generic.php:140
+msgid "External CSS files to include into minify."
+msgstr "File CSS esterni da includere alla minimizzazione."
+
+#: options-generic.php:150
+msgid "Caching"
+msgstr "Cache"
+
+#: options-generic.php:151
+msgid "Cache expires after every"
+msgstr "La cache scade ogni "
+
+#: options-generic.php:152
+msgid "seconds"
+msgstr " secondi"
+
+#: options-generic.php:153
+msgid "Manually Clear Cache"
+msgstr "Svuota manualmente la cache"
+
+#: options-generic.php:161
+msgid "Tweaking/Tuning"
+msgstr "Tweaking/Tuning"
+
+#: options-generic.php:162
+msgid "Use \"pretty\" URL\""
+msgstr "Usa \"pretty\" URL\""
+
+#: options-generic.php:163
+msgid "i.e. use \"wp-minify/cache/1234abcd.js\" instead of \"wp-minify/min/?f=file1.js,file2.js,...,fileN.js\""
+msgstr "ad esempio usa \"wp-minify/cache/1234abcd.js\" al posto di \"wp-minify/min/?f=file1.js,file2.js,...,fileN.js\""
+
+#: options-generic.php:164
+msgid "Place Minified JavaScript in footer"
+msgstr "Posiziona il Minified JavaScript nel footer"
+
+#: options-generic.php:165
+msgid "Not recommended"
+msgstr "Non consigliato"
+
+#: options-generic.php:172
+msgid "Force all JavaScript/CSS calls to be HTTPS on HTTPS pages"
+msgstr "Imponi a tutte le chiamate JavaScript/CSS di essere HTTPS per le pagine HTTPS"
+
+#: options-generic.php:179
+msgid "Automatically set your Minify base per siteurl setting (recommended)"
+msgstr "Imposta in automatico Minify a url del sito (consigliato)"
+
+#: options-generic.php:180
+msgid "Extra arguments to pass to minify engine. This value will get append to calls to URL \"wp-minify/min/?f=file1.js,file2.js,...,fileN.js\"."
+msgstr "Argomenti extra da veicolare nel motore di minimizzazione. Questo valore verrà aggiunto alle chiamate all'URL \"wp-minify/min/?f=file1.js,file2.js,...,fileN.js\"."
+
+#: options-generic.php:181
+msgid "e.g. You can specify this value to be b=somepath to specify the base path for all files passed into Minify."
+msgstr "ad es: specifica il valore b=somepath per definire il percorso di base per tutti i file veicolati in Minify."
+
+#: options-generic.php:192
+msgid "Update Options"
+msgstr "Aggiorna le opzioni"
+
+#: options-generic.php:193
+msgid "Reset ALL Options"
+msgstr "Ripristina TUTTE le opzioni"
+
+#: wp-minify.php:331
+msgid "Cache directory is not writable. Please grant your server write permissions to the directory"
+msgstr "La cartella Cache non é scrivibile. Apporta le modifiche ai permessi chmod del file"
+
+#: wp-minify.php:339
+msgid "Minify Engine config.php is not writable. Please grant your server write permissions to file"
+msgstr "Il Minify Engine config.php non é scrivibile. Apporta le modifiche ai permessi chmod del file"
+
+#: wp-minify.php:346
+msgid "Some option settings are missing (possibly from plugin upgrade)."
+msgstr "Mancano alcune opzioni di impostazione (causa aggiornamento plugin)."
+
+#: wp-minify.php:350
+msgid "Minify Engine config.php was configured automatically."
+msgstr "Il Minify Engine config.php é stato configurato automaticamente."
+
+#: wp-minify.php:369
+msgid "WP Minify Options"
+msgstr "Opzioni WP Minify"
+
+#: wp-minify.php:371
+msgid "Documentation"
+msgstr "Documentazione"
+
+#: wp-minify.php:418
+msgid "Error: Could not fetch and cache URL"
+msgstr "Errore: impossibile elaborazione e cache URL"
+
+#: wp-minify.php:419
+msgid "You might need to exclude this file in WP Minify options."
+msgstr "Potrebbe essere necessario escludere questo file nelle opzioni WP Minify."
+
+#~ msgid "Debug mode"
+#~ msgstr "Modalità debug"
