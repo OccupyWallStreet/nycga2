@@ -577,8 +577,8 @@ function nycga_admin_group_dropdown()
 	}
 }
 
-add_action('wp_head', 'nycga_set_timezone');
+add_action('plugins_loaded', 'nycga_set_timezone');
 function nycga_set_timezone()
 {
-	date_default_timezone_set('UTC');
+	date_default_timezone_set('America/New_York');
 }
