@@ -1,0 +1,155 @@
+/* =============================================================
+Simple:Press
+Profile CSS (Profile Display)
+$LastChangedDate: 2009-07-04 22:42:58 +0100 (Sat, 04 Jul 2009) $
+$Rev: 2159 $
+============================================================= */
+
+#sforum .sfprofileblock { padding: 8px; margin: 0 0 8px 0; border: 1px solid #CCCCCC !important; -moz-border-radius: 3px; -khtml-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+#sfprofileheadtable { width: 100%; border-collapse: separate; border-spacing: 5px 0px !important; }
+#sfprofileheadtable td { font-family: Tahoma, Verdana, Arial, san-serif; height: auto; padding: 6px; vertical-align: middle; background: #78A1FF; border: 3px solid #78A1FF; -moz-border-radius: 4px; -khtml-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+#sfprofileheadtable td h3 { margin: 0; padding: 0; font-size: 120%; color: #000000; line-height: 1.1em; }
+#sfprofileheadtable td p { margin: 0; padding: 0; font-weight: bold; font-size: 90%; }
+#sfprofileheadtable td img { padding: 0; margin: 0; }
+#sforum #sfprofilephotos { padding: 0 0 0 0; margin: 0 0 0 0; }
+#sforum #sfprofilephotos img { margin: 0 5px; }
+.sfprofilemaintable { margin: 0 0 5px 0 !important; padding: 0px !important; background-color: #FFFFFF !important; border-collapse: separate; border-spacing: 4px !important; width: 100% !important; text-align: left !important; font-weight: normal !important; font-size: 90% !important; }
+.sfprofilemaintable td { font-size: 95% !important; line-height: 1.2em  !important; padding: 5px 10px  !important; margin: 2px 4px  !important; -moz-border-radius: 3px; -khtml-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+.sfprofilemaintable td.sfstandardlabel { background: #BBBBBB !important; width: 20% !important; }
+.sfprofilemaintable td.sfidlabel { background: #FFFFFF !important; border: 1px solid #BBBBBB; width: 10% !important; }
+.sfprofilemaintable td.sfcustomlabel { background: #BBBBBB !important; width: 20% !important; }
+.sfprofilemaintable td.sfsystemlabel { background: #BBBBBB !important; width: 25% !important; }
+.sfprofilemaintable td.sfdata { background: #A7C1FF !important; font-weight: bold !important; }
+
+/* =============================================================
+Profile Form
+============================================================= */
+
+#sforum .sfprofilebar {
+	border-spacing: 8px;
+	margin: 15px 0;
+	width: 100%;
+}
+
+.sftbar {
+	border:  1px solid #DDDDDD;
+	background-color: #fff799;
+	cursor: pointer;
+	padding: 5px;
+	width: 12%;
+}
+
+.sftbar:hover {
+	background-color: #A7C1FF;
+}
+
+.sftbaron {
+	background-color: #A7C1FF;
+}
+
+#sforum #sfprofileform form {
+	color: #333333;
+	font-family: Tahoma, Verdana, sans-serif !important;
+	font-size: 100%;
+	font-weight: normal;
+	text-align: left;
+}
+
+#sforum #sfprofileform fieldset {
+	border: 1px solid #888888;
+	color: #333333;
+	padding: 8px 20px;
+	text-align: left;
+	font-size: 100%;
+    -moz-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#sforum #sfprofileform fieldset legend {
+	font-weight: bold;
+}
+
+#sforum #sfprofileform .sfprofiletable {
+	border: 0;
+	border-spacing: 10px;
+	width: 80%;
+	margin: 0 0 0 10%;
+}
+
+#sforum #sfprofileform .sfprofiletable td {
+	font-size: 100%;
+	vertical-align: middle;
+	padding: 0px 10px;
+	margin: 2px 4px;
+	background: #FFFFFF;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#sforum #sfprofileform .sfprofiletable td.sfprofilelabel {
+	background: #EEEEEE !important;
+	font-size: 100%;
+	font-weight: normal !important;
+	width: 35%;
+	height: 22px;
+}
+
+#sforum #sfprofileform .sfprofiletable td.sfprofiledata {
+}
+
+#sforum #sfprofileform .sfprofiletable td.sfprofiledata input,
+#sforum #sfprofileform .sfprofiletable td.sfprofiledata textarea,
+#sforum #sfprofileform .sfprofiletable td.sfprofiledata select {
+	font-family: Tahoma, Verdana, sans-serif !important;
+	font-size: 100%;
+	font-weight: bold !important;
+	width: 100%;
+	padding: 0 0 0 10px;
+	border: 1px solid #CCCCCC !important;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#sforum #sfprofileform .sfprofiletable td.sfprofiledata input,
+#sforum #sfprofileform .sfprofiletable td.sfprofiledata select {
+	height: 22px;
+	background: #78A1FF !important;
+}
+
+#sforum #sfprofileform .sfprofiletable td.sfprofiledata textarea {
+	background: #78A1FF !important;
+}
+
+#sforum #sfprofileform .sfprofiletable td.sfprofiledata input:hover,
+#sforum #sfprofileform .sfprofiletable td.sfprofiledata textarea:hover,
+#sforum #sfprofileform .sfprofiletable td.sfprofiledata select:hover {
+	background: #FFFFFF !important;
+}
+
+#sforum #sfprofileform #sfprofilemsg .sferrorentry {
+	font-weight: normal;
+	color: #FFFFFF;
+	background: red;
+	margin: 0 0 5px 0;
+	padding: 5px;
+}
+
+.sferrorbold {
+	font-weight: bold !important;
+	color: yellow !important;
+}
+
+#sforum #sfprofileform #sfprofilemsg .sfsuccessentry,
+#sforum #sfprofileform #sfpostupload .sfsuccessentry {
+	font-weight: bold;
+	color: #000000;
+	background: yellow;
+	margin: 0 0 5px 0;
+	padding: 5px;
+}

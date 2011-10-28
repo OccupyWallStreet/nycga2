@@ -1,0 +1,91 @@
+#sforum div.sfcode {
+	margin: 0 !important;
+	padding: 0 !important;
+	background: transparent !important;
+	border: none !important;
+}
+
+#sforum .sfposttable .sfpostcontent div.sfcode table.syntax {
+	border-collapse: collapse !important;
+	background-color: #f0f0f0 !important;
+	border: 1px solid #aaa !important;
+	padding: 0px !important;
+/*	width: auto !important; */
+/*min-width: 95%; */
+	margin: 2em auto 2em 0 !important;
+}
+
+table.syntax td.toolbar_row {
+	border: none !important;
+	background-color: #f6f6f6 !important;
+}
+
+input.sfcodeselect {
+	margin: 0 0 0 0 !important;
+	padding: 0 !important;
+	font-size: 9px !important;
+	border: 1px solid #aaa !important;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+table.syntax tr.alt {
+	border-left: inherit !important;
+}
+
+table.syntax tr.alt td.source {
+	background-color: #f6f6f6 !important;
+}
+
+.source {
+	background-color: #f0f0f0 !important;
+}
+
+.alt {
+	background-color: #f6f6f6 !important;
+}
+
+table.syntax td {
+	padding-left: 0.4em !important;
+	padding-right: 0.4em !important;
+}
+
+table.syntax td.source {
+	word-wrap: break-word !important;
+	padding-top: 2px !important;
+	padding-bottom: 2px !important
+}
+
+table.syntax td.number {
+	border-right: 1px solid #aaa !important;
+	text-align: right !important;
+/*	max-width: 2.5em !important; */
+	padding: 0 2px !important;
+	color: #555 !important;
+	background-color: #e0e0e0 !important;
+}
+
+table.syntax .toolbar {
+	float: right;
+	padding: 3px;
+}
+
+#syntax-raw {
+	padding: 0px;
+	margin: 0px;
+	text-align: inherit;
+	background-image: none;
+	background-color: #ffffff;
+}
+
+#syntax-raw pre {
+	padding: 1em;
+	margin: 0px;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}

@@ -1,0 +1,62 @@
+/*
+Simple:Press Admin RTL CSS Overrides
+$LastChangedDate: 2009-06-23 00:17:06 +0100 (Tue, 23 Jun 2009) $
+$Rev: 2099 $
+*/
+
+body {direction:rtl; unicode-bidi: embed; }
+
+.wrap.sfatag { padding: 15px 5px 0 15px !important; }
+
+#sfmaincontainer { margin: 0 180px 10px 0px !important; }
+
+.sfalignright { float: left !important; }
+.sfalignleft { float: right !important; }
+.clearleft { clear: right !important; }
+
+.mainicon { margin: 6px 0px 0 5px !important; float: right !important;}
+.sfamenutable { float: right !important; }
+ul.memberlist li { float:right !important; }
+
+.form-table th { text-align: right !important; padding: 5px 3px 5px 10px; }
+.form-table td.td-cbox { padding: 3px 0px 3px 5px !important; }
+
+td input.sfpostcontrol { text-align: right !important; padding: 5px 3px 0 0px; }
+ul.memberlist li { float:right !important; }
+
+.sfform-upload-button, .sfform-submit-button, .sfform-panel-button { margin: 3px 10px 3px 0px !important; }
+.sfform-submit-button { margin: 3px 10px 0 0px !important; }
+#sfmsgspot { margin: 0 180px 0 20px !important; }
+.sffieldset ul li { margin: 0 20px 0 0px !important; }
+.sffieldset p { padding: 8px 15px 6px 0px !important; }
+
+.tag_wrap #tagslist ul { margin:10px 20px 10px 0px !important; }
+
+#sfavataroptions { text-align:right !important; }
+#sfavataroptions li { height: 20px !important; margin-top: 10px !important; }
+
+
+/* ACCORDION =======================================================================================*/
+
+#sfsidepanel { float: right !important; }
+.sfsidebutton, .sfsidebutton a { text-align: right !important; }
+.sfsidebutton img { float: right !important; }
+.ui-accordion .ui-accordion-header .ui-icon { right: .5em !important; }
+.ui-accordion .ui-accordion-content a { text-align: right !important; }
+
+/* CHECKBOX/RADIO BUTTONS ==========================================================================*/
+
+label.list { float:left !important; }
+label.inline { float: left !important; margin: 0 0px 0 10px !important; }
+input.hiddenCheckbox { left: 10000px !important; }
+label.prettyCheckbox span.holderWrap { float: left !important; margin-left: 15px !important; }
+label.prettyCheckbox span.holder { left: 0 !important; }
+
+/* POPUP HELP================================================================================*/
+
+.sfhelplink { float: left !important; }
+
+/* TOOLTIPS =========================================================================================*/
+
+p#vtip { padding: 10px; right: 5px !important; }
+p#vtip #vtipArrow { position: absolute; top: -10px; right: 5px !important; }
