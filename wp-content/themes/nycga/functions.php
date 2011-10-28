@@ -170,7 +170,9 @@ function nycga_check_php_mem_usage()
 add_action('init', 'nycga_remove_my_sites_menu', 100);
 function nycga_remove_my_sites_menu()
 {
-	if ( ! current_user_can('admin'))
+	global $current_user;
+	get_currentuserinfo();
+	if (empty($current_user->roles) || (count($current_user->roles) == 1 && in_array('subscriber', $current_user->roles)))
 	{
 		remove_action( 'bp_adminbar_menus', 'bp_adminbar_blogs_menu', 6 );
 	}
@@ -180,7 +182,9 @@ function nycga_remove_my_sites_menu()
 add_action('admin_init', 'nycga_remove_dashboard_access', 100);
 function nycga_remove_dashboard_access()
 {
-	if ( ! current_user_can('admin'))
+	global $current_user;
+	get_currentuserinfo();
+	if (empty($current_user->roles) || (count($current_user->roles) == 1 && in_array('subscriber', $current_user->roles)))
 	{
 		wp_die( __('You do not have sufficient permissions to access this page.') );
 	}

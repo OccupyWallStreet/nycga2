@@ -133,11 +133,11 @@ add_action('em_event_save_pre','nycga_group_event_save',2,1);
 function nycga_group_event_save($EM_Event){
 	if( is_object($EM_Event) && !empty($_REQUEST['group_id']) && is_numeric($_REQUEST['group_id']) ){
 		//we have been requested an event creation tied to a group, so does this group exist, and does this person have admin rights to it?
-		if( current_user_can('admin') || groups_is_user_admin(get_current_user_id(), $_REQUEST['group_id']) || groups_is_user_mod(get_current_user_id(), $_REQUEST['group_id'])){
+		if( current_user_can('administrator') || groups_is_user_admin(get_current_user_id(), $_REQUEST['group_id']) || groups_is_user_mod(get_current_user_id(), $_REQUEST['group_id'])){
 			$EM_Event->group_id = $_REQUEST['group_id'];
 		}				
 	}
-	if (is_admin() && current_user_can('admin') && empty($_POST['group_id']))
+	if (is_admin() && current_user_can('administrator') && empty($_POST['group_id']))
 	{
 		unset($EM_Event->group_id);
 	}
@@ -187,8 +187,7 @@ function nycga_events_fix_future( $conditions, $args )
 {
 	if ($args['scope'] == 'future')
 	{
-		date_default_timezone_set('America/New_York');
-		$now = date('Y-m-d H:i:s', strtotime('now'));
+		$now = current_time('mysql');
 		$conditions['scope'] = " CONCAT(event_end_date, ' ', event_end_time)  >= CAST('$now' AS DATETIME)";
 	}
 	return $conditions;
@@ -204,7 +203,7 @@ function nycga_em_edit_strip($event, $url, $echo = true)
 		{
 			$html .= '<a class="button bp-secondary-action" href="'.$url.'edit/?event_id='.$event->id.'" title="'. __( 'Edit this event', 'dbem' ).'">'.__( 'Edit', 'dbem' ).'</a>';
 		}
-		if (current_user_can('publish_events') && (current_user_can('admin') || (groups_is_user_admin(get_current_user_id(),$event->group_id) || groups_is_user_mod(get_current_user_id(), $event->group_id))))
+		if (current_user_can('publish_events') && (current_user_can('administrator') || (groups_is_user_admin(get_current_user_id(),$event->group_id) || groups_is_user_mod(get_current_user_id(), $event->group_id))))
 		{
 			$html .= '<a class="button bp-secondary-action" href="'.$url.'edit/?action=event_duplicate&amp;event_id='.$event->id.'" title="'.__( 'Duplicate this event', 'dbem' ).'">Duplicate</a>';
 		}
@@ -544,7 +543,7 @@ function nycga_limit_events_list()
 add_action('em_admin_event_form_side_header', 'nycga_admin_group_dropdown');
 function nycga_admin_group_dropdown()
 {
-	if (current_user_can('admin'))
+	if (current_user_can('administrator'))
 	{
 		global $EM_Event;
 		if ( ! is_object($EM_Event))
@@ -577,8 +576,27 @@ function nycga_admin_group_dropdown()
 	}
 }
 
-add_action('plugins_loaded', 'nycga_set_timezone');
-function nycga_set_timezone()
+// remove events menu from dashboard, for everyone except admins
+add_action('admin_menu', 'nycga_remove_events_from_dashboard');
+function nycga_remove_events_from_dashboard()
 {
-	date_default_timezone_set('America/New_York');
+	if ( ! current_user_can('administrator'))
+	{
+		remove_menu_page('events-manager');
+	}
+}
+
+
+// deny access to events pages, for everyone except admins
+add_action ('admin_notices', 'nycga_check_events_access');
+function nycga_check_events_access()
+{
+		if ( ! current_user_can('administrator'))
+		{
+			global $current_screen;
+			if ($current_screen->parent_base == 'events-manager')
+			{
+				wp_redirect(admin_url());
+			}
+		}
 }
