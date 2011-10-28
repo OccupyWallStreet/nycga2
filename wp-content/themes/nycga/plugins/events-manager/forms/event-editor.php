@@ -11,7 +11,7 @@
 			return false;
 		}
 		
-		if ( ! ( current_user_can('admin') || (groups_is_user_admin(get_current_user_id(), $group->id ) || groups_is_user_mod(get_current_user_id(), $group->id )) ) )
+		if ( ! ( current_user_can('administrator') || (groups_is_user_admin(get_current_user_id(), $group->id ) || groups_is_user_mod(get_current_user_id(), $group->id )) ) )
 		{
 			// user is not a site admin, or admin or mod of the passed group
 			?>
