@@ -24,7 +24,7 @@
 
 				<?php do_action( 'template_notices' ) ?>
 
-				<p><?php _e( 'Registering for this site is easy, just fill in the fields below and we\'ll get a new account set up for you in no time. Please create a personal account using your real name (or pseudonym) and photo (or gravatar) so your fellow occupiers can recognize you on the ground"', 'buddypress' ) ?></p>
+				<p><?php _e( 'Registering for this site is easy, just fill in the fields below and we\'ll get a new account set up for you in no time. Please create a personal account using your real name (or pseudonym) and photo (or gravatar) so your fellow occupiers can recognize you on the ground.', 'buddypress' ) ?></p>
 
 				<?php do_action( 'bp_before_account_details_fields' ) ?>
 
