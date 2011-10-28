@@ -13,6 +13,7 @@
 
 	<?php do_action( 'bp_before_directory_activity_page' ); ?>
 
+<?php date_default_timezone_set('UTC'); /* Temporary Fix */ ?>
 	<div id="content">
 		<div class="padder">
 			<?php do_action( 'bp_before_directory_activity' ); ?>
@@ -149,7 +150,7 @@
 
 		</div><!-- .padder -->
 	</div><!-- #content -->
-
+<?php date_default_timezone_set('America/New_York'); /* Temporary Fix */ ?>
 	<?php do_action( 'bp_after_directory_activity_page' ); ?>
 
 <?php get_sidebar( 'buddypress' ); ?>
