@@ -1,0 +1,753 @@
+<?php
+/*
+Simple:Press
+Hook Template
+$LastChangedDate: 2010-12-21 06:25:04 -0700 (Tue, 21 Dec 2010) $
+$Rev: 5100 $
+*/
+
+/*
+	====================================================================================
+	TO START USING THESE HOOKS IN YOUR FORUM - RENAME THIS FILE TO sf-hook-template.php
+	(CHANGE THE EXTENSION FROM .txt TO .php) IT WILL THEN BE INCLUDED WITH THE FORUM CODE
+	=====================================================================================
+	The functions in this template file are empty but are available to the user to add
+	functionality or extra display elements.
+	DO NOT OVERWRITE THIS FILE IN THE FUTURE IF YOU USE IT
+
+	To use these hook functions do NOT 'echo' content as this will print it above the forum body.
+	Content should be 'returned' for display.
+*/
+
+if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF']))
+{
+	die('Access Denied');
+}
+
+
+/*
+======================================================
+All Views
+======================================================
+*/
+
+	/* ---------------------------------------------------
+	sf_hook_pre_title()
+	Will display content prior to the WordPress Page title.
+    Please note this hook requires the the_title() function
+    to be used within the wp loop for displaying the page title.
+	This will display on all forum views
+	------------------------------------------------------ */
+
+	function sf_hook_pre_title()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_pre_content()
+	Will display content prior to everything else Ð
+	including any textual content that was passed with the
+	WordPress Page itself.
+	This will display on all forum views
+	------------------------------------------------------ */
+
+	function sf_hook_pre_content()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_content()
+	Displays content after any text belonging to the
+	WordPress page but prior to the start of forum display.
+	This will display on all forum views
+	------------------------------------------------------ */
+
+	function sf_hook_post_content()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_footer_inside()
+	Displays content above the Simple Forum copyright
+	message at the bottom of the forum display. This is
+	still within the main div of the forum itself.
+	This will display on all forum views
+	------------------------------------------------------ */
+
+	function sf_hook_footer_inside()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_footer_outside()
+	Displays after the copyright message and outside of the
+	forum div itself. Literally the bottom of the page
+	prior to your themes footer
+	This will display on all forum views
+	------------------------------------------------------ */
+
+	function sf_hook_footer_outside()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_loginstrip()
+	Inserts content after the login strip and before the
+	breadcrumbs.
+	This will display on all forum views
+	------------------------------------------------------ */
+
+	function sf_hook_post_loginstrip()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_breadcrumbs()
+	Inserts content immediately after the breadcrumbs.
+	This will display on all forum views
+	------------------------------------------------------ */
+
+	function sf_hook_post_breadcrumbs()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_top_search()
+	Inserts content immediately after the top search bar.
+	This will display on all forum views if top searchbar
+	is activated
+	Introduced in version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_top_search()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_bottom_search()
+	Inserts content immediately after the bottom search bar.
+	This will display on all forum views if bottom searchbar
+	is activated
+	Introduced in version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_bottom_search()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_stats()
+	Inserts content immediately after the stats bar.
+	This will display on all forum views if the stats bar
+	is activated
+	Introduced in version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_stats()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_rss_strip()
+	Inserts content immediately after the bottom rss and icon bar.
+	This will display on all forum views
+	Introduced in version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_rss_strip()
+	{
+		return '';
+	}
+
+/*
+======================================================
+Front/Main Page - Group/Forum Listing
+======================================================
+*/
+
+	/* ---------------------------------------------------
+	sf_hook_group_header()
+	Displays content on the front (Group) page only -
+	after page content but before any forum display.
+	Content appears above the admin bar and login strip.
+	Introduced in version 3.0
+	------------------------------------------------------ */
+
+	function sf_hook_group_header()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_group($groupid)
+	Displays content after each Group on the main/front
+	Forum listing page. The GROUP_ID is passed if needed.
+	------------------------------------------------------ */
+
+	function sf_hook_post_group($groupid)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_forum($forumid)
+	Will insert content immediately after each forum row
+	following the forum description. The FORUM ID is
+	passed into the hook if needed.
+	------------------------------------------------------ */
+
+	function sf_hook_post_forum($forumid)
+	{
+		return '';
+	}
+
+/*
+======================================================
+Forum/Topic Listing
+======================================================
+*/
+
+	/* ---------------------------------------------------
+	sf_hook_forum_header()
+	Displays content on the forum (list topics) page only -
+	after page content but before any forum display.
+	Content appears above the admin bar and login strip.
+	Introduced in version 3.0
+	------------------------------------------------------ */
+
+	function sf_hook_forum_header()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_topic($forumid, $topicid)
+	Inserts content immediately after each topic row. The
+	FORUM ID and the TOPIC ID are passed into the
+	hook if needed
+	------------------------------------------------------ */
+
+	function sf_hook_post_topic($forumid, $topicid)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_forum_top_pagelinks($forumid)
+	Inserts content after the top pagelinks on forum views
+	The FORUM ID is passed into the hook if needed
+	Introduced in version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_forum_top_pagelinks($forumid)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_forum_bottom_pagelinks($forumid)
+	Inserts content after the bottom pagelinks on forum views
+	The FORUM ID is passed into the hook if needed
+	Introduced in version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_forum_bottom_pagelinks($forumid)
+	{
+		return '';
+	}
+
+/*
+======================================================
+Topic/Post Listing
+======================================================
+*/
+
+	/* ---------------------------------------------------
+	sf_hook_topic_header()
+	Displays content on the topic (list posts) page only -
+	after page content but before any forum display.
+	Content appears above the admin bar and login strip.
+	Introduced in version 3.0
+	------------------------------------------------------ */
+
+	function sf_hook_topic_header()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_topic_footer($forumid, $topicid)
+	Displays content on the topic (list posts) page only -
+	after the last post in the topic.
+	Content appears prior to the bottom pagelinks.
+	Introduced in version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_topic_footer()
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_pre_post($topicid, $postid)
+	Inserts content at the top of each post
+	immediately prior to the post content. The
+	TOPIC ID and the POST ID are passed into the hook.
+	Introduced in Version 4.0
+	------------------------------------------------------ */
+
+	function sf_hook_pre_post($topicid, $postid)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_post($topicid, $postid)
+	Inserts content at the bottom of each post
+	immediately after the users signature (if used). The
+	TOPIC ID and the POST ID are passed into the hook.
+	------------------------------------------------------ */
+
+	function sf_hook_post_post($topicid, $postid)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_first_post($forumid, $topicid)
+	Inserts content at the bottom of a topics first post
+	immediately after the users signature (if used). The
+	FORUM ID and the TOPIC ID are passed into the hook.
+	Introduced in version 3.1.2
+	------------------------------------------------------ */
+
+	function sf_hook_first_post($forumid, $topicid)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_last_post($forumid, $topicid)
+	Inserts content at the bottom of a topics last post
+	immediately after the users signature (if used). The
+	FORUM ID and the TOPIC ID are passed into the hook.
+	Introduced in version 3.1.2
+	------------------------------------------------------ */
+
+	function sf_hook_last_post($forumid, $topicid)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_other_posts($forumid, $topicid)
+	Inserts content at the bottom of all posts in a topic
+	except the first and last posts immediately after the
+	users signature (if used). The FORUM ID and the
+	TOPIC ID are passed into the hook.
+	Introduced in version 3.1.2
+	------------------------------------------------------ */
+
+	function sf_hook_other_posts($forumid, $topicid)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_post_by_position($forumid, $topicid, $position)
+	Inserts content at the bottom of all posts immediately
+	after the users signature (if used). The FORUM ID and the
+	TOPIC ID are passed into the hook as well as the posts
+	POSITION in the list starting at 1. The POSITION will
+	always start at 1 for every p[age of a topic.
+	Introduced in version 4.2
+	------------------------------------------------------ */
+
+	function sf_hook_post_post_by_position($forumid, $topicid, $position)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_topic_top_pagelinks($forumid, $topicid)
+	Inserts content after the top pagelinks on topic views
+	The FORUM ID and the TOPIC ID are passed into the
+	hook if needed
+	Introduced in version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_topic_top_pagelinks($forumid, $topicid)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_topic_bottom_pagelinks($forumid, $topicid)
+	Inserts content after the bottom pagelinks on topic views
+	The FORUM ID and the TOPIC ID are passed into the
+	hook if needed
+	Introduced in version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_topic_bottom_pagelinks($forumid, $topicid)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_topic_top_tags($forumid, $topicid)
+	Inserts content after the top topic tags on topic views
+	if tags are being used/displayed
+	The FORUM ID and the TOPIC ID are passed into the
+	hook if needed
+	Introduced in version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_topic_top_tags($forumid, $topicid)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_topic_bottom_tags($forumid, $topicid)
+	Inserts content after the bottom topic tags on topic views
+	if tags are being used/displayed
+	The FORUM ID and the TOPIC ID are passed into the
+	hook if needed
+	Introduced in version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_topic_bottom_tags($forumid, $topicid)
+	{
+		return '';
+	}
+
+/*
+======================================================
+Special Requirements
+======================================================
+*/
+
+	/* ---------------------------------------------------
+	sf_hook_post_feedflare($permalink)
+	Content will be displayed below the sf_post_post_hook
+	above. The individual post's permalink is passed
+	Introduced in Version 3.0
+	------------------------------------------------------ */
+
+	function sf_hook_post_feedflare($permalink)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_pre_post_save($content)
+	This hook is fired just prior to the post
+	being saved. You can use this to test the content
+	of the post and refuse it by returning a false. To allow
+	the post to be saved - return a true (the default)
+	Introduced in Version 4.0
+	------------------------------------------------------ */
+
+	function sf_hook_pre_post_save($content)
+	{
+		return true;
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_save($newpost, $action)
+	This hook is fired upon the saving of a new post. The new
+	post data is passed in as well as the type of post save (action).
+	If the $action is 'topic', a new topic was created.
+	If the action is 'post', a new post was added to an existing topic.
+	The array elements of $newpost are forumid, forumslug, topicid,
+	topicslug, postid, submsg, postpin, topicsub, statvalue, posttimestamp,
+	poststatus, postcontent, guestname, guestemail, postername,
+	posteremail, userid, db, and url.
+	NOTE: This hook accepts no return content
+	Introduced in Version 3.0 but heavily modified in 4.0.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_save($newpost, $action)
+	{
+		return;
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_pre_edit_post_save($post_id, $content, $user_id)
+	This hook is fired before the filtering and saving of a edited post.
+	The post ID, content and the user's ID who made the edit are
+	passed in as argments.
+	NOTE: This hook accepts no return content
+	Introduced in Version 4.2.2
+	------------------------------------------------------ */
+
+	function sf_hook_pre_edit_post_save($post_id, $content, $user_id)
+	{
+		return;
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_edit_post_save($post_id, $content, $user_id)
+	This hook is fired after the filtering and saving of a edited post.
+	The post ID, content and the user's ID who made the edit are
+	passed in as argments.
+	NOTE: This hook accepts no return content
+	Introduced in Version 4.2.2
+	------------------------------------------------------ */
+
+	function sf_hook_post_edit_post_save($post_id, $content, $user_id)
+	{
+		return;
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_topic_delete($topicid, $forumid)
+	This hook is fired upon the deletion of a topic.  The id
+	of the topic that was deleted is passed in as well as the forum
+	id that the topic belonged to.  This hook is fired
+	before the posts that belong to the topic are deleted. Its
+	also worth noting that this hook is NOT fired for topics when
+	a Group or Forum is deleted.
+	NOTE: This hook accepts no return content
+	Introduced in Version 4.0.1
+	------------------------------------------------------ */
+
+	function sf_hook_topic_delete($topicid, $forumid)
+	{
+		return;
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_delete($postid)
+	This hook is fired upon the deletion of a post.  The id
+	of the Post that was deleted is passed in.  Also passed in are the
+	topic id and forum id that the post belonged to. Its also worth
+	noting that this hook is NOT fired for posts when a Group,
+	Forum or Topic is deleted.
+	NOTE: This hook accepts no return content
+	Introduced in Version 4.0.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_delete($postid, $topicid, $forumid)
+	{
+		return;
+	}
+
+/*
+======================================================
+Profile Display View (Page and Popup)
+======================================================
+*/
+
+	/* ---------------------------------------------------
+	sf_hook_pre_profile($user_id)
+	Inserts content immediately prior to the profile display.
+	This will display on the profile view (page and popup)
+	$user_id is passed into the hook.
+	Introduced in Version 4.0.1
+	------------------------------------------------------ */
+
+	function sf_hook_pre_profile($user_id)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_profile_header($user_id)
+	Inserts content immediately after the main header
+	section at the top of the profile display.
+	This will display on the profile view (page and popup)
+	$user_id is passed into the hook.
+	Introduced in Version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_profile_header($user_id)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_profile_photos($user_id)
+	Inserts content immediately after the user photos
+	section of the profile display.
+	This will display on the profile view (page and popup)
+	$user_id is passed into the hook.
+	Introduced in Version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_profile_photos($user_id)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_profile_personal($user_id)
+	Inserts content immediately after the personal data
+	section of the profile display.
+	This will display on the profile view (page and popup)
+	$user_id is passed into the hook.
+	Introduced in Version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_profile_personal($user_id)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_profile_online($user_id)
+	Inserts content immediately after the online id data
+	section of the profile display.
+	This will display on the profile view (page and popup)
+	$user_id is passed into the hook.
+	Introduced in Version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_profile_online($user_id)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_profile_custom($user_id)
+	Inserts content immediately after the custom field
+	section of the profile display.
+	This will display on the profile view (page and popup)
+	$user_id is passed into the hook.
+	Introduced in Version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_profile_custom($user_id)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_profile($user_id)
+	Inserts content immediately after the profile display,
+	but prior to the buttons at the bottom of the profile.
+	This will display on the profile view (page and popup)
+	$user_id is passed into the hook.
+	Introduced in Version 4.0.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_profile($user_id)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_profile_buttons($user_id)
+	Inserts content immediately after the action buttons
+	at the bottom of the profile display.
+	This will display on the profile view (page and popup)
+	$user_id is passed into the hook.
+	Introduced in Version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_profile_buttons($user_id)
+	{
+		return '';
+	}
+
+/*
+======================================================
+Profile Form
+======================================================
+*/
+
+	/* ---------------------------------------------------
+	sf_hook_pre_profile_form($user_id)
+	Inserts content immediately prior to the profile form.
+	$user_id is passed into the hook.
+	Introduced in Version 4.0.1
+	------------------------------------------------------ */
+
+	function sf_hook_pre_profile_form($user_id)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_profile_form($user_id)
+	Inserts content immediately after the profile form,
+	but prior to the buttons at the bottom of the form.
+	$user_id is passed into the hook.
+	Introduced in Version 4.0.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_profile_form($user_id)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_post_profile_form_buttons($user_id)
+	Inserts content immediately after the action buttons
+	at the bottom of the profile form.
+	$user_id is passed into the hook.
+	Introduced in Version 4.1
+	------------------------------------------------------ */
+
+	function sf_hook_post_profile_form_buttons($user_id)
+	{
+		return '';
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_profile_save($user_id)
+	This hook is fired after a user profile has been updated.
+	NOTE: This hook accepts no return content
+	$user_id is passed into the hook.
+	Introduced in Version 4.0.1
+	------------------------------------------------------ */
+
+	function sf_hook_profile_save($user_id)
+	{
+		return;
+	}
+
+/*
+======================================================
+Private Messaging
+======================================================
+*/
+
+	/* ---------------------------------------------------
+	sf_hook_pre_pm_save($content)
+	This hook is fired just prior to the pm
+	being saved. You can use this to test the content
+	of the pm or the userids (users message sent to) and refuse
+	it by returning a false. To allow the pm to be saved -
+	return a true (the default)
+	Introduced in Version 4.4
+	------------------------------------------------------ */
+
+	function sf_hook_pre_pm_save($content, $userids)
+	{
+		return true;
+	}
+
+	/* ---------------------------------------------------
+	sf_hook_pm_save($newpost, $action)
+	This hook is fired upon the saving of a new pm. The new
+	pm data is passed in	NOTE: This hook accepts no return content
+	Introduced in Version 4.4
+	------------------------------------------------------ */
+
+	function sf_hook_pm_save($from, $tolist, $title, $messagecontent, $reply, $pmtype)
+	{
+		return;
+	}
+?>

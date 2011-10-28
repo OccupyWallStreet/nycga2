@@ -1,0 +1,58 @@
+<?php
+/*
+Simple:Press
+sf-user-switches.php - user definable switches
+$LastChangedDate: 2009-07-13 14:26:08 +0100 (Mon, 13 Jul 2009) $
+$Rev: 2207 $
+*/
+
+	# IF YOU NEED TO USE THESE OPTIONAL SETTINGS YOU WILL NEED
+	# TO RENAME THIS FILE EXTENSION FROM .txt to .php
+
+
+	# --------------------------------------------------------
+	# After WP 2.6 it is possible to relocate the wp-config.php
+	# file. Simple:Press should be able to find it.
+	# However, if it does not, then you will need to change
+	# the SF_BASEPATH constant below to point to the path of:
+	#
+	#		your wp-load.php file
+	#
+	# NOTE: This must be a 'path' NOT a 'URL' and may also be
+	# necessary if you have moved your wp-content folder.
+	# --------------------------------------------------------
+
+	define('SF_BASEPATH', dirname(dirname(dirname(dirname(__FILE__)))));
+
+	# --------------------------------------------------------
+	# A small javascript program has been used to replace
+	# checkboxes and radio buttons with more appealing
+	# graphics. A small number of users ave experienced a
+	# conflict with this js library. If you have this problem
+	# please set SF_USE_PRETTY_CBOX to false.
+	# --------------------------------------------------------
+
+	define('SF_USE_PRETTY_CBOX', true);
+
+	# --------------------------------------------------------
+	# Script concatenation is introduced in WP version 2.8.
+	# Sadly, out if the box, some of the jQuery code throws
+	# an error.
+	# This is turned off for the forum admin and should
+	# not effect settings for WP or other plugins
+	# --------------------------------------------------------
+
+	define('CONCATENATE_SCRIPTS', false);
+
+	# --------------------------------------------------------
+	# Normaly, Simple:Press tables are given the same
+	# table prefix as all of your other WordPress tables.
+	# You can change this by specifying an alternative
+	# below and uncommenting the line.
+	# --------------------------------------------------------
+
+#	define('SF_PREFIX', 'wp_');
+
+	# --------------------------------------------------------
+
+?>

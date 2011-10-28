@@ -13,6 +13,7 @@
 
 	<?php do_action( 'bp_before_directory_activity_page' ); ?>
 
+<?php date_default_timezone_set('UTC'); /* Temporary Fix */ ?>
 	<div id="content">
 		<div class="padder">
 			<?php do_action( 'bp_before_directory_activity' ); ?>
