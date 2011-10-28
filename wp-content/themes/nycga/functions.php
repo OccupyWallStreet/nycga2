@@ -159,7 +159,7 @@ function nycga_check_php_mem_usage()
 {
 	function convert($size)
 	{
-		$unit=array('b','kb','mb','gb','tb','pb');
+		$unit = array('b','kb','mb','gb','tb','pb');
 		return @round($size/pow(1024,($i=floor(log($size,1024)))),2).' '.$unit[$i];
 	}
 
@@ -170,11 +170,14 @@ function nycga_check_php_mem_usage()
 add_action('init', 'nycga_remove_my_sites_menu', 100);
 function nycga_remove_my_sites_menu()
 {
-	global $current_user;
-	get_currentuserinfo();
-	if (empty($current_user->roles) || (count($current_user->roles) == 1 && in_array('subscriber', $current_user->roles)))
+	if ( ! is_super_admin())
 	{
-		remove_action( 'bp_adminbar_menus', 'bp_adminbar_blogs_menu', 6 );
+		global $current_user;
+		get_currentuserinfo();
+		if (empty($current_user->roles) || (count($current_user->roles) == 1 && in_array('subscriber', $current_user->roles)))
+		{
+			remove_action( 'bp_adminbar_menus', 'bp_adminbar_blogs_menu', 6 );
+		}
 	}
 }
 
@@ -182,11 +185,14 @@ function nycga_remove_my_sites_menu()
 add_action('admin_init', 'nycga_remove_dashboard_access', 100);
 function nycga_remove_dashboard_access()
 {
-	global $current_user;
-	get_currentuserinfo();
-	if (empty($current_user->roles) || (count($current_user->roles) == 1 && in_array('subscriber', $current_user->roles)))
+	if ( ! is_super_admin())
 	{
-		wp_die( __('You do not have sufficient permissions to access this page.') );
+		global $current_user;
+		get_currentuserinfo();
+		if (empty($current_user->roles) || (count($current_user->roles) == 1 && in_array('subscriber', $current_user->roles)))
+		{
+			wp_die( __('You do not have sufficient permissions to access this page.') );
+		}
 	}
 }
 

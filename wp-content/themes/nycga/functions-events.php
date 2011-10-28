@@ -133,11 +133,11 @@ add_action('em_event_save_pre','nycga_group_event_save',2,1);
 function nycga_group_event_save($EM_Event){
 	if( is_object($EM_Event) && !empty($_REQUEST['group_id']) && is_numeric($_REQUEST['group_id']) ){
 		//we have been requested an event creation tied to a group, so does this group exist, and does this person have admin rights to it?
-		if( current_user_can('administrator') || groups_is_user_admin(get_current_user_id(), $_REQUEST['group_id']) || groups_is_user_mod(get_current_user_id(), $_REQUEST['group_id'])){
+		if( current_user_can('manage_options') || groups_is_user_admin(get_current_user_id(), $_REQUEST['group_id']) || groups_is_user_mod(get_current_user_id(), $_REQUEST['group_id'])){
 			$EM_Event->group_id = $_REQUEST['group_id'];
 		}				
 	}
-	if (is_admin() && current_user_can('administrator') && empty($_POST['group_id']))
+	if (is_admin() && current_user_can('manage_options') && empty($_POST['group_id']))
 	{
 		unset($EM_Event->group_id);
 	}
@@ -203,7 +203,7 @@ function nycga_em_edit_strip($event, $url, $echo = true)
 		{
 			$html .= '<a class="button bp-secondary-action" href="'.$url.'edit/?event_id='.$event->id.'" title="'. __( 'Edit this event', 'dbem' ).'">'.__( 'Edit', 'dbem' ).'</a>';
 		}
-		if (current_user_can('publish_events') && (current_user_can('administrator') || (groups_is_user_admin(get_current_user_id(),$event->group_id) || groups_is_user_mod(get_current_user_id(), $event->group_id))))
+		if (current_user_can('publish_events') && (current_user_can('manage_options') || (groups_is_user_admin(get_current_user_id(),$event->group_id) || groups_is_user_mod(get_current_user_id(), $event->group_id))))
 		{
 			$html .= '<a class="button bp-secondary-action" href="'.$url.'edit/?action=event_duplicate&amp;event_id='.$event->id.'" title="'.__( 'Duplicate this event', 'dbem' ).'">Duplicate</a>';
 		}
@@ -543,7 +543,7 @@ function nycga_limit_events_list()
 add_action('em_admin_event_form_side_header', 'nycga_admin_group_dropdown');
 function nycga_admin_group_dropdown()
 {
-	if (current_user_can('administrator'))
+	if (current_user_can('manage_options'))
 	{
 		global $EM_Event;
 		if ( ! is_object($EM_Event))
@@ -580,7 +580,7 @@ function nycga_admin_group_dropdown()
 add_action('admin_menu', 'nycga_remove_events_from_dashboard');
 function nycga_remove_events_from_dashboard()
 {
-	if ( ! current_user_can('administrator'))
+	if ( ! current_user_can('manage_options'))
 	{
 		remove_menu_page('events-manager');
 	}
@@ -591,7 +591,7 @@ function nycga_remove_events_from_dashboard()
 add_action ('admin_notices', 'nycga_check_events_access');
 function nycga_check_events_access()
 {
-		if ( ! current_user_can('administrator'))
+		if ( ! current_user_can('manage_options'))
 		{
 			global $current_screen;
 			if ($current_screen->parent_base == 'events-manager')
