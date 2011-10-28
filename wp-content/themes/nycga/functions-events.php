@@ -187,8 +187,7 @@ function nycga_events_fix_future( $conditions, $args )
 {
 	if ($args['scope'] == 'future')
 	{
-		date_default_timezone_set('America/New_York');
-		$now = date('Y-m-d H:i:s', strtotime('now'));
+		$now = current_time('mysql');
 		$conditions['scope'] = " CONCAT(event_end_date, ' ', event_end_time)  >= CAST('$now' AS DATETIME)";
 	}
 	return $conditions;
@@ -575,10 +574,4 @@ function nycga_admin_group_dropdown()
 		</div> 
 		<?php
 	}
-}
-
-add_action('plugins_loaded', 'nycga_set_timezone');
-function nycga_set_timezone()
-{
-	date_default_timezone_set('America/New_York');
 }
