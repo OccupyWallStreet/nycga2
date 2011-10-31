@@ -49,6 +49,9 @@ function contact_names($name = 'name'){
 		case 'title_fields':
 			return __('Contact Tab &rarr; Fields Management', 'contact');
 			break;
+                case 'title_fields_reset':
+			return __('Status Tab &rarr; Restore Default Fields', 'status');
+			break;     		    
 		case 'title_fields_add':
 			return __('Contact Tab &rarr; Add Fields', 'contact');
 			break;

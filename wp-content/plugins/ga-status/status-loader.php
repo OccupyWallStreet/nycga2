@@ -24,8 +24,6 @@ class STATUS extends BP_Group_Extension {
 	function STATUS(){
 		global $bp;
 		
-                
-                
 		// populate extra extras data in global var
 		//$bp->groups->current_group->statustab = groups_get_groupmeta($bp->groups->current_group->id, 'status');
 		
@@ -41,6 +39,7 @@ class STATUS extends BP_Group_Extension {
 		
 		add_action('groups_custom_group_fields_editable', array($this, 'edit_group_fields'));
 		add_action('groups_group_details_edited', array($this, 'edit_group_fields_save'));
+		add_action('groups_created_group', array($this, 'add_default_fields'));
 	}
 	
 	// Public page with already saved content
@@ -233,6 +232,8 @@ class STATUS extends BP_Group_Extension {
 			$this->edit_screen_fields($bp);
 		}elseif ( 'admin' == $bp->current_action && $bp->action_variables[1] == 'fields-manage' ) {
 			$this->edit_screen_fields_manage($bp);
+		}elseif ( 'admin' == $bp->current_action && $bp->action_variables[1] == 'fields-reset' ) {
+			$this->edit_screen_fields_reset($bp);
 		}else{
 			$this->edit_screen_general($bp);
 		}
@@ -293,6 +294,15 @@ class STATUS extends BP_Group_Extension {
 			}
 		echo '</ul>';
 	}
+        
+	function edit_screen_fields_reset($bp){
+	
+		$this->edit_screen_head('fields');
+
+		echo '<p>Warning: This will remove all custom fields.</p>';
+                echo '<p><input type="submit" name="save_restore" id="save" value="Restore"></p>';
+		wp_nonce_field('groups_edit_group_statustab');
+	}        
 	
 	function edit_screen_fields_manage($bp){
 
@@ -380,6 +390,19 @@ class STATUS extends BP_Group_Extension {
 				bp_core_redirect( bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/' );
 			}
 			
+			if ( isset($_POST['save_restore'])){
+				/* Check the nonce first. */
+				if ( !check_admin_referer( 'groups_edit_group_statustab' ) )
+					return false;
+				
+				$this->remove_all_fields();
+				$this->add_default_fields();
+				
+				$this->notices('updated');
+				
+				bp_core_redirect( bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/' );
+			}			
+			
 			// Save new field
 			if ( isset($_POST['save_fields_add'])){
 				/* Check the nonce first. */
@@ -453,6 +476,7 @@ class STATUS extends BP_Group_Extension {
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/'.'" class="button active">'. __('General', 'status') .'</a>
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields/'.'" class="button">'. __('All Fields', 'status') .'</a>
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-manage/'.'" class="button">'. __('Add Fields', 'status') .'</a>
+                                                <a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-reset/'.'" class="button">'. __('Restore Default Fields', 'status') .'</a>
 					</span>';
 		}elseif ($cur == 'fields'){
 			echo '<span class="extra-title">'.status_names('title_fields').'</span>';
@@ -460,8 +484,17 @@ class STATUS extends BP_Group_Extension {
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/'.'" class="button">'. __('General', 'status') .'</a>
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields/'.'" class="button active">'. __('All Fields', 'status') .'</a>
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-manage/'.'" class="button">'. __('Add Fields', 'status') .'</a>
+                                                <a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-reset/'.'" class="button">'. __('Restore Default Fields', 'status') .'</a>
 					</span>';
-		}elseif ($cur == 'fields-manage'){
+		}elseif ($cur == 'fields-reset'){
+                        echo '<span class="extra-title">'.status_names('title_fields_reset').'</span>';
+			echo '<span class="extra-subnav">
+						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/'.'" class="button">'. __('General', 'status') .'</a>
+						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields/'.'" class="button active">'. __('All Fields', 'status') .'</a>
+						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-manage/'.'" class="button">'. __('Add Fields', 'status') .'</a>
+                                                <a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-reset/'.'" class="button">'. __('Restore Default Fields', 'status') .'</a>
+					</span>';
+                }elseif ($cur == 'fields-manage'){
 			if ( isset($_GET['edit']) && !empty($_GET['edit']) ){
 				echo '<span class="extra-title">'.status_names('title_fields_edit').'</span>';
 				$active = '';
@@ -473,6 +506,7 @@ class STATUS extends BP_Group_Extension {
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug . '/" class="button">'. __('General', 'status') .'</a>
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug . '/fields/" class="button">'. __('All Fields', 'status') .'</a>
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug . '/fields-manage/" class="button ' . $active . '">'. __('Add Fields', 'status') .'</a>
+                                                <a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-reset/'.'" class="button">'. __('Restore Default Fields', 'status') .'</a>
 					</span>';
 		}
 	}
@@ -522,8 +556,24 @@ class STATUS extends BP_Group_Extension {
 		$fields = json_encode($fields);
 		groups_update_groupmeta( $id, 'status_fields', $fields );
 	}
+	
+	function remove_all_fields(){
+		global $bp;		
+		groups_delete_groupmeta($bp->groups->current_group->id, 'status_fields');
+	}
         
-
+	function add_default_fields($group_id=NULL){
+		global $bp;
+                if($group_id==NULL){
+                    $group_id=$bp->groups->current_group->id;
+                }
+		$group = new BP_Groups_Group( $group_id );
+		$this->add_default_field('What\'s the ' . $group->name . ' group up to?','','textarea',0,1, 'current_status', $group_id);
+		$this->add_default_field('What challenges is ' . $group->name . ' facing?','','textarea',0,1,  'challenges', $group_id);
+		$this->add_default_field('What does ' . $group->name . ' need?','','textarea',0,1, 'requests', $group_id);
+		$this->add_default_field('What does ' . $group->name . ' have to offer?','','textarea',0,1, 'offers', $group_id);
+		$this->add_default_field('Other Announcements','','textarea',0,1, 'announcements', $group_id);		
+	}
 	
 	// Get field by slug - reusable
 	function get_field_by_slug($slug){
@@ -632,11 +682,7 @@ class STATUS extends BP_Group_Extension {
 	// Creation step - save the data
 	function create_screen_save() {
 	global $bp;
-	$this->add_default_field('What\'s the ' . $bp->groups->current_group->name . ' group up to?','','textarea',0,1, 'current_status');
-	$this->add_default_field('What challenges is ' . $bp->groups->current_group->name . ' facing?','','textarea',0,1,  'challenges');
-	$this->add_default_field('What does ' . $bp->groups->current_group->name . ' need?','','textarea',0,1, 'requests');
-	$this->add_default_field('What does ' . $bp->groups->current_group->name . ' have to offer?','','textarea',0,1, 'offers');
-	$this->add_default_field('Other Announcements','','textarea',0,1, 'announcements');
+	$this->add_default_fields();
 	foreach($_POST as $data => $value){
 		if ( substr($data, 0, 7) === 'status-' ){
 			$to_save[$data] =  $value;

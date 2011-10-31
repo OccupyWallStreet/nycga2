@@ -38,8 +38,7 @@ class CONTACT extends BP_Group_Extension {
 		$this->nav_item_name = contact_names('name');
 		
 		add_action('groups_custom_group_fields_editable', array($this, 'edit_group_fields'));
-		add_action('groups_group_details_edited', array($this, 'edit_group_fields_save'));                
-                
+		add_action('groups_group_details_edited', array($this, 'edit_group_fields_save'));                      
 	}
 	
 	// Public page with already saved content
@@ -232,6 +231,8 @@ class CONTACT extends BP_Group_Extension {
 			$this->edit_screen_fields($bp);
 		}elseif ( 'admin' == $bp->current_action && $bp->action_variables[1] == 'fields-manage' ) {
 			$this->edit_screen_fields_manage($bp);
+		}elseif ( 'admin' == $bp->current_action && $bp->action_variables[1] == 'fields-reset' ) {
+			$this->edit_screen_fields_reset($bp);			
 		}else{
 			$this->edit_screen_general($bp);
 		}
@@ -292,6 +293,15 @@ class CONTACT extends BP_Group_Extension {
 			}
 		echo '</ul>';
 	}
+	
+	function edit_screen_fields_reset($bp){
+	
+		$this->edit_screen_head('fields');
+
+		echo '<p>Warning: This will remove all custom fields.</p>';
+                echo '<p><input type="submit" name="save_restore" id="save" value="Restore"></p>';
+		wp_nonce_field('groups_edit_group_contacttab');
+	}      	
 	
 	function edit_screen_fields_manage($bp){
 
@@ -379,6 +389,19 @@ class CONTACT extends BP_Group_Extension {
 				bp_core_redirect( bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/' );
 			}
 			
+			if ( isset($_POST['save_restore'])){
+				/* Check the nonce first. */
+				if ( !check_admin_referer( 'groups_edit_group_contacttab' ) )
+					return false;
+				
+				$this->remove_all_fields();
+				$this->add_default_fields();
+				
+				$this->notices('updated');
+				
+				bp_core_redirect( bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/' );
+			}				
+			
 			// Save new field
 			if ( isset($_POST['save_fields_add'])){
 				/* Check the nonce first. */
@@ -452,6 +475,7 @@ class CONTACT extends BP_Group_Extension {
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/'.'" class="button active">'. __('General', 'contact') .'</a>
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields/'.'" class="button">'. __('All Fields', 'contact') .'</a>
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-manage/'.'" class="button">'. __('Add Fields', 'contact') .'</a>
+                                                <a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-reset/'.'" class="button">'. __('Restore Default Fields', 'contact') .'</a>						
 					</span>';
 		}elseif ($cur == 'fields'){
 			echo '<span class="extra-title">'.contact_names('title_fields').'</span>';
@@ -459,7 +483,16 @@ class CONTACT extends BP_Group_Extension {
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/'.'" class="button">'. __('General', 'contact') .'</a>
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields/'.'" class="button active">'. __('All Fields', 'contact') .'</a>
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-manage/'.'" class="button">'. __('Add Fields', 'contact') .'</a>
+						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-reset/'.'" class="button">'. __('Restore Default Fields', 'contact') .'</a>	
 					</span>';
+		}elseif ($cur == 'fields-reset'){
+                        echo '<span class="extra-title">'.contact_names('title_fields_reset').'</span>';
+			echo '<span class="extra-subnav">
+						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/'.'" class="button">'. __('General', 'contact') .'</a>
+						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields/'.'" class="button active">'. __('All Fields', 'contact') .'</a>
+						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-manage/'.'" class="button">'. __('Add Fields', 'contact') .'</a>
+                                                <a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-reset/'.'" class="button">'. __('Restore Default Fields', 'contact') .'</a>
+					</span>';					
 		}elseif ($cur == 'fields-manage'){
 			if ( isset($_GET['edit']) && !empty($_GET['edit']) ){
 				echo '<span class="extra-title">'.contact_names('title_fields_edit').'</span>';
@@ -472,6 +505,7 @@ class CONTACT extends BP_Group_Extension {
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug . '/" class="button">'. __('General', 'contact') .'</a>
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug . '/fields/" class="button">'. __('All Fields', 'contact') .'</a>
 						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug . '/fields-manage/" class="button ' . $active . '">'. __('Add Fields', 'contact') .'</a>
+						<a href="'.bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/fields-reset/'.'" class="button">'. __('Restore Default Fields', 'contact') .'</a>						
 					</span>';
 		}
 	}
@@ -500,10 +534,12 @@ class CONTACT extends BP_Group_Extension {
                 if($id==NULL){
                     $id=$bp->groups->current_group->id;
                 }
-		$fields = $this->get_all_fields($bp->groups->current_group->id);
+		$fields = $this->get_all_fields($id);
+		
 		if (!$fields){
 		$fields = array();
 		}
+		
 		$new = new Stdclass;
 		$new->title = htmlspecialchars(strip_tags($title));
 		$new->slug = str_replace('-', '_', sanitize_title($new->title)); // will be used as unique identifier
@@ -517,9 +553,21 @@ class CONTACT extends BP_Group_Extension {
 
 		// Save into groupmeta table
 		$fields = json_encode($fields);
-		groups_update_groupmeta( $bp->groups->current_group->id, 'contact_fields', $fields );
+		groups_update_groupmeta( $id, 'contact_fields', $fields );
 	}
-
+	
+	function remove_all_fields(){
+		global $bp;		
+		groups_delete_groupmeta($bp->groups->current_group->id, 'contact_fields');
+	}
+	
+	function add_default_fields(){
+		global $bp;
+		$this->add_default_field('Phone','','text',0,1);
+		$this->add_default_field('E-mail','','text',0,1);
+		$this->add_default_field('Twitter','','text',0,1);
+		$this->add_default_field('Mailing List','','text',0,1);
+	}	
 	
 	// Get field by slug - reusable
 	function get_field_by_slug($slug){
@@ -623,10 +671,7 @@ class CONTACT extends BP_Group_Extension {
 	// Creation step - save the data
 	function create_screen_save() {
 	global $bp;
-	$this->add_default_field('Phone','','text',0,1);
-	$this->add_default_field('E-mail','','text',0,1);
-	$this->add_default_field('Twitter','','text',0,1);
-	$this->add_default_field('Mailing List','','text',0,1);
+	$this->add_default_fields();
 	foreach($_POST as $data => $value){
 		if ( substr($data, 0, 8) === 'contact-' ){
 			$to_save[$data] =  $value;

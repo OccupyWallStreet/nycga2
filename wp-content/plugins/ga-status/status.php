@@ -49,6 +49,9 @@ function status_names($name = 'name'){
 		case 'title_fields':
 			return __('Status Tab &rarr; Fields Management', 'status');
 			break;
+                case 'title_fields_reset':
+			return __('Status Tab &rarr; Restore Default Fields', 'status');
+			break;                    
 		case 'title_fields_add':
 			return __('Status Tab &rarr; Add Fields', 'status');
 			break;
