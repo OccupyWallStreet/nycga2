@@ -5,8 +5,8 @@
  */
 
 
-add_action( 'login_head', 'openid_wp_login_head');
-add_action( 'login_form', 'openid_wp_login_form');
+#add_action( 'login_head', 'openid_wp_login_head');
+#add_action( 'login_form', 'openid_wp_login_form');
 add_action( 'register_form', 'openid_wp_register_form', 9);
 add_action( 'register_post', 'openid_register_post', 10, 3);
 add_action( 'openid_finish_auth', 'openid_finish_login', 10, 2);
