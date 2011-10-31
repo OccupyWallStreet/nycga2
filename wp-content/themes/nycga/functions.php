@@ -196,8 +196,33 @@ function nycga_remove_dashboard_access()
 	}
 }
 
-// only add below filters if events plugin is enabled
+// include events mods if events plugin is enabled
 if (defined('EM_VERSION'))
 {
 	require_once(dirname(__FILE__) . '/functions-events.php');
 }
+
+// hide certain activities from activity feed
+add_action('bp_has_activities', 'nycga_hidden_activities', 10, 2 );
+function nycga_hidden_activities($a, $activities)
+{
+	$hidden = array('joined_group', 'new_member');
+	
+	foreach ($activities->activities as $key => $activity) 
+	{
+		// only remove the specified items if that activity type has not specifically been chosen
+		if ( ! in_array($_COOKIE['bp-activity-filter'], $hidden) && in_array($activity->type, $hidden, true)) 
+		{
+			unset($activities->activities[$key]);
+			$activities->activity_count = $activities->activity_count - 1;
+			$activities->total_activity_count = $activities->total_activity_count - 1;
+		}
+	}
+	
+	// Renumber the array keys to account for missing items.
+	$activities_new = array_values( $activities->activities );
+	$activities->activities = $activities_new;
+	
+	return $activities;
+}
+
