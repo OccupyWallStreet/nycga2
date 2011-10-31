@@ -1,0 +1,86 @@
+#overlay {
+    background: #666;
+}
+
+.lightbox {
+    position: absolute;
+    background: #fdfdfd;
+    padding: 20px;
+    border: 1px solid #bbb;
+    border-radius: 11px;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+}
+
+.lightbox h3 {
+    margin-top: 0;
+}
+
+.lightbox-close {
+    cursor: pointer;
+    position: absolute;
+    text-decoration: underline;
+    right: 20px;
+    z-index: 9999;
+}
+
+.lightbox-loader {
+    background-image: url(../img/loader.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.lightbox-content {
+    position: relative;
+}
+
+#recom_container {
+    top: 90px;
+    bottom: 120px;
+    overflow: auto;
+    position: absolute;
+    width: 100%;
+}
+
+#recom_container_bottom {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+}
+
+#recom_container_bottom p {
+    margin-top: 0;
+}
+
+#recom_container_bottom fieldset {
+    margin: 0;
+}
+
+th.minify-files-add, td.minify-files-add {
+    width: 40px;
+    text-align: center;
+}
+
+#w3tc-self-test {
+    top: 170px;
+    bottom: 40px;
+    overflow: auto;
+    position: absolute;
+    width: 100%;
+}
+
+#w3tc-self-test ul {
+    list-style: none;
+}
+
+#w3tc-self-test-bottom {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+}
+
+.w3tc-self-test-hint {
+    font-size: 0.8em;
+    font-style: italic;
+    color: #999;
+}

@@ -1,3 +1,63 @@
+# BEGIN W3TC Page Cache core
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^(.*\/)?w3tc_rewrite_test$ $1?w3tc_rewrite_test=1 [L]
+    RewriteCond %{HTTP_HOST} ^(www\.)?([a-z0-9\-\.]+\.[a-z]+)\.?(:[0-9]+)?$
+    RewriteRule .* - [E=W3TC_DOMAIN:%2]
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteRule .* - [E=W3TC_ENC:_gzip]
+    RewriteCond %{REQUEST_METHOD} !=POST
+    RewriteCond %{QUERY_STRING} =""
+    RewriteCond %{HTTP_HOST} =www.nycga.net
+    RewriteCond %{REQUEST_URI} \/$ [OR]
+    RewriteCond %{REQUEST_URI} (sitemap(_index)?\.xml(\.gz)?|[a-z0-9_\-]+-sitemap([0-9]+)?\.xml(\.gz)?) [NC]
+    RewriteCond %{REQUEST_URI} !(\/wp-admin\/|\/xmlrpc.php|\/wp-(app|cron|login|register|mail)\.php|\/feed\/|wp-.*\.php|index\.php) [NC,OR]
+    RewriteCond %{REQUEST_URI} (wp\-comments\-popup\.php|wp\-links\-opml\.php|wp\-locations\.php) [NC]
+    RewriteCond %{HTTP_COOKIE} !(comment_author|wp\-postpass|wordpress_\[a\-f0\-9\]\+|wordpress_logged_in) [NC]
+    RewriteCond %{HTTP_USER_AGENT} !(W3\ Total\ Cache/0\.9\.2\.4) [NC]
+    RewriteCond "%{DOCUMENT_ROOT}/wp-content/w3tc-%{ENV:W3TC_DOMAIN}/pgcache/%{REQUEST_URI}/_index%{ENV:W3TC_UA}%{ENV:W3TC_REF}%{ENV:W3TC_SSL}.html%{ENV:W3TC_ENC}" -f
+    RewriteRule .* "/wp-content/w3tc-%{ENV:W3TC_DOMAIN}/pgcache/%{REQUEST_URI}/_index%{ENV:W3TC_UA}%{ENV:W3TC_REF}%{ENV:W3TC_SSL}.html%{ENV:W3TC_ENC}" [L]
+</IfModule>
+# END W3TC Page Cache core
+
+
+# BEGIN W3TC Browser Cache
+<IfModule mod_deflate.c>
+    <IfModule mod_setenvif.c>
+        BrowserMatch ^Mozilla/4 gzip-only-text/html
+        BrowserMatch ^Mozilla/4\.0[678] no-gzip
+        BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+        BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+    </IfModule>
+    <IfModule mod_headers.c>
+        Header append Vary User-Agent env=!dont-vary
+    </IfModule>
+    <IfModule mod_filter.c>
+        AddOutputFilterByType DEFLATE text/css application/x-javascript text/x-component text/html text/richtext image/svg+xml text/plain text/xsd text/xsl text/xml image/x-icon
+    </IfModule>
+</IfModule>
+<FilesMatch "\.(css|js|htc|CSS|JS|HTC)$">
+    FileETag None
+    <IfModule mod_headers.c>
+         Header set X-Powered-By "W3 Total Cache/0.9.2.4"
+    </IfModule>
+</FilesMatch>
+<FilesMatch "\.(html|htm|rtf|rtx|svg|svgz|txt|xsd|xsl|xml|HTML|HTM|RTF|RTX|SVG|SVGZ|TXT|XSD|XSL|XML)$">
+    FileETag None
+    <IfModule mod_headers.c>
+         Header set X-Powered-By "W3 Total Cache/0.9.2.4"
+    </IfModule>
+</FilesMatch>
+<FilesMatch "\.(asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|exe|gif|gz|gzip|ico|jpg|jpeg|jpe|mdb|mid|midi|mov|qt|mp3|m4a|mp4|m4v|mpeg|mpg|mpe|mpp|otf|odb|odc|odf|odg|odp|ods|odt|ogg|pdf|png|pot|pps|ppt|pptx|ra|ram|svg|svgz|swf|tar|tif|tiff|ttf|ttc|wav|wma|wri|xla|xls|xlsx|xlt|xlw|zip|ASF|ASX|WAX|WMV|WMX|AVI|BMP|CLASS|DIVX|DOC|DOCX|EOT|EXE|GIF|GZ|GZIP|ICO|JPG|JPEG|JPE|MDB|MID|MIDI|MOV|QT|MP3|M4A|MP4|M4V|MPEG|MPG|MPE|MPP|OTF|ODB|ODC|ODF|ODG|ODP|ODS|ODT|OGG|PDF|PNG|POT|PPS|PPT|PPTX|RA|RAM|SVG|SVGZ|SWF|TAR|TIF|TIFF|TTF|TTC|WAV|WMA|WRI|XLA|XLS|XLSX|XLT|XLW|ZIP)$">
+    FileETag None
+    <IfModule mod_headers.c>
+         Header set X-Powered-By "W3 Total Cache/0.9.2.4"
+    </IfModule>
+</FilesMatch>
+# END W3TC Browser Cache
+
+
 RewriteEngine On
 RewriteCond %{HTTP_HOST} nycga.cc [NC]
 RewriteRule ^(.*)$ http://www.nycga.net/$1 [R,L]
