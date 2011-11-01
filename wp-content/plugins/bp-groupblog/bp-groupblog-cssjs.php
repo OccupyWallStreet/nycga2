@@ -7,7 +7,7 @@ function bp_groupblog_add_admin_js() {
 	wp_enqueue_script( 'bp-groupblog-admin-js', WP_PLUGIN_URL . '/bp-groupblog/inc/js/admin.js' );
 	wp_enqueue_script('jquery-ui-core');
 	wp_enqueue_script('jquery-ui-tabs');
-	wp_enqueue_script('effects.core', WP_PLUGIN_URL .'/inc/js/effects.core.js', array('jquery-ui-core'));
+	wp_enqueue_script('effects.core', WP_PLUGIN_URL .'/bp-groupblog/inc/js/effects.core.js', array('jquery-ui-core'));
 }
 add_action( 'admin_enqueue_scripts', 'bp_groupblog_add_admin_js', 1 );
 
