@@ -188,7 +188,17 @@ function nycga_events_fix_future( $conditions, $args )
 	if ($args['scope'] == 'future')
 	{
 		$now = current_time('mysql');
-		$conditions['scope'] = " CONCAT(event_end_date, ' ', event_end_time)  >= CAST('$now' AS DATETIME)";
+		/* since events don't change every second, round off event time to 5 minutes
+		this will let w3totalcache's query / object caching pick up the query
+	 	because the sql string changes every 5 minutes instead of every second	
+		*/
+		//first convert to a timestamp
+		$now = strtotime($now);
+		//no slice off the remainder of 300 seconds
+		$now_ish = $now - ($now %300);
+		//back to a mysql DATETIME format
+		$now_ish = date('Y-m-d H:i:s',$now_ish);
+		$conditions['scope'] = " CONCAT(event_end_date, ' ', event_end_time)  >= CAST('$now_ish' AS DATETIME)";
 	}
 	return $conditions;
 }
