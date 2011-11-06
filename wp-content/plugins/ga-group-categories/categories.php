@@ -44,7 +44,7 @@ function gcats_show_groups_for_cat( $groups ) {
                 $cat = urldecode( $bp->action_variables[0] ); // this is for the widget from all other places
 
         if ( $cat ) {
-                echo '<div id="gtags-results">'.__('Results for category', 'gcats').': <b>' . stripslashes( $cat ) . '</b></div>';
+
                 $gcats_groups = gcats_get_groups_by_cat( null, null, false, false, $cat );
                 $groups_template->groups = $gcats_groups[groups];
                 // turn off pagination
@@ -92,5 +92,24 @@ function gcats_get_groups_by_cat( $limit = null, $page = null, $user_id = false,
         $paged_groups = BP_Groups_Group::get_group_extras( &$paged_groups, $group_ids, 'popular' );
 
         return array( 'groups' => $paged_groups, 'total' => $total_groups );
+}
+
+function bp_group_category() {
+	echo bp_get_group_category();
+}
+
+function bp_get_group_category($group=false) {
+	global $groups_template;
+	if ( !$group )
+		$group =& $groups_template->group;
+	$category = groups_get_groupmeta( $group->id, 'category' );
+	if ($category === 'operations')
+		return 'Operations Group';
+	elseif ($category === 'caucus')
+		return 'Caucus';
+	elseif ($category === 'movement')
+		return 'Movement Group';
+	else
+		return 'None';
 }
 

@@ -35,12 +35,6 @@
 			<div class="item-list-tabs" role="navigation">
 				<ul>
 					<li class="selected" id="groups-all"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/' . bp_get_groups_root_slug() ); ?>"><?php printf( __( 'All Groups <span>%s</span>', 'buddypress' ), bp_get_total_group_count() ); ?></a></li>
-					
-					<li id="groups-cat_operations"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/operations/' ); ?>"><?php printf( __( 'Operations Groups <span>%s</span>', 'buddypress' ), 1 /*bp_get_operations_group_count()*/ ); ?></a></li>
-
-					<li id="groups-cat_caucus"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/caucus/' ); ?>"><?php printf( __( 'Caucuses <span>%s</span>', 'buddypress' ), 2 /*bp_get_caucus_group_count()*/ ); ?></a></li>
-
-					<li id="groups-cat_movement"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/movement' ); ?>"><?php printf( __( 'Movement Groups <span>%s</span>', 'buddypress' ), 3 /*bp_get_movement_group_count()*/ ); ?></a></li>
 
 					<?php if ( is_user_logged_in() && bp_get_total_group_count_for_user( bp_loggedin_user_id() ) ) : ?>
 
