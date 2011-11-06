@@ -113,3 +113,14 @@ function bp_get_group_category($group=false) {
 		return 'None';
 }
 
+function bp_get_category_group_count($category) {
+	global $wpdb;
+	return $wpdb->get_var( $wpdb->prepare("
+		select count(distinct g.id)
+		  from wp_bp_groups g
+		  join wp_bp_groups_groupmeta gm on g.id = gm.group_id
+		 where gm.meta_key = 'category'
+		   and gm.meta_value = '$category';
+"));
+}
+

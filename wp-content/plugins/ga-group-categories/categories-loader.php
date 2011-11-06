@@ -66,11 +66,11 @@ add_action('bp_groups_directory_group_filter', 'add_category_tabs');
 function add_category_tabs(){
 ?>
 					
-					<li id="groups-cat_operations"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/operations/' ); ?>"><?php printf( __( 'Operations Groups <span>%s</span>', 'buddypress' ), 1 /*bp_get_operations_group_count()*/ ); ?></a></li>
+					<li id="groups-cat_operations"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/operations/' ); ?>"><?php printf( __( 'Operations Groups <span>%s</span>', 'buddypress' ), bp_get_category_group_count('operations') ); ?></a></li>
 
-					<li id="groups-cat_caucus"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/caucus/' ); ?>"><?php printf( __( 'Caucuses <span>%s</span>', 'buddypress' ), 2 /*bp_get_caucus_group_count()*/ ); ?></a></li>
+					<li id="groups-cat_caucus"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/caucus/' ); ?>"><?php printf( __( 'Caucuses <span>%s</span>', 'buddypress' ), bp_get_category_group_count('caucus') ); ?></a></li>
 
-					<li id="groups-cat_movement"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/movement' ); ?>"><?php printf( __( 'Movement Groups <span>%s</span>', 'buddypress' ), 3 /*bp_get_movement_group_count()*/ ); ?></a></li>
+					<li id="groups-cat_movement"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/movement' ); ?>"><?php printf( __( 'Movement Groups <span>%s</span>', 'buddypress' ), bp_get_category_group_count('movement') ); ?></a></li>
 
 <?php
 }
