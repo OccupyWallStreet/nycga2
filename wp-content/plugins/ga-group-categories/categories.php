@@ -45,7 +45,7 @@ function gcats_show_groups_for_cat( $groups ) {
 
         if ( $cat ) {
 
-                $gcats_groups = gcats_get_groups_by_cat( null, null, false, false, $cat );
+                $gcats_groups = gcats_get_groups_by_cat( null, null, false, $_POST['search_terms'], $cat, $_POST['filter'] );
                 $groups_template->groups = $gcats_groups[groups];
                 // turn off pagination
                 $groups_template->group_count = $gcats_groups[total];
@@ -63,7 +63,7 @@ add_filter( 'bp_has_groups', 'gcats_show_groups_for_cat', 4, 2 );
 
 // Return an array of the groups for a specific tag (plus number of groups)
 // this is a modified copy of many similar functions found in bp-groups-classes.php
-function gcats_get_groups_by_cat( $limit = null, $page = null, $user_id = false, $search_terms = false, $group_cat = null ) {
+function gcats_get_groups_by_cat( $limit = null, $page = null, $user_id = false, $search_terms = false, $group_cat = null, $sortby ) {
         global $wpdb, $bp;
         
         if ( $limit && $page ) {
@@ -73,7 +73,7 @@ function gcats_get_groups_by_cat( $limit = null, $page = null, $user_id = false,
         if ( !is_user_logged_in() || ( !is_super_admin() && ( $user_id != $bp->loggedin_user->id ) ) )
                 $hidden_sql = "AND g.status != 'hidden'";
 
-        if ( $search_terms ) {
+        if ( $search_terms && $search_terms !== 'Search Groups...') {
                 $search_terms = like_escape( $wpdb->escape( $search_terms ) );
                 $search_sql = " AND ( g.name LIKE '%%{$search_terms}%%' OR g.description LIKE '%%{$search_terms}%%' )";
         }
@@ -83,7 +83,27 @@ function gcats_get_groups_by_cat( $limit = null, $page = null, $user_id = false,
                 $cat_sql = " AND ( gm3.meta_value = '$group_cat' )";
         }
 
-        $sql = "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity, gm3.meta_value as gtags_group_tags FROM {$bp->groups->table_name_groupmeta} gm1, {$bp->groups->table_name_groupmeta} gm2, {$bp->groups->table_name_groupmeta} gm3, {$bp->groups->table_name} g WHERE g.id = gm1.group_id AND g.id = gm2.group_id AND g.id = gm3.group_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND gm3.meta_key = 'category'  {$hidden_sql} {$search_sql} {$cat_sql} ORDER BY CONVERT(gm1.meta_value, SIGNED) DESC {$pag_sql}";
+	if ( $sortby ) {
+		switch ( $sortby ) {
+                        case 'newest':
+                                $order_sql = "ORDER BY g.date_created DESC";
+                                break;
+                        case 'active':
+                                $order_sql = "ORDER BY last_activity DESC";
+                                break;
+                        case 'popular':
+                                $order_sql = "ORDER BY CONVERT(gm1.meta_value, SIGNED) DESC";
+                                break;
+                        case 'alphabetical': default:
+                                $order_sql = "ORDER BY g.name ASC";
+                                break;
+                        case 'random':
+                                $order_sql = "ORDER BY rand()";
+                                break;
+                }
+	}
+
+        $sql = "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity, gm3.meta_value as gtags_group_tags FROM {$bp->groups->table_name_groupmeta} gm1, {$bp->groups->table_name_groupmeta} gm2, {$bp->groups->table_name_groupmeta} gm3, {$bp->groups->table_name} g WHERE g.id = gm1.group_id AND g.id = gm2.group_id AND g.id = gm3.group_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND gm3.meta_key = 'category'  {$hidden_sql} {$search_sql} {$cat_sql} ${order_sql} {$pag_sql}";
         $paged_groups = $wpdb->get_results( $sql ) ;
         $total_groups = count($paged_groups);
         
