@@ -2,7 +2,7 @@
 /*
 Plugin Name: WPtouch
 Plugin URI: http://wordpress.org/extend/plugins/wptouch/
-Version: 1.9.34
+Version: 1.9.35
 Description: A plugin which formats your site with a mobile theme for visitors on Apple <a href="http://www.apple.com/iphone/">iPhone</a> / <a href="http://www.apple.com/ipodtouch/">iPod touch</a>, <a href="http://www.android.com/">Google Android</a>, <a href="http://www.blackberry.com/">Blackberry Storm and Torch</a>, <a href="http://www.palm.com/us/products/phones/pre/">Palm Pre</a> and other touch-based smartphones.
 Author: BraveNewCode Inc.
 Author URI: http://www.bravenewcode.com
@@ -28,7 +28,7 @@ License: GNU General Public License 2.0 (GPL) http://www.gnu.org/licenses/gpl.ht
 load_plugin_textdomain( 'wptouch', false, dirname( plugin_basename( __FILE__ ) ) );
 
 global $bnc_wptouch_version;
-$bnc_wptouch_version = '1.9.34';
+$bnc_wptouch_version = '1.9.35';
 
 require_once( 'include/plugin.php' );
 require_once( 'include/compat.php' );
@@ -85,7 +85,8 @@ $wptouch_defaults = array(
 	'enable-gigpress-button' => false,
 	'enable-flat-icon' => false,
 	'wptouch-language' => 'auto',
-	'enable-twenty-eleven-footer' => 0
+	'enable-twenty-eleven-footer' => 0,
+	'enable-fixed-header' => false
 );
 
 function wptouch_get_plugin_dir_name() {
@@ -340,6 +341,7 @@ class WPtouchPlugin {
 		
 		add_filter( 'init', array(&$this, 'bnc_filter_iphone') );
 		add_filter( 'wp', array(&$this, 'bnc_do_redirect') );
+		add_filter( 'wp', array( &$this, 'bnc_check_switch_redirect') );
 		add_filter( 'wp_head', array(&$this, 'bnc_head') );
 		add_filter( 'query_vars', array( &$this, 'wptouch_query_vars' ) );
 		add_filter( 'parse_request', array( &$this, 'wptouch_parse_request' ) );
@@ -504,6 +506,24 @@ class WPtouchPlugin {
 	   	     }
 	   }
 	}
+	
+	function bnc_check_switch_redirect() {
+		if ( isset( $_GET[ 'wptouch_view'] ) && isset( $_GET['wptouch_redirect'] ) ) {
+			if ( isset( $_GET['wptouch_redirect_nonce'] ) ) {
+				$nonce = $_GET['wptouch_redirect_nonce'];
+				if ( !wp_verify_nonce( $nonce, 'wptouch_redirect' ) ) {
+					_e( 'Nonce failure', 'wptouch' );
+					die;
+				}
+
+				$protocol = ( $_SERVER['HTTPS'] == 'on' ) ? 'https://' : 'http://';
+				$redirect_location = $protocol . $_SERVER['SERVER_NAME'] . $_GET['wptouch_redirect'];
+		
+				header( 'Location: ' . $redirect_location );
+				die;
+			} 
+		}		
+	}
 
 	function bnc_filter_iphone() {	
 		$key = 'wptouch_switch_toggle';
@@ -515,22 +535,6 @@ class WPtouchPlugin {
 				setcookie( $key, 'mobile', $time, $url_path ); 
 			} elseif ( $_GET[ 'wptouch_view' ] == 'normal') {
 				setcookie( $key, 'normal', $time, $url_path );
-			}
-			
-			if ( isset( $_GET['wptouch_redirect'] ) ) {
-				if ( isset( $_GET['wptouch_redirect_nonce'] ) ) {
-					$nonce = $_GET['wptouch_redirect_nonce'];
-					if ( !wp_verify_nonce( $nonce, 'wptouch_redirect' ) ) {
-						_e( 'Nonce failure', 'wptouch' );
-						die;
-					}
-
-					$protocol = ( $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://';
-					$redirect_location = $protocol . $_SERVER['SERVER_NAME'] . $_GET['wptouch_redirect'];
-			
-					header( 'Location: ' . $redirect_location );
-					die;
-				} 
 			}
 		}
 
@@ -660,7 +664,7 @@ function wptouch_switch() {
 	if ( bnc_is_iphone() && $wptouch_plugin->desired_view == 'normal' ) {
 		echo '<div id="wptouch-switch-link">';
 		_e( "Mobile Theme", "wptouch" ); 
-		echo "<a onclick=\"document.getElementById('switch-on').style.display='block';document.getElementById('switch-off').style.display='none';\" href=\"" . get_bloginfo('url') . "/?wptouch_view=mobile&wptouch_redirect_nonce=" . wp_create_nonce( 'wptouch_redirect' ) . "&wptouch_redirect=" . $_SERVER['REQUEST_URI'] . "\"><img id=\"switch-on\" src=\"" . compat_get_plugin_url( 'wptouch' ) . "/themes/core/core-images/on.jpg\" alt=\"on switch image\" class=\"wptouch-switch-image\" style=\"display:none\" /><img id=\"switch-off\" src=\"" . compat_get_plugin_url( 'wptouch' ) .  "/themes/core/core-images/off.jpg\" alt=\"off switch image\" class=\"wptouch-switch-image\" /></a>";
+		echo "<a onclick=\"document.getElementById('switch-on').style.display='block';document.getElementById('switch-off').style.display='none';\" href=\"" . get_bloginfo('url') . "/?wptouch_view=mobile&wptouch_redirect_nonce=" . wp_create_nonce( 'wptouch_redirect' ) . "&wptouch_redirect=" . urlencode( $_SERVER['REQUEST_URI'] ) . "\"><img id=\"switch-on\" src=\"" . compat_get_plugin_url( 'wptouch' ) . "/themes/core/core-images/on.jpg\" alt=\"on switch image\" class=\"wptouch-switch-image\" style=\"display:none\" /><img id=\"switch-off\" src=\"" . compat_get_plugin_url( 'wptouch' ) .  "/themes/core/core-images/off.jpg\" alt=\"off switch image\" class=\"wptouch-switch-image\" /></a>";
  		echo '</div>';
 	}
 }
@@ -715,6 +719,11 @@ function bnc_wp_touch_get_menu_pages() {
 function bnc_get_selected_home_page() {
    $v = bnc_wp_touch_get_menu_pages();
    return $v['home-page'];
+}
+
+function wptouch_use_fixed_header() {
+	$settings = bnc_wptouch_get_settings();
+	return $settings['enable-fixed-header'];
 }
 
 function wptouch_get_stats() {

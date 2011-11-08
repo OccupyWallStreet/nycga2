@@ -2,22 +2,22 @@
 
 function invite_anyone_options() {
 	global $iaoptions;
-	
+
 	// We set our own options cache because of some stupid limitations in the way that page
 	// loads work
 	if ( !empty( $iaoptions ) ) {
 		$options = $iaoptions;
-	} else {		
+	} else {
 		if ( function_exists( 'bp_update_option' ) ) {
 			$options = bp_get_option( 'invite_anyone' );
 		} else {
 			$options = get_option( 'invite_anyone' );
 		}
 	}
-	
+
 	if ( !$options )
 		$options = array();
-	
+
 	$defaults_array = array(
 		'max_invites'			=> 5,
 		'allow_email_invitations' 	=> 'all',
@@ -43,10 +43,10 @@ function invite_anyone_options() {
 		if ( !isset( $options[$key] ) )
 			$options[$key] = $value;
 	}
-	
+
 	$iaoptions = $options;
-	
-	return $options;
+
+	return apply_filters( 'invite_anyone_options', $options );
 }
 
 ?>

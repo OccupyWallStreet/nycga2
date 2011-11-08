@@ -4,7 +4,7 @@
  * Plugin URI:  http://buddypress.org
  * Description: Social networking in a box. Build a social network for your company, school, sports team or niche community all based on the power and flexibility of WordPress.
  * Author:      The BuddyPress Community
- * Version:     1.5
+ * Version:     1.5.1
  * Author URI:  http://buddypress.org/community/members/
  * Network:     true
  */
@@ -17,7 +17,7 @@ global $wpdb;
 
 // Define the BuddyPress version
 if ( !defined( 'BP_VERSION' ) )
-	define( 'BP_VERSION', '1.5' );
+	define( 'BP_VERSION', '1.5.1' );
 
 // Define the database version
 if ( !defined( 'BP_DB_VERSION' ) )
@@ -60,7 +60,7 @@ if ( !defined( 'BP_SEARCH_SLUG' ) )
 	define( 'BP_SEARCH_SLUG', 'search' );
 
 // Setup the BuddyPress theme directory
-register_theme_directory( WP_PLUGIN_DIR . '/buddypress/bp-themes' );
+register_theme_directory( BP_PLUGIN_DIR . '/bp-themes' );
 
 /** Loader ********************************************************************/
 
@@ -79,17 +79,17 @@ if ( !$bp->database_version = get_site_option( 'bp-db-version' ) ) {
 // This is a new installation.
 if ( empty( $bp->database_version ) ) {
 	$bp->maintenance_mode = 'install';
-	require( WP_PLUGIN_DIR . '/buddypress/bp-core/admin/bp-core-update.php' );
+	require( BP_PLUGIN_DIR . '/bp-core/admin/bp-core-update.php' );
 
 // There is a previous installation
 } else {
 	// Load core
-	require( WP_PLUGIN_DIR . '/buddypress/bp-core/bp-core-loader.php' );
+	require( BP_PLUGIN_DIR . '/bp-core/bp-core-loader.php' );
 
 	// Check if an update is required
 	if ( (int)$bp->database_version < (int)constant( 'BP_DB_VERSION' ) || isset( $bp->is_network_activate ) ) {
 		$bp->maintenance_mode = 'update';
-		require( WP_PLUGIN_DIR . '/buddypress/bp-core/admin/bp-core-update.php' );
+		require( BP_PLUGIN_DIR . '/bp-core/admin/bp-core-update.php' );
 	}
 }
 

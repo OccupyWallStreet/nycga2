@@ -136,7 +136,9 @@ function bp_core_get_directory_pages() {
 	// Get pages and IDs
 	if ( $page_ids = bp_core_get_directory_page_ids() ) {
 
-		$posts_table_name = bp_is_multiblog_mode() ? $wpdb->get_blog_prefix( bp_get_root_blog_id() ) . 'posts' : $wpdb->posts;
+		// Always get page data from the root blog, except on multiblog mode, when it comes
+		// from the current blog
+		$posts_table_name = bp_is_multiblog_mode() ? $wpdb->posts : $wpdb->get_blog_prefix( bp_get_root_blog_id() ) . 'posts';
 		$page_ids_sql     = implode( ',', (array)$page_ids );
 		$page_names       = $wpdb->get_results( $wpdb->prepare( "SELECT ID, post_name, post_parent, post_title FROM {$posts_table_name} WHERE ID IN ({$page_ids_sql}) AND post_status = 'publish' " ) );
 
@@ -838,6 +840,16 @@ function bp_core_action_search_site( $slug = '' ) {
 			case 'posts':
 				$slug = '';
 				$var  = '/?s=';
+
+				// If posts aren't displayed on the front page, find the post page's slug.
+				if ( 'page' == get_option( 'show_on_front' ) ) {
+					$page = get_post( get_option( 'page_for_posts' ) );
+
+					if ( !is_wp_error( $page ) && !empty( $page->post_name ) ) {
+						$slug = $page->post_name;
+						$var  = '?s=';
+					}
+				}
 				break;
 
 			case 'blogs':
@@ -971,14 +983,14 @@ function bp_core_get_root_options() {
 		// BuddyPress core settings
 		'bp-deactivated-components'       => serialize( array( ) ),
 		'bp-blogs-first-install'          => '0',
-		'bp-disable-blog-forum-comments'  => '0',
+		'bp-disable-blogforum-comments'  => '0',
 		'bp-xprofile-base-group-name'     => 'Base',
 		'bp-xprofile-fullname-field-name' => 'Name',
 		'bp-disable-profile-sync'         => '0',
 		'bp-disable-avatar-uploads'       => '0',
 		'bp-disable-account-deletion'     => '0',
 		'bp-disable-blogforum-comments'   => '0',
-		'bb-config-location'              => ABSPATH,
+		'bb-config-location'              => ABSPATH . 'bb-config.php',
 		'hide-loggedout-adminbar'         => '0',
 
 		// Useful WordPress settings

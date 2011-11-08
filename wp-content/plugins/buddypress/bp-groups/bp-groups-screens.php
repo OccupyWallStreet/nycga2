@@ -140,7 +140,7 @@ function groups_screen_group_forum() {
 				check_admin_referer( 'bp_forums_new_reply' );
 
 				// Auto join this user if they are not yet a member of this group
-				if ( $bp->groups->auto_join && !is_super_admin() && 'public' == $bp->groups->current_group->status && !groups_is_user_member( $bp->loggedin_user->id, $bp->groups->current_group->id ) )
+				if ( bp_groups_auto_join() && !is_super_admin() && 'public' == $bp->groups->current_group->status && !groups_is_user_member( $bp->loggedin_user->id, $bp->groups->current_group->id ) )
 					groups_join_group( $bp->groups->current_group->id, $bp->loggedin_user->id );
 
 				$topic_page = isset( $_GET['topic_page'] ) ? $_GET['topic_page'] : false;
@@ -337,7 +337,7 @@ function groups_screen_group_forum() {
 				if ( $user_is_banned ) {
 				 	$error_message = __( "You have been banned from this group.", 'buddypress' );
 
-				} elseif ( $bp->groups->auto_join && !is_super_admin() && 'public' == $bp->groups->current_group->status && !groups_is_user_member( $bp->loggedin_user->id, $bp->groups->current_group->id ) ) {
+				} elseif ( bp_groups_auto_join() && !is_super_admin() && 'public' == $bp->groups->current_group->status && !groups_is_user_member( $bp->loggedin_user->id, $bp->groups->current_group->id ) ) {
 					// Auto join this user if they are not yet a member of this group
 					groups_join_group( $bp->groups->current_group->id, $bp->loggedin_user->id );
 				}
@@ -640,8 +640,13 @@ function groups_screen_group_admin_manage_members() {
 				if ( !check_admin_referer( 'groups_demote_member' ) )
 					return false;
 
+				// Stop sole admins from abandoning their group
+		 		$group_admins = groups_get_group_admins( $bp->groups->current_group->id );
+			 	if ( 1 == count( $group_admins ) && $group_admins[0]->user_id == $user_id )
+					bp_core_add_message( __( 'This group must have at least one admin', 'buddypress' ), 'error' );
+
 				// Demote a user.
-				if ( !groups_demote_member( $user_id, $bp->groups->current_group->id ) )
+				elseif ( !groups_demote_member( $user_id, $bp->groups->current_group->id ) )
 					bp_core_add_message( __( 'There was an error when demoting that user, please try again', 'buddypress' ), 'error' );
 				else
 					bp_core_add_message( __( 'User demoted successfully', 'buddypress' ) );
