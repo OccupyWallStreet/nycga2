@@ -1,10 +1,10 @@
 === BP Group Organizer ===
 Contributors: ddean
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=6BKDCMJRYPKNN&lc=US&item_name=BP%20Group%20Organizer&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=6BKDCMJRYPKNN&lc=US&item_name=BP%20Group%20Organizer&currency_code=USD
 Tags: buddypress, group, groups, organize
 Requires at least: 3.0
-Tested up to: 3.2.1
-Stable tag: 1.0.1
+Tested up to: 3.3-beta1
+Stable tag: 1.0.2
 
 Easily create, edit, and delete BuddyPress groups - with drag and drop simplicity
 
@@ -16,7 +16,7 @@ Based on the WordPress Menu editor, BP Group Organizer makes it simple to get yo
 
 * Easily create groups in one step
 * Edit multiple groups and group properties without waiting for page reloads
-* Quickly delete unwanted groups in a flash
+* Delete unwanted groups in a flash
 
 For users of BP Group Hierarchy, this plugin also allows you to move groups around the hierarchy by dragging and dropping. Get your groups just the way you want them, quickly and easily.
 
@@ -40,6 +40,10 @@ No questions yet.
 
 == Changelog ==
 
+= 1.0.2 =
+* Changed: switched to load_plugin_textdomain for translation
+* Fixed: resolved a rendering issue with WP 3.3
+
 = 1.0.1 =
 * Added: plugin description
 * Added: textdomain for translation
@@ -51,6 +55,9 @@ No questions yet.
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Updated for WP 3.3 and with better translation support
 
 = 1.0.1 =
 Fixed issue with admin link and generally cleaned things up 

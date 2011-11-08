@@ -10,32 +10,51 @@ Tags: buddypress, multi-site
 
 @import url('events.css');
 
-/* > Global Elements
+/****** Global Elements *****************************/
 
--------------------------------------------------------------- */
-
-
-a {
-	color:#A25047;
+body {
+	font-family:'helvetica neue', 'lucida grande', arial, sans;
 }
 
+a {
+	color:#333333;
+	font-weight:bold;
+}
+
+a:hover, a:active {
+	color:#999;
+	font-weight:bold;
+}
 
 p {
 	font-size: 14px;
+	color:#666;
 }
 
 .small-print {
 	font-size:11px;
 }
-div.item-list-tabs ul li a, div.item-list-tabs ul li span {
-display: block;
-padding: 5px 10px;
-text-decoration: none;
+
+a.activity-time-since {
+    font-weight: normal;
 }
 
-form#search-form {
-	display: none;
+div#container {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 10px solid #ddd;
+    border-radius: 0px 0px 0px 0px;
+    border-right: 5px solid #ddd;
+	border-left: 5px solid #ddd;
+    overflow: hidden;
+    position: relative;
+    width: 99.2%;
 }
+
+
+
+
+
+
 
 /* buttons */
 
@@ -108,22 +127,24 @@ h1#logo {
 	left:0;
 }
 
-#header-link a {
-	
+#header-link a {	
 	padding:120px 150px;
 }
 
 
-/* #header-section #header {
-	background-image: url(http://ga.loudfeed.org/files/2011/10/Header4.jpg);
+#header-section #header {
 	background-repeat:no-repeat;
-} */
+} 
 
 #search-bar {
 	position: absolute;
 	z-index: 1000;
 	right: 22px;
 	top: -26px;
+}
+
+form#search-form {
+	display: none;
 }
 
 
@@ -133,21 +154,12 @@ h1#logo {
 
 div#header {
 	z-index: 800;
+	margin-bottom: 0px;
 }
 /**************** Hide Elements **************************/
 
 .hideme {
   display: none	
-}
-
-/* Get rid of buttons that say the last time there was activity */
-span.activity {
-  display: none;
-}
-
-/* Remove "Sites" from profile subnav & top skinny nav */
-li#blogs-personal-li {
-	display: none;
 }
 
 
@@ -158,19 +170,77 @@ li#blogs-personal-li {
 }
 
 
-p.comments-closed.pings-open {
-	display: none
-}
+
 
 /**************  admin nav **************/
+
+#wp-admin-bar .padder {
+	background: #fff;
+}
+
+#wp-admin-bar li ul li {
+	background-color:#fff;
+}
+
+#wp-admin-bar a {
+	color:#666;
+}
+
+#wp-admin-bar li a {
+	color:#666;
+}
+
+#wp-admin-bar li ul li a {
+	color:#666;
+}
+
+#wp-admin-bar ul li ul li ul li a{
+	color:#666;
+}
+
+#wp-admin-bar ul.main-nav li:hover, #wp-admin-bar ul.main-nav li ul li:hover, #wp-admin-bar ul.main-nav li.sfhover, #wp-admin-bar ul.main-nav li ul li.sfhover {
+	background-color:#fff !important;
+}
+
+#wp-admin-bar  .sfhover ul, 
+#wp-admin-bar  :hover ul{
+	border:none;
+}
+
+#wp-admin-bar a.sfhover,
+#wp-admin-bar a:hover {
+	background-color:#fff;
+}
+
+#wp-admin-bar ul li:hover > a,
+#wp-admin-bar ul li.sfhover > a{
+	color:#262626;
+}
+
+#wp-admin-bar ul li ul li:hover > a,
+#wp-admin-bar ul li ul li.sfhover > a {
+	color:#262626;
+}
+
+
+
+#wp-admin-bar ul li ul li:hover ul li a,
+#wp-admin-bar ul li ul li.sfhover ul li a {
+	color:#666;
+}
+
+#wp-admin-bar ul li ul li ul li:hover a,
+#wp-admin-bar ul li ul li ul li.sfhover a{
+	color:#262626;
+}
 
 #bp-adminbar-visitrandom-menu {
 	display: none;
 }
 
-#wp-admin-bar ul li a#bp-admin-blogs {
-  display: none;
-}
+/*#wp-admin-bar ul li a#bp-admin-blogs {
+  	display: none;
+}*/
 
 #wp-admin-bar {
 	z-index: 900;
@@ -216,14 +286,86 @@ p.comments-closed.pings-open {
 
 /****************nav bar ***************/
 
+#navigation {
+	text-align: left;
+	background:#ffcc00;
+}
 
-#nav li.selected a {
-	color: black;
-	font-size:14px;
+#nav {
+	margin: 90px 20px 0 0;
+	list-style: none;
+	padding: 0;
+	position: relative;
+	right: auto;
+	bottom: 0;
 }
 
 #nav li a {
-	font-size: 14px;
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight:bold;
+	background: #FC0;
+	color:#262626;
+	padding: 10px 20px;
+}
+
+#nav li.selected a,
+#nav > li.current-menu-item a,
+#nav > li.current_page_item a,
+#nav > li.current_page_ancestor a {
+	background: #fc0;
+	color: #fff;
+}
+
+#nav .sfhover ul li,
+#nav :hover ul li {
+	width: 175px;
+}
+
+#nav li:hover > a, 
+#nav > li:active > a,
+#nav li.sfhover > a {
+	background: #FC0;
+	color: #666;
+}
+
+#nav .sfhover ul li > a,
+#nav :hover ul li > a {
+	background: #FFf;
+}
+
+#nav .sfhover ul, 
+#nav :hover ul{
+	box-shadow: 5px 3px 5px #aaa;
+	-webkit-box-shadow: 5px 3px 5px #aaa; /* Safari */
+	border:none;
+	width:170px;
+}
+
+#nav li.sfhover ul li > a,
+#nav li:hover ul li > a {
+	color: #262626;
+}
+
+
+#nav li ul li.sfhover > a,
+#nav li ul li:hover > a {
+	color: #666;
+}
+
+#nav > li > a {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+#nav li#menu-item-1907 a {
+	background:#F28300;
+	color:#fff;
+}
+
+#nav li#menu-item-1907:hover a, 
+#nav li#menu-item-1907.sfhover a {
+	color:#999;
 }
 
 .menu-item-type-post_type, .menu-item-type-taxonomy {
@@ -232,25 +374,84 @@ p.comments-closed.pings-open {
 	color: white;
 }
 
-#nav .sfhover ul li, #nav :hover ul li {
-width: 175px;
+/* Fix for weird transition of selected-bar */
+ul li.loading a{
+    padding-right: 10px !important;
 }
 
-#nav a {
-	font-size:14px;
+/***********Community pages *************/
+
+div.item-list-tabs {
+    background: none repeat scroll 0 0 #fff;
+	border-top:10px solid #eaeaea;
 }
 
-#nav ul li a, #nav ul ul li a {
-	font-size:14px;
+div#subnav.item-list-tabs {
+    border-top: 0 none;
 }
 
-#nav > ul li.sfhover a,
-#nav > ul li:hover a {
-	color: #F0D1A2;
+div.item-list-tabs ul li a, div.item-list-tabs ul li span {
+	display: block;
+	padding: 5px 10px;
+	text-decoration: none;
 }
+
+/*********** Activity Stream ***********/
+
+.activity-list li.load-more a {
+    color: #000000;
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+ul.item-list.activity-list li.load-more {
+	background: none repeat scroll 0 0 #FFFFFF !important;
+    border-bottom: 10px solid #FFCC00;
+    border-radius: 0 0 0 0;
+    padding: 0px 15px !important;
+}
+
+div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a {
+   	background: url("img/selected-bar.png") no-repeat scroll center bottom transparent;
+	color:#262626;
+	height: 35px;
+	text-transform: uppercase;
+	font-size:11px;
+}
+
+div.item-list-tabs ul li a, div.item-list-tabs ul li span {
+    text-transform: uppercase;
+	height:40px;
+	font-size:11px;
+}
+
+div.item-list-tabs ul li a span {
+    background-color: #eee;
+    color: #666;
+font-size:11px;
+}
+
+div.item-list-tabs ul li.selected a span, div.item-list-tabs ul li.current a span {
+	color:#262626;
+	font-size:11px;
+}
+
+.activity-list .activity-content .activity-header, .activity-list .activity-content .comment-header {
+    color: #666;
+
+}
+
+/* Get rid of buttons that say the last time there was activity */
+span.activity {
+  display: none;
+}
+
 /************ Groups loop **************/
+
 ul#groups-list li {
-    padding: 10px 0px;
+    padding: 6px 0px;
 }
 
 ul#groups-list li:nth-child(odd) {
@@ -318,7 +519,7 @@ text-align: center;
 /**************** Group Page *************/
 
 div.item-list-tabs ul li:hover a, div.item-list-tabs ul li:active a {
-	color:#eb0;
+	color:#999;
 }
 
 div.item-list-tabs ul li#members-groups-li a, div.item-list-tabs ul li#nav-notifications-groups-li a {
@@ -331,11 +532,16 @@ div.item-list-tabs ul li#members-groups-li a, div.item-list-tabs ul li#nav-notif
 
 /* Make numbers in item list tabs light gray with black text */
 div.item-list-tabs ul li a span, div.item-list-tabs ul li.selected a span, div.item-list-tabs ul li.current a span {
-	background-color: #ccc;
+	background-color: #eaeaea;
 	color: black;
 }
 
-/**************** group & activity pages - news feed fix ***************/
+div.item-list-tabs ul li:hover a span, div.item-list-tabs ul li.sfhover a span {
+	background-color: #ddd;
+	color: black;
+}
+
+/******* group pages***************/
 
 .groups div #whats-new-options, /*.activity div#whats-new-options*/ {
 	position: relative;
@@ -348,6 +554,11 @@ div.item-list-tabs ul li a span, div.item-list-tabs ul li.selected a span, div.i
 
 .groups div.bpfb_toolbar_container, .activity div.bpfb_toolbar_container {
   margin-top: 5px;
+}
+
+#gtags-top-cloud a {
+	font-weight:normal;
+	color:#666;
 }
 
 /********************* forum *********************/
@@ -366,6 +577,10 @@ div.item-list-tabs ul li a span, div.item-list-tabs ul li.selected a span, div.i
 }
 /********************pages ********************/
 
+div#content .padder {
+    border-right: 10px solid #ddd;
+}
+
 div.entry {
 	margin: 0;
 	padding: 0 20px;
@@ -375,7 +590,11 @@ div.entry h3{
 	padding-top: 20px;
 }
 
-/***************** how to help *****************/
+p.comments-closed.pings-open {
+	display: none
+}
+
+/***************** how to help page *****************/
 #post-359 form p {
 	width:10px;
 	float:left;
@@ -522,43 +741,57 @@ a.add-new-h2
 
 /******************* sidebar *************/
 
-#text-3 h3 {
-	background-color: #FC0 !important;
-	color: #420 !important;
+div#sidebar {
+    border-left: 10px solid #ddd;
+    border-top-right-radius: 0px;
+    margin-left: -235px;
+    margin-top: 0px;
+    width: 225px;
 }
 
-.bigBtn {
-	-moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
-	box-shadow:inset 0px 1px 0px 0px #fff6af;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23) );
-	background:-moz-linear-gradient( center top, #ffec64 5%, #ffab23 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23');
-	background-color:#ffec64;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #ffaa22;
-	display:inline-block;
-	color:#333333;
-	font-family:Arial;
-	font-size:20px;
+#sidebar a{
+	color:#262626;
 	font-weight:bold;
-	padding:6px 12px;
 	text-decoration:none;
-	text-shadow:1px 1px 0px #ffee66;
-}.bigBtn:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64) );
-	background:-moz-linear-gradient( center top, #ffab23 5%, #ffec64 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64');
-	background-color:#ffab23;
-	color:#333333;
-}.bigBtn:active {
-	position:relative;
-	top:1px;
 }
 
-/************ toggler **************/
+div#sidebar h3.widgettitle {
+    margin: 30px -5px 15px -4px;
+	padding:0;
+    text-transform: uppercase;
+	color:#000;
+	border-bottom:4px solid #000;
+	background:#fff;
+}
+
+#donate-money {
+	text-align:center;
+	padding:10px 10px 10px 10px;
+	background:#F28322;
+	color:#fff;
+	text-transform:uppercase;
+	font-weight:bold;
+}
+
+#donate-money a{
+	color:#fff;
+}
+
+#other-help {
+	text-align:center;
+	text-decoration:none;
+	text-transform:uppercase;
+	font-size:12px;
+	font-weight:bold;
+	padding:10px;
+}
+
+#other-help a{
+	color:#ff9933;
+}
+
+/************ jQuery Group Description toggler + Solidarity Principles toggler **************/
+
 #desc-container {
 	position:relative;
 }
@@ -575,6 +808,30 @@ a.add-new-h2
 
 
 /***************** footer menu *************/
+
+#footer a{
+	color:#262626;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#footer-widgets {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 5px solid #ddd;
+    border-left: 5px solid #ddd;
+    border-radius: 0 0 0 0;
+    border-right: 5px solid #ddd;
+    padding: 0 19px 19px;
+}
+
+div#footer h3.widgettitle {
+    margin: 30px -5px 15px -4px;
+	padding:0;
+    text-transform: uppercase;
+	color:#000;
+	border-bottom:5px solid #000;
+	background:#fff;
+}
 
 
 .menu-item-type-post_type, .menu-item-type-taxonomy {

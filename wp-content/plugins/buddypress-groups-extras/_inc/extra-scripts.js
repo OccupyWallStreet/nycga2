@@ -1,9 +1,9 @@
 jQuery(document).ready(function(){
 
 	/*
-	 * SECTION: MANAGE FIELDS
+	 * SECTION: MANAGE FIELDS / PAGES
 	 */
-	// sorting
+	// sorting fields
 	jQuery("#fields-sortable").sortable({
 		placeholder: "highlight",
 		update: function(event, ui){
@@ -17,11 +17,34 @@ jQuery(document).ready(function(){
 	});
 	jQuery( "#fields-sortable" ).disableSelection();
 	
+	// sorting pages
+	jQuery("#pages-sortable").sortable({
+		placeholder: "highlight",
+		update: function(event, ui){
+			jQuery.post( ajaxurl, {
+				action: 'bpge',
+				method: 'reorder_pages',
+				page_order: jQuery(this).sortable('serialize')
+			},
+			function(response){}); 
+		}
+	});
+	jQuery( "#pages-sortable" ).disableSelection();
+	
+	// sorting nav
+	jQuery("#nav-sortable").sortable({
+		placeholder: "highlight",
+		update: function(event, ui){
+			jQuery('input[name="bpge_group_nav_position"]').val(jQuery(this).sortable('serialize'));
+		}
+	});
+	jQuery( "#nav-sortable" ).disableSelection();
+	
 	// delete field
 	jQuery("#fields-sortable li span a.delete_field").click(function(e){
 		e.preventDefault();
 		var li = jQuery(this).parent().parent().attr('id').split('_');
-		var field = li[1]
+		var field = li[1];
 		jQuery.post( ajaxurl, {
 			action: 'bpge',
 			method: 'delete_field',
@@ -32,6 +55,23 @@ jQuery(document).ready(function(){
 				jQuery('#fields-sortable li#position_'+field).fadeOut('fast');
 		}); 
 	});
+	
+	// delete page
+	jQuery("#pages-sortable li span a.delete_page").click(function(e){
+		e.preventDefault();
+		var li = jQuery(this).parent().parent().attr('id').split('_');
+		var page = li[1];
+		jQuery.post( ajaxurl, {
+			action: 'bpge',
+			method: 'delete_page',
+			page: page
+		},
+		function(response){
+			if (response == 'deleted' )
+				jQuery('#pages-sortable li#position_'+page).fadeOut('fast');
+		}); 
+	});
+	
 	/*
 	 * SECTION: ADD / EDIT FIELDS
 	 */
