@@ -249,51 +249,46 @@ width: 175px;
 	color: #F0D1A2;
 }
 /************ Groups loop **************/
-.groups #groups-list li {
-	width: 220px;
-	height: 250px;
-	float: left;
-	margin-top: 20px;
-	padding: 15px 0px 20px 0px
+ul#groups-list li {
+    padding: 10px 0px;
 }
 
-.groups #groups-list li .item-title {
-	font-size:18px;
-	text-align:center;
-	width:100%;
+ul#groups-list li:nth-child(odd) {
+    background-color: #F4F4F4;
 }
 
-.groups #groups-list li .item {
-	text-align:center;
+ul#groups-list li:hover {
+    cursor: pointer;
+    background-color: #EAEAEA;
 }
 
-.groups #groups-list li .item-avatar {
-	text-align:center;
+ul#groups-list .item {
+    margin-top: 16px;
 }
 
-.groups #groups-list li img.avatar {
-	float:none;
-	margin:0;
+ul#groups-list .item-title {
+    font-size: 20px;
+    float: left;
+    width: 50%;
 }
 
-.groups #groups-list li .action {
-	position: relative;
-	top: 0;
-	right: 0;
-	text-align:center;
+ul#groups-list a {
+    text-decoration: none;
 }
 
-.groups div.pagination {
-	padding: 3px 20px;
+ul#groups-list div.item-count {
+    float: left;
+    width: 20%;
 }
 
-.groups div#pag-bottom {
-	margin-top: -1px;
-	clear:both;
+ul#groups-list div.item-type {
+    float: left;
+    width: 20%;
 }
 
-.group-button {
-	margin-top: 15px;	
+ul.item-list li div.action {
+    top: 28px;
+    right: 10px;
 }
 
 /****************** members list **************************/
