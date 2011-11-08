@@ -517,7 +517,7 @@ jq(document).ready( function() {
 
 	/* When a navigation tab is clicked - e.g. | All Groups | My Groups | */
 	jq('div.item-list-tabs').click( function(event) {
-		if ( jq(this).hasClass('no-ajax') || jq(event.target).hasClass('no-ajax') )
+		if ( jq(this).hasClass('no-ajax') )
 			return;
 
 		var target = jq(event.target).parent();

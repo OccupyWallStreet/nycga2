@@ -5,10 +5,11 @@ function mrt_sub1(){
 	
 	?>
      
-          <div style="height:299px">
-              <?php
-echo "<br /><strong>Password Strength Tool</strong>";
-?>
+          <div class="metabox-holder">
+              <div class="postbox" style="width: 60%;">
+                  <h3 class="hndle"><span><?php echo __('Password Strength Tool');?></span></h3>
+                  <div class="inside">
+                      <p></p>
 <table id="wsd_pwdtool">
     <tr valign="top">
         <td>
@@ -27,13 +28,20 @@ echo "<br /><strong>Password Strength Tool</strong>";
         </td>
     </tr>
 </table>
-              
-<br /><hr align="left" size="2" width="612px" />
-<?php
-echo "<br /><br /><strong>Strong Password Generator</strong><br />";
-echo "Strong Password: " . '<span style="color:#f00;">' . make_password(15) . "</span>";
-?>
-     </div>
+    <p></p>
+                  </div>
+              </div>
+          </div>
+
+<div>
+    <?php
+    echo "<br /><strong>Strong Password Generator</strong><br />";
+    echo "Strong Password: " . '<span style="color:#f00;">' . make_password(15) . "</span>";
+    ?>
+ </div>
+<br/><br/>
+<p style="margin-top: 75px;"></p>
+<hr align="left" size="2" width="612px" />
  
 <?php 
 mrt_wpss_menu_footer();
