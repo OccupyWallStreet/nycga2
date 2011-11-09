@@ -1,6 +1,5 @@
 <?php
-/*ini_set('display_errors',1); 
-error_reporting(E_ALL);*/
+
 class STATUS extends BP_Group_Extension {
 	var $status = false;
 	
@@ -39,7 +38,6 @@ class STATUS extends BP_Group_Extension {
 		
 		add_action('groups_custom_group_fields_editable', array($this, 'edit_group_fields'));
 		add_action('groups_group_details_edited', array($this, 'edit_group_fields_save'));
-		add_action('groups_created_group', array($this, 'add_default_fields'));
 	}
 	
 	// Public page with already saved content
@@ -49,7 +47,7 @@ class STATUS extends BP_Group_Extension {
                 $emptytab = true;
 		$fields = $this->get_all_fields($bp->groups->current_group->id);
 		if (empty($fields))
-			return false;
+			$this->add_default_fields();
 		//Temp fix for bug
 		$listed = array();	
 		echo '<div class="extra-data">';
@@ -241,7 +239,9 @@ class STATUS extends BP_Group_Extension {
 	}
 	
 	function edit_screen_general($bp){
-		
+		$fields = $this->get_all_fields($bp->groups->current_group->id);
+		if (empty($fields))
+			$this->add_default_fields();				
 		$public_checked = $bp->groups->current_group->statustab['display_page'] == 'public' ? 'checked="checked"' : '';
 		$private_checked = $bp->groups->current_group->statustab['display_page'] == 'private' ? 'checked="checked"' : '';
 
