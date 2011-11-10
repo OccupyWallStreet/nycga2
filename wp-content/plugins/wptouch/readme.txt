@@ -1,10 +1,10 @@
 === Plugin Name ===
-Contributors: BraveNewCode
+Contributors: bravenewcode, duanestorey, dalemugford
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=paypal%40bravenewcode%2ecom&item_name=WPtouch%20Beer%20Fund&no_shipping=0&no_note=1&tax=0&currency_code=CAD&lc=CA&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: wptouch, iphone, ipod, theme, apple, mac, bravenewcode, ajax, mobile, android, blackberry, smartphone, 
 Requires at least: 3.0
-Tested up to: 3.2
-Stable tag: 1.9.34
+Tested up to: 3.3
+Stable tag: 1.9.35
 
 WPtouch: A simple, powerful and elegant mobile theme for your website.
 
@@ -28,15 +28,22 @@ The admin panel allows you to customize many aspects of its appearance, and deli
 The theme also includes the ability for visitors to switch between *WPtouch* view and your site's regular theme.
 
 *Now Available: WPtouch Pro!*
-Totally re-written top to bottom, with a slew of new features like more style, color and branding customizations, themes, 10 languages, more advertising options, Web-App mode, and more!
+Totally re-written top to bottom, with a slew of new features like more style, color and branding customizations, themes, 10 languages, more advertising options, Web-Application mode, and more!
 
-Awesome iPad theme support is now available in WPtouch Pro 2.1!!!
+Awesome iPad theme support is now available in WPtouch Pro 2, now at 2.4!!!
 
 For more information visit http://www.bravenewcode.com/wptouch-pro
 
 'WPtouch' and 'WPtouch Pro' are trademarks of BraveNewCode Inc.
 
 == Changelog ==
+
+= Version 1.9.35 =
+
+* Added: fitVids() for much better video handling
+* Added: Option to use fixed header for iOS 5 devices
+* Changed: Minor CSS fixes and improvements
+* Fixed: Nonce/re-direct behaviour for switch link
 
 = Version 1.9.34 =
 

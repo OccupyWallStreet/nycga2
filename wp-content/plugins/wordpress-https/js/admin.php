@@ -25,17 +25,23 @@ jQuery(document).ready(function($) {
 	var options = {
 		data: { ajax: '1'},
 		success: function(responseText, textStatus, XMLHttpRequest) {
-			$('#message-body').html(responseText);
-			// .animate is used to delay the fadeOut by 5 seconds
-			$('#message-body').fadeIn().animate({opacity: 1.0}, 5000).fadeOut();
 			$('#submit-waiting').hide();
+			$('#message-body').html(responseText);
+			$('#message-body').fadeIn().animate({opacity: 1.0}, 5000).fadeOut();
 		}
 	};
 	
 	$('#wordpress-https').ajaxForm(options);
 	
 	$('#wphttps-updates .wphttps-widget-content').load('<?php echo parse_url($wordpress_https->plugin_url, PHP_URL_PATH); ?>/js/updates.php');
-
+	
+	$.ajax({
+		url: '<?php echo parse_url($wordpress_https->plugin_url, PHP_URL_PATH); ?>/js/sidebar.php',
+		success: function(response) {
+			$('#wphttps-sidebar').append(response);
+		}
+	});
+	
 	function resize() {
 		$('#wphttps-main').width( $('#wphttps-main').parent().width() - ($('#wphttps-sidebar').width() + 15));
 	}
@@ -44,4 +50,14 @@ jQuery(document).ready(function($) {
 		resize();
 	});
 	resize();
+	
+	$('#wphttps-warnings .warning-help').tooltip({
+		id: 'wphttps-tooltip',
+		delay: 0,
+		showURL: false,
+		positionLeft: true,
+		bodyHandler: function() {
+			return $($(this).attr("href")).html();
+		}
+	});
 });

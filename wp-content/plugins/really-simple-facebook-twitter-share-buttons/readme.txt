@@ -4,7 +4,7 @@ Donate link: http://www.whiletrue.it/
 Tags: facebook, twitter, facebook share, twitter share, facebook share button, twitter share button, linkedin, google +1, +1, google buzz, buzz, digg, flattr, stumbleupon, hyves, links, post, page, mail, email, reddit, tipy, shortcode
 Requires at least: 2.9+
 Tested up to: 3.2.1
-Stable tag: 1.8.3
+Stable tag: 1.8.4
 
 Puts Facebook, Twitter, LinkedIn, Google "+1" and other share buttons of your choice above or below your posts.
 
@@ -72,6 +72,9 @@ We'll see!
 2. Options available in the Settings menu 
 
 == Changelog ==
+
+= 1.8.4 =
+* Fixed: Twitter share button title cleaning (thanks Harald)
 
 = 1.8.3 =
 * Fixed: Removed the standard "Tweet" text from the link inside the Twitter button, to avoid its occasional presence in the summaries (thanks David)
@@ -231,7 +234,8 @@ Initial release
 
 == Upcoming features ==
 
-* Button text customization
+* Button sorting (main upcoming feature)
 * Share buttons widget
 * Shortcodes for single buttons
-* Support for more share buttons
+* New "report" button
+* Counter for the "mail" button

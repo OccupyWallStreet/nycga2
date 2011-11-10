@@ -7,7 +7,7 @@ function wptouch_core_header_enqueue() {
 	$version = get_bloginfo('version'); 
 		if (!bnc_wptouch_is_exclusive()) { 
 	    wp_enqueue_script('jquery-form');
-		wp_enqueue_script('wptouch-core', '' . compat_get_plugin_url( 'wptouch' ) . '/themes/core/core.js', array('jquery'), '1.9.22.1' );		
+		wp_enqueue_script('wptouch-core', '' . compat_get_plugin_url( 'wptouch' ) . '/themes/core/core.js', array('jquery'), '1.9.x' );		
 		wp_head(); 
 
 		} elseif ( bnc_wptouch_is_exclusive() ) { 
@@ -191,7 +191,7 @@ function wptouch_core_else_text() {
 }
 
 function wptouch_core_footer_switch_link() {	
-	echo '<script type="text/javascript">function switch_delayer() { window.location = "' . get_bloginfo( 'url' ) . '/?wptouch_view=normal&wptouch_redirect_nonce=' . wp_create_nonce( 'wptouch_redirect' ) . '&wptouch_redirect=' . $_SERVER['REQUEST_URI'] .'"}</script>';
+	echo '<script type="text/javascript">function switch_delayer() { window.location = "' . get_bloginfo( 'url' ) . '/?wptouch_view=normal&wptouch_redirect_nonce=' . wp_create_nonce( 'wptouch_redirect' ) . '&wptouch_redirect=' . urlencode( $_SERVER['REQUEST_URI'] ) .'"}</script>';
 	echo '' . __( "Mobile Theme", "wptouch" ) . ' <a id="switch-link" onclick="wptouch_switch_confirmation();" href="javascript:return false;"></a>';
 }
 
@@ -236,8 +236,8 @@ function wptouch_get_comment_count() {
 }
 
 // Add 'Delete | Spam' links in comments for logged in admins
- function wptouch_moderate_comment_link($id) {  
-	  if (current_user_can('edit_post')) {  
+ function wptouch_moderate_comment_link( $id ) {  
+	  if ( current_user_can( 'edit_post' ) ) {  
      echo '<a href="' . admin_url("comment.php?action=editcomment&c=$id") . '">' . __('edit') . '</a>';  
      echo '<a href="' . admin_url("comment.php?action=cdc&c=$id") . '">' . __('del') . '</a>';  
      echo '<a href="' . admin_url("comment.php?action=cdc&dt=spam&c=$id") . '">' . __('spam') . '</a>';  
@@ -253,10 +253,16 @@ function wptouch_thumbnail_size( $size ) {
 function wptouch_idevice_classes() {
 	$iPhone = strstr( $_SERVER['HTTP_USER_AGENT'], 'iPhone' );
 	$iPod = strstr( $_SERVER['HTTP_USER_AGENT'], 'iPod' );
-//	$iPod = strstr( $_SERVER['HTTP_USER_AGENT'], 'Safari' );
+	$iOS5 = strstr( $_SERVER['HTTP_USER_AGENT'], 'OS 5_0' );
+
 	if ( $iPhone || $iPod ) {
 		echo 'idevice';
 	}
+	
+	if ( $iOS5 && wptouch_use_fixed_header() ) { 
+		echo ' ios5';
+	}
+	
 }
 
 // Remove the admin bar when logged in and looking at WPtouch
