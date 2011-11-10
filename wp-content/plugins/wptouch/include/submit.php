@@ -182,6 +182,12 @@ if ( isset( $_POST['submit'] ) ) {
 	} else {
 		$a['enable-show-tweets'] = 0;
 	}		
+
+	if ( isset($_POST['enable-fixed-header']) ) {
+		$a['enable-fixed-header'] = 1;
+	} else {
+		$a['enable-fixed-header'] = 0;
+	}		
 	
 	if ( isset( $_POST['custom-user-agents'] ) ) {
 		$new_array = array();

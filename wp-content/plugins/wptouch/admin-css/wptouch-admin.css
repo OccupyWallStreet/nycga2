@@ -1,4 +1,7 @@
-/* @override http://beta.bravenewcode.com/wordpress/wp-content/plugins/wptouch/admin-css/wptouch-admin.css */
+/* @override 
+	http://beta.bravenewcode.com/wordpress/wp-content/plugins/wptouch/admin-css/wptouch-admin.css
+	http://www.bravenewcode.com/wordpress/wp-content/plugins/wptouch/admin-css/wptouch-admin.css
+*/
 
 /* WPtouch 1.9 Admin CSS */
 
@@ -141,11 +144,14 @@
 	border-bottom-style: none;
 }
 
-#wptouch-news-support p#find-out-more {
+a#find-out-more {
 	font-weight: bold;
 	position: absolute;
-	right: 380px;
-	top: 195px;
+	right: 326px;
+	top: 191px;
+	display: block;
+	width: 148px;
+	height: 30px;
 }
 
 /* @end */

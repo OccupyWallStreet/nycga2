@@ -1,0 +1,201 @@
+LEGEND
+    * [release]
+	* [feature]
+	* [fix]
+	* [improved]
+	* [deprecated]
+	
+VERSION 6.0
+	* [release]     Initial framework changelog started.
+	
+VERSION 6.1
+	* [improved]    Added username field to feedback form
+	* [fix]         Removed WP 3.0 alert message
+	* [improved]    Added custom post types to free version as well
+	* [improved]    Added body scripts to Blog Stats and Scripts settings
+	* [improved]    Commercial theme updates redirected to membership account
+	* [improved]    Updates control display only theme update if both are avaialble (theme and framework)
+	* [fix]         Moved Custom Post Types to theme library
+	* [improved]    Added translations for Updates control panel
+	
+VERSION 6.2
+	* [feature]     Added bizz_feed_spot() action
+	* [deprecated]  Simple Contact form excluded
+	* [deprecated]  Page order ability (making the way to WP 3.0)
+	* [deprecated]  Custom Ajax login excluded
+	
+VERSION 6.2.1
+	* [feature]     Notify users when WP 3.0 and no custom menus are created
+	
+VERSION 6.2.2
+	* [fix]         WP 2.9: Call to undefined function wp_get_nav_menus() fixed
+	
+VERSION 6.2.3
+	* [fix]         Frame editor update alert fixed
+	* [fix]         Uploaded image in metabox now appears if uploaded
+	* [fix]         External frame scripts now loaded via Google
+	* [improved]    Added tables to JWYSIWYG editor
+	* [improved]    Improved twitter hosted script (loads instantly)
+	
+VERSION 6.2.4
+	* [feature]     Sort and check images with descriptions in theme options panel 
+	* [improved]    bizz_headline() archive tags now h2
+	* [improved]    upload option id simplified
+	* [fix]         PrettyPhoto script
+	* [fix]         Stripslashes
+	* [fix]         Twitter RSS error
+	* [improved]    Eliminated all PHP notices if debug mode is on
+	* [improved]    Auto image resize script
+	* [improved]    Added support for WP thumbnail images & deleted old bizz thumbnails
+	* [improved]    Unified theme framework for all versions (pretty obvious step, huh?)
+	
+VERSION 6.2.5
+	* [feature]     Sort and check posts in theme options panel 	
+	* [fix]         Comment trackbacks
+	* [fix]         Twitter RSS error (SimplePie correction)
+	* [feature]     Simple contact form
+	
+VERSION 6.2.6
+	* [fix]         Contact form fix (permalinks now work)
+	* [fix]         FAQ template fix and Breadcrumb fix as well
+	* [feature]     Added classes into framework instead of lib_theme
+	* [improved]    Theme saving now faster and safer, no lost data during the process
+	
+VERSION 6.2.7 - 2010.06.29
+	* [fix]         Default checkboxes can now be turned off
+	
+VERSION 6.2.8 - 2010.06.30
+	* [feature]     AJAX Upload field for widgets
+	* [improved]    Layout stylesheet before custom.css
+	
+VERSION 6.2.9 - 2010.07.29
+	* [fix]         Twitter returns emtpy tweets
+	* [feature]     Added spam checker function
+	* [improved]    Contact form now uses Akismet for spam detection
+	
+VERSION 6.3.0 - 2010.08.02
+	* [improved]    Removed navigation notice upon theme activation
+	* [improved]    Improved scripts handling
+	* [feature]     Added shortcodes libaries
+	* [feature]     Enhanced overall performance
+	* [fix]         Fixed post meta issue
+	
+VERSION 6.3.1 - 2010.08.14
+	* [fix]         Options deleted after inserting adsense
+	
+VERSION 6.3.2 - 2010.08.18
+	* [fix]         Contact form widget (utf8 and headers)
+	
+VERSION 6.3.3 - 2010.09.03
+	* [fix]         Contact form widget - updated fix (utf8 and headers)
+	* [fix]         Framework settings checkboxes (always on)
+	* [feature]     Added shortcodes libaries
+	
+VERSION 6.3.4 - 2010.09.25
+	* [fix]         Page title always the same
+	
+VERSION 6.3.5 - 2010.10.13
+	* [fix]         Fixed admin jQuery plugin conflicts
+	* [improved]    Contact form now embraces Akismet spam filtering
+	
+VERSION 6.3.6 - 2010.10.18
+	* [fix]         Fixed jQuery minified script
+	
+VERSION 6.3.7 - 2010.10.19
+	* [improved]         Cached Twitter widget (no more errors)
+	
+VERSION 6.3.8 - 2010.10.27
+	* [improved]         Updated TimThumb image resizing script
+	* [improved]         Added hook for archive category navigation
+	
+VERSION 6.3.9 - 2010.10.28
+	* [fix]              Removed auto chmod function
+	
+VERSION 6.4.0 - 2010.11.05
+	* [improved]         Added new shortcodes
+	* [improved]         Updated jQuery to new versions
+	
+VERSION 6.4.1 - 2010.11.13
+	* [improved]         Thumbnail loading from cached folder
+	
+VERSION 6.4.2 - 2010.11.17
+	* [improved]         Escaped serialized data
+	* [fix]              Reset now redirects correctly
+	
+VERSION 6.4.3 - 2010.11.26
+	* [fix]              MySql escaped string data (quotation fix)
+	
+VERSION 6.4.4 - 2010.12.05
+	* [fix]              Double quote fix
+	* [improved]         TimThumb update
+	* [improved]         jQuery update
+	* [improved]         theme options update
+	
+VERSION 6.4.5 - 2010.12.16
+	* [improved]         jQuery UI update
+	* [improved]         PrettyPhoto update
+	* [fix]              Design reset now deletes layout.css content
+	* [improved]         Added chmod warning
+	
+VERSION 6.4.6 - 2010.12.20
+	* [fix]              Contact form widget fix, when Akismet is activated
+	
+VERSION 6.4.7 - 2010.12.31
+	* [fix]              noindex, nofollow attribute for single posts
+	
+VERSION 6.4.8 - 2011.01.11
+	* [improved]         Show retweets
+	* [improved]         Added noconflict mode inside WP admin
+	
+VERSION 6.4.9 - 2011.01.11
+	* [improved]         category meta links for content boxes
+	
+VERSION 6.5.0 - 2011.02.22
+	* [fix]              checkboxes stay checked
+	
+VERSION 6.5.1 - 2011.03.28
+	* [fix]              correct headline displayed for static pages
+	
+VERSION 6.5.2 - 2011.04.08
+	* [fix]              updated jQuery scripts
+	* [improved]         updated TimThumb script
+	
+VERSION 6.5.3 - 2011.04.11
+	* [improved]         updated TimThumb script (relative script path)
+	
+VERSION 6.5.4 - 2011.06.03
+	* [fix]              several notices and warnings
+	* [fix]              Twitter widget
+	* [fix]              default post meta date formats
+	
+VERSION 6.5.5 - 2011.06.06
+	* [fix]              rss and feedburner links
+	
+VERSION 6.5.6 - 2011.06.10
+	* [fix]              changed all date formats
+	* [improved]         updated jQuery and jQuery UI scripts
+	* [improved]         faster loading with cache disabled
+	* [improved]         removed all PHP notices when WP debugger is on
+	
+VERSION 6.5.7 - 2011.06.14
+	* [fix]              updated custom RSS feeds
+	
+VERSION 6.5.8 - 2011.07.08
+	* [fix]              tweet date link
+	* [improved]         updated jquery to 1.6.2
+	
+VERSION 6.5.9 - 2011.07.08
+	* [improved]         added comment_form action for comments
+	
+VERSION 6.6.0 - 2011.08.18
+	* [improved]         fixed PrettyPhoto lightbox effect
+	
+VERSION 6.6.1 - 2011.09.01
+	* [improved]         timthumb update
+	* [improved]         upload select thumbnails
+	
+VERSION 6.6.2 - 2011.10.05
+	* [improved]         timthumb update
+	* [improved]         jQuery update to 1.6.4
+	* [improved]         JScolor update to 1.3.9
+	

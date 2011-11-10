@@ -3,12 +3,12 @@ Contributors: dwenaus, boonebgorges
 Description: This powerful plugin allows people to receive email notifications of group activity, especially forum posts. Weekly or daily digests available.
 Tags: buddypress, bp, activities, activity, groups, group, emails, email, notifications, notification, subscribe, subscription, digest, summary
 Requires at least: 2.9.1 (BP 1.2)
-Tested up to: 3.2.1 (BP 1.5)
-Stable tag: 2.9.3
+Tested up to: 3.2.1 (BP 1.5.1)
+Stable tag: 2.9.5
 
 == Description ==
 
-This powerful plugin allows people to receive email notifications of group activity, especially forum posts. Weekly or daily digests available. Each user can choose how they want to subscribe to their groups. The plugin works for hundreds of groups and users. Tested up to BuddyPress 1.5.
+This powerful plugin allows people to receive email notifications of group activity, especially forum posts. Weekly or daily digests available. Each user can choose how they want to subscribe to their groups. The plugin works for hundreds of groups and users. Tested up to BuddyPress 1.5.1.
 
 EMAIL SUBSCRIPTION LEVELS
 There are 5 levels of email subscription options: 
@@ -58,6 +58,7 @@ TRANSLATORS
 - swedish - Thomas Schneider
 - german - Peter Peterson
 - russian - http://www.viaestvita.net/groups/
+- farsi - Vahid Masoomi http://www.AzUni.ir
 
 NOTE TO PLUGIN AUTHORS
 If your plugin posts updates to the standard BuddyPress activity stream, then group members who are subscribed via 3. Daily Digest and 5. All Email will get your updates automatically. However people subscribed as 2. Weekly Summary and 4. New Topic will not. If you feel some of your plugin's updates are very important and want to make sure all subscribed members them, then you can filter  'ass_this_activity_is_important' and return TRUE when $type matches your activity. See the ass_this_activity_is_important() function in bp-activity-subscription-functions.php for code you can copy and use. An example: adding a new wiki page would be considered important and should be filtered in, whereas a comment on a wiki page would be less important and should not be hooked in.
@@ -85,6 +86,12 @@ Other supporters: bluedotproductions.com
 7. Admin Settings
 
 == Changelog ==
+
+= 2.9.5 =
+Added Farsi translation. Thanks, Vahid!
+
+= 2.9.4 =
+Added additional filters to digest builder
 
 = 2.9.3 =
 Added updated Spanish translation

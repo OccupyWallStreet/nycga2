@@ -1,0 +1,10 @@
+/*** Theme Options  ***/
+.tabNav {overflow:hidden;margin:15px 0 0;}
+.tabNav li {display:inline;float:left;}
+.tabNav li a {display:block;float:left;line-height:18px;min-width:10em;padding:8px;text-decoration:none;}
+.mainTabNav li {margin:0 1px;}
+.mainTabNav li:first-child {margin-left:0;}
+.mainTabNav li a  {text-align:center;background:#6D6D6D url(../images/menu-bits.gif) repeat-x scroll left top;border:1px solid #6D6D6D;color:#fff;}
+.mainTabNav li a:focus, .mainTabNav li a:hover, .mainTabNav .ui-state-active a {color:#D54E21;cursor:pointer;background:#ECECEC;border:1px solid #e3e3e3;border-bottom-color:#ECECEC;}
+.mainTabNav .ui-state-active a {color:#21759B;}
+#themeOptionsSave {float:left;margin-right:36px;}

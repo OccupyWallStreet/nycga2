@@ -1,7 +1,7 @@
 <?php global $is_ajax; $is_ajax = isset($_SERVER['HTTP_X_REQUESTED_WITH']); if (!$is_ajax) get_header(); ?>
 <?php $wptouch_settings = bnc_wptouch_get_settings(); ?>
 
-<div class="content" id="content<?php echo md5($_SERVER['REQUEST_URI']); ?>">
+<div class="content single" id="content<?php echo md5($_SERVER['REQUEST_URI']); ?>">
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			<div class="post">
 			    <a class="sh2" href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( "Permanent Link to ", "wptouch" ); ?><?php if (function_exists('the_title_attribute')) the_title_attribute(); else the_title(); ?>"><?php the_title(); ?></a>
