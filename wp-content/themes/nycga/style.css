@@ -13,6 +13,7 @@ Tags: buddypress, multi-site
 /****** Global Elements *****************************/
 
 body {
+	background:white;
 	font-family:'helvetica neue', 'lucida grande', arial, sans;
 }
 
@@ -939,6 +940,10 @@ background: -o-linear-gradient(top,  #3431e3 0%,#2828c4 100%); /* Opera 11.10+ *
 background: -ms-linear-gradient(top,  #3431e3 0%,#2828c4 100%); /* IE10+ */
 background: linear-gradient(top,  #3431e3 0%,#2828c4 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3431e3', endColorstr='#2828c4',GradientType=0 ); /* IE6-9 */
+color:#fff;
+display:block;
+text-transform:uppercase;
+font-weight:bold;
 }
 
 #donate-money a{
