@@ -55,12 +55,6 @@ div#container {
     width: 99.2%;
 }
 
-
-
-
-
-
-
 /********* like and delete buttons *********/
 
 .like,
@@ -129,7 +123,9 @@ h1#logo {
 }
 
 #header-link a {	
-	padding:120px 150px;
+	width: 1000px;
+	height: 150px;
+	display: block;
 }
 
 
@@ -162,6 +158,7 @@ div#header {
 
 #wp-admin-bar .padder {
 	background: #eaeaea;
+	background: rgba(200, 200, 200, .9);
 }
 
 #wp-admin-bar li ul li {
@@ -269,6 +266,8 @@ div#header {
   font-weight: bold;
   border-bottom-left-radius: 6px 6px;  
 }
+
+.home-page div#whats-new-post-in-box {display:none;}
 
 /****************nav bar ***************/
 
@@ -484,7 +483,7 @@ ul#groups-list li:hover {
 }
 
 ul#groups-list .item {
-    margin-top: 16px;
+    margin:16px 100px 0 60px;
 }
 
 ul#groups-list .item-title {
@@ -517,11 +516,27 @@ ul.item-list li div.action {
 }
 
 div#subnav.item-list-tabs ul li.last {
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 .group-subscription-div {
-	display:none;
+}
+
+.generic-button .join-group {}
+
+.generic-button .leave-group {
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(top,  #ffffff 0%, #fccfc4 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#fccfc4)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ffffff 0%,#fccfc4 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ffffff 0%,#fccfc4 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ffffff 0%,#fccfc4 100%); /* IE10+ */
+background: linear-gradient(top,  #ffffff 0%,#fccfc4 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fccfc4',GradientType=0 ); /* IE6-9 */
+}
+
+div#pag-bottom {
+margin-top: 1px;
 }
 
 /****************** members list **************************/
@@ -530,6 +545,7 @@ div#subnav.item-list-tabs ul li.last {
 	padding: 15px 5px;
 	float: left;
 	width: 150px;
+	height:100px;
 }
 
 .members ul.item-list li img {
@@ -548,7 +564,16 @@ text-align: center;
 	text-align:center;
 	float:none;
 }
+
+ul.item-list li div.item-title span {
+display: none;
+}
+
+.members.dir-list #pag-bottom { display:none; }
+
 /**************** Group Page *************/
+
+div.pagination { margin: -20px -10px 0px -19px; }
 
 div.item-list-tabs ul li:hover a, div.item-list-tabs ul li:active a {
 	color:#999;
@@ -645,7 +670,7 @@ a.more-link {
 }
 
 div#content .padder {
-    border-right: 10px solid #ddd;
+    /* border-right: 10px solid #ddd; */
 }
 
 div.entry {
@@ -797,6 +822,10 @@ div#sidebar-4 .padder {
 	margin-right: 20px;
 }
 
+.advanced-recent-posts > li { border-bottom:1px dotted #CCC; padding-bottom:5px; margin-bottom:4px; }
+.advanced-recent-posts > li a { font-weight:bold; }
+
+.advanced-recent-posts .date { display:block; }
 
 /******************* Events *************/
 
@@ -876,18 +905,19 @@ div#sidebar h3.widgettitle {
 	background:#fff;
 }
 
-#donate-money {
+#donate-money a {
 	text-align:center;
 	padding:10px 10px 10px 10px;
-	background: #f79400; /* Old browsers */
-	background: -moz-linear-gradient(top,  #f79400 0%, #e27900 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f79400), color-stop(100%,#e27900)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #f79400 0%,#e27900 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #f79400 0%,#e27900 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #f79400 0%,#e27900 100%); /* IE10+ */
-	background: linear-gradient(top,  #f79400 0%,#e27900 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f79400', endColorstr='#e27900',GradientType=0 ); /* IE6-9 */
+	background: #1e1ac1; /* Old browsers */
+	background: -moz-linear-gradient(top,  #1e1ac1 0%, #1d1d8e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e1ac1), color-stop(100%,#1d1d8e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #1e1ac1 0%,#1d1d8e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #1e1ac1 0%,#1d1d8e 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #1e1ac1 0%,#1d1d8e 100%); /* IE10+ */
+	background: linear-gradient(top,  #1e1ac1 0%,#1d1d8e 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1ac1', endColorstr='#1d1d8e',GradientType=0 ); /* IE6-9 */
 	color:#fff;
+	display:block;
 	text-transform:uppercase;
 	font-weight:bold;
 }
@@ -906,7 +936,7 @@ div#sidebar h3.widgettitle {
 }
 
 #other-help a{
-	color:#ff9933;
+	color:#1e1ac1;
 }
 
 /************ jQuery Group Description toggler + Solidarity Principles toggler **************/
@@ -938,7 +968,7 @@ div#sidebar h3.widgettitle {
 }
 
 div#footer h3.widgettitle {
-    margin: 30px -5px 15px -4px;
+    margin: 30px 0 15px 0;
 	padding:0;
     text-transform: uppercase;
 	color:#000;
@@ -957,10 +987,6 @@ div#footer h3.widgettitle {
 
 
 /****************** other ****************/
-
-
-
-
 
 /* Bug fix on tag results page */
 
