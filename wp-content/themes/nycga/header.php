@@ -62,7 +62,7 @@
 				<iframe width="335" height="170" src="https://www.youtube.com/embed/6dtD8RnGaRQ?rel=0" frameborder="0" allowfullscreen></iframe>
 			</div>
 			<div style="margin-left:355px">
-				<h3 style="margin-bottom:6px;">Welcome to the new <em>and improved</em> New York City General Assembly<br/>Currently occupying Zuccatti Park.</h3>
+				<h3 style="margin-bottom:6px;">Welcome to the new <em>and improved</em> New York City General Assembly<br/>Currently occupying Zuccotti Park.</h3>
 				Read our <a href="/resources/declaration/">Declaration</a><br />
 				<a href="/register">Create an Account</a><br />
 				Join some <a href="/groups">groups</a><br />
