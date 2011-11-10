@@ -13,14 +13,12 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
 header('Cache-Control: post-check=0, pre-check=0', FALSE);
 header('Pragma: no-cache');
 header("Vary: Accept-Encoding");
- 
-$url = 'http://mvied.com/wphttps-updates.html';
+
+$url = 'http://mvied.com/wphttps-sidebar.html';
 
 $content = WordPressHTTPS::get_file_contents($url);
 
 if ($content) {
 	echo $content;
-} else {
-	echo "<p class=\"error\">Unable to retrieve updates.</p>";
 }
 ?>
