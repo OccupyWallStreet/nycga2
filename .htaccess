@@ -1,26 +1,12 @@
-# BEGIN W3TC Page Cache core
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /
-    RewriteRule ^(.*\/)?w3tc_rewrite_test$ $1?w3tc_rewrite_test=1 [L]
-    RewriteCond %{HTTP_HOST} ^(www\.)?([a-z0-9\-\.]+\.[a-z]+)\.?(:[0-9]+)?$
-    RewriteRule .* - [E=W3TC_DOMAIN:%2]
-    RewriteCond %{HTTP:Accept-Encoding} gzip
-    RewriteRule .* - [E=W3TC_ENC:_gzip]
-    RewriteCond %{REQUEST_METHOD} !=POST
-    RewriteCond %{QUERY_STRING} =""
-    RewriteCond %{HTTP_HOST} =www.nycga.net
-    RewriteCond %{REQUEST_URI} \/$ [OR]
-    RewriteCond %{REQUEST_URI} (sitemap(_index)?\.xml(\.gz)?|[a-z0-9_\-]+-sitemap([0-9]+)?\.xml(\.gz)?) [NC]
-    RewriteCond %{REQUEST_URI} !(\/wp-admin\/|\/xmlrpc.php|\/wp-(app|cron|login|register|mail)\.php|\/feed\/|wp-.*\.php|index\.php) [NC,OR]
-    RewriteCond %{REQUEST_URI} (wp\-comments\-popup\.php|wp\-links\-opml\.php|wp\-locations\.php) [NC]
-    RewriteCond %{HTTP_COOKIE} !(comment_author|wp\-postpass|wordpress_\[a\-f0\-9\]\+|wordpress_logged_in) [NC]
-    RewriteCond %{HTTP_USER_AGENT} !(W3\ Total\ Cache/0\.9\.2\.4) [NC]
-    RewriteCond "%{DOCUMENT_ROOT}/wp-content/w3tc-%{ENV:W3TC_DOMAIN}/pgcache/%{REQUEST_URI}/_index%{ENV:W3TC_UA}%{ENV:W3TC_REF}%{ENV:W3TC_SSL}.html%{ENV:W3TC_ENC}" -f
-    RewriteRule .* "/wp-content/w3tc-%{ENV:W3TC_DOMAIN}/pgcache/%{REQUEST_URI}/_index%{ENV:W3TC_UA}%{ENV:W3TC_REF}%{ENV:W3TC_SSL}.html%{ENV:W3TC_ENC}" [L]
-</IfModule>
-# END W3TC Page Cache core
+RewriteEngine On
+RewriteCond %{HTTP_HOST} nycga.cc [NC]
+RewriteRule ^(.*)$ http://www.nycga.net/$1 [R,L]
 
+redirect 301 /donate /how-to-help
+redirect 301 /2011/09/30/declaration-of-the-occupation-of-new-york-city/ /resources/declaration
+redirect 301 /who-we-are /about/
+redirect 301 /calendar /events/
+redirect 301 /2011/09/24/principles-of-solidarity-working-draft /resources/principles-of-solidarity
 
 # BEGIN W3TC Browser Cache
 <IfModule mod_deflate.c>
@@ -56,18 +42,6 @@
     </IfModule>
 </FilesMatch>
 # END W3TC Browser Cache
-
-
-RewriteEngine On
-RewriteCond %{HTTP_HOST} nycga.cc [NC]
-RewriteRule ^(.*)$ http://www.nycga.net/$1 [R,L]
-
-redirect 301 /donate /how-to-help
-redirect 301 /2011/09/30/declaration-of-the-occupation-of-new-york-city/ /resources/declaration
-redirect 301 /who-we-are /about/
-redirect 301 /calendar /events/
-redirect 301 /2011/09/24/principles-of-solidarity-working-draft /resources/principles-of-solidarity
-
 # BEGIN WordPress
 RewriteEngine On
 RewriteBase /

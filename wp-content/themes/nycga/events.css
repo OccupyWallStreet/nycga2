@@ -25,7 +25,7 @@ div.event-actions a.button
 
 table.events-table
 {
-    border: 1px solid #DDD !important;
+    border-width: 0px !important;
     border-collapse: collapse;
     border-spacing: 0;
     margin-bottom: 15px;
@@ -41,7 +41,7 @@ table.events-table tr.header-row
 
 table.events-table tr
 {
-	background-color: #eee;
+	background-color: #F4F4F4;
 }
 
 table.events-table tr.alternate
@@ -52,7 +52,7 @@ table.events-table tr.alternate
 table.events-table td
 {
 	vertical-align: top;
-    border-top: 1px solid #DDD !important;
+    border-top: 1px solid #eaeaea !important;
 }
 
 td.event-title a:link,
@@ -97,13 +97,12 @@ table.events-table .event-date
 table.events-table div.event-date
 {
 	font-weight: bold;
-	font-size: 1.3em;
-	background: none repeat scroll 0 0 #A25047;
-	color: #FFF;
-	border-radius: 3px 3px 3px 3px;
+	font-size: 1.2em;
+	background: none repeat scroll 0 0 #FFCC0F;
+/* 	color: #000; */
 	margin: 0 auto;
-	padding: 5px 10px;
-	width: 70px;
+	padding: 10px 20px;
+/* 	width: 70px; */
 	display: block;
 }
 
@@ -140,9 +139,9 @@ table.events-table .event-group .avatar
 }
 
 .em-events-search input[type=text],
-.em-events-search select,
-#event-form input[type=text],
-#event-form select
+/* .em-events-search select, */
+/* #event-form select, */
+#event-form input[type=text]
 {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px inset #CCCCCC;
@@ -150,7 +149,7 @@ table.events-table .event-group .avatar
     color: #555555;
     font-family: inherit;
     font-size: 14px;
-    padding: 3px;
+    padding: 1px 3px;
     width: 150px;
 }
 

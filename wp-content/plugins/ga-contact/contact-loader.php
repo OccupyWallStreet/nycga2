@@ -48,7 +48,7 @@ class CONTACT extends BP_Group_Extension {
                 $emptytab = true;
 		$fields = $this->get_all_fields($bp->groups->current_group->id);
 		if (empty($fields))
-			return false;
+			$this->add_default_fields();
 		//Temp fix for bug
 		$listed = array();			
 		echo '<div class="extra-data">';
@@ -240,7 +240,9 @@ class CONTACT extends BP_Group_Extension {
 	}
 	
 	function edit_screen_general($bp){
-		
+		$fields = $this->get_all_fields($bp->groups->current_group->id);
+		if (empty($fields))
+			$this->add_default_fields();		
 		$public_checked = $bp->groups->current_group->contacttab['display_page'] == 'public' ? 'checked="checked"' : '';
 		$private_checked = $bp->groups->current_group->contacttab['display_page'] == 'private' ? 'checked="checked"' : '';
 
