@@ -6,7 +6,7 @@ plugins, private, protection, tracking, wordpress
 Requires at least: 3.0
 Tested up to: 3.2.1
 Stable tag: trunk
-  
+
 Scans your WordPress installation for security vulnerabilities.
 
 == Description ==
@@ -41,6 +41,11 @@ For more information on the WP Security Scan and other WordPress security news, 
 
 == Changelog ==
 
+= v3.0.8 =
+* New feature: Option to open / close WebsiteDefender dashboard widget
+* Update: More help resource links
+* Update: Internal code updates
+
 = v3.0.7 =
 * BugFix: The bug reported about ALTER rights retrieval has been addressed
 * Update: Code cleanup
@@ -69,7 +74,7 @@ For more information on the WP Security Scan and other WordPress security news, 
 * Feature: Included more documentation / links for a number of features
 * Feature: Prevent blog owner from changing table prefix if the wp-config.php file is not writable
 * Update: Updated several error messages text (user friendly)
-* Update: major code cleanup 
+* Update: major code cleanup
 * Bugfix: Fixed a number of bugs in the database tables rename utility
 
 = v3.0.1 (03/24/2011) =
