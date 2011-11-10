@@ -1,0 +1,13 @@
+html {width:100%}
+body {background: #fff;color: #000;font-size: 12pt;font-family:times new roman, serif;}
+a:link, a:visited {color: #520;text-decoration:underline;}
+a:link:after,
+a:visited:after,
+a:hover:after,
+a:active:after {content: " <" attr(href) "> ";}
+a[href^="/"]:after {content: " <http://www.example.com"attr(href)"> ";}
+img {border: 0;}
+.noprint{display: none;}
+h1, h2, h3, h4, h5 {font-weight:bold;page-break-before: auto;}
+p {page-break-inside: avoid;}
+#floatswrap, #main_col {width:auto;padding:0;margin:0 5%;float:none;background:transparent;color:#000;}
