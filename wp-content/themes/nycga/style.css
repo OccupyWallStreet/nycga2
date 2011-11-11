@@ -10,34 +10,53 @@ Tags: buddypress, multi-site
 
 @import url('events.css');
 
-/* > Global Elements
+/****** Global Elements *****************************/
 
--------------------------------------------------------------- */
-
-
-a {
-	color:#A25047;
+body {
+	background:white;
+	font-family:'helvetica neue', 'lucida grande', arial, sans;
 }
 
+a {
+	color:#495d79;
+	font-weight:500;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color:#999;
+	font-weight:500;
+}
 
 p {
 	font-size: 14px;
+	color:#333;
 }
 
 .small-print {
 	font-size:11px;
 }
-div.item-list-tabs ul li a, div.item-list-tabs ul li span {
-display: block;
-padding: 5px 10px;
-text-decoration: none;
+
+.hideme {
+  display: none	
 }
 
-form#search-form {
-	display: none;
+a.activity-time-since {
+    font-weight: normal;
 }
 
-/* buttons */
+div#container {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 10px solid #ddd;
+    border-radius: 0px 0px 0px 0px;
+    border-right: 5px solid #ddd;
+	border-left: 5px solid #ddd;
+    overflow: hidden;
+    position: relative;
+    width: 99.2%;
+}
+
+/********* like and delete buttons *********/
 
 .like,
 .view-likes,
@@ -62,6 +81,7 @@ text-align: center;
 text-decoration: none;
 line-height: 14px;
 }
+
 .like:hover,
 .view-likes:hover {
 background: #b8d1ea; /* Old browsers */
@@ -78,11 +98,6 @@ outline: none;
 text-decoration: none;
 }
 
-.view-likes {}
-
-.button.delete-activity,
-.button.delete-activity-single {
-}
 .button.delete-activity:hover,
 .button.delete-activity-single:hover,
 .unlike:hover {
@@ -108,22 +123,26 @@ h1#logo {
 	left:0;
 }
 
-#header-link a {
-	
-	padding:120px 150px;
+#header-link a {	
+	width: 1000px;
+	height: 150px;
+	display: block;
 }
 
 
-/* #header-section #header {
-	background-image: url(http://ga.loudfeed.org/files/2011/10/Header4.jpg);
+#header-section #header {
 	background-repeat:no-repeat;
-} */
+} 
 
 #search-bar {
 	position: absolute;
 	z-index: 1000;
 	right: 22px;
 	top: -26px;
+}
+
+form#search-form {
+	display: none;
 }
 
 
@@ -133,44 +152,79 @@ h1#logo {
 
 div#header {
 	z-index: 800;
-}
-/**************** Hide Elements **************************/
-
-.hideme {
-  display: none	
-}
-
-/* Get rid of buttons that say the last time there was activity */
-span.activity {
-  display: none;
-}
-
-/* Remove "Sites" from profile subnav & top skinny nav */
-li#blogs-personal-li {
-	display: none;
-}
-
-
-/* FIX DISPLAY ON NEWS FEED ENTRY ON HOME PAGE*/
-
-.home-page div#whats-new-post-in-box {
-  display: none;
-}
-
-
-p.comments-closed.pings-open {
-	display: none
+	margin-bottom: 0px;
 }
 
 /**************  admin nav **************/
+
+#wp-admin-bar .padder {
+	background: #eaeaea;
+	background: rgba(200, 200, 200, .9);
+}
+
+#wp-admin-bar li ul li {
+	background-color:#fff;
+}
+
+#wp-admin-bar a {
+	color:#666;
+}
+
+#wp-admin-bar li a {
+	color:#666;
+}
+
+#wp-admin-bar li ul li a {
+	color:#666;
+}
+
+#wp-admin-bar ul li ul li ul li a{
+	color:#666;
+}
+
+#wp-admin-bar ul.main-nav li:hover, #wp-admin-bar ul.main-nav li ul li:hover, #wp-admin-bar ul.main-nav li.sfhover, #wp-admin-bar ul.main-nav li ul li.sfhover {
+	background-color:#fff !important;
+}
+
+#wp-admin-bar  .sfhover ul, 
+#wp-admin-bar  :hover ul{
+	border:none;
+}
+
+#wp-admin-bar a.sfhover,
+#wp-admin-bar a:hover {
+	background-color:#fff;
+}
+
+#wp-admin-bar ul li:hover > a,
+#wp-admin-bar ul li.sfhover > a{
+	color:#262626;
+}
+
+#wp-admin-bar ul li ul li:hover > a,
+#wp-admin-bar ul li ul li.sfhover > a {
+	color:#262626;
+}
+
+
+
+#wp-admin-bar ul li ul li:hover ul li a,
+#wp-admin-bar ul li ul li.sfhover ul li a {
+	color:#666;
+}
+
+#wp-admin-bar ul li ul li ul li:hover a,
+#wp-admin-bar ul li ul li ul li.sfhover a{
+	color:#262626;
+}
 
 #bp-adminbar-visitrandom-menu {
 	display: none;
 }
 
-#wp-admin-bar ul li a#bp-admin-blogs {
-  display: none;
-}
+/*#wp-admin-bar ul li a#bp-admin-blogs {
+  	display: none;
+}*/
 
 #wp-admin-bar {
 	z-index: 900;
@@ -200,30 +254,127 @@ p.comments-closed.pings-open {
 /**************** home page blurb ***************/
 #blurb {
   display: block !important;
-  -moz-border-radius-topleft: 6px;
-  -webkit-border-top-left-radius: 6px;
-  -moz-border-radius-bottomleft: 6px;
-  -webkit-border-bottom-left-radius: 6px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
   background-color: white;
-  margin: -10px 0px 8px 0px;
-  padding: 4px 8px;
-  line-height: 1.2em;
+  border-left: 5px solid #DDD;
+  border-bottom:1px solid #DDD;
+  margin: 10px 0px 0 0px;
+  font-size:1.5em;
+  line-height: 1.4;
   font-weight: bold;
-  border-bottom-left-radius: 6px 6px;  
 }
+
+.home-page div#whats-new-post-in-box {display:none;}
 
 /****************nav bar ***************/
 
+#navigation {
+	text-align: left;
+	background: #ffcc00; /* Old browsers */
+		background: -moz-linear-gradient(top,  #ffcc00 0%, #ffcc33 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(100%,#ffcc33)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* IE10+ */
+		background: linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#ffcc33',GradientType=0 ); /* IE6-9 */
+}
 
-#nav li.selected a {
-	color: black;
-	font-size:14px;
+#nav {
+	margin: 90px 20px 0 0;
+	list-style: none;
+	padding: 0;
+	position: relative;
+	right: auto;
+	bottom: 0;
 }
 
 #nav li a {
-	font-size: 14px;
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight:bold;
+	background: #ffcc00; /* Old browsers */
+		background: -moz-linear-gradient(top,  #ffcc00 0%, #ffcc33 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(100%,#ffcc33)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* IE10+ */
+		background: linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#ffcc33',GradientType=0 ); /* IE6-9 */
+	color:#262626;
+	padding: 10px 20px;
+}
+
+#nav li.selected a,
+#nav > li.current-menu-item a,
+#nav > li.current_page_item a,
+#nav > li.current_page_ancestor a {
+	background: #ffcc00; /* Old browsers */
+		background: -moz-linear-gradient(top,  #ffcc00 0%, #ffcc33 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(100%,#ffcc33)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* IE10+ */
+		background: linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#ffcc33',GradientType=0 ); /* IE6-9 */
+	color: #fff;
+}
+
+#nav .sfhover ul li,
+#nav :hover ul li {
+	width: 175px;
+}
+
+#nav li:hover > a, 
+#nav > li:active > a,
+#nav li.sfhover > a {
+	background: #FC0;
+	color: #666;
+}
+
+#nav .sfhover ul li > a,
+#nav :hover ul li > a {
+	background: #FFf;
+}
+
+#nav .sfhover ul, 
+#nav :hover ul{
+	box-shadow: 5px 3px 5px #aaa;
+	-webkit-box-shadow: 5px 3px 5px #aaa; /* Safari */
+	border:none;
+	width:170px;
+}
+
+#nav li.sfhover ul li > a,
+#nav li:hover ul li > a {
+	color: #262626;
+}
+
+
+#nav li ul li.sfhover > a,
+#nav li ul li:hover > a {
+	color: #666;
+}
+
+#nav > li > a {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+#nav li#menu-item-1907 a {
+	background: #f79400; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f79400 0%, #e27900 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f79400), color-stop(100%,#e27900)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f79400 0%,#e27900 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f79400 0%,#e27900 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f79400 0%,#e27900 100%); /* IE10+ */
+	background: linear-gradient(top,  #f79400 0%,#e27900 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f79400', endColorstr='#e27900',GradientType=0 ); /* IE6-9 */
+	color:#fff;
+}
+
+#nav li#menu-item-1907:hover a, 
+#nav li#menu-item-1907.sfhover a {
+	color:#999;
 }
 
 .menu-item-type-post_type, .menu-item-type-taxonomy {
@@ -232,25 +383,99 @@ p.comments-closed.pings-open {
 	color: white;
 }
 
-#nav .sfhover ul li, #nav :hover ul li {
-width: 175px;
+/* Fix for weird transition of selected-bar */
+ul li.loading a{
+    padding-right: 10px !important;
 }
 
-#nav a {
-	font-size:14px;
+/***********Community pages *************/
+
+div.item-list-tabs {
+    background: none repeat scroll 0 0 #fff;
+	border-top:10px solid #eaeaea;
+	 margin: 25px -19px 10px;
 }
 
-#nav ul li a, #nav ul ul li a {
-	font-size:14px;
+div#subnav.item-list-tabs {
+    border-top: 0 none;
 }
 
-#nav > ul li.sfhover a,
-#nav > ul li:hover a {
-	color: #F0D1A2;
+div.item-list-tabs ul li a, div.item-list-tabs ul li span {
+	display: block;
+	padding: 5px 10px;
+	text-decoration: none;
 }
+
+/*********** Activity Stream ***********/
+
+div.item-list-tabs#subnav {
+margin: -15px -10px 15px -19px;
+}
+
+.activity-list li.load-more a {
+    color: #000000;
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+ul.item-list.activity-list li.load-more {
+	background: none repeat scroll 0 0 #FFFFFF !important;
+    border-bottom: 10px solid #FFCC00;
+    border-radius: 0 0 0 0;
+    padding: 0px 15px !important;
+}
+
+div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a {
+   	background: url("img/selected-bar.png") no-repeat scroll center bottom transparent;
+	color:#262626;
+	height: 35px;
+	text-transform: uppercase;
+	font-size:11px;
+}
+
+div.item-list-tabs ul li a, div.item-list-tabs ul li span {
+    text-transform: uppercase;
+	height:20px;
+	font-size:11px;
+}
+
+div.item-list-tabs ul li a span {
+    background-color: #eee;
+    color: #666;
+	font-size:11px;
+}
+
+div.item-list-tabs ul li.selected a span, div.item-list-tabs ul li.current a span {
+	color:#262626;
+	font-size:11px;
+}
+
+div.item-list-tabs ul li.feed {
+    float: right;
+    margin: 5px 0 0 5px;
+}
+
+.activity-list .activity-content .activity-header, .activity-list .activity-content .comment-header {
+    color: #666;
+
+}
+
+ul li.loading a {
+       padding-right: 35px !important;
+       margin-right: -35px;
+}
+
+/* Get rid of buttons that say the last time there was activity */
+span.activity {
+  	display: none;
+}
+
 /************ Groups loop **************/
+
 ul#groups-list li {
-    padding: 10px 0px;
+    padding: 6px 0px;
 }
 
 ul#groups-list li:nth-child(odd) {
@@ -263,13 +488,14 @@ ul#groups-list li:hover {
 }
 
 ul#groups-list .item {
-    margin-top: 16px;
+    margin:16px 100px 0 60px;
 }
 
 ul#groups-list .item-title {
     font-size: 20px;
     float: left;
     width: 50%;
+	padding-left:10px;
 }
 
 ul#groups-list a {
@@ -285,10 +511,41 @@ ul#groups-list div.item-type {
     float: left;
     width: 20%;
 }
+.group-button {
+	padding-top:0px;
+}
 
 ul.item-list li div.action {
-    top: 28px;
+    top: 25px;
     right: 10px;
+}
+
+div#subnav.item-list-tabs ul li.last {
+    /* margin-top: 10px; */
+}
+
+.group-subscription-div {
+}
+
+.generic-button .join-group {}
+
+.generic-button .leave-group {
+background: #f0f0f0; /* Old browsers */
+background: -moz-linear-gradient(top,  #f0f0f0 0%, #d3d3d3 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f0f0), color-stop(100%,#d3d3d3)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #f0f0f0 0%,#d3d3d3 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #f0f0f0 0%,#d3d3d3 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #f0f0f0 0%,#d3d3d3 100%); /* IE10+ */
+background: linear-gradient(top,  #f0f0f0 0%,#d3d3d3 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#d3d3d3',GradientType=0 ); /* IE6-9 */
+}
+
+div#pag-bottom {
+margin-top: 1px;
+}
+
+#groups-dir-list .group-subscription-div {
+       display:none;
 }
 
 /****************** members list **************************/
@@ -297,6 +554,7 @@ ul.item-list li div.action {
 	padding: 15px 5px;
 	float: left;
 	width: 150px;
+	height:100px;
 }
 
 .members ul.item-list li img {
@@ -315,10 +573,19 @@ text-align: center;
 	text-align:center;
 	float:none;
 }
+
+ul.item-list li div.item-title span {
+display: none;
+}
+
+.members.dir-list #pag-bottom { display:none; }
+
 /**************** Group Page *************/
 
+div.pagination { margin: -20px -10px 0px -19px; }
+
 div.item-list-tabs ul li:hover a, div.item-list-tabs ul li:active a {
-	color:#eb0;
+	color:#999;
 }
 
 div.item-list-tabs ul li#members-groups-li a, div.item-list-tabs ul li#nav-notifications-groups-li a {
@@ -331,11 +598,27 @@ div.item-list-tabs ul li#members-groups-li a, div.item-list-tabs ul li#nav-notif
 
 /* Make numbers in item list tabs light gray with black text */
 div.item-list-tabs ul li a span, div.item-list-tabs ul li.selected a span, div.item-list-tabs ul li.current a span {
-	background-color: #ccc;
+	background-color: #eaeaea;
 	color: black;
 }
 
-/**************** group & activity pages - news feed fix ***************/
+div.item-list-tabs ul li:hover a span, div.item-list-tabs ul li.sfhover a span {
+	background-color: #ddd;
+	color: black;
+}
+
+#gsubopt-5 {
+    background-color: #FFFFFF;
+    color: #666;
+    box-shadow: 5px 3px 5px #aaa;
+	-webkit-box-shadow: 5px 3px 5px #aaa; /* Safari */
+	width:400px;
+}
+#nav-notifications-groups-li {
+	display:none;
+}
+
+/******* group pages***************/
 
 .groups div #whats-new-options, /*.activity div#whats-new-options*/ {
 	position: relative;
@@ -343,11 +626,26 @@ div.item-list-tabs ul li a span, div.item-list-tabs ul li.selected a span, div.i
 }
 
 .groups div.bpfb_form_container, .activity div.bpfb_form_container {
-  background-color: #fff;
+  	background-color: #fff;
 }
 
 .groups div.bpfb_toolbar_container, .activity div.bpfb_toolbar_container {
-  margin-top: 5px;
+  	margin-top: 5px;
+}
+
+#gtags-top-cloud a {
+	font-weight:normal;
+	color:#666;
+}
+
+.gtags_chooser span {
+	color:#495d79;
+}
+
+table.forum tr.sticky td {
+    border-bottom: 1px solid #FFCC00;
+    border-top: 1px solid #FFcc00;
+    font-size: 1.2em;
 }
 
 /********************* forum *********************/
@@ -366,16 +664,54 @@ div.item-list-tabs ul li a span, div.item-list-tabs ul li.selected a span, div.i
 }
 /********************pages ********************/
 
+h3.pagetitle {
+    font-size: 12px;
+	margin: 0px 0 30px;
+}
+
+h2.pagetitle a, h2.posttitle a {
+    color: #333;
+    text-decoration: none;
+}
+
+a.more-link {
+	font-size:12px;
+}
+
+div#content .padder {
+    /* border-right: 10px solid #ddd; */
+}
+
 div.entry {
 	margin: 0;
-	padding: 0 20px;
+	padding: 20px 20px;
+	border-bottom: 10px solid #EDEDED;
 }
 
 div.entry h3{
 	padding-top: 20px;
 }
 
-/***************** how to help *****************/
+p.comments-closed.pings-open {
+	display: none
+}
+
+#trackbacks h5 {
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+#trackbacks {
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+#comments h3, #trackbacks h3 {
+	font-size:16px;
+}
+
+
+/***************** how to help page *****************/
 #post-359 form p {
 	width:10px;
 	float:left;
@@ -383,36 +719,72 @@ div.entry h3{
 	margin:0;
 }
 
+#post-359 #tweetlist a {
+    color: #405D79;
+    text-decoration: none;
+}
+
+#post-359 #widgetbox_widget_div_0 div.tb_tweet {
+    color: #262626;
+}
+
+#post-359 #widgetbox_widget_parent_0 {
+	border: 5px solid #EDEDED;
+	line-height: 0;
+	width: 680px;
+}
+
 #post-359 #widgetbox_widget_div_0 {
-	background:#eee;
+	background:#fff;
 	padding: 30px;
 }
 
 #donate {
-	background:#eee;
-	padding: 20px 30px 30px;
-	margin-bottom:20px;
+	background: none repeat scroll 0 0 #FFFFFF;
+    border: 5px solid #DDDDDD;
+    margin-bottom: 20px;
+    padding: 20px 30px 30px;
+    width: 400px;
+	text-align:center;
 	}
+	
+#donate h3 {
+	padding-top: 10px;
+}
+
+#donate h3 {
+	color: #F28322;
+}
+
+/****************About **********************/
+
+#post-9 iframe {
+	padding:30px;
+}
 
 /******************* share *********************/
+
+#post-9 .really_simple_share iframe {
+	padding:0;
+}
 
 .really_simple_share {
 	margin:30px 0 0 0;
 }
 
 div.really_simple_share_facebook {
-	width:95px;
+	width:110px;
 }
 dic.really_simple_share_facebook_like {
 
 }
 div.really_simple_share_email {
-width: 35px;
+	width: 35px;
 }
 
 div.really_simple_share div {
-float: left;
-padding-left: 5px;
+	float: left;
+	padding: 0 5px 0 0;
 }
 
 div.really_simple_share_google1 {
@@ -459,6 +831,10 @@ div#sidebar-4 .padder {
 	margin-right: 20px;
 }
 
+.advanced-recent-posts > li { border-bottom:1px dotted #CCC; padding-bottom:5px; margin-bottom:4px; }
+.advanced-recent-posts > li a { font-weight:bold; }
+
+.advanced-recent-posts .date { display:block; }
 
 /******************* Events *************/
 
@@ -468,7 +844,6 @@ div#sidebar-4 .padder {
 	background: #FFF9DB;
 	border-bottom: 1px solid #FFE8C4;
 	border-right: 1px solid #FFE8C4;
-/* 	color: #ffa200; */
 	color: #ED9200;
 	text-decoration: none;
 	-moz-border-radius: 3px;
@@ -522,43 +897,74 @@ a.add-new-h2
 
 /******************* sidebar *************/
 
-#text-3 h3 {
-	background-color: #FC0 !important;
-	color: #420 !important;
+div#sidebar {
+    border-left: 10px solid #ddd;
+    border-top-right-radius: 0px;
+    margin-left: -235px;
+    margin-top: 0px;
+    width: 225px;
 }
 
-.bigBtn {
-	-moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
-	box-shadow:inset 0px 1px 0px 0px #fff6af;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23) );
-	background:-moz-linear-gradient( center top, #ffec64 5%, #ffab23 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23');
-	background-color:#ffec64;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #ffaa22;
-	display:inline-block;
-	color:#333333;
-	font-family:Arial;
-	font-size:20px;
+div#sidebar h3.widgettitle {
+    margin: 30px -5px 15px -4px;
+	padding:0;
+    text-transform: uppercase;
+	color:#000;
+	border-bottom:4px solid #000;
+	background:#fff;
+}
+
+#donate-money a, .bigBtn {
+	text-align:center;
+	padding:10px 10px 10px 10px;
+	background: #1e1ac1; /* Old browsers */
+	background: -moz-linear-gradient(top,  #1e1ac1 0%, #1d1d8e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e1ac1), color-stop(100%,#1d1d8e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #1e1ac1 0%,#1d1d8e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #1e1ac1 0%,#1d1d8e 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #1e1ac1 0%,#1d1d8e 100%); /* IE10+ */
+	background: linear-gradient(top,  #1e1ac1 0%,#1d1d8e 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1ac1', endColorstr='#1d1d8e',GradientType=0 ); /* IE6-9 */
+	color:#fff;
+	display:block;
+	text-transform:uppercase;
 	font-weight:bold;
-	padding:6px 12px;
-	text-decoration:none;
-	text-shadow:1px 1px 0px #ffee66;
-}.bigBtn:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64) );
-	background:-moz-linear-gradient( center top, #ffab23 5%, #ffec64 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64');
-	background-color:#ffab23;
-	color:#333333;
-}.bigBtn:active {
-	position:relative;
-	top:1px;
 }
 
-/************ toggler **************/
+#donate-money a:hover, .bigBtn:hover {
+background: #3431e3; /* Old browsers */
+background: -moz-linear-gradient(top,  #3431e3 0%, #2828c4 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3431e3), color-stop(100%,#2828c4)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #3431e3 0%,#2828c4 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #3431e3 0%,#2828c4 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #3431e3 0%,#2828c4 100%); /* IE10+ */
+background: linear-gradient(top,  #3431e3 0%,#2828c4 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3431e3', endColorstr='#2828c4',GradientType=0 ); /* IE6-9 */
+color:#fff;
+display:block;
+text-transform:uppercase;
+font-weight:bold;
+}
+
+#donate-money a{
+	color:#fff;
+}
+
+#other-help {
+	text-align:center;
+	text-decoration:none;
+	text-transform:uppercase;
+	font-size:12px;
+	font-weight:bold;
+	padding:10px;
+}
+
+#other-help a{
+	color:#1e1ac1;
+}
+
+/************ jQuery Group Description toggler + Solidarity Principles toggler **************/
+
 #desc-container {
 	position:relative;
 }
@@ -576,6 +982,24 @@ a.add-new-h2
 
 /***************** footer menu *************/
 
+#footer-widgets {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 5px solid #ddd;
+    border-left: 5px solid #ddd;
+    border-radius: 0 0 0 0;
+    border-right: 5px solid #ddd;
+    padding: 0 19px 19px;
+}
+
+div#footer h3.widgettitle {
+    margin: 30px 0 15px 0;
+	padding:0;
+    text-transform: uppercase;
+	color:#000;
+	border-bottom:5px solid #000;
+	background:#fff;
+}
+
 
 .menu-item-type-post_type, .menu-item-type-taxonomy {
 	background: white;
@@ -587,10 +1011,6 @@ a.add-new-h2
 
 
 /****************** other ****************/
-
-
-
-
 
 /* Bug fix on tag results page */
 
@@ -622,6 +1042,19 @@ div.faq p.question {
 	margin-bottom: 0;
 }
 
+#navigation {
+    background: #fff;
+    text-align: center;
+}
+
+#nav li ul li {
+	padding:0;
+}
+
+ul#nav li:nth-child(2n) {
+    margin-left: 0 !important;
+}
+
  #sidebar-2 {
 	width:100%;
 	float:left;
@@ -640,7 +1073,6 @@ div.faq p.question {
 	float:left;
 }	
 	
-}
 
 div.updated {
 	display: inline-block;

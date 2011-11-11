@@ -38,7 +38,7 @@
 		<div id="header">
 			
 				<div class="padder">
-					<div id="header-link"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>">.</a>
+					<div id="header-link"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>">&nbsp;</a>
 										</div>
 					<h1 id="logo" role="banner"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"><?php bp_site_name(); ?></a></h1>
 						
@@ -57,10 +57,16 @@
 		<?php do_action( 'bp_before_container' ) ?>
 		
 		<? if( ! is_user_logged_in() ){ ?>
-		<div id="blurb" style="padding:10px 0 14px;background-color:#fc0;text-align:center;">
-			Welcome to the new and improved New York General Assembly web site for the #occupywallstreet movement. <a href="/resources/web-site-help/">Learn more</a>
-			<div style="margin-top:12px;font-size:14px;">
-				<a href="/register">Create an Account</a> <em>or</em> <a href="#">Login</a> // Join some <a href="/groups">groups</a> // Get stuff done!
+		<div id="blurb" style="height:170px;">
+			<div style="float:left;">
+				<iframe width="335" height="170" src="https://www.youtube.com/embed/6dtD8RnGaRQ?rel=0" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<div style="margin-left:355px">
+				<h3 style="margin-bottom:6px;">Welcome to the new <em>and improved</em> New York City General Assembly<br/>Currently occupying Zuccatti Park.</h3>
+				Read our <a href="/resources/declaration/">Declaration</a><br />
+				<a href="/register">Create an Account</a><br />
+				Join some <a href="/groups">groups</a><br />
+				or <a href="/how-to-help/">find other ways to help</a>
 			</div>
 		</div>
 		<? } ?>
