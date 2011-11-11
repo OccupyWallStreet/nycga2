@@ -271,7 +271,7 @@ function bp_groupblog_member_join( $group_id ) {
 
 if ( $_GET['fixgroups'] === 'pma9Aasfz90'){
 	if ( bp_has_groups() ){
-		while ( bp_groups() ) : bp_the_group();
+		while ( bp_groups() ) : bp_the_group();			
 			$group = array(
 				'id' => bp_group_id(),
 				'name' => bp_group_name(),
@@ -280,6 +280,7 @@ if ( $_GET['fixgroups'] === 'pma9Aasfz90'){
 				);
 			echo '<p>';
 			echo 'Starting group: '.$group['name'];
+			
 			if ( bp_group_has_members('group_id='.$group['id'].'&per_page=5000') ){
 				$usercount = 0;
 				while ( bp_group_members() ) : bp_group_the_member();
@@ -311,6 +312,9 @@ function bp_groupblog_upgrade_user( $user_id, $group_id, $blog_id = false ) {
 
 	// If the group has no blog linked, get the heck out of here!
 	if ( !$blog_id )
+		return;
+
+	if ( $blog_id == 5)
 		return;
 
 	// Set up some variables
