@@ -256,6 +256,7 @@ div#header {
   display: block !important;
   background-color: white;
   border-left: 5px solid #DDD;
+  border-right: 5px solid #DDD;
   border-bottom:1px solid #DDD;
   margin: 10px 0px 0 0px;
   font-size:1.5em;
@@ -301,7 +302,7 @@ div#header {
 		background: linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* W3C */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#ffcc33',GradientType=0 ); /* IE6-9 */
 	color:#262626;
-	padding: 10px 20px;
+	padding: 10px 15px;
 }
 
 #nav li.selected a,
