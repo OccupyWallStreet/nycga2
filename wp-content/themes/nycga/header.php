@@ -56,20 +56,17 @@
 		<?php do_action( 'bp_after_header' ) ?>
 		<?php do_action( 'bp_before_container' ) ?>
 		
-		<div id="blurb" style="height:170px;">
-			<div style="float:left;">
-				<iframe width="250" height="170" src="http://www.youtube.com/embed/jRAxu4flK1M?rel=0" frameborder="0" allowfullscreen></iframe>
-			</div>
-			<div style="margin-left:260px">
-				<h3 style="margin-bottom:6px">As of 5:40 PM NYC time, Lilberty Plaza is open again.  The General Assembly has put out the call for everyone in NYC to mobilize and return to the park. </h3>
-				<h3></h3>
-				<h3 style="margin-bottom:6px;">At 1am NYPD raided the homes of non-violent occupiers in Liberty Plaza using excessive force and destroyed property, including the People's Library. Hundreds of arrests.</h3>
-				<h4 style="margin-bottom:6px;">&nbsp;</h4>
-				<h4 style="margin-bottom:6px;">For action steps both locally and globally: <a href="http://interoccupy.org/action/"><strong>interoccupy.org/action/</strong></a></h4>
-				<p style="margin-bottom:6px;">&nbsp;</p>
-              <h4><em>"You can't evict an idea whose time has come"</em></h4>
-            </div> 
-		</div>
+		<div id="blurb" style="height:170px">
+               <div style="float:left;">
+                       <iframe width="250" height="170" src="http://www.youtube.com/embed/Sj66DB_PKz0" frameborder="0" allowfullscreen></iframe>
+               </div>
+               <div style="margin-left:260px">
+                       <h4 style="margin-bottom:6px">Thursday, November 17, 2011</h4>
+                       <h3 style="margin-bottom:6px">International Day of Action</h3>
+                       <h4 style="margin-bottom:6px;">Find Out More: <a href="http://occupywallst.org/action/november-17th/" target="_blank">http://occupywallst.org/action/november-17th/</a></h4>
+                       <h4>Get Housing Information: <a href="http://www.nycga.net/resources/housing-support/" target="_blank">http://www.nycga.net/resources/housing-support/</a></h4>
+               </div>
+       </div>
 		<? if( ! is_user_logged_in() ){ ?>
 			<!-- <div style="float:left;">
 				<iframe width="335" height="170" src="https://www.youtube.com/embed/6dtD8RnGaRQ?rel=0" frameborder="0" allowfullscreen></iframe>
