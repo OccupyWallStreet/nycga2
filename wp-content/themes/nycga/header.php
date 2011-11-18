@@ -56,6 +56,10 @@
 		<?php do_action( 'bp_after_header' ) ?>
 		<?php do_action( 'bp_before_container' ) ?>
 		
+		<!-- no content appears for logged in users -->
+
+		<? if( ! is_user_logged_in() ){ ?>
+		
 		<div id="blurb" style="height:170px">
 			<div style="float:left;">
 				<iframe width="335" height="170" src="https://www.youtube.com/embed/6dtD8RnGaRQ?rel=0" frameborder="0" allowfullscreen></iframe>
@@ -68,9 +72,7 @@
 				Find Other <a href="/how-to-help/">Ways to Help</a>
 			</div>
     </div>
-		<? if( ! is_user_logged_in() ){ ?>
-		
-					<!-- no content appears for logged in users -->
+				
 		<? } ?>
 
 		<div id="container">
