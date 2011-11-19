@@ -268,35 +268,38 @@ function bp_groupblog_member_join( $group_id ) {
 		}
 	}
 }
-
-if ( $_GET['fixgroups'] === 'pma9Aasfz90'){
-	if ( bp_has_groups() ){
-		while ( bp_groups() ) : bp_the_group();			
-			$group = array(
-				'id' => bp_group_id(),
-				'name' => bp_group_name(),
-				'slug' => bp_group_slug(),
-				'link' => bp_group_permalink()
-				);
-			echo '<p>';
-			echo 'Starting group: '.$group['name'];
-			
-			if ( bp_group_has_members('group_id='.$group['id'].'&per_page=5000') ){
-				$usercount = 0;
-				while ( bp_group_members() ) : bp_group_the_member();
-					bp_groupblog_upgrade_user(bp_group_member_id(),$group['id']);
-					$usercount++;
-				endwhile;
-				echo ' - UPDATED '.$usercount.' USERS';
-			}else{
-				echo ' - NO USERS';
-			}
-			echo '</p>';
-		endwhile;
-	}else{
-		die('ERROR: Failed to select groups.');
+function fixgroupsINIT(){
+	if ( $_GET['fixgroups'] === 'pma9Aasfz90' && is_admin()){
+		if ( bp_has_groups() ){
+			while ( bp_groups() ) : bp_the_group();			
+				$group = array(
+					'id' => bp_group_id(),
+					'name' => bp_group_name(),
+					'slug' => bp_group_slug(),
+					'link' => bp_group_permalink()
+					);
+				echo '<p>';
+				echo 'Starting group: '.$group['name'];
+				
+				if ( bp_group_has_members('group_id='.$group['id'].'&per_page=5000') ){
+					$usercount = 0;
+					while ( bp_group_members() ) : bp_group_the_member();
+						bp_groupblog_upgrade_user(bp_group_member_id(),$group['id']);
+						$usercount++;
+					endwhile;
+					echo ' - UPDATED '.$usercount.' USERS';
+				}else{
+					echo ' - NO USERS';
+				}
+				echo '</p>';
+			endwhile;
+		}else{
+			die('ERROR: Failed to select groups.');
+		}
 	}
 }
+
+add_action('init','fixgroupsINIT');
 
 
 /**
