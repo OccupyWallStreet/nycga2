@@ -1,5 +1,6 @@
 <?php
-
+/*ini_set('display_errors',1); 
+error_reporting(E_ALL);*/
 class STATUS extends BP_Group_Extension {
 	var $status = false;
 	
@@ -55,7 +56,7 @@ class STATUS extends BP_Group_Extension {
 				$data = groups_get_groupmeta($bp->groups->current_group->id, $field->slug);
 				if ( is_array($data))
 					$data = implode(', ', $data);
-
+				$data = stripslashes($data);
 				if ( $field->display != 1 || empty($data) || in_array($field->slug, $listed) ){
 					continue;
 				}
@@ -82,6 +83,7 @@ class STATUS extends BP_Group_Extension {
 		
 		foreach( $fields as $field ){
 			$field->value = groups_get_groupmeta($bp->groups->current_group->id, $field->slug);
+			$field->value = stripslashes($field->value);
 			$req = false;
 			if ( $field->required == 1 ) $req = '* ';
 			echo '<label for="' . $field->slug . '">' . $req . $field->title . '</label>';
@@ -141,6 +143,7 @@ class STATUS extends BP_Group_Extension {
                                 $oldvalue = groups_get_groupmeta($bp->groups->current_group->id, substr($data,7));
                                 if($oldvalue != $value){
                                     $to_save[$data] =  $value;
+				    groups_delete_groupmeta($bp->groups->current_group->id, substr($data,7));
                                 }
                             }
                         }
@@ -470,6 +473,7 @@ class STATUS extends BP_Group_Extension {
 
 	// Display Header and Extra-Nav
 	function edit_screen_head($cur = 'general'){
+		global $bp;		
 		if ($cur == 'general'){
 			echo '<span class="extra-title">'.status_names('title_general').'</span>';
 			echo '<span class="extra-subnav">
@@ -525,38 +529,6 @@ class STATUS extends BP_Group_Extension {
 		return $fields;
 	}
 
-	function add_default_field($title,$desc,$type,$required,$display,$slug,$id=NULL){
-/* Check the nonce first. 
-				if ( !check_admin_referer( 'groups_edit_group_statustab' ) )
-					return false;
-*/
-		// get current fields if any
-		global $bp;
-                if($id==NULL){
-                    $id=$bp->groups->current_group->id;
-                }
-		$fields = $this->get_all_fields($id);
-                
-		if (!$fields){
-		$fields = array();
-		}
-
-		$new = new Stdclass;
-		$new->title = htmlspecialchars(strip_tags($title));
-                $new->slug = $slug; // will be used as unique identifier 
-                $new->desc = htmlspecialchars(strip_tags($desc));
-		$new->type = $type;
-		$new->required = $required;
-		$new->display = $display;
-			
-		// To the end of an array of current fields
-		array_push($fields, $new);
-
-		// Save into groupmeta table
-		$fields = json_encode($fields);
-		groups_update_groupmeta( $id, 'status_fields', $fields );
-	}
-	
 	function remove_all_fields(){
 		global $bp;		
 		groups_delete_groupmeta($bp->groups->current_group->id, 'status_fields');
@@ -568,11 +540,30 @@ class STATUS extends BP_Group_Extension {
                     $group_id=$bp->groups->current_group->id;
                 }
 		$group = new BP_Groups_Group( $group_id );
-		$this->add_default_field('What\'s the ' . $group->name . ' group up to?','','textarea',0,1, 'current_status', $group_id);
-		$this->add_default_field('What challenges is ' . $group->name . ' facing?','','textarea',0,1,  'challenges', $group_id);
-		$this->add_default_field('What does ' . $group->name . ' need?','','textarea',0,1, 'requests', $group_id);
-		$this->add_default_field('What does ' . $group->name . ' have to offer?','','textarea',0,1, 'offers', $group_id);
-		$this->add_default_field('Other Announcements','','textarea',0,1, 'announcements', $group_id);		
+		$defaultfields = array();
+		
+		/* EDIT DEFAULT FIELDS HERE */
+		array_push($defaultfields, array('title'=>'What\'s the ' . $group->name . ' group up to?', 'desc'=>'','type'=>'textarea','required'=>0,'display'=>1, 'slug'=>'current_status'));
+		array_push($defaultfields, array('title'=>'What challenges is ' . $group->name . ' facing?','desc'=>'','type'=>'textarea','required'=>0,'display'=>1, 'slug'=>'challenges'));
+		array_push($defaultfields, array('title'=>'What does ' . $group->name . ' need?','desc'=>'','type'=>'textarea','required'=>0,'display'=>1, 'slug'=>'requests'));
+		array_push($defaultfields, array('title'=>'What does ' . $group->name . ' have to offer?','desc'=>'','type'=>'textarea','required'=>0,'display'=>1, 'slug'=>'offers'));
+		array_push($defaultfields, array('title'=>'Other Announcements','desc'=>'','type'=>'textarea','required'=>0,'display'=>1, 'slug'=>'announcements'));
+
+		$fields = array();
+		foreach($defaultfields as $field){
+			$new = new Stdclass;
+			$new->title = htmlspecialchars(strip_tags($field["title"]));
+	                $new->slug = $field["slug"]; // will be used as unique identifier 
+	                $new->desc = htmlspecialchars(strip_tags($field["desc"]));
+			$new->type = $field["type"];
+			$new->required = $field["required"];
+			$new->display = $field["display"];
+			
+			// To the end of an array of current fields
+			array_push($fields, $new);
+		}
+		$fields = json_encode($fields);
+		groups_update_groupmeta( $group_id, 'status_fields', $fields );
 	}
 	
 	// Get field by slug - reusable
