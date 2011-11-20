@@ -39,8 +39,8 @@ include( dirname(__FILE__) . '/../core/core-header.php' );
 	<div id="wptouch-search"> 
  		<div id="wptouch-search-inner">
 			<form method="get" id="searchform" action="<?php bloginfo('url'); ?>/">
-				<input type="text" placeholder="<?php echo __( "Search...", "wptouch" ); ?>" name="s" id="s" /> 
-				<input name="submit" type="submit" tabindex="1" id="search-submit" value="<?php _e("Search...", "wptouch"); ?>"  />
+				<input type="text" placeholder="<?php _e( "Search...", "wptouch" ); ?>" name="s" id="s" /> 
+				<input name="submit" type="submit" tabindex="1" id="search-submit" placeholder="<?php _e("Search...", "wptouch"); ?>"  />
 			<a href="javascript:return false;"><img class="head-close" src="<?php echo compat_get_plugin_url( 'wptouch' ); ?>/themes/core/core-images/head-close.png" alt="close" /></a>
 			</form>
 		</div>
@@ -209,5 +209,4 @@ include( dirname(__FILE__) . '/../core/core-header.php' );
 	 </div>
  <?php } ?>
 </div>
-<?php 
-wptouch_core_header_check_use();
+<?php wptouch_core_header_check_use(); ?>

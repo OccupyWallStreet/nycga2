@@ -5,7 +5,7 @@ Plugin URI: http://www.websitedefender.com/news/free-wordpress-security-scan-plu
 
 Description: Perform security scan of WordPress installation.
 Author: WebsiteDefender
-Version: 3.0.7
+Version: 3.0.8
 Author URI: http://www.websitedefender.com/
 */
 /*
@@ -14,6 +14,9 @@ Author URI: http://www.websitedefender.com/
  * $rev #3 08/05/2011 {c}
  * $rev #4 08/26/2011 {c}
  * $rev #5 09/12/2011 {c}
+ * $rev #6 09/20/2011 {c}
+ * $rev #7 09/30/2011 {c}
+ * $rev #8 10/03/2011 {c}
  */
 /*
 Copyright (C) 2008-2010 Acunetix / http://www.websitedefender.com/
@@ -46,12 +49,8 @@ if ( ! defined('WP_PLUGIN_DIR')) {
     define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins' );
 }
 
+delete_option('wsd_feed_data');
 
-//! #r4# @see http://wordpress.org/support/topic/update-to-306-breaks-wp-321
-@require_once(ABSPATH.'wp-includes/pluggable.php');
-
-
-//## $rev #1, #2, #3 {c}$
 if(!function_exists('json_encode') || !class_exists('Services_JSON')) {
     @require_once(WP_PLUGIN_DIR . "/wp-security-scan/libs/json.php");
 }
@@ -66,6 +65,7 @@ require_once(WP_PLUGIN_DIR . "/wp-security-scan/libs/wsd.php");
 require_once(WP_PLUGIN_DIR . "/wp-security-scan/inc/admin/security.php");
 require_once(WP_PLUGIN_DIR . "/wp-security-scan/inc/admin/scanner.php");
 require_once(WP_PLUGIN_DIR . "/wp-security-scan/inc/admin/pwtool.php");
+require_once(WP_PLUGIN_DIR . "/wp-security-scan/inc/admin/plugin_options.php");
 require_once(WP_PLUGIN_DIR . "/wp-security-scan/inc/admin/db.php");
 require_once(WP_PLUGIN_DIR . "/wp-security-scan/inc/admin/support.php");
 require_once(WP_PLUGIN_DIR . "/wp-security-scan/inc/admin/templates/header.php");
@@ -104,7 +104,6 @@ if (! in_array($plugin1.'/'.$plugin1.'.php', apply_filters('active_plugins', get
     add_action('wp_dashboard_setup', "wpssUtil::addDashboardWidget");
 }
 unset($plugin1,$plugin2);
-
 //@===
 
 function mrt_wpss_admin_init(){
@@ -119,14 +118,18 @@ remove_action('wp_head', 'wp_generator');
 function add_men_pg() {
     if (function_exists('add_menu_page'))
     {
-        add_menu_page('Security', 'Security', 'edit_pages', __FILE__, 'mrt_opt_mng_pg', WP_PLUGIN_URL.'/wp-security-scan/images/wsd-logo-small.png');
+        add_menu_page('WSD security', 'WSD security', 'edit_pages', __FILE__, 'mrt_opt_mng_pg', WP_PLUGIN_URL.'/wp-security-scan/images/wsd-logo-small.png');
             add_submenu_page(__FILE__, 'Scanner', 'Scanner', 'edit_pages', 'scanner', 'mrt_sub0');
             add_submenu_page(__FILE__, 'Password Tool', 'Password Tool', 'edit_pages', 'passwordtool', 'mrt_sub1');
             add_submenu_page(__FILE__, 'Database', 'Database', 'edit_pages', 'database', 'mrt_sub3');
+            add_submenu_page(__FILE__, 'Options', 'Options', 'edit_pages', 'plugin_options', 'mrt_sub4');
             add_submenu_page(__FILE__, 'Support', 'Support', 'edit_pages', 'support', 'mrt_sub2');
     }
 }
 
+//## @since v3.0.8
+//Display the "Settings" menu on plug-in page
+add_filter( 'plugin_action_links_'.plugin_basename(__FILE__), 'wpss_admin_plugin_actions', -10);
 
 
 function wpss_admin_head() {
@@ -171,54 +174,51 @@ function get_plugins_url($path = '', $plugin = '') {
 }
 
 function wpss_mrt_meta_box()
-{  
+{
 ?>
     <div id="wsd-initial-scan" class="wsd-inside">
-            <div class="wsd-initial-scan-section">
-                    <?php mrt_check_version();?>
-            </div>
+        <div class="wsd-initial-scan-section"><?php mrt_check_version();?></div>
 
-            <div class="wsd-initial-scan-section">
-                    <?php mrt_check_table_prefix();?>
-            </div>
+        <div class="wsd-initial-scan-section"><?php mrt_check_table_prefix();?></div>
 
-            <div class="wsd-initial-scan-section">
-                    <?php mrt_version_removal();?>
-            </div>
+        <div class="wsd-initial-scan-section"><?php mrt_version_removal();?></div>
 
-            <div class="wsd-initial-scan-section">
-                    <?php mrt_errorsoff();?>
-            </div>
+        <div class="wsd-initial-scan-section"><?php mrt_errorsoff();?></div>
 <?php
-            global $wpdb;
+    global $wpdb;
 
-            echo '<div class="scanpass">WP ID META tag removed form WordPress core</div>';
+    echo '<div class="scanpass">WP ID META tag removed form WordPress core</div>';
 
-            echo '<div class="wsd-initial-scan-section">';
-                $name = $wpdb->get_var("SELECT user_login FROM $wpdb->users WHERE user_login='admin'");
-                if ($name == "admin") {
-                        echo '<a href="http://www.websitedefender.com/wordpress-security/change-wordpress-admin-username" title="Change WordPress Admin username" target="_blank"><font color="red">"admin" user exists.</font></a>';
-                }
-                else { echo '<span class="scanpass">No user "admin".</span>'; }
-            echo '</div>';
+    echo '<div class="wsd-initial-scan-section">';
+        $name = $wpdb->get_var("SELECT user_login FROM $wpdb->users WHERE user_login='admin'");
+        if ($name == "admin") {
+                echo '<font color="red">"admin" user exists.</font>';
+        }
+        else { echo '<span class="scanpass">No user "admin".</span>'; }
+    echo '</div>';
 
-            echo '<div class="wsd-initial-scan-section">';
-                if (file_exists('.htaccess')) {
-                    echo '<span class="scanpass">.htaccess exists in wp-admin/</span>';
-                }
-                else { echo '<span style="color:#f00;">The file .htaccess does not exist in wp-admin/.</span>'; }
-            echo '</div>';
+    echo '<div class="wsd-initial-scan-section">';
+        if (file_exists('.htaccess')) {
+            echo '<span class="scanpass">.htaccess file found in wp-admin/</span>';
+        }
+        else { echo '<span style="color:#f00;">
+            The file .htaccess does not exist in the wp-admin section.
+            Read more why you should have a .htaccess file in  the WP-admin area
+            <a href="http://www.websitedefender.com/wordpress-security/htaccess-files-wordpress-security/"
+            title="Why you should have a .htaccess file in  the WP-admin area" target="_blank">here</a>.
+            </span>'; }
+    echo '</div>';
 
-            ?>
+?>
 
-            <div class="mrt_wpss_note">
-                <em>**WP Security Scan plugin <strong>must</strong> remain active for security features to persist**</em>
-            </div>
+        <div class="mrt_wpss_note">
+            <em>**WP Security Scan plugin <strong>must</strong> remain active for security features to persist**</em>
+        </div>
     </div>
 <?php
 }
 
-	
+
 function wpss_mrt_meta_box2()
 {
 ?>

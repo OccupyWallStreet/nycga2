@@ -30,7 +30,7 @@
 			<div id="wptouch-support-wrap">			
 			<h3>&nbsp;</h3>
 				<div id="wptouch-support-content">
-				<p id="find-out-more"><a href="http://www.bravenewcode.com/products/wptouch-pro/?utm_source=wptouch&amp;utm_medium=web&amp;utm_campaign=find-out-more-<?php echo str_replace( '.', '', $bnc_wptouch_version ); ?>" target="_blank"><?php _e( "Find Out More &rsaquo;&rsaquo;", "wptouch" ); ?></a></p>
+				<a id="find-out-more" href="http://www.bravenewcode.com/products/wptouch-pro/?utm_source=wptouch&amp;utm_medium=web&amp;utm_campaign=find-out-more-<?php echo str_replace( '.', '', $bnc_wptouch_version ); ?>" target="_blank">&nbsp;</a>
 				</div>
 			</div>
 			

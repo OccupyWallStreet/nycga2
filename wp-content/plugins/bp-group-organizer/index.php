@@ -3,10 +3,10 @@
 Plugin Name: BP Group Organizer
 Plugin URI: http://www.generalthreat.com/projects/buddypress-group-organizer
 Description: Easily create, edit, and delete BuddyPress groups - with drag and drop simplicity
-Version: 1.0.1
-Revision Date: 09/14/2011
-Requires at least: PHP 5, WP 3.0, BuddyPress 1.2
-Tested up to: WP 3.2.1 , BuddyPress 1.5-RC-1
+Version: 1.0.2
+Revision Date: 10/23/2011
+Requires at least: WP 3.0, BuddyPress 1.2
+Tested up to: WP 3.3-beta1 , BuddyPress 1.5.1
 License: Example: GNU General Public License 2.0 (GPL) http://www.gnu.org/licenses/gpl.html
 Author: David Dean
 Author URI: http://www.generalthreat.com/
@@ -14,10 +14,13 @@ Site Wide Only: true
 Network: true
 */
 
-//load localization files if present
-if ( file_exists( dirname( __FILE__ ) . '/languages/' . get_locale() . '.mo' ) )
+/** load localization files if present */
+if( file_exists( dirname( __FILE__ ) . '/languages/' . dirname(plugin_basename(__FILE__)) . '-' . get_locale() . '.mo' ) ) {
+	load_plugin_textdomain( 'bp-group-organizer', false, dirname(plugin_basename(__FILE__)) . '/languages' );
+} else if ( file_exists( dirname( __FILE__ ) . '/languages/' . get_locale() . '.mo' ) ) {
+	_doing_it_wrong( 'load_textdomain', 'Please rename your translation files to use the ' . dirname(plugin_basename(__FILE__)) . '-' . get_locale() . '.mo' . ' format', '1.0.2' );
 	load_textdomain( 'bp-group-organizer', dirname( __FILE__ ) . '/languages/' . get_locale() . '.mo' );
-
+}
 
 function bp_group_organizer_admin() {
 	$page = add_submenu_page( 'bp-general-settings', __('Group Organizer', 'bp-group-organizer'), __('Group Organizer', 'bp-group-organizer'), 'manage_options', 'group_organizer', 'bp_group_organizer_admin_page' );
@@ -268,7 +271,7 @@ $edit_markup = bp_get_groups_to_edit( );
 		</form>
 	</div><!-- /#menu-settings-column -->
 	<div id="menu-management-liquid">
-		<div id="menu-management">
+		<div id="menu-management" class="nav-menus-php">
 			<div class="menu-edit">
 				<form id="update-nav-menu" action="" method="post" enctype="multipart/form-data">
 					<div id="nav-menu-header">
@@ -323,7 +326,6 @@ $edit_markup = bp_get_groups_to_edit( );
 
 <?php	
 }
-
 
 function bp_organizer_delete_group() {
 	$group_id = (int)$_REQUEST['group_id'];

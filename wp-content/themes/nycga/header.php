@@ -38,7 +38,7 @@
 		<div id="header">
 			
 				<div class="padder">
-					<div id="header-link"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>">.</a>
+					<div id="header-link"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"></a>
 										</div>
 					<h1 id="logo" role="banner"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"><?php bp_site_name(); ?></a></h1>
 						
@@ -53,16 +53,26 @@
 
 		</div><!-- #header -->
 		</div> <!-- header-section -->
+        
+        		<!-- no content appears for logged in users -->
+
+		<? if( ! is_user_logged_in() ){ ?>
+		<div id="blurb" style="margin-top:0px; padding-top:0px;">
+			<div style="float:left; margin-right:20px;">
+				<iframe width="335" height="170" src="https://www.youtube.com/embed/6dtD8RnGaRQ?rel=0" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<div style="margin-left:260px;">
+				<h2 style="margin-bottom:6px;">Welcome to the New York City General Assembly</h2>
+				&raquo; Read our <a href="/resources/declaration/">Declaration</a><br />
+				&raquo; Create an <a href="/register">Account</a><br />
+				&raquo; Join Some <a href="/groups">Groups</a><br />
+				&raquo; Find Other <a href="/how-to-help/">Ways to Help</a>
+			</div>
+            <div style="clear:both"></div>
+   	 </div>
+		<? } ?>
+        
 		<?php do_action( 'bp_after_header' ) ?>
 		<?php do_action( 'bp_before_container' ) ?>
 		
-		<? if( ! is_user_logged_in() ){ ?>
-		<div id="blurb" style="padding:10px 0 14px;background-color:#fc0;text-align:center;">
-			Welcome to the new and improved New York General Assembly web site for the #occupywallstreet movement. <a href="/resources/web-site-help/">Learn more</a>
-			<div style="margin-top:12px;font-size:14px;">
-				<a href="/register">Create an Account</a> <em>or</em> <a href="#">Login</a> // Join some <a href="/groups">groups</a> // Get stuff done!
-			</div>
-		</div>
-		<? } ?>
-
 		<div id="container">

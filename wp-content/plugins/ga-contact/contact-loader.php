@@ -48,7 +48,7 @@ class CONTACT extends BP_Group_Extension {
                 $emptytab = true;
 		$fields = $this->get_all_fields($bp->groups->current_group->id);
 		if (empty($fields))
-			return false;
+			$this->add_default_fields();
 		//Temp fix for bug
 		$listed = array();			
 		echo '<div class="extra-data">';
@@ -56,7 +56,7 @@ class CONTACT extends BP_Group_Extension {
 				$data = groups_get_groupmeta($bp->groups->current_group->id, $field->slug);	
 				if ( is_array($data))
 					$data = implode(', ', $data);
-
+				$data = stripslashes($data);
 				if ( $field->display != 1 || empty($data) || in_array($field->slug, $listed) ){
 					continue;
 				}
@@ -83,6 +83,7 @@ class CONTACT extends BP_Group_Extension {
 		
 		foreach( $fields as $field ){
 			$field->value = groups_get_groupmeta($bp->groups->current_group->id, $field->slug);
+			$field->value = stripslashes($field->value);
 			$req = false;
 			if ( $field->required == 1 ) $req = '* ';
 			echo '<label for="' . $field->slug . '">' . $req . $field->title . '</label>';
@@ -142,6 +143,7 @@ class CONTACT extends BP_Group_Extension {
                                 $oldvalue = groups_get_groupmeta($bp->groups->current_group->id, substr($data,8));
                                 if($oldvalue != $value){
                                     $to_save[$data] =  $value;
+				    groups_delete_groupmeta($bp->groups->current_group->id, substr($data,8));
                                 }
                             }
                         }
@@ -240,7 +242,9 @@ class CONTACT extends BP_Group_Extension {
 	}
 	
 	function edit_screen_general($bp){
-		
+		$fields = $this->get_all_fields($bp->groups->current_group->id);
+		if (empty($fields))
+			$this->add_default_fields();		
 		$public_checked = $bp->groups->current_group->contacttab['display_page'] == 'public' ? 'checked="checked"' : '';
 		$private_checked = $bp->groups->current_group->contacttab['display_page'] == 'private' ? 'checked="checked"' : '';
 
@@ -469,6 +473,7 @@ class CONTACT extends BP_Group_Extension {
 
 	// Display Header and Extra-Nav
 	function edit_screen_head($cur = 'general'){
+		global $bp;
 		if ($cur == 'general'){
 			echo '<span class="extra-title">'.contact_names('title_general').'</span>';
 			echo '<span class="extra-subnav">
@@ -524,49 +529,40 @@ class CONTACT extends BP_Group_Extension {
 		return $fields;
 	}
 
-	function add_default_field($title,$desc,$type,$required,$display,$id=NULL){
-/* Check the nonce first. 
-				if ( !check_admin_referer( 'groups_edit_group_contacttab' ) )
-					return false;
-*/
-		// get current fields if any
-		global $bp;
-                if($id==NULL){
-                    $id=$bp->groups->current_group->id;
-                }
-		$fields = $this->get_all_fields($id);
-		
-		if (!$fields){
-		$fields = array();
-		}
-		
-		$new = new Stdclass;
-		$new->title = htmlspecialchars(strip_tags($title));
-		$new->slug = str_replace('-', '_', sanitize_title($new->title)); // will be used as unique identifier
-		$new->desc = htmlspecialchars(strip_tags($desc));
-		$new->type = $type;
-		$new->required = $required;
-		$new->display = $display;
-			
-		// To the end of an array of current fields
-		array_push($fields, $new);
-
-		// Save into groupmeta table
-		$fields = json_encode($fields);
-		groups_update_groupmeta( $id, 'contact_fields', $fields );
-	}
-	
 	function remove_all_fields(){
 		global $bp;		
 		groups_delete_groupmeta($bp->groups->current_group->id, 'contact_fields');
 	}
 	
-	function add_default_fields(){
+	function add_default_fields($group_id=NULL){
 		global $bp;
-		$this->add_default_field('Phone','','text',0,1);
-		$this->add_default_field('E-mail','','text',0,1);
-		$this->add_default_field('Twitter','','text',0,1);
-		$this->add_default_field('Mailing List','','text',0,1);
+		if($group_id==NULL){
+                    $group_id=$bp->groups->current_group->id;
+                }
+		$group = new BP_Groups_Group( $group_id );
+		$defaultfields = array();
+		
+		/* EDIT DEFAULT FIELDS HERE */		
+		array_push($defaultfields, array('title'=>'Phone', 'desc'=>'','type'=>'text','required'=>0,'display'=>1, 'slug'=>'phone'));
+		array_push($defaultfields, array('title'=>'E-mail','desc'=>'','type'=>'text','required'=>0,'display'=>1, 'slug'=>'e_mail'));
+		array_push($defaultfields, array('title'=>'Twitter','desc'=>'','type'=>'text','required'=>0,'display'=>1, 'slug'=>'twitter'));
+		array_push($defaultfields, array('title'=>'Mailing List','desc'=>'','type'=>'text','required'=>0,'display'=>1, 'slug'=>'mailing_list'));
+		
+		$fields = array();
+		foreach($defaultfields as $field){
+			$new = new Stdclass;
+			$new->title = htmlspecialchars(strip_tags($field["title"]));
+	                $new->slug = $field["slug"]; // will be used as unique identifier 
+	                $new->desc = htmlspecialchars(strip_tags($field["desc"]));
+			$new->type = $field["type"];
+			$new->required = $field["required"];
+			$new->display = $field["display"];
+			
+			// To the end of an array of current fields
+			array_push($fields, $new);
+		}
+		$fields = json_encode($fields);
+		groups_update_groupmeta( $group_id, 'contact_fields', $fields );		
 	}	
 	
 	// Get field by slug - reusable

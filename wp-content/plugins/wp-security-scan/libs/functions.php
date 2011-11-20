@@ -37,7 +37,7 @@ function check_perms($name,$path,$perm)
 {
     clearstatcache();
     $configmod = substr(sprintf("%o", fileperms($path)), -4);
-    $trcss = (($configmod != $perm) ? "background-color:#fd7a7a;" : "background-color:#91f587;");
+    $trcss = (($configmod != $perm) ? "background-color:#F5E679;" : "");
     echo "<tr style=".$trcss.">";
         echo '<td style="border:0px;">' . $name . "</td>";
         echo '<td style="border:0px;">'. $path ."</td>";
@@ -51,7 +51,7 @@ function wsd_getFilePermissions($filePath)
 {
     clearstatcache();
     $res =  @substr(sprintf("%o", fileperms($filePath)), -4);
-    
+
     return (empty($res) ? '0' : $res);
 }
 
@@ -103,7 +103,12 @@ function mrt_get_serverinfo() {
 
 function mrt_check_table_prefix(){
     if($GLOBALS['table_prefix']=='wp_'){
-        echo '<span style="color:#f00">Your table prefix should not be <i>wp_</i>.  <a href="admin.php?page=database">Click here</a> to change it.</span><br />';
+        echo '<span style="color:#f00">
+Your table prefix should not be <em>wp_</em>. Click <a href="admin.php?page=database">here</a> to change it.
+Read more on why should change the prefix
+<a href="http://www.websitedefender.com/wordpress-security/wordpress-blog-security-tables-prefix/"
+title="Why should you change the default wp table prefix"
+target="_blank">here</a>.</span><br />';
     }
     else { echo '<span class="scanpass">Your table prefix is not <i>wp_</i>.</span><br />'; }
 }
@@ -125,8 +130,8 @@ global $wp_version;
 
 function mrt_remove_wp_version()
 {
-    function filter_generator( $gen, $type ) { 
-        switch ( $type ) { 
+    function filter_generator( $gen, $type ) {
+        switch ( $type ) {
             case 'html':
                 $gen = '<meta name="generator" content="WordPress">';
                 break;
@@ -145,24 +150,45 @@ function mrt_remove_wp_version()
             case 'comment':
                 $gen = '<!-- generator="WordPress" -->';
                 break;
-        }    
+        }
         return $gen;
     }
     foreach ( array( 'html', 'xhtml', 'atom', 'rss2', 'rdf', 'comment' ) as $type ) {
         add_filter( "get_the_generator_$type", 'filter_generator', 10, 2 );
     }
 }
+//@ update 10/03/2011
+function mrt_check_version()
+{
+    $c = get_site_transient( 'update_core' );
+    if ( is_object($c))
+    {
+        if (empty($c->updates))
+        {
+            echo '<span class="acx-icon-alert-success">'.__('You have the latest version of Wordpress.').'</span>';
+            return;
+        }
 
-function mrt_check_version(){
-//echo "WordPress Version: ";
-global $wp_version;
-$mrt_wp_ver = ereg_replace("[^0-9]", "", $wp_version);
-while ($mrt_wp_ver > 10){
-    $mrt_wp_ver = $mrt_wp_ver/10;
+        if (!empty($c->updates[0]))
+        {
+            $c = $c->updates[0];
+
+            if ( !isset($c->response) || 'latest' == $c->response ) {
+                echo '<span class="acx-icon-alert-success">'.__('You have the latest version of Wordpress.').'</span>';
+                return;
+            }
+
+            if ('upgrade' == $c->response)
+            {
+                $lv = $c->current;
+                $m = '<span class="acx-icon-alert-critical">'.sprintf('A new version of Wordpress <strong>(%s)</strong> is available. You should upgrade to the latest version.', $lv).'</span>';
+                echo __($m);
+                return;
+            }
+        }
     }
-if ($mrt_wp_ver >= "2.8") $g2k5 = '<span class="scanpass"><strong>WordPress version: ' . $wp_version . '</strong> &nbsp;&nbsp;&nbsp; You have the latest stable version of WordPress.</span><br />';
-if ($mrt_wp_ver < "2.8") $g2k5 = '<span style="color:#f00"><strong>WordPress version: ' . $wp_version . '</strong> &nbsp;&nbsp;&nbsp; You need version 2.8.6.  Please <a href="http://wordpress.org/download/">upgrade</a> immediately.</span><br />';
-echo $g2k5;
+
+    echo '<span class="acx-icon-alert-critical">'.__('An error has occurred while trying to retrieve the status of your Wordpress version.').'</span>';
 }
 
 
@@ -201,31 +227,6 @@ function wsd_wpConfigCheckPermissions($wpConfigFilePath)
  */
 function wsd_getDbUserRights()
 {
-/*
-    global $wpdb;
-    $rights = $wpdb->get_results("SHOW GRANTS FOR '".DB_USER."'@'".DB_HOST."'", ARRAY_N);
-    $rightsenough = $rightstomuch = false;
-
-    foreach ($rights as $right) {
-        
-        
-        if (ereg("ALTER(.*)(\*|`".str_replace("_", "\\\\_", DB_NAME)."`)\.(\*|`".DB_HOST."`) TO '".DB_USER."'@'".DB_HOST."'", $right[0]) || ereg("ALL PRIVILEGES ON (\*|`".str_replace("_", "\\\\_", DB_NAME)."`)\.(\*|`".DB_HOST."`) TO '".DB_USER."'@'".DB_HOST."'", $right[0])) {
-            $rightsenough = $rightstomuch = true;
-            break;
-        }
-        else {
-            if (ereg("ALTER(.*)`".DB_NAME."`", $right[0])) {
-                $rightsenough = true;
-                break;
-            }
-        }
-    }
-
-    return array(
-        'rightsEnough' => $rightsenough,
-        'rightsTooMuch' => $rightstomuch,
-    );    
- */
     global $wpdb;
 
     $rightsenough = $rightstoomuch = false;
@@ -250,7 +251,7 @@ function wsd_getDbUserRights()
             if ('ALTER' == $_right) {
                 $rightsenough = true;
             }
-            if (in_array($_right, $tooManyRights)) {
+            if (in_array($_right, $_tooManyRights)) {
                 $numRights += 1;
             }
         }
@@ -262,7 +263,7 @@ function wsd_getDbUserRights()
     return array(
         'rightsEnough' => $rightsenough,
         'rightsTooMuch' => $rightstoomuch,
-    );    
+    );
 }
 
 
@@ -270,10 +271,10 @@ function wsd_getDbUserRights()
  * @public
  * @since v3.0.2
  * @revision $1 07/13/2011 $k
- * 
+ *
  * Update the wp-config file to reflect the table prefix change.
  * The wp file must be writable for this operation to work!
- * 
+ *
  * @param string $wsd_wpConfigFile The path to the wp-config file
  * @param string $newPrefix The new prefix to use instead of the old one
  * @return boolean
@@ -285,7 +286,7 @@ function wsd_updateWpConfigTablePrefix($wsd_wpConfigFile, $oldPrefix, $newPrefix
     {
         return -1;
     }
-    
+
     if (!function_exists('file')) {
         return -1;
     }
@@ -308,7 +309,7 @@ function wsd_updateWpConfigTablePrefix($wsd_wpConfigFile, $oldPrefix, $newPrefix
         // Save wp-config file
         $result = file_put_contents($wsd_wpConfigFile, $fcontent);
     }
-    
+
     return $result;
 }
 
@@ -322,7 +323,7 @@ function wsd_updateWpConfigTablePrefix($wsd_wpConfigFile, $oldPrefix, $newPrefix
 function wsd_getTablesToAlter()
 {
     global $wpdb;
-    
+
     return $wpdb->get_results("SHOW TABLES LIKE '".$GLOBALS['table_prefix']."%'", ARRAY_N);
 }
 
@@ -330,7 +331,7 @@ function wsd_getTablesToAlter()
  * @public
  * @since v3.0.2
  * Rename tables from database
- * @global object $wpdb 
+ * @global object $wpdb
  * @param array the list of tables to rename
  * @param string $currentPrefix the current prefix in use
  * @param string $newPrefix the new prefix to use
@@ -341,7 +342,7 @@ function wsd_renameTables($tables, $currentPrefix, $newPrefix)
     global $wpdb;
 
     $changedTables = array();
-    
+
     foreach ($tables as $k=>$table)
     {
         $tableOldName = $table[0];
@@ -364,7 +365,7 @@ function wsd_renameTables($tables, $currentPrefix, $newPrefix)
  * @public
  * @since v3.0.2
  * @revision $1 07/13/2011 $k
- * 
+ *
  * Rename some fields from options & usermeta tables in order to reflect the prefix change
  *
  * @global object $wpdb
@@ -378,11 +379,11 @@ function wsd_renameDbFields($oldPrefix,$newPrefix)
  * usermeta table
  * ===========================
     wp_*
- 
+
  * options table
  * ===========================
     wp_user_roles
-    
+
 */
     $str = '';
 
@@ -392,18 +393,18 @@ function wsd_renameDbFields($oldPrefix,$newPrefix)
 
     $query = 'update '.$newPrefix.'usermeta
 set meta_key = CONCAT(replace(left(meta_key, ' . strlen($oldPrefix) . "), '{$oldPrefix}', '{$newPrefix}'), SUBSTR(meta_key, " . (strlen($oldPrefix) + 1) . "))
-where 
-    meta_key in ('{$oldPrefix}autosave_draft_ids', '{$oldPrefix}capabilities', '{$oldPrefix}metaboxorder_post', '{$oldPrefix}user_level', '{$oldPrefix}usersettings', 
+where
+    meta_key in ('{$oldPrefix}autosave_draft_ids', '{$oldPrefix}capabilities', '{$oldPrefix}metaboxorder_post', '{$oldPrefix}user_level', '{$oldPrefix}usersettings',
                 '{$oldPrefix}usersettingstime', '{$oldPrefix}user-settings', '{$oldPrefix}user-settings-time', '{$oldPrefix}dashboard_quick_press_last_post_id')";
 
     if (false === $wpdb->query($query)) {
         $str .= '<br/>Changing values in table <strong>'.$newPrefix.'usermeta</strong>: <font color="#ff0000">Failed</font>';
     }
-    
+
     if (!empty($str)) {
         $str = '<div class="wsd_user_information"><p>Changing database prefix:</p><p>'.$str.'</p></div>';
     }
-    
+
     return $str;
 }
 
@@ -421,7 +422,7 @@ function wsd_backupDatabase($tables = '*')
 {
   // cache
   $_tables = $tables;
-    
+
   $link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
   if (!$link) {
       exit('Error: Cannot connect to db');
@@ -444,26 +445,26 @@ function wsd_backupDatabase($tables = '*')
   {
     $tables = is_array($tables) ? $tables : explode(',',$tables);
   }
-  
+
   $return = 'CREATE DATABASE IF NOT EXISTS '.DB_NAME.";\n\n";
   $return .= 'USE '.DB_NAME.";\n\n";
-  
+
   //cycle through
   foreach($tables as $table)
   {
     $result = mysql_query('SELECT * FROM '.$table);
     $num_fields = mysql_num_fields($result);
-    
+
     $return.= 'DROP TABLE IF EXISTS '.$table.';';
     $row2 = mysql_fetch_row(mysql_query('SHOW CREATE TABLE '.$table));
     $return.= "\n\n".$row2[1].";\n\n";
-    
-    for ($i = 0; $i < $num_fields; $i++) 
+
+    for ($i = 0; $i < $num_fields; $i++)
     {
       while($row = mysql_fetch_row($result))
       {
         $return.= 'INSERT INTO '.$table.' VALUES(';
-        for($j=0; $j<$num_fields; $j++) 
+        for($j=0; $j<$num_fields; $j++)
         {
           $row[$j] = addslashes($row[$j]);
           $row[$j] = ereg_replace("\n","\\n",$row[$j]);
@@ -475,11 +476,11 @@ function wsd_backupDatabase($tables = '*')
     }
     $return.="\n\n\n";
   }
-  
+
   //save file
     $fname = 'bck-'.date("m-d-Y",time()).'-'.md5(uniqid(rand())).'.sql';
     $filePath = ABSPATH.PLUGINDIR .'/wp-security-scan/backups/'.$fname;
-    $ret = file_put_contents($filePath, $return); 
+    $ret = file_put_contents($filePath, $return);
     if ($ret > 0) {
         return $fname;
     }
@@ -519,7 +520,7 @@ function wsd_getAvailableBackupFiles()
     $files = glob(ABSPATH. '/wp-content/plugins/wp-security-scan/backups/*.sql');
     if (empty($files)) { return array();}
     return array_map('basename', $files/*, array('.sql')*/);
-    
+
 }
 
 
@@ -528,7 +529,7 @@ function wsd_getAvailableBackupFiles()
  * @since v3.0.2
  * Retrieve the content of the specified template file
  * from the inc/admin/templates directory
- * 
+ *
  * @param string $fileName The name of the file to retrieve. Without the .php extension!
  * @param array $vars The list of variables to send to the template
  * @return string The file's content
@@ -537,7 +538,7 @@ function wsd_getTemplate($fileName, array $vars = array())
 {
     $file = ABSPATH.PLUGINDIR.'/wp-security-scan/inc/admin/templates/'.$fileName.'.php';
     if (!is_file($file)) { return ''; }
-    
+
     $str = '';
     ob_start();
         if (!empty($vars)) {
@@ -546,7 +547,7 @@ function wsd_getTemplate($fileName, array $vars = array())
         include $file;
         $str = ob_get_contents();
     ob_end_clean();
-    
+
     return $str;
 }
 
@@ -565,4 +566,19 @@ function wsd_eInfo($infoMessage, $alertType = 'notify')
 {
     return ('<p class="wsd_user_'.$alertType.'">'.$infoMessage.'</p>');
 }
+
+/**
+ * @public
+ * @since v3.0.8
+ * Add the 'Settings' link to the plugin page
+ * @param array $links
+ * @return array
+ */
+function wpss_admin_plugin_actions($links) {
+	$links[] = '<a href="admin.php?page=wp-security-scan/securityscan.php">'.__('Settings').'</a>';
+	return $links;
+}
+
+
+
 ?>
