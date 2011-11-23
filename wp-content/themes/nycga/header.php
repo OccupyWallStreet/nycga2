@@ -38,7 +38,7 @@
 		<div id="header">
 			
 				<div class="padder">
-					<div id="header-link"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>">&nbsp;</a>
+					<div id="header-link"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"></a>
 										</div>
 					<h1 id="logo" role="banner"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"><?php bp_site_name(); ?></a></h1>
 						
@@ -53,32 +53,26 @@
 
 		</div><!-- #header -->
 		</div> <!-- header-section -->
+        
+        		<!-- no content appears for logged in users -->
+
+		<? if( ! is_user_logged_in() ){ ?>
+		<div id="blurb" style="margin-top:0px; padding-top:0px;">
+			<div style="float:left; margin-right:20px;">
+				<iframe width="335" height="170" src="https://www.youtube.com/embed/6dtD8RnGaRQ?rel=0" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<div style="margin-left:260px;">
+				<h2 style="margin-bottom:6px;">Welcome to the New York City General Assembly</h2>
+				&raquo; Read our <a href="/resources/declaration/">Declaration</a><br />
+				&raquo; Create an <a href="/register">Account</a><br />
+				&raquo; Join Some <a href="/groups">Groups</a><br />
+				&raquo; Find Other <a href="/how-to-help/">Ways to Help</a>
+			</div>
+            <div style="clear:both"></div>
+   	 </div>
+		<? } ?>
+        
 		<?php do_action( 'bp_after_header' ) ?>
 		<?php do_action( 'bp_before_container' ) ?>
 		
-		<div id="blurb" style="height:170px">
-               <div style="float:left;">
-                       <iframe width="250" height="170" src="http://www.youtube.com/embed/Sj66DB_PKz0" frameborder="0" allowfullscreen></iframe>
-               </div>
-               <div style="margin-left:260px">
-                       <h4 style="margin-bottom:6px">Thursday, November 17, 2011</h4>
-                       <h3 style="margin-bottom:6px">International Day of Action</h3>
-                       <h4 style="margin-bottom:6px;">Find Out More: <a href="http://occupywallst.org/action/november-17th/" target="_blank">http://occupywallst.org/action/november-17th/</a></h4>
-                       <h4>Get Housing Information: <a href="http://www.nycga.net/resources/housing-support/" target="_blank">http://www.nycga.net/resources/housing-support/</a></h4>
-               </div>
-       </div>
-		<? if( ! is_user_logged_in() ){ ?>
-			<!-- <div style="float:left;">
-				<iframe width="335" height="170" src="https://www.youtube.com/embed/6dtD8RnGaRQ?rel=0" frameborder="0" allowfullscreen></iframe>
-			</div>
-			<div style="margin-left:355px">
-				<h3 style="margin-bottom:6px;">Welcome to the new <em>and improved</em> New York City General Assembly<br/>Currently occupying Zuccotti Park.</h3>
-				Read our <a href="/resources/declaration/">Declaration</a><br />
-				<a href="/register">Create an Account</a><br />
-				Join some <a href="/groups">groups</a><br />
-				or <a href="/how-to-help/">find other ways to help</a>
-			</div>
-		</div> -->
-		<? } ?>
-
 		<div id="container">

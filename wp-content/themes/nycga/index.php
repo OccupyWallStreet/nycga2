@@ -1,5 +1,5 @@
-<?php get_header() ?>
 
+<?php get_header() ?>
 	<div id="content">
 		<div class="padder">
 			<h3 class="pagetitle"><?php wp_title(); ?></h3>
