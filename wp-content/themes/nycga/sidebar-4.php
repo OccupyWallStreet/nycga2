@@ -5,7 +5,7 @@
 
 	
 
-	<?php dynamic_sidebar( 'sidebar-4' ) ?>
+	<?php dynamic_sidebar( 'Bulletin-side2' ) ?>
 
 	
 
