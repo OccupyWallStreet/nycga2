@@ -17,7 +17,7 @@
 define('FORCE_SSL_LOGIN', true);
 define('FORCE_SSL_ADMIN', true);
 
-define('WP_MEMORY_LIMIT', '128');
+define('WP_MEMORY_LIMIT', '128M');
 ini_set('post_max_size', '50M');
 ini_set('upload_max_filesize', '50M');
 
