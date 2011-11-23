@@ -1,10 +1,10 @@
 <?php
 // HkMuob
 
-
-global $hkMuob_Op;
-$hkMuob_Op = new HkMuob_Op();
-
+/**
+ * Modified by Boone so that class is defined before it's instantiated.
+ * Nov 23 2011
+ */
 
 
 class HkMuob_Op extends HkMuob_HkToolsOptions{
@@ -101,4 +101,9 @@ class HkMuob_Op extends HkMuob_HkToolsOptions{
 
 
 }
+
+
+
+global $hkMuob_Op;
+$hkMuob_Op = new HkMuob_Op();
 
