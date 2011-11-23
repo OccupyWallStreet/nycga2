@@ -77,29 +77,7 @@ function add_search_form_script() {
 
 register_sidebar(
 	array(
-		'name' => 'Hero-login',
-		'id' => 'blurb_login',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-
-register_sidebar(
-	array(
-		'name' => 'Hero-no-login',
-		'id' => 'blurb',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
-
-register_sidebar(
-	array(
-		'name' => 'Bulletin-Main',
+		'name' => 'Sidebar 2',
 		'id' => 'sidebar-2',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
@@ -111,7 +89,7 @@ register_sidebar(
 
 register_sidebar(
 	array(
-		'name' => 'Bulletin-side1',
+		'name' => 'Sidebar 3',
 		'id' => 'sidebar-3',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
@@ -122,7 +100,7 @@ register_sidebar(
 
 register_sidebar(
 	array(
-		'name' => 'Bulletin-side2',
+		'name' => 'Sidebar 4',
 		'id' => 'sidebar-4',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',

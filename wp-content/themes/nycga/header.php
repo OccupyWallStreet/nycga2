@@ -54,31 +54,23 @@
 		</div><!-- #header -->
 		</div> <!-- header-section -->
         
-    <!-- NO LOGIN -->
+        		<!-- no content appears for logged in users -->
 
-		<?php if( ! is_user_logged_in() ){ 
-		do_action( 'bp_before_sidebar' ) ?>
-
-		<div id="Hero-login" role="complementary class="extra-sidebar">
-		
-			<?php dynamic_sidebar( 'Hero-login' ) ?>
-		</div><!-- #sidebar -->
-
-		<?php do_action( 'bp_after_sidebar' )
-		} ?>
-        
-    <!-- LOGIN -->
-
-		<?php if(is_user_logged_in() ){ 
-		do_action( 'bp_before_sidebar' ) ?>
-
-		<div id="Hero-login" role="complementary class="extra-sidebar">
-		
-			<?php dynamic_sidebar( 'Hero-no-login' ) ?>
-		</div><!-- #sidebar -->
-
-		<?php do_action( 'bp_after_sidebar' )
-		} ?>
+		<? if( ! is_user_logged_in() ){ ?>
+		<div id="blurb" style="margin-top:0px; padding-top:0px;">
+			<div style="float:left; margin-right:20px;">
+				<iframe width="335" height="170" src="https://www.youtube.com/embed/6dtD8RnGaRQ?rel=0" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<div style="margin-left:260px;">
+				<h2 style="margin-bottom:6px;">Welcome to the New York City General Assembly</h2>
+				&raquo; Read our <a href="/resources/declaration/">Declaration</a><br />
+				&raquo; Create an <a href="/register">Account</a><br />
+				&raquo; Join Some <a href="/groups">Groups</a><br />
+				&raquo; Find Other <a href="/how-to-help/">Ways to Help</a>
+			</div>
+            <div style="clear:both"></div>
+   	 </div>
+		<? } ?>
         
 		<?php do_action( 'bp_after_header' ) ?>
 		<?php do_action( 'bp_before_container' ) ?>
