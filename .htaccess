@@ -2,11 +2,11 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} nycga.cc [NC]
 RewriteRule ^(.*)$ http://www.nycga.net/$1 [R,L]
 
-redirect 301 /donate /how-to-help
-redirect 301 /2011/09/30/declaration-of-the-occupation-of-new-york-city/ /resources/declaration
-redirect 301 /who-we-are /about/
-redirect 301 /calendar /events/
-redirect 301 /2011/09/24/principles-of-solidarity-working-draft /resources/principles-of-solidarity
+redirect 301 /donate http://www.nycga.net/how-to-help
+redirect 301 /2011/09/30/declaration-of-the-occupation-of-new-york-city/ http://www.nycga.net/resources/declaration
+redirect 301 /who-we-are http://www.nycga.net/about/
+redirect 301 /calendar http://www.nycga.net/events/
+redirect 301 /2011/09/24/principles-of-solidarity-working-draft http://www.nycga.net/resources/principles-of-solidarity
 
 # BEGIN W3TC Browser Cache
 <IfModule mod_deflate.c>
