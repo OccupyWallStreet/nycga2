@@ -18,7 +18,7 @@ body {
 }
 
 a {
-	color:#495d79;
+	color:#335D99;
 	font-weight:500;
 	text-decoration: none;
 }
@@ -230,6 +230,29 @@ div#header {
 	z-index: 900;
 }
 
+
+/**************** hero ***************/
+
+#hero-login .hero {}
+
+#hero-no-login .hero {}
+
+.hero {
+background: #aaaaaa; /* Old browsers */
+background: -moz-linear-gradient(top,  #aaaaaa 0%, #dddddd 20%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaaaaa), color-stop(20%,#dddddd)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #aaaaaa 0%,#dddddd 20%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #aaaaaa 0%,#dddddd 20%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #aaaaaa 0%,#dddddd 20%); /* IE10+ */
+background: linear-gradient(top,  #aaaaaa 0%,#dddddd 20%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+
+font-size:16px;
+padding:15px;
+text-shadow: 1px 1px 0 #EEE;
+}
+
+.hero  .textwidget { background: transparent url(img/system/speaker.png) no-repeat scroll left center; padding-left:60px; }
 
 /**************** home page - news feed fix ***************/
 
@@ -463,10 +486,6 @@ div.item-list-tabs ul li.feed {
 
 }
 
-ul li.loading a {
-       padding-right: 35px !important;
-       margin-right: -35px;
-}
 
 /* Get rid of buttons that say the last time there was activity */
 span.activity {
@@ -512,9 +531,20 @@ ul#groups-list div.item-type {
     float: left;
     width: 20%;
 }
-.group-button {
-	padding-top:0px;
+
+.my-groups ul#groups-list div.item-type {
+    float: left;
+    width: 0%;
 }
+
+.my-groups .group-subscription-div {
+	position: relative;
+	bottom: 8px;
+}
+
+/*.group-button {
+	padding-top:0px;
+}*/
 
 ul.item-list li div.action {
     top: 25px;
@@ -542,12 +572,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', end
 }
 
 div#pag-bottom {
-margin-top: 1px;
+	clear:both;
 }
 
 #groups-dir-list .group-subscription-div {
        display:none;
 }
+
+.group-members div.item-list-tabs#subnav {
+	margin: -35px -10px 15px -19px;
+}
+
+
 
 /****************** members list **************************/
 
@@ -621,6 +657,25 @@ div.item-list-tabs ul li:hover a span, div.item-list-tabs ul li.sfhover a span {
 
 /******* group pages***************/
 
+.groups .bpfb_actions_container, .bpfb_preview_container {
+   	 float: left;
+	 width: 70%;
+}
+	
+.groups div#whats-new-options {
+	 float: left;
+	 width: 30%;
+}
+.groups .activity {
+	clear: both;
+}
+
+.groups #item-body form#whats-new-form {
+    border-bottom: 1px solid #DDDDDD;
+    margin: 20px 0 10px;
+    padding-bottom: 50px;
+}
+
 .groups div #whats-new-options, /*.activity div#whats-new-options*/ {
 	position: relative;
 	bottom: 55px;
@@ -640,7 +695,7 @@ div.item-list-tabs ul li:hover a span, div.item-list-tabs ul li.sfhover a span {
 }
 
 .gtags_chooser span {
-	color:#495d79;
+	color:#335D99;
 }
 
 table.forum tr.sticky td {
@@ -663,6 +718,14 @@ table.forum tr.sticky td {
 	margin: 5px 0;
 	max-width: 650px;
 }
+
+.group-forum-topic .ass-topic-subscribe {
+    margin: 10px 0 40px 0 !important;
+}
+
+/*ul#topic-post-list li.alt {
+	background: transparent;
+}*/
 /********************pages ********************/
 
 h3.pagetitle {
@@ -680,7 +743,7 @@ a.more-link {
 }
 
 div#content .padder {
-    /* border-right: 10px solid #ddd; */
+    border-right: 10px solid #ddd;
 }
 
 div.entry {
@@ -711,7 +774,13 @@ p.comments-closed.pings-open {
 	font-size:16px;
 }
 
+/**************** single page ***********************/
 
+/*.single div#container {
+	padding-top: 40px;
+}
+
+*/
 /***************** how to help page *****************/
 #post-359 form p {
 	width:10px;
@@ -801,11 +870,11 @@ div.really_simple_share_twitter {
 	margin:0;
 }
 
-.page-template-page-3-sidebars-php .widget {
+/* .page-template-page-3-sidebars-php .widget {
 	margin-bottom:20px;
 	padding-bottom:20px;
 	border-bottom:1px solid #ccc;
-}
+} */
 
  #sidebar-2 {
 	width:50%;
