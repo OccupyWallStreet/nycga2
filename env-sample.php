@@ -20,9 +20,16 @@ define( 'BBDB_HOST', 'localhost' );
 /**
  * Other environment specific constants
  */
-define( 'IS_LOCAL_ENV', true ); // Only change for production sites!
-define( 'WP_DEBUG', true );
+
+// Only change this on production sites!
+define( 'IS_LOCAL_ENV', true );
+
+// Many installed plugins will flood you with errors, so use this only when necessary for debugging
+define( 'WP_DEBUG', false ); 
+
+// Unless you walk through the cache setup on your local installation, you'll want to keep this shut off
 define( 'WP_CACHE', false );
+
 define( 'WP_MEMORY_LIMIT', '128M' );
 
 ?>
