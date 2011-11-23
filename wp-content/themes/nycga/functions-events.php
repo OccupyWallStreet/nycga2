@@ -11,10 +11,16 @@ function nycga_allow_recurrence ($count, $args)
 		$events_table = EM_EVENTS_TABLE;
 		$locations_table = EM_LOCATIONS_TABLE;
 
+		// todo: is it a bug that get_default_search( $args ) does not return a 'recurrence_id'?
+		$recurrence_id = (int)$args['recurrence_id'];
+
 		$args = EM_Events::get_default_search($args);
 
+		if ( isset( $args['recurrence_id'] ) ) 
+			$recurrence_id = $args['recurrence_id'];
+
 		$conditions = EM_Events::build_sql_conditions($args);
-		$conditions['recurrence'] = "`recurrence_id`='" . (int) $args['recurrence_id'] . "'";
+		$conditions['recurrence'] = "`recurrence_id`='" . $recurrence_id . "'";
 		unset($conditions['recurring']);
 
 		$limit = ( $args['limit'] && is_numeric($args['limit'])) ? "LIMIT {$args['limit']}" : '';

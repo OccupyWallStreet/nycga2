@@ -1296,5 +1296,6 @@ if ( !class_exists('WordPressHTTPS') ) {
 if ( class_exists('WordPressHTTPS') && function_exists('get_bloginfo') ) {
 	$wordpress_https = new WordPressHTTPS();
 	register_activation_hook(__FILE__, array(&$wordpress_https, 'install'));
-	register_uninstall_hook(__FILE__, array(&$wordpress_https, 'uninstall'));
+	// We'll handle uninstall manually. This is causing fatal errors. Boone - 2011 Nov 23
+	//register_uninstall_hook(__FILE__, array(&$wordpress_https, 'uninstall'));
 }

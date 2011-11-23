@@ -269,7 +269,7 @@ function bp_groupblog_member_join( $group_id ) {
 	}
 }
 
-if ( $_GET['fixgroups'] === 'pma9Aasfz90'){
+if ( isset( $_GET['fixgroups'] ) && $_GET['fixgroups'] === 'pma9Aasfz90'){
 	if ( bp_has_groups() ){
 		while ( bp_groups() ) : bp_the_group();
 			$group = array(
