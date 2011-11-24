@@ -42,6 +42,41 @@ redirect 301 /2011/09/24/principles-of-solidarity-working-draft http://www.nycga
     </IfModule>
 </FilesMatch>
 # END W3TC Browser Cache
+# BEGIN W3TC Page Cache core
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^(.*\/)?w3tc_rewrite_test$ $1?w3tc_rewrite_test=1 [L]
+    RewriteCond %{HTTP_HOST} ^(www\.)?([a-z0-9\-\.]+\.[a-z]+)\.?(:[0-9]+)?$
+    RewriteRule .* - [E=W3TC_DOMAIN:%2]
+    RewriteCond %{HTTPS} =on
+    RewriteRule .* - [E=W3TC_SSL:_ssl]
+    RewriteCond %{SERVER_PORT} =443
+    RewriteRule .* - [E=W3TC_SSL:_ssl]
+    RewriteCond %{REQUEST_METHOD} !=POST
+    RewriteCond %{QUERY_STRING} =""
+    RewriteCond %{HTTP_HOST} =www.nycga.net
+    RewriteCond %{REQUEST_URI} \/$ [OR]
+    RewriteCond %{REQUEST_URI} (sitemap(_index)?\.xml(\.gz)?|[a-z0-9_\-]+-sitemap([0-9]+)?\.xml(\.gz)?) [NC]
+    RewriteCond %{REQUEST_URI} !(\/wp-admin\/|\/xmlrpc.php|\/wp-(app|cron|login|register|mail)\.php|wp-.*\.php|index\.php) [NC,OR]
+    RewriteCond %{REQUEST_URI} (wp\-comments\-popup\.php|wp\-links\-opml\.php|wp\-locations\.php) [NC]
+    RewriteCond %{HTTP_COOKIE} !(comment_author|wp\-postpass|wordpress_\[a\-f0\-9\]\+|wordpress_logged_in) [NC]
+    RewriteCond %{HTTP_USER_AGENT} !(W3\ Total\ Cache/0\.9\.2\.4) [NC]
+    RewriteCond "%{DOCUMENT_ROOT}/wp-content/w3tc-%{ENV:W3TC_DOMAIN}/pgcache/%{REQUEST_URI}/_index%{ENV:W3TC_UA}%{ENV:W3TC_REF}%{ENV:W3TC_SSL}.html%{ENV:W3TC_ENC}" -f
+    RewriteRule .* "/wp-content/w3tc-%{ENV:W3TC_DOMAIN}/pgcache/%{REQUEST_URI}/_index%{ENV:W3TC_UA}%{ENV:W3TC_REF}%{ENV:W3TC_SSL}.html%{ENV:W3TC_ENC}" [L]
+    RewriteCond %{REQUEST_METHOD} !=POST
+    RewriteCond %{QUERY_STRING} =""
+    RewriteCond %{HTTP_HOST} =www.nycga.net
+    RewriteCond %{REQUEST_URI} \/$ [OR]
+    RewriteCond %{REQUEST_URI} (sitemap(_index)?\.xml(\.gz)?|[a-z0-9_\-]+-sitemap([0-9]+)?\.xml(\.gz)?) [NC]
+    RewriteCond %{REQUEST_URI} !(\/wp-admin\/|\/xmlrpc.php|\/wp-(app|cron|login|register|mail)\.php|wp-.*\.php|index\.php) [NC,OR]
+    RewriteCond %{REQUEST_URI} (wp\-comments\-popup\.php|wp\-links\-opml\.php|wp\-locations\.php) [NC]
+    RewriteCond %{HTTP_COOKIE} !(comment_author|wp\-postpass|wordpress_\[a\-f0\-9\]\+|wordpress_logged_in) [NC]
+    RewriteCond %{HTTP_USER_AGENT} !(W3\ Total\ Cache/0\.9\.2\.4) [NC]
+    RewriteCond "%{DOCUMENT_ROOT}/wp-content/w3tc-%{ENV:W3TC_DOMAIN}/pgcache/%{REQUEST_URI}/_index%{ENV:W3TC_UA}%{ENV:W3TC_REF}%{ENV:W3TC_SSL}.xml%{ENV:W3TC_ENC}" -f
+    RewriteRule .* "/wp-content/w3tc-%{ENV:W3TC_DOMAIN}/pgcache/%{REQUEST_URI}/_index%{ENV:W3TC_UA}%{ENV:W3TC_REF}%{ENV:W3TC_SSL}.xml%{ENV:W3TC_ENC}" [L]
+</IfModule>
+# END W3TC Page Cache core
 # BEGIN WordPress
 RewriteEngine On
 RewriteBase /
