@@ -18,7 +18,8 @@ function my_bp_search_form_type_select() {
 	if ( bp_is_active( 'groups' ) )
 		$options['groups']  = __( 'Groups',  'buddypress' );
 		
-	$options['events'] = __( 'Events', 'buddypress' );
+	// Commented out events because feature not working 11/26/11
+	//$options['events'] = __( 'Events', 'buddypress' );
 
 	if ( bp_is_active( 'xprofile' ) )
 		$options['members'] = __( 'Members', 'buddypress' );
@@ -108,7 +109,6 @@ register_sidebar(
 		'after_title' => '</h3>'
 	)
 );
-
 
 // register_sidebar(
 // 	array(
