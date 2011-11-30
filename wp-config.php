@@ -14,25 +14,16 @@
  * @package WordPress
  */
 
-define('FORCE_SSL_LOGIN', true);
-define('FORCE_SSL_ADMIN', true);
+// Fetch the environment-specific config
+$env_path = dirname(__FILE__) . '/env.php';
+if ( !file_exists( $env_path ) ) {
+	die( 'You must create an env.php file to continue! Use env-sample.php as a template.' );
+} else {
+	require( dirname(__FILE__) . '/env.php' );
+}
 
-define('WP_MEMORY_LIMIT', '128M');
 ini_set('post_max_size', '50M');
 ini_set('upload_max_filesize', '50M');
-
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define('DB_NAME', 'nycga');
-
-/** MySQL database username */
-define('DB_USER', 'root');
-
-/** MySQL database password */
-define('DB_PASSWORD', '4rfv%TGB');
-
-/** MySQL hostname */
-define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -86,7 +77,6 @@ define('WPLANG', '');
  * in their development environments.
  */
 
-define('WP_DEBUG', true);
 /* Multisite */
 define( 'MULTISITE', true );
 define( 'SUBDOMAIN_INSTALL', true );
@@ -103,7 +93,6 @@ if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */
-define('WP_CACHE', true);
 require_once(ABSPATH . 'wp-settings.php');
 
 /* Environment Config */

@@ -1639,6 +1639,9 @@ function wangguard_add_admin_menu() {
 		$position++;
 	} while ( !empty( $menu[$position] ) );
 
+	if ( empty( $icon_url ) )
+		$icon_url = '';
+
 	$menu[$position] = array ( $menu_title, "level_10", "wangguard_conf", $page_title, 'menu-top ' . $hookname, $hookname, $icon_url );
 
 	$_registered_pages[$hookname] = true;
