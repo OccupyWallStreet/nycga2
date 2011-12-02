@@ -152,7 +152,9 @@ form#search-form {
 
 div#header {
 	z-index: 800;
-	margin-bottom: 0px;
+	margin-bottom: 0;
+/*remove spacing between header image and nav bar*/
+	padding-top: 0;
 }
 
 /**************  admin nav **************/
