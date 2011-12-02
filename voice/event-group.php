@@ -64,9 +64,10 @@ $count = 1 + $s ;
   
   }
   
-  $badchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é");
-  $replacechars = array(" and ", " ", " and ", " and ", " and ", " and ", "o", "e");
-  $cleantext = str_replace($badchars, $replacechars, $output);
+  $badchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é", '"');
+  $replacechars = array(" and ", " ", " and ", " and ", " and ", " and ", "o", "e", "");
+  $output2 = str_replace($badchars, $replacechars, $output);
+  $cleantext = preg_replace('/[^(\x20-\x7F)]*/','', $output2);
   
   
   echo $cleantext;
