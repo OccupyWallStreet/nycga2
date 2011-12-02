@@ -23,7 +23,7 @@ $query = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start_t
 "FROM wp_em_events LEFT JOIN wp_em_locations ON wp_em_events.location_id = wp_em_locations.location_id " .
 "LEFT JOIN wp_bp_groups ON wp_em_events.group_id = wp_bp_groups.id " .
 "LEFT JOIN wp_em_categories ON wp_em_events.event_category_id = wp_em_categories.category_name " .
-"WHERE event_start_date = "$trimmed" order by event_start_time, GroupName";
+"WHERE event_start_date like '$var' order by event_start_time, GroupName";
 
 
  $numresults=mysql_query($query);
@@ -41,8 +41,10 @@ $query = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start_t
   $query .= " limit $s,$limit";
   $result = mysql_query($query) or die("Couldn't execute query");
   $timenow = date("h:i A");
+  $datesel = date('l F jS');
+  $myDate = date('l F jS', $var );
 // display what the person searched for
-//echo "It's currently $timenow.  There are $numrows more scheduled events today.  To hear them all say Todays Events or you can search by saying Group Name, Location name, or Date.";
+echo "There are $numrows events for $myDate . To list events by group, say . group . ";
 
 // begin to show results set
 
@@ -66,9 +68,10 @@ $count = 1 + $s ;
   
   }
   
-    $badchars = array(">", "<", "&amp;", "/", "&", "\\");
-  $replacechars = array("and", "and", "and", "and", "and", "and");
+    $badchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é");
+  $replacechars = array(" and ", " ", " and ", " and ", " and ", " and ", "o", "e");
   $cleantext = str_replace($badchars, $replacechars, $output);
+  
   
   echo $cleantext;
   

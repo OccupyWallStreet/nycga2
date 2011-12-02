@@ -67,12 +67,13 @@ $count = 1 + $s ;
   
   $count++ ;
   
-  $badchars = array(">", "<", "&amp;", "/", "&", "\\");
-  $replacechars = array("and", "and", "and", "and", "and", "and");
-  $cleantext = str_replace($badchars, $replacechars, $output);
-  
   
   }
+  
+  $badchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é");
+  $replacechars = array(" and ", " ", " and ", " and ", " and ", " and ", "o", "e");
+  $cleantext = str_replace($badchars, $replacechars, $output);
+  
   
   echo $cleantext;
 
