@@ -44,7 +44,7 @@ $query = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start_t
   $datesel = date('l F jS');
   $myDate = date('l F jS', $var );
 // display what the person searched for
-echo "There are $numrows events for $myDate . To list events by group, say . group . ";
+echo "There are $numrows events. To list events by group, say . group . ";
 
 // begin to show results set
 
