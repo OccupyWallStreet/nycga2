@@ -219,7 +219,7 @@ function ass_group_notification_activity( $content ) {
 		return;
 
 	// get group activity update replies to work (there is no group id passed in $content, but we can get it from $bp)
-	if ( $type == 'activity_comment' && $bp->current_component == 'groups' && $component == 'activity' )
+	if ( $type == 'activity_comment' && bp_is_groups_component() && $component == 'activity' )
 		$component = 'groups';
 
 	// at this point we only want group activity, perhaps later we can make a function and interface for personal activity...
@@ -464,7 +464,7 @@ function ass_group_subscribe_settings ( $group = false ) {
 function ass_update_group_subscribe_settings() {
 	global $bp;
 
-	if ( $bp->current_component == 'groups' && $bp->current_action == 'notifications' ) {
+	if ( bp_is_groups_component() && bp_is_current_action( 'notifications' ) ) {
 
 		// If the edit form has been submitted, save the edited details
 		if ( isset( $_POST['ass-save'] ) ) {
@@ -485,7 +485,7 @@ function ass_update_group_subscribe_settings() {
 		}
 	}
 }
-add_action( 'wp', 'ass_update_group_subscribe_settings', 4 );
+add_action( 'bp_actions', 'ass_update_group_subscribe_settings' );
 
 
 
@@ -517,7 +517,7 @@ function ass_group_subscribe_button( $group = false ) {
 		return;
 
 	// if we're looking at someone elses list of groups hide the subscription
-	if ( $bp->displayed_user->id && ( $bp->loggedin_user->id != $bp->displayed_user->id ) )
+	if ( bp_displayed_user_id() && ( bp_loggedin_user_id() != bp_displayed_user_id() ) )
 		return;
 
 	$group_status = ass_get_group_subscription_status( $bp->loggedin_user->id, $group->id );
@@ -730,7 +730,7 @@ function ass_topic_follow_or_mute_link() {
 
 	//echo '<pre>'; print_r( $bp ); echo '</pre>';
 
-	if ( !$bp->groups->current_group->is_member )
+	if ( empty( $bp->groups->current_group->is_member ) )
 		return;
 
 	$topic_id = bp_get_the_topic_id();
@@ -769,7 +769,7 @@ add_action( 'bp_after_group_forum_topic_posts', 'ass_topic_follow_or_mute_link' 
 function ass_after_topic_title_head() {
 	global $bp;
 
-	if ( !$bp->groups->current_group->is_member )
+	if ( empty( $bp->groups->current_group->is_member ) )
 		return;
 
 	echo '<th id="th-email-sub">'.__('Email','bp-ass').'</th>';
@@ -950,12 +950,13 @@ add_action( 'bp_group_manage_members_admin_item', 'ass_manage_members_email_stat
 function ass_manage_members_email_update() {
 	global $bp;
 
-	if ( $bp->current_component == $bp->groups->slug && 'manage-members' == $bp->action_variables[0] ) {
+	if ( bp_is_groups_component() && bp_is_action_variable( 'manage-members', 0 ) ) {
 
 		if ( !$bp->is_item_admin )
 			return false;
+			
+		if ( bp_is_action_variable( 'email', 1 ) && ( bp_is_action_variable( 'no', 2 ) || bp_is_action_variable( 'sum', 2 ) || bp_is_action_variable( 'dig', 2 ) || bp_is_action_variable( 'sub', 2 ) || bp_is_action_variable( 'supersub', 2 ) ) && isset( $bp->action_variables[3] ) && is_numeric( $bp->action_variables[3] ) ) {
 
-		if ( 'email' == $bp->action_variables[1] && ( 'no' == $bp->action_variables[2] || 'sum' == $bp->action_variables[2] || 'dig' == $bp->action_variables[2] || 'sub' == $bp->action_variables[2] || 'supersub' == $bp->action_variables[2] ) && is_numeric( $bp->action_variables[3] ) ) {
 			$user_id = $bp->action_variables[3];
 			$action = $bp->action_variables[2];
 
@@ -969,7 +970,7 @@ function ass_manage_members_email_update() {
 		}
 	}
 }
-add_action( 'wp', 'ass_manage_members_email_update', 4 );
+add_action( 'bp_actions', 'ass_manage_members_email_update' );
 
 /**
  * Output the group default status
@@ -1018,14 +1019,14 @@ add_action( 'bp_after_group_manage_members_admin', 'ass_change_all_email_sub' );
 function ass_manage_all_members_email_update() {
 	global $bp;
 
-	if ( $bp->current_component == $bp->groups->slug && 'manage-members' == $bp->action_variables[0] ) {
+	if ( bp_is_groups_component() && bp_is_action_variable( 'manage-members', 0 ) ) {
 
 		if ( !is_super_admin() )
 			return false;
 
-		$action = $bp->action_variables[2];
+		$action = bp_action_variable( 2 );
 
-		if ( 'email-all' == $bp->action_variables[1] && ( 'no' == $action || 'sum' == $action || 'dig' == $action || 'sub' == $action || 'supersub' == $action ) ) {
+		if ( bp_is_action_variable( 'email-all', 1 ) && ( 'no' == $action || 'sum' == $action || 'dig' == $action || 'sub' == $action || 'supersub' == $action ) ) {
 
 			if ( !check_admin_referer( 'ass_change_all_email_sub' ) )
 				return false;
@@ -1042,7 +1043,7 @@ function ass_manage_all_members_email_update() {
 		}
 	}
 }
-add_action( 'wp', 'ass_manage_all_members_email_update', 4 );
+add_action( 'bp_actions', 'ass_manage_all_members_email_update' );
 
 
 // Add a notice at end of email notification about how to change group email subscriptions
@@ -1093,7 +1094,7 @@ function ass_admin_notice_form() {
 function ass_admin_notice() {
     global $bp;
 
-    if ( $bp->current_component == 'groups' && $bp->current_action == 'admin' && $bp->action_variables[0] == 'notifications' ) {
+    if ( bp_is_groups_component() && bp_is_current_action( 'admin' ) && bp_is_action_variable( 'notifications', 0 ) ) {
 
 	    // Make sure the user is an admin
 		if ( !groups_is_user_admin( $bp->loggedin_user->id, $bp->groups->current_group->id ) && !is_super_admin() )
@@ -1104,7 +1105,6 @@ function ass_admin_notice() {
 
 		// make sure the correct form variables are here
 		if ( isset( $_POST[ 'ass_admin_notice_send' ] ) && isset( $_POST[ 'ass_admin_notice' ] ) ) {
-			//echo '<pre>'; print_r( $_POST ); echo '</pre>';
 			$group_id = $_POST[ 'ass_group_id' ];
 			$group_name = $bp->groups->current_group->name;
 			$group_link = $bp->root_domain . '/' . $bp->groups->slug . '/' . $bp->groups->current_group->slug . '/';
@@ -1138,16 +1138,13 @@ If you feel this service is being misused please speak to the website administra
 			}
 
 			bp_core_add_message( __( 'The email notice was sent successfully.', 'bp-ass' ) );
+			bp_core_redirect( bp_get_group_permalink( $bp->groups->current_group ) . 'admin/notifications/' );
 			//echo '<p>Subject: ' . $subject;
 			//echo '<pre>'; print_r( $message ); echo '</pre>';
 		}
 	}
 }
-add_action('wp', 'ass_admin_notice');
-
-
-
-
+add_action( 'bp_actions', 'ass_admin_notice', 1 );
 
 // adds forum notification options in the users settings->notifications page
 function ass_group_subscription_notification_settings() {
