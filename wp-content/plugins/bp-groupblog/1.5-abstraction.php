@@ -71,4 +71,11 @@ if ( !function_exists( 'bp_is_user' ) ) :
 	}
 endif;
 
+if ( !function_exists( 'bp_actions' ) ) :
+	function bp_actions() {
+		do_action( 'bp_actions' );
+	}
+	add_action( 'wp', 'bp_actions', 1 );
+endif;
+
 ?>
