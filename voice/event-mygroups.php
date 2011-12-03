@@ -17,6 +17,7 @@ mysql_connect(constant("DB_HOST"),constant("DB_USER"),constant("DB_PASSWORD")); 
 
 //specify database ** EDIT REQUIRED HERE **
 mysql_select_db(constant("DB_NAME")) or die("Unable to select database"); //select which database we're using
+mysql_query("set time_zone = '-5:00'");
   
 // Build SQL Query  
 $query = "select group_id, user_id from wp_bp_groups_members where user_id = $trimmed";
@@ -117,7 +118,7 @@ $count = 1 + $s ;
   
   
   }
-  echo "and have $numrows events today. . ";
+  echo "and have $numrows more events today. . ";
   
   $badchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é", '"');
   $replacechars = array(" and ", " ", " and ", " and ", " and ", " and ", "o", "e", "");

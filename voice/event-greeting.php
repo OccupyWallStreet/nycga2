@@ -16,6 +16,7 @@ mysql_connect(constant("DB_HOST"),constant("DB_USER"),constant("DB_PASSWORD")); 
 
 //specify database ** EDIT REQUIRED HERE **
 mysql_select_db(constant("DB_NAME")) or die("Unable to select database"); //select which database we're using
+mysql_query("set time_zone = '-5:00'");
 
 // Build SQL Query  
 $query = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start_time,'%l:%i%p') as StartTime, DATE_FORMAT(wp_em_events.event_end_time,'%l:%i%p') as EndTime, DATE_FORMAT(wp_em_events.event_start_date,'%W %M %D') as StartDate, wp_em_events.location_id, wp_em_locations.location_name as LocationName, wp_em_locations.location_address as LocationAddress, wp_em_events.group_id, wp_bp_groups.name as GroupName, wp_em_categories.category_name as CategoryName " .
@@ -48,6 +49,7 @@ $gaquery = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start
   $query .= " limit $s,$limit";
   $result = mysql_query($query) or die("Couldn't execute query");
   $timenow = date("h:i A");
+ // echo "$timenow";
 // display what the person searched for
 echo "There are $numrows more scheduled events today.";
 

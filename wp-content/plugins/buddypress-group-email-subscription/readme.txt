@@ -4,7 +4,7 @@ Description: This powerful plugin allows people to receive email notifications o
 Tags: buddypress, bp, activities, activity, groups, group, emails, email, notifications, notification, subscribe, subscription, digest, summary
 Requires at least: 2.9.1 (BP 1.2)
 Tested up to: 3.2.1 (BP 1.5.1)
-Stable tag: 2.9.5
+Stable tag: 2.9.8
 
 == Description ==
 
@@ -86,6 +86,16 @@ Other supporters: bluedotproductions.com
 7. Admin Settings
 
 == Changelog ==
+
+= 2.9.8 =
+Fixes bug that prevented admin/manage-members/ action links from working
+
+= 2.9.7 =
+More fixes for 1.5+ compatibility. Props king76
+
+= 2.9.6 =
+Fixed a number of PHP notices
+Fixed the admin Send To Group functionality in BP 1.5+
 
 = 2.9.5 =
 Added Farsi translation. Thanks, Vahid!
