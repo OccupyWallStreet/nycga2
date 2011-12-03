@@ -3,7 +3,7 @@
 Plugin Name:  GoGadget Weather and Weatherforecast Widget - SHORTCODE Plugin
 Plugin URI: http://www.go-gadget-blog.com/shortcode
 Description: Shortcode for GoGadget Weather and Weatherforecast Widget
-Version: 3.0
+Version: 4.0
 Author: Guido Osterwald
 Author URI: http://www.go-gadget-blog.com/shortcode
 */
@@ -26,12 +26,14 @@ function GG_func_sc_shortcode($args)
   $shortcode_array = shortcode_atts( array(
 		'title' => '',
     'flag' => '1',
-    'location' => '',
+    'city' => '',
+    'state' => '',
 		'layout' => 'today',
 		'language' => 'en',
 		'float' => 'no',
 		'sidechange' => 'no',
 		'scale' => '1',
+		'autolocation' =>'no',
 	), $args ) ;
  
   $content=GG_func_widget_weather_and_weather_forecast($shortcode_array);
