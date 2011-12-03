@@ -3,7 +3,7 @@ Contributors: WPMUDEV
 Tags: BuddyPress, activity, embed, media, youtube, photos, facebook
 Requires at least: 3.1
 Tested up to: 3.2
-Stable tag: 1.2.1
+Stable tag: 1.3
 
 BuddyPress Embed Activity allows for embedding of oEmbed videos and 
 
@@ -47,4 +47,19 @@ We provide comprehensive and guaranteed support on the <a href='http://premium.w
 == Changelog ==
 
 = 1.0 =
-* Initial Release
+Initial Release
+
+= 1.1 =
+* Added remote image support.
+* Upload images cancels out remote image embedding, and vice versa.
+* Remote url input width fix.
+* Added support for user-defined oEmbed width.
+* Added "no thumbnail" option for link sharing.
+
+= 1.2 =
+* Clearer display of cancel button vs. old 'X' icon
+* Progress indicator for file uploads
+* Integration with Group Documents plugin.
+
+= 1.2.1 =
+BuddyPress v1.5 compatibility update.

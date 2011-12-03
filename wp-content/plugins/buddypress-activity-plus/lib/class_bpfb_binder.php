@@ -37,6 +37,13 @@ class BpfbBinder {
 		$thumb_h = get_option('thumbnail_size_h');
 		$thumb_h = $thumb_h ? $thumb_h : 100;
 
+		// Override thumbnail image size in wp-config.php
+		if (defined('BPFB_THUMBNAIL_IMAGE_SIZE')) {
+			list($tw,$th) = explode('x', BPFB_THUMBNAIL_IMAGE_SIZE);
+			$thumb_w = (int)$tw ? (int)$tw : $thumb_w;
+			$thumb_h = (int)$th ? (int)$th : $thumb_h;
+		}
+
 		foreach ($imgs as $img) {
 			if (preg_match('!^' . preg_quote('http://') . '!i', $img)) { // Just add remote images
 				$ret[] = $img;
@@ -116,7 +123,12 @@ class BpfbBinder {
 	function css_load_styles () {
 		wp_enqueue_style('thickbox');
 		wp_enqueue_style('file_uploader_style', BPFB_PLUGIN_URL . '/css/external/fileuploader.css');
-		wp_enqueue_style('bpfb_interface_style', BPFB_PLUGIN_URL . '/css/bpfb_interface.css');
+		if (!current_theme_supports('bpfb_interface_style')) {
+			wp_enqueue_style('bpfb_interface_style', BPFB_PLUGIN_URL . '/css/bpfb_interface.css');
+		}
+		if (!current_theme_supports('bpfb_toolbar_icons')) {
+			wp_enqueue_style('bpfb_toolbar_icons', BPFB_PLUGIN_URL . '/css/bpfb_toolbar.css');
+		}
 	}
 
 	/**
@@ -150,9 +162,11 @@ class BpfbBinder {
 		if ($str) {
 			$image_els = $html->find('img');
 			foreach ($image_els as $el) {
-				if ($el->width > 1 && $el->height > 1) // Disregard spacers
+				if ($el->width > 100 && $el->height > 1) // Disregard spacers
 					$images[] = $el->src;
 			}
+			$og_image = $html->find('meta[property=og:image]', 0);
+			if ($og_image) array_unshift($images, $og_image->content);
 
 			$title = $html->find('title', 0);
 			$title = $title ? $title->plaintext: $url;

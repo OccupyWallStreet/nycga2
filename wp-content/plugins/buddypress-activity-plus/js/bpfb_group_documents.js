@@ -78,7 +78,7 @@ var BpfbDocumentHandler = function () {
 
 $(".bpfb_toolbar_container").append(
 	'&nbsp;' +
-	'<a href="#documents" title="' + l10nBpfbDocs.add_documents + '" id="bpfb_addDocuments"><img src="' + _bpfbRootUrl + '/img/system/document.png" border="0" /></a>'
+	'<a href="#documents" title="' + l10nBpfbDocs.add_documents + '" class="bpfb_toolbarItem" id="bpfb_addDocuments"><span>' + l10nBpfbDocs.add_documents + '</span></a>'
 );
 
 $('#bpfb_addDocuments').click(function () {

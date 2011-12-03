@@ -334,11 +334,11 @@ var BpfbPhotoHandler = function () {
 function createMarkup () {
 	var html = '<div class="bpfb_actions_container">' +
 		'<div class="bpfb_toolbar_container">' +
-			'<a href="#photos" title="' + l10nBpfb.add_photos + '" id="bpfb_addPhotos"><img src="' + _bpfbRootUrl + '/img/system/camera.png" border="0" /></a>' +
+			'<a href="#photos" class="bpfb_toolbarItem" title="' + l10nBpfb.add_photos + '" id="bpfb_addPhotos"><span>' + l10nBpfb.add_photos + '</span></a>' +
 			'&nbsp;' +
-			'<a href="#videos" title="' + l10nBpfb.add_videos + '" id="bpfb_addVideos"><img src="' + _bpfbRootUrl + '/img/system/film.png" border="0" /></a>' +
+			'<a href="#videos" class="bpfb_toolbarItem" title="' + l10nBpfb.add_videos + '" id="bpfb_addVideos"><span>' + l10nBpfb.add_videos + '</span></a>' +
 			'&nbsp;' +
-			'<a href="#links" title="' + l10nBpfb.add_links + '" id="bpfb_addLinks"><img src="' + _bpfbRootUrl + '/img/system/link.png" border="0" /></a>' +
+			'<a href="#links" class="bpfb_toolbarItem" title="' + l10nBpfb.add_links + '" id="bpfb_addLinks"><span>' + l10nBpfb.add_links + '</span></a>' +
 		'</div>' +
 		'<div class="bpfb_controls_container">' +
 		'</div>' +
