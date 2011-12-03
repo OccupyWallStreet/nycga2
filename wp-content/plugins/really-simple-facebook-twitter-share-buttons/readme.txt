@@ -4,7 +4,7 @@ Donate link: http://www.whiletrue.it/
 Tags: facebook, twitter, facebook share, twitter share, facebook share button, twitter share button, linkedin, google +1, +1, google buzz, buzz, digg, flattr, stumbleupon, hyves, links, post, page, mail, email, reddit, tipy, shortcode
 Requires at least: 2.9+
 Tested up to: 3.2.1
-Stable tag: 1.8.4
+Stable tag: 2.0
 
 Puts Facebook, Twitter, LinkedIn, Google "+1" and other share buttons of your choice above or below your posts.
 
@@ -22,6 +22,16 @@ If you want to place the active buttons only in selected posts, use the [really_
 If you want to hide the share buttons inside selected posts, set the "really_simple_share_disable" custom field with value "yes".
 
 For more informations: http://www.whiletrue.it/en/projects/wordpress/22-really-simple-facebook-twitter-share-buttons-per-wordpress.html
+
+*New* in version 2.0:
+
+* Button arbitrary positioning via drag&drop
+* Arbitrary spacing for every button
+* Twitter post author customization (thanks Vincent Oord - Springest.com)
+* Wordpress link customization (default permalink and shortlink available)
+* Email button label
+* Class "robots-nocontent" and "snap_nopreview" given to the element surrounding the buttons
+* Some code cleaning
 
 Do you like this plugin? Give a chance to our other works:
 
@@ -72,6 +82,15 @@ We'll see!
 2. Options available in the Settings menu 
 
 == Changelog ==
+
+= 2.0 =
+* Added: Button arbitrary positioning via drag&drop
+* Added: Arbitrary spacing for every button
+* Added: Twitter post author customization (thanks Vincent Oord - Springest.com)
+* Added: Wordpress link customization (default permalink and shortlink available)
+* Added: Email button label
+* Added: Class "robots-nocontent" and "snap_nopreview" given to the element surrounding the buttons
+* Added: Some code cleaning
 
 = 1.8.4 =
 * Fixed: Twitter share button title cleaning (thanks Harald)
@@ -234,7 +253,7 @@ Initial release
 
 == Upcoming features ==
 
-* Button sorting (main upcoming feature)
+* Reset default options
 * Share buttons widget
 * Shortcodes for single buttons
 * New "report" button
