@@ -5,17 +5,17 @@
 Plugin Name:  Viper's Video Quicktags
 Plugin URI:   http://www.viper007bond.com/wordpress-plugins/vipers-video-quicktags/
 Description:  Easily embed videos from various video websites such as YouTube, DailyMotion, and Vimeo into your posts.
-Version:      6.3.1
+Version:      6.3.2
 Author:       Viper007Bond
 Author URI:   http://www.viper007bond.com/
 
 **************************************************************************
 
-Copyright (C) 2006-2010 Viper007Bond
+Copyright (C) 2006-2011 Viper007Bond
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
+the Free Software Foundation, either version 2 of the License, or
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
@@ -55,7 +55,7 @@ http://downloads.wordpress.org/plugin/vipers-video-quicktags.5.4.4.zip
 **************************************************************************/
 
 class VipersVideoQuicktags {
-	var $version = '6.3.1';
+	var $version = '6.3.2';
 	var $settings = array();
 	var $defaultsettings = array();
 	var $swfobjects = array();
@@ -66,10 +66,11 @@ class VipersVideoQuicktags {
 	var $wpheadrun = FALSE;
 	var $adminwarned = FALSE;
 	var $customfeedtext;
+	var $buttons = array();
 
 	// Class initialization
 	function VipersVideoQuicktags() {
-		global $wpmu_version, $shortcode_tags, $wp_scripts;
+		global $wp_version, $wpmu_version, $shortcode_tags, $wp_scripts;
 
 		// This version of VVQ requires WordPress 2.8+
 		if ( !function_exists('esc_attr') ) {
@@ -376,6 +377,11 @@ class VipersVideoQuicktags {
 				} else {
 					add_filter( 'mce_buttons_' . $this->settings['tinymceline'], array(&$this, 'mce_buttons') );
 				}
+
+				// Adding buttons to the HTML editor in WordPress 3.3+
+				if ( version_compare( $wp_version, '3.3', '>=' ) ) {
+					add_action( 'admin_footer-post.php', array( &$this, 'quicktag_buttons' ) );
+				}
 			}
 		}
 		if ( 1 == $this->settings['quicktime']['dynamicload'] )
@@ -537,7 +543,9 @@ class VipersVideoQuicktags {
 		if ( 1 != $this->settings['flv']['button'] )         $buttons2hide[] = 'FLV';
 		if ( 1 != $this->settings['quicktime']['button'] )   $buttons2hide[] = 'Quicktime';
 		if ( 1 != $this->settings['videofile']['button'] )   $buttons2hide[] = 'VideoFile';
-		echo '	.mce_vvq' . implode( ', .mce_vvq', $buttons2hide ) . " { display: none !important; }\n";
+
+		if ( ! empty( $buttons2hide ) )
+			echo '	.mce_vvq' . implode( ', .mce_vvq', $buttons2hide ) . " { display: none !important; }\n";
 
 		echo "</style>\n";
 	}
@@ -545,7 +553,7 @@ class VipersVideoQuicktags {
 
 	// Add the old style buttons to the non-TinyMCE editor views and output all of the JS for the button function + dialog box
 	function AddQuicktagsAndFunctions() {
-		$types = array(
+		$this->buttons = array(
 			'youtube'     => array(
 				__('YouTube', 'vipers-video-quicktags'),
 				__('Embed a video from YouTube', 'vipers-video-quicktags'),
@@ -633,7 +641,7 @@ class VipersVideoQuicktags {
 		);
 
 		$buttonshtml = $datajs = '';
-		foreach ( $types as $type => $strings ) {
+		foreach ( $this->buttons as $type => $strings ) {
 			// HTML for quicktag button
 			if ( 1 == $this->settings[$type]['button'] )
 				$buttonshtml .= '<input type="button" class="ed_button" onclick="VVQButtonClick(\'' . $type . '\')" title="' . $strings[1] . '" value="' . $strings[0] . '" />';
@@ -798,6 +806,27 @@ class VipersVideoQuicktags {
 			});
 		});
 	});
+// ]]>
+</script>
+<?php
+	}
+
+
+	// Output Javascript to create the WordPress 3.3+ HTML editor buttons
+	function quicktag_buttons() { ?>
+<script type="text/javascript">
+// <![CDATA[
+<?php
+	// No way to figure out what button is pressed from the callback, so gotta make wrappers
+	foreach ( $this->buttons as $id => $details ) {
+		if ( 1 != $this->settings[$id]['button'] )
+			continue;
+
+		$wrapperfunc = "VVQButton_$id";
+		echo "\tfunction $wrapperfunc() { VVQButtonClick( '$id' ); }\n";
+		echo "\tQTags.addButton( 'vvq_$id', '" . esc_attr( $details[0] ) . "', $wrapperfunc, false, false, '" . esc_attr( $details[1] ) . "' );\n";
+	}
+?>
 // ]]>
 </script>
 <?php
@@ -2816,8 +2845,17 @@ class VipersVideoQuicktags {
 		// If a URL was passed
 		if ( 'http://' == substr( $content, 0, 7 ) ) {
 
-			// Playlist URL
-			if ( FALSE !== stristr( $content, 'view_play_list' ) ) {
+			// Playlist URL ( http://www.youtube.com/playlist?list=PLXXXXX )
+			if ( false !== stristr( $content, 'playlist' ) ) {
+				preg_match( '#http://(www.youtube|youtube|[A-Za-z]{2}.youtube)\.com/playlist\?list=([\w-]+)(.*?)#i', $content, $matches );
+				if ( empty( $matches ) || empty( $matches[2] ) )
+					return $this->error( sprintf( __( 'Unable to parse URL, check for correct %s format', 'vipers-video-quicktags' ), __( 'YouTube' ) ) );
+
+				// Hack until this plugin properly supports iframe-based embeds
+				$iframe = 'http://www.youtube.com/embed/videoseries?list=' . $matches[2];
+			}
+			// Legacy playlists ( http://www.youtube.com/view_play_list?p=XXX )
+			elseif ( FALSE !== stristr( $content, 'view_play_list' ) ) {
 				preg_match( '#http://(www.youtube|youtube|[A-Za-z]{2}.youtube)\.com/view_play_list\?p=([\w-]+)(.*?)#i', $content, $matches );
 				if ( empty($matches) || empty($matches[2]) ) return $this->error( sprintf( __('Unable to parse URL, check for correct %s format', 'vipers-video-quicktags'), __('YouTube') ) );
 
@@ -2869,6 +2907,11 @@ class VipersVideoQuicktags {
 
 
 		$objectid = $this->videoid('youtube');
+
+		// Hack until this plugin properly supports iframe-based embeds
+		if ( ! empty( $iframe ) ) {
+			return '<iframe class="vvqbox vvqyoutube" width="' . esc_attr( $atts['width'] ) . '" height="' . esc_attr( $atts['height'] ) . '" src="'. esc_url( $iframe . '&rel=' . $rel . '&fs=' . $fs . '&showsearch=' . $showsearch . '&showinfo=' . $showinfo . $autoplay . $loop . $hd ) . '" frameborder="0" allowfullscreen></iframe>';
+		}
 
 		$this->swfobjects[$objectid] = array(
 			'width' => $atts['width'],
