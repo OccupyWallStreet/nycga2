@@ -87,7 +87,7 @@ $gacount2 = 1 + $s ;
   $groupname = $row["GroupName"];
 
 // text for ga or spokes time
-  echo " . $eventname starts at . $startime at $locationaddress ." ;
+  echo " . $eventname starts at . $startime at $locationaddress. . " ;
   $gacount2++ ;
   }
 

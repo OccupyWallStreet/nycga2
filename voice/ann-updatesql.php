@@ -12,7 +12,7 @@ include("/var/www/nycga.net/web/wp-config.php");
   $callerid = @$_GET['callerid'] ;
   
   if ($userid1 == "") {
-  $userid1 = "149";
+  $userid1 = "7136";
   }
 
   if ($callername == "") {
@@ -31,8 +31,8 @@ include("/var/www/nycga.net/web/wp-config.php");
      'post_content' => $contentpost,
      'post_status' => 'publish',
      'post_author' => $userid1,
-     'post_category' => array(8,39),
-	 'tags_input' => 'calllog'
+     'post_category' => array(1049),
+	 'tags_input' => 'voice'
   );
 
 // Insert the post into the database
@@ -43,10 +43,10 @@ include("/var/www/nycga.net/web/wp-config.php");
 mysql_connect(constant("DB_HOST"),constant("DB_USER"),constant("DB_PASSWORD")); //(host, username, password)
 
 //specify database ** EDIT REQUIRED HERE **
-mysql_select_db("calldb") or die("Unable to select database"); //select which database we're using
+mysql_select_db(constant("DB_NAME")) or die("Unable to select database"); //select which database we're using
 
 // Build SQL Query  
-mysql_query("INSERT INTO log (currentseq, datetime, currentvm, callername, userid, callerid)
+mysql_query("INSERT INTO voice_log (currentseq, datetime, currentvm, callername, userid, callerid)
 VALUES ('$currentseq', '$datetime', '$currentvm', '$callername', '$userid1', '$callerid')");
 
 
