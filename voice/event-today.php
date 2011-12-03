@@ -10,20 +10,23 @@ include("/var/www/nycga.net/web/env.php");
 
 // rows to return
 $limit=200; 
+   
 
-
+//$time = curtime() - 50000 ;
+//echo "$time;
 //connect to your database ** EDIT REQUIRED HERE **
 mysql_connect(constant("DB_HOST"),constant("DB_USER"),constant("DB_PASSWORD")); //(host, username, password)
 
 //specify database ** EDIT REQUIRED HERE **
-mysql_select_db(constant("DB_NAME")) or die("Unable to select database"); //select which database we're using
+mysql_select_db(constant("DB_NAME")) or die("Unable to select database");  //select which database we're using
+mysql_query("set time_zone = '-5:00'");
 
 // Build SQL Query  
 $query = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start_time,'%l:%i%p') as StartTime, DATE_FORMAT(wp_em_events.event_end_time,'%l:%i%p') as EndTime, DATE_FORMAT(wp_em_events.event_start_date,'%W %M %D') as StartDate, wp_em_events.location_id, wp_em_locations.location_name as LocationName, wp_em_locations.location_address as LocationAddress, wp_em_events.group_id, wp_bp_groups.name as GroupName, wp_em_categories.category_name as CategoryName " .
 "FROM wp_em_events LEFT JOIN wp_em_locations ON wp_em_events.location_id = wp_em_locations.location_id " .
 "LEFT JOIN wp_bp_groups ON wp_em_events.group_id = wp_bp_groups.id " .
 "LEFT JOIN wp_em_categories ON wp_em_events.event_category_id = wp_em_categories.category_name " .
-"WHERE event_start_date = DATE( NOW( ) ) and event_end_time >= CURTIME( ) order by event_start_time, GroupName";
+"WHERE event_start_date = DATE( NOW( ) ) and event_end_time >= CURTIME( ) order by event_start_time, GroupName ";
 
 
  $numresults=mysql_query($query);
