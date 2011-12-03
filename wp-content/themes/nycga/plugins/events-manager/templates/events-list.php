@@ -97,8 +97,8 @@ if( $events_count > 0 ){ ?>
 							$rowno++;
 							$class = ($rowno % 2) ? 'alternate' : '';
 							// FIXME set to american
-							$localised_start_date = date_i18n('M d', $event->start);
-							$localised_end_date = date_i18n('M d', $event->end);
+							$localised_start_date = date_i18n('D M d', $event->start);
+							$localised_end_date = date_i18n('D M d', $event->end);
 							$style = "";
 							$today = date ( "Y-m-d", current_time('timestamp') );
 							$event_date = date('Y-m-d', $event->start);
