@@ -14,9 +14,12 @@ require('zoomit-php-sdk/Zoomit.class.php');
 
 // Shortcode, filter & action hooks
 add_shortcode('zoomit', 'zoomit_shortcode_handler');
-add_filter('image_send_to_editor', 'zoomit_image_send_to_editor', 10 /* priority */, 8 /* arguments */);
-add_filter('attachment_fields_to_edit', 'zoomit_attachment_fields_to_edit', 11 /* priority */, 2 /* arguments */);
-add_filter('wp_generate_attachment_metadata', 'zoomit_wp_generate_attachment_metadata', 10, 2);
+//
+// Don't add handlers, all we want to do is allow zoom-it to manage any existing images.
+//
+// add_filter('image_send_to_editor', 'zoomit_image_send_to_editor', 10 /* priority */, 8 /* arguments */);
+// add_filter('attachment_fields_to_edit', 'zoomit_attachment_fields_to_edit', 11 /* priority */, 2 /* arguments */);
+// add_filter('wp_generate_attachment_metadata', 'zoomit_wp_generate_attachment_metadata', 10, 2);
 
 function zoomit_wp_generate_attachment_metadata($metadata, $attachment_id) {
     $post = get_post($attachment_id);

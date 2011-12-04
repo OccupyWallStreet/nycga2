@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: buddypress,groups,blogs,content
 Requires at least: WP 3.0 / BP 1.2
 Tested up to: WP 3.2.1 / BP 1.5
-Stable tag: 1.5
+Stable tag: 1.7
 
 BuddyPress Groupblog extends the group functionality by enabling the group to have a single blog associated with it.
 
@@ -29,10 +29,6 @@ The BuddyPress Groupblog plugin extends the group functionality by enabling each
 * Leaving the group will downgrade the member role to 'subscriber'.
 * Allow the group admin to select one of his/her existing blogs.
 * A new ajax backend.
-
-**Roadmap:**
-
-* Allow the admin to let group admins choose the blog name, instead of following the group name.
 
 == Installation ==
 
@@ -104,6 +100,11 @@ function bp_core_avatar_url() {
 2. Screenshot of the group blog page.
 
 == Changelog == 
+
+= 1.7 =
+* Allows group admins to specify blog address and title at the time of creation
+* Ensures that 'Enable group blog' checkbox is checked when returning from a failed blog creation
+* Enables admins to 'uncouple' groups from blogs
 
 = 1.6 =
 * Compatibility with BuddyPress 1.5
