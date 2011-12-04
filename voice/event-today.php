@@ -10,7 +10,7 @@ include("/var/www/nycga.net/web/env.php");
 
 // rows to return
 $limit=200; 
-echo "Todays events schedule:  .";   
+   
 
 //$time = curtime() - 50000 ;
 //echo "$time;
@@ -36,6 +36,9 @@ $query = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start_t
 
 
 // next determine if s has been passed to script, if not use 0
+
+echo "There are $numrows events today: ";
+
   if (empty($s)) {
   $s=0;
   }
@@ -74,7 +77,7 @@ $gacount2 = 1 + $s ;
   $groupname = $row["GroupName"];
 
 // text for ga or spokes time
-  echo " . $eventname starts at . $startime at $locationaddress ." ;
+  echo " . $eventname starts at . $startime at $locationaddress . " ;
   $gacount2++ ;
   }
 
@@ -88,7 +91,7 @@ $gacount2 = 1 + $s ;
   $result = mysql_query($query) or die("Couldn't execute query");
   $timenow = date("h:i A");
 // display what the person searched for
-//echo "It's currently $timenow.  There are $numrows more scheduled events today.  To hear them all say Todays Events or you can search by saying Group Name, Location name, or Date.";
+//echo "";
 
 // begin to show results set
 
@@ -107,7 +110,7 @@ $count = 1 + $s ;
   $groupname = $row["GroupName"];
   
 
-  $output .= "$count.  $groupname, $eventname.  Time. $startime . to . $endtime  .  Location. $locationname . at . $locationaddress.    " ;
+  $output .= " $count.  $groupname, $eventname.  Time. $startime . to . $endtime  .  Location. $locationname . at . $locationaddress.    " ;
   $count++ ;
   
   

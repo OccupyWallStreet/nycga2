@@ -11,8 +11,6 @@ include("/var/www/nycga.net/web/env.php");
 // rows to return
 $limit=200; 
 
-echo "Tomorrows events schedule:  .";
-
 //connect to your database ** EDIT REQUIRED HERE **
 mysql_connect(constant("DB_HOST"),constant("DB_USER"),constant("DB_PASSWORD")); //(host, username, password)
 
@@ -32,6 +30,8 @@ $query = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start_t
  $numrows=mysql_num_rows($numresults);
 
  
+
+echo "There are $numrows events tomorrow: ";
  
  
 // If we have no results, offer a google search as an alternative
