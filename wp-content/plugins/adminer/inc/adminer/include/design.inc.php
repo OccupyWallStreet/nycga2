@@ -32,9 +32,9 @@ var areYouSure = '<?php echo lang('Resend POST data?'); ?>';
 <script type="text/javascript" src="static/editing.js"></script>
 <?php if ($adminer->head()) { ?>
 <link rel="shortcut icon" type="image/x-icon" href="../adminer/static/favicon.ico" id="favicon">
-<?php if (file_exists("adminer.css")) {
-echo '<link rel="stylesheet" type="text/css" href="adminer.css">';
-} ?>
+<?php if (file_exists("adminer.css")) { ?>
+<link rel="stylesheet" type="text/css" href="adminer.css">
+<?php } ?>
 <?php } ?>
 
 <body class="<?php echo lang('ltr'); ?> nojs"<?php echo ($_POST ? "" : " onclick=\"return bodyClick(event, '" . h(js_adminer_escape(DB) . "', '" . js_adminer_escape($_GET["ns"])) . "');\""); ?>">

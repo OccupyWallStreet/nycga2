@@ -33,6 +33,15 @@ jQuery(document).ready(function($) {
 	
 	$('#wordpress-https').ajaxForm(options);
 	
+	$('#settings-reset').click(function(e, el) {
+	   if ( confirm('Are you sure you want to reset all WordPress HTTPS settings?') ) {
+			$(this).parents('form').submit();
+	   } else {
+			e.preventDefault();
+			return false;
+	   }
+	});
+	
 	$('#wphttps-updates .wphttps-widget-content').load('<?php echo parse_url($wordpress_https->plugin_url, PHP_URL_PATH); ?>/js/updates.php');
 	
 	$.ajax({

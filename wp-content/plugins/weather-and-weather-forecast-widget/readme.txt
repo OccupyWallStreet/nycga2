@@ -4,9 +4,9 @@ Donate link: http://www.go-gadget-blog.com
 Tags: Weather, Forecast, weather forecast, weather report, Widget, Englisch, German, deutsch, Wetter, wpml, Wettervorhersage, Wetterbericht, Italian, italiano, tempo, previsioni del tempo, bollettino meteorologico, french, francais, temps, meteo, prevision meteorologique, bulletin meteorologique, Spanish, espanol, tiempo, prevision meteorologica, boletin meteorologico, prevision del tiempo,pronostico del tiempo, polish, polski, pogoda, prognoza pogody, komunikat meteorologiczny, customizable, multiple installation, Gadget, Geolocation, Hungarian, Magyar, idojaras, idojarasjelentes 
 Requires at least: 2.8
 Tested up to: 3.21
-Stable tag: 3.0
+Stable tag: 4.0
 
-<strong>Use the best weather service worldwide - weather.com - to get the most beautiful weather info free on your WordPress site!</strong>
+<strong>Get the most beautiful weather info on your WordPress site using Weather Underground or Worldweatheronline!</strong>
 
 == Description ==
 Multilingual widget (Arabic, English, French, German, Hungarian, Italian, Polish, Portuguese and Spanish) with shortcode functionality shows current weather and forecasts for the next nine days for any location, at yours or at your visitors home - detailled infotexts for current weather and forecasts on mouse over - multiple installation<br />
@@ -18,18 +18,18 @@ Multilingual widget (Arabic, English, French, German, Hungarian, Italian, Polish
 * Current Weather<br />
 * Day Forecast<br />
 * Three Day Forecast<br />
-* Further Six Day forecast (all in all ten days of forecasted weather)<br />
+* Further four Day forecast (depends on data provider)<br />
+* Working with two data providers optimize and enriches weather data
 * Detailed information of current weather and forecasts on mouse over<br />
 * Optional Sun- and Moon Info text<br />
 * Supports Imperial and Metric units<br />
 
 <h4>These features rock!</h4>
 * Optional automatic language output on your site (great for multilingual sites or if you simply like to welcome foreign site visitors in their language)  <br />
-* Optional automatic location finder showing the weather at site visitor’s location
+* Optional automatic location finder showing the weather at site visitor&#x2019;s location
 * Place weather in your posts, on your pages, in the footer or in the header of your WP-Site with the new Shortcode function
-* Easy multiple Installation - up to three times on your site<br />
-* Choose from different image sets - two sets included - additional can be downloaded at <a href="http://www.go-gadget-blog.com">www.go-gadget-blog.com</a>
-* Improvement of text details for the upcoming weather in English and German - 
+* Easy multiple sidebar Installation - up to three times on your site<br />
+* Choose from different image sets - two sets included - additional can be downloaded at <a href="http://www.go-gadget-blog.com">www.go-gadget-blog.com</a> 
 
 The screenshot section will show you the variability of layouts / Images and settings!
 
@@ -45,7 +45,7 @@ Andre - Portuguese Translation<br />
 Khaled - Arabic Translation<br />
 
 
-Michal and Andras - for their most valuable advice
+Michal and Andr&#x00E1;s - for their most valuable advice
 Marz - for his needs and quest for shortcodes
 and lots of others for reporting bugs and suggestions for getting an even better Weather Widget
 
@@ -53,40 +53,13 @@ and lots of others for reporting bugs and suggestions for getting an even better
 == Installation ==
 
 <br />
-Before updating, please think of writing down your settings (location, license code, etc.)! 
+Before updating, please think of writing down or backing up your style, layout and technical settings! 
 
-<strong>Update procedure from Version 1.0:</strong>
-Please deactivate Widget (version 1.0) first<br />
+<strong>Update procedure from any prior Version</strong>
+Please deactivate Widget first<br />
 Empty the existing folder and copy / extract everything there (not really necessary but it will free some space on your server!)<br />
-Activate the new version 3.0<br />
-Set up widget!<br />
-If you have changed CSS settings and don&acute;t want to use the Embedded CSS option you may like them to be updated as well: Please refer to the manual to get the optimal settings!<br />
-<br />
-<strong>Update procedure from Version 1.1:</strong>
-Please deactivate Widget (version 1.1) first<br />
-Empty the existing folder and copy / extract everything there (not really necessary but it will free some space on your server!)<br />
-Activate the new version 3.0<br />
-Set up widget!<br />
-If you have changed CSS settings and don&acute;t want to use the Embedded CSS option you may like them to be updated as well: Please refer to the manual to get the optimal settings!<br />
-<br />
-<strong>Update procedure for Version 1.1 with multiple installation feature:</strong>
-Please deactivate ALL Widgets (version 1.1) first<br />
-Empty the existing folder and copy / extract everything there (not really necessary but it will free some space on your server!)<br />
-Rename the 'weather-widget?.phpx' files as shown in the manual to 'weather-widget?.php', activate and configure the new versions 3.0
-Set up widget!<br />
-If you have changed CSS settings  and don&acute;t want to use the Embedded CSS option you may like them to be updated as well: Please refer to the manual to get the optimal settings!<br />
-<br /> 
-<strong>Update procedure from Version 2.0 or 2.1:</strong>
-Please deactivate Widget (version 2.0 or 2.1) first<br />
-Empty the existing folder and copy / extract everything there (not really necessary but it will free some space on your server!)<br />
-Activate the new version 2.0<br />
-Set up widget!<br />
-If you have changed CSS settings and don&acute;t want to use the Embedded CSS option you may like them to be updated as well: Please refer to the manual to get the optimal settings!<br />
-<br />
-<strong>Update procedure for Version 2.0 or 2.1 with multiple installation feature:</strong>
-Please deactivate ALL Widgets (version 2.0 or 2.1) first<br />
-Empty the existing folder and copy / extract everything there (not really necessary but it will free some space on your server!)<br />
-Rename the 'weather-widget?.phpx' files as shown in the manual to 'weather-widget?.php', activate and configure the new versions 2.1
+Activate the new version 4.0<br />
+Get at least one License Code from one of the weather data providers.</br>
 Set up widget!<br />
 If you have changed CSS settings and don&acute;t want to use the Embedded CSS option you may like them to be updated as well: Please refer to the manual to get the optimal settings!<br />
 <br /> 
@@ -165,27 +138,22 @@ You neither can avoid, that the widget have to get all the information about you
   * Bugfix to prevent slower server connections to timeout before getting location data
   * Images and Weatherinfos about actual weather can be deselected now, if actual report data only show "N/A" for the location
   * Layout changes in the control panel 
+= 4.0 = This version
+  * Change of Weather Data Provider from Weather.Com (now a service to be paid for) to (Free services) of World Weather Online (WWO) and Wunderground (WUN)
+  * Major Changes in Codes and some functionalities
+  * Weather Services can be used separately or combined 
+  * Setting of preferenced Weather Service with optional optimization
+  * Better Availability: If one weather service fails, the other gets the data!
+  * Input of coordinates to set location possible(latitude / longitude)       
+  * Total of 5 day data from WWO to 8 day data of WUN
+  * Further weather details: Visibility / Cloudcover / Dewpoint
+  * UV-Index no longer available / separate Night and Day Images no more available    
+  * Changes in the Large Layout
+  * Autolocation feature now also available with the Shortcode Plugin
+  * "Feels like" temperature is now optional 
      
 == Upgrade Notice ==
 
 If you upgrade from a previous version - please refer to the Installation section of this text 
 <strong>Why should you upgrade?</strong>
-If you are using Version 2.1, you should upgrade if
-* I had some queries about weired failures from different users when using the auto-location-feature. So i redesigned the server connection routine, which is more stable now!
-* You like to "free" the weather from the sidebar and love to use it via shortcode whereever you like!
-* You are using the German version - about 100 new German text phrases
-* You simply like to keep your blog actual...
-If you are using Version 2.0, you should upgrade if
-* You are using the auto-location feature or think about using it! I had to bug fix an error concerning possible timeouts of the iplocation services
-* You are using a "wider" widget area (footer area or typical magazine style theme) the widget now can be adjusted in width! Looks smoother!
-* You are using the German version - about 200 new German text phrases
-* Like to have your title within the widget
-* You simply like to keep your blog actual...
-If you are still running Version 1.x you should really think of upgrading: 
-* There are lots of new features you gonna love! 
-* New image sets, size adjustments of images as well, embedded CSS makes it comfortable ann easy to get a wonderful fit in your theme!
-* Your site visitor will love the Auto-Location feature and  be surprised having "their" weather on "your" site!
-* The extended (text) forecast to all-in-all ten days of weather forecast gets all weather information you can think of to your site!
-* You'll love the detailed weather texts in English or German, which read very well and gives you the total overview of what will go on!
-* Although the previous version wasn't too buggy at all, i was reported of some bugs and found some as well, which i eliminated.<br />
-* I was also able to solve a common problem of a server setting failure, which prevents some of the sites running my widget! So if you haven’t been able to get it run earlier - I am quite sure, this version will rock your site! <br />
+You simply have to upgrade, because the weather data stream of weather.com - which was used by the widget prior 4.0 - will stop working in short. Weather.com has decided to earn money with this weather data services. To keep the Widget free frmom charges, I decided not to use this stream any longer!

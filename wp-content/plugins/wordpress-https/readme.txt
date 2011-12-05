@@ -3,8 +3,7 @@ Contributors: Mvied
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N9NFVADLVUR7A
 Tags: security, encryption, ssl, shared ssl, private ssl, public ssl, private ssl, http, https
 Requires at least: 2.7.0
-Tested up to: 3.2.1
-Stable tag: 2.0
+Tested up to: 3.3
 
 WordPress HTTPS is intended to be an all-in-one solution to using SSL on WordPress sites.
 
@@ -17,6 +16,9 @@ WordPress HTTPS is intended to be an all-in-one solution to using SSL on WordPre
 </ul>
 
 If you're having partially encrypted/mixed content errors or other problems, please read the <a href="http://wordpress.org/extend/plugins/wordpress-https/faq/">FAQ</a>. If you're still having trouble, please <a href="http://wordpress.org/tags/wordpress-https#postform">start a support topic</a> and I will do my best to assist you.
+
+= Known Issues =
+When using a subdomain as the SSL Host, logged in cookies are not properly deleted upon logging out.
 
 == Installation ==
 
@@ -48,9 +50,7 @@ To identify what is causing your page(s) to be insecure, please follow the instr
 </ol>
 For each item that is making your page partially encrypted, you should see an entry in the console similar to "The page at https://www.example.com/ displayed insecure content from http://www.example.com/." Note that the URL that is loading insecure content is HTTP and not HTTPS.
 
-If you see any external elements (not hosted no your server) that are loading over HTTP, try enabling the 'External HTTPS Elements' option in the WordPress HTTPS settings.
-
-Any other insecure content warnings can generally be resolved by changing absolute references to elements, or removing the insecure elements from the page completely. Although WordPress HTTPS does its best to fix all insecure content, there are a few cases that are impossible to fix.
+Most insecure content warnings can generally be resolved by changing absolute references to elements, or removing the insecure elements from the page completely. Although WordPress HTTPS does its best to fix all insecure content, there are a few cases that are impossible to fix.
 <ul>
  <li>Elements loaded via JavaScript that are hard-coded to HTTP. Usually this can be fixed by altering the JavaScript calling these elements.</li>
  <li>External elements that can not be delivered over HTTPS. These elements will have to be removed from the page, or hosted locally so that they can be loaded over HTTPS.</li>
@@ -78,6 +78,14 @@ add_filter('force_ssl' , 'custom_force_ssl', 10, 2);
 
 == Changelog ==
 
+= 2.0.2 =
+* Bug Fix - SSL Host option was not being saved correctly upon subsiquent saves. This was causing redirect loops for most users.
+= 2.0.1 =
+* Ensured that deprected options are removed from a WordPress installation when activating the plugin.
+* Added a button to the WordPress HTTPS settings page to reset all plugin settings and cache.
+* Bug Fix - URL's entered for SSL Host were not validing correctly.
+* Bug Fix - External URL's were not always being identified as valid external elements.
+* Bug Fix - Slight enhancement to SSL detection.
 = 2.0 =
 * Full support for using a custom SSL port has been added. A special thanks to <a href="http://chrisdoingweb.com/">Chris "doingweb" Antes</a> for his feedback and testing of this feature.
 * Forcing pages to/from HTTPS is now pluggable using the 'force_ssl' filter.

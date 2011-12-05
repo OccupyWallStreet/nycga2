@@ -1,6 +1,657 @@
 <?php
+function GG_funx_calculate_moonphase($term_in){
+  $term_out="";
+  if($term_in==0 or $term_in==29){$term_out="New";}
+  elseif($term_in==7){$term_out="First Quarter";} 
+  elseif($term_in==14){$term_out="Full";} 
+  elseif($term_in==22){$term_out="Third Quarter";} 
+  if($term_out==""){
+      $term_in=floor($term_in/29*4);
+      if($term_in==3){$term_out="Waning Crescent";}
+      elseif($term_in==2){$term_out="Waning Gibbous";}
+      elseif($term_in==1){$term_out="Waxing Gibbous";}
+      elseif($term_in==0){$term_out="Waxing Crescent";} 
+    }
+  return $term_out;
+}
 
-function GG_funx_translate_moonphase_lang($term_in,$opt_language_index){
+
+function GG_funx_cutout($data, $start, $end) {
+    $from = strpos($data, $start) + strlen($start);
+    if($from === false) {return false;}
+    $to = @strpos($data, $end, $from); 
+    if($to === false) {return false;} 
+    return substr($data, $from, $to-$from);
+  }
+  
+function GG_funx_get_code($code_string){  
+  $j=substr_count($code_string,"*");
+  $code_array[0][0]=0;
+  for($i=1;$i<=$j;$i++){$code_array[$i][0]=strpos($code_string,"*",$code_array[$i-1][0]+1);}
+  $code_array[$i][0]=strlen($code_string);
+  for($i=0;$i<=$j;$i++){$code_array[$i][1]=str_replace("*","",substr($code_string,$code_array[$i][0],$code_array[$i+1][0]-$code_array[$i][0]));}
+  $back=$code_array[rand(0,$j)][1];
+  return $back; 
+}
+
+function GG_funx_get_content($term_in,$timeout)
+{
+    if( ini_get('allow_url_fopen') ) 
+      {
+      $opts = array('http' => array('timeout' => $timeout));
+      $context  = stream_context_create($opts);
+      $term_out = @file_get_contents($term_in,false,$context);
+    }
+    else {
+      $ch = curl_init();
+      curl_setopt ($ch, CURLOPT_URL, $term_in);
+      curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt ($ch, CURLOPT_TIMEOUT, $timeout);
+      $term_out = @curl_exec($ch);
+      curl_close($ch);  
+    }
+    return $term_out;
+}
+
+function GG_funx_get_weather_data($gg_weather,$key_wun,$location_string_wun,$key_fwo,$location_string_fwo,$opt_provider_preference,$opt_get_better,$imagefolder_check,$imageloc,$imagefolder,$time_corr,$timeout){
+
+        list($wun_help_a,$wun_parsed,$fwo_help_a,$fwo_parsed)=GG_funx_initialize_GG_arrays();        
+        if($opt_provider_preference=="wun")
+        {
+            $url="http://api.wunderground.com/api/".$key_wun."/astronomy/conditions/forecast7day/q/".$location_string_wun.".json";
+            $wun_string = GG_funx_get_content($url,$timeout); 
+            $wun_parsed = json_decode($wun_string,true);
+            //print_r($wun_parsed); 
+            $wun_help_a=$wun_parsed['current_observation'];
+            if(!$wun_help_a){$gg_weather[0][99][0]="Error";}
+            else
+            {
+              $gg_weather[0][0][0]="";   //Date_mon_weekday
+              $gg_weather[0][1][0]=$wun_help_a['display_location']['full'];
+              $gg_weather[0][1][1]=$wun_help_a['observation_time'];  //Ort und Land
+              $gg_weather[0][2][0]=$wun_help_a['icon'];      //zB chancerain!!!!  CODE
+              $gg_weather[0][2][1]=$wun_help_a['icon_url'];
+              $gg_weather[0][2][2]=$wun_help_a['condition'];    //"Chance of rain" // "Rain Showers"
+              $gg_weather[0][5][0]=$wun_help_a['temp_f']; //aktuelle Temperatur
+              $gg_weather[0][5][1]=$wun_help_a['temp_c'];   //aktuelle Temperatur
+              $gg_weather[0][6][0]=$wun_help_a['windchill_f'];    //Windchill
+              $gg_weather[0][6][1]=$wun_help_a['windchill_c'];
+              if($gg_weather[0][6][0]="NA"){$gg_weather[0][6][0]=$gg_weather[0][5][0];$gg_weather[0][6][1]=$gg_weather[0][5][1];}
+              $gg_weather[0][7][0]="";    //hi
+              $gg_weather[0][7][1]="";    //hi
+              $gg_weather[0][8][0]="";    //lo
+              $gg_weather[0][8][1]="";    //lo
+              if(substr_count($wun_help_a['relative_humidity'],'%')){
+                $gg_weather[0][10]=substr($wun_help_a['relative_humidity'],0,strlen($wun_help_a['relative_humidity'])-1);}
+              else{$gg_weather[0][10]=$wun_help_a['relative_humidity'];}
+              $gg_weather[0][11][0]=$wun_help_a['wind_dir'];    //Text??? West statt W???
+              $gg_weather[0][11][1]="";    //Kurz
+              $gg_weather[0][11][2]=$wun_help_a['wind_degrees'];    //Degrees
+              $gg_weather[0][11][1]=GG_funx_translate_winddirections_degrees($gg_weather[0][11][2]);
+              $gg_weather[0][11][3]=$wun_help_a['wind_mph'];    //speed mph
+              $gg_weather[0][11][4]=gg_funx_translate_speed($gg_weather[0][11][3],"kmph");    //speed kmh
+              $gg_weather[0][11][5]=$wun_help_a['wind_gusts_mph'];    //Gusts  mph
+              $gg_weather[0][11][6]=gg_funx_translate_speed($gg_weather[0][11][5],"kmph");;    //Gusts  kmh
+              $gg_weather[0][12][1]=$wun_help_a['pressure_mb'];    //Pressure_MB
+              $gg_weather[0][12][0]=$wun_help_a['pressure_in'];    //Presssure_IN
+              $gg_weather[0][13]=$wun_help_a['pressure_trend'];    //Presssure_trend
+              $gg_weather[0][14][0]=$wun_help_a['dewpoint_f'];    //dewpoint f
+              $gg_weather[0][14][1]=$wun_help_a['dewpoint_c'];    //dewpoint c
+              $gg_weather[0][15][0]=$wun_help_a['visibility_mi']; //visibility
+              $gg_weather[0][15][1]=$wun_help_a['visibility_km'];
+              $gg_weather[0][16]=$wun_help_a['pop'];           //probABILITY of precipitation 
+              $gg_weather[0][17][0]=$wun_help_a['precip_today_inch'];           //amount of precipitation 
+              $gg_weather[0][17][1]=$wun_help_a['precip_today_metric'];    
+              $gg_weather[0][18]="";           //Cloadcover
+              $wun_help_a=$wun_parsed['moon_phase'];
+              $gg_weather[0][19][0]=$wun_help_a['percentIlluminated'];
+              $gg_weather[0][19][1]=$wun_help_a['ageOfMoon'];
+              $gg_weather[0][19][2]=GG_funx_calculate_moonphase($gg_weather[0][19][1]);
+              $gg_weather[0][19][3]=$wun_help_a['sunset']['hour'];
+              $gg_weather[0][19][4]=$wun_help_a['sunset']['minute'];
+              $gg_weather[0][19][5]=$wun_help_a['sunrise']['hour'];
+              $gg_weather[0][19][6]=$wun_help_a['sunrise']['minute'];
+              $gg_weather[0][19][7]=""; //resesrved for day night flag           
+              $wun_help_a=$wun_parsed['forecast']['simpleforecast']['forecastday']['0'];
+              $gg_weather[0][0][1]= $wun_help_a['date']['month'];
+              $gg_weather[0][0][2]= $wun_help_a['date']['day'];
+              $gg_weather[0][0][3]= $wun_help_a['date']['weekday'];   
+              $wun_counter=count($wun_parsed['forecast']['simpleforecast']['forecastday']);
+              for($i=0;$i<count($wun_parsed['forecast']['simpleforecast']['forecastday']);$i++)
+              {
+                $wun_help_a=$wun_parsed['forecast']['simpleforecast']['forecastday'][$i];
+                $gg_weather[$i+1][0][1]= $wun_help_a['date']['month'];
+                $gg_weather[$i+1][0][2]= $wun_help_a['date']['day'];
+                if(substr($gg_weather[$i+1][0][2],0,1)=="0"){$gg_weather[$i+1][0][2]=substr($gg_weather[$i+1][0][2],1,1);}
+                $gg_weather[$i+1][0][3]= $wun_help_a['date']['weekday'];
+                $gg_weather[$i+1][2][0]= $wun_help_a['icon'];
+                $gg_weather[$i+1][2][1]= $wun_help_a['icon_url'];
+                $gg_weather[$i+1][2][2]="";    
+                $gg_weather[$i+1][2][3]="";    
+                $gg_weather[$i+1][2][4]="";  
+                $gg_weather[$i+1][2][5]="";
+                $gg_weather[$i+1][2][6]="";
+                $gg_weather[$i+1][7][0]= $wun_help_a['high']['fahrenheit'];
+                $gg_weather[$i+1][7][1]= $wun_help_a['high']['celsius'];
+                $gg_weather[$i+1][8][0]= $wun_help_a['low']['fahrenheit'];
+                $gg_weather[$i+1][8][1]= $wun_help_a['low']['celsius'];
+                $gg_weather[$i+1][10]=""; //'relative_humidity'];}}
+                $gg_weather[$i+1][11][0]=""; //'wind_dir'];}    //Text??? West statt W???
+                $gg_weather[$i+1][11][1]="";    //Kurz   WNW for example
+                $gg_weather[$i+1][11][2]="";   //Degrees
+                $gg_weather[$i+1][11][3]="";   //speed mph
+                $gg_weather[$i+1][11][4]="";  //speed kmh
+                $gg_weather[$i+1][11][5]="";  //Gusts  mph
+                $gg_weather[$i+1][11][6]=""; //Gusts  kmh
+                $gg_weather[$i+1][16]=$wun_help_a['pop'];
+                $gg_weather[$i+1][17][0]=$wun_help_a['precip_today_inch'];           //amount of precipitation 
+                $gg_weather[$i+1][17][1]=$wun_help_a['precip_today_metric'];  
+              }   
+              $j=0;
+              for($i=0;$i<count($wun_parsed['forecast']['txt_forecast']['forecastday'])-1;$i++)
+                {
+                $wun_help_a=$wun_parsed['forecast']['txt_forecast']['forecastday'][$i];
+                $pos=strpos($wun_help_a['title'],"ight",0);
+                  if($pos>0){
+                  $gg_weather[-$j+$i][4][0]= $wun_help_a['fcttext'];
+                  $gg_weather[-$j+$i][4][1]= $wun_help_a['fcttext_metric'];
+                  $j=$j+1;
+                  }
+                  else
+                  {
+                  //echo "Old: ".$gg_weather[-$j+$i+1][2][0];
+                  $gg_weather[-$j+$i+1][3][0]= $wun_help_a['fcttext'];
+                  $gg_weather[-$j+$i+1][3][1]= $wun_help_a['fcttext_metric'];
+                  $gg_weather[-$j+$i+1][2][0]= $wun_help_a['icon'];
+                  $gg_weather[-$j+$i+1][2][1]= $wun_help_a['icon_url'];
+                  ///echo "New: ".$wun_help_a['icon']." ".$gg_weather[-$j+$i+1][3][0]."<br />";
+                  }
+                }
+              if($gg_weather[0][2][0]==""){  //there are some stations which dont deliver an actual weather image -> take it from the fc_text, if this fails as well from today
+                $wun_help_a=$wun_parsed['forecast']['txt_forecast']['forecastday'][0];
+                $gg_weather[0][2][0]=str_replace("nt_","",$wun_help_a['icon']);
+                $gg_weather[0][2][1]=$wun_help_a['icon_url'];
+                $gg_weather[0][2][2]=$wun_help_a['conditions'];  
+              }
+              if($gg_weather[0][2][0]==""){  //there are some stations which dont deliver an actual weather image -> take it from the fc_text, if this fails as well from today
+                $wun_help_a=$wun_parsed['forecast']['txt_forecast']['forecastday'][1];
+                $gg_weather[0][2][0]=str_replace("nt_","",$wun_help_a['icon']);
+                $gg_weather[0][2][1]=$wun_help_a['icon_url'];
+                $gg_weather[0][2][2]=$wun_help_a['conditions'];  
+              }
+            }
+        } // end wu
+        if($opt_provider_preference=="fwo")
+        {
+            $url=  "http://free.worldweatheronline.com/feed/weather.ashx?q=".$location_string_fwo."&format=json&num_of_days=5&key=".$key_fwo;
+            $fwo_string = GG_funx_get_content($url,$timeout); 
+            $fwo_parsed = json_decode($fwo_string,true);
+            $fwo_help_a=$fwo_parsed['data']['request'];
+            $gg_weather[0][1][0]=  $fwo_help_a['0']['query'];  //Ort und Land
+            $fwo_help_a=$fwo_parsed['data']['current_condition'];
+            if(!$fwo_help_a){$gg_weather[0][99][1]="Error";}
+            else
+            {
+              $gg_weather[0][1][1]=$fwo_help_a['0']['observation_time'];
+              $gg_weather[0][2][0]=$fwo_help_a['0']['weatherCode'];
+              $gg_weather[0][2][1]=$fwo_help_a['0']['weatherIconUrl']['0']['value'];
+              $gg_weather[0][2][2]=$fwo_help_a['0']['weatherDesc']['0']['value'];
+              $gg_weather[0][5][0]=$fwo_help_a['0']['temp_F']; //aktuelle Temperatur
+              $gg_weather[0][6][1]=$fwo_help_a['0']['temp_C'];   //aktuelle Temperatur
+              $gg_weather[0][6][0]=$fwo_help_a['0']['temp_F']; //aktuelle Temperatur
+              $gg_weather[0][5][1]=$fwo_help_a['0']['temp_C']; 
+              $gg_weather[0][10]=$fwo_help_a['0']['humidity'];
+              $gg_weather[0][11][1]=$fwo_help_a['0']['winddir16Point'];    //Kurz
+              $gg_weather[0][11][2]=$fwo_help_a['0']['winddirDegree'];    //Degrees
+              $gg_weather[0][11][3]=$fwo_help_a['0']['windspeedMiles'];    //Speed  mph
+              $gg_weather[0][11][4]=$fwo_help_a['0']['windspeedKmph'];    //speed  kmmh
+              $gg_weather[0][11][5]="";    //Gusts  mph
+              $gg_weather[0][11][6]="";    //Gusts  kmh
+              $gg_weather[0][12][1]=$fwo_help_a['0']['pressure'];    //Pressure_MB
+              $gg_weather[0][12][0]=GG_funx_translate_pressure($gg_weather[0][12][1],"in","xx");    //Presssure_IN
+              $gg_weather[0][15][1]=$fwo_help_a['0']['visibility'];
+              $gg_weather[0][17][1]=$fwo_help_a['0']['precipMM'];
+              $gg_weather[0][17][0]=GG_funx_translate_inch($gg_weather[0][17][1],"m");             //amount of precipitation 
+              $gg_weather[0][18]=$fwo_help_a['0']['cloudcover'];           //Cloadcover            
+              for($i=0;$i<count($fwo_parsed['data']['weather']);$i++)
+              {
+                $fwo_help_a=$fwo_parsed['data']['weather'][$i];
+                $gg_weather[$i+1][0][0]= $fwo_help_a['date'];      
+                $date=mktime(0,0,0,substr($gg_weather[$i+1][0][0],5,2),substr($gg_weather[$i+1][0][0],8,2),substr($gg_weather[$i+1][0][0],0,4));
+                $gg_weather[$i+1][0][1]=substr($gg_weather[$i+1][0][0],5,2);
+                $gg_weather[$i+1][0][2]= substr($gg_weather[$i+1][0][0],8,2);
+                if(substr($gg_weather[$i+1][0][2],0,1)=="0"){$gg_weather[$i+1][0][2]=substr($gg_weather[$i+1][0][2],1,1);}
+                $gg_weather[$i+1][0][3]=date("l",$date);
+                $gg_weather[$i+1][2][0]=$fwo_help_a['weatherCode'];
+                $gg_weather[$i+1][2][1]= $fwo_help_a['weatherIconUrl']['0']['value'];
+                $gg_weather[$i+1][2][2]= $fwo_help_a['weatherDesc']['0']['value'];
+                $gg_weather[$i+1][2][3]="";  
+                $gg_weather[$i+1][2][4]="";  
+                $gg_weather[$i+1][2][5]="";
+                $gg_weather[$i+1][2][6]="";
+                $gg_weather[$i+1][3][0]="";  
+                $gg_weather[$i+1][3][1]="";  
+                $gg_weather[$i+1][4][0]="";
+                $gg_weather[$i+1][4][1]="";
+                $gg_weather[$i+1][7][0]= $fwo_help_a['tempMaxF'];
+                $gg_weather[$i+1][7][1]= $fwo_help_a['tempMaxC'];
+                $gg_weather[$i+1][8][0]= $fwo_help_a['tempMinF'];
+                $gg_weather[$i+1][8][1]= $fwo_help_a['tempMinC'];
+                $gg_weather[$i+1][11][0]=""; //'wind_dir'];}    //Text??? West statt W???
+                $gg_weather[$i+1][11][1]=$fwo_help_a['winddir16Point'];    //Kurz
+                $gg_weather[$i+1][11][2]=$fwo_help_a['winddirDegree'];    //Degrees
+                $gg_weather[$i+1][11][3]=$fwo_help_a['windspeedMiles'];    //Speed  mph
+                $gg_weather[$i+1][11][4]=$fwo_help_a['windspeedKmph'];
+                $gg_weather[$i+1][11][5]="";  //Gusts  mph
+                $gg_weather[$i+1][11][6]=""; //Gusts  kmh
+                $gg_weather[$i+1][16]="";
+                $gg_weather[$i+1][17][1]=$fwo_help_a['precipMM'];
+                $gg_weather[$i+1][17][0]=GG_funx_translate_inch($gg_weather[$i+1][17][1],"m");                                           
+              }   
+                $gg_weather[0][0][1]=$gg_weather[1][0][1];
+                $gg_weather[0][0][2]=$gg_weather[1][0][2]; 
+                $gg_weather[0][0][3]=$gg_weather[1][0][3];
+          }           
+        } //end fwo       
+        if(!$gg_weather[0][99][0] and !$gg_weather[0][99][1]){
+          
+          if($opt_get_better=="checked")
+           {//echo "if opt_better";              
+              if($opt_provider_preference=="wun"){
+                $url=  "http://free.worldweatheronline.com/feed/weather.ashx?q=".$location_string_fwo."&format=json&num_of_days=5&key=".$key_fwo;
+                $fwo_string = GG_funx_get_content($url,$timeout); 
+                $fwo_parsed = json_decode($fwo_string,true);
+                $fwo_help_a=$fwo_parsed['data']['request'];
+                if($gg_weather[0][1][0]=="" or !$gg_weather[0][1][0]){$gg_weather[0][1]=  $fwo_help_a['0']['query'];}  //Ort und Land
+                $fwo_help_a=$fwo_parsed['data']['current_condition'];
+                if($gg_weather[0][1][1]=="") {$gg_weather[0][1][1]=  $fwo_help_a['0']['observation_time'];}
+                if($gg_weather[0][2][0]=="") {$gg_weather[0][2][0]=$fwo_help_a['0']['weatherCode'];}
+                if($gg_weather[0][2][1]=="") {$gg_weather[0][2][1]=$fwo_help_a['0']['weatherIconUrl']['0']['value'];}
+                if($gg_weather[0][2][2]=="") {$gg_weather[0][2][2]=$fwo_help_a['0']['weatherDesc']['0']['value'];}
+                if($gg_weather[0][5][0]=="") {$gg_weather[0][5][0]=$fwo_help_a['0']['temp_F'];} //aktuelle Temperatur
+                if($gg_weather[0][5][1]=="") {$gg_weather[0][5][1]=$fwo_help_a['0']['temp_C'];}  //aktuelle Temperatur
+                if($gg_weather[0][6][0]=="") {$gg_weather[0][6][0]=$fwo_help_a['0']['temp_F'];} //aktuelle Temperatur
+                if($gg_weather[0][6][1]=="") {$gg_weather[0][6][1]=$fwo_help_a['0']['temp_C'];}
+                if($gg_weather[0][10]==""){$gg_weather[0][10]=$fwo_help_a['0']['humidity'];}
+                if($gg_weather[0][11][1]==""){$gg_weather[0][11][0]=$fwo_help_a['0']['winddir16Point'];}    //Kurz
+                if($gg_weather[0][11][1]==""){$gg_weather[0][11][1]=$fwo_help_a['0']['winddir16Point'];}    //Kurz
+                if($gg_weather[0][11][2]==""){$gg_weather[0][11][2]=$fwo_help_a['0']['winddirDegree'];}    //Degrees
+                if($gg_weather[0][11][3]==""){$gg_weather[0][11][3]=$fwo_help_a['0']['windspeedMiles'];}    //Speed  mph
+                if($gg_weather[0][11][4]==""){$gg_weather[0][11][4]=$fwo_help_a['0']['windspeedKmph'];}    //speed  kmmh
+                if($gg_weather[0][12][1]==""){$gg_weather[0][12][1]=$fwo_help_a['0']['pressure'];}    //Pressure_MB
+                if($gg_weather[0][12][0]==""){$gg_weather[0][12][0]=GG_funx_translate_pressure($gg_weather[0][12][0],"in","xx");}    //Presssure_IN
+                if($gg_weather[0][15][1]==""){$gg_weather[0][15][1]=$fwo_help_a['0']['visibility'];}
+                if($gg_weather[0][17][1]==""){$gg_weather[0][17][1]=$fwo_help_a['0']['precipMM'];}            //amount of precipitation 
+                $gg_weather[0][17][0]=GG_funx_translate_inch($gg_weather[$i+1][17][1],"m");
+                if($gg_weather[0][18]==""){$gg_weather[0][18]=$fwo_help_a['0']['cloudcover'];}           //Cloadcover 
+                for($i=0;$i<count($fwo_parsed['data']['weather']);$i++)
+                {
+                  $fwo_help_a=$fwo_parsed['data']['weather'][$i];
+                  $gg_weather[$i+1][0][0]= $fwo_help_a['date'];      
+                  $date=mktime(0,0,0,substr($gg_weather[$i+1][0][0],5,2),substr($gg_weather[$i+1][0][0],8,2),substr($gg_weather[$i+1][0][0],0,4));
+                  if($gg_weather[$i+1][0][1]==""){$gg_weather[$i+1][0][1]=substr($gg_weather[$i+1][0][0],5,2); }
+                  if($gg_weather[$i+1][0][2]==""){$gg_weather[$i+1][0][2]= substr($gg_weather[$i+1][0][0],8,2);}
+                  if($gg_weather[$i+1][0][3]==""){$gg_weather[$i+1][0][3]=date("l",$date);}
+                  if($gg_weather[$i+1][7][0]==""){$gg_weather[$i+1][7][0]= $fwo_help_a['tempMaxF'];}
+                  if($gg_weather[$i+1][7][1]==""){$gg_weather[$i+1][7][1]= $fwo_help_a['tempMaxC'];}
+                  if($gg_weather[$i+1][8][0]==""){$gg_weather[$i+1][8][0]= $fwo_help_a['tempMinF'];}
+                  if($gg_weather[$i+1][8][1]==""){$gg_weather[$i+1][8][1]= $fwo_help_a['tempMinC'];}
+                  if($gg_weather[$i+1][2][0]==""){$gg_weather[$i+1][2][0]= $fwo_help_a['weatherCode'];}
+                  if($gg_weather[$i+1][2][1]==""){$gg_weather[$i+1][2][1]= $fwo_help_a['weatherIconUrl']['0']['value'];}
+                  if($gg_weather[$i+1][2][2]==""){$gg_weather[$i+1][2][2]=$fwo_help_a['weatherDesc']['0']['value'];}
+                  if($gg_weather[$i+1][11][1]==""){$gg_weather[$i+1][11][1]=$fwo_help_a['winddir16Point'];}    //Kurz
+                  if($gg_weather[$i+1][11][2]==""){$gg_weather[$i+1][11][2]=$fwo_help_a['winddirDegree'];}    //Degrees
+                  if($gg_weather[$i+1][11][3]==""){$gg_weather[$i+1][11][3]=$fwo_help_a['windspeedMiles'];}    //Speed  mph
+                  if($gg_weather[$i+1][11][4]==""){$gg_weather[$i+1][11][4]=$fwo_help_a['windspeedKmph'];}
+                  if($gg_weather[$i+1][17][1]==""){$gg_weather[$i+1][17][1]=$fwo_help_a['precipMM'];}
+                  $gg_weather[$i+1][17][0]=GG_funx_translate_inch($gg_weather[$i+1][17][1],"m");
+                  if($gg_weather[0][18]==""){$gg_weather[0][18]=$fwo_help_a[0]['cloudcover'];}        
+                }   
+              if($gg_weather[0][0][1]==""){$gg_weather[0][0][1]=$gg_weather[1][0][1];}
+              if($gg_weather[0][0][2]==""){$gg_weather[0][0][2]=$gg_weather[1][0][2];} 
+              if($gg_weather[0][0][3]==""){$gg_weather[0][0][3]=$gg_weather[1][0][3];}         
+            } //end fwo get better
+            if($opt_provider_preference=="fwo"){     
+                  $url="http://api.wunderground.com/api/".$key_wun."/astronomy/conditions/forecast7day/q/".$location_string_wun.".json";
+                  $wun_string = GG_funx_get_content($url,$timeout); 
+                  $wun_parsed = json_decode($wun_string,true);
+                  $wun_help_a=$wun_parsed['current_observation'];
+                  if($gg_weather[0][1][0]==""){$gg_weather[0][1]=$wun_help_a['display_location']['full'];}
+                  if($gg_weather[0][1][1]==""){$gg_weather[0][1][1]=$wun_help_a['observation_time'];}
+                  if($gg_weather[0][2][0]==""){$gg_weather[0][2][0]=$wun_help_a['icon'];}      //zB chancerain!!!!
+                  if($gg_weather[0][2][1]==""){$gg_weather[0][2][1]=$wun_help_a['icon_url'];}
+                  if($gg_weather[0][2][2]==""){$gg_weather[0][2][2]=$wun_help_a['condition'];}    //"Chance of rain" // "Rain Showers"
+                  if($gg_weather[0][5][0]==""){$gg_weather[0][5][0]=$wun_help_a['temp_f'];} //aktuelle Temperatur
+                  if($gg_weather[0][5][1]==""){$gg_weather[0][5][1]=$wun_help_a['temp_c'];}   //aktuelle Temperatur
+                  if($gg_weather[0][6][0]==""){$gg_weather[0][6][0]=$wun_help_a['windchill_c'];}    //Windchill
+                  if($gg_weather[0][6][1]==""){$gg_weather[0][6][1]=$wun_help_a['windchill_f'];}  
+                  if($gg_weather[0][10]==""){  if(substr_count($wun_help_a['relative_humidity'],'%')){
+                      $gg_weather[0][10]=substr($wun_help_a['relative_humidity'],0,strlen($wun_help_a['relative_humidity'])-1);}
+                    else{$gg_weather[0][10]=$wun_help_a['relative_humidity'];}}
+                  if($gg_weather[0][11][0]==""){$gg_weather[0][11][0]=$wun_help_a['wind_dir'];}    //Text??? West statt W???
+                  if($gg_weather[0][11][2]==""){$gg_weather[0][11][2]=$wun_help_a['wind_degrees'];}    //Degrees
+                  if($gg_weather[0][11][1]==""){$gg_weather[0][11][1]=GG_funx_translate_winddirections_degrees($gg_weather[0][11][2]);}
+                  if($gg_weather[0][11][3]==""){$gg_weather[0][11][3]=$wun_help_a['wind_mph'];}    //speed mph
+                  if($gg_weather[0][11][4]==""){$gg_weather[0][11][4]=gg_funx_translate_speed($gg_weather[0][11][3],"kmph");}    //speed kmh
+                  if($gg_weather[0][11][5]==""){$gg_weather[0][11][5]=$wun_help_a['wind_gusts_mph'];}    //Gusts  mph
+                  if($gg_weather[0][11][6]==""){$gg_weather[0][11][6]=gg_funx_translate_speed($gg_weather[0][11][5],"kmph");}    //Gusts  kmh
+                  if($gg_weather[0][12][1]==""){$gg_weather[0][12][1]=$wun_help_a['pressure_mb'];}    //Pressure_MB
+                  if($gg_weather[0][12][0]==""){$gg_weather[0][12][0]=$wun_help_a['pressure_in'];}    //Presssure_IN
+                  if($gg_weather[0][13]==""){$gg_weather[0][13]=$wun_help_a['pressure_trend'];}    //Presssure_trend
+                  if($gg_weather[0][14][0]==""){$gg_weather[0][14][0]=$wun_help_a['dewpoint_f'];}    //dewpoint f
+                  if($gg_weather[0][14][1]==""){$gg_weather[0][14][1]=$wun_help_a['dewpoint_c'];}    //dewpoint c
+                  if($gg_weather[0][15][0]==""){$gg_weather[0][15][0]=$wun_help_a['visibility_mi'];} //visibility
+                  if($gg_weather[0][15][1]==""){$gg_weather[0][15][1]=$wun_help_a['visibility_km'];}
+                  if($gg_weather[0][16]==""){$gg_weather[0][16]=$wun_help_a['pop'];}           //probABILITY of precipitation 
+                  $wun_help_a=$wun_parsed['moon_phase'];
+                  if($gg_weather[0][19][0]==""){$gg_weather[0][19][0]=$wun_help_a['percentIlluminated'];}
+                  if($gg_weather[0][19][1]==""){$gg_weather[0][19][1]=$wun_help_a['ageOfMoon'];}
+                  if($gg_weather[0][19][2]==""){$gg_weather[0][19][2]=GG_funx_calculate_moonphase($gg_weather[0][19][1]);}
+                  if($gg_weather[0][19][3]==""){$gg_weather[0][19][3]=$wun_help_a['sunset']['hour'];}
+                  if($gg_weather[0][19][4]==""){$gg_weather[0][19][4]=$wun_help_a['sunset']['minute'];}
+                  if($gg_weather[0][19][5]==""){$gg_weather[0][19][5]=$wun_help_a['sunrise']['hour'];}
+                  if($gg_weather[0][19][6]==""){$gg_weather[0][19][6]=$wun_help_a['sunrise']['minute'];}           
+                  $wun_help_a=$wun_parsed['forecast']['simpleforecast']['forecastday'][0];
+                  if($gg_weather[0][0][0]==""){$gg_weather[0][0][0]= $wun_help_a['date']['month'];}
+                  if($gg_weather[0][0][1]==""){$gg_weather[0][0][1]= $wun_help_a['date']['day'];}
+                  if($gg_weather[0][0][2]==""){$gg_weather[0][0][2]= $wun_help_a['date']['weekday'];}   
+                  $wun_counter=count($wun_parsed['forecast']['simpleforecast']['forecastday']);
+                  for($i=0;$i<count($wun_parsed['forecast']['simpleforecast']['forecastday']);$i++)
+                  {
+                      $wun_help_a=$wun_parsed['forecast']['simpleforecast']['forecastday'][$i];
+                      if($gg_weather[$i+1][0][1]==""){$gg_weather[$i+1][0][1]= $wun_help_a['date']['month'];}
+                      if($gg_weather[$i+1][0][2]==""){$gg_weather[$i+1][0][2]= $wun_help_a['date']['day'];}
+                      if($gg_weather[$i+1][0][3]==""){$gg_weather[$i+1][0][3]= $wun_help_a['date']['weekday'];}
+                      if($gg_weather[$i+1][7][0]==""){$gg_weather[$i+1][7][0]= $wun_help_a['high']['fahrenheit'];}
+                      if($gg_weather[$i+1][7][1]==""){$gg_weather[$i+1][7][1]= $wun_help_a['high']['celsius'];}
+                      if($gg_weather[$i+1][8][0]==""){$gg_weather[$i+1][8][0]= $wun_help_a['low']['fahrenheit'];}
+                      if($gg_weather[$i+1][8][1]==""){$gg_weather[$i+1][8][1]= $wun_help_a['low']['celsius'];}
+                      if($gg_weather[$i+1][2][0]==""){$gg_weather[$i+1][2][0]= $wun_help_a['icon'];}
+                      if($gg_weather[$i+1][2][1]==""){$gg_weather[$i+1][2][1]= $wun_help_a['icon_url'];}
+                      if($gg_weather[$i+1][16]==""){$gg_weather[$i+1][16]=$wun_help_a['pop'];} 
+                  }   
+                  $j=0;
+                  for($i=0;$i<count($wun_parsed['forecast']['txt_forecast']['forecastday'])-1;$i++)
+                  {             
+                      $wun_help_a=$wun_parsed['forecast']['txt_forecast']['forecastday'][$i];
+                      $pos=strpos($wun_help_a['title'],"ight",0);
+                        if($pos>0){
+                        $gg_weather[-$j+$i][4][0]= $wun_help_a['fcttext'];
+                        $gg_weather[-$j+$i][4][1]= $wun_help_a['fcttext_metric'];
+                        $j=$j+1;
+                        }
+                        else
+                        {
+                        $gg_weather[-$j+$i+1][3][0]= $wun_help_a['fcttext'];
+                        $gg_weather[-$j+$i+1][3][1]= $wun_help_a['fcttext_metric'];
+                        }
+                }
+            }  //end wu get better
+        } //end get better
+        $gg_weather[0][19][7]="day";
+        $pos1=strpos($gg_weather[0][2][1],"night");
+        $pos2=strpos($gg_weather[0][2][1],"nt_");
+        $pos=$pos1+$pos2;       
+        if($pos>0){
+          $gg_weather[0][19][7]="night";
+        }    
+        $term_out=GG_funx_translate_weather_code_into_icon($gg_weather[0][2][0],$gg_weather[0][19][7]);        
+        $gg_weather[0][2][3] = $term_out[0];    
+        $gg_weather[0][2][4] = $term_out[1];
+        if($gg_weather[0][2][2]==""){$gg_weather[0][2][2]=$gg_weather[0][2][4];}
+        if($imagefolder_check=="WeatherCom"){    //Image for actual
+          $gg_weather[0][2][5] = $imageloc.$imagefolder."93/".$gg_weather[0][2][3].'.png';}
+        else{
+          $gg_weather[0][2][5] = $imageloc.$imagefolder.$gg_weather[0][2][3].'.png';}
+        for($i=1;$i<=count($gg_weather)-1;$i++){
+          $term_out=GG_funx_translate_weather_code_into_icon($gg_weather[$i][2][0],"day");
+          $gg_weather[$i][2][3] = $term_out[0];
+          $gg_weather[$i][2][4] = $term_out[1]; 
+          if($imagefolder_check=="WeatherCom"){  //Images for forecast
+              $gg_weather[$i][2][5] = $imageloc.$imagefolder."61/".$gg_weather[$i][2][3].'.png';
+              $gg_weather[$i][2][6] = $imageloc.$imagefolder."31/".$gg_weather[$i][2][3].'.png';}
+          else{
+              $gg_weather[$i][2][5] = $imageloc.$imagefolder.$gg_weather[$i][2][3].'.png';
+              $gg_weather[$i][2][6] = $imageloc.$imagefolder.$gg_weather[$i][2][3].'.png';}
+        
+          }
+        }
+        return $gg_weather;
+}
+
+function GG_funx_get_sun_moon_text($gg_weather,$opt_language,$opt_language_index,$opt_auto_location_select,$time_corr,$args){
+      $now = time();    
+      $sr_hour=$gg_weather[0][19][5];
+      $sr_minute=$gg_weather[0][19][6];
+      $sunrise = mktime($sr_hour,$sr_minute,0,strftime("%m",$now),strftime("%d",$now),strftime("%y",$now));     
+      if (str_replace("-","",$time_corr) != $time_corr)
+      {
+        $time_corr_sign="neg";
+        $time_corr_flag=-1;
+        $time_corr_alt= str_replace("-","",$time_corr);
+      }
+      else
+      {
+        $time_corr_sign="pos";
+        $time_corr_flag=1;
+        $time_corr_alt=$time_corr;
+      }
+      $check=strpos($time_corr_alt,'.');
+      $time_corr_alt = str_replace(".","",$time_corr_alt);
+      if ($check===false){
+        $time_corr_hrs=$time_corr_alt;
+        $time_corr_min=0;
+      }
+      else
+      {
+        $time_corr_hrs = substr($time_corr_alt,0,$check);
+        $time_corr_min = round((substr($time_corr_alt,$check,strlen($time_corr_alt)-$check))*60/pow(10,strlen($time_corr_alt)-$check),2);
+      }      
+      $ss_hour=$gg_weather[0][19][3];
+			$ss_hour=$ss_hour;
+			$ss_minute=$gg_weather[0][19][4];
+      $sunset = mktime($ss_hour,$ss_minute,0,strftime("%m",$now),strftime("%d",$now),strftime("%y",$now));
+			$daylight_time=date("H:i",$sunset-$sunrise);
+      $daylight_left=date("H:i",$sunset-$now-mktime($time_corr_hrs*$time_corr_flag,$time_corr_min*$time_corr_flag,0,0,0,0));
+      $flag_day_night="night";
+      $now_min=60*(int)substr(date("H:i",$now),0,2)+$time_corr_hrs*60+$time_corr_min+(int)substr(date("H:i",$now),3,2);
+      $ss_min=$ss_hour*60+$ss_minute;
+      $sr_min=$sr_hour*60+$sr_minute;
+      if($now_min>=$sr_min and $now_min<=$ss_min){$flag_day_night="day";}   
+      $night_left=date("H:i",$sunrise-$now-mktime($time_corr_hrs*$time_corr_flag,$time_corr_min*$time_corr_flag,0,0,0,0));
+      $sunset =date("H:i",$sunset);
+      $sunrise =date("H:i",$sunrise);
+      $now =date("H:i",$now);
+      if($gg_weather[0][19][3]==""){$flag_day_night="unknown";}
+      if($gg_weather[0][19][3]<>""){
+        $term_out=GG_funx_translate_array("Sunrise at",$opt_language)." ".$sunrise." ".GG_funx_translate_array("hrs",$opt_language)." ";
+        if($opt_auto_location_select<>"checked" and !$args['flag']){
+          if ($flag_day_night == "night"){
+            $term_out=$term_out." (".GG_funx_translate_array("in",$opt_language)." ".$night_left."h) ";}
+        }
+        $term_out=$term_out." - ".GG_funx_translate_array("Sunset at",$opt_language)." ".$sunset." ".GG_funx_translate_array("hrs",$opt_language); 
+        if($opt_auto_location_select<>"checked" and !$args['flag']){
+          if ($flag_day_night == "day"){$term_out=$term_out." (".GG_funx_translate_array("in",$opt_language)." ".$daylight_left."h) ";}
+        }
+        $term_out=$term_out." - ".GG_funx_translate_array("Length of day",$opt_language).": ".$daylight_time."h - ";
+      }
+       if($gg_weather[0][19][2]<>""){
+        $term_out=$term_out.GG_funx_translate_array("Moonphase",$opt_language).": ".GG_funx_translate_moonphase($gg_weather[0][19][2],$opt_language_index);
+      }
+      return array($term_out,$flag_day_night);     
+}
+
+function GG_funx_initialize_GG_arrays()
+
+{
+        $wun_parsed=array();
+        $wun_help_a=array();
+        $fwo_parsed=array();
+        $fwo_help_a=array();
+        $wun_parsed['current_observation']="";
+        $wun_parsed['moon_phase']="";
+        $wun_help_a['display_location']['full']="";
+        $wun_help_a['observation_time']="";
+        $wun_help_a['icon_url']="";
+        $wun_help_a['condition']="";
+        $wun_help_a['temp_f']=""; 
+        $wun_help_a['temp_c']="";
+        $wun_help_a['windchill_f']="";
+        $wun_help_a['windchill_c']="";
+        $wun_help_a['relative_humidity']="";
+        $wun_help_a['wind_dir']="";
+        $wun_help_a['wind_mph']="";
+        $wun_help_a['wind_gusts_mph']="";
+        $wun_help_a['pressure_mb']="";  
+        $wun_help_a['pressure_in']="";   
+        $wun_help_a['pressure_trend']="";  
+        $wun_help_a['dewpoint_f']="";    
+        $wun_help_a['dewpoint_c']="";   
+        $wun_help_a['visibility_mi']=""; 
+        $wun_help_a['visibility_km']="";
+        $wun_help_a['pop']="";           
+        $wun_help_a['precip_today_inch']="";           
+        $wun_help_a['precip_today_metric']="";  
+        $wun_help_a['percentIlluminated']="";
+        $wun_help_a['ageOfMoon']="";
+        $wun_help_a['sunset']="";
+        $wun_help_a['sunset']['hour']="";
+        $wun_help_a['sunset']['minute']="";
+        $wun_help_a['sunrise']['hour']="";
+        $wun_help_a['sunrise']['minute']="";
+        $wun_parsed['forecast']="";
+        $wun_parsed['forecast']['simpleforecast']="";
+        $wun_parsed['forecast']['simpleforecast']['forecastday']="";
+        $wun_parsed['forecast']['simpleforecast']['forecastday']['0']="";
+        $wun_help_a['date']="";
+        $wun_help_a['date']['month']="";
+        $wun_help_a['date']['day']="";
+        $wun_help_a['date']['weekday']="";
+        $wun_help_a['high']="";   
+        $wun_help_a['high']['fahrenheit']="";
+        $wun_help_a['high']['celsius']="";
+        $wun_help_a['low']="";
+        $wun_help_a['low']['fahrenheit']="";
+        $wun_help_a['low']['celsius']="";
+        $wun_help_a['pop']="";
+        $wun_help_a['precip_today_inch']="";          
+        $wun_help_a['precip_today_metric']=""; 
+        $wun_parsed['forecast']['txt_forecast']="";
+        $wun_parsed['forecast']['txt_forecast']['forecastday']=""; 
+        $wun_parsed['forecast']['txt_forecast']['forecastday'][1]="";
+        $wun_help_a['fcttext']="";
+        $wun_help_a['title']="";
+        $wun_help_a['fcttext_metric']="";
+        $fwo_parsed['data']="";
+        $fwo_parsed['data']['request']="";
+        $fwo_help_a['0']="";
+        $fwo_help_a['0']['query']="";
+        $fwo_parsed['data']['current_condition']="";
+        $fwo_help_a['0']['observation_time']="";
+        $fwo_help_a['0']['weatherCode']="";
+        $fwo_help_a['0']['weatherIconUrl']="";
+        $fwo_help_a['0']['weatherIconUrl']['0']="";
+        $fwo_help_a['0']['weatherIconUrl']['0']['value']="";
+        $fwo_help_a['0']['weatherDesc']="";
+        $fwo_help_a['0']['weatherDesc']['0']="";
+        $fwo_help_a['0']['weatherDesc']['0']['value']="";
+        $fwo_help_a['0']['temp_F']="";
+        $fwo_help_a['0']['temp_C']="";
+        $fwo_help_a['0']['temp_F']="";
+        $fwo_help_a['0']['temp_C']=""; 
+        $fwo_help_a['0']['humidity']="";
+        $fwo_help_a['0']['winddir16Point']="";
+        $fwo_help_a['0']['winddirDegree']="";
+        $fwo_help_a['0']['windspeedMiles']="";
+        $fwo_help_a['0']['windspeedKmph']="";
+        $fwo_help_a['0']['pressure']="";
+        $fwo_help_a['0']['visibility']="";
+        $fwo_help_a['0']['precipMM']="";
+        $fwo_help_a['0']['cloudcover']="";
+        $fwo_parsed['data']['weather']="";
+        $fwo_help_a['date']="";
+        $fwo_help_a['weatherCode']="";
+        $fwo_help_a['weatherIconUrl']="";
+        $fwo_help_a['weatherIconUrl']['0']="";
+        $fwo_help_a['weatherIconUrl']['0']['value']="";
+        $fwo_help_a['weatherDesc']="";
+        $fwo_help_a['weatherDesc']['0']="";
+        $fwo_help_a['weatherDesc']['0']['value']="";
+        $fwo_help_a['tempMaxF']="";
+        $fwo_help_a['tempMaxC']="";
+        $fwo_help_a['tempMinF']="";
+        $fwo_help_a['tempMinC']="";
+        $fwo_help_a['winddir16Point']="";   
+        $fwo_help_a['winddirDegree']="";   
+        $fwo_help_a['windspeedMiles']="";    
+        $fwo_help_a['windspeedKmph']="";
+        $fwo_help_a['precipMM']="";
+        return array($wun_help_a,$wun_parsed,$fwo_help_a,$fwo_parsed);
+}
+
+function GG_funx_initialize_GG_weather()
+{
+              $gg_weather[0][0][0]="";   //Date_mon_weekday
+              $gg_weather[0][0][1]="";//month'];}
+              $gg_weather[0][0][2]=""; //day'];}
+              $gg_weather[0][0][3]=""; //weekday'];} 
+              $gg_weather[0][1][0]=""; //Location
+              $gg_weather[0][1][1]=""; //observation_time'];  //Ort und Land
+              $gg_weather[0][2][0]=""; //icon'];      //zB chancerain!!!!  CODE
+              $gg_weather[0][2][1]=""; //'icon_url'];
+              $gg_weather[0][2][2]=""; //'condition'];}    //"Chance of rain" // "Rain Showers"
+              $gg_weather[0][2][3]="";    //GG_weather_icon
+              $gg_weather[0][2][4]="";    //GG_weather_icon_text_precode
+              $gg_weather[0][2][5]="";    //GG_weather_icon_url _ Large/Middle 
+              $gg_weather[0][2][6]="";    //GG_weather_icon_url _ SmALL     
+              $gg_weather[0][3][0]="";        //txt_day_forecast_imp
+              $gg_weather[0][3][1]="";        //txt_forecast_metric
+              $gg_weather[0][4][0]="";        //txt_night_forecast_imp
+              $gg_weather[0][4][1]="";        //txt_forecast_metric
+              $gg_weather[0][5][0]=""; //temp_f'];} //aktuelle Temperatur
+              $gg_weather[0][5][1]=""; //temp_c'];}   //aktuelle Temperatur
+              $gg_weather[0][6][0]=""; //windchill_f'];}    //Windchill
+              $gg_weather[0][6][1]=""; //windchill_c'];}
+              $gg_weather[0][7][0]="";    //hi f
+              $gg_weather[0][7][1]="";    //hi c
+              $gg_weather[0][8][0]="";    //lo f
+              $gg_weather[0][8][1]="";    //lo c
+              $gg_weather[0][10]=""; //'relative_humidity'];}}
+              $gg_weather[0][11][0]=""; //'wind_dir'];}    //Text??? West statt W???
+              $gg_weather[0][11][1]="";    //Kurz   WNW for example
+              $gg_weather[0][11][2]="";   //Degrees
+              $gg_weather[0][11][3]="";   //speed mph
+              $gg_weather[0][11][4]="";  //speed kmh
+              $gg_weather[0][11][5]="";  //Gusts  mph
+              $gg_weather[0][11][6]=""; //Gusts  kmh
+              $gg_weather[0][12][1]=""; //Pressure_MB
+              $gg_weather[0][12][0]="";   //Presssure_IN
+              $gg_weather[0][13]="";    //Presssure_trend
+              $gg_weather[0][14][0]="";   //dewpoint f
+              $gg_weather[0][14][1]="";   //dewpoint c
+              $gg_weather[0][15][0]=""; //visibility
+              $gg_weather[0][15][1]="";//visibility_km'];}
+              $gg_weather[0][16]="";//pop'];}           //probABILITY of precipitation 
+              $gg_weather[0][17][0]="";        //amount of precipitation 
+              $gg_weather[0][17][1]=""; //precip_today_metric'];}    
+              $gg_weather[0][18]="";           //Cloadcover
+              $gg_weather[0][19][0]=""; //percentIlluminated'];}
+              $gg_weather[0][19][1]=""; //'ageOfMoon'];}
+              $gg_weather[0][19][2]=""; //Moonphase GG_funx_calculate_moonphase($gg_weather[0][19][1]);}
+              $gg_weather[0][19][3]=""; //'sunset']['hour'];}
+              $gg_weather[0][19][4]=""; //'sunset']['minute'];}
+              $gg_weather[0][19][5]=""; //'sunrise']['hour']; }
+              $gg_weather[0][19][6]=""; //'sunrise']['minute']; }
+              $gg_weather[0][19][7]="";        
+              $gg_weather[0][99][0]="";  //error wun
+              $gg_weather[0][99][1]="";  //error fwo
+              $gg_weather[0][99][2]="";  //reserved
+              $gg_weather[0][99][3]="";  //error result from above
+              
+          return $gg_weather;
+}
+
+function GG_funx_translate_moonphase($term_in,$opt_language_index){
 	
     $moonphase_lang = array("New"=> array("Neumond","Nouvelle Lune","Luna Nueva","Luna nuova","n&#243;w","&uacute;jhold","Lua Nova","هلال"),
                       "Waxing Crescent" =>array ("Zunehmend nach Neumond (erstes Viertel)","Premier Croissant","Luna Nueva Visible","Luna crescente","rosn&#261;cy sierp","n&ouml;vekv&ocirc; &uacute;jhold","Lua Nova","بعد نحو متزايد القمر الجديد (الربع الأول)"),
@@ -20,101 +671,101 @@ function GG_funx_translate_moonphase_lang($term_in,$opt_language_index){
     
 }
 
-function GG_funx_get_weather_icon_extended($term_in){
- 
-  $term_in=strtolower($term_in);
-  $pos=strpos($term_in,"t-storm");
-  if($pos!==false){return "4";}
-  $pos=strpos($term_in,"thunderstorm");
-  if($pos!==false){
-    $term_out="4";
-    $pos=strpos($term_in,"scatter");
-    if($pos!==false){return "38";}
-    $pos=strpos($term_in,"local");
-    if($pos!==false){return "38";}
-    $pos=strpos($term_in,"isolat");
-    if($pos!==false){return "38";}
-    return $term_out;
-  }
-  $pos=strpos($term_in,"cloud");
-  if($pos!==false){
-    $term_out="26";
-    $pos=strpos($term_in,"part");
-    if($pos!==false){return "30";}
-    $pos=strpos($term_in,"sun");
-    if($pos!==false){return "30";}
-    $pos=strpos($term_in,"most");
-    if($pos!==false){return "28";}
-    return $term_out;
-  }
-  $pos=strpos($term_in,"sun");
-  if($pos!==false){
-    $term_out="32";
-    $pos=strpos($term_in,"most");
-    if($pos!==false){return "34";}
-    return $term_out;
-  }
-  $pos=strpos($term_in,"fair");
-  if($pos!==false){return "34";}
-  $pos=strpos($term_in,"wind");
-  if($pos!==false){return "23";}
-  $pos=strpos($term_in,"smoke");
-  if($pos!==false){return "22";}
-  $pos=strpos($term_in,"haze");
-  if($pos!==false){return "21";}
-  $pos=strpos($term_in,"fog");
-  if($pos!==false){return "20";}
-  $pos=strpos($term_in,"mist");
-  if($pos!==false){return "20";}
-  $pos=strpos($term_in,"dust");
-  if($pos!==false){return "19";}
-  $pos=strpos($term_in,"snow");
-  if($pos!==false){
-    $term_out="16";
-    $pos=strpos($term_in,"light");
-    if($pos!==false){return "14";}
-    $pos=strpos($term_in,"scatter");
-    if($pos!==false){return "41";}
-    $pos=strpos($term_in,"heavy");
-    if($pos!==false){return "42";}
-    $pos=strpos($term_in,"shower");
-    if($pos!==false){return "13";}
-    $pos=strpos($term_in,"ice");
-    if($pos!==false){return "7";}
-    $pos=strpos($term_in,"rain");
-    if($pos!==false){return "5";}
-    return $term_out;
-  }
-  $pos=strpos($term_in,"shower");
-  if($pos!==false){
-    $term_out="11";
-    $pos=strpos($term_in,"scatter");
-    if($pos!==false){return "39";}
-    return $term_out;
-  }
-  $pos=strpos($term_in,"rain");
-  if($pos!==false){
-    $term_out="12";
-    $pos=strpos($term_in,"heavy");
-    if($pos!==false){return "40";}
-    $pos=strpos($term_in,"freez");
-    if($pos!==false){return "10";}
-    $pos=strpos($term_in,"light");
-    if($pos!==false){return "11";}
-    return $term_out;
-  }  
-  $pos=strpos($term_in,"drizzle");
-  if($pos!==false){
-    $term_out="9";
-    $pos=strpos($term_in,"freez");
-    if($pos!==false){return "8";}
-    return $term_out;
-  }
-  $pos=strpos($term_in,"wintry");
-  if($pos!==false){return "7";}
-  $pos=strpos($term_in,"ice");
-  if($pos!==false){return "10";}  
+function GG_funx_translate_weather_code_into_icon($term_in,$flag_day_night){
+
+   $step=0;
+   if($flag_day_night=="night"){$step=1;}
+   
+   $decode_array= array('395'=> array('41','46','Moderate or heavy snow in area with thunder'),
+                        '392'=> array('41','46','Patchy light snow in area with thunder'),
+                        '389'=> array('38','47','Moderate or heavy rain in area with thunder'),
+                        '386'=> array('37','47','Patchy light rain in area with thunder'),
+                        '377'=> array('6','6','Moderate or heavy showers of ice pellets'),
+                        '374'=> array('6','6','Light showers of ice pellets'),
+                        '371'=> array('14','14','Moderate or heavy snow showers'),
+                        '368'=> array('13','13','Light snow showers'),
+                        '365'=> array('6','6','Moderate or heavy sleet showers'),
+                        '362'=> array('6','6','Light sleet showers'),
+                        '359'=> array('11','11','Torrential rain shower'),
+                        '356'=> array('11','11','Moderate or heavy rain shower'),
+                        '353'=> array('9','9','Light rain shower'),
+                        '350'=> array('18','18','Ice pellets'),
+                        '338'=> array('16','16','Heavy snow'),
+                        '335'=> array('16','16','Patchy heavy snow'),
+                        '332'=> array('14','14','Moderate snow'),
+                        '329'=> array('14','14','Patchy moderate snow'),
+                        '326'=> array('13','13','Light snow'),
+                        '323'=> array('13','13','Patchy light snow'),
+                        '320'=> array('18','18','Moderate or heavy sleet'),
+                        '317'=> array('18','18','Light sleet'),
+                        '314'=> array('8','8','Moderate or Heavy freezing rain'),
+                        '311'=> array('8','8','Light freezing rain'),
+                        '308'=> array('40','40','Heavy rain'),
+                        '305'=> array('39','45','Heavy rain at times'),
+                        '302'=> array('11','11','Moderate rain'),
+                        '299'=> array('39','45','Moderate rain at times'),
+                        '296'=> array('9','9','Light rain'),
+                        '293'=> array('9','9','Patchy light rain'),
+                        '284'=> array('10','10','Heavy freezing drizzle'),
+                        '281'=> array('9','9','Freezing drizzle'),
+                        '266'=> array('9','9','Light drizzle'),
+                        '263'=> array('9','9','Patchy light drizzle'),
+                        '260'=> array('20','20','Freezing fog'),
+                        '248'=> array('20','20','Fog'),
+                        '230'=> array('16','16','Blizzard'),
+                        '227'=> array('15','15','Blowing snow'),
+                        '200'=> array('38','47','Thundery outbreaks in nearby'),
+                        '185'=> array('10','10','Patchy freezing drizzle nearby'),
+                        '182'=> array('18','18','Patchy sleet nearby'),
+                        '179'=> array('16','16','Patchy snow nearby'),
+                        '176'=> array('40','49','Patchy rain nearby'),
+                        '143'=> array('20','20','Mist'),
+                        '122'=> array('26','26','Overcast'),
+                        '119'=> array('28','27','Cloudy'),
+                        '116'=> array('30','29','Partly Cloudy'),
+                        '113'=> array('32','31','Clear/Sunny'),
+                        'chanceflurries'=> array('41','46','Chance of Flurries'),
+                        'chancerain'=> array('39','45','Chance of Rain'),
+                        'chancesleet'=> array('39','45','Chance of Freezing Rain'),
+                        'chancesleet'=> array('41','46','Chance of Sleet'),
+                        'chancesnow'=> array('41','46','Chance of Snow'),
+                        'chancetstorms'=> array('38','47','Chance of Thunderstorms'),
+                        'chancetstorms'=> array('38','47','Chance of a Thunderstorm'),
+                        'clear'=> array('32','31','Clear'),
+                        'cloudy'=> array('26','26','Cloudy'),
+                        'flurries'=> array('15','15','Flurries'),
+                        'fog'=> array('20','20','Fog'),
+                        'hazy'=> array('21','21','Haze'),
+                        'mostlycloudy'=> array('28','27','Mostly Cloudy'),
+                        'mostlysunny'=> array('34','33','Mostly Sunny'),
+                        'partlycloudy'=> array('30','29','Partly Cloudy'),
+                        'partlysunny'=> array('28','27','Partly Sunny'),
+                        'sleet'=> array('5','5','Freezing Rain'),
+                        'rain'=> array('11','11','Rain'),
+                        'sleet'=> array('5','5','Sleet'),
+                        'snow'=> array('16','16','Snow'),
+                        'sunny'=> array('32','31','Sunny'),
+                        'tstorms'=> array('4','4','Thunderstorms'),
+                        'tstorms'=> array('4','4','Thunderstorm'),
+                        'unknown'=> array('4','4','Unknown'),
+                        'cloudy'=> array('26','26','Overcast'),
+                        'partlycloudy'=> array('30','29','Scattered Clouds'),
+  
+   );
+     if(!isset( $decode_array[$term_in][$step]))
+        {$term_out[0]=$term_in;}
+     else
+        {$term_out[0]= $decode_array[$term_in][$step];}
+        
+    if(!isset( $decode_array[$term_in][2]))
+      {$term_out[1]=$term_in;}
+    else
+      {$term_out[1]= $decode_array[$term_in][2];}
+     return $term_out; 
 }
+
+
+
 
 function GG_funx_translate_wetter_lang($term_in,$opt_language_index){
 
@@ -139,7 +790,7 @@ function GG_funx_translate_wetter_lang($term_in,$opt_language_index){
                        "17"=>array("Gewitter","Orage","Tempestad","Tempesta","Burze","vihar","Tempestade","عاصفة رعدية"),
                        "18"=>array("Hagel","Gr&ecirc;le","Granizada","Grandine","Grad","j&eacute;ges&#337;","Dil&uacute;vio","عاصفة برد"),
                        "19"=>array("Smog","Smog","Smog","Smog","Py&#322;","szmog","Polui&ccedil;&atilde;o","ضباب ودخان"),
-                       "20"=>array("Nebel","Broullard","Neblina","Nebbia","Mg&#322;y","k&ouml;d","Sem neblina","ضباب"),
+                       "20"=>array("Nebel","Brouillard","Neblina","Nebbia","Mg&#322;y","k&ouml;d","Sem neblina","ضباب"),
                        "21"=>array("Dunst","Brume s&egrave;che","Parcialmente nebulado","Foschia","Zamglenia","p&aacute;ra","Neblina","ضباب"),
                        "22"=>array("Smog","Smog","Smog","Smog","Dym","szmog","Polui&ccedil;&atilde;o","ضباب"),
                        "23"=>array("Windig","Venteux","Ventoso","Ventoso","Wietrznie","szeles","Ventos","عاصف"),
@@ -158,17 +809,16 @@ function GG_funx_translate_wetter_lang($term_in,$opt_language_index){
                        "36"=>array("Sonnig","Ensoleill&eacute;","Soleado","Sereno","Upalnie","napos","Ensolarado","مشمس"),
                        "37"=>array("Gewitterneigung","Probabilit&eacute; d'Orage","Riesgo de Tempesta","Tendeza di Temporale","Lokalne burze","zivatar","Probabilidade de tempestade","عواصف رعدية"),
                        "38"=>array("Gewitterneigung","Probabilit&eacute; d'Orage","Riesgo de Tempesta","Tendeza di Temporale","Rozproszone burze","zivatar","Probabilidade de tempestade","عواصف رعدية"),
-                       "39"=>array("Sonnig mit Schauerneigung","Ensoleill&eacute; - probalit&eacute d'averse; ","Soleado con probabilidades de lluvia","Pioggia e Schiarite","Przelotne opady deszczu","z&aacute;por","C&eacute;u nublado com chuva prov&aacute;vel","غائم مع هطول أمطار على الأرجح"),
+                       "39"=>array("Sonnig mit Schauerneigung","Ensoleill&eacute; - probabilit&eacute d'averse; ","Soleado con probabilidades de lluvia","Pioggia e Schiarite","Przelotne opady deszczu","z&aacute;por","C&eacute;u nublado com chuva prov&aacute;vel","غائم مع هطول أمطار على الأرجح"),
                        "40"=>array("Starker Regen","Pluie forte","lluvia Fuerte","Pioggia violenta","Mocne opady deszczu","er&#337;sebb es&#337;","Chuva forte","مطر غزير"),
-                       "41"=>array("Sonnig mit Schauerneigung","Ensoleill&eacute; - probalit&eacute d'averse; ","Soleado con probabilidades de lluvia","Pioggia e Schiarite","Pogodnie z opadami &#347;niegu","havaz&aacute;s","C&eacute;u nublado com chuva prov&aacute;vel","غائم مع هطول أمطار على الأرجح"),
+                       "41"=>array("Sonnig mit Schauerneigung","Ensoleill&eacute; - probabilit&eacute d'averse; ","Soleado con probabilidades de lluvia","Pioggia e Schiarite","Pogodnie z opadami &#347;niegu","havaz&aacute;s","C&eacute;u nublado com chuva prov&aacute;vel","غائم مع هطول أمطار على الأرجح"),
                        "42"=>array("Starker Schneefall","Neige lourde","Nieve pesada","Nevicata violenta","Obfite opady &#347;niegu","er&#337;s havaz&aacute;s","Neve pesada","ثلوج غزيرة"),
                        "43"=>array("Schneefall bei starkem Wind","Neige et Vent","Nieve y ventoso","Nevicata e Vento","Zawieje i zamiecie &#347;nie&#380;ne","havaz&aacute;s er&#337;s sz&eacute;llel","Neve e vento","ثلوج ورياح"),
                        "44"=>array("n/a","n/a","n/a","n/a","n/a","n/a","n/a","n/a"),
                        "45"=>array("Regenschauer in der Nacht","Averse la nuit","Chubasco de noche","Rovescio della notte","Nocne opady deszczu","&eacute;jszakai fut&oacute; z&aacute;por","Chuva &agrave; noite","زخات مطر في الليل"),
                        "46"=>array("Schneeschauer in der Nacht","Averse de neige la nuit","Nevada de noche","Breve e intensa nevicata della notte","Nocne opady &#347;niegu","&eacute;jszakai havaz&aacute;s","Nevada &agrave; noite","زخات ثلوج في الليل"),
                        "47"=>array("N&auml;chtliche Gewitter","Orage en nuit","Tempestad de noche","Tempesta della notte","Nocne burze","&eacute;jszakai zivatar","Tempestade da noite","ليلة عاصفة")
-                       );
-                       
+                       );                       
                        if(!isset($wetter_lang[$term_in][$opt_language_index]))
                         {$term_out=$term_in;}
                       else
@@ -199,57 +849,45 @@ function GG_funx_translate_uvindex($term_in,$opt_language_index){
 
 function GG_funx_translate_array($term_in,$language)
 {
-    if ($term_in=="sun") //Bugfix to avoid false translation of weekdays ... dunno why this failure shows up
-    {$term_in = "sunny";}
-    
+    $trans_array=array();
+    $term_save=$term_in;
+    $term_in="YYY".strtolower($term_in)."Y";
     if ($language=="ar"){
-      $trans_array= array(	'غالباً','صباحاً','مساءً','نهاراً',	'كثيف',	'ممطر',	'مثلج',	'باكرا',	'متأخرا',	'غائم',	'رياح',	'جزئي',	'رذاذ',	'مشمس','xxx_failure_xxx_sun',	'صافي', 
-  	'زخات مطر',	'متناثر','عواصف',	'متوقع',	'يصفى',	'ضباب',	'هدوء',	'شتوي',	'مزيج',	'امطار متفرقه',	'قليله',	'الأحد',	'الأثنين',	'الثلثاء',	'الإربعاء',	'الخميس',	'الجمعة',	'السبت',	'ارتفاع',	'هبوط','رعد','شديده','عواصف',	
-    );
-    }
+      $trans_array= array('الشروط الفعلية',	'صباحاً',	'و',	'',	'عاصفة ثلجية',	'تهب',	'الرياح',	'صافي',	'يصفى',	'كثافة سحابة',	'غائم',	'بلورات',	'نهاراً',	'ندى',	'رذاذ',	'باكرا',	'السبت',	'الشعور وكأنه',	'تفرقه',	'الثلوج',	'ضباب',	'تجمد',	'الجُمْعَة',	'منذ',	'حبيبات',	'الرياح',	'برد',	'ضباب',	'كثيف',	'ساعات',	'رطوبة',	'جليد',	'في',	'متوقع',	'متأخرا',	'طول اليوم',	'نهاراً',	'ضباب',	'مزيج',	'معتدل',	'الأحد',	'المرحلة القمرية',	'غالباً',	'قريب',	'التوقعات',	'ليلاً',	'من',	'أو',	'جزئي',	'غير مكتمل',	'الكريات',	'مساءً',	'هطول',	'الضغط',	'ممطر',	'الجمعة',	'رمل',	'خميس',	'متناثر',	'امطار م',	'زخات مطر',	'مطر متجمد',	'دخان',	'مثلج',	'عذراً.. لاتوجد بيانات متوفره حالياً!',	'رذاذ',	'رعد',	'هبوط',	'مشمس',	'قليله',	'مشمس',	'شروق الشمس في',	'غروب الشمس في',	'ارتفاع',	'الإربعا',	'أحيانا',	'شديده',	'عواصف',	'عواصف',	'الأثنين',	'وضوح',	'الثلثاء',	'غبار واسع الانتشار',	'هادئه',	'رياح',	'شتوي',	'مع',
+ );
+        }
     if ($language=="de"){
-      $trans_array= array(	'&uuml;berwiegend',	'vormittags',	'nachmittags',	'leichter',	'kr&auml;ftiger',	'Regen',	'Schnee',	'vor Mitternacht',	'nach Mitternacht',	'bew&ouml;lkt',	'windig',	'teilweise',
-    	'Nieselregen',	'sonnig',	'sonnig','wolkenlos',	'Schauer',	'vereinzelte',	'Gewitter',	'&ouml;rtliche',	'Aufkl&auml;rung',	'Nebel',	'windstill',	'winterlicher',	'Mix',	'Schauer',	'vereinzelt',	'Sonntag',	'Montag',	'Dienstag',	'Mittwoch',	'Donnerstag',	'Freitag',	'Samstag',	'steigend',	'fallend','Gewitter','starker','Sturm',
-       );
-    }
+    $trans_array= array( 'Aktuell',	'vormittags',	'und',	'',	'Schneesturm',	'wehender',	'windstill',	'wolkenlos',	'Aufkl&auml;rung',	'Bew&ouml;lkungsdichte',	'bew&ouml;lkt',	'Kristalle',	'Tags&uuml;ber',	'Taupunkt',	'Nieselregen',	'vor Mitternacht',	'fallend',	'Gef&uuml;hlt',	'vereinzelt',	'Schneegest&ouml;ber',	'Nebel',	'frierender',	'Freitag',	'aus',	'K&ouml;rner',	'B&ouml;en',	'Hagel',	'Dunst',	'kr&auml;ftiger',	'Uhr',	'Feuchte',	'Eis',	'in',	'&ouml;rtliche',	'nach Mitternacht',	'Tagl&auml;nge',	'leichter',	'Nebel',	'Mix',	'm&auml;ssig',	'Montag',	'Mondphase',	'&uuml;berwiegend',	'in der N&auml;he',	'Aussichten',	'Nachts',	'von',	'oder',	'teilweise',	'l&uuml;ckenhaft',	'Pellets',	'nachmittags',	'Niederschlag',	'Druck',	'Regen',	'steigend',	'Sand',	'Samstag',	'vereinzelte',	'Schauer',	'Schauer',	'Schneeregen',	'Rauch',	'Schnee',	'Leider keine aktuellen Wetterdaten verf&uuml;gbar!',	'Spray',	'Sturm',	'starker',	'sonnig',	'Sonntag',	'sonnig',	'Sonnenaufgang um',	'Sonnenuntergang um',	'Gewitter',	'Donnerstag',	'zeitweise',	'Heute',	'Morgen',	'Gewitter',	'Dienstag',	'Sichtbarkeit',	'Mittwoch',	'verbreitet Staub',	'Wind',	'windig',	'winterlicher',	'mit',
+ );
+        }
     if ($language=="es"){
-      $trans_array=array(	'prevalente',	'la man&atilde;na',	'la tarde',	'xx>d&eacute;bil',	'xx>fuerte',	'xxflluvia',	'xxfnieve',	'antes de medianoche',	'despu&eacute;s de medianoche',	'nublado',	'ventoso',	'parcialmente',
-    	'xxfllovizna',	'soleado','soleado',	'despejado',	'chubasco',	'xx>aislado',	'xxfTempestad',	'xx>local',	'parcialmente despejado',	'xxfniebla',	'xxfcalma',	'xx>invernal',	'xxfmezcla',	'chubasco',	'xx>aislado;',	'Domingo',	'Lunes',	'Martes',	'Miercoles',	'Jueves',	'Viernes',	'Sabado',	'subida',	'bajada','tormenta',
-        );
-    }
+      $trans_array=array( 'Actualmente',	'la man&atilde;na',	'y',	'',	'ventisca',	'soplado',	'Calma',	'despejado',	'parcialmente despejado',	'Nube de densidad',	'nublado',	'cristales',	'De dia',	'Punto de rocío',	'llovizna',	'antes de medianoche',	'bajada',	'T.de sensaci&oacute;n',	'aislado;',	'r&aacute;fagas',	'niebla',	'congelaci&oacute;n',	'Viernes',	'-',	'granos',	'R&aacute;fagas',	'granizo',	'neblina',	'fuerte',	'h',	'Humedad',	'hielo',	'en',	'local',	'despu&eacute;s de medianoche',	'Duraci&oacute;n del dia',	'd&eacute;bil',	'niebla',	'mezcla',	'moderado',	'Lunes',	'Fase Lunar',	'prevalente',	'cerca',	'Perspectivas',	'De la noche',	'de',	'o',	'parcialmente',	'irregular',	'pellets',	'la tarde',	'Precipitaci&oacute;n',	'Presi&oacute;n',	'lluvia',	'subida',	'arena',	'Sabado',	'aislado',	'chubasco',	'chubasco',	'aguanieve',	'humo',	'nieve',	'Perd&oacute;n! Datos del tiempo no disponibles!',	'spray',	'tormenta',	'fuerte',	'soleado',	'Domingo',	'soleado',	'Amanecer',	'Ocaso',	'tormenta',	'Jueves',	'a veces',	'Hoy',	'Ma&ntilde;ana',	'Tempestad',	'Martes',	'Visibilidad',	'Miercoles',	'Nubes de polvo',	'Viento',	'ventoso',	'invernal',	'con',
+ );
+        }
     if ($language=="fr"){
-      $trans_array=array(	'pour la plupart',	'matin',	'&acute;apr&ecirc;s-midi',	'xx>l&eacute;ger',	'xx>fort',	'xxfpluie',	'xxfneige',	'avant minuit',	'apr&egrave;s minuit',	'nuageux',	'venteux',	'partiellement',
-    	'xxfbruinefff',	'ensoleill&eacute;','ensoleill&eacute;',	'serein',	'averse',	'rares',	'orages',	'xx>locale',	'&Eacute;claircies',	'brouillard',	'calme',	'xx>hivernal',	'm&eacute;lange',	'averse',	'xx>&eacute;parses',	'Dimanche',	'Lundi',	'Mardi',	'Mercredi',	'Jeudi',	'Vendredi',	'Samedi',	'en hausse',	'en baisse', 'orage',
-        );                                                                       
-    }
+      $trans_array=array('Actuelle',	'matin',	'et',	'',	'Blizzard',	'souffle',	'calme',	'serein',	'&Eacute;claircies',	'La densit&eacute; des nuages',	'nuageux',	'cristaux',	'Le jour',	'Point de ros&eacute;e',	'bruine',	'avant minuit',	'en baisse',	'T.Ressentie',	'&eacute;parses',	'averses de neige',	'brouillard',	'le gel',	'Vendredi',	'du',	'c&eacute;r&eacute;ales',	'Rafales',	'la gr&ecirc;le',	'brume',	'fort',	'h',	'Humidit&eacute;',	'la glace',	'en',	'locale',	'apr&egrave;s minuit',	'Dur&eacute;e du jour',	'l&eacute;ger',	'brouillard',	'm&eacute;lange',	'mod&eacute;r&eacute;e',	'Lundi',	'Phase de la lune',	'pour la plupart',	'&agrave; proximit&eacute;',	'Perspectives',	'Le nuit',	'des',	'ou',	'partiellement',	'in&eacute;gal',	'boulettes',	'&acute;apr&ecirc;s-midi',	'Pr&eacute;cipitation',	'Pression',	'pluie',	'en hausse',	'le sable',	'Samedi',	'rares',	'averse',	'averse',	'neige fondue',	'de fum&eacute;e',	'neige',	'D&Eacute;sol&Eacute;, donn&Eacute;es m&Eacute;t&Eacute;orologiques non disponibles',	'de pulv&eacute;risation',	'temp&egrave;te',	'fort',	'ensoleill&eacute;',	'Dimanche',	'ensoleill&eacute;',	'Lever du soleil &agrave;',	'Coucher du soleil',	'orage',	'Jeudi',	'&agrave; des moments',	'Aujourd hui',	'Demain',	'orages',	'Mardi',	'La visibilit&eacute;',	'Mercredi',	'la poussi&eleger;re r&eacute;pandue',	'Vent',	'venteux',	'hivernal',	'avec',
+ );                                                                       
+        }
      if ($language=="it"){
-      $trans_array=array(	'predominante',	'mattinera',	'pomeridiana',	'debole',	'forte',	'xxfpioggia',	'xxfneve',	'xx>serale',	'xx>notturna',	'nuvuloso',	'ventoso',	'parzialemente',
-    	'acquerugiola',	'solare','solare',	'sereno',	'rovescio',	'xx>localizzata',	'xxfTempesta',	'xx>localizzata',	'schiarisi',	'xxfNebbia',	'xxfcalmo',	'xx>invernale',	'xx>misto',	'rovescio',	'xx>locale;',	'Domenica',	'Lunedi',	'Martedi',	'Mercoledi',	'Giovedi',	'Venerdi',	'Sabato',	'crescente',	'discendente','temporale',
-        );
-    }
+      $trans_array=array( 'Attuale',	'mattinera',	'e',	'',	'bufera di neve',	'soffiaggio',	'Senza vento',	'sereno',	'schiarisi',	'Nuvola densit&agrave;',	'nuvuloso',	'cristalli',	'Durante il giorno',	'Punto di rugiad',	'pioggerella',	'serale',	'discendente',	'T.percepita',	'locale;',	'folate',	'Nebbia',	'congelamento',	'Venerdi',	'da',	'grani',	'Raffiche',	'grandine',	'foschia',	'forte',	'h',	'Umidit&aacute;',	'ghiaccio',	'en',	'localizzata',	'notturna',	'Durata del giorno',	'debole',	'Nebbia',	'misto',	'moderato',	'Lunedi',	'Fase Lunar',	'predominante',	'vicino',	'Prospettive',	'Di notte',	'di',	'o',	'parzialemente',	'irregolare',	'pellet',	'pomeridiana',	'Precipitatione',	'Pressione',	'pioggia',	'crescente',	'sabbia',	'Sabato',	'localizzata',	'rovescio',	'rovescio',	'nevischio',	'fumo',	'neve',	'Spiacenti, no dati disponible!',	'spray',	'tempesta',	'forte',	'solare',	'Domenica',	'solare',	'Alba',	'Tramonto',	'temporale',	'Giovedi',	'talvolta',	'Oggi',	'Domani',	'Tempesta',	'Martedi',	'Visibilit&agrave;',	'Mercoledi',	'polvere diffusa',	'Vento',	'ventoso',	'invernale',	'con',
+);
+      }
     if ($language=="hu"){
-      $trans_array= array(	'f&#337;leg','d&eacute;lel&#337;tt','d&eacute;lut&aacute;n','gyenge','er&#337;s','es&#337;','h&oacute;','&eacute;jf&eacute;l el&#337;tt','&eacute;jf&eacute;l ut&aacute;n','felh&#337;s','szeles','r&eacute;szben','szit&aacute;l&aacute;s','napos', 'napos','der&#369;s',
-      'zivatar','elsz&oacute;rt','viharok','elszigetelt','tisztul&aacute;s','k&ouml;d','nyugodt','t&eacute;lies','vegyes','zivatar','n&eacute;h&aacute;ny','vas&aacute;rnap','h&eacute;tf&#337;','kedd','szerda','csut&ouml;rt&ouml;k','p&eacute;ntek','szombat','emelked&#337;','cs&ouml;kken&#337;','zivatar','er&#337;s','vihar',
-     );
-    }
+      $trans_array= array('Aktu&aacute;lis adatok',	'd&eacute;lel&#337;tt',	'&eacute;s',	'',	'h&oacute;vihar',	'f&uacute;j&oacute;',	'sz&eacute;lcsend',	'der&#369;s',	'tisztul&aacute;s',	's&#369;r&#369;s&eacute;ge a felh&#337;',	'felh&#337;s',	'krist&aacute;lyok',	'Nappal',	'harmatpont',	'szit&aacute;l&aacute;s',	'&eacute;jf&eacute;l el&#337;tt',	'cs&ouml;kken&#337;',	'&eacute;rz&eacute;sre',	'n&eacute;h&aacute;ny',	'h&oacute;z&aacute;porok',	'k&ouml;d',	'fagyaszt&oacute;',	'p&eacute;ntek',	/*'-',*/'',	'szemerk&eacute;l&#337; es&#337;',	'sz&eacute;ll&ouml;k&eacute;sek',	'j&eacute;ges#337;',	'k&ouml;d',	'er&#337;s',	'h',	'relat&iacute;v p&aacute;ratartalom',	'j&eacute;g',	'h&aacute;travan',	'elszigetelt',	'&eacute;jf&eacute;l ut&aacute;n',	'a nap hossza',	'gyenge',	'k&ouml;d',	'vegyes',	'm&eacute;rs&eacute;kelt',	'h&eacute;tf&#337;',	'holdf&aacute;zis',	'f&#337;leg',	'k&ouml;zeli',	'El&#337;rejelz&eacute;s:',	'&eacute;jszaka',	'a',	'vagy',	'r&eacute;szben',	'egyenetlen',	'pellet',	'd&eacute;lut&aacute;n',	'a csapad&eacute;k val&oacute;sz&iacute;n&#369;s&eacute;ge:',	'nyom&aacute;s',	'es&#337;',	'emelked&#337;',	'homok',	'szombat',	'elsz&oacute;rt',	'zivatar',	'zivatar',	'&oacute;nos eső',	'f&uuml;st',	'h&oacute;',	'Eln&eacute;z&eacute;st! Nincs el&eacute;rhet&#337; aktu&aacute;lis id&#337;j&aacute;r&aacute;s-jelent&eacute;s!',	'permet',	'vihar',	'er&#337;s',	'napos',	'vas&aacute;rnap',	'napos ',	'napkelte',	'napnyugta',	'zivatar',	'csut&ouml;rt&ouml;k',	'alkalommal',	'Ma',	'holnap',	'viharok',	'kedd',	'l&aacute;t&oacute;t&aacute;vols&aacute;g',	'szerda',	'n&eacute;ha',	'l&eacute;gmozg&aacute;s',	'szeles',	't&eacute;lies',	'a', );
+      }
     if ($language=="pl"){
-      $trans_array= array(	'przewa&#380;nie',	'przed po&#322;udniem',	'po po&#322;udniu',	'lekkie',	'silne',	'opady deszczu',	'opady &#347;niegu',	'przed p&#243;&#322;noc&#261;',	'po p&#243;&#322;nocy',	'pochmurno',	'wietrznie',	'cz&#281;&#347;ciowo',
-    	'm&#380;awki',	's&#322;onecznie',	's&#322;onecznie','bezchmurnie',	'przelotne opady deszczu',	'rozproszone',	'burze',	'lokalne',	'przeja&#347;nienia',	'mg&#322;y',	'bezwietrznie',	'zimowe',	'mieszanka -',	'przelotne opady deszczu',	'niewielkie',	'niedziela',	'poniedzia&#322;ek',	'wtorek',	'&#347;roda',	'czwartek ',	'pi&#261;tek',	'sobota',	'wzrosty ci&#347;nienia',	'spadki ci&#347;nienia', 'burza',
-       );
-    }
-     if ($language=="pt"){  $trans_array= array('predominante','Manh&atilde;','&agrave; tarde','fraca','forte','chuva','neve','antes da meia noite','depois da meia noite','nublado','vento','parcialmente','garoa','ensolarado','ensolarado','claro',
-       'chuvas','disperso','Tempestade','isolados','claro','nevoeiro','calma','de inverno','mistura','chuva','poucos','Domingo','Segunda-feira','Ter&ccedil;a-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sabado','aumento','queda','Tempestade','forte','tempestades',    
-       );
-    }
-    
-    $term_in=strtolower($term_in);
+      $trans_array= array('Obecnie',	'przed po&#322;udniem',	'i',	'',	'zamie&#263;',	'dmuchanie',	'bezwietrznie',	'bezchmurnie',	'przeja&#347;nienia',	'gesto&sacute;&cacute; chmury',	'pochmurno',	'kryszta&#322;&oacute;w',	'W dzie&#324',	'punktu rosy',	'm&#378;awka',	'przed p&#243;&#322;noc&#261;',	'spadki ci&#347;nienia ',	'odczuwalne',	'niewielkie',	'opady',	'mg&#322;y',	'zamra&#378;anie',	'pi&#261;tek',	'z',	'ziarna',	'podmuch',	'grad',	'mg&#322;a',	'silne',	'h',	'Wilgotno&#347;&#263; powietrza',	'l&oacute;d',	'za',	'lokalne',	'po p&#243;&#322;nocy',	'D&#322;ugo&#347;&#263; dnia',	'lekkie',	'mg&#322;y',	'mieszanka -',	'umiarkowany',	'poniedzia&#322;ek',	'Faza Ksi&#281;&#380;yca',	'przewa&#380;nie',	'w pobli&#378;u',	'Kolejne dni',	'W nocy',	'z',	'lub',	'cz&#281;&#347;ciowo',	'niejednolity',	'granulki',	'po po&#322;udniu',	'Prawdopodobie&#324;stwo opad&#243;w',	'Obecnie',	'opady deszczu',	'wzrosty ci&#347;nienia',	'piasek',	'sobota',	'rozproszone',	'przelotne opady deszczu',	'przelotne opady deszczu',	'deszcz ze &#347;niegiem',	'dym',	'opady &#347;niegu',	'Niestety aktualne dane pogodowe nie s&#261; dost&#281;pne!',	'sprayu',	'burza',	'silne',	's&#322;onecznie',	'niedziela',	's&#322;onecznie',	'wsch&#243;d S&#322;o&#324;ca o godz.',	'zach&#243;d S&#322;o&#324;ca o godz.',	'burza',	'czwartek ',	'czasami',	'dzisiaj',	'jutro',	'burze',	'wtorek',	'widoczno&sacute;&#263;',	'&#347;roda',	'powszechne py&#322;',	'Wiatr',	'wietrznie',	'zimowe',	'z',
+ );
+        }
+     if ($language=="pt"){  
+     $trans_array= array('Agora',	'Manh&atilde;',	'e',	'',	'nevasca',	'sopro',	'Calma',	'claro',	'claro',	'Densidade da nuvem',	'nublado',	'cristais',	'Dia',	'ponto de orvalh',	'garoa',	'antes da meia noite',	'queda',	'Sensa&ccedil;&atilde;o T&eacute;rmica',	'poucos',	'flurries',	'nevoeiro',	'congela&ccedil;&atilde;o',	'Sexta-feira',	'de',	'gr&atilde;os',	'Rajadas',	'granizo',	'neblina',	'forte',	'h',	'Umidade',	'gelo',	'en',	'isolados',	'depois da meia noite',	'Dura&ccedil;&atilde;o do dia',	'fraca',	'nevoeiro',	'mistura',	'moderado',	'Segunda-feira',	'Fases da lua',	'predominante',	'pr&oacute;ximo',	'Perspectivas',	'Noiche',	'de',	'ou',	'parcialmente',	'desigual',	'pellets',	'&agrave; tarde',	'Precipita&ccedil;&atilde;o',	'Press&atilde;o',	'chuva',	'aumento',	'areia',	'Sabado',	'disperso',	'chuva',	'chuvas',	'sleet',	'fuma&ccedil;a',	'neve',	'Sinto Muito!&nbsp;Dados meteorol&oacute;gicos n&atilde;o dispon&iacute;vel!',	'spray',	'tempestades   ',	'forte',	'ensolarado',	'Domingo',	'ensolarado',	'Amanhecer',	'P&ocirc;r do sol',	'Tempestade',	'Quinta-feira',	'&agrave;s vezes',	'Hoje',	'Manh&atilde',	'Tempestade',	'Ter&ccedil;a-feira',	'visibilidade',	'Quarta-feira',	'poeira generalizada',	'Vento',	'vento',	'de inverno',	'com',
+ );
+        }   
     $term_out=str_replace(
-    array(	'mostly','am','pm','light',	'heavy',	'rain',	'snow',	'early',	'late',	'cloudy',	'wind',	'partly',	'drizzle',	'sunny','xxx_failure_xxx_sun',	'clear', 
-  	'showers',	'scattered','t-storms',	'isolated',	'clearing',	'fog',	'calm',	'wintry',	'mix',	'shower',	'few',	'sunday',	'monday',	'tuesday',	'wednesday',	'thursday',	'friday',	'saturday',	'rising',	'falling','thunder','strong','storms',	
-    ),
-    $trans_array		
-    ,	
-    $term_in);
+    array('YYYactual conditionsY',	'YYYamY',	'YYYandY',	'YYYatY',	'YYYblizzardY',	'YYYblowingY',	'YYYcalmY',	'YYYclear Y',	'YYYclearingY',	'YYYcloudcoverY',	'YYYcloudyY',	'YYYcrystalsY',	'YYYdayY',	'YYYdewpointY',	'YYYdrizzleY',	'YYYearlyY',	'YYYfallingY',	'YYYfeels likeY',	'YYYfewY',	'YYYflurriesY',	'YYYfogY',	'YYYfreezingY',	'YYYfridayY',	'YYYfromY',	'YYYgrainsY',	'YYYgustsY',	'YYYhailY',	'YYYhazeY',	'YYYheavyY',	'YYYhrsY',	'YYYhumidityY',	'YYYiceY',	'YYYinY',	'YYYisolatedY',	'YYYlateY',	'YYYlength of dayY',	'YYYlightY',	'YYYmistY',	'YYYmixY',	'YYYmoderateY',	'YYYmondayY',	'YYYmoonphaseY',	'YYYmostlyY',	'YYYnearbyY',	'YYYnext daysY',	'YYYnightY',	'YYYofY',	'YYYorY',	'YYYpartlyY',	'YYYpatchyY',	'YYYpelletsY',	'YYYpmY',	'YYYprecipitationY',	'YYYpressureY',	'YYYrainY',	'YYYrisingY',	'YYYsandY',	'YYYsaturdayY',	'YYYscatteredY',	'YYYshowerY',	'YYYshowersY',	'YYYsleetY',	'YYYsmokeY',	'YYYsnowY',	'YYYsorry! no actual weather data available!Y',	'YYYsprayY',	'YYYstormsY',	'YYYstrongY',	'YYYsunY',	'YYYsundayY',	'YYYsunnyY',	'YYYsunrise atY',	'YYYsunset atY',	'YYYthunderY',	'YYYthursdayY',	'YYYtimesY',	'YYYtodayY',	'YYYtomorrowY',	'YYYt-stormsY',	'YYYtuesdayY',	'YYYvisibilityY',	'YYYwednesdayY',	'YYYwidespread dustY',	'YYYwindY',	'YYYwindyY',	'YYYwintryY',	'YYYwithY',
+
+     ),$trans_array,$term_in);
+    if(!$term_out){$term_out=$term_save;}
     return $term_out;    
 } 
 function GG_funx_translate_array_mf($term_in)
@@ -268,10 +906,10 @@ function GG_funx_translate_array_mf($term_in)
     return $term_out;    
 } 
 
-function GG_funx_translate_windspeed($term_in,$unit,$language){
+function GG_funx_translate_windspeed($term_in,$unit,$opt_language){
       $corr=1;
       $term_out="";
-      if ($language=="ar"){
+      if ($opt_language=="ar"){
         if ($unit=="mph"){$corr=1.609344;}
         if ($term_in*$corr>10 and $term_in<=19){$term_out="الرياح خفيفه";}
         if ($term_in*$corr>19 and $term_in<=28){$term_out="رياح لطيفة";}
@@ -286,23 +924,26 @@ function GG_funx_translate_windspeed($term_in,$unit,$language){
         if ($term_in*$corr>120) {$term_out="إعصار";}
         return $term_out;
       }
-      if ($language=="de"){
+      if ($opt_language=="de"){
+        //echo "STOP".$corr;
         if ($unit=="mph"){$corr=1.609344;}
-        if ($term_in*$corr>10 and $term_in<=19){$term_out="Leichter Wind";}
-        if ($term_in*$corr>19 and $term_in<=28){$term_out="Schwacher Wind";}
-        if ($term_in*$corr>28 and $term_in<=37){$term_out="M&auml;ssiger Wind";}
-        if ($term_in*$corr>37 and $term_in<=46){$term_out="Frischer Wind";}
-        if ($term_in*$corr>46 and $term_in<=56){$term_out="Starker Wind";}
-        if ($term_in*$corr>56 and $term_in<=65){$term_out="Starker bis st&uuml;ischer Wind";}
-        if ($term_in*$corr>65 and $term_in<=74){$term_out="St&uuml;rmischer Wind";}
-        if ($term_in*$corr>74 and $term_in<=83){$term_out="Sturm";}
-        if ($term_in*$corr>83 and $term_in<=102){$term_out="Schwerer Sturm";}
-        if ($term_in*$corr>102 and $term_in<=120){$term_out="Orkanartiger Sturm";}
+         if ($term_in*$corr>1 and $term_in*$corr<=10){$term_out="Geringer Wind";}
+        if ($term_in*$corr>10 and $term_in*$corr<=19){$term_out="Leichter Wind";}
+        if ($term_in*$corr>19 and $term_in*$corr<=28){$term_out="Schwacher Wind";}
+        if ($term_in*$corr>28 and $term_in*$corr<=37){$term_out="M&auml;ssiger Wind";}
+        if ($term_in*$corr>37 and $term_in*$corr<=46){$term_out="Frischer Wind";}
+        if ($term_in*$corr>46 and $term_in*$corr<=56){$term_out="Starker Wind";}
+        if ($term_in*$corr>56 and $term_in*$corr<=65){$term_out="Starker bis st&uuml;ischer Wind";}
+        if ($term_in*$corr>65 and $term_in*$corr<=74){$term_out="St&uuml;rmischer Wind";}
+        if ($term_in*$corr>74 and $term_in*$corr<=83){$term_out="Sturm";}
+        if ($term_in*$corr>83 and $term_in*$corr<=102){$term_out="Schwerer Sturm";}
+        if ($term_in*$corr>102 and $term_in*$corr<=120){$term_out="Orkanartiger Sturm";}
         if ($term_in*$corr>120) {$term_out="Orkan";}
         return $term_out;
       }
-      if ($language=="en"){
+      if ($opt_language=="en"){
         if ($unit=="km/h"){$corr=1.609344;}
+        if ($term_in/$corr>0.5 and $term_in/$corr<=4.5){$term_out="Light Air";}
         if ($term_in/$corr>4.6 and $term_in/$corr<=7.5){$term_out="Light Breeze";}
         if ($term_in/$corr>7.5 and $term_in/$corr<=12.1){$term_out="Gentle Breeze";}
         if ($term_in/$corr>12.1 and $term_in/$corr<=19){$term_out="Moderate Breeze";}
@@ -316,149 +957,155 @@ function GG_funx_translate_windspeed($term_in,$unit,$language){
         if ($term_in/$corr>73.1) {$term_out="Hurricane";}
         return $term_out;
       }
-      if ($language=="es"){
+      if ($opt_language=="es"){
         if ($unit=="mph"){$corr=1.609344;}
-        if ($term_in*$corr>10 and $term_in<=19){$term_out="Brisa muy d&eacute;bil";}
-        if ($term_in*$corr>19 and $term_in<=28){$term_out="Brisa d&eacute;bil";}
-        if ($term_in*$corr>28 and $term_in<=37){$term_out="Brisa moderada";}
-        if ($term_in*$corr>37 and $term_in<=46){$term_out="Brisa fresca";}
-        if ($term_in*$corr>46 and $term_in<=56){$term_out="Brisa fuerte";}
-        if ($term_in*$corr>56 and $term_in<=65){$term_out="Viento fuerte";}
-        if ($term_in*$corr>65 and $term_in<=74){$term_out="Viento duro";}
-        if ($term_in*$corr>74 and $term_in<=83){$term_out="Muy duro";}
-        if ($term_in*$corr>83 and $term_in<=102){$term_out="Temporal";}
-        if ($term_in*$corr>102 and $term_in<=120){$term_out="Borrasca";}
+        if ($term_in*$corr>10 and $term_in*$corr<=19){$term_out="Brisa muy d&eacute;bil";}
+        if ($term_in*$corr>19 and $term_in*$corr<=28){$term_out="Brisa d&eacute;bil";}
+        if ($term_in*$corr>28 and $term_in*$corr<=37){$term_out="Brisa moderada";}
+        if ($term_in*$corr>37 and $term_in*$corr<=46){$term_out="Brisa fresca";}
+        if ($term_in*$corr>46 and $term_in*$corr<=56){$term_out="Brisa fuerte";}
+        if ($term_in*$corr>56 and $term_in*$corr<=65){$term_out="Viento fuerte";}
+        if ($term_in*$corr>65 and $term_in*$corr<=74){$term_out="Viento duro";}
+        if ($term_in*$corr>74 and $term_in*$corr<=83){$term_out="Muy duro";}
+        if ($term_in*$corr>83 and $term_in*$corr<=102){$term_out="Temporal";}
+        if ($term_in*$corr>102 and $term_in*$corr<=120){$term_out="Borrasca";}
         if ($term_in*$corr>120) {$term_out="Hurac&aacute;n";}
         return $term_out;
       }
-       if ($language=="fr"){
+       if ($opt_language=="fr"){
         if ($unit=="mph"){$corr=1.609344;}
-        if ($term_in*$corr>6 and $term_in<=12){$term_out="L&eacute;ger brise";}
-        if ($term_in*$corr>12 and $term_in<=19){$term_out="Petite brise";}
-        if ($term_in*$corr>20 and $term_in<=29){$term_out="Jolie brise";}
-        if ($term_in*$corr>29 and $term_in<=39){$term_out="Bonne brise";}
-        if ($term_in*$corr>39 and $term_in<=50){$term_out="Vent frais";}
-        if ($term_in*$corr>50 and $term_in<=62){$term_out="Grand vent frais";}
-        if ($term_in*$corr>62 and $term_in<=74){$term_out="Coup de vent";}
-        if ($term_in*$corr>75 and $term_in<=89){$term_out="Fort coup de vent";}
-        if ($term_in*$corr>89 and $term_in<=103){$term_out="Temp&ecirc;te";}
-        if ($term_in*$corr>103 and $term_in<=118){$term_out="Viloente temp&ecirc;te";}
+        if ($term_in*$corr>6 and $term_in*$corr<=12){$term_out="L&eacute;ger brise";}
+        if ($term_in*$corr>12 and $term_in*$corr<=19){$term_out="Petite brise";}
+        if ($term_in*$corr>20 and $term_in*$corr<=29){$term_out="Jolie brise";}
+        if ($term_in*$corr>29 and $term_in*$corr<=39){$term_out="Bonne brise";}
+        if ($term_in*$corr>39 and $term_in*$corr<=50){$term_out="Vent frais";}
+        if ($term_in*$corr>50 and $term_in*$corr<=62){$term_out="Grand vent frais";}
+        if ($term_in*$corr>62 and $term_in*$corr<=74){$term_out="Coup de vent";}
+        if ($term_in*$corr>75 and $term_in*$corr<=89){$term_out="Fort coup de vent";}
+        if ($term_in*$corr>89 and $term_in*$corr<=103){$term_out="Temp&ecirc;te";}
+        if ($term_in*$corr>103 and $term_in*$corr<=118){$term_out="Viloente temp&ecirc;te";}
         if ($term_in*$corr>118) {$term_out="Ouragan";}
         return $term_out;
       }
-      if ($language=="it"){
+      if ($opt_language=="it"){
         if ($unit=="mph"){$corr=1.609344;}
-        if ($term_in*$corr>10 and $term_in<=19){$term_out="Brezza leggera";}
-        if ($term_in*$corr>19 and $term_in<=28){$term_out="Brezza tesa";}
-        if ($term_in*$corr>28 and $term_in<=37){$term_out="Vento moderato";}
-        if ($term_in*$corr>37 and $term_in<=46){$term_out="Vento teso";}
-        if ($term_in*$corr>46 and $term_in<=56){$term_out="Vento fresco";}
-        if ($term_in*$corr>56 and $term_in<=65){$term_out="Vento forte";}
-        if ($term_in*$corr>65 and $term_in<=74){$term_out="Burrasca";}
-        if ($term_in*$corr>74 and $term_in<=83){$term_out="Burrasca forte";}
-        if ($term_in*$corr>83 and $term_in<=102){$term_out="Tempesta";}
-        if ($term_in*$corr>102 and $term_in<=120){$term_out="Tempesta Violenta";}
+        if ($term_in*$corr>10 and $term_in*$corr<=19){$term_out="Brezza leggera";}
+        if ($term_in*$corr>19 and $term_in*$corr<=28){$term_out="Brezza tesa";}
+        if ($term_in*$corr>28 and $term_in*$corr<=37){$term_out="Vento moderato";}
+        if ($term_in*$corr>37 and $term_in*$corr<=46){$term_out="Vento teso";}
+        if ($term_in*$corr>46 and $term_in*$corr<=56){$term_out="Vento fresco";}
+        if ($term_in*$corr>56 and $term_in*$corr<=65){$term_out="Vento forte";}
+        if ($term_in*$corr>65 and $term_in*$corr<=74){$term_out="Burrasca";}
+        if ($term_in*$corr>74 and $term_in*$corr<=83){$term_out="Burrasca forte";}
+        if ($term_in*$corr>83 and $term_in*$corr<=102){$term_out="Tempesta";}
+        if ($term_in*$corr>102 and $term_in*$corr<=120){$term_out="Tempesta Violenta";}
         if ($term_in*$corr>120) {$term_out="Uragano";}
         return $term_out;
       }
-      if ($language=="hu"){
+      if ($opt_language=="hu"){
         if ($unit=="mph"){$corr=1.609344;}
-        if ($term_in*$corr>10 and $term_in<=19){$term_out="k&ouml;nny&#369; szell&#337;";}
-        if ($term_in*$corr>19 and $term_in<=28){$term_out="enyhe szell&#337;";}
-        if ($term_in*$corr>28 and $term_in<=37){$term_out="k&ouml;zepes sz&eacute;l";}
-        if ($term_in*$corr>37 and $term_in<=46){$term_out="friss&iacute;t&#337; sz&eacute;l";}
-        if ($term_in*$corr>46 and $term_in<=56){$term_out="er&#337;s sz&eacute;l";}
-        if ($term_in*$corr>56 and $term_in<=65){$term_out="k&ouml;zepesen er&#337;s sz&eacute;l";}
-        if ($term_in*$corr>65 and $term_in<=74){$term_out="friss&iacute;t&#337; er&#337;s sz&eacute;l";}
-        if ($term_in*$corr>74 and $term_in<=83){$term_out="er&#337;s sz&eacute;l";}
-        if ($term_in*$corr>83 and $term_in<=102){$term_out="nagyon er&#337;s sz&eacute;l";}
-        if ($term_in*$corr>102 and $term_in<=120){$term_out=" vihar";}
-        if ($term_in*$corr>120) {$term_out=" hurrik&aacute;n";}
+        if ($term_in*$corr>=0 and $term_in*$corr<=1){$term_out="sz&eacute;lcsend";}
+        if ($term_in*$corr>1 and $term_in*$corr<=6){$term_out="gyenge szell&#337;";}
+        if ($term_in*$corr>6 and $term_in*$corr<=11){$term_out="enyhe sz&eacute;l";}
+        if ($term_in*$corr>11 and $term_in*$corr<=19){$term_out="gyenge sz&eacute;l";}
+        if ($term_in*$corr>19 and $term_in*$corr<=29){$term_out="m&eacute;rs&eacute;kelt sz&eacute;l";}
+        if ($term_in*$corr>29 and $term_in*$corr<=39){$term_out="&eacute;l&eacute;nk sz&eacute;l";}
+        if ($term_in*$corr>39 and $term_in*$corr<=49){$term_out="er&#337;s sz&eacute;l";}
+        if ($term_in*$corr>49 and $term_in*$corr<=60){$term_out="viharos sz&eacute;l";}
+        if ($term_in*$corr>60 and $term_in*$corr<=72){$term_out="&eacute;l&eacute;nk viharos sz&eacute;l";}
+        if ($term_in*$corr>72 and $term_in*$corr<=85){$term_out="heves vihar";}
+        if ($term_in*$corr>85 and $term_in*$corr<=100){$term_out="d&uuml;h&ouml;ng&#337;s vihar";}
+        if ($term_in*$corr>100 and $term_in*$corr<=115){$term_out="heves sz&eacute;lv&eacute;sz";}
+        if ($term_in*$corr>115 and $term_in*$corr<=120){$term_out=" ork&aacute;n";}
+        if ($term_in*$corr>120) {$term_out="hurrik&aacute;n";}
         return $term_out;
       }
       
-      if ($language=="pl"){
+      if ($opt_language=="pl"){
         if ($unit=="mph"){$corr=1.609344;}
-        if ($term_in*$corr>=1 and $term_in<6){$term_out="bardzo s&#322;aby";}
-        if ($term_in*$corr>=6 and $term_in<12){$term_out="s&#322;aby";}
-        if ($term_in*$corr>=12 and $term_in<20){$term_out="&#322;agodny";}
-        if ($term_in*$corr>=20 and $term_in<29){$term_out="umiarkowany";}
-        if ($term_in*$corr>=29 and $term_in<39){$term_out="do&#347;&#263; silny";}
-        if ($term_in*$corr>=39 and $term_in<50){$term_out="silny";}
-        if ($term_in*$corr>=50 and $term_in<62){$term_out="bardzo silny";}
-        if ($term_in*$corr>=62 and $term_in<75){$term_out="gwa&#322;towny";}
-        if ($term_in*$corr>=75 and $term_in<89){$term_out="wichura";}
-        if ($term_in*$corr>=89 and $term_in<103){$term_out="silna wichura";}
-        if ($term_in*$corr>=103 and $term_in<117){$term_out="gwa&#322;towna wichura";}
+        if ($term_in*$corr>=1 and $term_in*$corr<6){$term_out="bardzo s&#322;aby";}
+        if ($term_in*$corr>=6 and $term_in*$corr<12){$term_out="s&#322;aby";}
+        if ($term_in*$corr>=12 and $term_in*$corr<20){$term_out="&#322;agodny";}
+        if ($term_in*$corr>=20 and $term_in*$corr<29){$term_out="umiarkowany";}
+        if ($term_in*$corr>=29 and $term_in*$corr<39){$term_out="do&#347;&#263; silny";}
+        if ($term_in*$corr>=39 and $term_in*$corr<50){$term_out="silny";}
+        if ($term_in*$corr>=50 and $term_in*$corr<62){$term_out="bardzo silny";}
+        if ($term_in*$corr>=62 and $term_in*$corr<75){$term_out="gwa&#322;towny";}
+        if ($term_in*$corr>=75 and $term_in*$corr<89){$term_out="wichura";}
+        if ($term_in*$corr>=89 and $term_in*$corr<103){$term_out="silna wichura";}
+        if ($term_in*$corr>=103 and $term_in*$corr<117){$term_out="gwa&#322;towna wichura";}
         if ($term_in*$corr>=117) {$term_out="huragan";}
         return $term_out;
       }
-      if ($language=="pt"){
+      if ($opt_language=="pt"){
         if ($unit=="mph"){$corr=1.609344;}
-        if ($term_in*$corr>10 and $term_in<=19){$term_out="Brisa leve";}
-        if ($term_in*$corr>19 and $term_in<=28){$term_out="Brisa";}
-        if ($term_in*$corr>28 and $term_in<=37){$term_out="Brisa";}
-        if ($term_in*$corr>37 and $term_in<=46){$term_out="Brisa calma";}
-        if ($term_in*$corr>46 and $term_in<=56){$term_out="Brisa forte";}
-        if ($term_in*$corr>56 and $term_in<=65){$term_out="Vento forte";}
-        if ($term_in*$corr>65 and $term_in<=74){$term_out="Ventania";}
-        if ($term_in*$corr>74 and $term_in<=83){$term_out="Ventania forte";}
-        if ($term_in*$corr>83 and $term_in<=102){$term_out="Temporal";}
-        if ($term_in*$corr>102 and $term_in<=120){$term_out="Tempestade";}
+        if ($term_in*$corr>10 and $term_in*$corr<=19){$term_out="Brisa leve";}
+        if ($term_in*$corr>19 and $term_in*$corr<=28){$term_out="Brisa";}
+        if ($term_in*$corr>28 and $term_in*$corr<=37){$term_out="Brisa";}
+        if ($term_in*$corr>37 and $term_in*$corr<=46){$term_out="Brisa calma";}
+        if ($term_in*$corr>46 and $term_in*$corr<=56){$term_out="Brisa forte";}
+        if ($term_in*$corr>56 and $term_in*$corr<=65){$term_out="Vento forte";}
+        if ($term_in*$corr>65 and $term_in*$corr<=74){$term_out="Ventania";}
+        if ($term_in*$corr>74 and $term_in*$corr<=83){$term_out="Ventania forte";}
+        if ($term_in*$corr>83 and $term_in*$corr<=102){$term_out="Temporal";}
+        if ($term_in*$corr>102 and $term_in*$corr<=120){$term_out="Tempestade";}
         if ($term_in*$corr>120) {$term_out="Furac&atilde;o";}
         return $term_out;
       }
       
 }
-function GG_funx_translate_pressure($term_in,$unit,$language){
+function GG_funx_translate_pressure($term_in,$unit,$opt_language){
         $corr=1;
         $term_out="";
-        if ($language=="ar"){
+        if ($opt_language=="ar"){
           if ($unit ==  "in"){$corr=33.8637526;}
           if ($term_in*$corr<1003){$term_out="منخفضه";}
           if ($term_in*$corr>1020){$term_out="مرتفعه";}
         }
-        if ($language=="de"){
+        if ($opt_language=="de"){
           if ($unit ==  "in"){$corr=33.8637526;}
           if ($term_in*$corr<1003){$term_out="Tief";}
           if ($term_in*$corr>1020){$term_out="Hoch";}
         }
-        if ($language=="en"){
+        if ($opt_language=="en"){
           if ($unit ==  "mbar"){$corr=33.8637526;}
           if ($term_in/$corr<29.6){$term_out="Low ";}     //29.6
           if ($term_in/$corr>30.1){$term_out="High ";}
         }
-        if ($language=="es"){
+        if ($opt_language=="es"){
           if ($unit ==  "in"){$corr=33.8637526;}
           if ($term_in*$corr<1003){$term_out="Baja ";}
           if ($term_in*$corr>1020){$term_out="Alta ";}
         }
-        if ($language=="fr"){
+        if ($opt_language=="fr"){
           if ($unit ==  "in"){$corr=33.8637526;}
           if ($term_in*$corr<1003){$term_out="Basse ";}
           if ($term_in*$corr>1020){$term_out="Haute ";}
         }
-        if ($language=="it"){
+        if ($opt_language=="it"){
           if ($unit ==  "in"){$corr=33.8637526;}
           if ($term_in*$corr<1003){$term_out="Bassa ";}
           if ($term_in*$corr>1020){$term_out="Alta ";}
         }
-        if ($language=="hu"){
+        if ($opt_language=="hu"){
           if ($unit ==  "in"){$corr=33.8637526;}
           if ($term_in*$corr<1003){$term_out="alacsony ";}
           if ($term_in*$corr>1020){$term_out="magas ";}
         }
-        if ($language=="pl"){
+        if ($opt_language=="pl"){
           if ($unit ==  "in"){$corr=33.8637526;}
           if ($term_in*$corr<1003){$term_out="Niskie ";}
           if ($term_in*$corr>1020){$term_out="Wysokie ";}
         }
-        if ($language=="pt"){
+        if ($opt_language=="pt"){
           if ($unit ==  "in"){$corr=33.8637526;}
           if ($term_in*$corr<1003){$term_out="Bassa ";}
           if ($term_in*$corr>1020){$term_out="Alta ";}
         }
-        
+        if ($opt_language=="xx"){ //to transfer pressure from mb to in
+          if ($unit ==  "in"){$corr=33.8637526;}
+          $term_out=round($term_in/$corr,2);
+        }        
         return $term_out;       
 }
 
@@ -467,12 +1114,15 @@ function GG_funx_translate_inch($term_in,$unit){
         $term_out="";
         if ($unit ==  "m"){$corr=25;}
         $term_out=round(1/5*$term_in*$corr,0)*5;
-        if ($unit ==  "m"){
-        $term_out=$term_out."mm";
-        }
-        else
-        {
-        $term_out=$term_in."in";
+        return $term_out;       
+}
+function GG_funx_translate_speed($term_in,$unit){
+        $corr=0.621371192;
+        $term_out="";
+        if ($unit ==  "mph"){
+        $term_out=round($term_in*$corr,0);}
+        if ($unit ==  "kmph"){
+        $term_out=round($term_in/$corr,0);;
         }
         return $term_out;       
 }
@@ -494,9 +1144,9 @@ function GG_funx_translate_fahrenheit($term_in,$unit){
 }
 
 function GG_funx_translate_winddirections($term_in,$language){
+  $term_in_save=$term_in;
   if (strlen($term_in)==1){$term_in=$term_in."X";}
   if (strlen($term_in)==2){$term_in=$term_in."X";}
-  
   if ($language=="ar"){
   $term_out=str_replace(
   array('NXX','NNE','NEX','ENE','EXX','ESE','SEX','SSE','SXX','SSW','SWX','WSW','WXX','WNW','NWX','NNW','VAR'),	
@@ -551,10 +1201,38 @@ function GG_funx_translate_winddirections($term_in,$language){
   array('NXX','NNE','NEX','ENE','EXX','ESE','SEX','SSE','SXX','SSW','SWX','WSW','WXX','WNW','NWX','NNW','VAR'),	
   array('N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSO','SO','OSO','O','ONO','NO','NNO','VAR'),	
   $term_in);
+  
+  //$term_out="HALLO";
   return $term_out;
   }
-            
+  if($term_out==""){
+  $term_out=$term_in_save;
+  return $term_out;}
+       
 }
+function GG_funx_translate_winddirections_degrees($term_in){
+$term_in=round($term_in/22.5,0);
+//echo $term_in."<br /><br />";
+  If($term_in==0 or $term_in==16 ){$term_out="N";}
+  elseIf($term_in==1){$term_out="NNE";}
+  elseIf($term_in==2){$term_out="NE";}
+  elseIf($term_in==3){$term_out="ENE";}
+  elseIf($term_in==4){$term_out="E";}
+  elseIf($term_in==5){$term_out="ESE";}
+  elseIf($term_in==6){$term_out="SE";}
+  elseIf($term_in==7){$term_out="SSE";}
+  elseIf($term_in==8){$term_out="S";}
+  elseIf($term_in==9){$term_out="SSW";}
+  elseIf($term_in==10){$term_out="SW";}
+  elseIf($term_in==11){$term_out="WSW";}
+  elseIf($term_in==12){$term_out="W";}
+  elseIf($term_in==13){$term_out="WNW";}
+  elseIf($term_in==14){$term_out="NW";}
+  elseIf($term_in==15){$term_out="NNW";}
+return $term_out;
+
+}
+
 function GG_funx_translate_capital($term_in)
 {
     $trans_array=array(	
@@ -619,6 +1297,7 @@ function GG_funx_translate_country($term_in)
 function GG_funx_translate_statename($term_in,$opt_language_index)
 {
 
+$term_in=strtolower($term_in);
 $state_name=array(
 
 'af'=>array('Afghanistan','Afghanistan','Afganist&aacute;n','Afghanistan','Afganistan','Afganiszt&aacute;n','Afeganist&atilde;o','أفغانستان'),
@@ -869,11 +1548,7 @@ $state_name=array(
 'zw'=>array('Simbabwe','imbabwe','Zimbabue','Zimbabwe','Zimbabwe','Zimbabwe','Zimbabu&eacute;','زيمبابوي'),
 'ae'=>array('Vereinigte Arabische Emirate','&Eacute;mirats arabes unis','Emiratos &Aacute;rabes Unidos','Emirati Arabi Uniti','Zjednoczone Emiraty Arabskie','Egyes&uuml;lt Arab Em&iacute;rs&eacute;gek','Emiratos &Aacute;rabes Unidos','الامارات العربية المتحدة'),
 'lv'=>array('Lettland','Lettonie','Letonia','Lettonia','&#321;otwa','Lettorsz&aacute;g','Let&#243;nia','لاتفيا'),
-
-
 );
-
-
 
 
 if(!isset($state_name[$term_in][$opt_language_index]))
@@ -883,1134 +1558,18 @@ if(!isset($state_name[$term_in][$opt_language_index]))
     return $term_out;
 }
 
-function GG_funx_translate_text_0_prepare_string($term_in)
-{  
-    $trans_array_in=array(
-        'changing to',
-        'then becoming',
-        'then, ',
-        'will taper to',
-        //'will taper off',
-        'tapering to',
-        'along with',
-        ' with ',
-        'becoming',
-        'developing to',
-        'developing',
-        'transitioning to',
-        'evolving to a',
-        'will evolve into',
-        'will give way to',
-        'giving way to',
-        'will become',
-        'followed by',
-        'followed',
-        ',,',
-        ',,',
-        ', ,',
-    );
-    $trans_array_out=array(
-        ',',
-        'then ', //then becoming
-        ',', //then 
-        ',', // will taper to
-        //',', //will taper off
-        ',',//tapering to
-        ',',//along with
-        ',', // with
-        ' ', //becoming
-        ',',  //developing to
-        ' ',  //developing
-        ',',  //transitioning to
-        ',', //evolving to a
-        ',', //will evolve into
-        ',',  //will give way to
-        ',',  //giving way to
-        ',',  // will become
-        ',',  //followed by
-        ',',  //followed
-        ',',  //,,
-        ',',  //,,
-        ',',  //, ,
-      );
-    $term_out= str_replace($trans_array_in,$trans_array_out,$term_in);
-    //echo "FUNC0 ".$term_out."<br />";
-    return $term_out;    
-}
+function GG_funx_unscramble_day_night($gg_weather){
  
-
- function GG_funx_translate_text_1_translate($term_in)
- {
-          $term_out ="";
-          $strto_translate_spread = explode(',',$term_in);
-          for($i = 0;$i < count($strto_translate_spread);$i++){
-          $strto_translate_flag[1][$i]="";
-          $strto_translate_flag[2][$i]="";
-          
-          list($strto_translate_spread[$i],$strto_translate_flag[1][$i])= GG_funx_translate_text_2_analyse_daystrings($strto_translate_spread[$i],"Day");
-          list($strto_translate_spread[$i],$strto_translate_flag[2][$i])= GG_funx_translate_text_2_analyse_daystrings($strto_translate_spread[$i],"Late");
-          $strto_translate_spread_save=$strto_translate_spread[$i];
-          $strto_translate_spread[$i] = str_replace(' ','',strtolower(trim($strto_translate_spread[$i])));
-          
-        } 
-        for($i = 0;$i < count($strto_translate_spread);$i++){
-        list($stris_translate_spread[$i],$flag_translated)=GG_funx_translate_text_5_translate_phrases($strto_translate_spread[$i]);
-          {
-            list($str_daytime_general,$flag_after)= GG_funx_translate_text_4_set_daystrings($strto_translate_flag[1][$i],$strto_translate_flag[2][$i]);
-            if($str_daytime_general!=""){
-              if($flag_after==0 ){
-                  $stris_translate_spread[$i]=$str_daytime_general." ".$stris_translate_spread[$i];}
-              else{
-              $stris_translate_spread[$i]=$stris_translate_spread[$i]." ".$str_daytime_general;} 
-            }
-          }
-          if($stris_translate_spread[$i]<>" "){
-          $term_out = $term_out." ".$stris_translate_spread[$i];
-          if($i<(count($strto_translate_spread)-1)){$term_out=$term_out." -";}
-          if($flag_translated==0){
-          //$term_out="_NO_TRANSLATION_".$term_out;IF NO TRANSLATION - original text is shown
-          $term_out=$strto_translate_spread_save;
-          }}
-         }
-         return array($term_out,$flag_translated);
- }
-         
- function GG_funx_translate_text_2_analyse_daystrings($term_in,$art)
-{  
-    $term_in= str_replace('  ',' ',$term_in);
-    $term_flag ="";
-    if($art=="Day"){
-      $trans_array_in=array('in the day','during the day','by late day', 'late day','through the day', 'throughout the day');
-      $trans_array_out=array('','','','','','');
-      $term_out= str_replace($trans_array_in,$trans_array_out,$term_in);
-      if($term_out!=$term_in){$term_flag="D";$term_in=$term_out;}
-      $art="Night";
-    }
-    if($art=="Night"){
-      //echo $term_in;
-      $trans_array_in=array('in the night','at night','after midnight','during the night','through the night','the night', 'at night', 'overnight','Night','late night',  'throughout the night');
-      $trans_array_out=array('','','','','','','','','','','');
-      $term_out= str_replace($trans_array_in,$trans_array_out,$term_in);
-      if($term_out!=$term_in and $term_flag==""){$term_flag="N";}
-      $term_in=$term_out;
-      $art="Evening";
-    } 
-    if($art=="Evening"){
-
-      $trans_array_in=array('for the evening hours','in the evening hours','during the evening hours','the evening hours','for the evening','in the evening', 'during the evening', 'through the evening','the evening','this evening','evening','until midnight','till midnight','before midnight','by midnight','Evening');
-      $trans_array_out=array('','','','','','','','','','','','','','','','');
-      $term_out= str_replace($trans_array_in,$trans_array_out,$term_in);
-      if($term_out!=$term_in and $term_flag==""){$term_flag="E";}
-      $term_in=$term_out;
-      $art="Afternoon";
-    }
-     if($art=="Afternoon"){
-      $trans_array_in=array('for the afternoon hours','in the afternoon hours','during the afternoon hours','the afternoon hours','for the afternoon','in the afternoon', 'during the afternoon', 'through the afternoon','the afternoon', 'this afternoon','afternoon','after noon','Afternoon');
-      $trans_array_out=array('','','','','','','','','','','','','');
-      $term_out= str_replace($trans_array_in,$trans_array_out,$term_in);
-      if($term_out!=$term_in and $term_flag==""){$term_flag="A";}
-      $term_in=$term_out;
-      $art="Morning";
-    } 
-    if($art=="Morning"){
-      $trans_array_in=array('for the morning hours','in the morning hours', 'during the morning hours','the morning hours','for the morning','in the morning', 'during the morning', 'through the morning','the morning', 'this morning','morning','until noon','till noon','before noon','Morning', 'by noontime');
-      $trans_array_out=array('','','','','','','','','','','','','','','','');
-      $term_out= str_replace($trans_array_in,$trans_array_out,$term_in);
-      if($term_out!=$term_in and $term_flag==""){$term_flag="M";}
-
-    }
-    if($art=="Late"){
-      $trans_array_in=array('later on', ' later','later', ' late','late ');
-      $trans_array_out=array('','','','','');
-      $term_out= str_replace($trans_array_in,$trans_array_out,$term_in);
-      if($term_out!=$term_in){$term_flag="LA";$term_in=$term_out;}
-      $art="Early";
-      
-    }
-    if($art=="Early"){
-      //echo "STOP1";
-      $trans_array_in=array(' early', 'early ');
-      $trans_array_out=array('','');
-      $term_out= str_replace($trans_array_in,$trans_array_out,$term_in);
-      if($term_out!=$term_in  and $term_flag==""){$term_flag="EA";} 
-       // echo "STOP2";}
-
-    }
-     return array($term_out,$term_flag);
- }
- function GG_funx_translate_text_4_set_daystrings($term_in_1,$term_in_2)
-{  
-    //echo "1".$term_in_1."2".$term_in_2;
-    $flag_after = 1;
-    $term_out="";
-    $rand=0;
-    if($term_in_1=="M"){
-      $morning=array( 'morgens', 'morgens','vormittags','am Morgen',  'am Vormittag', 'w&auml;hrend des Morgens', 'w&auml;hrend des Vormittags', 'in den Morgenstunden');
-      $rand=rand(0,count($morning)-1);
-      $term_out=$morning[$rand];
-    } 
-    if($term_in_1=="A"){
-      $afternoon=array('nachmittags', 'nachmittags', 'am Nachmittag',  'nach dem Mittag', 'in den Nachmittagsstunden', 'w&auml;hrend des Nachmittags',);
-      $rand=rand(0,count($afternoon)-1);
-      $term_out=$afternoon[$rand];
-    }
-    if($term_in_1=="E"){
-      $evening=array('abends','abends', 'am Abend', 'in den Abendstunden','w&auml;hrend der Abendstunden','bis Mitternacht');
-      $rand=rand(0,count($evening)-1);
-      $term_out=$evening[$rand];
-    }
-    if($term_in_1=="N"){
-      $night=array('nachts','nachts', '&uuml;ber Nacht', 'nach Mitternacht','in den Nachtstunden','in der Nacht');
-      $rand=rand(0,count($night)-1);
-      $term_out=$night[$rand];
-    }
-    if($term_in_1=="D"){
-      $day=array('tags&uuml;ber', 'w&auml;hrend des Tages');
-      $rand=rand(0,count($day)-1);
-      $term_out=$day[$rand];
-    }  
-    if($term_in_2=="EA"){
-    //echo "STOP3";
-    $rand=rand(0,2);
-    if ($rand==2){$term_out=$term_out." zun&auml;chst";$flag_after=1;}
-    else {$term_out="zun&auml;chst ".$term_out;}
-    }
-    if($term_in_2=="LA"){
-    $rand=rand(0,2);
-    if ($rand==2){$term_out=$term_out." sp&auml;ter";$flag_after=0;}
-    else {$term_out="sp&auml;ter ".$term_out;}
-    }
-    if($flag_after!=0){
-      $rand=rand(0,2);
-      if($rand<2){$flag_after=0;} 
-    }
-    return array($term_out,$flag_after);  
-}
-
-     
-
- 
-    
-
-    
-function GG_funx_translate_text_5_translate_phrases($term_in)
-{
-
- //echo "ToTranslate:".$term_in.":ToTranslate"; 
-  
-  $text_long=array(
-  //Insert array Start here:
-  
-//Delete me
-'abetterchanceofshowers'=>array('M&ouml;glichkeit von Schauern','','','',''),
-'abundantsunshine'=>array('viel Sonnenschein','','','',''),
-'achanceoflingeringsnowshowers'=>array('M&ouml;glichkeit von verbleibenden Schneewolken','','','',''),
-'achanceofshowers'=>array('M&ouml;glichkeit von Schauern','','','',''),
-'achanceofthunderstorms'=>array('M&ouml;glichkeit von Gewittern','','','',''),
-'adrenchingrain'=>array('durchn&auml;ssender Regen','','','',''),
-'afewbreaksintheclouds'=>array('ein paar Unterbrechungen in der ansonsten geschlossenen Wolkendecke','','','',''),
-'afewclouds'=>array('locker bew&ouml;lkt','','','',''),
-'afewcloudsfromtimetotime'=>array('ab und an Wolken','','','',''),
-'afewisolatedthunderstorms'=>array('ein paar einzelne Gewitter','','','',''),
-'afewisolatedthunderstormsdeveloping'=>array('Entwicklung von wenigen einzelnen Gewittern','','','',''),
-'afewisolatedthunderstormsdevelopingunderpartlycloudyskies'=>array('Entwicklung von wenigen einzelnen Gewittern bei einem bew&ouml;lkten Himmel','','','',''),
-'afewisolatedthunderstormsunderpartlycloudyskies'=>array('ein paar einzelne Gewitter bei einem teilweise bew&ouml;lkten Himmel','','','',''),
-'afewlingeringshowers'=>array('einige wenige verbleibende Schauer','','','',''),
-'afewmaybesevere'=>array('einige k&ouml;nnen heftig sein','','','',''),
-'afewpassingclouds'=>array('wenige vorbeiziehende Wolken','','','',''),
-'afewpassingcloudsandwindy'=>array('wenige vorbeiziehende Wolken und windig','','','',''),
-'afewpeeksofsunshinepossible'=>array('wenige Augenblicke von Sonne m&ouml;glich','','','',''),
-'afewrainshowers'=>array('einige wenige Regenschauer','','','',''),
-'afewrainshowersmixing'=>array('einige wenige Regenschauer','','','',''),
-'afewrumblesofthunder'=>array('ab und an Donnergrollen','','','',''),
-'afewrumblesofthunderpossible'=>array('ab und an Donnergrollen','','','',''),
-'afewscatteredshowers'=>array('ab und an strichweise Gewitter','','','',''),
-'afewscatteredshowerspossible'=>array('ab und an strichweise Gewitter m&ouml;glich','','','',''),
-'afewscatteredsnowshowers'=>array('ein paar Schauer','','','',''),
-'afewshowers'=>array('wenige Schauer','','','',''),
-'afewshowersasteadyrain'=>array('wenige Schauer / steter Regen','','','',''),
-'afewshowersby'=>array('wenige Schauer','','','',''),
-'afewshowersdeveloping'=>array('Bildung von ein paar Schauern','','','',''),
-'afewshowersfromtimetotime'=>array('ab und an Schauer','','','',''),
-'afewshowerspossible'=>array('ein paar Schauer m&ouml;glich','','','',''),
-'afewshowersstillpossible'=>array('ein paar weiterhin Schauer m&ouml;glich','','','',''),
-'afewshowersthenchangingtosnowshowers'=>array('ein paar Schauer, dann &uuml;bergang zu Schneeschauern','','','',''),
-'afewshowersthenclearing'=>array('ein paar Schauer, dann Aufkl&auml;rung','','','',''),
-'afewshowersthenclearingandwindy'=>array('ein paar Schauer, dann Aufkl&auml;rung und windig','','','',''),
-'afewshowersthenpartlycloudy'=>array('ein paar Schauer, dann teilweise bew&ouml;lkt','','','',''),
-'afewshowersthenscatteredstrongthunderstorms'=>array('ein paar Schauer, dann strichweise starke Gewitter','','','',''),
-'afewshowersthenthundershowers'=>array('ein paar Schauer, dann Gewitter','','','',''),
-'afewsnowshowers'=>array('wenige Schneeschauer','','','',''),
-'afewsnowshowersaround'=>array('ein paar Schneschauer','','','',''),
-'afewsnowshowersdeveloping'=>array('Bildung einiger weniger Schneeschauer','','','',''),
-'afewsnowshowerslikelychangingtorainshowersasthedayprogresses'=>array('einiger wenige Schneeschauer, die wahrscheinlich in Regenschauer &uuml;bergehen','','','',''),
-'afewsnowshowerspossible'=>array('ein paar Schneeschauer m&ouml;glich','','','',''),
-'afewsnowshowersscatteredaboutthearea'=>array('verbreitet ein paar Schneeschauer m&ouml;glich','','','',''),
-'afewsprinklespossible'=>array('einige wenige Regentropfen','','','',''),
-'afewstormsmaybesevere'=>array('einige k&ouml;nnen heftig sein','','','',''),
-'afewthundershowers'=>array('etwas Gewitterregen','','','',''),
-'afewthunderstorms'=>array('einige wenige Gewitter','','','',''),
-'afewthunderstormslikely'=>array('ein paar Gewitter wahrscheinlich','','','',''),
-'afewthunderstormspossible'=>array('ein paar Gewitter sind m&ouml;glich','','','',''),
-'afewthunderstormswilltapertoscatteredshowers'=>array('einzelne Gewitter schw&auml;chen sich zu strichweise Schauern ab','','','',''),
-'agooddealofsunshine'=>array('sch&ouml;nes Sonnenwetter','','','',''),
-'aheavy'=>array('&nbsp;','','','',''),
-'alingeringthunderstormispossible'=>array('verweilende Gewitter m&ouml;glich','','','',''),
-'allsnow'=>array('Schnee','','','',''),
-'along'=>array('&nbsp;','','','',''),
-'amainlysunnysky'=>array('&uuml;berwiegend sonniger Himmel','','','',''),
-'amixofcloudsandsun'=>array('ein Mix von Wolken und Sonne','','','',''),
-'amixofcloudsandsunthencloudy'=>array('Mix von Sonne und Wolken, dann bew&ouml;lkt','','','',''),
-'amixoflightrainandsnow'=>array('Mix aus leichtem Regen und Schnee','','','',''),
-'amixofrainandsnow'=>array('Mix aus Regen und Schnee','','','',''),
-'amixofrainandsnowshowers'=>array('Mix aus Regen- und Schneeschauern','','','',''),
-'amixofsunandclouds'=>array('Mix aus Sonne und Wolken','','','',''),
-'amixofsunandcloudsby'=>array('Mix aus Sonne und Wolken','','','',''),
-'amixtureoflightrainandsnow'=>array('Mix aus leichtem Regen und Schnee','','','',''),
-'amixtureofrainandsnow'=>array('Mix aus Regen und Schnee','','','',''),
-'amixtureofrainandsnowshowers'=>array('Mix aus Regen- und Schneeschauern','','','',''),
-'amoresteadyrain'=>array('zunehmend andauernder Regen','','','',''),
-'amostlyclearsky'=>array('meistens klarer Himmel','','','',''),
-'amplesunshine'=>array('reichlich Sonne','','','',''),
-'amplesunshineby'=>array('reichlich Sonne','','','',''),
-'andathunderstormispossible'=>array('einzelnes Gewitter m&ouml;glich','','','',''),
-'andathunderstormortwoon'=>array('einzelnes Gewitter m&ouml;glich','','','',''),
-'andchangingtolightsnow'=>array('leichter Schneefall','','','',''),
-'andmainlycloudy'=>array('haupts&auml;chlich bew&ouml;lkt','','','',''),
-'andperhapsarumbleortwoofthunder'=>array('vielleicht ab und an Donnergrollen','','','',''),
-'andpossiblyathunderstorm'=>array('vielleicht Gewitter','','','',''),
-'andpossiblyatornado'=>array('m&ouml;glicherweise Wirbelst&uuml;rme','','','',''),
-'anicymixlikely'=>array('Eisregen wahrscheinlich','','','',''),
-'anisolatedthunderstormisstillpossible'=>array('einzelnes Gewitter weiterhin m&ouml;glich','','','',''),
-'anisolatedthunderstormpossible'=>array('einzelnes Gewitter m&ouml;glich','','','',''),
-'anmixofrainandsnow'=>array('Mix von Sonne und Regen','','','',''),
-'anyflurriesorsnowshowersending'=>array('Abklingen von Schneegest&ouml;ber und Schneeschauer','','','',''),
-'aperiodofdrizzle'=>array('abschnittsweise Nieselregen','','','',''),
-'aperiodofheavyrain'=>array('abschnittsweise kr&auml;ftiger Regen','','','',''),
-'aperiodofheavysnow'=>array('abschnittsweise starker Schneefall','','','',''),
-'aperiodoflightrain'=>array('abschnittsweise leichter Regen','','','',''),
-'aperiodoflightsnow'=>array('abschnittsweise leichter Schneefall','','','',''),
-'aperiodofrain'=>array('abschnittsweise Regen','','','',''),
-'aperiodofsnow'=>array('abschnittsweise Schneefall','','','',''),
-'apossiblerumbleofthunder'=>array('Donner m&ouml;glich','','','',''),
-'apossiblethunderstorm'=>array('einzelnes Gewitter m&ouml;glich','','','',''),
-'areasofblowingdust'=>array('Staub','','','',''),
-'areasofdensefog'=>array('&ouml;rtlich dichter Nebel','','','',''),
-'areasoffog'=>array('&ouml;rtlich Nebel','','','',''),
-'areasofpatchyfog'=>array('&ouml;rtlich Nebelfelder','','','',''),
-'arumbleofthunderispossible'=>array('Donner m&ouml;glich','','','',''),
-'arumbleofthunderstillpossible'=>array('Donner m&ouml;glich','','','',''),
-'arumbleortwoofthunder'=>array('Donner','','','',''),
-'arumbleortwoofthunderispossible'=>array('Donner m&ouml;glich','','','',''),
-'ashowerispossible'=>array('Schauer m&ouml;glich','','','',''),
-'ashowerortwoaroundthearea'=>array('&ouml;rtlich ein oder zwei Schauer','','','',''),
-'ashowerortwo-otherwise'=>array('ein oder zwei Schauer','','','',''),
-'ashowerortwopossible'=>array('ein oder zwei Schauer','','','',''),
-'aslightchanceofnightthunderstorms'=>array('geringe M&ouml;glichkeit von n&auml;chtlichen Gewittern','','','',''),
-'aslightchanceofshowersandthunderstorms'=>array('geringe M&ouml;glichkeit f&uuml;r Schauer und Gewitter','','','',''),
-'aslightchanceofthunderstorms'=>array('Gewitter vielleicht m&ouml;glich','','','',''),
-'aslightriskofathunderstorm'=>array('Gewitter vielleicht m&ouml;glich','','','',''),
-'asnowshowerortwo-otherwise'=>array('Wenige Schneeschauer','','','',''),
-'asteadierrain'=>array('zunehmender Regen','','','',''),
-'asteadierrainarriving'=>array('zunehmender Regen','','','',''),
-'asteadierrain-arumbleofthunderstillpossible'=>array('zunehmender Regen','','','',''),
-'asteadiersnow'=>array('zunehmender Schneefall','','','',''),
-'asteadiersnowdeveloping'=>array('Bildung von stetigem Schneefall','','','',''),
-'asteady'=>array('&nbsp;','','','',''),
-'asteadyaccumulatingsnow'=>array('stetig zunehmender Schneefall','','','',''),
-'asteadylightrain'=>array('leichter Dauerregen','','','',''),
-'asteadylightrainduring'=>array('leichter Dauerregen','','','',''),
-'asteadylightsnow'=>array('stetiger leichter Schneefall','','','',''),
-'asteadyrain'=>array('Dauerregen','','','',''),
-'asteadyrainarriving'=>array('Dauerregen','','','',''),
-'asteadyrainduring'=>array('Dauerregen','','','',''),
-'asteadysnow'=>array('stetiger Schneefall','','','',''),
-'astrayshowerorthunderstormispossible'=>array('ein vereinzelter Schauer oder ein Gewitter m&ouml;glich','','','',''),
-'astraythunderstorm'=>array('einzelnes Gewitter','','','',''),
-'astraythunderstormispossible'=>array('einzelnes Gewitter m&ouml;glich','','','',''),
-'athundershowerispossibleaswell'=>array('ein Gewitter ist ebenfalls m&ouml;glich','','','',''),
-'athundershowerpossiblethenvariableclouds'=>array('vielleicht ein Gewitter, dann unterschiedlich bew&ouml;lkt','','','',''),
-'athunderstormortwo'=>array('ein oder zwei Gewitter','','','',''),
-'athunderstormortwoaswell'=>array('ein oder zwei Gewitter','','','',''),
-'athunderstormortwoisalsopossible'=>array('ein oder zwei Gewitter auch m&ouml;glich','','','',''),
-'athunderstormortwoispossible'=>array('ein oder zwei Gewitter m&ouml;glich','','','',''),
-'athunderstormortwopossible'=>array('ein oder zwei Gewitter m&ouml;glich','','','',''),
-'athunderstormpossible'=>array('Gewitter m&ouml;glich','','','',''),
-'attimesheavy'=>array('teilweise kr&auml;ftig','','','',''),
-'awidelyscatteredshowerorthunderstormispossible'=>array('&auml;usserst strichweise Schauer oder Gewitter m&ouml;glich','','','',''),
-'awinddrivenheavyrain'=>array('starker Regen und Wind','','','',''),
-'bitterlycold'=>array('bitterkalt','','','',''),
-'blustery'=>array('st&uuml;rmisch','','','',''),
-'breaksintheovercast'=>array('kleine Auflockerungen der geschlossenen Wolkendecke','','','',''),
-'breaksofsun'=>array('gelegentlich Sonnenstrahlen','','','',''),
-'brightsunshine'=>array('viel Sonne','','','',''),
-'brightsunshineby'=>array('viel Sonne','','','',''),
-'chanceofafewshowers'=>array('M&ouml;glichkeit von ein paar Schauern','','','',''),
-'chanceofafewsnowshowers'=>array('Schneeschauer m&ouml;glich','','','',''),
-'chanceofanisolatedthunderstorm'=>array('einzelnes Gewitter m&ouml;glich','','','',''),
-'chanceofashowerortwo'=>array('m&ouml;glicherweise ein oder zwei Schauer','','','',''),
-'chanceofathunderstorm'=>array('Gewitter m&ouml;glich','','','',''),
-'chanceofdayshowers'=>array('M&ouml;glichkeit von Schauern','','','',''),
-'chanceofrainandsnowshowers'=>array('m&ouml;gliche Regen- oder Schneeschauer','','','',''),
-'chanceofshowers'=>array('Schauer m&ouml;glich','','','',''),
-'chanceofsnowshowers'=>array('Schneeschauer m&ouml;glich','','','',''),
-'changingovertosnowshowers'=>array('Wechsel zu Schneeschauern','','','',''),
-'changingtolightsnow'=>array('in leichten Schneefall wechselnd','','','',''),
-'changingtorainshowers'=>array('Wechsel zu Regenschauern','','','',''),
-'changingtosnowshowers'=>array('Wechsel zu Schneeschauern','','','',''),
-'clear'=>array('klar','','','',''),
-'clearandwindy'=>array('klar und windig','','','',''),
-'clearing'=>array('Aufkl&auml;rung','','','',''),
-'clearingandwindy'=>array('windig, Aufkl&auml;rung','','','',''),
-'clearingskies'=>array('aufkl&auml;render Himmel','','','',''),
-'clearingskiesaftersomelightrain'=>array('aufkl&auml;render Himmel nach leichtem Regen','','','',''),
-'clearingskiesaftersomerain'=>array('aufkl&auml;render Himmel nach etwas Regen','','','',''),
-'clearskies'=>array('klarer Himmel','','','',''),
-'clearskiesby'=>array('klarer Himmel','','','',''),
-'clearskiesthencloudy'=>array('klarer Himmel, dann bew&ouml;lkt','','','',''),
-'clearskiesthenincreasingclouds'=>array('klarer Himmel','','','',''),
-'clearskiesthenmostlycloudy'=>array('klarer Himmel, dann meist bew&ouml;lkt','','','',''),
-'clearthencloudy'=>array('klar, dann wolkig','','','',''),
-'clearthenincreasingcloudiness'=>array('klar, zunehmende Bew&ouml;lkung','','','',''),
-'clearthenincreasingclouds'=>array('klar, zunehmende Bew&ouml;lkung','','','',''),
-'clearthenmostlycloudy'=>array('klar, zunehmende Bew&ouml;lkung','','','',''),
-'cleartopartlycloudy'=>array('klarer bis teilweise bew&ouml;lkter Himmel','','','',''),
-'cleartopartlycloudyskies'=>array('klarer bis teilweise bew&ouml;lkter Himmel','','','',''),
-'clouds'=>array('Wolken','','','',''),
-'cloudsandafewshowers'=>array('Wolken und ein paar Schauer','','','',''),
-'cloudsandafewsnowshowers'=>array('Wolken und ein paar Schneeschauer','','','',''),
-'cloudsandlimitedsunshine'=>array('Wolken und begrenzt Sonnenschein','','','',''),
-'cloudsandsomesun'=>array('Wolken und ein wenig Sonne','','','',''),
-'cloudslingering'=>array('Wolken verbleiben','','','',''),
-'cloudy'=>array('bew&ouml;lkt','','','',''),
-'cloudyanddamp'=>array('bew&ouml;lkt und feucht','','','',''),
-'cloudyandverywindy'=>array('bew&ouml;lkt und sehr windig','','','',''),
-'cloudyandwindy'=>array('bew&ouml;lkt und windig','','','',''),
-'cloudyandwindyconditions'=>array('bew&ouml;lkt und windig','','','',''),
-'cloudyskies'=>array('bew&ouml;lkter Himmel','','','',''),
-'cloudyskiesanddrizzle'=>array('bew&ouml;lkter Himmel und Nieselregen','','','',''),
-'cloudyskiesandlightrain'=>array('bew&ouml;lkt und leichter Regen','','','',''),
-'cloudyskiesandrain'=>array('bew&ouml;lkt und Regen','','','',''),
-'cloudyskieshours'=>array('bew&ouml;lkter Himmel','','','',''),
-'cold'=>array('kalt','','','',''),
-'considerablecloudiness'=>array('ziemlich bew&ouml;lkt','','','',''),
-'considerablecloudinessandfog'=>array('ziemlich bew&ouml;lkt und nebelig','','','',''),
-'considerableclouds'=>array('ziemlich bew&ouml;lkt','','','',''),
-'considerablycloudy'=>array('ziemlich bew&ouml;lkt','','','',''),
-'continuedwindy'=>array('weiterhin windig','','','',''),
-'cooler'=>array('k&auml;lter','','','',''),
-'damagingwinds'=>array('gef&auml;hrlicher Wind','','','',''),
-'dangerouswindchillsapproaching-15f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsapproaching-20f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsapproaching-25f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsapproaching-30f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsapproaching-35f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsapproaching-40f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsapproaching-45f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsapproaching-50f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsapproaching-55f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsaslowas-25f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsaslowas-30f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsaslowas-35f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsaslowas-40f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsmayapproach-25f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsmayapproach-30f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsmayapproach-35f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsmayapproach-40f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsmayapproach-45f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'dangerouswindchillsmayapproach-50f'=>array('gef&auml;hrliche K&auml;lte und Abk&uuml;hlung durch eisigen Wind','','','',''),
-'decreasingcloudiness'=>array('abnehmende Bew&ouml;lkung','','','',''),
-'decreasingcloudinessandwindy'=>array('abnehmende Bew&ouml;lkung und windig','','','',''),
-'decreasingclouds'=>array('abnehmende Bew&ouml;lkung','','','',''),
-'densefoginsomeareas'=>array('&ouml;rtlich dichter Nebel','','','',''),
-'diminishingtoscatteredshowers'=>array('abnehmend zu strichweisen Schauern','','','',''),
-'drenchingdownpours'=>array('str&ouml;mender Regen','','','',''),
-'drenchingdownpourslikelyby'=>array('str&ouml;mender Regen','','','',''),
-'drenchingrain'=>array('str&ouml;mender Regen','','','',''),
-'drizzle'=>array('Nieselregen','','','',''),
-'drizzleandfog'=>array('Nieselregen und Nebel','','','',''),
-'drizzleandperiodsoflightrain'=>array('Nieselregen und zeitweise leichter Regen','','','',''),
-'drizzleattimes'=>array('zeitweise Nieselregen','','','',''),
-'drizzledeveloping'=>array('sich bildender Nieselregen','','','',''),
-'drizzleending'=>array('endender Nieselregen','','','',''),
-'drizzleexpected'=>array('Nieselregen erwartet','','','',''),
-'drizzlelikely'=>array('Nieselregen wahrscheinlich','','','',''),
-'early'=>array('&nbsp;','','','',''),
-'ending'=>array('endend','','','',''),
-'especially'=>array('besonders','','','',''),
-'especiallyhours'=>array('besonders','','','',''),
-'exceptforafewclouds'=>array('mit Ausnahme von wenigen Wolken','','','',''),
-'fair'=>array('heiter','','','',''),
-'fairskies'=>array('heiterer Himmel','','','',''),
-'fewshowers'=>array('ein paar Schauer','','','',''),
-'flurriesandafewsnowshowers'=>array('Schneegest&ouml;ber und ein paar Schneeschauer','','','',''),
-'fog'=>array('Nebel','','','',''),
-'fogdeveloping'=>array('einsetzender Nebel','','','',''),
-'foggy'=>array('nebelig','','','',''),
-'foggyconditions'=>array('nebelig','','','',''),
-'foggyhours'=>array('nebelig','','','',''),
-'foggytostart'=>array('nebelig zu Beginn','','','',''),
-'fogmaydevelop'=>array('Nebel k&ouml;nnte sich bilden','','','',''),
-'freezingdrizzle'=>array('gefrierender Nieselregen','','','',''),
-'generallyclear'=>array('allgemein klar','','','',''),
-'generallyclearconditions'=>array('allgemein klar','','','',''),
-'generallyclearskies'=>array('allgemein klarer Himmel','','','',''),
-'generallycloudy'=>array('allgemein bew&ouml;lkt','','','',''),
-'generallyfair'=>array('allgemein heiter','','','',''),
-'generallysunny'=>array('allgemein sonnig','','','',''),
-'generallysunnydespiteafewclouds'=>array('allgemein sonnig, abgesehen von einigen wenigen Wolken','','','',''),
-'generallysunnyskies'=>array('allgemein sonniger Himmel','','','',''),
-'gustywinds'=>array('b&ouml;ige Winde','','','',''),
-'gustywindsattimes'=>array('zeitweise b&ouml;ige Winde','','','',''),
-'gustywindsdeveloping'=>array('auftretende b&ouml;ige Winde','','','',''),
-'gustywindsdiminishing'=>array('abnehmende b&ouml;ige Winde','','','',''),
-'hazy'=>array('dunstig','','','',''),
-'heatindexnear105f'=>array('sehr heiss','','','',''),
-'heatindexnear110f'=>array('sehr heiss','','','',''),
-'heatindexnear115f'=>array('sehr heiss','','','',''),
-'heatindexnear120f'=>array('sehr heiss','','','',''),
-'heatindexnear125f'=>array('sehr heiss','','','',''),
-'heatindexnear130f'=>array('sehr heiss','','','',''),
-'heatindexnear135f'=>array('sehr heiss','','','',''),
-'heatindexnear140f'=>array('sehr heiss','','','',''),
-'heatindexnear145f'=>array('sehr heiss','','','',''),
-'heavier'=>array('kr&auml;ftiger','','','',''),
-'heaviersnow'=>array('st&auml;rker einsetzender Schneefall','','','',''),
-'heavy'=>array('&nbsp;','','','',''),
-'heavyattimes'=>array('bei Zeiten kr&auml;ftig','','','',''),
-'heavyrain'=>array('Starkregen','','','',''),
-'heavyrainandthunderstormslikely'=>array('Starkregen und Gewitter','','','',''),
-'heavyrainlikely'=>array('Starkregen wahrscheinlich','','','',''),
-'heavyraintostart'=>array('Starkregen','','','',''),
-'heavythunderstorms'=>array('kr&auml;ftige Gewitter','','','',''),
-'hot'=>array('heiss','','','',''),
-'hotandhumid'=>array('heiss und schw&uuml;l','','','',''),
-'humid'=>array('feucht','','','',''),
-'hurricaneconditionspossible'=>array('schwerste St&uuml;rme m&ouml;glich','','','',''),
-'increasingclouds'=>array('zunehmende Bew&ouml;lkung','','','',''),
-'increasingcloudsandafewshowers'=>array('zunehmende Bew&ouml;lkung und ein paar Schauer','','','',''),
-'increasingcloudsandafewsnowshowers'=>array('zunehmende Bew&ouml;lkung und ein paar Schneeschauer','','','',''),
-'increasingcloudsandsomelightrain'=>array('zunehmende bew&ouml;lkung und etwas leichter Regen','','','',''),
-'increasinglywindy'=>array('zunehmend windig','','','',''),
-'increasingwinds'=>array('zunehmende Winde','','','',''),
-'intermittentdrizzle'=>array('sporadisch Nieselregen','','','',''),
-'intermittentlightrain'=>array('sporadisch leichter Regen','','','',''),
-'intermittentlightrainanddrizzle'=>array('sporadisch leichter Regen oder Nieselregen','','','',''),
-'intermittentsnowandsnowshowers'=>array('sporadisch Schnee- und Schneeschauer','','','',''),
-'intermittentsnoworsnowshowerssteadierandheavier'=>array('sporadisch Schnee oder Schneeschaue, anhaltend und kr&auml;ftiger werdend','','','',''),
-'intermittentsnowshowers'=>array('sporadisch Schneeschauer','','','',''),
-'intermittentsnowshowersandwindy'=>array('sporadisch Schneeschauer und Wind','','','',''),
-'intervalsofcloudsandsunshine'=>array('abwechselnd Sonne und Wolken','','','',''),
-'isolatedthunderstormpossible'=>array('vereinzelte Gewitter m&ouml;glich','','','',''),
-'isolatedthunderstorms'=>array('vereinzelte Gewitter','','','',''),
-'isolatedthunderstormsandgustywinds'=>array('vereinzelte Gewitter und b&ouml;ige Winde','','','',''),
-'isolatedthunderstormsarriving'=>array('vereinzelte Gewitter','','','',''),
-'isolatedthunderstormsdeveloping'=>array('Bildung vereinzelter Gewitter','','','',''),
-'isolatedthunderstormsduring'=>array('vereinzelte Gewitter','','','',''),
-'isolatedthunderstormshours'=>array('auftretende b&ouml;ige Winde','','','',''),
-'isolatedthunderstormsmaydevelop'=>array('vereinzelte Gewitter k&ouml;nnen auftreten','','','',''),
-'isolatedthunderstormsmorewidespread'=>array('vereinzelte Gewitter','','','',''),
-'isolatedthunderstormspossible'=>array('vereinzelte Gewitter m&ouml;glich','','','',''),
-'itwillbeheavyattimes'=>array('zeitweise kr&auml;ftig','','','',''),
-'itwillbewindyattimes'=>array('zeitweise windig','','','',''),
-'largehail'=>array('starker Hagel','','','',''),
-'latedaylightrain'=>array('leichter Regen sp&auml;ter am Tag','','','',''),
-'latenightshowersorthunderstorms'=>array('Schauer oder Gewitter','','','',''),
-'late-nightsnowshowers'=>array('Schneeschauer','','','',''),
-'lessnumerous'=>array('weniger h&auml;ufig','','','',''),
-'lessnumerousduring'=>array('weniger h&auml;ufig','','','',''),
-'light'=>array('leichter','','','',''),
-'lighter'=>array('abnehmend','','','',''),
-'lighterandchangetoallrain'=>array('Regen','','','',''),
-'lightfreezingrain'=>array('leichter &uuml;berfrierender Regen','','','',''),
-'lightrain'=>array('leichter Regen','','','',''),
-'lightrainanddrizzle'=>array('leichter Regen oder Nieselregen','','','',''),
-'lightrainanddrizzleexpected'=>array('leichter Regen oder Nieselregen erwartet','','','',''),
-'lightrainanddrizzlelikely'=>array('leichter Regen oder Nieselregen wahrscheinlich','','','',''),
-'lightrainandfog'=>array('leichter Regen und Nebel','','','',''),
-'lightrainandsnow'=>array('leichter Regen oder Nieselregen wahrscheinlich','','','',''),
-'lightrainandwindy'=>array('leichter Regen, windig','','','',''),
-'lightrainattimes'=>array('zeitweise leichter Regen','','','',''),
-'lightraindeveloping'=>array('aufkommender leichter Regen','','','',''),
-'lightrainlikely'=>array('leichter Regen wahrscheinlich','','','',''),
-'lightrainpossible'=>array('m&ouml;glicherweise leichter Regen','','','',''),
-'lightraintransitioningtoafewshowers'=>array('leichter Regen, der in einige wenige Schauer &uuml;bergeht','','','',''),
-'lightsnow'=>array('leichter Schneefall','','','',''),
-'lightsnowandwindy'=>array('leichter Schneefall und windig','','','',''),
-'lightsnowattimes'=>array('zeitweise leichter Schneefall','','','',''),
-'lightsnowlikely'=>array('leichter Schnee wahrscheinlich','','','',''),
-'lightsnowwilltransitiontosnowshowers'=>array('leichter Schnee, der in einige wenige Schneeschauer &uuml;bergeht','','','',''),
-'lingeringclouds'=>array('verweilende Wolken','','','',''),
-'lingeringsnowshowers'=>array('verbleibende Schneeschauer','','','',''),
-'locallystrongthunderstorms-afewcouldalsocontainveryheavyrain'=>array('&ouml;rtlich schwere Gewitter, m&ouml;glicherweise Starkregen','','','',''),
-'locallystrongthunderstormslikely-afewcouldcontainveryheavyrain'=>array('&ouml;rtlich schwere Gewitter wahrscheinlich, m&ouml;glicherweise Starkregen','','','',''),
-'lotsofsunshine'=>array('viel Sonnenschein','','','',''),
-'lowclouds'=>array('tiefe Wolken','','','',''),
-'lowcloudsanddrizzle'=>array('tiefe Wolken und Nieselregen','','','',''),
-'lowcloudsandfog'=>array('niedrig h&auml;ngende Wolken und Nebel','','','',''),
-'mainly'=>array('&uuml;berwiegend','','','',''),
-'mainlyclear'=>array('vorherrschend klar','','','',''),
-'mainlyclearandwindy'=>array('vorherrschend klar und windig','','','',''),
-'mainlyclearskies'=>array('vorherrschend klarer Himmel','','','',''),
-'mainlycloudy'=>array('vorherrschend bew&ouml;lkt','','','',''),
-'mainlycloudyandrainy'=>array('vorherrschend bew&ouml;lkt und regnerisch','','','',''),
-'mainlycloudyandwindy'=>array('vorherrschend bew&ouml;lkt und windig','','','',''),
-'mainlyhours'=>array('&nbsp;','','','',''),
-'mainlysunny'=>array('vorherrschend sonnig','','','',''),
-'mainlysunnyandwindy'=>array('vorherrschend sonnig und windig','','','',''),
-'mainlysunnyskies'=>array('&uuml;berwiegend sonniger Himmel','','','',''),
-'mainlysunnytostart'=>array('&uuml;berwiegend sonniger Himmel','','','',''),
-'maybearumbleofthunder'=>array('vielleicht ein wenig Donnergrollen','','','',''),
-'mixedcloudsandsun'=>array('Mix aus Sonne und Wolken','','','',''),
-'mixing'=>array('&nbsp;','','','',''),
-'mixofrainandice'=>array('Mix aus Regen und Eisregen','','','',''),
-'mixofrainandsnow'=>array('Mix aus Regen und Schnee','','','',''),
-'mixofrainandsnowshowers'=>array('Mix aus Regen und Schneeschauern','','','',''),
-'mixofsunandclouds'=>array('Mix aus Sonne und Wolken','','','',''),
-'moderatingtemperatureswillchangescatteredsnowshowerstorainshowers'=>array('Schneeschauer gehen in Regenschauer &uuml;ber','','','',''),
-'moderatingtemperatureswillchangesnowshowerstorainshowers'=>array('Regenschauer gehen in Schneeschauer &uuml;ber','','','',''),
-'morecloudsfor'=>array('zunehmende Bew&ouml;lkung','','','',''),
-'morecloudsthansun'=>array('mehr Wolken als Sonne','','','',''),
-'moreintermittent'=>array('mehr unterbrochen','','','',''),
-'morerainlikely'=>array('weiterhin Regen wahrscheinlich','','','',''),
-'morescattered'=>array('weiter auslaufend','','','',''),
-'moreshowersattimes'=>array('manchmal h&auml;ufiger Schauerbildung','','','',''),
-'moresunthanclouds'=>array('mehr Sonne als Wolken','','','',''),
-'morewidelyscattered'=>array('weiter auslaufend','','','',''),
-'morewidespread'=>array('weiter auslaufend','','','',''),
-'mostlyclear'=>array('&uuml;berwiegend klar','','','',''),
-'mostlyclearandwindy'=>array('&uuml;berwiegend klar und windig','','','',''),
-'mostlyclearconditions'=>array('&uuml;berwiegend klar','','','',''),
-'mostlyclearskies'=>array('&uuml;berwiegend klarer Himmel','','','',''),
-'mostlyclearskiesby'=>array('&uuml;berwiegend klarer Himmel','','','',''),
-'mostlyclearskiesthencloudy'=>array('meist klar als bew&ouml;lkt','','','',''),
-'mostlyclearskiesthenincreasingclouds'=>array('meistens klar, dann &uuml;berwiegend Bew&ouml;lkung','','','',''),
-'mostlyclearskiesthenmostlycloudy'=>array('meistens klar, dann aufkommende Bew&ouml;lkung','','','',''),
-'mostlyclearthencloudy'=>array('&uuml;berwiegend klar, dann bew&ouml;lkt','','','',''),
-'mostlyclearthenincreasingcloudiness'=>array('meistens klar, dann zunehmende Bew&ouml;lkung','','','',''),
-'mostlyclearthenincreasingclouds'=>array('meistens klar, dann zunehmende Bew&ouml;lkung','','','',''),
-'mostlyclearthenmostlycloudy'=>array('meistens klar, dann &uuml;berwiegend wolkig','','','',''),
-'mostlycloudy'=>array('&uuml;berwiegend bew&ouml;lkt','','','',''),
-'mostlycloudyandwindy'=>array('&uuml;berwiegend bew&ouml;lkt und windig','','','',''),
-'mostlycloudyconditions'=>array('meist bew&ouml;lkt','','','',''),
-'mostlycloudyconditionsduring'=>array('meist bew&ouml;lkt','','','',''),
-'mostlycloudyskies'=>array('&uuml;berwiegend bew&ouml;lkter Himmel','','','',''),
-'mostlycloudyskiesandafewshowers'=>array('&uuml;berwiegend bew&ouml;lkt und ein paar Schauer','','','',''),
-'mostlycloudyskiesandafewsnowshowers'=>array('&uuml;berwiegend bew&ouml;lkt und ein paar Schneeschauer','','','',''),
-'mostlycloudyskiesduring'=>array('&uuml;berwiegend bew&ouml;lkter Himmel','','','',''),
-'mostlycloudyskieshours'=>array('&uuml;berwiegend bew&ouml;lkter Himmel','','','',''),
-'mostlycloudyskiesthenperiodsofshowers'=>array('&uuml;berwiegend bew&ouml;lkt, dann zeitweise ein paar Schauer','','','',''),
-'mostlycloudythenperiodsofshowers'=>array('&uuml;berwiegend bew&ouml;lkt, dann abschnittsweise ein paar Schauer','','','',''),
-'mostlysunny'=>array('&uuml;berwiegend sonnig','','','',''),
-'mostlysunnyandwindy'=>array('&uuml;berwiegend sonnig und windig','','','',''),
-'mostlysunnyconditions'=>array('&uuml;berwiegend sonnig','','','',''),
-'mostlysunnyduring'=>array('&uuml;berwiegend sonnig','','','',''),
-'mostlysunnyskies'=>array('&uuml;berwiegend sonniger Himmel','','','',''),
-'mostlysunnyskiesby'=>array('&uuml;berwiegend sonniger Himmel','','','',''),
-'mostlysunnyskiesduring'=>array('&uuml;berwiegend sonniger Himmel','','','',''),
-'mostlysunnyskieshours'=>array('&uuml;berwiegend sonniger Himmel','','','',''),
-'mostlysunnythencloudy'=>array('&uuml;berwiegend sonnig, dann wolkig','','','',''),
-'mostlysunnythenincreasingcloudiness'=>array('&uuml;berwiegend sonnig, dann zunehmende Bew&ouml;lkung','','','',''),
-'mostlysunnythenincreasingclouds'=>array('&uuml;berwiegend sonnig, dann zunehmende Wolken','','','',''),
-'mostlysunnythenmostlycloudy'=>array('&uuml;berwiegend sonnig, dann &uuml;berwiegend bew&ouml;lkt','','','',''),
-'mostlysunnythensomescatteredstrongthunderstorms'=>array('&uuml;berwiegend sonnig, dann strichweise teilweise starke Gewitter','','','',''),
-'nearrecordhightemperatures'=>array('H&ouml;chsttemperaturen auf Rekordniveau','','','',''),
-'nearrecordlowtemperatures'=>array('Niedrigsttemperaturen auf Rekordniveau','','','',''),
-'nightshowersorthunderstorms'=>array('n&auml;chtliche Schauer oder Gewitter','','','',''),
-'numerousthunderstorms'=>array('zahlreiche Gewitter','','','',''),
-'numerousthunderstormsdeveloping'=>array('Bildung von zahlreichen Gewittern','','','',''),
-'numerousthunderstormsdevelopingduring'=>array('Bildung von zahlreichen Gewittern','','','',''),
-'occasionaldrizzle'=>array('zeitweilig Nieselregen','','','',''),
-'occasionallightrain'=>array('zeitweilig leichter Regen','','','',''),
-'occasionallightraintaperingtoafewshowers'=>array('zeitweilig leichter Regen - mildert sich ab zu einigen weingen Schauern','','','',''),
-'occasionallyheavy'=>array('zeitweilig kr&auml;ftig','','','',''),
-'occasionallyheavyrain'=>array('zeitweilig kr&auml;ftiger Regen','','','',''),
-'occasionalrain'=>array('zeitweilig Regen','','','',''),
-'occasionalrainandarumbleortwoofthunder'=>array('zeitweilig Regen und Donnergrollen','','','',''),
-'occasionalrain-arumbleofthunderisstillpossible'=>array('zeitweilig Regen, ab und an Donner','','','',''),
-'occasionalrainlikely'=>array('zeitweilig Regen wahrscheinlich','','','',''),
-'occasionalrainorsnowshowers'=>array('zeitweilig Regen- oder Schneeschauer','','','',''),
-'occasionalrainshowers'=>array('zeitweilig Regenschauer','','','',''),
-'occasionalraintaperingtoafewshowers'=>array('zeitweilig Regen - mildert sich ab zu einigen wenigen Schauern','','','',''),
-'occasionalshowers'=>array('zeitweilig Schauer','','','',''),
-'occasionalshowerspossible'=>array('zeitweilig sind Schauer m&ouml;glich','','','',''),
-'occasionalsnowshowers'=>array('zeitweilig Schneeschauer','','','',''),
-'occasionalsnowshowersmixing'=>array('zeitweilig Schneeschauer','','','',''),
-'occasionalthunderstorms-possiblysevere'=>array('zeitweilig Gewitter - m&ouml;glicherweise heftig','','','',''),
-'offandonsnowshowers'=>array('ab und an Schneeschauer','','','',''),
-'offandonsnowshowersasteadysnow'=>array('ab und an Schneeschauer','','','',''),
-'onandoffsnowshowers'=>array('ab und an Schneeschauer','','','',''),
-'onandoffsnowshowersmainly'=>array('ab und an Schneeschauer','','','',''),
-'onlyaslightchanceformorestorms'=>array('geringe Wahrscheinlichkeit f&uuml;r weitere St&uuml;rme','','','',''),
-'otherwiseagooddealofclouds'=>array('ansonsten heiter bis wolkig','','','',''),
-'otherwisecloudy'=>array('ansonsten bew&ouml;lkt','','','',''),
-'otherwisegenerallyclear'=>array('ansonsten allgemein klar','','','',''),
-'otherwisegenerallysunny'=>array('ansonsten allgemein sonnig','','','',''),
-'otherwisemostlycloudy'=>array('ansonsten meist bedeckt','','','',''),
-'otherwisemostlysunny'=>array('ansonsten allgemein meist sonnig','','','',''),
-'overcast'=>array('bedeckt','','','',''),
-'overcastandblustery'=>array('bedeckt und st&uuml;rmisch','','','',''),
-'overcastandveryblustery'=>array('bedeckt und st&uuml;rmisch','','','',''),
-'overcastskies'=>array('bedeckter Himmel','','','',''),
-'overcastskiesandwindy'=>array('bedeckter Himmel und windig','','','',''),
-'overcastskiesduring'=>array('bedeckter Himmel','','','',''),
-'partialclearing'=>array('teilweise Aufkl&auml;rung','','','',''),
-'partialclearingandscatteredshowers'=>array('teilweise Aufkl&auml;rung und strichweise Schauer','','','',''),
-'partialclearingexpected'=>array('teilweise Aufkl&auml;rung erwartet','','','',''),
-'partialcloudiness'=>array('teilweise bew&ouml;lkt','','','',''),
-'partialsunshineexpected'=>array('teilweise sonnig','','','',''),
-'partlycloudy'=>array('teilweise bew&ouml;lkt','','','',''),
-'partlycloudyaftersomedrizzle'=>array('teilweise bew&ouml;lkt nach Nieselregen','','','',''),
-'partlycloudyaftersomelightrain'=>array('teilweise bew&ouml;lkt nach leichtem Regen','','','',''),
-'partlycloudyaftersomerain'=>array('teilweise bew&ouml;lkt nach etwas Regen','','','',''),
-'partlycloudyandverywindy'=>array('teilweise bew&ouml;lkt und sehr windig','','','',''),
-'partlycloudyandwindy'=>array('teilweise bew&ouml;lkt und windig','','','',''),
-'partlycloudyskies'=>array('teilweise bew&ouml;lkter Himmel','','','',''),
-'partlycloudyskiesduring'=>array('teilweise bew&ouml;lkter Himmel','','','',''),
-'partlycloudyskieshours'=>array('teilweise bew&ouml;lkter Himmel','','','',''),
-'partlycloudyskiesthencloudy'=>array('teilweise bew&ouml;lkter Himmel, dann bew&ouml;lkt','','','',''),
-'partlycloudythencloudy'=>array('teilweise bew&ouml;lkt, dann Bew&ouml;lkungszunahme','','','',''),
-'partlytomostlycloudy'=>array('teilweise bis &uuml;berwiegend bew&ouml;lkt','','','',''),
-'partlytomostlycloudyandverywindy'=>array('teilweise bis &uuml;berwiegend bew&ouml;lkt und sehr windig','','','',''),
-'partlytomostlycloudyandwindy'=>array('teilweise bis &uuml;berwiegend bew&ouml;lkt und windig','','','',''),
-'partlytomostlycloudyskies'=>array('teilweise bis &uuml;berwiegend bew&ouml;lkter Himmel','','','',''),
-'patchydrizzlepossible'=>array('Durchn&auml;ssender Nieselregen m&ouml;glich','','','',''),
-'patchyfog'=>array('feuchter Nebel','','','',''),
-'patchyfreezingdrizzle'=>array('feuchter frierender Nieselregen','','','',''),
-'peeksofsunshine'=>array('Augenblicke von Sonnenschein','','','',''),
-'peeksofsunshineexpected'=>array('Augenblicke von Sonnenschein','','','',''),
-'perhapsarumbleofthunder'=>array('vielleicht Donnergrollen','','','',''),
-'perhapsarumbleofthunderdeveloping'=>array('vielleicht Donnergrollen von sich bildenden Gewittern','','','',''),
-'perhapsarumbleortwoofthunder'=>array('vielleicht Donnergrollen','','','',''),
-'periodsofdrizzle'=>array('Abschnitte mit Nieselregen','','','',''),
-'periodsofheavyrain'=>array('Abschnitte mit kr&auml;ftigem Regen','','','',''),
-'periodsofheavyrainandwindy'=>array('Abschnitte mit kr&auml;ftigem Regen, windig','','','',''),
-'periodsofheavyrainlikely'=>array('Abschnitte mit kr&auml;ftigem Regen wahrscheinlich','','','',''),
-'periodsoflightrain'=>array('Abschnitte mit leichtem Regen','','','',''),
-'periodsoflightrainanddrizzle'=>array('Abschnitte mit leichtem Regen und Nieselregen','','','',''),
-'periodsoflightrainandshowers'=>array('Abschnitte mit leichtem Regen und Schnee','','','',''),
-'periodsoflightrainandsnow'=>array('Abschnitte mit leichtem Regen und Schnee','','','',''),
-'periodsoflightraindeveloping'=>array('Abschnitte mit sich bildendem leichtem Regen','','','',''),
-'periodsoflightsnow'=>array('Abschnitte mit leichtem Schnee','','','',''),
-'periodsofrain'=>array('Abschnitte mit Regen','','','',''),
-'periodsofrainanddrizzle'=>array('Abschnitte mit Regen oder Nieselregen','','','',''),
-'periodsofrainandpossiblyathunderstorm'=>array('Abschnitte mit Regen und vielleicht Gewitter','','','',''),
-'periodsofrainandsnow'=>array('Abschnitte mit Regen und Schnee','','','',''),
-'periodsofrainandsnowshowers'=>array('Abschnitte mit Regen und Schneeschauern','','','',''),
-'periodsofrainandsnowtaperingoff'=>array('Abschnitte mit Regen und Schnee lassen nach','','','',''),
-'periodsofrainandwind'=>array('Abschnitte mit Regen und Wind','','','',''),
-'periodsofrainandwindy'=>array('Abschnitte mit Regen, windig','','','',''),
-'periodsofrainandwindyattimes'=>array('Abschnitte mit Regen, zeitweise windig','','','',''),
-'periodsofrainlikely'=>array('Abschnitte mit Regen wahrscheinlich','','','',''),
-'periodsofshowers'=>array('Abschnitte mit Schauern','','','',''),
-'periodsofsnow'=>array('Abschnitte mit Schnee','','','',''),
-'periodsofsnowandsnowshowers'=>array('Abschnitte mit Schnee und Schneeschauern','','','',''),
-'periodsofsnowandwindy'=>array('Abschnitte mit Schnee und Wind','','','',''),
-'periodsofsnowshowers'=>array('Abschnitte mit Schneeschauern','','','',''),
-'plentifulsunshine'=>array('viel Sonnenschein','','','',''),
-'plentyofsun'=>array('viel Sonne','','','',''),
-'plentyofsunshine'=>array('viel Sonnenschein','','','',''),
-'possiblyheavy'=>array('m&ouml;glicherweise stark','','','',''),
-'possiblyheavyattimes'=>array('m&ouml;glicherweise zeitweise stark','','','',''),
-'possiblysevere'=>array('m&ouml;glicherweise heftig','','','',''),
-'precipitationturningtoamixtureofrainandsnow'=>array('Niederschlag wird ein Mix aus Regen und Schnee','','','',''),
-'quitewindy'=>array('relativ windig','','','',''),
-'rain/icemixed'=>array('Regen / Eisregen','','','',''),
-'rain/snowmix'=>array('Regen und Schneemix','','','',''),
-'rain/snowshowers'=>array('Regen / Schneeschauer','','','',''),
-'rain'=>array('Regen','','','',''),
-'rainalong'=>array('Regen','','','',''),
-'rainandafewthunderstorms'=>array('Regen und ein paar Gewitter','','','',''),
-'rainandafewthunderstormslikely'=>array('Regen und ein paar Gewitter wahrscheinlich','','','',''),
-'rainandapossiblethunderstorm'=>array('Regen und vielleicht Gewitter','','','',''),
-'rainanddrizzle'=>array('Regen und Nieselregen','','','',''),
-'rainanddrizzleexpected'=>array('Regen und Nieselregen erwartet','','','',''),
-'rainanddrizzlelikely'=>array('Regen oder Nieselregen wahrscheinlich','','','',''),
-'rainandfreezingrain'=>array('Regen und &uuml;berfrierende N&auml;sse','','','',''),
-'rainandheavyattimes'=>array('Regen, manchmal kr&auml;ftig','','','',''),
-'rainandperhapsathunderstorm'=>array('Regen und vielleicht ein Gewitter','','','',''),
-'rainandpossiblyathunderstorm'=>array('Regen und vielleicht ein Gewitter','','','',''),
-'rainandpossiblysomethunder'=>array('Regen und vielleicht Donner','','','',''),
-'rainandscatteredthunderstorms'=>array('Rewgen und vertreut Gewitter','','','',''),
-'rainandsnow'=>array('Regen und Schnee','','','',''),
-'rainandsnowchangingtoallrain'=>array('Regen und Schnee gehen in Regen &uuml;ber','','','',''),
-'rainandsnowdiminishing'=>array('abnehmender Regen und Schneefall','','','',''),
-'rainandsnowpartlycloudy'=>array('Regen und Schnee - teilweise bew&ouml;lkt','','','',''),
-'rainandsnowshowers'=>array('Regen und Schneeschauer','','','',''),
-'rainandsnowshowerschangingtomainlyrainshowers'=>array('Regen und Schneeschauer, in Regen &uuml;bergehend','','','',''),
-'rainandsnowshowerschangingtorainshowers'=>array('Regen und Schneeschauer, in Regen &uuml;bergehend','','','',''),
-'rainandsnowshowersmixed'=>array('Mix von Regen und Schneeschauer','','','',''),
-'rainandsnowshowerspartlycloudy'=>array('Regen- und Schneeschauer - teilweise bew&ouml;lkt','','','',''),
-'rainandsnowshowerstransitioningtosnowshowers'=>array('Regen und Schneeschauer gehen zunehmend in Schneeschauer &uuml;ber','','','',''),
-'rainandsnowtaperingoff'=>array('abnehmender Regen und Schneefall','','','',''),
-'rainandsnowtaperingtoscatteredrainshowers'=>array('Regen und Schnee geht in strichweise Regenschauer &uuml;ber','','','',''),
-'rainandsnowtransitioningtosnowshowers'=>array('Regen und Schnee gehen in Schneeschauer &uuml;ber','','','',''),
-'rainandsnowturningtorain'=>array('Regen und Schnee, der in Regen &uuml;bergeht','','','',''),
-'rainandstrongwinds'=>array('Regen und starker Wind','','','',''),
-'rainandthunder'=>array('Regen und Donner','','','',''),
-'rainandthunderstorms'=>array('Regen und Gewitter','','','',''),
-'rainandwind'=>array('Regen und Wind','','','',''),
-'rainarriving'=>array('einsetzender Regen','','','',''),
-'rainattimes'=>array('zeitweise Regen','','','',''),
-'raindeveloping'=>array('aufkommender Regen','','','',''),
-'raindiminishingtoafewshowers'=>array('Regen geht in einige wenige Schauer &uuml;ber','','','',''),
-'raindiminishingtoafewshowersby'=>array('Regen geht in einige wenige Schauer &uuml;ber','','','',''),
-'rainending'=>array('endender Regen','','','',''),
-'rainendingthenfoggy'=>array('endender Regen, dann nebelig','','','',''),
-'rainfallwillbelocallyheavyattimes'=>array('Regen, lokal kr&auml;ftig','','','',''),
-'rainheavyattimes'=>array('teilweise kr&auml;ftiger Regen','','','',''),
-'rainlikely'=>array('Regen wahrscheinlich','','','',''),
-'rainlikelyandperhapsarumbleortwoofthunder'=>array('Regen wahrscheinlich und gelegentlich Donnergrollen','','','',''),
-'rainlikely-athundershowerispossible'=>array('wahrscheinlich Regen','','','',''),
-'rainlikely-itwillbeheavyattimes'=>array('Regen wahrscheinlich, teilweise sehr kr&auml;ftig','','','',''),
-'rainmaybeheavy'=>array('Starkregen m&ouml;glich','','','',''),
-'rainmixed'=>array('Regenmix','','','',''),
-'rainmixing'=>array('Regenmix','','','',''),
-'rainorsnowshowers'=>array('Regen oder Schneeschauer','','','',''),
-'rainshowers'=>array('Regenschauer','','','',''),
-'rainshowersalong'=>array('Regenschauer','','','',''),
-'rainshowersasteadylightrain'=>array('Regenschauer / leichter Regen','','','',''),
-'rainshowersattimes'=>array('zeitweise Regenschauer','','','',''),
-'rainshowerschangingtolightsnow'=>array('Regenschauer gehen in leichten Schnee &uuml;ber','','','',''),
-'rainshowerschangingtomixedrainandsnow'=>array('Regenschauer gehen in einen Mix aus Regen und Schnee &uuml;ber','','','',''),
-'rainshowerschangingtosnowshowers'=>array('Regenschauer gehen in Schneeschauer &uuml;ber','','','',''),
-'rainshowerscontinuing'=>array('weiterhin Regenschauer','','','',''),
-'rainshowerslessnumerous'=>array('abnehmende Regenschauer','','','',''),
-'rainshowerslightfreezingrain'=>array('leichte Regenschauer - &uuml;berfrierende N&auml;sse','','','',''),
-'rainshowersmixing'=>array('Regenschauer','','','',''),
-'rainshowersmoreintermittent'=>array('zunehmend anhaltende Regenschauer','','','',''),
-'rainshowersmorewidelyscattered'=>array('weiter vertreute Regenschauer','','','',''),
-'rainshowerssteadierandheavier'=>array('Regenschauer werden kr&auml;ftiger und anhaltender','','','',''),
-'rainshowersthenafewsnowshowers'=>array('Regenschauer, dann Schneeschauer','','','',''),
-'rainshowersthenamixofrainandfreezingrain'=>array('Regenschauer, dann Mix aus Regen und &uuml;berfrierendem Regen','','','',''),
-'rainshowersthenpartlycloudy'=>array('Regenschauer, dann teilweise bew&ouml;lkt','','','',''),
-'rainshowersthenthundershowers'=>array('Regenschauer, dann Schneeschauer','','','',''),
-'rainshowerswillevolveintoamoresteadyrain'=>array('Regenschauer geht in Dauerregen &uuml;ber','','','',''),
-'rainthatshouldbeending'=>array('Abklingender und endender Regen','','','',''),
-'recordhightemperaturesexpected'=>array('Rekordtemperaturen erwartet','','','',''),
-'recordlowtemperaturesexpected'=>array('Rekordtieftemperaturen erwartet','','','',''),
-'remainingcloudy'=>array('es bleibt wolkig','','','',''),
-'remainingmainlycloudy'=>array('es bleibt bedeckt','','','',''),
-'scatteredclouds'=>array('strichweise Wolken','','','',''),
-'scatteredflurriesandsnowshowers'=>array('strichweise leichtes Schneegest&ouml;ber und Schneeschauer','','','',''),
-'scatterednightshowers'=>array('strichweise Regenschauer','','','',''),
-'scatteredrainshowers'=>array('strichweise Regenschauer','','','',''),
-'scatteredshowers'=>array('strichweise Schauer','','','',''),
-'scatteredshowersandthunderstorms'=>array('strichweise Schauer und Gewitter','','','',''),
-'scatteredshowersandthunderstormsdeveloping'=>array('strichweise Bildung von Schauern und Gewittern','','','',''),
-'scatteredshowersdeveloping'=>array('strichweise Bildung von Schauern','','','',''),
-'scatteredshowersstillpossible'=>array('strichweise Schauer m&ouml;glich','','','',''),
-'scatteredsnowflurriesandsnowshowers'=>array('strichweise Schneegest&ouml;ber und Schneeschauer','','','',''),
-'scatteredsnowflurriesandsnowshowerspossible'=>array('strichweise Schneegest&ouml;ber und Schneeschauer m&ouml;glich','','','',''),
-'scatteredsnowshowers'=>array('strichweise Schneeschauer','','','',''),
-'scatteredsnowshowersmainly'=>array('strichweise Schneeschauer','','','',''),
-'scatteredstrongstorms'=>array('strichweise starke Gewitter','','','',''),
-'scatteredstrongthunderstorms'=>array('strichweise starke Gewitter','','','',''),
-'scatteredstrongtoseverethunderstorms'=>array('strichweise starke bis schwere Gewitter','','','',''),
-'scatteredthunderstorms'=>array('strichweise Gewitter','','','',''),
-'scatteredthunderstormsandwindy'=>array('strichweise Gewitter und windig','','','',''),
-'scatteredthunderstormsarriving'=>array('strichweise Gewitterbildung','','','',''),
-'scatteredthunderstormsdeveloping'=>array('strichweise Gewitterbildung','','','',''),
-'scatteredthunderstormsmainly'=>array('haupts&auml;chlich strichweise Gewitter','','','',''),
-'scatteredthunderstormsmorewidespread'=>array('weiter verstreute Gewitter','','','',''),
-'scatteredthunderstormspossible'=>array('strichweise Gewitter m&ouml;glich','','','',''),
-'scatteredthunderstorms-possiblysevere'=>array('strichweise Gewitter - m&ouml;glicherweise schwer','','','',''),
-'showers'=>array('Schauer','','','',''),
-'showersandafewthundershowers'=>array('Schauer und einige wenige Gewitterregen','','','',''),
-'showersandafewthunderstorms'=>array('Schauer und einige wenige Gewitter','','','',''),
-'showersandafewthunderstormslikely'=>array('Schauer und einige wenige Gewitter wahrscheinlich','','','',''),
-'showersandapossiblethunderstorm'=>array('Schauer und m&ouml;gliche Gewitter','','','',''),
-'showersandathunderstormortwo'=>array('Schauer und ein oder zwei Gewitter','','','',''),
-'showersandscatteredthunderstorms'=>array('Regen und strichweise Gewitter','','','',''),
-'showersandthundershowers'=>array('Schauer und Gewitter','','','',''),
-'showersandthundershowerslikely'=>array('Schauer und Gewitterregen wahrscheinlich','','','',''),
-'showersandthunderstorms'=>array('Schauer und Gewitter','','','',''),
-'showersandthunderstormslikely'=>array('Schauer und Gewitter wahrscheinlich','','','',''),
-'showersandthunderstormslikely-heavyrainfallispossible'=>array('Schauer und Gewitter wahrscheinlich - kr&auml;ftiger Regen','','','',''),
-'showersandthunderstormslikely-onlyaslightchanceformorestorms'=>array('Schauer und Gewitter wahrscheinlich - geringe Wahrscheinlichkeit weiterer St&uuml;rme','','','',''),
-'showersandthunderstorms-possiblysevere'=>array('Schauer und Gewitter - m&ouml;glicherweise schwer','','','',''),
-'showersandthunderstorms-possiblystrong'=>array('Schauer und Gewitter - m&ouml;glicherweise stark','','','',''),
-'showersarriving'=>array('einsetzende Schauer','','','',''),
-'showersarrivingsometime'=>array('einsetzende Schauer','','','',''),
-'showersasteady'=>array('Schauer','','','',''),
-'showersasteadylightrain'=>array('Schauer / leichter Regen','','','',''),
-'showersasteadyrain'=>array('Schauer / leichter Regen','','','',''),
-'showersattimes'=>array('zeitweise Schauer','','','',''),
-'showerschangingovertosnow'=>array('Schauer gehen in Schnee &uuml;ber','','','',''),
-'showerscontinuing'=>array('weiterhin Schauer','','','',''),
-'showersdeveloping'=>array('aufkommende Schauer','','','',''),
-'showersending'=>array('endende Schauer','','','',''),
-'showersendingbymidday'=>array('Schauer bis zum Mittag','','','',''),
-'showerslessnumerous'=>array('abnehmende Schauer','','','',''),
-'showerslikely'=>array('Schauer wahrscheinlich','','','',''),
-'showerslikelyalong'=>array('Schauer wahrscheinlich','','','',''),
-'showerslikelyandpossiblyathunderstorm'=>array('Schauer wahrscheinlich und m&ouml;glicherweise Gewitter','','','',''),
-'showersmoreintermittent'=>array('Schauer in l&auml;nger werdenden Abschnitten','','','',''),
-'showersmorenumerous'=>array('zahlreichere Schauer','','','',''),
-'showersofrainandsnow'=>array('Regen- und Schneeschauer','','','',''),
-'showersorthunderstorms'=>array('Schauer oder Gewitter','','','',''),
-'showerspossible'=>array('Schauer m&ouml;glich','','','',''),
-'showerstaperingofftodrizzle'=>array('Schauer gehen in Nieselregen &uuml;ber','','','',''),
-'showersthencontinuedcloudyandwindy'=>array('Schauer, dann bleibt es bew&ouml;lkt und windig','','','',''),
-'showersthenscatteredstrongthunderstorms'=>array('Schauer, dann strichweise starke Gewitter','','','',''),
-'showersthenscatteredthunderstorms'=>array('Schauer, dann strichweise Gewitter','','','',''),
-'showersthenscatteredthunderstormsdeveloping'=>array('Schauer, dann strichweise Gewitterbildung','','','',''),
-'showersthenthundershowers'=>array('Schauer, dann Gewitterregen','','','',''),
-'showersthenthundershowersdeveloping'=>array('Schauer, dann Gewitterbildung','','','',''),
-'showerswidelyscattered'=>array('weiter verstreute Schauer','','','',''),
-'showeryrainsandapossiblerumbleofthunder'=>array('Regenschauer und Donner m&ouml;glich','','','',''),
-'skies'=>array('&nbsp;','','','',''),
-'sleetandfreezingrain'=>array('Schneeregen und &uuml;berfrierender Regen','','','',''),
-'slightchanceofanshower'=>array('Schauer sind gelegentlich m&ouml;glich','','','',''),
-'slightchanceofarainshower'=>array('M&ouml;glichkeit eines Regenschauers','','','',''),
-'slightchanceofashower'=>array('vielleicht Schauer m&ouml;glich','','','',''),
-'slightchanceofashowerthrough'=>array('vielleicht Schauer m&ouml;glich','','','',''),
-'slightchanceofathunderstorm'=>array('Gewitter sind gelegentlich m&ouml;glich','','','',''),
-'snow'=>array('Schnee','','','',''),
-'snowandwindy'=>array('Schnee und windig','','','',''),
-'snowchangingtorain'=>array('erst Schnee, sp&auml;ter Regen','','','',''),
-'snowdeveloping'=>array('aufkommender Schneefall','','','',''),
-'snowflurriesandafewsnowshowers'=>array('leichtes Schneegest&ouml;ber und ein paar Schneeschauer','','','',''),
-'snowflurriesandsnowshowers'=>array('leichtes Schneegest&ouml;ber und Schneeschauer','','','',''),
-'snowlikely'=>array('Schneefall wahrscheinlich','','','',''),
-'snowofvaryingintensity'=>array('Schneefall mit unterschiedlicher Intensit&auml;t','','','',''),
-'snowshowers'=>array('Schneeschauer','','','',''),
-'snowshowersandsteadysnowlikely'=>array('Schneeschauer und stetiger Schneefall wahrscheinlich','','','',''),
-'snowshowersaround'=>array('ab und an immer wieder Schneeschauer','','','',''),
-'snowshowersasteadyaccumulatingsnow'=>array('Schneeschauer / anhaltender Schneefall','','','',''),
-'snowshowersasteadylightsnow'=>array('Schneeschauer / anhaltender leichter Schneefall','','','',''),
-'snowshowersattimes'=>array('zeitweise Schneeschauer','','','',''),
-'snowshowerschangingtorainshowersasthedayprogresses'=>array('Schneeschauer gehen im Tagesverlauf in Regenschauer &uuml;ber','','','',''),
-'snowshowersdeveloping'=>array('aufkommende Schneeschauer','','','',''),
-'snowshowersmainly'=>array('&uuml;berwiegend Schneeschauer','','','',''),
-'snowshowersmixed'=>array('Schneeschauer','','','',''),
-'snowshowersmorescattered'=>array('weiter verstreuter Schneefall','','','',''),
-'snowshowersorflurries'=>array('Schneeschauer oder Schneegest&ouml;ber','','','',''),
-'snowshowerspossible'=>array('Schneeschauer m&ouml;glich','','','',''),
-'snowshowersthatwillmix'=>array('Schneeschauer','','','',''),
-'snowshowerswillchangetolightrainasthedaywearson'=>array('Schneeschauer gehen im Tagesverlauf in leichten Regen &uuml;ber','','','',''),
-'snowshowerswilltransitiontoasteadier'=>array('kr&auml;ftiger werdende Schneeschauer','','','',''),
-'snowtostart'=>array('Schnee zu Beginn','','','',''),
-'snowwillchangetorainshowers'=>array('Schnee geht in Regen &uuml;ber','','','',''),
-'snowwillmix'=>array('Scheemix','','','',''),
-'snowwilltaperoffasafewsnowshowers'=>array('der Schneefall geht in einige wenige Schneeschauer &uuml;ber','','','',''),
-'snowwilltaperoffbutitwillremaincloudy'=>array('der Schneefall nimmt ab, es bleibt bedeckt','','','',''),
-'snowwilltaperofftolightsnow'=>array('der Schneefall wird geringer','','','',''),
-'snowwilltransitiontosnowshowers'=>array('Schnee fall geht in Schneeschauer &uuml;ber','','','',''),
-'soakingrain'=>array('durchn&auml;ssender Regen','','','',''),
-'somebreaksintheovercast'=>array('einige Sonnenstrahlen durch den ansonsten bedeckten Himmel','','','',''),
-'someclearing'=>array('etwas Aufkl&auml;rung','','','',''),
-'someclearingexpected'=>array('etwas Aufkl&auml;rung','','','',''),
-'someclouds'=>array('wenige Wolken','','','',''),
-'somecloudsandpossiblyanisolatedthunderstorm'=>array('wenige Wolken und vielleicht ein vereinzeltes Gewitter','','','',''),
-'somecloudyintervals'=>array('einige wolkige Abschnitte','','','',''),
-'somedecreaseinclouds'=>array('Abnahme der Bew&ouml;lkung','','','',''),
-'somedrizzle'=>array('etwas Nieselregen','','','',''),
-'somefog'=>array('etwas Nebel','','','',''),
-'somefogpossible'=>array('etwas Nebel m&ouml;glich','','','',''),
-'someheavy'=>array('manchmal kr&auml;ftig','','','',''),
-'somelightrain'=>array('manchmal leichter Regen','','','',''),
-'somelightrainislikely'=>array('leichter Regen wahrscheinlich','','','',''),
-'somelightrainwillfall'=>array('leichter Regen','','','',''),
-'somelightsnow'=>array('leichter Schneefall','','','',''),
-'somelocallyheavydownpoursarepossible'=>array('&ouml;rtlich kr&auml;ftiger Starkregen m&ouml;gloch','','','',''),
-'somemaybelocallystrong'=>array('einige k&ouml;nnen &ouml;rtlich heftig werden','','','',''),
-'somemaybesevere'=>array('einige k&ouml;nnen heftig sein','','','',''),
-'somemaycontainheavyrain'=>array('teilweise Starkregen','','','',''),
-'somepassingclouds'=>array('vor&uuml;berziehende Wolken','','','',''),
-'somepatchydrizzle'=>array('feuchter Nebel','','','',''),
-'somerainandsnow'=>array('etwas Regen und Schnee','','','',''),
-'somerainorsnowshowers'=>array('Regen- und Schneeschauer','','','',''),
-'somerainshowers'=>array('Regenschauer','','','',''),
-'somescatteredshowers'=>array('strichweise Schauer','','','',''),
-'somescatteredshowerspossible'=>array('strichweise Schauer m&ouml;glich','','','',''),
-'somescatteredthunderstorms'=>array('strichweise Gewitter','','','',''),
-'someshowers'=>array('Schauer','','','',''),
-'someshowersthenpartlycloudy'=>array('Schauer, dann teilweise bew&ouml;lkt','','','',''),
-'somesnowmixingin'=>array('teilweise Schneefall','','','',''),
-'somesnowshowers'=>array('Schneeschauer','','','',''),
-'somestorms'=>array('Sturm','','','',''),
-'somestrong'=>array('einige kr&auml;ftig','','','',''),
-'somesun'=>array('etwas Sonne','','','',''),
-'somesunshine'=>array('etwas Sonnenschein','','','',''),
-'somethunderstormsmaybesevere'=>array('einige Gewitter k&ouml;nnten schwer werden','','','',''),
-'sometimesheavy'=>array('machmal kr&auml;ftig','','','',''),
-'steadierrain'=>array('stetigerer Regen','','','',''),
-'steadiersnow'=>array('stetigerer Schneefall','','','',''),
-'steady'=>array('stetig','','','',''),
-'steadylightrain'=>array('leichter Dauerregen','','','',''),
-'steadyrain'=>array('Dauerregen','','','',''),
-'steadysnow'=>array('stetiger Schneefall','','','',''),
-'stillachanceofshowers'=>array('weiterhin Schauer m&ouml;glich','','','',''),
-'stormscouldcontaindamagingwinds'=>array('St&uuml;me k&ouml;nnten mit gef&auml;hrlichen Winden auftreten','','','',''),
-'stormsmayproducelargehailandstrongwinds'=>array('St&uuml;rme mit Hagel und starken Winden m&ouml;glich','','','',''),
-'stormsmorenumerous'=>array('zahlreichere St&uuml;rme','','','',''),
-'stormsmorenumeroushours'=>array('zahlreichere St&uuml;rme','','','',''),
-'strongthunderstorms'=>array('starke Gewitter','','','',''),
-'sun'=>array('Sonne','','','',''),
-'sunandafewclouds'=>array('Sonne und einige wenige Wolken','','','',''),
-'sunandafewpassingclouds'=>array('sonnig bei vorbeiziehenden Wolken','','','',''),
-'sunandcloudsmixed'=>array('Sonne und Wolken Mix','','','',''),
-'sunny'=>array('sonnig','','','',''),
-'sunnyalong'=>array('sonnig','','','',''),
-'sunnyandwind'=>array('sonnig und windig','','','',''),
-'sunnyandwindy'=>array('sonnig und windig','','','',''),
-'sunnyskies'=>array('sonniger Himmel','','','',''),
-'sunnyskiesby'=>array('sonniger Himmel','','','',''),
-'sunnyskiesduring'=>array('sonniger Himmel','','','',''),
-'sunnyskieshours'=>array('sonniger Himmel','','','',''),
-'sunnythencloudy'=>array('sonnig, dann wolkig','','','',''),
-'sunnythenincreasingcloudiness'=>array('sonnig, dann zunehmende Bew&ouml;lkung','','','',''),
-'sunnythenincreasingclouds'=>array('sonnig, dann zunehmende Wolken','','','',''),
-'sunnythenmostlycloudy'=>array('sonnig, dann meist bew&ouml;lkt','','','',''),
-'sunnythensomescatteredstrongthunderstorms'=>array('sonnig, dann strichweise einige starke Gewitter','','','',''),
-'sunnytopartlycloudy'=>array('sonnig bis teilweise bew&ouml;lkt','','','',''),
-'sunshine'=>array('Sonnenschein','','','',''),
-'sunshineafterfog'=>array('auf den Nebel folgt Sonnenschein','','','',''),
-'sunshinealong'=>array('Sonnenschein','','','',''),
-'sunshineandafewclouds'=>array('Sonnenschein und ein paar Wolken','','','',''),
-'sunshineandcloudsmixed'=>array('Mix aus Sonnenschein und Wolken','','','',''),
-'sunshineandsomeclouds'=>array('Mix aus Sonnenschein und wenigen Wolken','','','',''),
-'sunshinethenmostlycloudy'=>array('Sonnenschein, dann &uuml;berwiegend bedeckt','','','',''),
-'sunshinethenscatteredstrongthunderstorms'=>array('Sonnenschein, dann strichweise starke Gewitter','','','',''),
-'sunshinetostart'=>array('Sonnenschein zu Beginn','','','',''),
-'thechanceofacoupleshowers'=>array('ein paar Schauer m&ouml;glich','','','',''),
-'thechanceofacoupleshowersdeveloping'=>array('Bildung einiger Schauer m&ouml;glich','','','',''),
-'thechanceofanisolatedthunderstorm'=>array('Bildung vereinzelter Gewitter m&ouml;glich','','','',''),
-'thechanceofsomethunder'=>array('Donner m&ouml;glich','','','',''),
-'thenachanceofanisolatedthunderstorm'=>array('dann m&ouml;glicherweise vereinzelte Gewitter','','','',''),
-'thenafewclouds'=>array('dann einige wenige Wolken','','','',''),
-'thenafewshowers'=>array('dann ein paar Schauer','','','',''),
-'thenamixofrainandsnow'=>array('dann ein Mix aus Regen und Schnee','','','',''),
-'thenaslightchanceofthunderstorms'=>array('dann m&ouml;glicherweise Gewitter','','','',''),
-'thenasteadyandheavysnowlikely'=>array('dann anhaltender und kr&auml;ftiger Schneefall wahrscheinlich','','','',''),
-'thenclear'=>array('dann klar','','','',''),
-'thenclearing'=>array('dann Aufkl&auml;rung','','','',''),
-'thenclearingandwindy'=>array('dann Aufkl&auml;rung und windig','','','',''),
-'thencloudslingering'=>array('dann verweilende Wolken','','','',''),
-'thencloudy'=>array('dann bew&ouml;lkt','','','',''),
-'thencloudyandwindy'=>array('dann bew&ouml;lkt und windig','','','',''),
-'thencloudyskies'=>array('dann bew&ouml;lkter Himmel','','','',''),
-'thencloudyskiesthrough'=>array('dann bew&ouml;lkter Himmel','','','',''),
-'thenfoggy'=>array('dann nebelig','','','',''),
-'thenfoggyanddamp'=>array('dann nebelig und feucht','','','',''),
-'thenisolatedthunderstorms'=>array('dann vereinzelt Gewitter','','','',''),
-'thenmainlyclear'=>array('dann &uuml;berwiegend klar','','','',''),
-'thenmainlycloudy'=>array('dann haupts&auml;chlich bew&ouml;lkt','','','',''),
-'thenmostlyclear'=>array('dann haupts&auml;chlich klar','','','',''),
-'thenmostlycloudy'=>array('dann &uuml;berwiegend bew&ouml;lkt','','','',''),
-'thenmostlysunny'=>array('dann &uuml;berwiegend sonnig','','','',''),
-'thenmostlysunnyby'=>array('dann meist sonnig','','','',''),
-'thenoccasionaldrizzle'=>array('dann zeitweilig Nieselregen','','','',''),
-'thenoccasionalshowers'=>array('dann gelegentlich Schauer','','','',''),
-'thenoffandonrainshowers'=>array('dann ab und an Regenschauer','','','',''),
-'thenovercast'=>array('dann bedeckt','','','',''),
-'thenpartialclearing'=>array('dann teilweise Aufkl&auml;rung','','','',''),
-'thenpartlycloudy'=>array('dann teilweise wolkig','','','',''),
-'thenpartlytomostlycloudy'=>array('dann teilweise bis &uuml;berwiegend bew&ouml;lkt','','','',''),
-'thenrain'=>array('dann Regen','','','',''),
-'thenremainingcloudy'=>array('dann verbleibt es wolkig','','','',''),
-'thenremainingmainlycloudy'=>array('dann bleibt es &uuml;berwiegend bew&ouml;lkt','','','',''),
-'thenremainingovercast'=>array('dann bedeckt bleibend','','','',''),
-'thenscatteredshowers'=>array('dann strichweise Schauer','','','',''),
-'thenscatteredstrongthunderstorms'=>array('dann strichweise starke Gewitter','','','',''),
-'thenscatteredthunderstorms'=>array('dann strichweise Gewitter','','','',''),
-'thenshowersandthunderstorms'=>array('dann Schauer und Gewitter','','','',''),
-'thenskiesturningmostlyclear'=>array('dann abnehmende Bew&ouml;lkung','','','',''),
-'thenskiesturningmostlysunny'=>array('dann meist sonnig','','','',''),
-'thenskiesturningpartlycloudy'=>array('teilweise bew&ouml;lkter Himmel','','','',''),
-'thensomebreaksintheclouds'=>array('dann teilweise aufbrechende Wolkendecke','','','',''),
-'thensomelingeringshowersstillpossible'=>array('dann  weiterhin einzelne Schauer m&ouml;glich','','','',''),
-'thensomesnowshowers'=>array('dann einige Schneeschauer','','','',''),
-'thensomesun'=>array('dann etwas Sonne','','','',''),
-'thensunny'=>array('dann sonnig','','','',''),
-'thensunnyby'=>array('dann sonnig','','','',''),
-'thensunshine'=>array('dann Sonnenschein','','','',''),
-'thenthechanceofscatteredshowers'=>array('dann m&ouml;glicherweise strichweise Schauer','','','',''),
-'thenthechanceofscatteredshowersdeveloping'=>array('dann m&ouml;glicherweise strichweise Bildung von Schauern','','','',''),
-'thenthechanceofscatteredthunderstorms'=>array('dann m&ouml;glicherweise strichweise Gewittern','','','',''),
-'thenthunderstorms'=>array('dann Gewitter','','','',''),
-'thenthunderstormsdeveloping'=>array('dann Gewitterbildung','','','',''),
-'thenvariableclouds'=>array('dann unterschiedliche Wolkenfelder','','','',''),
-'thenwindy'=>array('dann windig','','','',''),
-'thepossibilityofanisolatedthunderstorm'=>array('m&ouml;glicherweise einzelnes Gewitter','','','',''),
-'thepossibilityofanisolatedthunderstormdeveloping'=>array('Bildung vereinzelter Gewitter m&ouml;glich','','','',''),
-'thepossibilityofsomescatteredshowers'=>array('Bildung vereinzelter Schauer m&ouml;glich','','','',''),
-'therainandsnow'=>array('Regen und Schnee','','','',''),
-'therainandsnowwillchangetorainshowers'=>array('Regen und Schnee geht in Regenschauer &uuml;ber','','','',''),
-'therainmaybeheavyattimes'=>array('der Regen kann zeitweise kr&auml;ftig werden','','','',''),
-'therainwillbeheavyattimes'=>array('der Regen ist zeitweise kr&auml;ftig','','','',''),
-'thesnowismorelikelytoaccumulate'=>array('wahrscheinlich belibt der Schnee liegen','','','',''),
-'thunder'=>array('Donner','','','',''),
-'thunderispossible'=>array('Donnergrollen m&ouml;glich','','','',''),
-'thunderpossible'=>array('Donnergrollen m&ouml;glich','','','',''),
-'thundershowers'=>array('Gewitterregen','','','',''),
-'thundershowersdeveloping'=>array('sich bildende Gewitterregen','','','',''),
-'thundershowersfollowingaperiodofrain'=>array('Gewitterregen nach abschnittsweisen Regenf&auml;llen','','','',''),
-'thunderstorms'=>array('Gewitter','','','',''),
-'thunderstormsby'=>array('Gewitter','','','',''),
-'thunderstormsdeveloping'=>array('aufkommende Gewitter','','','',''),
-'thunderstormsinthearea'=>array('aufkommende lokale Gewitter','','','',''),
-'thunderstormslikely'=>array('Gewitter wahrscheinlich','','','',''),
-'thunderstormslikely-possiblysevere'=>array('Gewitter - m&ouml;glicherweise heftig','','','',''),
-'thunderstormslikely-possiblystrong'=>array('Gewitter wahrscheinlich - m&ouml;glicherweise heftig','','','',''),
-'thunderstormspossible'=>array('Gewitter m&ouml;glich','','','',''),
-'thunderstormspossibleaswell'=>array('ebenfalls Gewitter m&ouml;glich','','','',''),
-'thunderstorms-possiblysevere'=>array('Gewitter - m&ouml;glicherweise heftig','','','',''),
-'timesofsunandclouds'=>array('zeitweise Sonne, zeitweise Wolken','','','',''),
-'tropicalstormconditionslikely'=>array('Tropensturm wahrscheinlich','','','',''),
-'tropicalstormconditionspossible'=>array('Tropensturm m&ouml;glich','','','',''),
-'variablecloudinessandverywindy'=>array('unterschiedliche Bew&ouml;lkung und sehr windig','','','',''),
-'variablecloudinessandwindy'=>array('unterschiedliche Bew&ouml;lkung und windig','','','',''),
-'variableclouds'=>array('unterschiedliche Bew&ouml;lkung','','','',''),
-'variablecloudsandwindy'=>array('unterschiedliche Bew&ouml;lkung und windig','','','',''),
-'variablycloudy'=>array('unterschiedliche Bew&ouml;lkung','','','',''),
-'verycold'=>array('sehr kalt','','','',''),
-'veryhot'=>array('sehr heiss','','','',''),
-'verystrongwinds'=>array('sehr starke Winde','','','',''),
-'verywarm'=>array('sehr warm','','','',''),
-'verywindy'=>array('sehr windig','','','',''),
-'warm'=>array('warm','','','',''),
-'warmandhumid'=>array('warm und feucht','','','',''),
-'whichmaybeheavy'=>array('k&ouml;nnte kr&auml;ftig sein','','','',''),
-'whichmaybeheavyattimes'=>array('k&ouml;nnte zeitweise kr&auml;ftig sein','','','',''),
-'widelyscattered'=>array('weit verstreut','','','',''),
-'widelyscatteredshowersandthunderstorms'=>array('weit verstreut Schauer und Gewitter','','','',''),
-'widelyscatteredshowersorathunderstorm'=>array('weit verstreut Schauer oder Gewitter','','','',''),
-'widelyscatteredshowersorthunderstormspossible'=>array('weit verstreut Schauer oder Gewitter m&ouml;glich','','','',''),
-'windincreasing'=>array('zunehmender Wind','','','',''),
-'windsdiminishing'=>array('diminshing Wind','','','',''),
-'windy'=>array('windig','','','',''),
-'windyand'=>array('windig','','','',''),
-'windyandcloudy'=>array('windig und bew&ouml;lkt','','','',''),
-'windyandpartlycloudyaftersomedrizzle'=>array('windig und bew&ouml;lkt nach etwas Nieselregen','','','',''),
-'windyattimes'=>array('bei Zeiten windig','','','',''),
-'windyconditions'=>array('windig','','','',''),
-'windyconditionsandsnowshowers'=>array('windig, Schneeschauer','','','',''),
-'withscatteredthunderstorms'=>array('strichweise Gewitter','','','',''),
-'withsnowshowers'=>array('Schneeschauer','','','',''),
-
-  // : Insert array End above
-  
-'   '=>array('','','','',''),
-'  '=>array('','','','',''),
-' '=>array('','','','',''),
-''=>array('','','','',''),
-  
-
-
-    );  
-      if(!isset($text_long[$term_in][0])or $text_long[$term_in][0]==""){
-      $term_out=$term_in;
-      $flag_translated=0;}
-      else
-      {$term_out=$text_long[$term_in][0];
-      $flag_translated=1;}
-      //echo "Totranslate:".$term_in.":ToTranslate ";
-      //echo "IsTranslate:".$term_out.":IsTranslate "; 
-    
-     
-      return array($term_out,$flag_translated);
-
+  $pos=strpos($gg_weather[0][1][1]," PM");
+  if($pos> 0){$add_hours=12;}
+  $pos=strpos($gg_weather[0][1][1],":");  
+  $pos_1=$pos-2;
+  $hours=substr($gg_weather[0][1][1],$pos_1,2);
+  $minutes=substr($gg_weather[0][1][1],$pos+1,2);
+  $time=$hours+$minutes/60+$add_hours;
+  if($time<=5.5 or $time>=18.5){
+    $gg_weather[0][19][7]="night";}
+  else{
+    $gg_weather[0][19][7]="day";}  
 }
 ?>

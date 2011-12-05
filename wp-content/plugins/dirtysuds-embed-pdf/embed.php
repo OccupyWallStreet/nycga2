@@ -4,10 +4,12 @@ Plugin Name: DirtySuds - Embed PDF
 Plugin URI: http://dirtysuds.com
 Description: Embed a PDF using Google Docs Viewer
 Author: Dirty Suds
-Version: 1.03
+Version: 1.04
 Author URI: http://blog.dirtysuds.com
+License: GPL2
 
 Updates:
+1.04 20111125 - Automatically enable auto-embeds on activation
 1.03 20110321 - Automatically enable auto-embeds on activation
 1.02 20110315 - Added support for `gdoc` shortcode
 1.01 20110303 - Added support for class and ID attributes
@@ -34,7 +36,6 @@ Updates:
 register_activation_hook( __FILE__, 'dirtysuds_embed_pdf_enable_embeds' );
 wp_embed_register_handler( 'pdf', '#(^(http|wpurl)\:\/\/.+\.pdf$)#i', 'dirtysuds_embed_pdf' );
 add_shortcode( 'gdoc', 'dirtysuds_embed_pdf' );
-add_filter('plugin_row_meta', 'dirtysuds_embed_pdf_rate',10,2);
 
 function dirtysuds_embed_pdf_enable_embeds() {
 	update_option('embed_autourls',1);
@@ -44,21 +45,19 @@ function dirtysuds_embed_pdf( $matches, $atts, $url, $rawattr=null ) {
 	extract( shortcode_atts( array(
 		'height' => get_option('embed_size_h'),
 		'width' => get_option('embed_size_w'),
-		'border' => '',
+		'border' => '0',
 		'style' => '',
 		'title' => '',
 		'class' => 'pdf',
 		'id' => '',
 	), $atts ) );
-
-	$url = str_replace('wpurl://',get_bloginfo('wpurl').'/',$url);
 	
 	if (!strstr($url,'http://') && strstr($atts,'http://')) {
 		$url = $atts;
 		extract( shortcode_atts( array(
 			'height' => get_option('embed_size_h'),
 			'width' => get_option('embed_size_w'),
-			'border' => '',
+			'border' => '0',
 			'style' => '',
 			'title' => '',
 			'class' => 'pdf',
@@ -66,20 +65,39 @@ function dirtysuds_embed_pdf( $matches, $atts, $url, $rawattr=null ) {
 		), $matches ) );
 	}
 
-	$embed = '<iframe src="http://docs.google.com/viewer?url='.urlencode($url).'&amp;embedded=true" style="height:'.$height.'px;width:'.$width.'px;" class="'.$class.'"';
+	$embed = '<iframe src="http://docs.google.com/viewer?url='.urlencode($url).'&amp;embedded=true" class="'.$class.'"';
 	if ($id) {
 		$embed .= ' id="'.$id.'"';
 	}
-	if ($border) {
-		$embed .= ' frameborder="'.$border.'"';
+	
+	$embed .= ' frameborder="'.$border.'"';
+	if ($border != '0') {
+		$border .= 'px';
 	}
+	
 	if ($style) {
-		$embed .= ' style="'.$style.'"';
+		$embed .= ' style="height:'.$height.'px;width:'.$width.'px;border:'.$border.';'.$style.'"';
+	} else {
+		$embed .= ' style="height:'.$height.'px;width:'.$width.'px;border:'.$border.'"';
 	}
 	if ($title) {
 		$embed .= ' title="'.$title.'"';
 	}
-	$embed .= '></iframe>';
+	$embed .= ' width="'.$width.'" height="'.$height.'"></iframe>';
+	
+	$embed  = '<![if !IE]>'.$embed.'<![endif]>';
+
+	$embed .= '<!--[if IE]>'.
+		'<object width="'.$width.'" height="'.$height.'" type="application/pdf" data="'.$url.'" class="'.$class.' ie"';
+
+	if ($id) {
+		$embed .= ' id="'.$id.'"';
+	}
+	
+	$embed .= '>'.
+		'<div style="width:'.$width.';height:'.$height.';text-align:center;background:#fff;color:#000;margin:0;border:0;padding:0">Unable to display PDF<br /><a href="'.$url.'">Click here to download</a></div>'.
+		'</object>'.
+		'<![endif]-->';	
 
 	return apply_filters( 'embed_pdf', $embed, $matches, $attr, $url, $rawattr  );
 }
@@ -90,3 +108,4 @@ function dirtysuds_embed_pdf_rate($links,$file) {
 		}
 	return $links;
 }
+add_filter('plugin_row_meta', 'dirtysuds_embed_pdf_rate',10,2);

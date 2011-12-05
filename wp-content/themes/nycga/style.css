@@ -333,6 +333,21 @@ text-shadow: 1px 1px 0 #EEE;
   margin-top: 5px;
 }
 
+/* these styles overwrite styles from /plugins/buddypress-activity-plus/css/bpfb_toolbar.css to insert our own custom images*/
+
+#bpfb_addPhotos {
+	background: url(img/system/camera.png) left top no-repeat !important;
+}
+#bpfb_addVideos {
+	background: url(img/system/film.png) left top no-repeat !important;
+}
+#bpfb_addLinks {
+	background: url(img/system/link.png) left top no-repeat !important;
+}
+#bpfb_addDocuments {
+	background: url(img/system/document.png) left top no-repeat !important;
+}
+
 /**************** home page blurb ***************/
 #blurb {
   display: block !important;

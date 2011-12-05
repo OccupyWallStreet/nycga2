@@ -4,7 +4,7 @@
  Plugin URI: http://mvied.com/projects/wordpress-https/
  Description: WordPress HTTPS is intended to be an all-in-one solution to using SSL on WordPress sites.
  Author: Mike Ems
- Version: 2.0
+ Version: 2.0.2
  Author URI: http://mvied.com/
  */
 
@@ -24,7 +24,7 @@ if ( !class_exists('WordPressHTTPS') ) {
 		 *
 		 * @var int
 		 */
-		public $version = '2.0';
+		public $version = '2.0.2';
 
 		/**
 		 * Debug Mode
@@ -96,10 +96,10 @@ if ( !class_exists('WordPressHTTPS') ) {
 		protected $options_default = array(
 			'wordpress-https_external_urls' =>			array(),	// External URL's that are okay to rewrite to HTTPS
 			'wordpress-https_unsecure_external_urls' =>	array(),	// External URL's that are okay to rewrite to HTTPS
+			'wordpress-https_ssl_host' =>				'',			// Hostname for SSL Host
+			'wordpress-https_ssl_port' =>				'',			// Port number for SSL Host
 			'wordpress-https_exclusive_https' =>		0,			// Exclusively force SSL on posts and pages with the `Force SSL` option checked.
 			'wordpress-https_frontpage' =>				0,			// Force SSL on front page
-			'wordpress-https_ssl_host' =>				0,			// Hostname for SSL Host
-			'wordpress-https_ssl_port' =>				0,			// Port number for SSL Host
 			'wordpress-https_ssl_admin' =>				0			// Force SSL Over Administration Panel (The same as FORCE_SSL_ADMIN)
 		);
 
@@ -152,11 +152,12 @@ if ( !class_exists('WordPressHTTPS') ) {
 				add_filter('allowed_redirect_hosts' , array(&$this, 'allowed_redirect_hosts'), 10, 1);
 
 				// Remove SSL Host authentication cookies on logout
-				add_action('clear_auth_cookie', array(&$this, 'clear_auth_cookie'));
+				add_action('clear_auth_cookie', array(&$this, 'clear_cookies'));
 
 				// Set authentication cookie
 				if ( $this->is_ssl() ) {
 					add_action('set_auth_cookie', array(&$this, 'set_cookie'), 10, 5);
+					add_action('set_logged_in_cookie', array(&$this, 'set_cookie'), 10, 5);
 				}
 
 				// Fix admin_url on login page
@@ -188,8 +189,7 @@ if ( !class_exists('WordPressHTTPS') ) {
 			}
 
 			// Start output buffering
-			add_action('wp', array(&$this, 'buffer_start'));
-			add_action('admin_init', array(&$this, 'buffer_start'));
+			add_action('init', array(&$this, 'buffer_start'));
 
 			// Check if the page needs to be redirected
 			add_action('template_redirect', array(&$this, 'redirect_check'));
@@ -255,8 +255,6 @@ if ( !class_exists('WordPressHTTPS') ) {
 		}
 
 		/**
-		 * Install
-		 *
 		 * Operations performed when plugin is activated.
 		 *
 		 * @param none
@@ -274,34 +272,25 @@ if ( !class_exists('WordPressHTTPS') ) {
 		}
 
 		/**
-		 * Uninstall
-		 *
-		 * Operations performed when plugin is deleted.
-		 *
-		 * @param none
-		 * @return void
-		 */
-		public function uninstall() {
-			// Delete options
-			foreach ( $this->options_default as $option => $value ) {
-				if ( get_option($option) !== false ) {
-					delete_option($option);
-				}
-			}
-			// Delete force_ssl custom_field from posts and pages
-			delete_metadata('post', null, 'force_ssl', null, true);
-		}
-
-		/**
-		 * Update
-		 *
 		 * Updates plugin from one version to another
 		 *
 		 * @param none
 		 * @return void
 		 */
 		protected function update() {
-			// Version < 2.0
+			// Remove deprecated options
+			$deprecated_options = array(
+				'wordpress-https_sharedssl_site',
+				'wordpress-https_internalurls',
+				'wordpress-https_externalurls',
+				'wordpress-https_bypass',
+				'wordpress-https_disable_autohttps'
+			);
+			foreach( $deprecated_options as $option ) {
+				delete_option($option);
+			}
+
+			// Upgrade from version < 2.0
 			if ( get_option('wordpress-https_sharedssl') ) {
 				$shared_ssl = ((get_option('wordpress-https_sharedssl') == 1) ? true : false);
 
@@ -331,8 +320,6 @@ if ( !class_exists('WordPressHTTPS') ) {
 		}
 
 		/**
-		 * Log
-		 *
 		 * Adds a string to an array of log entries
 		 *
 		 * @param none
@@ -343,8 +330,6 @@ if ( !class_exists('WordPressHTTPS') ) {
 		}
 
 		/**
-		 * Warnings
-		 *
 		 * Returns an array of warnings to notify the user of on the settings page
 		 *
 		 * @param none
@@ -374,13 +359,37 @@ if ( !class_exists('WordPressHTTPS') ) {
 		 * @return string $url
 		 */
 		static function get_url($string) {
-			preg_match_all('/(http|https):\/\/[\/-\w\.,#?=\+&%;:\d]+/i', $string, $url);
+			preg_match_all('/(http|https):\/\/[\/-\w\d\.,~#@^!\'()?=\+&%;:[\]]+/i', $string, $url);
 			$url = @$url[0][0];
 			return $url;
 		}
 
 		/**
-		 * Replace HTTPS with HTTP
+		 * Retrieves the base host of a given URL
+		 *
+		 * @param string $url
+		 * @return string $url_host
+		 */
+		function get_url_domain($url) {
+			$url = $this->get_url($url);
+			$url_parts = parse_url($url);
+			$url_host_parts = explode('.', $url_parts['host']);
+
+			// Find base hostname
+			$url_host = $url_parts['host'];
+			for ($i = 0; $i < sizeof($url_host_parts)-1; $i++) {
+				$test_host = str_replace($url_host_parts[$i] . '.', '', $url_host);
+				if ( $this->get_file_contents($url_parts['scheme'] . '://' . $test_host) ) {
+					$url_host = $test_host;
+				} else {
+					break;
+				}
+			}
+			return $url_host;
+		}
+
+		/**
+		 * Replace HTTPS with HTTP in a string
 		 *
 		 * @param string $string
 		 * @return string $string
@@ -390,7 +399,7 @@ if ( !class_exists('WordPressHTTPS') ) {
 		}
 
 		/**
-		 * Replace HTTP with HTTPS
+		 * Replace HTTP with HTTPS in a string
 		 *
 		 * @param string $string
 		 * @return string $string
@@ -422,10 +431,14 @@ if ( !class_exists('WordPressHTTPS') ) {
 		 */
 		function add_port($string) {
 			$url = $this->get_url($string);
-			if ( $this->ssl_port && strpos($url, ':' . $this->ssl_port) === false ) {
-				$url_host = parse_url($url, PHP_URL_HOST);
-				$url_host_port = parse_url($url, PHP_URL_HOST) . ':' . $this->ssl_port;
-				$string = str_replace($url_host, $url_host_port, $string);
+			$url_parts = parse_url($url);
+			if ( $url_parts['port'] ) {
+				$url = $this->remove_port($url);
+			}
+
+			if ( $this->ssl_port && $this->ssl_port != 80 && $this->ssl_port != 443 && strpos($url, ':' . $this->ssl_port) === false ) {
+				$url_host_port = $url_parts['host'] . ':' . $this->ssl_port;
+				$string = str_replace($url_parts['host'], $url_host_port, $string);
 			}
 			return $string;
 		}
@@ -452,6 +465,7 @@ if ( !class_exists('WordPressHTTPS') ) {
 		 * @return string $string
 		 */
 		function replace_http_url($string) {
+			// URL in string to be replaced
 			$url_original = $this->get_url($string);
 			if ( $this->is_local($url_original) ) {
 				$url_parts = parse_url($url_original);
@@ -462,6 +476,7 @@ if ( !class_exists('WordPressHTTPS') ) {
 						$url = str_replace($url_parts['path'], $https_url_path . $url_parts['path'], $url);
 					}
 				}
+
 				$url = $this->remove_port($url);
 				$url = $this->add_port($url);
 				$url = $this->replace_http($url);
@@ -501,27 +516,35 @@ if ( !class_exists('WordPressHTTPS') ) {
 		}
 
 		/**
-		 * Checks to see if an external file exists
+		 * Retrieves the contents of a local or external file
 		 *
 		 * @param string $url
-		 * @return boolean
+		 * @return boolean|string Contents of existing file, or false if file does not exist
 		 */
 		static function get_file_contents($url) {
-			if ( @ini_get('allow_url_fopen') ) {
-				$content = @file_get_contents($url);
-				return $content;
-			} else if ( function_exists('curl_init') ) {
+			if ( function_exists('curl_init') ) {
 				$ch = curl_init();
 
 				curl_setopt($ch, CURLOPT_URL, $url);
 				curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER["HTTP_USER_AGENT"]);
 				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_FAILONERROR, true);
+				curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 				curl_setopt($ch, CURLOPT_HEADER, false);
 				curl_setopt($ch, CURLOPT_ENCODING, 'gzip,deflate');
 
 				$content = curl_exec($ch);
+				$info = curl_getinfo($ch);
+				if ( !$info['http_code'] && ( $info['http_code'] == 0 || $info['http_code'] == 302 || $info['http_code'] == 404 ) ) {
+					$content = false;
+				} else if ( $content == "" ) {
+					$content = true;
+				}
 				curl_close($ch);
+				return $content;
+			} else if ( @ini_get('allow_url_fopen') ) {
+				$content = @file_get_contents($url);
 				return $content;
 			}
 			return false;
@@ -538,8 +561,6 @@ if ( !class_exists('WordPressHTTPS') ) {
 		}
 
 		/**
-		 * Process
-		 *
 		 * Processes the output buffer to fix HTML output
 		 *
 		 * @param string $buffer
@@ -565,7 +586,7 @@ if ( !class_exists('WordPressHTTPS') ) {
 				$url = $this->replace_http($this->http_url);
 				$count = substr_count($buffer, $url);
 				if ( $count > 0 ) {
-					$this->log('[FIXED] Updated ' . $count . ' Occurences of URL: ' . $url . ' => ' . $this->replace_https_url($url));
+					$this->log('[FIXED] Updated ' . $count . ' Occurrences of URL: ' . $url . ' => ' . $this->replace_https_url($url));
 					$buffer = str_replace($url, $this->replace_https_url($url), $buffer);
 				}
 			}
@@ -657,7 +678,11 @@ if ( !class_exists('WordPressHTTPS') ) {
 						$attr = $matches[2][$i];
 						$url = $matches[3][$i];
 						if ( $type != 'input' || ( $type == 'input' && $attr == 'image' ) ) {
-							$processed_urls[$url] = $this->https_url . $url;
+							$https_url = $this->https_url;
+							if ( strpos($url, parse_url($https_url, PHP_URL_PATH)) !== false ) {
+								$https_url = str_replace(parse_url($https_url, PHP_URL_PATH), '', $https_url);
+							}
+							$processed_urls[$url] = $https_url . $url;
 							$buffer = str_replace($html, str_replace($url, $processed_urls[$url], $html), $buffer);
 							$this->log('[FIXED] Element: <' . $type . '> - ' . $url . ' => ' . $processed_urls[$url]);
 						}
@@ -787,22 +812,21 @@ if ( !class_exists('WordPressHTTPS') ) {
 		 * @return bool
 		 */
 		public function is_ssl() {
+			$https_url = parse_url($this->https_url);
 			// Some extra checks for proxies and Shared SSL
-			if ( is_ssl() && strpos($_SERVER['HTTP_HOST'], parse_url($this->https_url, PHP_URL_HOST)) === false ) {
+			if ( is_ssl() && $_SERVER['HTTP_HOST'] != $https_url['host'] ) {
 				return false;
 			} else if ( isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https' ) {
 				return true;
 			} else if ( $this->diff_host && !is_ssl() && isset($_SERVER['HTTP_X_FORWARDED_SERVER']) && strpos($this->https_url, 'https://' . $_SERVER['HTTP_X_FORWARDED_SERVER']) !== false ) {
 				return true;
-			} else if ( $this->diff_host && !is_ssl() && strpos($_SERVER['HTTP_HOST'], parse_url($this->https_url, PHP_URL_HOST)) !== false && (!$this->ssl_port || $_SERVER['SERVER_PORT'] == $this->ssl_port) ) {
+			} else if ( $this->diff_host && !is_ssl() && strpos($_SERVER['HTTP_HOST'], $https_url['host']) !== false && (!$this->ssl_port || $_SERVER['SERVER_PORT'] == $this->ssl_port) && (!$https_url['path'] || strpos($_SERVER['REQUEST_URI'], $https_url['path']) !== false) ) {
 				return true;
 			}
 			return is_ssl();
 		}
 
 		/**
-		 * Redirect Check
-		 *
 		 * Checks if the current page needs to be redirected
 		 *
 		 * @param none
@@ -914,15 +938,26 @@ if ( !class_exists('WordPressHTTPS') ) {
 				$scheme = 'auth';
 			}
 
-			$cookie_domain = COOKIE_DOMAIN;
+			//$cookie_domain = COOKIE_DOMAIN;
 			$cookie_path = COOKIEPATH;
 			$cookie_path_site = SITECOOKIEPATH;
 			$cookie_path_plugins = PLUGINS_COOKIE_PATH;
 			$cookie_path_admin = ADMIN_COOKIE_PATH;
 
 			if ( $this->diff_host && $this->is_ssl() ) {
-				// Cookie paths defined to accomodate different SSL Host
-				$cookie_domain = parse_url($this->https_url, PHP_URL_HOST);
+				$http_domain = $this->get_url_domain($this->http_url);
+				$https_domain = $this->get_url_domain($this->https_url);
+				// If SSL Host is a subdomain and we're setting an authentication cookie, the cookie does not need to be set
+				if ( $http_domain == $https_domain && $scheme == 'auth' ) {
+					return;
+				// If SSL Host is a subdomain, make cookie domain a wildcard
+				} else if ( $http_domain == $https_domain ) {
+					$cookie_domain = '.' . $https_domain;
+				// Otherwise, cookie domain set for different SSL Host
+				} else {
+					$cookie_domain = parse_url($this->https_url, PHP_URL_HOST);
+				}
+
 				$cookie_path = rtrim(parse_url($this->https_url, PHP_URL_PATH), '/') . $cookie_path;
 				$cookie_path_site = rtrim(parse_url($this->https_url, PHP_URL_PATH), '/') . $cookie_path_site;
 				$cookie_path_plugins = rtrim(parse_url($this->https_url, PHP_URL_PATH), '/') . $cookie_path_plugins;
@@ -932,13 +967,13 @@ if ( !class_exists('WordPressHTTPS') ) {
 			// Cookie paths defined to accomodate different SSL Host
 			if ( version_compare(phpversion(), '5.2.0', '>=') ) {
 				if ( $scheme == 'logged_in' ) {
-					setcookie($cookie_name, $cookie, $expire, $cookie_path, null, $secure, true);
+					setcookie($cookie_name, $cookie, $expire, $cookie_path, $cookie_domain, $secure, true);
 					if ( $cookie_path != $cookie_path_site ) {
-						setcookie($cookie_name, $cookie, $expire, $cookie_path_site, null, $secure, true);
+						setcookie($cookie_name, $cookie, $expire, $cookie_path_site, $cookie_domain, $secure, true);
 					}
 				} else {
-					setcookie($cookie_name, $cookie, $expire, $cookie_path_plugins, null, false, true);
-					setcookie($cookie_name, $cookie, $expire, $cookie_path_admin, null, false, true);
+					setcookie($cookie_name, $cookie, $expire, $cookie_path_plugins, $cookie_domain, false, true);
+					setcookie($cookie_name, $cookie, $expire, $cookie_path_admin, $cookie_domain, false, true);
 				}
 			} else {
 				if ( !empty($cookie_domain) ) {
@@ -946,26 +981,34 @@ if ( !class_exists('WordPressHTTPS') ) {
 				}
 
 				if ( $scheme == 'logged_in' ) {
-					setcookie($cookie_name, $cookie, $expire, $cookie_path, null, $secure);
+					setcookie($cookie_name, $cookie, $expire, $cookie_path, $cookie_domain, $secure);
 					if ( $cookie_path != $cookie_path_site ) {
-						setcookie($cookie_name, $cookie, $expire, $cookie_path_site, null, $secure);
+						setcookie($cookie_name, $cookie, $expire, $cookie_path_site, $cookie_domain, $secure);
 					}
 				} else {
-					setcookie($cookie_name, $cookie, $expire, $cookie_path_plugins, null);
-					setcookie($cookie_name, $cookie, $expire, $cookie_path_admin, null);
+					setcookie($cookie_name, $cookie, $expire, $cookie_path_plugins, $cookie_domain);
+					setcookie($cookie_name, $cookie, $expire, $cookie_path_admin, $cookie_domain);
 				}
 			}
 		}
 
 		/**
-		 * Clear Authentication Cookie
+		 * Clear Cookies
 		 *
-		 * Clear authentication cookies when using a different SSL Host
+		 * Clear authentication and logged in cookies when using a different SSL Host
 		 *
 		 * @param none
 		 * @return void
 		 */
-		public function clear_auth_cookie() {
+		public function clear_cookies() {
+			$http_domain = $this->get_url_domain($this->http_url);
+			$https_domain = $this->get_url_domain($this->https_url);
+			if ( $http_domain == $https_domain ) {
+					$cookie_domain = '.' . $https_domain;
+					setcookie(LOGGED_IN_COOKIE, ' ', time() - 31536000, $cookie_path, $cookie_domain);
+					setcookie(LOGGED_IN_COOKIE, ' ', time() - 31536000, $cookie_path_site, $cookie_domain);
+			}
+
 			$cookie_domain = parse_url($this->https_url, PHP_URL_HOST);
 			$cookie_path = rtrim(parse_url($this->https_url, PHP_URL_PATH), '/') . COOKIEPATH;
 			$cookie_path_site = rtrim(parse_url($this->https_url, PHP_URL_PATH), '/') . SITECOOKIEPATH;
@@ -1078,50 +1121,67 @@ if ( !class_exists('WordPressHTTPS') ) {
 
 			if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
 				$errors = array();
-
-				foreach ($this->options_default as $key => $default) {
-					if ( !array_key_exists($key, $_POST) && $default == 0 ) {
-						$_POST[$key] = 0;
-						update_option($key, $_POST[$key]);
-					} else {
-						if ( $key == 'wordpress-https_ssl_host' && $_POST[$key] != '' ) {
-							// Add scheme if it doesn't exist so that parse_url does not fail
-							if ( strpos($url, 'http://') === false && strpos($url, 'https://') === false ) {
-								$_POST[$key] = $this->replace_http('http://' . $_POST[$key]);
-							}
-							$port = ((isset($_POST['wordpress-https_ssl_port'])) ? $_POST['wordpress-https_ssl_port'] : $this->ssl_port);
-							$url = parse_url($_POST[$key]);
-							$_POST[$key] = 'https://' . $url['host'] . (($port) ? ':' . $port : '') . @$url['path'];
-
-							// If secure host is set to a different host
-							if ( $_POST[$key] != $this->https_url ) {
-								if ( $this->get_file_contents($_POST[$key]) ) {
-									// Remove trailing slash
-									if ( substr($_POST[$key], -1, 1) == '/' ) {
-										$_POST[$key] = substr($_POST[$key], 0, strlen($_POST[$key])-1);
+				if ( @$_POST['Reset'] ) {
+					foreach ( $this->options_default as $option => $value ) {
+						update_option($option, $value);
+					}
+					$reload = true;
+				} else {
+					foreach ($this->options_default as $key => $default) {
+						if ( !array_key_exists($key, $_POST) && $default == 0 ) {
+							$_POST[$key] = 0;
+							update_option($key, $_POST[$key]);
+						} else {
+							if ( $key == 'wordpress-https_ssl_host' ) {
+							    if ( $_POST[$key] != '' ) {
+									$url = strtolower($_POST[$key]);
+									// Add scheme if it doesn't exist so that parse_url does not fail
+									if ( strpos($url, 'http://') === false && strpos($url, 'https://') === false ) {
+										$url = $this->replace_http('http://' . $url);
 									}
-									$this->log('[SETTINGS] Updated SSL Host: ' . $this->https_url . ' => ' . $_POST[$key]);
+									$url = parse_url($url);
+									$port = ((isset($_POST['wordpress-https_ssl_port'])) ? $_POST['wordpress-https_ssl_port'] : $url['port']);
+									$port = (($port != 80 && $port != 443) ? $port : null);
+									$url = 'https://' . $url['host'] . (($port) ? ':' . $port : '') . @$url['path'];
 
-									// If secure domain has changed and currently on SSL, logout user
-									if ( $this->is_ssl() ) {
-										$logout = true;
+									// If secure host is set to a different host
+									if ( $url != $this->https_url ) {
+										$home_url = $url . parse_url(get_option('home'), PHP_URL_PATH);
+										// Add trailing slash
+										$home_url = ((substr($home_url, -1) !== '/') ? $home_url . '/' : $home_url);
+										// Ensure that the WordPress installation is accessible at this host
+										if ( $this->get_file_contents($home_url) ) {
+											// Remove trailing slash
+											if ( substr($url, -1, 1) == '/' ) {
+												$url = substr($url, 0, strlen($url)-1);
+											}
+											$this->log('[SETTINGS] Updated SSL Host: ' . $this->https_url . ' => ' . $url);
+
+											// If secure domain has changed and currently on SSL, logout user
+											if ( $this->is_ssl() ) {
+												$logout = true;
+											}
+											$_POST[$key] = $this->remove_port($url);
+										} else {
+											$errors[] = '<strong>SSL Host</strong> - Invalid WordPress installation at ' . $home_url;
+											$_POST[$key] = get_option($key);
+										}
+									} else {
+									    $_POST[$key] = $this->https_url;
 									}
-								} else {
-									$errors[] = '<strong>SSL Host</strong> - Invalid host.';
-									$_POST[$key] = '';
+								}
+							} else if ( $key == 'wordpress-https_ssl_admin' ) {
+								if ( force_ssl_admin() || force_ssl_login() ) {
+									$errors[] = '<strong>SSL Admin</strong> - FORCE_SSL_ADMIN and FORCE_SSL_LOGIN can not be set to true in your wp-config.php.';
+									$_POST[$key] = 0;
+								// If forcing SSL Admin and currently not SSL, logout user
+								} else if ( !$this->is_ssl() ) {
+									$logout = true;
 								}
 							}
-						} else if ( $key == 'wordpress-https_ssl_admin' ) {
-							if ( force_ssl_admin() || force_ssl_login() ) {
-								$errors[] = '<strong>SSL Admin</strong> - FORCE_SSL_ADMIN and FORCE_SSL_LOGIN can not be set to true in your wp-config.php.';
-								$_POST[$key] = 0;
-							// If forcing SSL Admin and currently not SSL, logout user
-							} else if ( !$this->is_ssl() ) {
-								$logout = true;
-							}
-						}
 
-						update_option($key, $_POST[$key]);
+							update_option($key, $_POST[$key]);
+						}
 					}
 				}
 
@@ -1140,7 +1200,7 @@ if ( !class_exists('WordPressHTTPS') ) {
 						echo "\t</ul>\n</div>\n";
 					} else {
 						echo "<div class=\"updated below-h2 fade wphttps-message\" id=\"message\"><p>Settings saved.</p></div>\n";
-						if ( $logout ) {
+						if ( $logout || $reload ) {
 							echo "<script type=\"text/javascript\">window.location.reload();</script>";
 						}
 					}
@@ -1278,7 +1338,8 @@ if ( !class_exists('WordPressHTTPS') ) {
 			</table>
 
 			<p class="button-controls">
-				<input type="submit" name="Submit" value="Save Changes" class="button-primary" />
+				<input type="submit" name="Submit" value="Save Changes" class="button-primary" id="settings-save" />
+				<input type="submit" name="Reset" value="Reset" class="button-secondary" id="settings-reset" />
 				<img alt="Waiting..." src="<?php echo parse_url($this->plugin_url, PHP_URL_PATH); ?>/css/images/wpspin_light.gif" class="waiting" id="submit-waiting" />
 			</p>
 			</form>
@@ -1295,7 +1356,5 @@ if ( !class_exists('WordPressHTTPS') ) {
 // Instantiate class if we're in WordPress
 if ( class_exists('WordPressHTTPS') && function_exists('get_bloginfo') ) {
 	$wordpress_https = new WordPressHTTPS();
-	register_activation_hook(__FILE__, array(&$wordpress_https, 'install'));
-	// We'll handle uninstall manually. This is causing fatal errors. Boone - 2011 Nov 23
-	//register_uninstall_hook(__FILE__, array(&$wordpress_https, 'uninstall'));
+	register_activation_hook(__FILE__, array($wordpress_https, 'install'));
 }
