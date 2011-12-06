@@ -105,7 +105,6 @@ if( $events_count > 0 ){ ?>
 							
 							if ($event->start_date < $today && $event->end_date < $today){
 								$class .= " past";
-								$now .= "now";
 							}
 							//Check pending approval events
 							if ( !$event->status ){
