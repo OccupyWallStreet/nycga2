@@ -118,7 +118,7 @@ $count = 1 + $s ;
   $output2 = str_replace($badchars, $replacechars, $output);
 
   $output3 = preg_replace('/[^(\x20-\x7F)]*/','', $output2);
-  $cleantext = substr($output3,0,4900);
+  $cleantext = substr($output3,0,4700);
 
   
   echo $cleantext;
