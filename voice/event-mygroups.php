@@ -136,51 +136,51 @@ $count = 1 + $s ;
   
   //tomorrows events
   
-  $query = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start_time,'%l:%i%p') as StartTime, DATE_FORMAT(wp_em_events.event_end_time,'%l:%i%p') as EndTime, DATE_FORMAT(wp_em_events.event_start_date,'%W %M %D') as StartDate, wp_em_events.location_id, wp_em_locations.location_name as LocationName, wp_em_locations.location_address as LocationAddress, wp_em_events.group_id, wp_bp_groups.name as GroupName, wp_em_categories.category_name as CategoryName " .
+  $1query = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start_time,'%l:%i%p') as StartTime, DATE_FORMAT(wp_em_events.event_end_time,'%l:%i%p') as EndTime, DATE_FORMAT(wp_em_events.event_start_date,'%W %M %D') as StartDate, wp_em_events.location_id, wp_em_locations.location_name as LocationName, wp_em_locations.location_address as LocationAddress, wp_em_events.group_id, wp_bp_groups.name as GroupName, wp_em_categories.category_name as CategoryName " .
 "FROM wp_em_events LEFT JOIN wp_em_locations ON wp_em_events.location_id = wp_em_locations.location_id " .
 "LEFT JOIN wp_bp_groups ON wp_em_events.group_id = wp_bp_groups.id " .
 "LEFT JOIN wp_em_categories ON wp_em_events.event_category_id = wp_em_categories.category_name " .
 "WHERE (group_id = 9999 $idlist) and event_start_date = CURDATE( ) + 1 order by event_start_time, GroupName";
 
 
- $numresults=mysql_query($query);
- $numrows=mysql_num_rows($numresults);
+ $1numresults=mysql_query($1query);
+ $1numrows=mysql_num_rows($1numresults);
   
 // get results
-  $query .= " limit $s,$limit";
-  $result = mysql_query($query) or die("Couldn't execute query");
-  $timenow = date("h:i A");
+  $1query .= " limit $s,$limit";
+  $1result = mysql_query($1query) or die("Couldn't execute query");
+  $1timenow = date("h:i A");
 // display what the person searched for
 //echo "It's currently $timenow.  There are $numrows more scheduled events today.  To hear them all say Todays Events or you can search by saying Group Name, Location name, or Date.";
 
 // begin to show results set
 
-$count = 1 + $s ;
+$1count = 1 + $s ;
 
 // now you can display the results returned
-  while ($row= mysql_fetch_array($result)) {
-  $eventname = $row["event_name"];
-  $startime = $row["StartTime"];
-  $endtime = $row["EndTime"];
-  $startdate = $row["StartDate"];
-  $locationname = $row["LocationName"];
-  $locationaddress = $row["LocationAddress"];
-  $groupname = $row["GroupName"];
+  while ($1row= mysql_fetch_array($1result)) {
+  $1eventname = $1row["event_name"];
+  $1startime = $1row["StartTime"];
+  $1endtime = $1row["EndTime"];
+  $1startdate = $1row["StartDate"];
+  $1locationname = $1row["LocationName"];
+  $1locationaddress = $1row["LocationAddress"];
+  $1groupname = $1row["GroupName"];
   
 
-  $output .= "$count.  $groupname, $eventname.  Time. $startime . to . $endtime  .  Location. $locationname . at . $locationaddress.    " ;
-  $count++ ;
+  $1output .= "$1count.  $1groupname, $1eventname.  Time. $1startime . to . $1endtime  .  Location. $1locationname . at . $1locationaddress.    " ;
+  $1count++ ;
   
   
   
   }
-  echo "and $numrows tomorrow. . Here are your events for tomorrow . ";
+  echo "and $1numrows tomorrow. . Here are your events for tomorrow . ";
   
-  $badchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é", '"');
-  $replacechars = array(" and ", " ", " and ", " and ", " and ", " and ", "o", "e", "");
-  $output2 = str_replace($badchars, $replacechars, $output);
-  $cleantext = preg_replace('/[^(\x20-\x7F)]*/','', $output2);
-  echo $cleantext;
+  $1badchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é", '"');
+  $1replacechars = array(" and ", " ", " and ", " and ", " and ", " and ", "o", "e", "");
+  $1output2 = str_replace($1badchars, $1replacechars, $1output);
+  $1cleantext = preg_replace('/[^(\x20-\x7F)]*/','', $1output2);
+  echo $1cleantext;
   
 
   
