@@ -24,14 +24,21 @@
 }
 
 #bpfb_addPhotos {
-	background: url(../img/system/camera.png) left top no-repeat;
+	background: url(/wp-content/themes/nycga/img/system/camera.png) left top no-repeat;
 }
 #bpfb_addVideos {
-	background: url(../img/system/film.png) left top no-repeat;
+	background: url(/wp-content/themes/nycga/img/system/film.png) left top no-repeat;
 }
 #bpfb_addLinks {
-	background: url(../img/system/link.png) left top no-repeat;
+	background: url(/wp-content/themes/nycga/img/system/link.png) left top no-repeat;
 }
 #bpfb_addDocuments {
-	background: url(../img/system/document.png) left top no-repeat;
+	background: url(/wp-content/themes/nycga/img/system/document.png) left top no-repeat;
+}
+
+#bpfb_addPhotos,
+#bpfb_addVideos,
+#bpfb_addLinks,
+#bpfb_addDocuments {
+	background-size: 26px 26px;
 }
