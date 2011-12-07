@@ -13,7 +13,7 @@
 			<div id="site-generator" role="contentinfo">
 				<?php do_action( 'bp_dtheme_credits' ) ?>
 				<p>
-					<?php printf( __( 'Created in <a href="%1$s">WordPress</a> and <a href="%2$s">BuddyPress</a> by <a href="%3$s">NYCGA Tech Ops</a>.', 'buddypress' ), 'http://wordpress.org', 'http://buddypress.org', 'http://nycga.net/groups/internet') ?>
+					<?php printf( __( 'Created in <a href="%1$s">WordPress</a> and <a href="%2$s">BuddyPress</a> by <a href="%3$s">#OccupyWallStreet Tech Ops</a>.', 'buddypress' ), 'http://wordpress.org', 'http://buddypress.org', 'http://nycga.net/groups/internet') ?>
 					<?php printf("You can't copyright a movement") ?>
 				</p>
 			</div>
