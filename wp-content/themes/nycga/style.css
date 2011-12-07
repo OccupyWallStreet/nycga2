@@ -142,7 +142,7 @@ h1#logo {
 }
 
 form#search-form {
-	/*display: none;*/
+	display: none;
 }
 
 
@@ -152,9 +152,7 @@ form#search-form {
 
 div#header {
 	z-index: 800;
-	margin-bottom: 0;
-/*remove spacing between header image and nav bar*/
-	padding-top: 0;
+	margin-bottom: 0px;
 }
 
 /**************  admin nav **************/
@@ -469,7 +467,7 @@ ul.item-list.activity-list li.load-more {
 }
 
 div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a {
-   	background: url("img/selected-bar.png") no-repeat scroll center bottom transparent;
+   	background: url("img/selected-bar.png") repeat-x scroll center bottom transparent;
 	color:#262626;
 	height: 35px;
 	text-transform: uppercase;
@@ -600,7 +598,13 @@ div#pag-bottom {
 	margin: -35px -10px 15px -19px;
 }
 
+div#item-nav li#nav-categories-groups-li {
+	display: none;
+}
 
+a.hoverhand:hover {
+	cursor: pointer;
+}
 
 /****************** members list **************************/
 
@@ -943,7 +947,7 @@ div#sidebar-4 .padder {
 }
 
 .event-date {
-/*	font-family:Arial, Georgia,sans-serif; */
+	font-family:Georgia,serf;
 	text-align:center;
 }
 
