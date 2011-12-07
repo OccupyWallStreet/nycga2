@@ -65,11 +65,11 @@ add_action('bp_groups_directory_group_filter', 'add_category_tabs');
 function add_category_tabs(){
 ?>
 					
-					<li id="groups-cat_operations"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/operations/' ); ?>"><?php printf( __( 'Operations Groups <span>%s</span>', 'buddypress' ), bp_get_category_group_count('operations') ); ?></a></li>
+					<li id="groups-cat_operations"><a class="hoverhand" <?php /*href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/operations/' ); ?>" */ ?>><?php printf( __( 'Operations Groups <span>%s</span>', 'buddypress' ), bp_get_category_group_count('operations') ); ?></a></li>
 
-					<li id="groups-cat_caucus"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/caucus/' ); ?>"><?php printf( __( 'Caucuses <span>%s</span>', 'buddypress' ), bp_get_category_group_count('caucus') ); ?></a></li>
+					<li id="groups-cat_caucus"><a class="hoverhand" <?php /*href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/caucus/' ); ?>" */ ?>><?php printf( __( 'Caucuses <span>%s</span>', 'buddypress' ), bp_get_category_group_count('caucus') ); ?></a></li>
 
-					<li id="groups-cat_uncategorized"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/uncategorized/' ); ?>"><?php printf( __( 'Uncategorized <span>%s</span>', 'buddypress' ), bp_get_category_group_count('uncategorized') ); ?></a></li>
+					<li id="groups-cat_uncategorized"><a class="hoverhand" <?php /*href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/uncategorized/' ); ?>" */ ?>><?php printf( __( 'Uncategorized <span>%s</span>', 'buddypress' ), bp_get_category_group_count('uncategorized') ); ?></a></li>
 
 <?php
 }
