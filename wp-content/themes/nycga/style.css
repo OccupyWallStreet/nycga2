@@ -134,38 +134,17 @@ h1#logo {
 	background-repeat:no-repeat;
 } 
 
-/* position search on top of the buddybar */
 #search-bar {
-	position:fixed;
-	top:0;
-	left:0;
-	height:25px;
-	font-size:11px;
-	width:100%;
-	z-index:1000;
-}
-
-#search-bar .padder {
-	position:relative;
-	padding:0;
-	width:100%;
-	margin:0 auto;
-	height:25px;
-}
-
-body#bp-default #search-bar .padder {
-	min-width:960px;
-	max-width:1250px;
-}
-
-#search-bar .align-right {
-	position:absolute;
-	right:20px;
+	position: absolute;
+	z-index: 1000;
+	right: 22px;
+	top: -26px;
 }
 
 form#search-form {
-	/*display: none;*/
+	display: none;
 }
+
 
 #header-section {
 	position:relative;
@@ -173,9 +152,7 @@ form#search-form {
 
 div#header {
 	z-index: 800;
-	margin-bottom: 0;
-/*remove spacing between header image and nav bar*/
-	padding-top: 0;
+	margin-bottom: 0px;
 }
 
 /**************  admin nav **************/
@@ -970,7 +947,7 @@ div#sidebar-4 .padder {
 }
 
 .event-date {
-/*	font-family:Arial, Georgia,sans-serif; */
+	font-family:Georgia,serf;
 	text-align:center;
 }
 
