@@ -1,7 +1,7 @@
 === Embed PDF ===
 Contributors: dirtysuds, pathawks
 Donate link: http://www.pathawks.com/p/wordpress-plugins.html
-Tags: plugins, wordpress, embed, eombed, pdf, google, Google Docs, shortcode
+Tags: WordPress,embed,google,media,plugin,plugins,Post,posts,simple,pdf,google,Google Docs
 Requires at least: 2.9
 Tested up to: 3.1.2
 Stable tag: 1.03
@@ -33,13 +33,18 @@ If you'd just like to change the size of one instance, you can use the standard 
 
    `[embed width="400" height="600"]http://example.com/document.pdf[/embed]`
 
+
 = I have an idea for a great way to improve this plugin =
 
 Great! I'd love to hear from you.
+
 plugins@dirtysuds.com
 
 
 == Changelog ==
+
+= 1.04 =
+* Changed URL for Google Docs Viewer to reflect change that Google made
 
 = 1.03 =
 * Automatically enable auto-embeds on plugin activation
@@ -53,3 +58,8 @@ plugins@dirtysuds.com
 = 1.00 =
 * First version
 * Works
+
+== Upgrade Notice ==
+
+= 1.04 =
+* Fixed problem with Google Docs viewer.  Upgrade immediately.

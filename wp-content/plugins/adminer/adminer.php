@@ -11,11 +11,11 @@ Text Domain: adminer
 Domain Path: /languages
 Description: <a href="http://www.adminer.org/en/">Adminer</a> (formerly phpMinAdmin) is a full-featured MySQL management tool written in PHP. This plugin include this tool in WordPress for a fast management of your database.
 Author: Frank B&uuml;ltge
-Version: 1.1.1
+Version: 1.2.0
 Author URI: http://bueltge.de/
 Donate URI: http://bueltge.de/wunschliste/
 License: Apache License
-Last change: 22.09.2011
+Last change: 12.11.2011
 */ 
 
 /**
@@ -39,7 +39,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 Requirements:
 ==============================================================================
-This plugin requires WordPress >= 2.7 and tested with PHP Interpreter >= 5.2.9
+This plugin requires WordPress >= 2.7 and tested with PHP Interpreter >= 5.3
 */
 
 //avoid direct calls to this file, because now WP core and framework has been used
@@ -85,7 +85,10 @@ if ( ! class_exists('AdminerForWP' ) ) {
 			
 			add_action( 'init',       array( &$this, 'register_styles' ) );
 			add_action( 'admin_init', array( &$this, 'text_domain' ) );
-			add_action( 'admin_menu', array( &$this, 'on_admin_menu' ) );
+			if ( is_multisite() )
+				add_action( 'network_admin_menu', array( &$this, 'on_network_admin_menu' ) );
+			else
+				add_action( 'admin_menu', array( &$this, 'on_admin_menu' ) );
 		}
 		
 		public function text_domain() {
@@ -94,9 +97,13 @@ if ( ! class_exists('AdminerForWP' ) ) {
 		}
 		
 		public function register_styles() {
-			
 			wp_register_style( 'adminer-menu', plugins_url( 'css/menu.css', __FILE__ ) );
 			wp_register_style( 'adminer-settings', plugins_url( 'css/settings.css', __FILE__ ) );
+			
+			if ( is_multisite() ) {
+				wp_enqueue_style( 'adminer-menu' );
+				add_action( 'admin_bar_menu', array( $this, 'add_wp_admin_bar_item' ), 20 );
+			}
 		}
 		
 		public function on_load_page() {
@@ -122,6 +129,39 @@ if ( ! class_exists('AdminerForWP' ) ) {
 				);
 				
 				add_action( 'load-' . $this -> pagehook, array( &$this, 'on_load_page' ) );
+			}
+		}
+		
+		public function on_network_admin_menu() {
+			
+			if ( current_user_can('unfiltered_html' ) ) {
+				wp_enqueue_style( 'adminer-menu' );
+				
+				$menutitle  = '<span class="adminer-icon">&nbsp;</span>';
+				$menutitle .= __( 'Adminer', FB_ADM_TEXTDOMAIN );
+				$this->pagehook = add_submenu_page( 
+					'settings.php',
+					__( 'Adminer', FB_ADM_TEXTDOMAIN ), 
+					$menutitle, 
+					'unfiltered_html', 
+					FB_ADM_BASENAME, 
+					array( &$this, 'on_show_page' )
+				);
+				
+				add_action( 'load-' . $this -> pagehook, array( &$this, 'on_load_page' ) );
+			}
+		}
+		
+		public function add_wp_admin_bar_item( $wp_admin_bar ) {
+			
+			if ( is_super_admin() ) {
+				$wp_admin_bar -> add_menu( array(
+				'parent'    => 'network-admin',
+				'secondary' => FALSE,
+				'id'        => 'network-adminer',
+				'title'     => __( 'Adminer', FB_ADM_TEXTDOMAIN ),
+				'href'      => network_admin_url( 'settings.php?page=adminer/adminer.php' ),
+				) );
 			}
 		}
 		
