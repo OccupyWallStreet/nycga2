@@ -110,7 +110,7 @@ function gcats_get_groups_by_cat( $limit = null, $page = null, $user_id = false,
                 }
 	}
 
-        $sql = "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity, gm3.meta_value as gtags_group_tags FROM {$bp->groups->table_name_groupmeta} gm1, {$bp->groups->table_name_groupmeta} gm2, {$bp->groups->table_name_groupmeta} gm3, {$bp->groups->table_name} g WHERE g.id = gm1.group_id AND g.id = gm2.group_id AND g.id = gm3.group_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND gm3.meta_key = 'category'  {$hidden_sql} {$search_sql} {$cat_sql} ${order_sql} {$pag_sql}";
+        $sql = "SELECT DISTINCT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity, gm3.meta_value as gtags_group_tags FROM {$bp->groups->table_name_groupmeta} gm1, {$bp->groups->table_name_groupmeta} gm2, {$bp->groups->table_name_groupmeta} gm3, {$bp->groups->table_name} g WHERE g.id = gm1.group_id AND g.id = gm2.group_id AND g.id = gm3.group_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND gm3.meta_key = 'category'  {$hidden_sql} {$search_sql} {$cat_sql} ${order_sql} {$pag_sql}";
         $paged_groups = $wpdb->get_results( $sql ) ;
         $total_groups = count($paged_groups);
         
