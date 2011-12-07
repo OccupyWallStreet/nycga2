@@ -1,0 +1,199 @@
+/*
+------------------------------------
+admin.css v1.2
+Gravity Forms Administration Form Styles
+http://www.gravityforms.com
+
+a rocketgenius project
+http://www.rocketgenius.com
+------------------------------------
+*/
+
+:focus{outline:none}
+input, textarea{outline-style:none; font-size:12px; font-family:verdana,sans-serif; padding:2px 0 2px 0}
+ul{margin:0}
+li{list-style:none}
+#wpbody-content{position:relative; width:99%}
+.gforms_edit_form {margin-bottom:20px!important;}
+ul#gform_fields{padding:0px; margin:0px}
+select{font-size:12px!important; font-family:verdana,sans-serif; padding:2px 0 2px 0}
+table.xwidefat{width:99%!important}
+.hr-divider{background-color:#fff; height:1px; overflow:hidden; border-top:1px solid #E6E6E6; border-bottom:1px solid #fff; margin:24px 0; clear:both}
+div.delete-alert{border:1px solid #EAAEAD; color:#f00; background-color:#FFE1E1; padding:10px; width:675px; margin-bottom:30px;}
+div.gforms_code{border:1px solid #C2D7EF; background-color:#E2EDFF; margin:10px 0; padding:10px; width:700px}
+div.delete-alert input.button{border:1px solid #EAAEAD; margin-left:30px; color:red}
+div.delete-alert input.button:hover{border:1px solid #dbadac}
+#field_settings{margin:0 0 12px; padding-top:6px}
+#field_settings ul li label{display:block; line-height:125%; margin:0 0 3px 0}
+.gform_heading .form_edit_iconx, .form_head .form_delete_iconx{display:block}
+.ui-tabs-panel ul li label{margin-bottom:8px!important}
+li.field_setting input, li.field_setting select{margin-top:4px}
+.inline{display:inline!important}
+label.float_label{float:left; width:40px; padding:2px 0 0 0}
+#gform_fields li, .gforms_form_settings li{border:1px solid transparent; padding:10px; overflow:hidden}
+#gform_heading{border:1px solid transparent; padding:10px; width:480px!important; overflow:hidden; margin-bottom:10px; position:relative}
+#gform_fields{width:500px!important}
+.gfield_time_hour, .gfield_time_minute{width:70px; float:left; margin-bottom:4px}
+
+.gfield_date_month, .gfield_date_day, .gfield_date_year{width:50px; float:left; margin-bottom:4px}
+.gfield_date_month input, .gfield_date_day input, .gfield_date_year input{width:80%!important}
+
+.gfield_time_ampm select{width:50px!important}
+.gfield_time_hour input, .gfield_time_minute input{width:80%!important}
+.field_hover{border:1px dashed #2175A9!important; cursor:pointer}
+.field_selected{background-color:#DFEFFF; border:1px solid #C2D7EF!important}
+.field_name_first, .field_name_last, ol.field_type li{width:50%; float:left}
+.field_name_first input, .ginput_complex .ginput_left input{width:90%!important}
+.field_name_last input{width:93%!important}
+.datepicker{width:100px!important}
+img#gfield_input_datepicker_icon {position:relative; top:3px; left:4px;}
+#date_picker_container {margin:8px 0;}
+#gfield_icon_url_container {margin-top:5px;}
+.ginput_complex .ginput_left, .ginput_complex .ginput_right{width:48%; float:left}
+.ginput_complex input, .ginput_complex select{width:92%!important}
+.ginput_complex label, .gfield_time_hour label, .gfield_time_minute label{display:block; margin:4px 0}
+.ginput_complex .name_prefix{float:left; width:30px!important; margin-right:14px}
+.ginput_complex .name_suffix{float:left; width:30px!important}
+.ginput_complex .name_first, .ginput_complex .name_last{float:left; width:100px; margin-right:8px}
+.top_label .gfield_label{display:block; margin:4px 0; font-weight:bold}
+.left_label .gfield_label{float:left; margin:2px 15px 0 0; width:29%; font-weight:bold}
+.right_label .gfield_label{float:left; margin:2px 15px 0 0; width:29%; font-weight:bold; text-align:right}
+.left_label ul.gfield_checkbox, .right_label ul.gfield_checkbox, .left_label ul.gfield_radio, .right_label ul.gfield_radio{margin-left:32%}
+.top_label input.small, .top_label select.small{width:25%}
+.top_label input.medium, .top_label select.medium{width:50%}
+.top_label input.large, .top_label select.large, .top_label textarea.textarea{width:96%}
+.right_label input.small, .right_label select.small, .left_label input.small, .left_label select.small{width:15%}
+.right_label input.medium, .right_label select.medium, .left_label input.medium, .left_label select.medium{width:35%}
+.right_label input.large, .right_label select.large, .left_label input.large, .left_label select.large, textarea.textarea{width:64%}
+.right_label div.ginput_complex, .left_label div.ginput_complex{width:64%; float:left}
+h2.gsection_title{margin:0!important; padding:0!important; letter-spacing:normal!important; font-style:normal!important; font-weight:bold; font-size:16px; font-family:Helvetica,sans-serif; width:98%}
+.gsection .gfield_label{font-weight:bold; font-size:16px; font-family:Helvetica,sans-serif}
+.gsection_description{width:98%; font-size:10px; line-height:150%; clear:both; padding-top:4px; font-family:verdana,sans-serif}
+.gsection_description, .gfield_description {font-style: italic}
+.gfield_date_year+.gfield_description {padding:0 0 8px 0}
+.gsection{border-bottom:1px dotted #ccc!important}
+.gfield_checkbox, .gfield_radio{padding:5px 0; margin:0}
+.gfield_checkbox li, .gfield_radio li{padding:3px 0 0 0!important; line-height:0; width:auto}
+.gfield_checkbox label, .gfield_radio label{margin-left:6px; display:inline}
+.gfield_checkbox input, .gfield_radio input{width:15px!important}
+input.gfield_choice_radio, input.gfield_choice_checkbox{margin:-5px 3px 0 0!important}
+.description, .instruction, .gfield_description{font-size:10px; line-height:150%; clear:both; padding-top:10px; font-family:verdana,sans-serif}
+.right_label .gfield_description, .left_label .gfield_description, .left_label .instruction, .right_label .instruction{margin-left:29%; padding-left:15px}
+.left_label .gsection .gsection_description, .right_label .gsection .gsection_description{margin-left:0; padding-left:0; padding-top:10px; line-height:150%}
+.ginput_complex + .gfield_description {padding-top:0!important;}
+.gfield_required{color:red; margin-left:4px}
+textarea.small{height:80px}
+textarea.medium{height:150px}
+textarea.large{height:250px}
+.gform_footer{padding:10px 0 10px 10px; margin:6px 0 0 0; border-top:1px dotted #ccc!important}
+.gform_wrapper .gform_footer+.right_label, .gform_wrapper .gform_footer+.left_label { padding:16px 0 10px 31%;}
+a.close_icon{position:absolute; left:100%; margin-left:-27px; top:9px; width:16px; height:16px; background-image:url(../images/close.png); background-repeat:no-repeat; text-indent:-9000px}
+a.tooltip, a.tooltip_left{width:16px; height:16px; background-image:url(../images/icon-question.png); background-repeat:no-repeat; display:inline-block; text-indent:-9000px; text-decoration:none}
+.gfield{position:relative}
+.field_hover .field_edit_icon, .field_hover .field_delete_icon, .field_hover .form_edit_icon, .field_hover .form_delete_icon, .field_selected .field_edit_icon, .field_selected .field_delete_icon, .field_selected .form_edit_icon, .field_selected .form_delete_icon{display:block!important}
+.field_edit_icon, .form_edit_icon{display:none; float:right; font-size:10px; text-decoration:none; margin-right:6px; height:16px; line-height:16px; padding:0 0 0 18px}
+.edit_icon_expanded{background-image:url(../images/close.png); background-repeat:no-repeat}
+.edit_icon_collapsed{background-image:url(../images/edit.png); background-repeat:no-repeat}
+.entries_edit_icon{float:right; font-size:10px; text-decoration:none; margin:2px 6px 0 0; height:16px; line-height:16px; padding:0 0 0 18px; background-image:url(../images/edit.png); background-repeat:no-repeat; text-shadow:none; font-weight:normal}
+.field_delete_icon, .form_delete_icon{display:none; float:right; font-size:10px; text-decoration:none; height:16px; line-height:16px; padding:0 0 0 18px; background-image:url(../images/delete.png); background-repeat:no-repeat}
+.option_header{margin:5px 0 2px 0; font-weight:bold}
+a.gforms_settings_button{position:absolute; top:0px; right:65px; font-size:10px; font-family:"Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif; text-decoration:none; width:80px; height:22px; line-height:22px; text-align:center; background-color:#e3e3e3; padding:0 6px 0 6px; text-shadow:0pt 1px 0pt rgba(255,255,255,0.7); display:block; color:#606060; background-image:url(../images/screen-options-left.gif); -moz-border-radius-bottomleft:2px; -webkit-border-bottom-left-radius:2px; -moz-border-radius-bottomright:2px; -webkit-border-bottom-right-radius:2px}
+a.gforms_settings_button:hover{color:#000}
+img.gtitle_icon{float:left; margin:15px 7px 0 0}
+td.pad_top{padding-top:10px}
+#form_settings{padding:5px; margin-top:10px}
+.input_size_a, .textarea_size_a{width:375px}
+.form_button_options{margin:8px 0}
+#form_button_text_container, #form_button_image_container{margin-top:8px !important}
+.captcha_message{padding:5px}
+#after_insert_dialog div{padding-bottom:10px}
+#simplemodal-overlay{background-color:#000; cursor:default}
+#simplemodal-container{padding:20px 20px 0 20px; height:300px; width:400px; background-color:#F9F9F9; border:6px solid #636363; -moz-border-radius:8px; -webkit-border-radius:8px; -khtml-border-radius:8px; border-radius:8px}
+#simplemodal-container a.modalCloseImg{background:url(../images/close.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-14px; right:-18px; cursor:pointer}
+div#after_insert_dialog h3{text-align:center; padding:10px 6px; background-color:#FFFBCC; border:1px solid #E6DB55; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; margin:0 0 4px 0}
+p{text-align:center}
+div.gold_notice{padding:10px 6px; background-color:#FFFBCC; border:1px solid #E6DB55; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; margin:0 0 4px 0}
+div.new-form-option a{font-size:16px; padding:8px; text-decoration:none; text-align:center; display:block; color:#535353; background-color:#F9F9F9; border:1px solid #BBB; -moz-border-radius:20px; -webkit-border-radius:20px; -khtml-border-radius:20px; border-radius:20px; margin-bottom:4px; background:url(../images/new-form-option-bg.png) repeat-x}
+div.new-form-option a:hover{color:#2B2B2B; border:1px solid #666}
+.installation_item_cell{width:40px}
+.installation_item_message{padding-left:15px; color:red}
+.qtip{min-width:100px}
+.qtip-content{line-height:130%; margin:8px}
+.qtip-content h6{font-weight:bold; font-size:14px; color:#21759B; margin:0 0 2px 0; padding:0}
+#floatMenu{position:absolute; width:280px; top:60px}
+div.add-buttons-title{background-color:#636363; background-image:url(../images/expand_title.png); background-repeat:no-repeat; background-position:right 0; height:24px; overflow:hidden; cursor:pointer; font-size:13px; border-width:1px; border-style:solid; border-color:#636363; margin:0!important; padding:5px 12px 0 12px; white-space:nowrap; -moz-border-radius-topleft:4px; -moz-border-radius-topright:4px; -webkit-border-top-right-radius:4px; -webkit-border-top-left-radius:4px; -khtml-border-top-right-radius:4px; -khtml-border-top-left-radius:4px; border-top-right-radius:4px; border-top-left-radius:4px}
+.button-title-link{color:#FFF; text-shadow:none; font-weight:bold; cursor:text!important}
+.add-buttons{border-width:0 1px 1px; border-style:none solid solid; -moz-border-radius-bottomleft:4px; -moz-border-radius-bottomright:4px; -webkit-border-bottom-right-radius:4px; -webkit-border-bottom-left-radius:4px; -khtml-border-bottom-right-radius:4px; -khtml-border-bottom-left-radius:4px; border-bottom-right-radius:4px; border-bottom-left-radius:4px; background-color:#F1F1F1; border-color:#DDD; padding:12px}
+li#add-standard-buttons a.tooltip_left, li#add-advanced-buttons a.tooltip_left, li#add-post-buttons a.tooltip_left{background-image:url(../images/icon-question2.png)}
+ul.menu li{margin-bottom:10px}
+ol.field_type{display:block; visibility:visible!important; overflow:hidden; margin:0px; padding:0px}
+div.push-alert-gold{padding:10px 6px; margin:30px 0 10px 0; text-align:center; line-height:150%; display:block!important; visibility:visible!important; min-width:800px; font-size:1.1em; background-color:#FFFBCC; border-top:1px solid #E6DB55; border-bottom:1px solid #E6DB55}
+div.push-alert-green{padding:10px 6px; margin:30px 0 10px 0; text-align:center; line-height:150%; display:block!important; visibility:visible!important; min-width:800px; font-size:1.1em; background-color:#ecfcde; border-top:1px solid #a7c886; border-bottom:1px solid #a7c886}
+div.push-alert-blue{padding:10px 6px; margin:30px 0 10px 0; text-align:center; line-height:150%; display:block!important; visibility:visible!important; min-width:800px; font-size:1.1em; background-color:#E2EDFF; border-top:1px solid #C2D7EF; border-bottom:1px solid #C2D7EF}
+div.push-alert-red{padding:10px 6px; margin:30px 0 10px 0; text-align:center; line-height:150%; display:block!important; visibility:visible!important; min-width:800px; font-size:1.1em; background-color:#FFE1E1; border-top:1px solid #EAAEAD; border-bottom:1px solid #EAAEAD}
+#gfield_settings_category_container, #gfield_settings_choices_container {border:1px solid #DFDFDF; overflow:auto; padding:2px 0 6px 0; }
+#gfield_settings_category_container {max-height:230px; margin:8px 0 0 0; }
+table td.gfield_category_cell {padding-top:3px;}
+#gfield_settings_choices_container {max-height:230px; margin:8px 0 14px 0; }
+#field_choices li {padding:0px 10px!important; margin:0!important}
+#field_choices li input.field-choice-input {width:300px;}
+
+/* -- added for version 1.0.1 view form styles  -------------------------------------------------------------------------- */
+table.entry-detail-view{margin-bottom:16px}
+table.entry-detail-view th{font-size:13px}
+table.entry-detail-view td.lastrow{border-bottom:none!important}
+td.entry-view-section-break{font-size:14px; font-weight:bold; background-color:#EEE; border-bottom:1px solid #DFDFDF; padding:7px 7px}
+td.entry-view-field-name{font-weight:bold; background-color:#EAF2FA; border-bottom:1px solid #FFF; line-height:150%; padding:7px 7px}
+td.entry-view-field-value{border-bottom:1px solid #DFDFDF; padding:7px 7px 7px 40px; line-height:150%;}
+td.entry-view-field-value p{text-align:left}
+td.entry-view-field-value ul.bulleted{margin-left:12px}
+td.entry-view-field-value ul.bulleted li{list-style-type:disc}
+div.note-avatar{width:48px; height:48px; float:left; margin-right:6px}
+h6.note-author{font-weight:bold; font-size:13px; margin:0; padding:0}
+div.detail-note-content{margin:10px 0 10px 54px; line-height:150%}
+div.detail-note-content p{line-height:150%}
+
+/* edit details form styles  -------------------------------------------------------------------------- */
+#namediv_admin {position:relative; min-width:500px}
+table.entry-details td.detail-view label.detail-label, .ginput_full_admin label {display:block; font-weight:bold; font-size:13px; margin-bottom:4px}
+div.ginput_complex_admin .ginput_full_admin label {font-weight:normal; font-size:11px}
+table.entry-details input[type=text], table.entry-details input {width:96%}
+.ginput_left_admin label, .ginput_right_admin label {display:block}
+.ginput_left_admin input[type=text]{width:96%}
+select.medium_admin {max-width:400px}
+textarea.medium_admin {width:98%; min-width:475px; min-height:250px}
+h2.detail_gsection_title{font-family:Helvetica,sans-serif; font-size:16px; font-style:normal !important; font-weight:bold; letter-spacing:normal!important; margin:0 !important; padding:0!important}
+
+/* notifications page styles  -------------------------------------------------------------------------- */
+ul#form_notification_container, ul#form_autoresponder_container {width:95%;}
+ul#form_notification_container li, ul#form_autoresponder_container li {margin-bottom:15px !important;}
+ul#form_notification_container li label, ul#form_autoresponder_container li label {margin-bottom:8px !important; display:block;}
+
+/* set some widths and heights  -------------------------------------------------------------------------- */
+.fieldwidth-1, input.fieldwidth-1 {width:100%}
+.fieldwidth-2, input.fieldwidth-2 {width:350px}
+.fieldwidth-3, input.fieldwidth-3 {width:375px}
+.fieldheight-1, input.fieldheight-1 {height:160px}
+.fieldheight-2, input.fieldheight-2 {height:80px}
+
+/* bulk add panel  -------------------------------------------------------------------------- */
+.panel-instructions {border-bottom: 1px solid #dfdfdf; color:#555; font-size:11px; padding:4px 0; margin-bottom:6px}
+.bulk-left-panel {float:left; overflow-y: auto; height: 330px; width:220px; padding:0}
+.bulk-left-panel ul li {padding:0; margin:0}
+.bulk-left-panel ul li a.bulk-choice {background-color:#eaeaea; color:#555; display:block; width:190px; border-top:1px solid #fff; border-bottom:1px solid #d7d7d7; padding:5px; text-align:center; text-decoration:none}
+.bulk-left-panel ul li a.bulk-choice:hover {background-color:#dadada}
+a.bulk-choice:first-child {border-top:none}
+.bulk-arrow-mid {float:left; width:45px; height:330px; background-image:url(../images/arrow-right.jpg); background-repeat:no-repeat; background-position:center center}
+textarea#gfield_bulk_add_input {width:330px; height:330px; float:right; padding:6px}
+div.panel-buttons {margin-top:8px}
+.bulk-left-panel {*height:300px;} /* ie specific */
+.bulk-arrow-mid {*height:300px;} /* ie specific */
+textarea#gfield_bulk_add_input {*width:310px; *height:290px;} /* ie specific */
+#TB_ajaxContent {height:400px!important}
+
+/* safari & google chrome specific styles  -------------------------------------------------------------------------- */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	#gfield_settings_category_container, #gfield_settings_choices_container {max-height:222px}
+}
+
+input.headercb {*margin-top:-3px;}

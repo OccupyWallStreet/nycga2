@@ -1,0 +1,134 @@
+/*
+------------------------------------
+forms.css v1.2.1
+Gravity Forms Front End Form Styles
+http://www.gravityforms.com
+
+a rocketgenius project
+http://www.rocketgenius.com
+------------------------------------
+*/
+
+.gform_wrapper{ overflow:hidden;  margin-bottom:10px;  max-width:600px}
+.gform_wrapper h1, .gform_wrapper h2, .gform_wrapper h3{font-weight:normal; border:none; outline:none; background:none}
+.gform_wrapper:focus{ outline:none}
+.gform_wrapper form{ text-align:left}
+.gform_wrapper input{ outline-style:none;  font-size:11px;  font-family:verdana,sans-serif;  padding:2px 0 2px 0;  letter-spacing:normal}
+.gform_wrapper textarea{ outline-style:none;  font-size:11px;  font-family:verdana,sans-serif;  letter-spacing:normal;  padding:2px 0 2px 0;  resize:none; /* doesn't validate but added for Safari field resizing */}
+.gform_wrapper ul{ margin:0;  list-style-type:none}
+html >body .entry ul, .gform_wrapper ul{text-indent:0px}
+.gform_wrapper li, .gform_wrapper form li{ list-style-type:none!important; background-image:none!important; overflow:hidden}
+.gform_wrapper ul.right_label li, .gform_wrapper form ul.right_label li, .gform_wrapper ul.left_label li, .gform_wrapper form ul.left_label li {margin-bottom:14px}
+.gform_wrapper ul li:before, .gform_wrapper ul li:after, .entry ul li:before, .entry ul li:after{content:""; /* for safari */}
+.gform_wrapper ul li:before, .gform_wrapper ul li:after, .entry ul li:before, .entry ul li:after{content:none; # /* for other browsers  */}
+.gform_wrapper ul#gform_fields{ padding:0px;  margin:0px}
+.gform_wrapper select{ font-size:11px;  font-family:verdana,sans-serif;  padding:2px 0 2px 0;  letter-spacing:normal}
+.gform_wrapper #field_settings{ margin:0 0 12px}
+.gform_wrapper #field_settings ul li label{ display:block}
+.gform_wrapper .inline{ display:inline!important}
+.gform_wrapper #gform_heading{ width:98%;  padding-bottom:12px;  margin-bottom:18px;  border-bottom:1px dotted #ccc}
+.gform_wrapper .gfield_time_hour, .gform_wrapper .gfield_time_minute, .gform_wrapper .gfield_date_month, .gform_wrapper .gfield_date_day, .gform_wrapper .gfield_date_year{ width:70px;  float:left}
+.gform_wrapper .gfield_date_month, .gform_wrapper .gfield_date_day, .gform_wrapper .gfield_date_year {margin-right:12px}
+.gform_wrapper .gfield_time_ampm select{ width:60px!important}
+.gform_wrapper .gfield_time_hour input, .gform_wrapper .gfield_time_minute input, .gform_wrapper .gfield_date_month input, .gform_wrapper .gfield_date_day input, .gform_wrapper .gfield_date_year input{ width:70%!important}
+.gform_wrapper .gfield_date_month, .gform_wrapper .gfield_date_day, .gform_wrapper .gfield_date_year{ width:50px;  float:left}
+.gform_wrapper .gfield_date_month input, .gform_wrapper .gfield_date_day input, .gform_wrapper .gfield_date_year input{ width:85%!important}
+.gform_wrapper .field_hover{ border:1px dashed #2175A9!important;  cursor:pointer}
+.gform_wrapper .field_selected{ background-color:#DFEFFF;  border:1px solid #C2D7EF!important}
+.gform_wrapper .field_name_first, .gform_wrapper .field_name_last{ width:50%;  float:left}
+.gform_wrapper .ginput_complex{overflow:hidden}
+.gform_wrapper .field_name_first input, .gform_wrapper .ginput_complex .ginput_left input{ width:90%!important}
+.gform_wrapper .field_name_last input{ width:93%!important}
+.gform_wrapper .datepicker{ width:100px!important}
+.gform_wrapper .ginput_complex .ginput_left, .gform_wrapper .ginput_complex .ginput_right{ width:48%;  float:left}
+.gform_wrapper .gfield_error .ginput_complex .ginput_left, .gform_wrapper .gfield_error .ginput_complex .ginput_right { width:50%}
+.gform_wrapper .gfield_error .ginput_complex .ginput_left input { width:90%!important}
+.gform_wrapper .gfield_error .ginput_complex .ginput_right input { width:100%!important}
+.gform_wrapper .ginput_complex input, .gform_wrapper .ginput_complex select{ width:92%!important}
+.gform_wrapper .ginput_complex label, .gform_wrapper .gfield_time_hour label, .gform_wrapper .gfield_time_minute label, .gform_wrapper .gfield_date_month label, .gform_wrapper .gfield_date_day label, .gform_wrapper .gfield_date_year label, .gform_wrapper .instruction { display:block;  margin:3px 0 8px 0; font-size:10px; letter-spacing: 1px}
+.gform_wrapper .ginput_complex .name_prefix{ float:left;  width:30px!important;  margin-right:14px}
+.gform_wrapper .ginput_complex .name_suffix{ float:left;  width:30px!important}
+.gform_wrapper .ginput_complex .name_first, .gform_wrapper .ginput_complex .name_last{ float:left;  width:100px;  margin-right:8px}
+.gform_wrapper .top_label .gfield_label{ margin:10px 0 4px 0;  font-weight:bold; display:-moz-inline-stack; display:inline-block; clear:both}
+.gform_wrapper .left_label .gfield_label{ float:left;  margin:2px 15px 0 0;  width:29%;  font-weight:bold}
+.gform_wrapper .right_label .gfield_label{ float:left;  margin:2px 15px 0 0;  width:29%;  font-weight:bold;  text-align:right}
+.gform_wrapper .left_label ul.gfield_checkbox, .gform_wrapper .right_label ul.gfield_checkbox, .gform_wrapper .left_label ul.gfield_radio, .gform_wrapper .right_label ul.gfield_radio{ margin-left:32%}
+.gform_wrapper .top_label input.small, .gform_wrapper .top_label select.small{ width:25%}
+.gform_wrapper .top_label input.medium, .gform_wrapper .top_label select.medium{ width:50%}
+.gform_wrapper .top_label input.large, .gform_wrapper .top_label select.large, .gform_wrapper .top_label textarea.textarea{ width:92%}
+.gform_wrapper .right_label input.small, .gform_wrapper .right_label select.small, .gform_wrapper .left_label input.small, .gform_wrapper .left_label select.small{ width:15%}
+.gform_wrapper .right_label input.medium, .gform_wrapper .right_label select.medium, .gform_wrapper .left_label input.medium, .gform_wrapper .left_label select.medium{ width:35%}
+.gform_wrapper .right_label input.large, .gform_wrapper .right_label select.large, .gform_wrapper .left_label input.large, .gform_wrapper .left_label select.large, .gform_wrapper textarea.textarea{ width:59%}
+.gform_wrapper .right_label div.ginput_complex, .gform_wrapper .left_label div.ginput_complex{ width:64%;  float:left}
+.gform_wrapper h2.gsection_title{ margin:0!important;  padding:0!important;  letter-spacing:normal!important}
+.gform_wrapper .gsection .gfield_label, .gform_wrapper h2.gsection_title, .gform_wrapper h3#gform_title{ font-weight:bold;  font-size:16px;  font-family:Helvetica,sans-serif}
+.gform_wrapper h3#gform_title{ letter-spacing:normal!important;  margin:10px 0 6px 0}
+.gform_wrapper span.gform_description{font-weight:normal}
+.gform_wrapper h2.gsection_title, .gform_wrapper .gsection_description, .gform_wrapper h3#gform_title{ width:98%}
+.gform_wrapper .gsection{ border-bottom:1px dotted #ccc!important;  padding:0 0 8px 0;  margin:8px 0 16px 0}
+.gform_wrapper .gfield_checkbox, .gform_wrapper .gfield_radio{ padding:5px 0;  margin:0}
+.gform_wrapper .gfield_checkbox li, .gform_wrapper .gfield_radio li{ padding:3px 0 0 0!important;  line-height:0;  width:auto}
+.gform_wrapper .gfield_checkbox label, .gform_wrapper .gfield_radio label{ margin-left:6px;  display:inline}
+.gform_wrapper .description, .gform_wrapper .gfield_description, .gform_wrapper .gsection_description,.gform_wrapper .instruction { font-size:10px; line-height:150%; clear:both; font-family:verdana,sans-serif; letter-spacing:normal}
+.gform_wrapper .description, .gform_wrapper .gfield_description, .gform_wrapper .gsection_description{padding:4px 0 8px 0}
+.gform_wrapper .gfield_description  {padding: 10px 0 8px 0; font-style: italic}
+.gfield_date_year+.gfield_description {padding:0 0 8px 0}
+.gform_wrapper .gsection_description {font-style: italic}
+.ginput_complex + .gfield_description {padding-top:0!important}
+.gform_wrapper .right_label .gfield_description, .gform_wrapper .left_label .gfield_description, .gform_wrapper .left_label .instruction, .gform_wrapper .right_label .instruction{ margin-left:29%;  padding-left:15px}
+.gform_wrapper .left_label .gsection .gsection_description, .gform_wrapper .right_label .gsection .gsection_description{ margin-left:0;  padding-left:0;  padding-top:4px;  line-height:150%}
+.gform_wrapper .gfield_required{ color:#f00;  margin-left:4px}
+.gform_wrapper textarea.small{ height:80px}
+.gform_wrapper textarea.medium{ height:150px}
+.gform_wrapper textarea.large{ height:250px}
+.gform_wrapper .gfield_error{ background-color:#FFDFDF!important;  margin-top:4px!important;  margin-bottom:6px;  padding:6px 6px 4px 6px!important; border:1px dotted #C89797}
+.gform_wrapper .top_label .gfield_error .ginput_container {max-width:99%}
+.gform_wrapper .top_label .gfield_error{ width:92%}
+.gform_wrapper .top_label .gfield_error input.large, .gform_wrapper .top_label .gfield_error select.large, .gform_wrapper .top_label .gfield_error textarea.textarea{ width:100%}
+.gform_wrapper .right_label .gfield_error input.large, .gform_wrapper .right_label .gfield_error select.large, .gform_wrapper .right_label .gfield_error textarea.textarea, .gform_wrapper .left_label .gfield_error input.large, .gform_wrapper .left_label .gfield_error select.large, .gform_wrapper .left_label .gfield_error textarea.textarea { width:66%}
+.gform_wrapper .gfield_error .gfield_label{ color:#f00}
+.gform_wrapper .validation_error{ color:#f00;  font-weight:bold;  font-size:14px;  line-height:150%;  font-family:Helvetica,sans-serif}
+.gform_wrapper .validation_message{ color:#f00!important;  font-size:11px;  font-family:verdana,sans-serif;  letter-spacing:normal}
+.gform_wrapper .gform_footer{ padding:16px 0 10px 0;  margin:16px 0 0 0;  border-top:1px dotted #ccc!important}
+.gform_wrapper .gform_footer.right_label, .gform_wrapper .gform_footer.left_label { padding:16px 0 10px 31%}
+.gform_wrapper input.button{ font-size:95%;  color:#fff, }
+.gform_wrapper input.button:hover{ color:#aaa}
+#gforms_confirmation_message{background-color:#fffac6; border:1px solid #feda70; margin-top:10px; margin-bottom:10px; padding:20px 0; font-size:14px; color:#252525; text-align:center}
+
+/* a few IE specific hacks ------------------------------------------------------------------------- */
+
+.gform_wrapper .gfield_time_hour{*width:80px}
+.gform_wrapper .gfield_time_minute{*width:70px}
+.gform_wrapper .gfield_time_ampm{*padding-top:2px}
+.gform_wrapper .gfield_time_hour input, .gform_wrapper .gfield_time_minute input{*margin-left:-10px}
+.gform_footer input.button {*padding:3px}
+ul.top_label .clear-multi {overflow:hidden; clear:both}
+
+/* date picker ---------------------------------------------------------------------------------------*/
+
+.ui-datepicker-div, .ui-datepicker-inline, #ui-datepicker-div{ /*resets*/margin:0; padding:0; border:0; outline:0; line-height:1.3; text-decoration:none; font-size:100%; list-style:none; font-family:"lucida sans", "lucida grande", lucida ,sans-serif; background:#fff; font-size:1.0em; border:4px solid #C1C1C1; width:15.5em; padding:2.5em .5em .5em .5em;  position:relative}
+.ui-datepicker-div, #ui-datepicker-div{ z-index:9999; /*must have*/ display:none}
+.ui-datepicker-inline{ float:left; display:block}
+.ui-datepicker-control{ display:none}
+.ui-datepicker-current{ display:none}
+.ui-datepicker-next, .ui-datepicker-prev{position:absolute; left:.5em; top:.5em; background:#eee}
+.ui-datepicker-next{ left:14.6em}
+.ui-datepicker-next:hover, .ui-datepicker-prev:hover{ background:#dadada}
+.ui-datepicker-next a, .ui-datepicker-prev a{ text-indent:-999999px; width:1.3em; height:1.4em; display:block; font-size:1em; background:url(../images/datepicker_arrow_left.gif) 50% 50% no-repeat; border:1px solid #d3d3d3; cursor:pointer}
+.ui-datepicker-next a{ background:url(../images/datepicker_arrow_right.gif) 50% 50% no-repeat}
+.ui-datepicker-header select{ border:1px solid #d3d3d3;  color:#555;  background:#e6e6e6;  font-size:1em;  line-height:1.4em;  position:absolute;  top:.5em;  margin:0 !important}
+.ui-datepicker-header option:focus, .ui-datepicker-header option:hover{ background:#dadada}
+.ui-datepicker-header select.ui-datepicker-new-month{ width:7em; left:2.2em}
+.ui-datepicker-header select.ui-datepicker-new-year{ width:5em; left:9.4em}
+table.ui-datepicker{ width:15.5em;  text-align:right}
+table.ui-datepicker td a{ padding:.1em; display:block; color:#555; background:#e6e6e6; cursor:pointer; border:1px solid #fff; text-align:center}
+table.ui-datepicker td a:hover{ border:1px solid #fff; color:#212121; background:#dadada; text-decoration: none}
+table.ui-datepicker td a:active{ border:1px solid #aaa; color:#212121; background:#fff;  text-decoration: none}
+table.ui-datepicker .ui-datepicker-title-row td{ padding:.2em 0; text-align:center; font-size:.9em; color:#222; text-transform:uppercase}
+table.ui-datepicker .ui-datepicker-title-row td a{ color:#222; padding:.3em 0}
+.ui-datepicker-cover{ display:none;  display/**/:block;  position:absolute; z-index:-1; filter:mask(); top:-4px; left:-4px; width:193px; height:200px}
+img.ui-datepicker-trigger {position:relative; top:3px; left:4px}
+
+/* tame those pesky hidden fields --------------------------------------------------------------------*/
+
+.gform_wrapper input[type="hidden"], .gform_wrapper input.gform_hidden {display:none}
