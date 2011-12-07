@@ -69,11 +69,11 @@
 							$rowno++;
 							$class = ($rowno % 2) ? 'alternate' : '';
 							// FIXME set to american
-							$localised_start_date = date_i18n('M d', $event->start);
-							$localised_end_date = date_i18n('M d', $event->end);
+							$localised_start_date = date_i18n('D M d', $event->start);
+							$localised_end_date = date_i18n('D M d', $event->end);
 							$style = "";
-							$today = date ( "Y-m-d", current_time('timestamp') );
-							$event_date = date('Y-m-d', $event->start);
+							$today = date ( "m-d-Y", current_time('timestamp') );
+							$event_date = date('m-d-Y', $event->start);
 							
 							if ($event->start_date < $today && $event->end_date < $today){
 								$class .= " past";
@@ -90,7 +90,8 @@
 								
 								<td class="event-datetime">
 									<div class="event-date">
-										<?php echo $event_date == $today ? _e('Today') : $localised_start_date . '<br><span>'.date('Y', $event->start).'</span>'; ?>
+										<!-- Modified to show day of week -->
+										<?php echo $event_date == $today ? _e('Today') : '<span>' . date('D', $event->start) . '</span>' . date('M d', $event->start) . '<br /><span>' . date('Y', $event->start).'</span>'; ?>
 									</div>
 								</td>
 								<td>
