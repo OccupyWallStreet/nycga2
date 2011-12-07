@@ -46,13 +46,11 @@ function gcats_show_groups_for_cat( $groups ) {
         if ( $cat ) {
 		echo '<div id="gtags-results">';
 		if ($cat === 'operations')
-                	echo "<b>Operations Groups</b> are groups that are contributing to the logistical and financial operations of Occupy Wall Street on a consistent basis. They are open and accessible and required to produce a written charter, hold regular meetings, and produce meeting minutes.";
+                	echo "<b>Operations Groups</b> are groups that are contributing to the logistical and financial operations of Occupy Wall Street on a consistent basis. They are open and accessible and required to produce a written charter describing what they do and how people can get involved.";
         	elseif ($cat === 'caucus')
                 	echo "<b>Caucuses</b> are self-determining groups of people that share a common experience of being systemically marginalized in society at large.  This marginalization may be based on, but not limited to, their real or perceived race, gender identity, sexuality, age, or ability.";
-        	elseif ($cat === 'movement')
-                	echo "<b>Movement Groups</b> are groups that contribute to the Occupy Wall Street movement and are accountable to the General Assembly. They are autonomous and may partner with Operations Groups on a project basis.";
-        	elseif ($cat === 'affinity')
-                	echo "<b>Affinity Groups</b> are groups that contribute to the Occupy Wall Street movement, but are funded and operate independently of and are not accountable to the General Assembly.";
+                elseif ($cat === 'uncategorized')
+			echo "<b>Uncategorized Groups</b> are not currently classified by any decision-making body of Occupy Wall Street.";
 		echo '</div>';
                 $gcats_groups = gcats_get_groups_by_cat( null, null, false, $_POST['search_terms'], $cat, $_POST['filter'] );
                 $groups_template->groups = $gcats_groups[groups];
@@ -136,12 +134,8 @@ function bp_get_group_category($group=false) {
 		return 'Operations Group';
 	elseif ($category === 'caucus')
 		return 'Caucus';
-	elseif ($category === 'movement')
-		return 'Movement Group';
-	elseif ($category === 'affinity')
-		return 'Affinity Group';
 	else
-		return 'None';
+		return '';
 }
 
 function bp_get_category_group_count($category) {
@@ -151,6 +145,7 @@ function bp_get_category_group_count($category) {
 		  from wp_bp_groups g
 		  join wp_bp_groups_groupmeta gm on g.id = gm.group_id
 		 where gm.meta_key = 'category'
+                   AND g.status != 'hidden'
 		   and gm.meta_value = '$category';
 "));
 }

@@ -4,7 +4,6 @@ class GA_Categories extends BP_Group_Extension {
 	var $nav_item_position = 16;
 	var $visibility = true;	
 	var $enable_edit_item = true;
-	var $enable_nav_item = false;
 	var $display_hook = 'groups_statustab_group_boxes';
 	var $template_file = 'groups/single/plugins';
 	var $enable_create_step = false;
@@ -13,7 +12,7 @@ class GA_Categories extends BP_Group_Extension {
 		$this->name = 'GA Categories';
 		$this->slug = 'categories';
 		$this->create_step_position = 21;
-                //$this->enable_edit_item = current_user_can('manage_options');
+                $this->enable_edit_item = current_user_can('manage_options');
 		// In Admin
 		$this->name = "Group Categories";
 	}
@@ -28,11 +27,9 @@ class GA_Categories extends BP_Group_Extension {
 		$type = groups_get_groupmeta($bp->groups->current_group->id, 'category');
 		echo '<label>Group Category</label>';
 		echo '<select name="group-category" id="group-category">';
-		echo '<option value="none">None</option>';
+		echo '<option value="uncategorized">Uncategorized</option>';
 		echo '<option value="operations" '. ($type=='operations' ? 'selected="selected"':'') . '>Operations Group</option>';
 		echo '<option value="caucus" '. ($type=='caucus' ? 'selected="selected"':'') . '>Caucus</option>';
-		echo '<option value="movement" '. ($type=='movement' ? 'selected="selected"':'') . '>Movement Group</option>';
-		echo '<option value="affinity" '. ($type=='affinity' ? 'selected="selected"':'') . '>Affinity Group</option>';
 		echo '</select>';
 		echo '<p><input type="submit" name="save_category" id="save" value="Save"></p>';
 		wp_nonce_field('groups_edit_group_categories');
@@ -72,9 +69,7 @@ function add_category_tabs(){
 
 					<li id="groups-cat_caucus"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/caucus/' ); ?>"><?php printf( __( 'Caucuses <span>%s</span>', 'buddypress' ), bp_get_category_group_count('caucus') ); ?></a></li>
 
-					<li id="groups-cat_movement"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/movement' ); ?>"><?php printf( __( 'Movement Groups <span>%s</span>', 'buddypress' ), bp_get_category_group_count('movement') ); ?></a></li>
-
-					<li id="groups-cat_affinity"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/affinity' ); ?>"><?php printf( __( 'Affinity Groups <span>%s</span>', 'buddypress' ), bp_get_category_group_count('affinity') ); ?></a></li>
+					<li id="groups-cat_uncategorized"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/groups/categories/uncategorized/' ); ?>"><?php printf( __( 'Uncategorized <span>%s</span>', 'buddypress' ), bp_get_category_group_count('uncategorized') ); ?></a></li>
 
 <?php
 }

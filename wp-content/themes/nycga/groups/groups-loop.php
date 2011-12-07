@@ -54,7 +54,7 @@
 
 			<div class="item">
 				<div class="item-title"><a href="<?php bp_group_permalink(); ?>" class="grouplink"><?php bp_group_name(); ?></a></div>
-				<div class="item-type"><?php /*bp_group_category();*/ ?>&nbsp;</div>
+				<div class="item-type"><?php bp_group_category(); ?></div>
                                 <div class="item-count"><?php bp_group_member_count(); ?></div>
 				<?php do_action( 'bp_directory_groups_item' ); ?>
 
