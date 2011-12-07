@@ -4,7 +4,6 @@ class GA_Categories extends BP_Group_Extension {
 	var $nav_item_position = 16;
 	var $visibility = true;	
 	var $enable_edit_item = true;
-	var $enable_nav_item = false;
 	var $display_hook = 'groups_statustab_group_boxes';
 	var $template_file = 'groups/single/plugins';
 	var $enable_create_step = false;
