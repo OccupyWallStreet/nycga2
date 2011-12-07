@@ -1,0 +1,336 @@
+------------------------------------------------------------------------------------------------------------------
+Version 1.2.2
+    - Fixed issue with the {all_field} variable not replacing the name and address fields correctly.
+    - Changed formatting of {all_field} so that advanced fields (i.e. name and address) are consolidated in one row instead of one row for each input.
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.2.1
+    - Fixed issue that caused backslashes to be stripped out from entries and form meta information
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.2
+    - Fixed conflict with the WP Recaptcha plugin
+    - Improved a nicer looking "All Fields" email template
+    - Added option to use currently logged in user as the post author
+    - Implemented bulk add and predefined values for choices
+    - Implemented form activity limit options (entry cap and form start/end scheduling)
+    - Implemented configurable Reply To for admin notification
+    - Changed field editor's default value input to a textarea for fields that are rendered as textareas (Paragraph, Post Content and Post Excerpt)
+    - Added new field variables (Entry Id, Entry Url, Form Id, Post Id, Post Edit Url) to the "Insert Variable" drop down
+    - Added option to email notes to users from the entry screen
+    - Added post status as an option in the editor for post fields
+    - Improved date field
+    - Added duplicate form functionality
+    - Integrated with Justin Tadlock's Members plugin to allow administrators to control user access to different sections of Gravity Forms
+    - Implemented field population via query string, shortcode, filter or direct function call
+    - Implemented hidden field type
+
+    - Added gform_predefined_choices filter to allow users to manipulate and/or add new predefined choices
+
+        Sample:
+        add_filter("gform_predefined_choices", "add_predefined_choice");
+        function add_predefined_choice($choices){
+            $choices["My New Choice"] = array("Choice 1", "Choice 2", "Choice 3"); //Adds a new predefined choice to the end of the list
+            return $choices;
+        }
+
+    - Added gform_pre_render filter. Fires before form rendering process and allows users to manipulate the form object before it gets displayed
+
+        Sample:
+        add_filter("gform_pre_render_17", test_render); //Adds a filter to form id 17. It is also possible to use gform_pre_render to filter every form
+        function test_render($form){
+            $form["fields"][1]["isRequired"] = true; //Dynamically marks a field (id=1) as required
+            return $form;
+        }
+
+    - Added gform_notification_email filter. Fires before sending the admin notification email and allows users to dynamically dynamically route entries to another email address
+
+        Sample:
+        add_filter("gform_notification_email_17", "route_notification", 10, 2); //Adds a filter to form id 17. It is also possible to use gform_notification_email to filter every form
+        function route_notification($email_to, $entry){
+            $value = $entry["17"];
+            return $value;
+        }
+
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.2.dev7
+    - Implemented bulk add and predefined values for choices
+    - Added gform_predefined_choices filter to allow users to manipulate and/or add new predefined choices
+
+        add_filter("gform_predefined_choices", "add_predefined_choice");
+        function add_predefined_choice($choices){
+            $choices["My New Choice"] = array("Choice 1", "Choice 2", "Choice 3");
+            return $choices;
+        }
+
+    - Implemented form activity limit options (entry cap and form start/end scheduling)
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.2.dev6
+    - Implemented configurable Reply To for admin notification
+    - Changed field editor's default value input to a textarea for fields that are rendered as textareas (Paragraph, Post Content and Post Excerpt)
+    - Added gform_pre_render filter. Fires before form rendering process and allows users to manipulate the form object before it gets displayed
+
+        add_filter("gform_pre_render_17", test_render);
+        function test_render($form){
+            $form["fields"][1]["isRequired"] = true;
+            return $form;
+        }
+
+
+    - Add gform_notification_email filter. Fires before sending the admin notification email and allows users to dynamically route emails
+
+        add_filter("gform_notification_email_17", "route_notification", 10, 2);
+        function route_notification($email_to, $entry){
+            $value = $entry["17"];
+            return $value;
+        }
+------------------------------------------------------------------------------------------------------------------
+Version 1.2.dev5
+    - Added new field variables (Entry Id, Entry Url, Form Id, Post Id, Post Edit Url)
+    - Added option to email notes to users from the entry screen
+    - Added post status as an option in the editor for post fields
+    - Removed the "Delete" link from the form list page to create room for "Duplicate"
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.2.dev4
+    - Improved date field
+    - Added duplicate form functionality
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.2.dev3
+    - Added capabilities to different areas of the plugin
+    - Integrated with Justin Tadlock's Members plugin
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.2.dev2
+    - Allows data to be passed to admin only fields
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.2.dev1
+    - Implemented field population via query string, shortcode, filter or direct function call
+    - Implemented hidden field
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.1.3
+    - Fixed issue with export on IE
+    - Optimized javascript include in the admin pages
+    - Fixed issue with variable replacement adding "Array" for complex fields.
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.1.2
+    - Fixed issue with notification truncating field values
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.1.1
+    - Fixed issue with drop down field saving empty values
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.1
+    - Implemented "Select All" functionality in the export page
+    - Disabled form view counting when form is viewed by an administrator
+    - Fixed issue with submitting a Post Image field from the front-end
+    - Fixed issue with file upload validation when extension list had spaces
+    - Removed pluggable.php include
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.0.11
+    - Implemented query string builder
+    - Corrected issue with date localization
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.0.10
+    - Corrected HTML validation errors
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.0.9
+    - Finalized Post Image field type
+    - Displaying a user friendly message when trying to load an invalid form.
+
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.0.8
+    - Implemented Post Image field type
+    - Fixed issue with file upload not correctly validating against allowed file types.
+    - Added filters for name and address sub-labels
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.0.7
+    - Fixed issue with checkboxes displaying wrong values on the admin screen when options change
+    - Reading email character set from WordPress configuration
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.0.6
+    - Enhanced entry detail page UI
+    - Added Pre-Submission filter
+    - Fixed JSON conflict
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.0.5
+    - Fixed issue with localization where the language file was only being loaded in the admin side and not in the front end form
+    - Fixed issue with entry grid displaying multiple rows for the same entry
+    - Added new hooks and filters
+    - Fixed issue with the file upload field not being correctly inserted in the notification and confirmation messages
+    - Added friendly error message when the media upload folder is not writable
+    - Fixed error in the uninstall function (when the upload folder did not exist)
+    - Implemented Post Category fields
+
+------------------------------------------------------------------------------------------------------------------
+Version 1.0
+    - Added CSS classes for informational messages
+    - Various text changes
+    - Fixed issue with image not being displayed on submit button
+    - Fixed issue with entry detail screen that caused the left menu to highlight the "Edit Form" screen
+    - Fixed issue with confirmation message that caused HTML entered in that field to be stripped
+    - Fixed issue with form settings not sliding down on IE8
+    - Added message validation so that invalid messages (i.e. errors or maintenance mode pages) are not displayed in the message area
+    - Fixed issue when two forms were added to the same page
+    - Changed scheduling logic for checking updates
+    - Removed captcha field from the {all_field} variable
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.9.5
+    - Changed automatic update location to www.gravityhelp.com
+    - Changed update message so that it only displays when remote version is greater than local version
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.9.1
+    - Added tooltip to conversion on forms grid
+    - Added title to black bar on "select columns" modal window.
+    - Added spacing below titles on select column window.
+    - Changed Cancel button style to the gray version
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.9.0
+    - Changing Edit icon label to "Close" when field settings is openned
+    - Allowing HTML to be entered in post fields
+    - Displaying "Edit" link besides the submit button if user is logged in to the admin and is an Administrator
+    - Recording form views by hour to reduce table site
+    - Implemented an uninstall function so that users can delete all plugin data
+    - Swapping class to edit icon so that icon can be changed along with the text
+    - Add tooltip to choices field settings
+    - Made file upload location follow WP's configured upload location
+    - Changed header on entries screen to format (Entries - Form Name)
+    - Added label to forms drop down on entries screen
+    - Added title attribute to form active icon (Active/Inactive)
+    - Added class to choices radio buttons and checkboxes
+    - Styled "Add Form" thickbox window like the other media windows (i.e. added header and close button)
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.8.6
+    - Fixed issue when typing a single quote in the submit button name
+    - Fixed issue with lead detail truncating large text
+    - Fixed issue that caused left menu to change from Entries to Edit Form when form drop down was changed on the entries page
+    - Fixed issue with notification not being properly formed (i.e \n not being correctly converted to <br />)
+    - Added friendly error message for unsupported wp versions
+    - Added friendly message when trying to load a form that does not exist.
+    - Closing active field editor and form editor after adding a new field
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.8.5
+    - Updated UI
+    - Ready for translations - Portuguese translation started
+    - Fixed issue with notification not replacing \n at the right time
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.8.4
+    - Added several tooltips
+    - Optimized queries and improved security
+    - Fixed issue with field delete procedure that cause entry details from other forms to be deleted
+    - Fixed issue with international phone validation
+    - Updated Form Editor UI
+    - Finilized localization
+    - Fixed error on dashboard when form didn't have any unread entries
+    - Fixed issue with drop down field editor that caused all drop downs to be replaced by the values entered in the choice list.
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.8.3
+    - Created a centralized function to consistently handle tooltips
+    - Fixed issue with notification subject that caused the text to be cut-off after a double quote (")
+    - Fixed issue with field editor that resized all text fields in the field settings window when the field size was changed
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.8.2
+    - Added "updated message" to settings page, notification page and lead detail page
+    - Fixed issue when deleting form fields that caused confirmation popup to be displayed multiple times
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.8.1
+    - Changed table character set to Utf8
+    - When sending emails, setting the email as the person's name to prevent WordPress from adding "WordPress" as the name
+    - Added "Embed URL" as an option for the "Insert form field" drop-downs on the notification page and confirmation text
+    - Added an email field drop down to the admin notification page for the "From" address. Users will be able to either type a value, or select one of the email fields in the form.
+    - Replaced all instances of <? by <?php.
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.8.0
+    - Fixed issue with file upload field where it wouldn't pass the validation if the field was set as required
+    - Fixed error when redirecting the form to an external confirmation page
+    - Fixed issue with form settings where the redirect to another page radio button wasn't getting saved
+    - Fixed issue with form settings confirmation tab causing the "text" radio button to be activated when text was entered in the url field
+    - Added "delete form" link to the form edit screen
+------------------------------------------------------------------------------------------------------------------
+Version 0.7.5
+    - Added popup with "what to do next" options upon saving a form for the first time.
+    - Removed Captcha fields from the available list on the entry column selector popup
+    - Removed Captcha field from lead detail page
+    - Change style of section break on lead detail page
+    - Added installation status on settings page
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.7.4
+    - Added Captcha field
+    - Added tabindex property to all fields
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.7.3
+    - Fixed issue with field editor that prevented the editor from sliding down on click when a field immediatelly after another field was dragged from whithin the field editor
+    - Storing form submissions in its own table instead of relying on entry table (because entries can be deleted and that shouldn't affect the conversion ratio)
+    - Fixed issue with field editor that allowed field types to be changed even though there was an entry associated with that field
+    - Added ability to specify a validation message for every field
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.7.2
+    - UI improvement for field editor (loading it under the field instead of besides it)
+    - Corrected markup issues that caused it to fail validation. (checked -> checked="checked", class=' gfield ' -> class='gfield' and closed some input tags that were left opened)
+    - Added admin label so that a field label can be different when displayed in the admin area
+    - Fixed issue with phone field where phone format was not getting loaded correctly in the field editor
+    - Fixed issue with dashboard that excluded forms with no unread entries
+    - Fixed issue with entries grid that displayed blanks on totals when form didn't have an unread entry and starred entry
+    - Fixed issue with form settings where clicking on any field would cause the form editor to slide up and close
+    - Fixed issue with form editor that caused field editor not to slide down after a field type change
+    - Fixed issue with radio buttons and checkboxes field editors getting out of wack upon changing one of the items in the list
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.7.1
+    - UI improvement on export page
+    - Performance improvement on Dashboard query and Entries page
+    - Replaced call to mail() with wp_mail()
+    - Added two filters to submit button. ("gform_submit_button", and "gform_submit_button_FORMID"). The first is a filter that applies to all forms. The second applies to a specific form.
+    - Added pre-submission action "gform_pre_submission". Happens after validation has passed and before fields have been saved
+    - Added post-submission action "gform_post_submission". Happens after fields have been saved
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.7.0
+    - Fixed bug on automatic upgrade for WP 2.8
+    - Including a PHP JSON library when a JSON extension is not available on the server (fixes errors for hostings using PHP < 5.2)
+    - Optimized css and js output so that they are printed in the <head> or footer and only when needed
+    - Added setting to allow users to disable the CSS output
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.6.6
+    - Fixed javascript error on form edit screen that prevented the field settings to be loaded correctly for post custom fields
+    - Fixed issue on entry detail screen that was truncating fields with large amounts of text (i.e. post body)
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.6.5
+    - Implemented integration with Wordpress to allow automatic upgrades of Gravity Forms from the Plugins page
+
+------------------------------------------------------------------------------------------------------------------
+Version 0.6.4
+    - Fixed issue on color selector popup where the "white boxes" would not expand in Firefox and Safari as items were added to the list.
+    - Fixed issue on form submission where posts were not created even though there were post fields in the form.
+    - Fixed issue on entry grid where first column's action links were being be cut-off.
+
+------------------------------------------------------------------------------------------------------------------
