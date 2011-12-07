@@ -20,31 +20,27 @@
 	<body <?php body_class() ?> id="bp-default">
 		<div id="header-section">
 			<?php do_action( 'bp_before_header' ) ?>
-			
-			<!--#search-bar-->
-			<div id="search-bar">
+			<div id="search-bar" role="search">
 				<div class="padder">
 					<div class="align-right">
-						<!-- #search-form -->
-						<form action="<?php echo bp_search_form_action() ?>" method="post" id="search-form">
-							<label for="search-terms" class="accessibly-hidden"><?php _e( 'Search for:', 'buddypress' ); ?></label>
-							<input type="search" id="search-terms" name="search-terms" value="<?php echo isset( $_REQUEST['s'] ) ? esc_attr( $_REQUEST['s'] ) : ''; ?>" />
-							
-							<?php echo bp_search_form_type_select() ?>
-							
-							<input type="submit" name="search-submit" id="search-submit" value="<?php _e( 'Search', 'buddypress' ) ?>" />
-							
-							<?php wp_nonce_field( 'bp_search_form' ) ?>
-						
-						</form><!-- /#search-form -->
-						
-						<?php do_action( 'bp_search_login_bar' ) ?>
-					</div>
+					
+					<form action="<?php echo bp_search_form_action() ?>" method="post" id="search-form">
+						<label for="search-terms" class="accessibly-hidden"><?php _e( 'Search for:', 'buddypress' ); ?></label>
+						<input type="search" id="search-terms" name="search-terms" value="<?php echo isset( $_REQUEST['s'] ) ? esc_attr( $_REQUEST['s'] ) : ''; ?>" />
+			
+						<?php echo bp_search_form_type_select() ?>
+			
+						<input type="submit" name="search-submit" id="search-submit" value="<?php _e( 'Search', 'buddypress' ) ?>" />
+			
+						<?php wp_nonce_field( 'bp_search_form' ) ?>
+			
+					</form><!-- #search-form -->
+			
+				<?php do_action( 'bp_search_login_bar' ) ?>
 				</div>
 			</div>
-			<!-- /#search-bar-->
-			
-			<div id="header">
+		</div><!-- #search-bar -->
+		<div id="header">
 			
 				<div class="padder">
 					<div id="header-link"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"></a>
