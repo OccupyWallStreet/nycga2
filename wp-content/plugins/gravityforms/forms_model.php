@@ -6,9 +6,12 @@ define("GFORMS_MAX_FIELD_LENGTH", 200);
 
 class RGFormsModel{
 
+    public static $uploaded_files = array();
+
     public static function get_form_table_name(){
         global $wpdb;
         return $wpdb->prefix . "rg_form";
+
     }
 
     public static function get_meta_table_name(){
@@ -25,6 +28,12 @@ class RGFormsModel{
         global $wpdb;
         return $wpdb->prefix . "rg_lead";
     }
+
+    public static function get_lead_meta_table_name(){
+        global $wpdb;
+        return $wpdb->prefix . "rg_lead_meta";
+    }
+
     public static function get_lead_notes_table_name(){
         global $wpdb;
         return $wpdb->prefix . "rg_lead_notes";
@@ -45,49 +54,107 @@ class RGFormsModel{
         return $wpdb->prefix . "rg_lead_view";
     }
 
-    public static function get_forms($is_active = null){
+    public static function get_forms($is_active = null, $sort="title ASC"){
         global $wpdb;
         $form_table_name =  self::get_form_table_name();
         $lead_table_name = self::get_lead_table_name();
         $view_table_name = self::get_form_view_table_name();
 
         $active_clause = $is_active !== null ? $wpdb->prepare("WHERE is_active=%d", $is_active) : "";
-        $sql = "SELECT f.id, f.title, f.date_created, f.is_active, l.lead_count, v.view_count
-                FROM $form_table_name f
-                LEFT OUTER JOIN
-                    (SELECT form_id, count(id) as lead_count FROM $lead_table_name l GROUP BY form_id) l ON f.id = l.form_id
-                LEFT OUTER JOIN
-                    (SELECT form_id, sum(count) as view_count FROM $view_table_name GROUP BY form_id) v ON f.id = v.form_id
-                $active_clause";
+        $order_by = !empty($sort) ? "ORDER BY $sort" : "";
 
-        return $wpdb->get_results($sql);
+        $sql = "SELECT f.id, f.title, f.date_created, f.is_active, 0 as lead_count, 0 view_count
+                FROM $form_table_name f
+                $active_clause
+                $order_by";
+
+        //Getting all forms
+        $forms = $wpdb->get_results($sql);
+
+        //Getting entry count per form
+        $sql = "SELECT form_id, count(id) as lead_count FROM $lead_table_name l WHERE status='active' GROUP BY form_id";
+        $entry_count = $wpdb->get_results($sql);
+
+        //Getting view count per form
+        $sql = "SELECT form_id, sum(count) as view_count FROM $view_table_name GROUP BY form_id";
+        $view_count = $wpdb->get_results($sql);
+
+        //Adding entry counts and to form array
+        foreach($forms as &$form){
+            foreach($view_count as $count){
+                if($count->form_id == $form->id){
+                    $form->view_count = $count->view_count;
+                    break;
+                }
+            }
+
+            foreach($entry_count as $count){
+                if($count->form_id == $form->id){
+                    $form->lead_count = $count->lead_count;
+                    break;
+                }
+            }
+        }
+
+        return $forms;
+    }
+
+    public static function get_forms_by_id($ids){
+        global $wpdb;
+        $form_table_name =  self::get_form_table_name();
+        $meta_table_name =  self::get_meta_table_name();
+
+        if(is_array($ids))
+            $ids = implode(",", $ids);
+
+        $results = $wpdb->get_results(" SELECT display_meta FROM {$form_table_name} f
+                                        INNER JOIN {$meta_table_name} m ON f.id = m.form_id
+                                        WHERE id in({$ids})", ARRAY_A);
+
+        foreach ($results as &$result)
+            $result = maybe_unserialize($result["display_meta"]);
+
+        return $results;
+
+    }
+
+    public static function get_form_payment_totals($form_id){
+        global $wpdb;
+        $lead_table_name = self::get_lead_table_name();
+
+        $sql = $wpdb->prepare(" SELECT sum(payment_amount) revenue, count(l.id) orders
+                                 FROM $lead_table_name l
+                                 WHERE form_id=%d AND payment_amount IS NOT null", $form_id);
+
+        $totals = $wpdb->get_row($sql, ARRAY_A);
+
+        $active = $wpdb->get_var($wpdb->prepare(" SELECT count(id) as active
+                                                 FROM $lead_table_name
+                                                 WHERE form_id=%d AND payment_status='Active'", $form_id));
+
+        if(empty($active))
+            $active = 0;
+
+        $totals["active"] = $active;
+
+        return $totals;
     }
 
     public static function get_form_counts($form_id){
         global $wpdb;
         $lead_table_name = self::get_lead_table_name();
+        $sql = $wpdb->prepare(
+                "SELECT
+                    (SELECT count(0) FROM $lead_table_name WHERE form_id=%d AND status='active') as total,
+                    (SELECT count(0) FROM $lead_table_name WHERE is_read=0 AND status='active' AND form_id=%d) as unread,
+                    (SELECT count(0) FROM $lead_table_name WHERE is_starred=1 AND status='active' AND form_id=%d) as starred,
+                    (SELECT count(0) FROM $lead_table_name WHERE status='spam' AND form_id=%d) as spam,
+                    (SELECT count(0) FROM $lead_table_name WHERE status='trash' AND form_id=%d) as trash",
+                    $form_id, $form_id, $form_id, $form_id, $form_id);
 
-         $sql = $wpdb->prepare(" SELECT count(l.id)
-                                 FROM $lead_table_name l
-                                 WHERE is_read=0
-                                 AND form_id=%d", $form_id);
+         $results = $wpdb->get_results($sql, ARRAY_A);
 
-         $unread_count = $wpdb->get_var($sql);
-
-         $sql = $wpdb->prepare(" SELECT count(l.id)
-                                 FROM $lead_table_name l
-                                 WHERE is_starred=1
-                                 AND form_id=%d", $form_id);
-
-         $starred_count = $wpdb->get_var($sql);
-
-         $sql = $wpdb->prepare(" SELECT count(l.id)
-                                 FROM $lead_table_name l
-                                 WHERE form_id=%d", $form_id);
-
-         $total_count = $wpdb->get_var($sql);
-
-         return array("total" => $total_count, "unread" => $unread_count, "starred" => $starred_count);
+         return $results[0];
 
     }
 
@@ -96,26 +163,24 @@ class RGFormsModel{
         $form_table_name =  self::get_form_table_name();
         $lead_table_name = self::get_lead_table_name();
 
-        $sql = "SELECT f.id, f.title, count(l.id) as unread_count
+        $sql = "SELECT l.form_id, count(l.id) as unread_count
                 FROM $lead_table_name l
-                INNER JOIN $form_table_name f ON f.id = l.form_id
-                WHERE is_read=0
-                GROUP BY form_id
-                ORDER BY unread_count DESC, title";
+                WHERE is_read=0 AND status='active'
+                GROUP BY form_id";
 
         //getting number of unread leads for all forms
         $unread_results = $wpdb->get_results($sql, ARRAY_A);
 
-        $sql = "SELECT f.id, f.title, max(l.date_created) as last_lead_date, 0 as unread_count
+        $sql = "SELECT l.form_id, max(l.date_created) as last_lead_date
                 FROM $lead_table_name l
-                INNER JOIN $form_table_name f ON f.id = l.form_id
-                GROUP BY form_id
-                ORDER BY title";
+                WHERE status='active'
+                GROUP BY form_id";
 
         $lead_date_results = $wpdb->get_results($sql, ARRAY_A);
 
         $sql = "SELECT id, title, '' as last_lead_date, 0 as unread_count
                 FROM $form_table_name
+                WHERE is_active=1
                 ORDER BY title";
 
         $forms = $wpdb->get_results($sql, ARRAY_A);
@@ -124,16 +189,16 @@ class RGFormsModel{
         for($i=0; $count = sizeof($forms), $i<$count; $i++){
             if(is_array($unread_results)){
                 foreach($unread_results as $unread_result){
-                    if($unread_result["id"] == $forms[$i]["id"]){
+                    if($unread_result["form_id"] == $forms[$i]["id"]){
                         $forms[$i]["unread_count"] = $unread_result["unread_count"];
                         break;
                     }
                 }
             }
 
-            if(is_array($unread_results)){
+            if(is_array($lead_date_results)){
                 foreach($lead_date_results as $lead_date_result){
-                    if($lead_date_result["id"] == $forms[$i]["id"]){
+                    if($lead_date_result["form_id"] == $forms[$i]["id"]){
                         $forms[$i]["last_lead_date"] = $lead_date_result["last_lead_date"];
                         break;
                     }
@@ -145,7 +210,6 @@ class RGFormsModel{
         return $forms;
     }
 
-
     public static function get_form_count(){
         global $wpdb;
         $form_table_name =  self::get_form_table_name();
@@ -156,22 +220,63 @@ class RGFormsModel{
                         );
     }
 
-     public static function get_form($form_id){
+    public static function get_form_id($form_title){
+        $forms = self::get_forms();
+        foreach($forms as $form){
+            $sanitized_name = str_replace("[", "", str_replace("]","", $form->title));
+            if($form->title == $form_title || $sanitized_name == $form_title)
+                return $form->id;
+        }
+        return 0;
+    }
+
+    public static function get_form($form_id){
         global $wpdb;
         $table_name =  self::get_form_table_name();
         $results = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table_name WHERE id=%d", $form_id));
         return $results[0];
-
     }
 
     public static function get_form_meta($form_id){
         global $wpdb;
 
         $table_name =  self::get_meta_table_name();
-        return maybe_unserialize($wpdb->get_var($wpdb->prepare("SELECT display_meta FROM $table_name WHERE form_id=%d", $form_id)));
+        $form = maybe_unserialize($wpdb->get_var($wpdb->prepare("SELECT display_meta FROM $table_name WHERE form_id=%d", $form_id)));
+
+        $page_number = 1;
+        $description_placement = rgar($form, "descriptionPlacement") == "above" ? "above" : "below";
+        if(is_array($form["fields"])){
+            foreach($form["fields"] as &$field){
+                $field["formId"] = $form["id"];
+                $field["pageNumber"] = $page_number;
+                $field["descriptionPlacement"] = $description_placement;
+                if($field["type"] == "page"){
+                    $page_number++;
+                    $field["pageNumber"] = $page_number;
+                }
+            }
+        }
+        return $form;
     }
 
-     public static function get_grid_column_meta($form_id){
+    public static function add_default_properties($form){
+        if(is_array($form["fields"])){
+            $all_fields = array("adminLabel"=>"","adminOnly"=>"","allowsPrepopulate"=>"","defaultValue"=>"","description"=>"","content"=>"","cssClass"=>"",
+                                "errorMessage"=>"","id"=>"","inputName"=>"","isRequired"=>"","label"=>"","noDuplicates"=>"",
+                                "size"=>"","type"=>"","postCustomFieldName"=>"","displayAllCategories"=>"","displayCaption"=>"","displayDescription"=>"",
+                                "displayTitle"=>"","inputType"=>"","rangeMin"=>"","rangeMax"=>"","calendarIconType"=>"",
+                                "calendarIconUrl"=>"", "dateType"=>"","dateFormat"=>"","phoneFormat"=>"","addressType"=>"","defaultCountry"=>"","defaultProvince"=>"",
+                                "defaultState"=>"","hideAddress2"=>"","hideCountry"=>"","hideState"=>"","inputs"=>"","nameFormat"=>"","allowedExtensions"=>"",
+                                "captchaType"=>"","page_number"=>"","captchaTheme"=>"","simpleCaptchaSize"=>"","simpleCaptchaFontColor"=>"","simpleCaptchaBackgroundColor"=>"",
+                                "failed_validation"=>"", "productField" => "", "enablePasswordInput" => "", "maxLength" => "", "enablePrice" => "", "basePrice" => "");
+
+            foreach($form["fields"] as &$field)
+                $field = wp_parse_args($field, $all_fields);
+        }
+        return $form;
+    }
+
+    public static function get_grid_column_meta($form_id){
         global $wpdb;
 
         $table_name =  self::get_meta_table_name();
@@ -185,7 +290,6 @@ class RGFormsModel{
         $meta = maybe_serialize(stripslashes_deep($columns) );
         $wpdb->query( $wpdb->prepare("UPDATE $table_name SET entries_grid_meta=%s WHERE form_id=%d", $meta, $form_id) );
     }
-
 
     public static function get_lead_detail_id($current_fields, $field_number){
         foreach($current_fields as $field)
@@ -212,10 +316,76 @@ class RGFormsModel{
             self::update_lead_property($lead, $property_name, $property_value);
     }
 
-    public static function update_lead_property($lead_id, $property_name, $property_value){
+    public static function update_lead_property($lead_id, $property_name, $property_value, $update_akismet=true, $disable_hook=false){
         global $wpdb;
         $lead_table = self::get_lead_table_name();
+
+        $lead = self::get_lead($lead_id);
+
+        //marking entry as "spam" or "not spam" with Akismet if the plugin is installed
+        if($update_akismet && GFCommon::has_akismet() && $property_name == "status" && in_array($property_value, array("active", "spam"))){
+
+            $current_status = $lead["status"];
+            if($current_status == "spam" && $property_value == "active"){
+                $form = self::get_form_meta($lead["form_id"]);
+                GFCommon::mark_akismet_spam($form, $lead, false);
+            }
+            else if($current_status == "active" && $property_value == "spam"){
+                $form = self::get_form_meta($lead["form_id"]);
+                GFCommon::mark_akismet_spam($form, $lead, true);
+            }
+        }
+
+        //updating lead
         $wpdb->update($lead_table, array($property_name => $property_value ), array("id" => $lead_id));
+
+        if(!$disable_hook){
+
+            $previous_value = rgar($lead, $property_name);
+
+            if($previous_value != $property_value) {
+
+                // if property is status, prev value is spam and new value is active
+                if($property_name == 'status' && $previous_value == 'spam' && $property_value == 'active' && !rgar($lead, 'post_id')) {
+                    $lead[$property_name] = $property_value;
+                    $lead['post_id'] = GFCommon::create_post($form, $lead);
+                }
+
+                do_action("gform_update_{$property_name}", $lead_id, $property_value, $previous_value);
+            }
+        }
+
+    }
+
+
+    public static function update_lead($lead){
+        global $wpdb;
+        $lead_table = self::get_lead_table_name();
+
+        $payment_date = strtotime($lead["payment_date"]) ? "'{$lead["payment_date"]}'" : "NULL";
+        $payment_amount = !empty($lead["payment_amount"]) ? $lead["payment_amount"] : "NULL";
+        $transaction_type = !empty($lead["transaction_type"]) ? $lead["transaction_type"] : "NULL";
+        $status = !empty($lead["status"]) ? $lead["status"] : "active";
+
+        $sql = $wpdb->prepare("UPDATE $lead_table SET
+                                    form_id=%d,
+                                    post_id=%d,
+                                    is_starred=%d,
+                                    is_read=%d,
+                                    ip=%s,
+                                    source_url=%s,
+                                    user_agent=%s,
+                                    currency=%s,
+                                    payment_status=%s,
+                                    payment_date={$payment_date},
+                                    payment_amount={$payment_amount},
+                                    transaction_id=%s,
+                                    is_fulfilled=%d,
+                                    transaction_type={$transaction_type},
+                                    status='{$status}'
+                                WHERE id=%d",   $lead["form_id"], $lead["post_id"], $lead["is_starred"], $lead["is_read"], $lead["ip"], $lead["source_url"], $lead["user_agent"],
+                                                $lead["currency"], $lead["payment_status"], $lead["transaction_id"], $lead["is_fulfilled"], $lead["id"]);
+        $wpdb->query($sql);
     }
 
     public static function delete_leads($leads){
@@ -228,64 +398,92 @@ class RGFormsModel{
             self::delete_form($form_id);
     }
 
-    public static function delete_form($form_id){
+    public static function delete_leads_by_form($form_id, $status=""){
         global $wpdb;
 
-        if(!RGForms::current_user_can_any("gravityforms_delete_forms"))
-            die(__("You don't have adequate permission to delete forms.", "gravityforms"));
+        if(!GFCommon::current_user_can_any("gravityforms_delete_entries"))
+            die(__("You don't have adequate permission to delete entries.", "gravityforms"));
 
         $lead_table = self::get_lead_table_name();
         $lead_notes_table = self::get_lead_notes_table_name();
         $lead_detail_table = self::get_lead_details_table_name();
         $lead_detail_long_table = self::get_lead_details_long_table_name();
-        $form_meta_table = self::get_meta_table_name();
-        $form_view_table = self::get_form_view_table_name();
-        $form_table = self::get_form_table_name();
+
+        //deleting uploaded files
+        self::delete_files_by_form($form_id, $status);
+
+        $status_filter = empty($status) ? "" : $wpdb->prepare("AND status=%s", $status);
 
         //Delete from detail long
         $sql = $wpdb->prepare(" DELETE FROM $lead_detail_long_table
                                 WHERE lead_detail_id IN(
                                     SELECT ld.id FROM $lead_detail_table ld
                                     INNER JOIN $lead_table l ON l.id = ld.lead_id
-                                    WHERE l.form_id=%d AND ld.form_id=%d
+                                    WHERE l.form_id=%d AND ld.form_id=%d {$status_filter}
                                 )", $form_id, $form_id);
         $wpdb->query($sql);
 
         //Delete from lead details
         $sql = $wpdb->prepare(" DELETE FROM $lead_detail_table
                                 WHERE lead_id IN (
-                                    SELECT id FROM $lead_table WHERE form_id=%d
+                                    SELECT id FROM $lead_table WHERE form_id=%d {$status_filter}
                                 )", $form_id);
         $wpdb->query($sql);
 
         //Delete from lead notes
         $sql = $wpdb->prepare(" DELETE FROM $lead_notes_table
                                 WHERE lead_id IN (
-                                    SELECT id FROM $lead_table WHERE form_id=%d
+                                    SELECT id FROM $lead_table WHERE form_id=%d {$status_filter}
                                 )", $form_id);
         $wpdb->query($sql);
 
         //Delete from lead
-        $sql = $wpdb->prepare("DELETE FROM $lead_table WHERE form_id=%d", $form_id);
+        $sql = $wpdb->prepare("DELETE FROM $lead_table WHERE form_id=%d {$status_filter}", $form_id);
         $wpdb->query($sql);
+    }
+
+    public static function delete_views($form_id){
+        global $wpdb;
+
+        $form_view_table = self::get_form_view_table_name();
+
+        //Delete form view
+        $sql = $wpdb->prepare("DELETE FROM $form_view_table WHERE form_id=%d", $form_id);
+        $wpdb->query($sql);
+    }
+
+    public static function delete_form($form_id){
+        global $wpdb;
+
+        if(!GFCommon::current_user_can_any("gravityforms_delete_forms"))
+            die(__("You don't have adequate permission to delete forms.", "gravityforms"));
+
+        do_action("gform_before_delete_form", $form_id);
+
+        $form_meta_table = self::get_meta_table_name();
+        $form_table = self::get_form_table_name();
+
+        //Deleting form Entries
+        self::delete_leads_by_form($form_id);
 
         //Delete form meta
         $sql = $wpdb->prepare("DELETE FROM $form_meta_table WHERE form_id=%d", $form_id);
         $wpdb->query($sql);
 
-        //Delete form view
-        $sql = $wpdb->prepare("DELETE FROM $form_view_table WHERE form_id=%d", $form_id);
-        $wpdb->query($sql);
+        //Deleting form Views
+        self::delete_views($form_id);
 
         //Delete form
         $sql = $wpdb->prepare("DELETE FROM $form_table WHERE id=%d", $form_id);
         $wpdb->query($sql);
+
+        do_action("gform_after_delete_form", $form_id);
     }
 
     public static function duplicate_form($form_id){
         global $wpdb;
 
-        if(!RGForms::current_user_can_any("gravityforms_create_form"))
+        if(!GFCommon::current_user_can_any("gravityforms_create_form"))
             die(__("You don't have adequate permission to create forms.", "gravityforms"));
 
         //finding unique title
@@ -309,7 +507,7 @@ class RGFormsModel{
         return $new_id;
     }
 
-    private static function is_unique_title($title){
+    public static function is_unique_title($title){
         $forms = self::get_forms();
         foreach($forms as $form){
             if(strtolower($form->title) == strtolower($title))
@@ -327,7 +525,7 @@ class RGFormsModel{
         $wpdb->query($wpdb->prepare("INSERT INTO $form_table_name(title, date_created) VALUES(%s, utc_timestamp())", $form_title));
 
         //returning newly created form id
-        return $wpdb->get_var("SELECT LAST_INSERT_ID();");
+        return $wpdb->insert_id;
 
     }
 
@@ -340,6 +538,36 @@ class RGFormsModel{
             $wpdb->query( $wpdb->prepare("UPDATE $meta_table_name SET display_meta=%s WHERE form_id=%d", $form_meta, $form_id) );
         else
             $wpdb->query( $wpdb->prepare("INSERT INTO $meta_table_name(form_id, display_meta) VALUES(%d, %s)", $form_id, $form_meta ) );
+        }
+
+    public static function delete_files($lead_id, $form=null){
+        $lead = self::get_lead($lead_id);
+
+        if($form == null)
+            $form = self::get_form_meta($lead["form_id"]);
+
+        $fields = GFCommon::get_fields_by_type($form, array("fileupload", "post_image"));
+        if(is_array($fields)){
+            foreach($fields as $field){
+                $value = self::get_lead_field_value($lead, $field);
+                self::delete_physical_file($value);
+            }
+        }
+    }
+
+    public static function delete_files_by_form($form_id, $status=""){
+        global $wpdb;
+        $form = self::get_form_meta($form_id);
+        $fields = GFCommon::get_fields_by_type($form, array("fileupload", "post_image"));
+        if(empty($fields))
+            return;
+
+        $status_filter = empty($status) ? "" : $wpdb->prepare("AND status=%s", $status);
+        $results = $wpdb->get_results($wpdb->prepare("SELECT id FROM {$wpdb->prefix}rg_lead WHERE form_id=%d {$status_filter}", $form_id), ARRAY_A);
+
+        foreach($results as $result){
+            self::delete_files($result["id"], $form);
+        }
     }
 
     public static function delete_file($lead_id, $field_id){
@@ -354,13 +582,30 @@ class RGFormsModel{
         $sql = $wpdb->prepare("SELECT value FROM $lead_detail_table WHERE lead_id=%d AND field_number BETWEEN %f AND %f", $lead_id, $field_id - 0.001, $field_id + 0.001);
         $file_path = $wpdb->get_var($sql);
 
-        //Convert from url to physical path
-        $file_path = str_replace(WP_CONTENT_URL, WP_CONTENT_DIR, $file_path);
-        unlink($file_path);
+        self::delete_physical_file($file_path);
 
         //Delete from lead details
         $sql = $wpdb->prepare("DELETE FROM $lead_detail_table WHERE lead_id=%d AND field_number BETWEEN %f AND %f", $lead_id, $field_id - 0.001, $field_id + 0.001);
         $wpdb->query($sql);
+    }
+
+    private static function delete_physical_file($file_url){
+        $ary = explode("|:|", $file_url);
+        $url = rgar($ary,0);
+        if(empty($url))
+            return;
+
+        //Convert from url to physical path
+        if (is_multisite()) {
+            $file_path = preg_replace("|^(.*?)/files/gravity_forms/|", BLOGUPLOADDIR . "gravity_forms/", $url);
+        }
+        else {
+            $file_path = str_replace(WP_CONTENT_URL, WP_CONTENT_DIR, $url);
+        }
+
+        if(file_exists($file_path)){
+            unlink($file_path);
+        }
     }
 
     public static function delete_field($form_id, $field_id){
@@ -369,18 +614,72 @@ class RGFormsModel{
         if($form_id == 0)
             return;
 
+        do_action("gform_before_delete_field", $form_id, $field_id);
+
         $lead_table = self::get_lead_table_name();
         $lead_detail_table = self::get_lead_details_table_name();
         $lead_detail_long_table = self::get_lead_details_long_table_name();
 
-        //Deleting field from form meta
+
         $form = self::get_form_meta($form_id);
+
+        $field_type = "";
+
+        //Deleting field from form meta
         $count = sizeof($form["fields"]);
         for($i = $count-1; $i >= 0; $i--){
-            if($form["fields"][$i]["id"] == $field_id){
+            $field = $form["fields"][$i];
+
+            //Deleting associated conditional logic rules
+            if(!empty($field["conditionalLogic"])){
+                $rule_count = sizeof($field["conditionalLogic"]["rules"]);
+                for($j = $rule_count-1; $j >= 0; $j--){
+                    if($field["conditionalLogic"]["rules"][$j]["fieldId"] == $field_id){
+                        unset($form["fields"][$i]["conditionalLogic"]["rules"][$j]);
+                    }
+                }
+                $form["fields"][$i]["conditionalLogic"]["rules"] = array_values($form["fields"][$i]["conditionalLogic"]["rules"]);
+
+                //If there aren't any rules, remove the conditional logic
+                if(sizeof($form["fields"][$i]["conditionalLogic"]["rules"]) == 0){
+                    $form["fields"][$i]["conditionalLogic"] = false;
+                }
+            }
+
+            //Deleting field from form meta
+            if($field["id"] == $field_id){
+                $field_type = $field["type"];
                 unset($form["fields"][$i]);
             }
+
         }
+
+        //removing post content and title template if the field being deleted is a post content field or post title field
+        if($field_type == "post_content"){
+            $form["postContentTemplateEnabled"] = false;
+            $form["postContentTemplate"] = "";
+        }
+        else if($field_type == "post_title"){
+            $form["postTitleTemplateEnabled"] = false;
+            $form["postTitleTemplate"] = "";
+        }
+
+        //Deleting associated routing rules
+        if(!empty($form["notification"]["routing"])){
+            $routing_count = sizeof($form["notification"]["routing"]);
+            for($j = $routing_count-1; $j >= 0; $j--){
+                if(intval($form["notification"]["routing"][$j]["fieldId"]) == $field_id){
+                    unset($form["notification"]["routing"][$j]);
+                }
+            }
+            $form["notification"]["routing"] = array_values($form["notification"]["routing"]);
+
+            //If there aren't any routing, remove it
+            if(sizeof($form["notification"]["routing"]) == 0){
+                $form["notification"]["routing"] = null;
+            }
+        }
+
         $form["fields"] = array_values($form["fields"]);
         self::update_form_meta($form_id, $form);
 
@@ -389,7 +688,7 @@ class RGFormsModel{
         $count = sizeof($columns);
         for($i = $count -1; $i >=0; $i--)
         {
-            if(intval($columns[$i]) == intval($field_id)){
+            if(intval(rgar($columns,$i)) == intval($field_id)){
                 unset($columns[$i]);
             }
         }
@@ -413,18 +712,25 @@ class RGFormsModel{
                                     SELECT DISTINCT(lead_id) FROM $lead_detail_table WHERE form_id=%d
                                 )", $form_id, $form_id);
         $wpdb->query($sql);
+
+        do_action("gform_after_delete_field", $form_id, $field_id);
     }
 
     public static function delete_lead($lead_id){
         global $wpdb;
 
-        if(!RGForms::current_user_can_any("gravityforms_delete_entries"))
+        if(!GFCommon::current_user_can_any("gravityforms_delete_entries"))
             die(__("You don't have adequate permission to delete entries.", "gravityforms"));
+
+        do_action("gform_delete_lead", $lead_id);
 
         $lead_table = self::get_lead_table_name();
         $lead_notes_table = self::get_lead_notes_table_name();
         $lead_detail_table = self::get_lead_details_table_name();
         $lead_detail_long_table = self::get_lead_details_long_table_name();
+
+        //deleting uploaded files
+        self::delete_files($lead_id);
 
         //Delete from detail long
         $sql = $wpdb->prepare(" DELETE FROM $lead_detail_long_table
@@ -441,26 +747,28 @@ class RGFormsModel{
         $sql = $wpdb->prepare("DELETE FROM $lead_notes_table WHERE lead_id=%d", $lead_id);
         $wpdb->query($sql);
 
+        //Delete from lead meta
+        gform_delete_meta($lead_id);
+
         //Delete from lead
         $sql = $wpdb->prepare("DELETE FROM $lead_table WHERE id=%d", $lead_id);
         $wpdb->query($sql);
+
     }
 
     public static function add_note($lead_id, $user_id, $user_name, $note){
         global $wpdb;
 
-        if(!RGForms::current_user_can_any("gravityforms_edit_entry_notes"))
-            die(__("You don't have adequate permission to add notes.", "gravityforms"));
-
         $table_name = self::get_lead_notes_table_name();
         $sql = $wpdb->prepare("INSERT INTO $table_name(lead_id, user_id, user_name, value, date_created) values(%d, %d, %s, %s, utc_timestamp())", $lead_id, $user_id, $user_name, $note);
+
         $wpdb->query($sql);
     }
 
     public static function delete_note($note_id){
         global $wpdb;
 
-        if(!RGForms::current_user_can_any("gravityforms_edit_entry_notes"))
+        if(!GFCommon::current_user_can_any("gravityforms_edit_entry_notes"))
             die(__("You don't have adequate permission to delete notes.", "gravityforms"));
 
         $table_name = self::get_lead_notes_table_name();
@@ -478,9 +786,9 @@ class RGFormsModel{
     }
 
     public static function get_ip(){
-        $ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
+        $ip = rgget("HTTP_X_FORWARDED_FOR", $_SERVER);
         if (!$ip)
-            $ip = $_SERVER["REMOTE_ADDR"];
+            $ip = rgget("REMOTE_ADDR", $_SERVER);
 
         $ip_array = explode(",", $ip); //HTTP_X_FORWARDED_FOR can return a comma separated list of IPs. Using the first one.
         return $ip_array[0];
@@ -489,45 +797,290 @@ class RGFormsModel{
     public static function save_lead($form, &$lead){
         global $wpdb;
 
-        if(IS_ADMIN && !RGForms::current_user_can_any("gravityforms_edit_entries"))
+        if(IS_ADMIN && !GFCommon::current_user_can_any("gravityforms_edit_entries"))
             die(__("You don't have adequate permission to edit entries.", "gravityforms"));
 
         $lead_detail_table = self::get_lead_details_table_name();
 
         //Inserting lead if null
         if($lead == null){
+            global $current_user;
+            $user_id = $current_user && $current_user->ID ? $current_user->ID : 'NULL';
+
             $lead_table = RGFormsModel::get_lead_table_name();
             $user_agent = strlen($_SERVER["HTTP_USER_AGENT"]) > 250 ? substr($_SERVER["HTTP_USER_AGENT"], 0, 250) : $_SERVER["HTTP_USER_AGENT"];
-
-            $wpdb->query($wpdb->prepare("INSERT INTO $lead_table(form_id, ip, source_url, date_created, user_agent) VALUES(%d, %s, %s, utc_timestamp(), %s)", $form["id"], self::get_ip(), self::get_current_page_url(), $user_agent));
+            $currency = GFCommon::get_currency();
+            $wpdb->query($wpdb->prepare("INSERT INTO $lead_table(form_id, ip, source_url, date_created, user_agent, currency, created_by) VALUES(%d, %s, %s, utc_timestamp(), %s, %s, {$user_id})", $form["id"], self::get_ip(), self::get_current_page_url(), $user_agent, $currency));
 
             //reading newly created lead id
-            $lead_id = $wpdb->get_var("SELECT LAST_INSERT_ID();");
+            $lead_id = $wpdb->insert_id;
             $lead = array("id" => $lead_id);
         }
 
         $current_fields = $wpdb->get_results($wpdb->prepare("SELECT id, field_number FROM $lead_detail_table WHERE lead_id=%d", $lead["id"]));
-        $original_post_id = $lead["post_id"];
+        $original_post_id = rgget("post_id", $lead);
 
+        $total_field = null;
         foreach($form["fields"] as $field){
-            if(is_array($field["inputs"])){
-                foreach($field["inputs"] as $input)
-                    self::save_input($form, $field, $lead, $current_fields, $input["id"]);
+
+            //Ignore fields that are marked as display only
+            if(rgget("displayOnly", $field) && $field["type"] != "password"){
+                continue;
             }
-            else{
-                self::save_input($form, $field, $lead, $current_fields, $field["id"]);
+
+            //ignore pricing fields in the entry detail
+            if(RG_CURRENT_VIEW == "entry" && GFCommon::is_pricing_field($field["type"])){
+                continue;
+            }
+
+            //process total field after all fields have been saved
+            if($field["type"] == "total"){
+                $total_field = $field;
+                continue;
+            }
+
+            //only save fields that are not hidden (except on entry screen)
+            if(RG_CURRENT_VIEW == "entry" || !RGFormsModel::is_field_hidden($form, $field, array()) ){
+
+                if(isset($field["inputs"]) && is_array($field["inputs"])){
+                    foreach($field["inputs"] as $input)
+                        self::save_input($form, $field, $lead, $current_fields, $input["id"]);
+                }
+                else{
+                    self::save_input($form, $field, $lead, $current_fields, $field["id"]);
+                }
             }
         }
 
-        //update post_id field if a post was created
-        if($lead["post_id"] != $original_post_id)
-            $wpdb->update($lead_table, array("post_id" => $lead["post_id"]),  array("id" => $lead["id"]), array("%d"), array("%d"));
+        //saving total field as the last field of the form.
+        if($total_field){
+            self::save_input($form, $total_field, $lead, $current_fields, $total_field["id"]);
+        }
 
     }
 
+    public static function is_field_hidden($form, $field, $field_values, $lead=null){
+
+        $section = self::get_section($form, $field["id"]);
+        $section_display = self::get_field_display($form, $section, $field_values, $lead);
+
+        //if section is hidden, hide field no matter what. if section is visible, see if field is supposed to be visible
+        if($section_display == "hide")
+            return true;
+        else if(self::is_page_hidden($form, rgar($field,"page_number"), $field_values, $lead)){
+            return true;
+        }
+        else{
+            $display = self::get_field_display($form, $field, $field_values, $lead);
+            return $display == "hide";
+        }
+    }
+
+    public static function is_page_hidden($form, $page_number, $field_values, $lead=null){
+        $page = self::get_page_by_number($form, $page_number);
+
+        if(!$page)
+            return false;
+
+        $display = self::get_field_display($form, $page, $field_values, $lead);
+        return $display == "hide";
+    }
+
+    public static function get_page_by_number($form, $page_number){
+        foreach($form["fields"] as $field){
+            if($field["type"] == "page" && $field["pageNumber"] == $page_number)
+                return $field;
+        }
+        return null;
+    }
+
+    public static function get_page_by_field($form, $field){
+        return get_page_by_number($field["page_number"]);
+    }
+
+    //gets the section that the specified field belongs to, or null if none
+    public static function get_section($form, $field_id){
+        $current_section = null;
+        foreach($form["fields"] as $field){
+            if($field["type"] == "section")
+                $current_section = $field;
+
+            //stop section at a page break (sections don't go cross page)
+            if($field["type"] == "page")
+                $current_section = null;
+
+            if($field["id"] == $field_id)
+                return $current_section;
+        }
+
+        return null;
+    }
+
+    public static function is_value_match($field_value, $target_value){
+        if(is_array($field_value)){
+            foreach($field_value as $val){
+                if(GFCommon::get_selection_value($val) == $target_value)
+                    return true;
+            }
+        }
+        else if(GFCommon::get_selection_value($field_value) == $target_value){
+            return true;
+        }
+
+        return false;
+    }
+
+    private static function get_field_display($form, $field, $field_values, $lead=null){
+
+        $logic = RGForms::get("conditionalLogic", $field);
+
+        //if this field does not have any conditional logic associated with it, it won't be hidden
+        if(empty($logic))
+            return "show";
+
+        $match_count = 0;
+        foreach($logic["rules"] as $rule){
+            $source_field = RGFormsModel::get_field($form, $rule["fieldId"]);
+            $field_value = empty($lead) ? self::get_field_value($source_field, $field_values) : self::get_lead_field_value($lead, $source_field);
+            $is_value_match = self::is_value_match($field_value, $rule["value"]);
+
+            if( ($rule["operator"] == "is" && $is_value_match ) || ($rule["operator"] == "isnot" && !$is_value_match) )
+                $match_count++;
+        }
+
+        $do_action = ($logic["logicType"] == "all" && $match_count == sizeof($logic["rules"]) ) || ($logic["logicType"] == "any"  && $match_count > 0);
+        $is_hidden = ($do_action && $logic["actionType"] == "hide") || (!$do_action && $logic["actionType"] == "show");
+
+        return $is_hidden ? "hide" : "show";
+    }
+
+    public static function get_custom_choices(){
+        $choices = get_option("gform_custom_choices");
+        if(!$choices)
+            $choices = array();
+
+        return $choices;
+    }
+
+    public static function delete_custom_choice($name){
+        $choices = self::get_custom_choices();
+        if(array_key_exists($name, $choices))
+            unset($choices[$name]);
+
+        update_option("gform_custom_choices", $choices);
+    }
+
+    public static function save_custom_choice($previous_name, $new_name, $choices){
+        $all_choices = self::get_custom_choices();
+
+        if(array_key_exists($previous_name, $all_choices))
+            unset($all_choices[$previous_name]);
+
+        $all_choices[$new_name] = $choices;
+
+        update_option("gform_custom_choices", $all_choices);
+    }
+
+    public static function get_field_value($field, $field_values = array(), $get_from_post=true){
+        $value = array();
+        switch(RGFormsModel::get_input_type($field)){
+            case "post_image" :
+                $value[$field["id"] . ".1"] = self::get_input_value($field, "input_" . $field["id"] . "_1", $get_from_post);
+                $value[$field["id"] . ".4"] = self::get_input_value($field, "input_" . $field["id"] . "_4", $get_from_post);
+                $value[$field["id"] . ".7"] = self::get_input_value($field, "input_" . $field["id"] . "_7", $get_from_post);
+            break;
+            case "checkbox" :
+                $parameter_values = explode(",", self::get_parameter_value($field["inputName"], $field_values, $field));
+
+                if(!is_array($field["inputs"]))
+                    return "";
+
+                $choice_index = 0;
+                foreach($field["inputs"] as $input){
+                    if(!empty($_POST["is_submit_" . $field["formId"]]) && $get_from_post){
+                        $value[strval($input["id"])] = rgpost("input_" . str_replace('.', '_', strval($input["id"])));
+                    }
+                    else{
+                        foreach($parameter_values as $item){
+                            $item = trim($item);
+                            if(self::choice_value_match($field, $field["choices"][$choice_index], $item))
+                            {
+                                $value[$input["id"] . ""] = $item;
+                                break;
+                            }
+                        }
+                    }
+                    $choice_index++;
+                }
+
+            break;
+
+            case "list" :
+                $value = self::get_input_value($field, "input_" . $field["id"], rgar($field, "inputName"), $field_values, $get_from_post);
+                $value = self::create_list_array($field, $value);
+            break;
+
+            default:
+
+                if(isset($field["inputs"]) && is_array($field["inputs"])){
+                    foreach($field["inputs"] as $input){
+                        $value[strval($input["id"])] = self::get_input_value($field, "input_" . str_replace('.', '_', strval($input["id"])), RGForms::get("name", $input), $field_values, $get_from_post);
+                    }
+                }
+                else{
+                    $value = self::get_input_value($field, "input_" . $field["id"], rgar($field, "inputName"), $field_values, $get_from_post);
+                }
+            break;
+        }
+
+        return $value;
+    }
+
+    private static function get_input_value($field, $standard_name, $custom_name = "", $field_values=array(), $get_from_post=true){
+        if(!empty($_POST["is_submit_" . rgar($field,"formId")]) && $get_from_post){
+            return rgpost($standard_name);
+        }
+        else if(rgar($field, "allowsPrepopulate")){
+            return self::get_parameter_value($custom_name, $field_values, $field);
+
+
+        }
+    }
+
+    private static function get_parameter_value($name, $field_values, $field){
+        $value = stripslashes(rgget($name));
+        if(empty($value))
+            $value = rgget($name, $field_values);
+
+        //converting list format
+        if(RGFormsModel::get_input_type($field) == "list"){
+
+            //transforms this: col1|col2,col1b|col2b into this: col1,col2,col1b,col2b
+            $column_count = count(rgar($field,"choices"));
+
+            $rows = explode(",", $value);
+            $ary_rows = array();
+            if(!empty($rows)){
+                foreach($rows as $row)
+                    $ary_rows = array_merge($ary_rows, rgexplode("|", $row, $column_count));
+
+                $value = $ary_rows;
+            }
+        }
+
+        return apply_filters("gform_field_value_$name", $value);
+    }
+
     private static function get_default_value($field, $input_id){
-        if(!is_array($field["choices"]))
-            return $field["defaultValue"];
+        if(!is_array(rgar($field,"choices"))){
+            if(is_array(rgar($field, "inputs"))){
+                $input = RGFormsModel::get_input($field, $input_id);
+                return rgar($input, "defaultValue");
+            }
+            else{
+                return IS_ADMIN ? $field["defaultValue"] : GFCommon::replace_variables_prepopulate($field["defaultValue"]);
+            }
+        }
         else if($field["type"] == "checkbox"){
             for($i=0, $count=sizeof($field["inputs"]); $i<$count; $i++){
                 $input = $field["inputs"][$i];
@@ -540,23 +1093,46 @@ class RGFormsModel{
         }
         else{
             foreach($field["choices"] as $choice){
-                if($choice["isSelected"])
-                    return $choice["text"];
+                if($choice["isSelected"] || $field["type"] == "post_category")
+                    return $choice["value"];
             }
             return "";
         }
 
     }
 
-    private static function get_post_fields($form){
-        global $current_user;
+    public static function get_input_type($field){
+        return empty($field["inputType"]) ? rgar($field,"type") : $field["inputType"];
+    }
+
+    private static function get_post_field_value($field, $lead){
+
+        if(is_array($field["inputs"])){
+            $value = array();
+            foreach($field["inputs"] as $input){
+                $val = isset($lead[strval($input["id"])]) ? $lead[strval($input["id"])] : "";
+                if(!empty($val))
+                    $value[] = $val;
+            }
+            $value = implode(",", $value);
+        }
+        else{
+            $value = isset($lead[$field["id"]]) ? $lead[$field["id"]] : "";
+        }
+        return $value;
+    }
+
+    private static function get_post_fields($form, $lead){
+
         $post_data = array();
         $post_data["post_custom_fields"] = array();
+        $post_data["tags_input"] = array();
         $categories = array();
         $images = array();
 
         foreach($form["fields"] as $field){
-            $value = $_POST["input_" . $field["id"]];
+
+            $value = self::get_post_field_value($field, $lead);
 
             switch($field["type"]){
                 case "post_title" :
@@ -566,22 +1142,39 @@ class RGFormsModel{
                 break;
 
                 case "post_tags" :
-                    $post_data["tags_input"] = explode(",", $value);
+                    $tags = explode(",", $value);
+                    if(is_array($tags) && sizeof($tags) > 0)
+                        $post_data["tags_input"] = array_merge($post_data["tags_input"], $tags) ;
                 break;
 
                 case "post_custom_field" :
-                    $post_data["post_custom_fields"][$field["postCustomFieldName"]] = $value;
+                    $meta_name = $field["postCustomFieldName"];
+                    if(!isset($post_data["post_custom_fields"][$meta_name])){
+                        $post_data["post_custom_fields"][$meta_name] = $value;
+                    }
+                    else if(!is_array($post_data["post_custom_fields"][$meta_name])){
+                        $post_data["post_custom_fields"][$meta_name] = array($post_data["post_custom_fields"][$meta_name], $value);
+                    }
+                    else{
+                        $post_data["post_custom_fields"][$meta_name][] = $value;
+                    }
+
                 break;
 
                 case "post_category" :
-                    array_push($categories, $value);
+                    list($cat_name, $cat_id) = rgexplode(":", $value, 2);
+                    //$category = get_term_by( 'name', $value, 'category' );
+                    array_push($categories, $cat_id);
                 break;
 
                 case "post_image" :
-                    $title = strip_tags($_POST["input_" . $field["id"] . "_1"]);
-                    $caption = strip_tags($_POST["input_" . $field["id"] . "_4"]);
-                    $description = strip_tags($_POST["input_" . $field["id"] . "_7"]);
-                    array_push($images, array("field_name" => "input_" . $field['id'], "title" => $title, "description" => $description, "caption" => $caption));
+                    $ary = !empty($value) ? explode("|:|", $value) : array();
+                    $url = count($ary) > 0 ? $ary[0] : "";
+                    $title = count($ary) > 1 ? $ary[1] : "";
+                    $caption = count($ary) > 2 ? $ary[2] : "";
+                    $description = count($ary) > 3 ? $ary[3] : "";
+
+                    array_push($images, array("field_id" => $field["id"], "url" => $url, "title" => $title, "description" => $description, "caption" => $caption));
                 break;
             }
         }
@@ -591,6 +1184,7 @@ class RGFormsModel{
         $post_data["images"] = $images;
 
         //setting current user as author depending on settings
+        global $current_user;
         $post_data["post_author"] = $form["useCurrentUserAsAuthor"] && !empty($current_user->ID) ? $current_user->ID : $form["postAuthor"];
 
         return $post_data;
@@ -611,111 +1205,55 @@ class RGFormsModel{
         return $keys;
     }
 
+    public static function get_input_masks(){
+
+        $masks = array(
+            'US Phone' => '(999) 999-9999',
+            'US Phone + Ext' => '(999) 999-9999? x99999',
+            'Date' => '99/99/9999',
+            'Tax ID' => '99-9999999',
+            'SSN' => '999-99-9999',
+            'Zip Code' => '99999',
+            'Full Zip Code' => '99999?-9999'
+            );
+
+        return apply_filters('gform_input_masks', $masks);
+    }
+
     private static function get_default_post_title(){
         global $wpdb;
         $title = "Untitled";
         $count = 1;
 
-        while($wpdb->get_var($wpdb->prepare("SELECT count(0) FROM $wpdb->posts WHERE post_title=%s", $title)) > 0){
+        $titles = $wpdb->get_col("SELECT post_title FROM $wpdb->posts WHERE post_title like '%Untitled%'");
+        $titles = array_values($titles);
+        while(in_array($title, $titles)){
             $title = "Untitled_$count";
             $count++;
         }
         return $title;
     }
 
-    private static $post_images = array();
-    private static function save_input($form, $field, &$lead, $current_fields, $input_id){
-        global $wpdb;
+    private static function prepare_value($form, $field, $value, $input_name, $lead_id){
+        $form_id = $form["id"];
 
-        $lead_detail_table = self::get_lead_details_table_name();
-        $lead_detail_long_table = self::get_lead_details_long_table_name();
-
-        $input_name = "input_" . str_replace('.', '_', $input_id);
-        $value = $_POST[$input_name];
-
-        if(empty($value) && $field["adminOnly"] && !IS_ADMIN){
-            $value = self::get_default_value($field, $input_id);
-        }
-
-        switch($field["type"])
+        $input_type = self::get_input_type($field);
+        switch($input_type)
         {
+            case "total" :
+                $lead = RGFormsModel::get_lead($lead_id);
+                $value = GFCommon::get_order_total($form, $lead);
+            break;
+
             case "post_category" :
                 $cat = get_category($value);
-                $value = $cat->name;
-            case "post_title" :
-            case "post_content" :
-            case "post_excerpt" :
-            case "post_tags" :
-            case "post_custom_fields" :
-            case "post_image":
 
-                $value = stripslashes($value);
-
-                //post fields don't not get updated from the admin
-                if(RG_CURRENT_VIEW == "entry")
-                    return;
-
-                if(empty($lead["post_id"])){
-                    $post_data = self::get_post_fields($form);
-                    if(empty($post_data["post_title"]) && empty($post_data["post_content"]) && empty($post_data["post_excerpt"])){
-                        $post_data["post_title"] = self::get_default_post_title();
-                    }
-
-                    $post_id = wp_insert_post($post_data);
-
-                    //adding custom fields
-                    foreach($post_data["post_custom_fields"] as $meta_name => $meta_value){
-                        update_post_meta($post_id, $meta_name, $meta_value);
-                    }
-
-                    //adding post images
-                    foreach($post_data["images"] as $image){
-                        $image_meta= array( "post_excerpt" => $image["caption"],
-                                            "post_content" => $image["description"]);
-
-                        //adding title only if it is not empty. It will default to the file name if it is not in the array
-                        if(!empty($image["title"]))
-                            $image_meta["post_title"] = $image["title"];
-
-
-                        //WordPress Administration API required for the media_handle_upload() function
-                        require_once(ABSPATH . 'wp-admin/includes/file.php');
-                        require_once(ABSPATH . 'wp-admin/includes/image.php');
-                        require_once(ABSPATH . 'wp-admin/includes/media.php');
-
-                        $media_id = media_handle_upload($image["field_name"], $post_id, $image_meta);
-
-                        //saving media id so that it's url can be saved later as part of the entry
-                        self::$post_images[$image["field_name"]] = $media_id;
-                    }
-
-                    if(is_numeric($post_id))
-                        $lead["post_id"] = $post_id;
-                }
-
-                //saving image information as part of the entry
-                if($field["type"] == "post_image"){
-                    //copying file from media to entry location
-                    $destination = self::get_file_upload_path($form["id"], $_FILES[$input_name]["name"]);
-                    $media_id  = self::$post_images[$input_name];
-                    if($destination !== false && is_numeric($media_id))
-                    {
-                        $file_path = get_attached_file($media_id, true);
-                        if(copy($file_path, $destination["path"])){
-                            $post = get_post($media_id);
-                            $value = $destination["url"] . "|:|" . $post->post_title . "|:|" . $post->post_excerpt . "|:|" . $post->post_content;
-                        }
-                    }
-                    else{
-                        return;
-                    }
-                }
-
+                $value = !empty($cat) ? $cat->name . ":" . $value : "";
             break;
 
             case "phone" :
                 if($field["phoneFormat"] == "standard" && preg_match('/^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/', $value, $matches))
-                    $value = sprintf("(%d)%d-%d", $matches[1], $matches[2], $matches[3]);
+                    $value = sprintf("(%s)%s-%s", $matches[1], $matches[2], $matches[3]);
             break;
 
             case "time":
@@ -725,21 +1263,17 @@ class RGFormsModel{
                     $value = array();
                     $value[0] = $matches[1];
                     $value[1] = $matches[2];
-                    $value[2] = $matches[3];
+                    $value[2] = rgar($matches,3);
                 }
 
                 $hour = empty($value[0]) ? "0" : strip_tags($value[0]);
                 $minute = empty($value[1]) ? "0" : strip_tags($value[1]);
-                $ampm = strip_tags($value[2]);
-
-                /*if($ampm == "am" && $hour == 12)
-                    $hour = 0;
-                else if($ampm == "pm" && $hour != 12)
-                    $hour +=12;
-                */
+                $ampm = strip_tags(rgar($value,2));
+                if(!empty($ampm))
+                    $ampm = " $ampm";
 
                 if(!(empty($hour) && empty($minute)))
-                    $value = sprintf("%02d:%02d %s", $hour, $minute, $ampm);
+                    $value = sprintf("%02d:%02d%s", $hour, $minute, $ampm);
                 else
                     $value = "";
 
@@ -747,35 +1281,524 @@ class RGFormsModel{
 
             case "date" :
                 $format = empty($field["dateFormat"]) ? "mdy" : $field["dateFormat"];
-                $date_info = RGForms::parse_date($value, $format);
+                $date_info = GFCommon::parse_date($value, $format);
                 if(!empty($date_info))
                     $value = sprintf("%d-%02d-%02d", $date_info["year"], $date_info["month"], $date_info["day"]);
+                else
+                    $value = "";
 
+            break;
+
+            case "post_image":
+                $url = self::get_fileupload_value($form_id, $input_name);
+                $image_title = isset($_POST["{$input_name}_1"]) ? strip_tags($_POST["{$input_name}_1"]) : "";
+                $image_caption = isset($_POST["{$input_name}_4"]) ? strip_tags($_POST["{$input_name}_4"]) : "";
+                $image_description = isset($_POST["{$input_name}_7"]) ? strip_tags($_POST["{$input_name}_7"]) : "";
+
+                $value = !empty($url) ? $url . "|:|" . $image_title . "|:|" . $image_caption . "|:|" . $image_description : "";
             break;
 
             case "fileupload" :
-                //in the admin, only update file upload field if a new file was posted
-                if(empty($_FILES[$input_name]["name"]))
-                    return;
+                $value = self::get_fileupload_value($form_id, $input_name);
+            break;
 
-                $value = self::upload_file($form["id"], $_FILES[$input_name]);
+            case "number" :
+                $value = GFCommon::clean_number($value, rgar($field, "numberFormat"));
+            break;
+
+            case "website" :
+                if($value == "http://")
+                    $value = "";
+            break;
+
+            case "list" :
+                if(GFCommon::is_empty_array($value))
+                    $value = "";
+                else{
+                    $value = self::create_list_array($field, $value);
+                    $value = serialize($value);
+                }
+            break;
+
+            case "radio" :
+                if(rgar($field, 'enableOtherChoice') && $value == 'gf_other_choice')
+                    $value = rgpost("input_{$field['id']}_other");
+            break;
+
+            case "multiselect" :
+                $value = empty($value) ? "" : implode(",", $value);
+            break;
+
+            case "creditcard" :
+                //saving last 4 digits of credit card
+                list($input_token, $field_id_token, $input_id) = rgexplode("_", $input_name, 3);
+                if($input_id == "1"){
+                    $value = str_replace(" ", "", $value);
+                    $card_number_length = strlen($value);
+                    $value = substr($value, -4, 4);
+                    $value = str_pad($value, $card_number_length, "X", STR_PAD_LEFT);
+                }
+                else if($input_id == "4")
+                {
+                    $card_number = rgpost("input_{$field_id_token}_1");
+                    $card_type = GFCommon::get_card_type($card_number);
+                    $value = $card_type ? $card_type["name"] : "";
+                }
+                else{
+                    $value = "";
+                }
+
             break;
 
             default:
-                $value = strip_tags(stripslashes($value));
+
+                //allow HTML for certain field types
+                $allow_html = in_array($field["type"], array("post_custom_field", "post_title", "post_content", "post_excerpt", "post_tags")) || in_array($input_type, array("checkbox", "radio")) ? true : false;
+                $allowable_tags = apply_filters("gform_allowable_tags_{$form_id}", apply_filters("gform_allowable_tags", $allow_html, $field, $form_id), $field, $form_id);
+
+                if($allowable_tags !== true)
+                    $value = strip_tags($value, $allowable_tags);
+
             break;
         }
 
+        //do not save price fields with blank price
+        if(rgar($field, "enablePrice")){
+            $ary = explode("|", $value);
+            $label = count($ary) > 0 ? $ary[0] : "";
+            $price = count($ary) > 1 ? $ary[1] : "";
 
-        //ignore fields that have not changed
-        if($lead != null && $value == $lead[$input_id])
+            $is_empty = (strlen(trim($price)) <= 0);
+            if($is_empty)
+                $value = "";
+        }
+
+        return $value;
+    }
+
+    private static function create_list_array($field, $value){
+        if(!rgar($field,"enableColumns")){
+            return $value;
+        }
+        else{
+            $col_count = count(rgar($field, "choices"));
+            $rows = array();
+
+            $row_count = count($value)/$col_count;
+
+            $col_index = 0;
+            for($i=0; $i<$row_count; $i++){
+                $row = array();
+                foreach($field["choices"] as $column){
+                    $row[$column["text"]] = $value[$col_index];
+                    $col_index++;
+                }
+                $rows[] = $row;
+            }
+            return $rows;
+        }
+    }
+
+    private static function get_fileupload_value($form_id, $input_name){
+        global $_gf_uploaded_files;
+        if(empty($_gf_uploaded_files))
+            $_gf_uploaded_files = array();
+
+        if(!isset($_gf_uploaded_files[$input_name])){
+
+            //check if file has already been uploaded by previous step
+            $file_info = self::get_temp_filename($form_id, $input_name);
+            $temp_filepath = self::get_upload_path($form_id) . "/tmp/" . $file_info["temp_filename"];
+            if($file_info && file_exists($temp_filepath)){
+                $_gf_uploaded_files[$input_name] = self::move_temp_file($form_id, $file_info);
+            }
+            else if (!empty($_FILES[$input_name]["name"])){
+                $_gf_uploaded_files[$input_name] = self::upload_file($form_id, $_FILES[$input_name]);
+            }
+        }
+
+        return rgget($input_name, $_gf_uploaded_files);
+    }
+
+    public static function get_form_unique_id($form_id){
+        if(RGForms::post("gform_submit") == $form_id)
+            return RGForms::post("gform_unique_id");
+        else
+            return uniqid();
+    }
+
+    public static function get_temp_filename($form_id, $input_name){
+
+        $uploaded_filename = !empty($_FILES[$input_name]["name"]) ? $_FILES[$input_name]["name"] : "";
+
+        if(empty($uploaded_filename) && isset(self::$uploaded_files[$form_id]))
+            $uploaded_filename = rgget($input_name, self::$uploaded_files[$form_id]);
+
+        if(empty($uploaded_filename))
+            return false;
+
+        $form_unique_id = self::get_form_unique_id($form_id);
+        $pathinfo = pathinfo($uploaded_filename);
+        return array("uploaded_filename" => $uploaded_filename, "temp_filename" => "{$form_unique_id}_{$input_name}.{$pathinfo["extension"]}");
+
+    }
+
+    public static function get_choice_text($field, $value, $input_id=0){
+        if(!is_array(rgar($field, "choices")))
+            return $value;
+
+        foreach($field["choices"] as $choice){
+            if(is_array($value) && self::choice_value_match($field, $choice, $value[$input_id])){
+                return $choice["text"];
+            }
+            else if(!is_array($value) && self::choice_value_match($field, $choice, $value)){
+                return $choice["text"];
+            }
+        }
+        return is_array($value) ? "" : $value;
+    }
+
+
+    public static function choice_value_match($field, $choice, $value){
+
+        if($choice["value"] == $value){
+           return true;
+        }
+        else if(rgget("enablePrice", $field)){
+            $ary = explode("|", $value);
+            $val = count($ary) > 0 ? $ary[0] : "";
+            $price = count($ary) > 1 ? $ary[1] : "";
+
+            if($val == $choice["value"])
+                return true;
+        }
+        return false;
+    }
+
+    public static function choices_value_match($field, $choices, $value) {
+        foreach($choices as $choice){
+            if(self::choice_value_match($field, $choice, $value))
+                return true;
+        }
+
+        return false;
+    }
+
+    public static function create_post($form, &$lead){
+
+        $has_post_field = false;
+        foreach($form["fields"] as $field){
+            $is_hidden = self::is_field_hidden($form, $field, array(), $lead);
+            if(!$is_hidden && in_array($field["type"], array("post_category","post_title","post_content","post_excerpt","post_tags","post_custom_fields","post_image"))){
+                $has_post_field = true;
+                break;
+            }
+        }
+
+        //if this form does not have any post fields, don't create a post
+        if(!$has_post_field)
+            return $lead;
+
+        //processing post fields
+        $post_data = self::get_post_fields($form, $lead);
+
+        //allowing users to change post fields before post gets created
+        $post_data = apply_filters("gform_post_data_{$form["id"]}", apply_filters("gform_post_data", $post_data , $form, $lead), $form, $lead);
+
+        //adding default title if none of the required post fields are in the form (will make sure wp_insert_post() inserts the post)
+        if(empty($post_data["post_title"]) && empty($post_data["post_content"]) && empty($post_data["post_excerpt"])){
+            $post_data["post_title"] = self::get_default_post_title();
+        }
+
+        //inserting post
+        $post_id = wp_insert_post($post_data);
+
+        //adding form id and entry id hidden custom fields
+        add_post_meta($post_id, "_gform-form-id", $form["id"]);
+        add_post_meta($post_id, "_gform-entry-id", $lead["id"]);
+
+        //creating post images
+        $post_images = array();
+        foreach($post_data["images"] as $image){
+            $image_meta= array( "post_excerpt" => $image["caption"],
+                                "post_content" => $image["description"]);
+
+            //adding title only if it is not empty. It will default to the file name if it is not in the array
+            if(!empty($image["title"]))
+                $image_meta["post_title"] = $image["title"];
+
+            if(!empty($image["url"])){
+                $media_id = self::media_handle_upload($image["url"], $post_id, $image_meta);
+
+                if($media_id){
+
+                    //save media id for post body/title template variable replacement (below)
+                    $post_images[$image["field_id"]] = $media_id;
+                    $lead[$image["field_id"]] .= "|:|$media_id";
+
+                    // set featured image
+                    $field = RGFormsModel::get_field($form, $image["field_id"]);
+                    if(rgar($field, 'postFeaturedImage'))
+                        set_post_thumbnail($post_id, $media_id);
+                }
+            }
+        }
+
+        //adding custom fields
+        foreach($post_data["post_custom_fields"] as $meta_name => $meta_value){
+            if(!is_array($meta_value))
+                $meta_value = array($meta_value);
+
+            $meta_index = 0;
+            foreach($meta_value as $value){
+                $custom_field = self::get_custom_field($form, $meta_name, $meta_index);
+
+                //replacing template variables if template is enabled
+                if($custom_field && rgget("customFieldTemplateEnabled", $custom_field)){
+                    //replacing post image variables
+                    $value = GFCommon::replace_variables_post_image($custom_field["customFieldTemplate"], $post_images, $lead);
+
+                    //replacing all other variables
+                    $value = GFCommon::replace_variables($value, $form, $lead, false, false, false);
+                }
+                switch(RGFormsModel::get_input_type($custom_field)){
+                    case "list" :
+                        $value = maybe_unserialize($value);
+                        if(is_array($value)){
+                            foreach($value as $item){
+                                if(is_array($item))
+                                    $item = implode("|", $item);
+
+                                if(!rgblank($item))
+                                    add_post_meta($post_id, $meta_name, $item);
+                            }
+                        }
+                    break;
+
+                    case "multiselect" :
+                    case "checkbox" :
+                        $value = explode(",", $value);
+                        if(is_array($value)){
+                            foreach($value as $item){
+                                if(!rgblank($item))
+                                    add_post_meta($post_id, $meta_name, $item);
+                            }
+                        }
+                    break;
+
+                    case "date" :
+                        $value = GFCommon::date_display($value, rgar($custom_field, "dateFormat"));
+                        if(!rgblank($value))
+                            add_post_meta($post_id, $meta_name, $value);
+                    break;
+
+                    default :
+                        if(!rgblank($value))
+                            add_post_meta($post_id, $meta_name, $value);
+                    break;
+                }
+
+                $meta_index++;
+            }
+        }
+
+        $has_content_field = sizeof(GFCommon::get_fields_by_type($form, array("post_content"))) > 0;
+        $has_title_field = sizeof(GFCommon::get_fields_by_type($form, array("post_title"))) > 0;
+
+        //if a post field was configured with a content or title template, process template
+        if( (rgar($form, "postContentTemplateEnabled") && $has_content_field) || (rgar($form, "postTitleTemplateEnabled") && $has_title_field) ){
+
+            $post = get_post($post_id);
+
+            if($form["postContentTemplateEnabled"] && $has_content_field){
+
+                //replacing post image variables
+                $post_content = GFCommon::replace_variables_post_image($form["postContentTemplate"], $post_images, $lead);
+
+                //replacing all other variables
+                $post_content = GFCommon::replace_variables($post_content, $form, $lead, false, false, false);
+
+                //updating post content
+                $post->post_content = $post_content;
+            }
+
+            if($form["postTitleTemplateEnabled"] && $has_title_field){
+
+                //replacing post image variables
+                $post_title = GFCommon::replace_variables_post_image($form["postTitleTemplate"], $post_images, $lead);
+
+                //replacing all other variables
+                $post_title = GFCommon::replace_variables($post_title, $form, $lead, false, false, false);
+
+                //updating post
+                $post->post_title = $post_title;
+
+                $post->post_name = $post_title;
+            }
+
+            wp_update_post($post);
+        }
+
+        //adding post format
+        if(current_theme_supports('post-formats') && $form['postFormat']) {
+
+            $formats = get_theme_support('post-formats');
+            if(is_array($formats)) {
+                $formats = $formats[0];
+                if(in_array( $form['postFormat'], $formats)) {
+                    set_post_format($post_id, $form['postFormat']);
+                } else if('0' == $form['postFormat']) {
+                    set_post_format($post_id, false);
+                }
+            }
+
+        }
+
+        //update post_id field if a post was created
+        $lead["post_id"] = $post_id;
+        self::update_lead($lead);
+
+        return $post_id;
+    }
+
+    private static function get_custom_field($form, $meta_name, $meta_index){
+        $custom_fields = GFCommon::get_fields_by_type($form, array("post_custom_field"));
+
+        $index = 0;
+        foreach($custom_fields as $field){
+            if($field["postCustomFieldName"] == $meta_name){
+                if($meta_index == $index){
+                    return $field;
+                }
+                $index++;
+            }
+        }
+        return false;
+    }
+
+    private static function copy_post_image($url, $post_id){
+        $time = current_time('mysql');
+
+        if ( $post = get_post($post_id) ) {
+            if ( substr( $post->post_date, 0, 4 ) > 0 )
+                $time = $post->post_date;
+        }
+
+        //making sure there is a valid upload folder
+        if ( ! ( ( $uploads = wp_upload_dir($time) ) && false === $uploads['error'] ) )
+            return false;
+
+        $name = basename($url);
+
+        $filename = wp_unique_filename($uploads['path'], $name);
+
+        // Move the file to the uploads dir
+        $new_file = $uploads['path'] . "/$filename";
+
+        $uploaddir = wp_upload_dir();
+        $path = str_replace($uploaddir["baseurl"], $uploaddir["basedir"], $url);
+
+        if(!copy($path, $new_file))
+            return false;
+
+        // Set correct file permissions
+        $stat = stat( dirname( $new_file ));
+        $perms = $stat['mode'] & 0000666;
+        @ chmod( $new_file, $perms );
+
+        // Compute the URL
+        $url = $uploads['url'] . "/$filename";
+
+        if ( is_multisite() )
+            delete_transient( 'dirsize_cache' );
+
+        $type = wp_check_filetype($new_file);
+        return array("file" => $new_file, "url" => $url, "type" => $type["type"]);
+
+    }
+
+    private static function media_handle_upload($url, $post_id, $post_data = array()) {
+
+        //WordPress Administration API required for the media_handle_upload() function
+        require_once(ABSPATH . 'wp-admin/includes/image.php');
+
+        $name = basename($url);
+
+        $file = self::copy_post_image($url, $post_id);
+
+        if(!$file)
+            return false;
+
+        $name_parts = pathinfo($name);
+        $name = trim( substr( $name, 0, -(1 + strlen($name_parts['extension'])) ) );
+
+        $url = $file['url'];
+        $type = $file['type'];
+        $file = $file['file'];
+        $title = $name;
+        $content = '';
+
+        // use image exif/iptc data for title and caption defaults if possible
+        if ( $image_meta = @wp_read_image_metadata($file) ) {
+            if ( trim( $image_meta['title'] ) && ! is_numeric( sanitize_title( $image_meta['title'] ) ) )
+                $title = $image_meta['title'];
+            if ( trim( $image_meta['caption'] ) )
+                $content = $image_meta['caption'];
+        }
+
+        // Construct the attachment array
+        $attachment = array_merge( array(
+            'post_mime_type' => $type,
+            'guid' => $url,
+            'post_parent' => $post_id,
+            'post_title' => $title,
+            'post_content' => $content,
+        ), $post_data );
+
+        // Save the data
+        $id = wp_insert_attachment($attachment, $file, $post_id);
+        if ( !is_wp_error($id) ) {
+            wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $file ) );
+        }
+
+        return $id;
+    }
+
+    private static function save_input($form, $field, &$lead, $current_fields, $input_id){
+        global $wpdb;
+
+        $lead_detail_table = self::get_lead_details_table_name();
+        $lead_detail_long_table = self::get_lead_details_long_table_name();
+
+        $input_name = "input_" . str_replace('.', '_', $input_id);
+        $value = rgpost($input_name);
+
+        //ignore file upload when nothing was sent in the admin
+        //ignore post fields in the admin
+        if(RG_CURRENT_VIEW == "entry" && self::get_input_type($field) == "fileupload" && empty($_FILES[$input_name]["name"]))
+            return;
+        else if(RG_CURRENT_VIEW == "entry" && in_array($field["type"], array("post_category","post_title","post_content","post_excerpt","post_tags","post_custom_field","post_image")))
             return;
 
-        if(!empty($value)){
+        if(empty($value) && rgar($field, "adminOnly") && !IS_ADMIN){
+            $value = self::get_default_value($field, $input_id);
+        }
 
+        //processing values so that they are in the correct format for each input type
+        $value = self::prepare_value($form, $field, $value, $input_name, rgar($lead, "id"));
+
+        //ignore fields that have not changed
+        if($lead != null && $value == rgget($input_id, $lead))
+            return;
+
+        if(!empty($value) || $value === "0"){
+
+            $value = apply_filters("gform_save_field_value", $value, $lead, $field, $form);
             $truncated_value = substr($value, 0, GFORMS_MAX_FIELD_LENGTH);
+
             $lead_detail_id = self::get_lead_detail_id($current_fields, $input_id);
             if($lead_detail_id > 0){
+
                 $wpdb->update($lead_detail_table, array("value" => $truncated_value), array("id" => $lead_detail_id), array("%s"), array("%d"));
 
                 //insert, update or delete long value
@@ -803,7 +1826,7 @@ class RGFormsModel{
                 if(strlen($value) > GFORMS_MAX_FIELD_LENGTH){
 
                     //read newly created lead detal id
-                    $lead_detail_id = $wpdb->get_var("SELECT LAST_INSERT_ID()");
+                    $lead_detail_id = $wpdb->insert_id;
 
                     //insert long value
                     $wpdb->insert($lead_detail_long_table, array("lead_detail_id" => $lead_detail_id, "value" => $value), array("%d", "%s"));
@@ -825,6 +1848,28 @@ class RGFormsModel{
         }
     }
 
+    private static function move_temp_file($form_id, $tempfile_info){
+
+        $target = self::get_file_upload_path($form_id, $tempfile_info["uploaded_filename"]);
+        $source = self::get_upload_path($form_id) . "/tmp/" . $tempfile_info["temp_filename"];
+
+        if(rename($source, $target["path"])){
+            self::set_permissions($target["path"]);
+            return $target["url"];
+        }
+        else{
+            return "FAILED (Temporary file could not be moved.)";
+        }
+    }
+
+    private static function set_permissions($path){
+
+        $permission = apply_filters("gform_file_permission", 0644, $path);
+        if($permission){
+           chmod($path, $permission);
+        }
+    }
+
     public static function upload_file($form_id, $file){
 
         $target = self::get_file_upload_path($form_id, $file["name"]);
@@ -832,6 +1877,7 @@ class RGFormsModel{
             return "FAILED (Upload folder could not be created.)";
 
         if(move_uploaded_file($file['tmp_name'], $target["path"])){
+            self::set_permissions($target["path"]);
             return $target["url"];
         }
         else{
@@ -850,16 +1896,18 @@ class RGFormsModel{
     }
 
     public static function get_upload_path($form_id){
-        return self::get_upload_root() . $form_id;
+        return self::get_upload_root() . $form_id . "-" . wp_hash($form_id);
     }
 
     public static function get_upload_url($form_id){
         $dir = wp_upload_dir();
-        return $dir["baseurl"] . "/gravity_forms/$form_id";
+        return $dir["baseurl"] . "/gravity_forms/$form_id" . "-" . wp_hash($form_id);
     }
 
-    public static function get_file_upload_path($form_id, $file_name)
-    {
+    public static function get_file_upload_path($form_id, $file_name){
+        if (get_magic_quotes_gpc())
+            $file_name = stripslashes($file_name);
+
         // Where the file is going to be placed
         // Generate the yearly and monthly dirs
         $time = current_time( 'mysql' );
@@ -868,14 +1916,40 @@ class RGFormsModel{
         $target_root = self::get_upload_path($form_id) . "/$y/$m/";
         $target_root_url = self::get_upload_url($form_id) . "/$y/$m/";
 
-        if(!wp_mkdir_p($target_root))
-            return false;
+        //adding filter to upload root path and url
+        $upload_root_info = array("path" => $target_root, "url" => $target_root_url);
+        $upload_root_info = apply_filters("gform_upload_path_{$form_id}", apply_filters("gform_upload_path", $upload_root_info, $form_id));
+
+        $target_root = $upload_root_info["path"];
+        $target_root_url = $upload_root_info["url"];
+
+        if(!is_dir($target_root)){
+            if(!wp_mkdir_p($target_root))
+                return false;
+
+            //adding index.html files to all subfolders
+            if(!file_exists(self::get_upload_root() . "/index.html")){
+                GFCommon::recursive_add_index_file(self::get_upload_root());
+            }
+            else if(!file_exists(self::get_upload_path($form_id) . "/index.html")){
+                GFCommon::recursive_add_index_file(self::get_upload_path($form_id));
+            }
+            else if(!file_exists(self::get_upload_path($form_id) . "/$y/index.html")){
+                GFCommon::recursive_add_index_file(self::get_upload_path($form_id) . "/$y");
+            }
+            else{
+                GFCommon::recursive_add_index_file(self::get_upload_path($form_id) . "/$y/$m");
+            }
+
+        }
 
         //Add the original filename to our target path.
         //Result is "uploads/filename.extension"
         $file_info = pathinfo($file_name);
         $extension = $file_info["extension"];
         $file_name = basename($file_info["basename"], "." . $extension);
+
+        $file_name = sanitize_file_name($file_name);
 
         $counter = 1;
         $target_path = $target_root . $file_name . "." . $extension;
@@ -890,7 +1964,6 @@ class RGFormsModel{
         return array("path" => $target_path, "url" => $target_url);
     }
 
-
     public static function drop_tables(){
         global $wpdb;
         $wpdb->query("DROP TABLE IF EXISTS " . self::get_lead_details_long_table_name());
@@ -900,6 +1973,7 @@ class RGFormsModel{
         $wpdb->query("DROP TABLE IF EXISTS " . self::get_form_view_table_name());
         $wpdb->query("DROP TABLE IF EXISTS " . self::get_meta_table_name());
         $wpdb->query("DROP TABLE IF EXISTS " . self::get_form_table_name());
+        $wpdb->query("DROP TABLE IF EXISTS " . self::get_lead_meta_table_name());
     }
 
     public static function insert_form_view($form_id, $ip){
@@ -926,7 +2000,7 @@ class RGFormsModel{
         $lead_detail_table_name = self::get_lead_details_table_name();
         $lead_table_name = self::get_lead_table_name();
 
-        switch($field["type"]){
+        switch(RGFormsModel::get_input_type($field)){
             case "time" :
                 $value = sprintf("%d:%02d %s", $value[0], $value[1], $value[2]);
             break;
@@ -959,7 +2033,8 @@ class RGFormsModel{
                 GROUP BY lead_id
                 ORDER BY match_count DESC";
 
-        $count = $wpdb->get_var($sql);
+        $count = apply_filters("gform_is_duplicate_{$form_id}", apply_filters('gform_is_duplicate', $wpdb->get_var($sql), $form_id, $field, $value), $form_id, $field, $value);
+
         return $count != null && $count >= $input_count;
     }
 
@@ -973,7 +2048,7 @@ class RGFormsModel{
                                                         INNER JOIN $lead_detail_table_name ld ON l.id = ld.lead_id
                                                         WHERE l.id=%d", $lead_id));
 
-        $leads = self::build_lead_array($results);
+        $leads = self::build_lead_array($results, true);
         return sizeof($leads) == 1 ? $leads[0] : false;
     }
 
@@ -984,7 +2059,7 @@ class RGFormsModel{
         return $wpdb->get_results($wpdb->prepare("  SELECT n.id, n.user_id, n.date_created, n.value, ifnull(u.display_name,n.user_name) as user_name, u.user_email
                                                     FROM $notes_table n
                                                     LEFT OUTER JOIN $wpdb->users u ON n.user_id = u.id
-                                                    WHERE lead_id=%d", $lead_id));
+                                                    WHERE lead_id=%d ORDER BY id", $lead_id));
     }
 
     public static function get_lead_field_value($lead, $field){
@@ -992,8 +2067,8 @@ class RGFormsModel{
             return;
 
         $max_length = GFORMS_MAX_FIELD_LENGTH;
-
-        if(is_array($field["inputs"])){
+        $value = array();
+        if(is_array(rgar($field, "inputs"))){
             //making sure values submitted are sent in the value even if
             //there isn't an input associated with it
             $lead_field_keys = array_keys($lead);
@@ -1005,7 +2080,7 @@ class RGFormsModel{
             }
         }
         else{
-            $val = $lead[$field["id"]];
+            $val = rgget($field["id"], $lead);
 
             //To save a database call to get long text, only getting long text if regular field is "somewhat" large (i.e. max - 50)
             if(strlen($val) >= ($max_length - 50))
@@ -1014,9 +2089,11 @@ class RGFormsModel{
             $value = !empty($long_text) ? $long_text : $val;
         }
 
+        //filtering lead value
+        $value = apply_filters("gform_get_field_value", $value, $lead, $field);
+
         return $value;
     }
-
 
     public static function get_field_value_long($lead_id, $field_number){
         global $wpdb;
@@ -1026,21 +2103,20 @@ class RGFormsModel{
         $sql = $wpdb->prepare(" SELECT l.value FROM $detail_table_name d
                                 INNER JOIN $long_table_name l ON l.lead_detail_id = d.id
                                 WHERE lead_id=%d AND field_number BETWEEN %f AND %f", $lead_id, $field_number - 0.001, $field_number + 0.001);
+
          return $wpdb->get_var($sql);
     }
 
-
-public static function get_leads($form_id, $sort_field_number=0, $sort_direction='DESC', $search='', $offset=0, $page_size=30, $star=null, $read=null, $is_numeric_sort = false, $start_date=null, $end_date=null){
+    public static function get_leads($form_id, $sort_field_number=0, $sort_direction='DESC', $search='', $offset=0, $page_size=30, $star=null, $read=null, $is_numeric_sort = false, $start_date=null, $end_date=null, $status='active'){
         global $wpdb;
 
         if($sort_field_number == 0)
             $sort_field_number = "date_created";
 
         if(is_numeric($sort_field_number))
-            //TODO: implement date search filter
-            $sql = self::sort_by_custom_field_query($form_id, $sort_field_number, $sort_direction, $search, $offset, $page_size, $star, $read, $is_numeric_sort);
+            $sql = self::sort_by_custom_field_query($form_id, $sort_field_number, $sort_direction, $search, $offset, $page_size, $star, $read, $is_numeric_sort, $status);
         else
-            $sql = self::sort_by_default_field_query($form_id, $sort_field_number, $sort_direction, $search, $offset, $page_size, $star, $read, $is_numeric_sort, $start_date, $end_date);
+            $sql = self::sort_by_default_field_query($form_id, $sort_field_number, $sort_direction, $search, $offset, $page_size, $star, $read, $is_numeric_sort, $start_date, $end_date, $status);
 
         //initializing rownum
         $wpdb->query("select @rownum:=0");
@@ -1051,7 +2127,7 @@ public static function get_leads($form_id, $sort_field_number=0, $sort_direction
         return self::build_lead_array($results);
     }
 
-    private static function sort_by_custom_field_query($form_id, $sort_field_number=0, $sort_direction='DESC', $search='', $offset=0, $page_size=30, $star=null, $read=null, $is_numeric_sort = false){
+    private static function sort_by_custom_field_query($form_id, $sort_field_number=0, $sort_direction='DESC', $search='', $offset=0, $page_size=30, $star=null, $read=null, $is_numeric_sort = false, $status='active'){
         global $wpdb;
         if(!is_numeric($form_id) || !is_numeric($sort_field_number)|| !is_numeric($offset)|| !is_numeric($page_size))
             return "";
@@ -1065,11 +2141,17 @@ public static function get_leads($form_id, $sort_field_number=0, $sort_direction
         $search_term = "%$search%";
         $search_filter = empty($search) ? "" : $wpdb->prepare("WHERE d.value LIKE %s", $search_term);
 
+        //starred clause
         $where = empty($search) ? "WHERE" : "AND";
-        $search_filter .= $star !== null ? $wpdb->prepare("$where is_starred=%d ", $star) : "";
+        $search_filter .= $star !== null && $status == 'active' ? $wpdb->prepare("$where is_starred=%d AND status='active' ", $star) : "";
 
+        //read clause
         $where = empty($search) ? "WHERE" : "AND";
-        $search_filter .= $read !== null ? $wpdb->prepare("$where is_read=%d ", $read) : "";
+        $search_filter .= $read !== null && $status == 'active' ? $wpdb->prepare("$where is_read=%d AND status='active' ", $read) : "";
+
+        //status clause
+        $where = empty($search) ? "WHERE" : "AND";
+        $search_filter .= $wpdb->prepare("$where status=%s ", $status);
 
         $field_number_min = $sort_field_number - 0.001;
         $field_number_max = $sort_field_number + 0.001;
@@ -1108,8 +2190,7 @@ public static function get_leads($form_id, $sort_field_number=0, $sort_direction
         return $sql;
     }
 
-
-    private static function sort_by_default_field_query($form_id, $sort_field, $sort_direction='DESC', $search='', $offset=0, $page_size=30, $star=null, $read=null, $is_numeric_sort = false, $start_date=null, $end_date=null){
+    private static function sort_by_default_field_query($form_id, $sort_field, $sort_direction='DESC', $search='', $offset=0, $page_size=30, $star=null, $read=null, $is_numeric_sort = false, $start_date=null, $end_date=null, $status='active'){
         global $wpdb;
 
         if(!is_numeric($form_id) || !is_numeric($offset)|| !is_numeric($page_size)){
@@ -1119,12 +2200,13 @@ public static function get_leads($form_id, $sort_field_number=0, $sort_direction
         $lead_detail_table_name = self::get_lead_details_table_name();
         $lead_table_name = self::get_lead_table_name();
 
-        //$search = empty($search) ? "" : " AND value LIKE '%$search%'";
         $search_term = "%$search%";
         $search_filter = empty($search) ? "" : $wpdb->prepare(" AND value LIKE %s", $search_term);
 
-        $star_filter = $star !== null ? $wpdb->prepare(" AND is_starred=%d ", $star) : "";
-        $read_filter = $read !== null ? $wpdb->prepare(" AND is_read=%d ", $read) :  "";
+        $star_filter = $star !== null && $status == 'active' ? $wpdb->prepare(" AND is_starred=%d AND status='active' ", $star) : "";
+        $read_filter = $read !== null && $status == 'active' ? $wpdb->prepare(" AND is_read=%d AND status='active' ", $read) :  "";
+        $status_filter = $wpdb->prepare(" AND status=%s ", $status);
+
         $start_date_filter = empty($start_date) ? "" : " AND datediff(date_created, '$start_date') >=0";
         $end_date_filter = empty($end_date) ? "" : " AND datediff(date_created, '$end_date') <=0";
 
@@ -1134,43 +2216,74 @@ public static function get_leads($form_id, $sort_field_number=0, $sort_direction
             INNER JOIN $lead_detail_table_name d ON d.lead_id = l.id
             INNER JOIN
             (
-                SELECT distinct @rownum:=@rownum+1 as sort, l.id
-                FROM $lead_table_name l
-                INNER JOIN $lead_detail_table_name d ON d.lead_id = l.id
-                WHERE l.form_id=$form_id
-                $search_filter
-                $star_filter
-                $read_filter
-                $start_date_filter
-                $end_date_filter
-                ORDER BY $sort_field $sort_direction
-                LIMIT $offset,$page_size
+                SELECT @rownum:=@rownum + 1 as sort, id
+                FROM
+                (
+                    SELECT distinct l.id
+                    FROM $lead_table_name l
+                    INNER JOIN $lead_detail_table_name d ON d.lead_id = l.id
+                    WHERE l.form_id=$form_id
+                    $search_filter
+                    $star_filter
+                    $read_filter
+                    $status_filter
+                    $start_date_filter
+                    $end_date_filter
+                    ORDER BY $sort_field $sort_direction
+                    LIMIT $offset,$page_size
+                ) page
             ) filtered ON filtered.id = l.id
             ORDER BY filtered.sort";
 
         return $sql;
     }
 
-    private static function build_lead_array($results){
+    public static function build_lead_array($results, $use_long_values = false){
 
         $leads = array();
         $lead = array();
+        $form_id = 0;
         if(is_array($results) && sizeof($results) > 0){
-            $lead = array("id" => $results[0]->id, "date_created" => $results[0]->date_created, "is_starred" => intval($results[0]->is_starred), "is_read" => intval($results[0]->is_read), "ip" => $results[0]->ip, "source_url" => $results[0]->source_url, "post_id" => $results[0]->post_id);
+            $form_id = $results[0]->form_id;
+            $lead = array("id" => $results[0]->id, "form_id" => $results[0]->form_id, "date_created" => $results[0]->date_created, "is_starred" => intval($results[0]->is_starred), "is_read" => intval($results[0]->is_read), "ip" => $results[0]->ip, "source_url" => $results[0]->source_url, "post_id" => $results[0]->post_id, "currency" => $results[0]->currency, "payment_status" => $results[0]->payment_status, "payment_date" => $results[0]->payment_date, "transaction_id" => $results[0]->transaction_id, "payment_amount" => $results[0]->payment_amount, "is_fulfilled" => $results[0]->is_fulfilled, "created_by" => $results[0]->created_by, "transaction_type" => $results[0]->transaction_type, "user_agent" => $results[0]->user_agent, "status" => $results[0]->status);
         }
 
         $prev_lead_id=0;
         foreach($results as $result){
             if($prev_lead_id <> $result->id && $prev_lead_id > 0){
                 array_push($leads, $lead);
-                $lead = array("id" => $result->id, "date_created" => $result->date_created, "is_starred" => intval($result->is_starred), "is_read" => intval($result->is_read), "ip" => $result->ip, "post_id" => $results[0]->post_id);
+                $lead = array("id" => $result->id, "form_id" => $result->form_id,     "date_created" => $result->date_created,     "is_starred" => intval($result->is_starred),     "is_read" => intval($result->is_read),     "ip" => $result->ip,     "source_url" => $result->source_url,     "post_id" => $result->post_id,     "currency" => $result->currency,     "payment_status" => $result->payment_status,     "payment_date" => $result->payment_date,     "transaction_id" => $result->transaction_id,     "payment_amount" => $result->payment_amount,     "is_fulfilled" => $result->is_fulfilled,     "created_by" => $result->created_by,     "transaction_type" => $result->transaction_type,     "user_agent" => $result->user_agent,    "status" => $result->status);
             }
-            $lead[$result->field_number] = $result->value;
+
+            $field_value = $result->value;
+            //using long values if specified
+            if($use_long_values && strlen($field_value) >= GFORMS_MAX_FIELD_LENGTH){
+                $long_text = RGFormsModel::get_field_value_long($lead["id"], $result->field_number);
+                $field_value = !empty($long_text) ? $long_text : $field_value;
+            }
+
+            $lead[$result->field_number] = $field_value;
             $prev_lead_id = $result->id;
         }
         //adding last lead.
         if(sizeof($lead) > 0)
             array_push($leads, $lead);
+
+        //running entry through gform_get_field_value filter
+        $form = RGFormsModel::get_form_meta($form_id);
+        foreach($leads as &$lead){
+            foreach($form["fields"] as $field){
+                if(isset($field["inputs"]) && is_array($field["inputs"])){
+                    foreach($field["inputs"] as $input){
+                        $lead[(string)$input["id"]] = apply_filters("gform_get_input_value", rgar($lead, (string)$input["id"]), $lead, $field, $input["id"]);
+                    }
+                }
+                else{
+
+                    $lead[$field["id"]] = apply_filters("gform_get_input_value", rgar($lead, (string)$field["id"]), $lead, $field, "");
+                }
+            }
+        }
 
         return $leads;
 
@@ -1182,6 +2295,7 @@ public static function get_leads($form_id, $sort_field_number=0, $sort_direction
             delete_option("rg_gforms_key");
         }
         else if($current_key != $key){
+            $key = trim($key);
             update_option("rg_gforms_key", md5($key));
         }
     }
@@ -1226,10 +2340,11 @@ public static function get_leads($form_id, $sort_field_number=0, $sort_direction
             for($i=0, $count=sizeof($form["fields"]); $i<$count && $i<5; $i++){
                 $field = $form["fields"][$i];
 
-                if($field["displayOnly"])
+                if(RGForms::get("displayOnly",$field) || self::get_input_type($field) == "list")
                     continue;
 
-                if(is_array($field["inputs"])){
+
+                if(isset($field["inputs"]) && is_array($field["inputs"])){
                     if($field["type"] == "name"){
                         $field_ids[] = $field["id"] . '.3'; //adding first name
                         $field_ids[] = $field["id"] . '.6'; //adding last name
@@ -1246,8 +2361,11 @@ public static function get_leads($form_id, $sort_field_number=0, $sort_direction
 
         $columns = array();
         foreach($field_ids as $field_id){
-            $field = self::get_field($form, $field_id);
+
             switch($field_id){
+                case "id" :
+                    $columns[$field_id] = array("label" => "Entry Id", "type" => "id");
+                break;
                 case "ip" :
                     $columns[$field_id] = array("label" => "User IP", "type" => "ip");
                 break;
@@ -1257,12 +2375,50 @@ public static function get_leads($form_id, $sort_field_number=0, $sort_direction
                 case "source_url" :
                     $columns[$field_id] = array("label" => "Source Url", "type" => "source_url");
                 break;
+                case "payment_status" :
+                    $columns[$field_id] = array("label" => "Payment Status", "type" => "payment_status");
+                break;
+                case "transaction_id" :
+                    $columns[$field_id] = array("label" => "Transaction Id", "type" => "transaction_id");
+                break;
+                case "payment_date" :
+                    $columns[$field_id] = array("label" => "Payment Date", "type" => "payment_date");
+                break;
+                case "payment_amount" :
+                    $columns[$field_id] = array("label" => "Payment Amount", "type" => "payment_amount");
+                break;
+                case "created_by" :
+                    $columns[$field_id] = array("label" => "User", "type" => "created_by");
+                break;
                 default :
-                    if(!is_array($field["inputs"]) || self::has_input($field, $field_id))
-                        $columns[$field_id] = array("label" => RGForms::get_label($field, $field_id, $input_label_only), "type" => $field["type"]);
+                    $field = self::get_field($form, $field_id);
+                    if($field)
+                        $columns[strval($field_id)] = array("label" => self::get_label($field, $field_id, $input_label_only), "type" => rgget("type", $field), "inputType" => rgget("inputType", $field));
             }
         }
         return $columns;
+    }
+
+    public static function get_label($field, $input_id = 0, $input_only = false){
+        $field_label = (IS_ADMIN || RG_CURRENT_PAGE == "select_columns.php" || RG_CURRENT_PAGE == "print-entry.php" || rgget("gf_page", $_GET) == "select_columns" || rgget("gf_page", $_GET) == "print-entry") && !rgempty("adminLabel", $field) ? rgar($field,"adminLabel") : rgar($field,"label");
+        $input = self::get_input($field, $input_id);
+        if(rgget("type", $field) == "checkbox" && $input != null)
+            return $input["label"];
+        else if($input != null)
+            return $input_only ? $input["label"] : $field_label . ' (' . $input["label"] . ')';
+        else
+            return $field_label;
+    }
+
+    public static function get_input($field, $id){
+        if(isset($field["inputs"]) && is_array($field["inputs"])){
+            foreach($field["inputs"] as $input)
+            {
+                if($input["id"] == $id)
+                    return $input;
+            }
+        }
+        return null;
     }
 
     function has_input($field, $input_id){
@@ -1278,16 +2434,13 @@ public static function get_leads($form_id, $sort_field_number=0, $sort_direction
         }
     }
 
-    function get_current_page_url() {
+    public function get_current_page_url($force_ssl=false) {
         $pageURL = 'http';
-        if ($_SERVER["HTTPS"] == "on")
+        if (RGForms::get("HTTPS",$_SERVER) == "on" || $force_ssl)
             $pageURL .= "s";
         $pageURL .= "://";
-        if ($_SERVER["SERVER_PORT"] != "80")
-            $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-        else
-            $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
 
+        $pageURL .= RGForms::get("HTTP_HOST", $_SERVER) . rgget("REQUEST_URI", $_SERVER);
         return $pageURL;
     }
 
@@ -1309,6 +2462,9 @@ public static function get_leads($form_id, $sort_field_number=0, $sort_direction
         if(is_numeric($field_id))
             $field_id = intval($field_id); //removing floating part of field (i.e 1.3 -> 1) to return field by input id
 
+        if(!is_array($form["fields"]))
+            return null;
+
         foreach($form["fields"] as $field){
             if($field["id"] == $field_id)
                 return $field;
@@ -1316,5 +2472,57 @@ public static function get_leads($form_id, $sort_field_number=0, $sort_direction
         return null;
     }
 
+    public static function is_html5_enabled(){
+        return get_option("rg_gforms_enable_html5");
+    }
 }
+
+global $_gform_lead_meta;
+$_gform_lead_meta = array();
+//functions to handle lead meta
+function gform_get_meta($entry_id, $meta_key){
+    global $wpdb, $_gform_lead_meta;
+
+    //get from cache if available
+    $cache_key = $entry_id . "_" . $meta_key;
+    if(array_key_exists($cache_key, $_gform_lead_meta))
+        return $_gform_lead_meta[$cache_key];
+
+    $table_name = RGFormsModel::get_lead_meta_table_name();
+    $value = $wpdb->get_var($wpdb->prepare("SELECT meta_value FROM {$table_name} WHERE lead_id=%d AND meta_key=%s", $entry_id, $meta_key));
+    $meta_value = $value == null ? false : maybe_unserialize($value);
+    $_gform_lead_meta[$cache_key] = $meta_value;
+    return $meta_value;
+}
+
+function gform_update_meta($entry_id, $meta_key, $meta_value){
+    global $wpdb, $_gform_lead_meta;
+    $table_name = RGFormsModel::get_lead_meta_table_name();
+
+    $meta_value = maybe_serialize($meta_value);
+    $meta_exists = gform_get_meta($entry_id, $meta_key) !== false;
+    if($meta_exists){
+        $wpdb->update($table_name, array("meta_value" => $meta_value), array("lead_id" => $entry_id, "meta_key" => $meta_key),array("%s"), array("%d", "%s"));
+    }
+    else{
+        $wpdb->insert($table_name, array("lead_id" => $entry_id, "meta_key" => $meta_key, "meta_value" => $meta_value), array("%d", "%s", "%s"));
+    }
+
+    //updates cache
+    $cache_key = $entry_id . "_" . $meta_key;
+    if(array_key_exists($cache_key, $_gform_lead_meta))
+        $_gform_lead_meta[$cache_key] = maybe_unserialize($meta_value);
+}
+
+function gform_delete_meta($entry_id, $meta_key=""){
+    global $wpdb, $_gform_lead_meta;
+    $table_name = RGFormsModel::get_lead_meta_table_name();
+    $meta_filter = empty($meta_key) ? "" : $wpdb->prepare("AND meta_key=%s", $meta_key);
+
+    $wpdb->query($wpdb->prepare("DELETE FROM {$table_name} WHERE lead_id=%d {$meta_filter}", $entry_id));
+
+    //clears cache.
+    $_gform_lead_meta = array();
+}
+
 ?>
