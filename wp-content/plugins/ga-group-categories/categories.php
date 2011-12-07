@@ -135,7 +135,7 @@ function bp_get_group_category($group=false) {
 	elseif ($category === 'caucus')
 		return 'Caucus';
 	else
-		return '';
+		return '&nbsp;';
 }
 
 function bp_get_category_group_count($category) {
