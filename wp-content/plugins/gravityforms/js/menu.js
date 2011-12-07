@@ -21,13 +21,13 @@ function initMenus() {
 			}
 			if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
 				if(jQuery('#' + parent).hasClass('collapsible')) {
-					jQuery('#' + parent + ' ul:visible').slideUp('normal');
+					jQuery('#' + parent + ' ul:visible').slideUp('normal', function(){jQuery(this).prev().removeClass('gf_button_title_active')});
 				}
 				return false;
 			}
 			if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-				jQuery('#' + parent + ' ul:visible').slideUp('normal');
-				checkElement.slideDown('normal');
+				jQuery('#' + parent + ' ul:visible').slideUp('normal', function(){jQuery(this).prev().removeClass('gf_button_title_active')});
+				checkElement.slideDown('normal', function(){jQuery(this).prev().addClass('gf_button_title_active')});
 				return false;
 			}
 		}
