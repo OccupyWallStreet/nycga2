@@ -248,3 +248,37 @@ function nycga_hidden_activities($a, $activities)
 	return $activities;
 }
 
+add_action('bp_before_group_manage_members_admin', 'nycga_modify_group_membership_by_username');
+function nycga_modify_group_membership_by_username() {
+	echo "<div class='bp-widget'>
+		<h4>Promote to admin</h4>
+                Username:
+		<input id='promoteusername' style='width: 150px' type='text'></input>
+		<a id='promoteusercustomlink' href='";
+	bp_group_member_promote_admin_link();
+	echo "' class='button member-promote-to-admin custom-member-promote-to-admin' title='Promote to Admin'>Promote to Admin</a>
+              </div>
+		<script type='text/javascript'>
+			jQuery(document).ready(function() {
+				jQuery('a.custom-member-promote-to-admin').click(function() {
+					var username = jQuery('#promoteusername').val();
+					var groupname = jQuery('#promoteusercustomlink').attr('href').split('/')[4];
+					jQuery.get('/wp-content/themes/nycga/forcejoingroupandreturnuserid.php',
+						  {'username':username, 'groupname':groupname},
+						  function(data) {
+							data = jQuery.trim(data);
+							if (data == 'not found') {
+								alert('No such user');
+							} else {
+								var uid = parseInt(data);
+								var promotelink = jQuery('#promoteusercustomlink').attr('href').replace('?_wpnonce', uid + '?_wpnonce');
+								window.location = promotelink;
+							}
+						  }, 'text');
+					return false;
+				});
+			});
+		</script>
+	";
+}
+
