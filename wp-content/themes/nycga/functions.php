@@ -261,14 +261,20 @@ function nycga_modify_group_membership_by_username() {
 		<script type='text/javascript'>
 			jQuery(document).ready(function() {
 				jQuery('a.custom-member-promote-to-admin').click(function() {
+					var button = jQuery('#promoteusercustomlink');
+					if (button.hasClass('disabled')) {
+						return false;
+					}
+					button.addClass('disabled');
 					var username = jQuery('#promoteusername').val();
 					var groupname = jQuery('#promoteusercustomlink').attr('href').split('/')[4];
 					jQuery.get('/wp-content/themes/nycga/forcejoingroupandreturnuserid.php',
 						  {'username':username, 'groupname':groupname},
 						  function(data) {
 							data = jQuery.trim(data);
-							if (data == 'not found') {
-								alert('No such user');
+							if (!parseInt(data)) {
+								alert(data);
+								jQuery('#promoteusercustomlink').removeClass('disabled');
 							} else {
 								var uid = parseInt(data);
 								var promotelink = jQuery('#promoteusercustomlink').attr('href').replace('?_wpnonce', uid + '?_wpnonce');
