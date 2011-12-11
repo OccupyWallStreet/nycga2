@@ -172,7 +172,8 @@ $acount = 1;
   $acount++ ;
  
  }
- 
+
+if($anumrows >= 1) {
   echo "and $anumrows tomorrow. . Here are your events for tomorrow . ";
   
   $abadchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é", '"');
@@ -180,7 +181,7 @@ $acount = 1;
   $aoutput2 = str_replace($abadchars, $areplacechars, $aoutput);
   $acleantext = preg_replace('/[^(\x20-\x7F)]*/','', $aoutput2);
   echo $acleantext;
-  
+  }
 
   
   // end tomorrows events
