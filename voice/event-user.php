@@ -2,11 +2,22 @@
 
 include("/var/www/nycga.net/web/env.php");
 
+//sanitize get input function
+class MysqlStringEscaper
+{
+    function __get($value)
+    {
+        return mysql_real_escape_string($value);
+    }
+}
+$str = new MysqlStringEscaper;
+
 
   // Get the search variable from URL
 
   $var = @$_GET['phonenumber'] ;
   $trimmed = trim($var); //trim whitespace from the stored variable
+  $trimmedS = escapeshellcmd($trimmed);
   $returnpage = @$_GET['returnpage'] ;
   $returnpagetrim = trim($returnpage);
   
@@ -37,7 +48,7 @@ mysql_query("set time_zone = '-5:00'");
 //$query = "select wp_bp_xprofile_data.field_id, wp_bp_xprofile_data.value, wp_bp_xprofile_data.user_id, wp_users.display_name, \n"
 //$query .="replace(replace(replace(replace(replace(replace(replace(wp_bp_xprofile_data.value,\'-\',\'\'),\' \',\'\'),\'.\',\'\'),\')\',\'\'),\'(\',\'\'),\'c\',\'\'),\'h\',\'\') as newphone from wp_bp_xprofile_data LEFT JOIN wp_users ON wp_bp_xprofile_data.user_id = wp_users.id where field_id = 5 and replace(replace(replace(replace(replace(replace(replace(wp_bp_xprofile_data.value,\'-\',\'\'),\' \',\'\'),\'.\',\'\'),\')\',\'\'),\'(\',\'\'),\'c\',\'\'),\'h\',\'\') like \'%3476847285%\'"
 $query = "select wp_bp_xprofile_data.field_id, wp_bp_xprofile_data.value, wp_bp_xprofile_data.user_id, wp_users.display_name, " .
-"replace(replace(replace(replace(replace(replace(replace(wp_bp_xprofile_data.value,'-',''),' ',''),'.',''),')',''),'(',''),'c',''),'h','') as newphone from wp_bp_xprofile_data LEFT JOIN wp_users ON wp_bp_xprofile_data.user_id = wp_users.id where field_id = 5 and replace(replace(replace(replace(replace(replace(replace(wp_bp_xprofile_data.value,'-',''),' ',''),'.',''),')',''),'(',''),'c',''),'h','') like '$trimmed%'";
+"replace(replace(replace(replace(replace(replace(replace(wp_bp_xprofile_data.value,'-',''),' ',''),'.',''),')',''),'(',''),'c',''),'h','') as newphone from wp_bp_xprofile_data LEFT JOIN wp_users ON wp_bp_xprofile_data.user_id = wp_users.id where field_id = 5 and replace(replace(replace(replace(replace(replace(replace(wp_bp_xprofile_data.value,'-',''),' ',''),'.',''),')',''),'(',''),'c',''),'h','') like '$trimmedS%'";
 
 
 

@@ -11,13 +11,17 @@
 //7) mkdir voicefiles in /var/www/nycga.net/web/voice
 //8) chmod 777 voicefiles
 
-$wavurl = @$_GET['wavurl'] ;
-$wavurl1 = strrchr($wavurl, "/");
-$wavurl2 = substr( $wavurl1, 1 );
-$wavurl3 = substr($wavurl2, 0, -4); 
 
-$wget = "wget -P /var/www/nycga.net/web/voice/voicefiles $wavurl";
-$ffmpeg = "ffmpeg -i /var/www/nycga.net/web/voice/voicefiles/$wavurl2 -ab 128k /var/www/nycga.net/web/voice/voicefiles/$wavurl3.mp3";
+$wavurl0 = @$_GET['wavurl'] ;
+$wavurl0s = escapeshellcmd($wavurl0);
+$wavurl1 = strrchr($wavurl0, "/");
+$wavurl2 = substr( $wavurl1, 1 );
+$wavurl2s = escapeshellcmd($wavurl2);
+$wavurl3 = substr($wavurl2, 0, -4);
+$wavurl3s = escapeshellcmd($wavurl3); 
+
+$wget = "wget -P /var/www/nycga.net/web/voice/voicefiles $wavurl0s";
+$ffmpeg = "ffmpeg -i /var/www/nycga.net/web/voice/voicefiles/$wavurl2s -ab 128k /var/www/nycga.net/web/voice/voicefiles/$wavurl3s.mp3";
 echo exec($wget);
 echo exec ($ffmpeg);
 

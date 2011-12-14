@@ -2,6 +2,16 @@
 
 include("/var/www/nycga.net/web/env.php");
 
+//sanitize get input function
+class MysqlStringEscaper
+{
+    function __get($value)
+    {
+        return mysql_real_escape_string($value);
+    }
+}
+$str = new MysqlStringEscaper;
+
 
   // Get the search variable from URL
 
@@ -20,7 +30,7 @@ mysql_select_db(constant("DB_NAME")) or die("Unable to select database"); //sele
 //mysql_query("set time_zone = '-5:00'");
   
 // Build SQL Query  
-$query = "select group_id, user_id from wp_bp_groups_members where user_id = $trimmed";
+$query = "select group_id, user_id from wp_bp_groups_members where user_id = {$str->$trimmed}";
 
  $numresults=mysql_query($query);
  $numrows=mysql_num_rows($numresults);
@@ -49,11 +59,12 @@ $count = 1 + $s ;
 // now you can display the results returned
   while ($row= mysql_fetch_array($result)) {
   $groupid = $row["group_id"];
-  
+//sanitize input string from get
+  $groupid0 = $str->$groupid;
 
 
   
-  $idlist .= " or group_id = $groupid ";
+  $idlist .= " or group_id = $groupid0 ";
   
   
    

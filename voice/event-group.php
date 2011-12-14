@@ -2,6 +2,16 @@
 
 include("/var/www/nycga.net/web/env.php");
 
+//sanitize get input function
+class MysqlStringEscaper
+{
+    function __get($value)
+    {
+        return mysql_real_escape_string($value);
+    }
+}
+$str = new MysqlStringEscaper;
+
 
   // Get the search variable from URL
 
@@ -50,7 +60,7 @@ $gacount2 = 1 + $s ;
 
 }
 
-$querygpname = "select id, name as displayname from wp_bp_groups where id = '$trimmed' LIMIT 1";
+$querygpname = "select id, name as displayname from wp_bp_groups where id = '{$str->$trimmed}' LIMIT 1";
 
 
  $gpnumresults=mysql_query($querygpname);
@@ -78,7 +88,7 @@ $query = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start_t
 "FROM wp_em_events LEFT JOIN wp_em_locations ON wp_em_events.location_id = wp_em_locations.location_id " .
 "LEFT JOIN wp_bp_groups ON wp_em_events.group_id = wp_bp_groups.id " .
 "LEFT JOIN wp_em_categories ON wp_em_events.event_category_id = wp_em_categories.category_name " .
-"WHERE group_id = $trimmed and (event_start_date >= CURDATE() and event_start_date <= CURDATE( ) + 20 ) and event_end_time >= CURTIME( )  order by event_start_date, event_start_time, GroupName";
+"WHERE group_id = {$str->$trimmed} and (event_start_date >= CURDATE() and event_start_date <= CURDATE( ) + 20 ) and event_end_time >= CURTIME( )  order by event_start_date, event_start_time, GroupName";
 
  $numresults=mysql_query($query);
  $numrows=mysql_num_rows($numresults);
