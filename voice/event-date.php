@@ -3,6 +3,16 @@
 include("/var/www/nycga.net/web/env.php");
 
 
+//sanitize get input function
+class MysqlStringEscaper
+{
+    function __get($value)
+    {
+        return mysql_real_escape_string($value);
+    }
+}
+$str = new MysqlStringEscaper;
+
   // Get the search variable from URL
 
   $var = @$_GET['date'] ;
@@ -36,7 +46,7 @@ $query = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start_t
 "FROM wp_em_events LEFT JOIN wp_em_locations ON wp_em_events.location_id = wp_em_locations.location_id " .
 "LEFT JOIN wp_bp_groups ON wp_em_events.group_id = wp_bp_groups.id " .
 "LEFT JOIN wp_em_categories ON wp_em_events.event_category_id = wp_em_categories.category_name " .
-"WHERE event_start_date like '$myDate' order by event_start_time, GroupName";
+"WHERE event_start_date like '{$str->$myDate}' order by event_start_time, GroupName";
 
 
  $numresults=mysql_query($query);
@@ -61,7 +71,7 @@ echo "There are $numrows events for $myFullDate. To list events by group, say . 
 "FROM wp_em_events LEFT JOIN wp_em_locations ON wp_em_events.location_id = wp_em_locations.location_id " .
 "LEFT JOIN wp_bp_groups ON wp_em_events.group_id = wp_bp_groups.id " .
 "LEFT JOIN wp_em_categories ON wp_em_events.event_category_id = wp_em_categories.category_name " .
-"WHERE event_start_date like '$myDate' and (event_name like '%Spokes%' or event_name like '%General Assembly%')";
+"WHERE event_start_date like '{$str->$myDate}' and (event_name like '%Spokes%' or event_name like '%General Assembly%')";
  
  $ganumresults2=mysql_query($gaquery2);
  $ganumrows2=mysql_num_rows($ganumresults2);

@@ -4,6 +4,15 @@ include("/var/www/nycga.net/web/wp-config.php");
 //include("/var/www/nycga.net/web/wp-includes/post.php");
 
 
+class MysqlStringEscaper
+{
+    function __get($value)
+    {
+        return mysql_real_escape_string($value);
+    }
+}
+$str = new MysqlStringEscaper;
+
   $currentseq = @$_GET['currentseq'] ;
   $datetime = @$_GET['datetime'] ;
   $currentvm = @$_GET['currentvm'] ;
@@ -57,7 +66,7 @@ mysql_select_db(constant("DB_NAME")) or die("Unable to select database"); //sele
 
 // Build SQL Query  
 mysql_query("INSERT INTO voice_log (currentseq, datetime, currentvm, callername, userid, callerid)
-VALUES ('$currentseq', '$datetime', '$currentvm', '$callername', '$userid1', '$callerid')");
+VALUES ('{$str->$currentseq}', '{$str->$datetime}', '{$str->$currentvm}', '{$str->$callername}', '{$str->$userid1}', '{$str->$callerid}')");
 
 
 ?>
