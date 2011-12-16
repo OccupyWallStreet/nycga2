@@ -1,0 +1,1295 @@
+# Translation of the WordPress plugin ProjectManager 2.9.8 by Kolja Schleich.
+# Copyright (C) 2010 Kolja Schleich
+# This file is distributed under the same license as the ProjectManager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ProjectManager 2.9.8\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/projectmanager\n"
+"POT-Creation-Date: 2010-10-06 18:39+0000\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin/admin.php:41 admin/admin.php:75 admin/admin.php:86
+#: admin/admin.php:182 admin/index.php:74 admin/settings.php:23
+#: admin/settings.php:28
+msgid "Settings"
+msgstr ""
+
+#: admin/admin.php:42 admin/admin.php:74 admin/formfields.php:19
+#: admin/formfields.php:21
+msgid "Form Fields"
+msgstr ""
+
+#: admin/admin.php:43 admin/admin.php:73 admin/dataset.php:30
+#: admin/index.php:74 lib/shortcodes.php:148
+msgid "Add Dataset"
+msgstr ""
+
+#: admin/admin.php:44 admin/admin.php:77 admin/import.php:18
+msgid "Import/Export"
+msgstr ""
+
+#: admin/admin.php:72 admin/admin.php:85
+msgid "Overview"
+msgstr ""
+
+#: admin/admin.php:76 admin/admin.php:626 admin/dataset-form.php:116
+#: admin/import.php:41 admin/show-project.php:81 admin/show-project.php:100
+#: admin/show-project.php:157 admin/show-project.php:168
+#: templates/searchform-extend.php:25
+msgid "Categories"
+msgstr ""
+
+#: admin/admin.php:83 admin/admin.php:85
+msgid "Projects"
+msgstr ""
+
+#: admin/admin.php:87
+msgid "Documentation"
+msgstr ""
+
+#: admin/admin.php:215 admin/show-project.php:202 admin/show-project.php:221
+#: admin/tinymce/window.php:38 lib/core.php:1342
+msgid "Edit"
+msgstr ""
+
+#: admin/admin.php:215 admin/tinymce/window.php:38
+msgid "Post"
+msgstr ""
+
+#: admin/admin.php:215 admin/formfields.php:83 admin/formfields.php:104
+#: admin/show-project.php:193 admin/show-project.php:214
+#: admin/tinymce/window.php:38 lib/ajax.php:323 lib/ajax.php:339
+#: lib/core.php:1432
+msgid "Save"
+msgstr ""
+
+#: admin/admin.php:215 admin/dataset.php:46 admin/formfields.php:83
+#: admin/formfields.php:104 admin/show-project.php:193
+#: admin/show-project.php:214 admin/tinymce/window.php:38
+#: admin/tinymce/window.php:185 lib/ajax.php:323 lib/ajax.php:339
+#: lib/core.php:1432
+msgid "Cancel"
+msgstr ""
+
+#: admin/admin.php:215 admin/tinymce/window.php:38
+msgid "Please wait..."
+msgstr ""
+
+#: admin/admin.php:215 admin/tinymce/window.php:38
+msgid "Page Revisions"
+msgstr ""
+
+#: admin/admin.php:215 admin/tinymce/window.php:38
+msgid "Insert time"
+msgstr ""
+
+#: admin/admin.php:215 admin/formfields.php:108 admin/tinymce/window.php:38
+#: lib/ajax.php:326 lib/ajax.php:345
+msgid "Options"
+msgstr ""
+
+#: admin/admin.php:215 admin/dataset-form-profile.php:14
+#: admin/dataset-form.php:19 admin/formfields.php:96 admin/formfields.php:116
+#: admin/index.php:40 admin/show-project.php:112 admin/tinymce/window.php:38
+#: lib/ajax.php:332 lib/core.php:1345 templates/dataset-form.php:19
+msgid "Delete"
+msgstr ""
+
+#: admin/admin.php:215 admin/dataset-form-profile.php:83
+#: admin/dataset-form.php:87 templates/dataset-form.php:84
+msgid "Delete File"
+msgstr ""
+
+#: admin/admin.php:279 admin/admin.php:504
+msgid "Settings saved"
+msgstr ""
+
+#: admin/admin.php:284 admin/dataset.php:3 admin/documentation.php:3
+#: admin/formfields.php:3 admin/import.php:3 admin/index.php:3
+#: admin/settings.php:3 admin/show-project.php:3
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: admin/admin.php:390
+msgid "Manual"
+msgstr ""
+
+#: admin/admin.php:390 admin/formfields.php:30 admin/formfields.php:42
+#: admin/index.php:50 admin/index.php:59 admin/show-project.php:51
+#: admin/show-project.php:154 admin/show-project.php:165
+#: admin/tinymce/window.php:94 lib/shortcodes.php:177
+msgid "ID"
+msgstr ""
+
+#: admin/admin.php:390 admin/admin.php:626 admin/dataset-form.php:3
+#: admin/import.php:38 admin/show-project.php:51 admin/show-project.php:73
+#: admin/show-project.php:155 admin/show-project.php:166
+#: admin/show-project.php:202 admin/tinymce/window.php:93
+#: lib/shortcodes.php:177 templates/dataset-form.php:13
+#: templates/searchform-extend.php:19 templates/table-image.php:26
+#: templates/table.php:27
+msgid "Name"
+msgstr ""
+
+#: admin/admin.php:390 admin/tinymce/window.php:95
+msgid "Formfields"
+msgstr ""
+
+#: admin/admin.php:407 admin/show-project.php:56 admin/tinymce/window.php:105
+#: lib/shortcodes.php:181
+msgid "Ascending"
+msgstr ""
+
+#: admin/admin.php:407 admin/show-project.php:56 admin/tinymce/window.php:106
+#: lib/shortcodes.php:181
+msgid "Descending"
+msgstr ""
+
+#: admin/admin.php:427 admin/admin.php:452 admin/admin.php:499
+#: admin/admin.php:522 admin/admin.php:673 admin/admin.php:681
+#: admin/admin.php:779 admin/admin.php:786 admin/admin.php:1058
+#: admin/index.php:21 admin/show-project.php:32 admin/show-project.php:42
+msgid "You don't have permission to perform this task"
+msgstr ""
+
+#: admin/admin.php:434
+msgid "Project added"
+msgstr ""
+
+#: admin/admin.php:457
+msgid "Project updated"
+msgstr ""
+
+#: admin/admin.php:569
+#, php-format
+msgid "%d Datasets successfully imported"
+msgstr ""
+
+#: admin/admin.php:571
+msgid "The file is not readable"
+msgstr ""
+
+#: admin/admin.php:574 admin/admin.php:991 admin/admin.php:1012
+#, php-format
+msgid "The uploaded file could not be moved to %s."
+msgstr ""
+
+#: admin/admin.php:578
+msgid "The uploaded file seems to be empty"
+msgstr ""
+
+#: admin/admin.php:662
+msgid "You cannot add two datasets with same User ID."
+msgstr ""
+
+#: admin/admin.php:750
+msgid "New dataset added to the database."
+msgstr ""
+
+#: admin/admin.php:874
+msgid "Dataset updated."
+msgstr ""
+
+#: admin/admin.php:973 admin/admin.php:1009
+msgid ""
+"File exists and is not uploaded. Set the overwrite option if you want to "
+"replace it."
+msgstr ""
+
+#: admin/admin.php:996
+msgid "The file type is not supported."
+msgstr ""
+
+#: admin/admin.php:1123
+msgid "Form Fields updated"
+msgstr ""
+
+#: admin/admin.php:1144 admin/index.php:27 admin/index.php:46
+#: admin/tinymce/window.php:28
+msgid "Projectmanager"
+msgstr ""
+
+#: admin/dataset-form-profile.php:9 admin/dataset-form.php:14 lib/ajax.php:182
+#: lib/core.php:402 templates/dataset-form.php:15
+msgid "Image"
+msgstr ""
+
+#: admin/dataset-form-profile.php:17 admin/dataset-form.php:22
+msgid "Supported file types"
+msgstr ""
+
+#: admin/dataset-form-profile.php:19 admin/dataset-form.php:24
+#: templates/dataset-form.php:24
+msgid "Overwrite existing image"
+msgstr ""
+
+#: admin/dataset-form-profile.php:40 admin/dataset-form.php:44
+#: templates/dataset-form.php:41
+msgid "Day"
+msgstr ""
+
+#: admin/dataset-form-profile.php:47 admin/dataset-form.php:51
+#: templates/dataset-form.php:48
+msgid "Month"
+msgstr ""
+
+#: admin/dataset-form-profile.php:54 admin/dataset-form.php:58
+#: templates/dataset-form.php:55
+msgid "Year"
+msgstr ""
+
+#: admin/dataset-form-profile.php:77 admin/dataset-form.php:81
+#: templates/dataset-form.php:78
+msgid "Current File"
+msgstr ""
+
+#: admin/dataset-form-profile.php:84 admin/dataset-form.php:88
+#: templates/dataset-form.php:85
+msgid "Overwrite File"
+msgstr ""
+
+#: admin/dataset-form.php:7
+msgid "Add WP User"
+msgstr ""
+
+#: admin/dataset-form.php:104
+msgid ""
+"This Field has a callback attached which will get the data from somewhere "
+"else!"
+msgstr ""
+
+#: admin/dataset-form.php:128 lib/core.php:402
+msgid "WP User"
+msgstr ""
+
+#: admin/dataset.php:11 lib/shortcodes.php:129
+msgid "Edit Dataset"
+msgstr ""
+
+#: admin/dataset.php:38 admin/settings.php:18
+#, php-format
+msgid ""
+"Unable to create directory %s. Is its parent directory writable by the "
+"server?"
+msgstr ""
+
+#: admin/dataset.php:46 admin/tinymce/window.php:189
+msgid "Insert"
+msgstr ""
+
+#: admin/documentation.php:7
+msgid "Projectmanager Documentation"
+msgstr ""
+
+#: admin/documentation.php:9
+msgid "Content"
+msgstr ""
+
+#: admin/documentation.php:11 admin/documentation.php:21
+msgid "Shortcodes"
+msgstr ""
+
+#: admin/documentation.php:12 admin/documentation.php:198
+msgid "Templates"
+msgstr ""
+
+#: admin/documentation.php:13 admin/documentation.php:254
+msgid "Template Tags"
+msgstr ""
+
+#: admin/documentation.php:14 admin/documentation.php:267
+msgid "Access Control"
+msgstr ""
+
+#: admin/documentation.php:15 admin/documentation.php:290
+msgid "Customization"
+msgstr ""
+
+#: admin/documentation.php:16
+msgid "Howto"
+msgstr ""
+
+#: admin/documentation.php:17 admin/documentation.php:328
+msgid "Donations"
+msgstr ""
+
+#: admin/documentation.php:20 admin/documentation.php:197
+#: admin/documentation.php:253 admin/documentation.php:266
+#: admin/documentation.php:285 admin/documentation.php:289
+#: admin/documentation.php:317 admin/documentation.php:327
+msgid "Top"
+msgstr ""
+
+#: admin/documentation.php:24
+msgid ""
+"The main shortcode is to display datasets of a project. The following shows "
+"a minimal example. A complete list of arguments is described in the table "
+"below."
+msgstr ""
+
+#: admin/documentation.php:30 admin/documentation.php:117
+#: admin/documentation.php:148 admin/documentation.php:179
+msgid "Parameter"
+msgstr ""
+
+#: admin/documentation.php:31 admin/documentation.php:118
+#: admin/documentation.php:149 admin/documentation.php:180
+#: admin/documentation.php:206
+msgid "Description"
+msgstr ""
+
+#: admin/documentation.php:32 admin/documentation.php:119
+#: admin/documentation.php:150 admin/documentation.php:181
+msgid "Possible Values"
+msgstr ""
+
+#: admin/documentation.php:33 admin/documentation.php:120
+#: admin/documentation.php:151 admin/documentation.php:182
+#: admin/tinymce/window.php:92 admin/tinymce/window.php:104
+msgid "Default"
+msgstr ""
+
+#: admin/documentation.php:34 admin/documentation.php:121
+#: admin/documentation.php:152 admin/documentation.php:183
+msgid "Optional"
+msgstr ""
+
+#: admin/documentation.php:40 admin/documentation.php:127
+#: admin/documentation.php:158 admin/documentation.php:189
+msgid "ID of Project"
+msgstr ""
+
+#: admin/documentation.php:43 admin/documentation.php:130
+#: admin/documentation.php:161 admin/documentation.php:192
+msgid "No"
+msgstr ""
+
+#: admin/documentation.php:47
+msgid "Template file used to display"
+msgstr ""
+
+#: admin/documentation.php:48
+msgid "<em>table</em>, <em>gallery</em> or template file without extension"
+msgstr ""
+
+#: admin/documentation.php:50 admin/documentation.php:57
+#: admin/documentation.php:64 admin/documentation.php:71
+#: admin/documentation.php:78 admin/documentation.php:85
+#: admin/documentation.php:92 admin/documentation.php:99
+#: admin/documentation.php:106 admin/documentation.php:137
+#: admin/documentation.php:168
+msgid "Yes"
+msgstr ""
+
+#: admin/documentation.php:54
+msgid "Set this attribute to only display datasets of given category ID"
+msgstr ""
+
+#: admin/documentation.php:61
+msgid "order datasets by given field"
+msgstr ""
+
+#: admin/documentation.php:62
+msgid ""
+"<em>name</em>, <em>id</em>, <em>formfields-ID</em> (replace ID with "
+"respective ID or <em>rand</em>. <em>rand</em> must be used together with the "
+"results attribute to limit the number of datastes."
+msgstr ""
+
+#: admin/documentation.php:68
+msgid "Ordering of datasets"
+msgstr ""
+
+#: admin/documentation.php:75
+msgid "Toggle link to single dataset"
+msgstr ""
+
+#: admin/documentation.php:76
+msgid "<em>true</em>, <em>false</em>"
+msgstr ""
+
+#: admin/documentation.php:82
+msgid "Toggle display of selection forms for categories and dataset ordering"
+msgstr ""
+
+#: admin/documentation.php:89
+msgid "Limit number of datasets"
+msgstr ""
+
+#: admin/documentation.php:96
+msgid ""
+"Filter datasets for formfield ID. Must be used together with "
+"<em>field_value</em>."
+msgstr ""
+
+#: admin/documentation.php:103
+msgid ""
+"Filter datasets for formfield value. Must be used together with "
+"<em>field_id</em>."
+msgstr ""
+
+#: admin/documentation.php:112
+msgid "A single dataset can be displayed with the following code"
+msgstr ""
+
+#: admin/documentation.php:134 admin/documentation.php:165
+msgid "Template to use"
+msgstr ""
+
+#: admin/documentation.php:143
+msgid "A simple search form can be displayed with the following code"
+msgstr ""
+
+#: admin/documentation.php:174
+msgid ""
+"It is possible to include the dataset input form with the following code"
+msgstr ""
+
+#: admin/documentation.php:199
+msgid ""
+"Templates are special files that are used to display plugin data in the "
+"website frontend. They reside in the following directory"
+msgstr ""
+
+#: admin/documentation.php:201
+msgid "The following table lists all available default templates"
+msgstr ""
+
+#: admin/documentation.php:205 admin/tinymce/window.php:78
+msgid "Template"
+msgstr ""
+
+#: admin/documentation.php:212
+msgid "Tabular display of datasets"
+msgstr ""
+
+#: admin/documentation.php:217
+msgid "Show datasets as photo gallery"
+msgstr ""
+
+#: admin/documentation.php:222
+msgid "Tabular display of datasets with small image"
+msgstr ""
+
+#: admin/documentation.php:227
+msgid "Display dropdown selections for categories and dataset sorting"
+msgstr ""
+
+#: admin/documentation.php:232
+msgid "Dataset input formular"
+msgstr ""
+
+#: admin/documentation.php:236
+msgid "Full Search formular"
+msgstr ""
+
+#: admin/documentation.php:241
+msgid "Compact Search formular"
+msgstr ""
+
+#: admin/documentation.php:245
+msgid "If you want to modify existing templates copy it to"
+msgstr ""
+
+#: admin/documentation.php:247
+msgid ""
+"The plugin will then first look in your theme directory. Further it is "
+"possible to design own templates. Assume you created a file <strong>sample1."
+"php</strong>, to display datasets of a project. To use the template use the "
+"following tag."
+msgstr ""
+
+#: admin/documentation.php:249
+msgid ""
+"For single datasets templates must be named <strong>dataset-X.php</strong> "
+"and searchform <strong>search-X.php</strong>. The files are then loaded with "
+"the following tags."
+msgstr ""
+
+#: admin/documentation.php:255
+msgid ""
+"Template Tags are functions that can be used in your Wordpress Theme to "
+"display the plugin data. Here is a brief listing of available tags. For "
+"details see file functions.php"
+msgstr ""
+
+#: admin/documentation.php:257
+msgid "display all datasets from a single project"
+msgstr ""
+
+#: admin/documentation.php:258
+msgid "display a single dataset"
+msgstr ""
+
+#: admin/documentation.php:259
+msgid ""
+"Display widget. <em>$number</em> is the widget number and <em>$instance</em> "
+"is an assoziative array of widget settings. See lib/widget.php function "
+"widget for details."
+msgstr ""
+
+#: admin/documentation.php:260
+msgid "display the searchform. <em>$project_id</em> is the ID of the project."
+msgstr ""
+
+#: admin/documentation.php:261
+msgid ""
+"display the selection bar. <em>$project_id</em> is the ID of the project."
+msgstr ""
+
+#: admin/documentation.php:262
+msgid ""
+"display the dataset form. <em>$project_id</em> is the ID of the project."
+msgstr ""
+
+#: admin/documentation.php:264
+msgid ""
+"The variable <em>$args</em> is always an assoziative array of additional "
+"arguments with keys being the same as the shortcode attributes."
+msgstr ""
+
+#: admin/documentation.php:268
+#, php-format
+msgid ""
+"ProjectManager has fine grained capabilities to control access to different "
+"areas of the administration panel. You could use <a href=\"%s\" target="
+"\"_blank\">Capability Manager</a> to manage roles and capabilities. "
+"<em>Note</em>: Capabilities are not inherent."
+msgstr ""
+
+#: admin/documentation.php:286
+msgid "Hook dataset into profile page"
+msgstr ""
+
+#: admin/documentation.php:287
+msgid ""
+"Each dataset is assigned an owner who added it. This owner can be also "
+"changed by anybody with the capability <em>edit_other_datasets</em>. This "
+"makes it possible to use ProjectManager as extended WP User Profile by "
+"activating the profile hook option in the projects settings. When this "
+"option is activated the first dataset of the current user is loaded into the "
+"profile page and can be edited through their profile. Administrators can "
+"also add datasets for other WP Users by using the button next to the dataset "
+"name when adding a new dataset. For new users, a dataset is automatically "
+"generated upon registration if the default user group has the capability "
+"<em>projectmanager_user</em>."
+msgstr ""
+
+#: admin/documentation.php:292
+msgid ""
+"If you want to use custom icons for the admin menu put them into the "
+"following folder in your theme directory"
+msgstr ""
+
+#: admin/documentation.php:296
+msgid ""
+"You can also add custom Formfields via the filter projectmanager_formfields. "
+"First let us add the field."
+msgstr ""
+
+#: admin/documentation.php:307
+msgid ""
+"The <em>callback</em> option is a function which gets the data for this "
+"field as it is not stored in the ProjectManager Database. <em>args</em> can "
+"be an optional assoziative array of arguments that are passed to the "
+"callback function. Finally we just need to get the data from somewhere."
+msgstr ""
+
+#: admin/documentation.php:318
+msgid "HowTo"
+msgstr ""
+
+#: admin/documentation.php:319
+msgid ""
+"This section should give a short introduction to setting up and using "
+"ProjectManager. In addition <a href=\"http://randyhoyt.com/\" target=\"_blank"
+"\">Randy Hoyt</a> created a <a href=\"http://randyhoyt.com/wordpress/"
+"snippets/\" target=\"_blank\">Screencast</a> on the usage of ProjectManager. "
+"Thanks a lot."
+msgstr ""
+
+#: admin/documentation.php:320 admin/documentation.php:321
+#, php-format
+msgid ""
+"After activation, there will be a new item in the admin menu. The first step "
+"is to <a href=\"%s\" class=\"thickbox\">add a new project</a>. When you "
+"click on a specific project you will get to an <a href=\"%s\" class="
+"\"thickbox\">overview page displaying all datasets</a>. The screenshot "
+"already shows some example datasets. At first you should go to the <a href="
+"\"%s\" class=\"thickbox\">settings page</a>. The option <em>Navi Link</em> "
+"will create an individual object in the admin menu. Activate the <em>Hook "
+"into profile option</em> to use ProjectManager as extended WP User Profile. "
+"Before adding datasets you need to setup the <a href=\"%s\" class=\"thickbox"
+"\">formfields</a>. This is a very powerful feature of ProjectManager as it "
+"allows the design of custom input formular to have datasets with a variety "
+"of data. You can choose to display the field value on the startpage and also "
+"control display in the user profile. Further it is possible to order "
+"datasets by certain formfield values. After that you are set to <a href=\"%s"
+"\" class=\"thickbox\">insert datasets</a>. It is possible to group datasets "
+"into different <a href=\"%s\" class=\"thickbox\">categories</a> using the WP "
+"category system."
+msgstr ""
+
+#: admin/documentation.php:322
+#, php-format
+msgid ""
+"The datasets of a project can be inserted into a page or post either by "
+"directly using the shortcodes which are described above or by using the <a "
+"href=\"%s\" class=\"thickbox\">TinyMCE Button</a>. The button, however, only "
+"covers a few default parameter. One default template is <a href=\"%s\" class="
+"\"thickbox\">gallery</a> which displays the datasets in a multicolumn "
+"photogallery with a link to <a href=\"%s\" class=\"thickbox\">individual "
+"datasets</a>. This template is especially useful for athlete profiles. "
+msgstr ""
+
+#: admin/documentation.php:323
+#, php-format
+msgid ""
+"ProjectManager also supplies a <a href=\"%s\" class=\"thickbox\">widget</a> "
+"and supports any number of widgets. It can be used to display a list of "
+"datasets in the sidebar, but also show a slideshow of datasets, e.g. athlete "
+"portraits."
+msgstr ""
+
+#: admin/documentation.php:324
+#, php-format
+msgid ""
+"ProjectManager also supports <a href=\"%s\" class=\"thickbox\">AJAX editing</"
+"a> of dataset values by clicking on the pencil symbol next to the field "
+"value on the overview page. <a href=\"%s\" class=\"thickbox\">E-Mail and "
+"URL</a> fields have a special syntax to add the values with a certain text."
+msgstr ""
+
+#: admin/documentation.php:329
+msgid ""
+"If you like my plugin and want to support me, I am grateful for any donation."
+msgstr ""
+
+#: admin/formfields.php:31 admin/formfields.php:43
+msgid "Label"
+msgstr ""
+
+#: admin/formfields.php:32 admin/formfields.php:44
+msgid "Type"
+msgstr ""
+
+#: admin/formfields.php:33 admin/formfields.php:45
+msgid "Startpage"
+msgstr ""
+
+#: admin/formfields.php:34 admin/formfields.php:46
+msgid "Profile"
+msgstr ""
+
+#: admin/formfields.php:35 admin/formfields.php:47 admin/show-project.php:56
+#: admin/tinymce/window.php:101 lib/shortcodes.php:181 lib/widget.php:163
+msgid "Order"
+msgstr ""
+
+#: admin/formfields.php:36 admin/formfields.php:48 admin/show-project.php:51
+#: admin/tinymce/window.php:89 lib/shortcodes.php:177
+msgid "Order By"
+msgstr ""
+
+#: admin/formfields.php:76 lib/ajax.php:317
+msgid "Choose Project"
+msgstr ""
+
+#: admin/formfields.php:85 lib/ajax.php:312
+msgid "Choose Project to Link"
+msgstr ""
+
+#: admin/formfields.php:85 admin/formfields.php:108
+msgid "Set"
+msgstr ""
+
+#: admin/formfields.php:96 lib/ajax.php:332
+msgid "Delete Option"
+msgstr ""
+
+#: admin/formfields.php:102 lib/ajax.php:337
+msgid "Add Option"
+msgstr ""
+
+#: admin/formfields.php:116
+msgid "Delete formfield"
+msgstr ""
+
+#: admin/formfields.php:122
+msgid "Add new formfield"
+msgstr ""
+
+#: admin/formfields.php:123
+msgid "Save Form Fields"
+msgstr ""
+
+#: admin/import.php:19 admin/import.php:57
+msgid "Import Datasets"
+msgstr ""
+
+#: admin/import.php:27 lib/core.php:402
+msgid "File"
+msgstr ""
+
+#: admin/import.php:30
+msgid "Delimiter"
+msgstr ""
+
+#: admin/import.php:30
+msgid "For tab delimited files use TAB as delimiter"
+msgstr ""
+
+#: admin/import.php:33
+msgid "Column Assignment"
+msgstr ""
+
+#: admin/import.php:34
+msgid "All FormFields need to be assigned, also if some contain no data."
+msgstr ""
+
+#: admin/import.php:35
+msgid "Dates must have the format <strong>YYYY-MM-DD</strong>."
+msgstr ""
+
+#: admin/import.php:38 admin/import.php:41 admin/import.php:45
+#, php-format
+msgid "Column %d"
+msgstr ""
+
+#: admin/import.php:62 admin/import.php:65
+msgid "Export Datasets"
+msgstr ""
+
+#: admin/index.php:39 admin/show-project.php:111
+msgid "Bulk Actions"
+msgstr ""
+
+#: admin/index.php:42 admin/show-project.php:115 admin/show-project.php:135
+#: templates/selections.php:40
+msgid "Apply"
+msgstr ""
+
+#: admin/index.php:46
+msgid "List of Projects"
+msgstr ""
+
+#: admin/index.php:51 admin/index.php:60 admin/tinymce/window.php:50
+#: admin/tinymce/window.php:63 admin/tinymce/window.php:136
+#: admin/tinymce/window.php:164 lib/widget.php:29 lib/widget.php:146
+msgid "Project"
+msgstr ""
+
+#: admin/index.php:52 admin/index.php:61
+msgid "Datasets"
+msgstr ""
+
+#: admin/index.php:53 admin/index.php:62
+msgid "Action"
+msgstr ""
+
+#: admin/index.php:95 admin/index.php:101
+msgid "Add Project"
+msgstr ""
+
+#: admin/index.php:97 admin/settings.php:31
+msgid "Title"
+msgstr ""
+
+#: admin/settings-global.php:2
+msgid "Global Settings"
+msgstr ""
+
+#: admin/settings-global.php:3
+msgid "Color Scheme"
+msgstr ""
+
+#: admin/settings-global.php:9
+msgid "Table Headers"
+msgstr ""
+
+#: admin/settings-global.php:12
+msgid "Table Rows"
+msgstr ""
+
+#: admin/settings-global.php:21
+msgid "Save Preferences"
+msgstr ""
+
+#: admin/settings.php:34
+msgid "Datasets per page"
+msgstr ""
+
+#: admin/settings.php:34
+msgid "Use <strong>NaN</strong> for no limit"
+msgstr ""
+
+#: admin/settings.php:37 admin/tinymce/window.php:85
+msgid "Category"
+msgstr ""
+
+#: admin/settings.php:37 admin/show-project.php:180 lib/ajax.php:128
+msgid "None"
+msgstr ""
+
+#: admin/settings.php:37
+msgid "Child categories of this category are used for grouping of datasets"
+msgstr ""
+
+#: admin/settings.php:40
+msgid "Sort Datasets by"
+msgstr ""
+
+#: admin/settings.php:44
+msgid "To order datasets manually there must be no limit on datasets."
+msgstr ""
+
+#: admin/settings.php:49
+msgid "Navi Link"
+msgstr ""
+
+#: admin/settings.php:49
+msgid "Set this option to add a direct link in the navigation panel."
+msgstr ""
+
+#: admin/settings.php:52
+msgid "Hook into Profile"
+msgstr ""
+
+#: admin/settings.php:55
+msgid "Menu Icon"
+msgstr ""
+
+#: admin/settings.php:65
+msgid "Number of Columns"
+msgstr ""
+
+#: admin/settings.php:65
+msgid "Needed for multicolumn output, e.g. gallery"
+msgstr ""
+
+#: admin/settings.php:71
+msgid "Images"
+msgstr ""
+
+#: admin/settings.php:74
+msgid "Show Image"
+msgstr ""
+
+#: admin/settings.php:77
+msgid "Thumbnail size"
+msgstr ""
+
+#: admin/settings.php:77 lib/widget.php:159
+msgid "Width"
+msgstr ""
+
+#: admin/settings.php:77 lib/widget.php:160
+msgid "Height"
+msgstr ""
+
+#: admin/settings.php:80
+msgid "Medium size"
+msgstr ""
+
+#: admin/settings.php:80
+msgid "Max Width"
+msgstr ""
+
+#: admin/settings.php:80
+msgid "Max Height"
+msgstr ""
+
+#: admin/settings.php:83
+msgid "File permissions"
+msgstr ""
+
+#: admin/settings.php:83
+msgid ""
+"See <a href='http://de2.php.net/manual/en/function.chmod.php'>http://de2.php."
+"net/manual/en/function.chmod.php</a> for more information"
+msgstr ""
+
+#: admin/settings.php:88
+msgid "Save Settings"
+msgstr ""
+
+#: admin/show-project.php:86 templates/searchform-compact.php:17
+#: templates/searchform-extend.php:28
+msgid "Search"
+msgstr ""
+
+#: admin/show-project.php:113
+msgid "Duplicate"
+msgstr ""
+
+#: admin/show-project.php:119 templates/selections.php:22
+msgid "View all categories"
+msgstr ""
+
+#: admin/show-project.php:140
+#, php-format
+msgid "Displaying %s&#8211;%s of %s"
+msgstr ""
+
+#: admin/show-project.php:221
+#, php-format
+msgid "Categories of %s"
+msgstr ""
+
+#: admin/show-project.php:241 templates/gallery.php:47
+#: templates/table-image.php:44 templates/table.php:43
+msgid "Nothing found"
+msgstr ""
+
+#: admin/tinymce/window.php:51 admin/tinymce/window.php:81
+msgid "Gallery"
+msgstr ""
+
+#: admin/tinymce/window.php:52 admin/tinymce/window.php:115
+msgid "Dataset"
+msgstr ""
+
+#: admin/tinymce/window.php:53
+msgid "Search Form"
+msgstr ""
+
+#: admin/tinymce/window.php:54
+msgid "Dataset Form"
+msgstr ""
+
+#: admin/tinymce/window.php:66 admin/tinymce/window.php:139
+#: admin/tinymce/window.php:167
+msgid "No Project"
+msgstr ""
+
+#: admin/tinymce/window.php:80
+msgid "Table"
+msgstr ""
+
+#: admin/tinymce/window.php:86
+msgid "Display all Datasets"
+msgstr ""
+
+#: admin/tinymce/window.php:118
+msgid "No Dataset"
+msgstr ""
+
+#: admin/tinymce/window.php:151 lib/widget.php:147
+msgid "Display"
+msgstr ""
+
+#: admin/tinymce/window.php:153
+msgid "Extended Version"
+msgstr ""
+
+#: admin/tinymce/window.php:154
+msgid "Compact Version"
+msgstr ""
+
+#: admin/upgrade.php:13
+msgid "Upgrade database structure..."
+msgstr ""
+
+#: admin/upgrade.php:145
+msgid "finished"
+msgstr ""
+
+#: admin/upgrade.php:165 admin/upgrade.php:184
+msgid "Upgrade ProjectManager"
+msgstr ""
+
+#: admin/upgrade.php:166
+msgid ""
+"Your database for ProjectManager is out-of-date, and must be upgraded before "
+"you can continue."
+msgstr ""
+
+#: admin/upgrade.php:167
+msgid "The upgrade process may take a while, so please be patient."
+msgstr ""
+
+#: admin/upgrade.php:168
+msgid "Start upgrade now"
+msgstr ""
+
+#: admin/upgrade.php:186
+msgid "Upgrade successful"
+msgstr ""
+
+#: admin/upgrade.php:187
+msgid "Continue"
+msgstr ""
+
+#: lib/ajax.php:273
+msgid "Select Categoy (Optional)"
+msgstr ""
+
+#: lib/ajax.php:363
+msgid "An Error Occured. Please Save FormFields and set Options afterwards"
+msgstr ""
+
+#: lib/core.php:402
+msgid "Text"
+msgstr ""
+
+#: lib/core.php:402
+msgid "Textfield"
+msgstr ""
+
+#: lib/core.php:402
+msgid "TinyMCE Editor"
+msgstr ""
+
+#: lib/core.php:402
+msgid "E-Mail"
+msgstr ""
+
+#: lib/core.php:402
+msgid "Date"
+msgstr ""
+
+#: lib/core.php:402
+msgid "URL"
+msgstr ""
+
+#: lib/core.php:402
+msgid "Selection"
+msgstr ""
+
+#: lib/core.php:402
+msgid "Checkbox List"
+msgstr ""
+
+#: lib/core.php:402
+msgid "Radio List"
+msgstr ""
+
+#: lib/core.php:402
+msgid "Video"
+msgstr ""
+
+#: lib/core.php:402
+msgid "Numeric"
+msgstr ""
+
+#: lib/core.php:402
+msgid "Currency"
+msgstr ""
+
+#: lib/core.php:402
+msgid "Internal Link"
+msgstr ""
+
+#: lib/core.php:402 lib/widget.php:161
+msgid "Time"
+msgstr ""
+
+#: lib/core.php:1283
+#, php-format
+msgid "%s of %s"
+msgstr ""
+
+#: lib/core.php:1427
+msgid "This field does not provide AJAX editing functionality."
+msgstr ""
+
+#: lib/shortcodes.php:67
+#, php-format
+msgid "Could not load template %s.php"
+msgstr ""
+
+#: lib/shortcodes.php:248
+#, php-format
+msgid "Search: %d of %d"
+msgstr ""
+
+#: lib/widget.php:28
+msgid "Display datasets from ProjectManager"
+msgstr ""
+
+#: lib/widget.php:149
+msgid "All"
+msgstr ""
+
+#: lib/widget.php:155
+msgid "Page"
+msgstr ""
+
+#: lib/widget.php:156
+msgid "Slideshow"
+msgstr ""
+
+#: lib/widget.php:158
+msgid "Use Slideshow"
+msgstr ""
+
+#: lib/widget.php:161
+msgid "seconds"
+msgstr ""
+
+#: lib/widget.php:162
+msgid "Fade Effect"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Blind X"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Blind Y"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Blind Z"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Cover"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Curtain X"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Curtain Y"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Fade"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Fade Zoom"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Scroll Up"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Scroll Left"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Scroll Right"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Scroll Down"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Scroll Horizontal"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Scroll Vertical"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Shuffle"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Slide X"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Slide Y"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Toss"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Turn Up"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Turn Down"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Turn Left"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Turn Right"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Uncover"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Wipe"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Zoom"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Grow X"
+msgstr ""
+
+#: lib/widget.php:178
+msgid "Grow Y"
+msgstr ""
+
+#: lib/widget.php:178 lib/widget.php:198
+msgid "Random"
+msgstr ""
+
+#: lib/widget.php:198
+msgid "Ordered"
+msgstr ""
+
+#: templates/dataset-form.php:4
+#, php-format
+msgid ""
+"Unable to create directory %s. Is its parten directory writable by the "
+"server?"
+msgstr ""
+
+#: templates/dataset.php:14
+msgid "Back to list"
+msgstr ""
+
+#: templates/dataset.php:18
+#, php-format
+msgid "Details of %s"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "ProjectManager"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (ProjectManager 2.9.8)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  plugin.pot (ProjectManager 2.9.8)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "http://wordpress.org/extend/plugins/projectmanager/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"This Plugin can be used to manage several different types of projects with "
+"redundant data. This could be athlet portraits, DVD database, architect "
+"projects. You can define different form field types and groups to sort your "
+"project entries."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Kolja Schleich"
+msgstr ""

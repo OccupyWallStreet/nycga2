@@ -1,0 +1,93 @@
+/**
+ * @section Administration
+ */
+#datasets tr { cursor: move; }
+
+img.middle { vertical-align: middle; }
+
+a.image_link { margin-left: 0.5em; border-bottom: none !important; }
+	
+p.projectmanager_breadcrumb { float: right; margin: 1.5em 1.5em 0em auto; }
+
+/* Thickbox Content */
+div.thickbox_content { text-align: center; }
+div.thickbox_content input, div.thickbox_content textarea, div.thickbox_content select, div.thickbox_content .buttonbar { margin-top: 1em; }
+div.thickbox_content ul { margin: 1em auto auto 1em; }
+div.thickbox_content p { text-align: left; margin: 0; padding: 0}
+	
+div#projectmanager-category-adder {
+	height: 150px;
+	background-color: #ffffff;
+	padding: 5px;
+	overflow: auto;
+	}
+ul.checkboxlistt {
+	width: 300px;
+	background-color: transparent;
+	overflow: auto;
+	}
+ul.checkboxlist li {
+	float: left;
+	margin-left 0.5em;
+	}
+
+ul.checkboxlist, ul.radiolist, ul.categorychecklist, ul.children {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+	list-style-image: none;
+}
+ul.checkboxlist li, ul.radiolist li, ul.categorychecklist li, ul.children li {
+	margin: 0;
+	padding: 7px 0;
+	text-align: left;
+	list-style-type: none;
+	list-style-image: none;
+}
+ul.checkboxlist li label, ul.checkboxlist li input, ul.radiolist li label, ul.radiolist li input,
+ul.categorychecklist li label, ul.categorychecklist li input, ul.children li label, ul.children li input {
+	margin: 0 3px;
+	padding: 0;
+	}
+
+
+.projectmanager_widget_control p {
+	text-align: left;
+	clear: both;
+}
+.projectmanager_widget_control input {
+	display: inline;
+	clear: none;
+	width: auto;
+	border-width: 1px;
+	border-style: solid;
+	border-collapse: separate;
+	border-spacing: 0;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+.projectmanager_widget_control select {
+	display: inline;
+	clear: none;
+	width: auto;
+}
+.projectmanager_widget_control label {
+	padding: 0.5em 0.5em;
+	width: 6em;
+	float: left;
+}
+.projectmanager_widget_control .slideshow_control {
+	padding: 5px;
+	border: 1px dashed #cfcfcf;
+	margin-bottom: 1em;
+}
+.projectmanager_widget_control .slideshow_control legend {
+	font-weight: bold;
+}
+.projectmanager_widget_control .slideshow_control label.right {
+	padding: 0.5em 0.5em;
+	float: none;
+	width: auto;
+}
