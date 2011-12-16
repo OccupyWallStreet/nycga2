@@ -2,10 +2,21 @@
 
 include("/var/www/nycga.net/web/env.php");
 
+//sanitize get input function
+class MysqlStringEscaper
+{
+    function __get($value)
+    {
+        return mysql_real_escape_string($value);
+    }
+}
+$str = new MysqlStringEscaper;
 
   $var = @$_GET['char'] ;
   $trimmed = trim($var); //trim whitespace from the stored variable
-  $bychar = "WHERE name LIKE '$trimmed%'";
+  $sanitize = escapeshellcmd($trimmed);
+
+  $bychar = "WHERE name LIKE '$sanitize%'";
 
 //connect to your database ** EDIT REQUIRED HERE **
 mysql_connect(constant("DB_HOST"),constant("DB_USER"),constant("DB_PASSWORD")); //(host, username, password)

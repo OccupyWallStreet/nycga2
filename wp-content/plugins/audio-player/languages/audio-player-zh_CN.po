@@ -1,0 +1,410 @@
+# Simplified Chinese translation for audio-player
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the audio-player package.
+# <>, 2008.
+# <>, 2008.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: audio-player\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-08-25 22:14+0000\n"
+"PO-Revision-Date: 2010-01-18 11:12-0000\n"
+"Last-Translator: Martin Laine <martin@1pixelout.net>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-01-06 10:56+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: ../audio-player.php:193
+msgid "Settings"
+msgstr "设置"
+
+#: ../audio-player.php:234
+#: ../audio-player.php:235
+msgid "[Audio clip: view full post to listen]"
+msgstr "[音频片段：您需要阅读全文以聆听此片段]"
+
+#: ../audio-player.php:526
+msgid "Download audio file"
+msgstr "下载音频文件"
+
+#: ../audio-player.php:545
+#, php-format
+msgid "Audio clip: Adobe Flash Player (version 9 or above) is required to play this audio clip. Download the latest version <a href=\"%s\" title=\"Download Adobe Flash Player\">here</a>. You also need to have JavaScript enabled in your browser."
+msgstr "音频片段：需要 Adobe Flash Player（9 或以上版本）播放音频片段。 点击<a href=\"%s\" title=\"下载 Adobe Flash Player\">这里</a>下载最新版本。您需要开启浏览器的 JavaScript 支持。"
+
+#: ../php/options-panel.php:10
+#, php-format
+msgid "Settings for the Audio Player plugin. Visit <a href=\"%s\">WPAudioPlayer.com</a> for usage information and project news."
+msgstr "Audio Player 插件设置。访问 <a href=\"%s\">WPAudioPlayer.com</a> 获取使用方法和项目新闻。"
+
+#: ../php/options-panel.php:12
+msgid "Current version"
+msgstr "当前版本"
+
+#: ../php/options-panel.php:20
+msgid "General"
+msgstr "常规"
+
+#: ../php/options-panel.php:21
+msgid "Display"
+msgstr "显示"
+
+#: ../php/options-panel.php:22
+#: ../php/options-panel.php:201
+msgid "Feed options"
+msgstr "Feed 选项"
+
+#: ../php/options-panel.php:23
+msgid "Podcasting"
+msgstr "播客"
+
+#: ../php/options-panel.php:24
+msgid "Advanced"
+msgstr "进阶设置"
+
+#: ../php/options-panel.php:28
+msgid "How do you want to use the audio player?"
+msgstr "您想如何使用音频播放器？"
+
+#: ../php/options-panel.php:29
+msgid "This set of options allows you to customize when your audio players appear."
+msgstr "这些设置允许您定义您音频播放器。"
+
+#: ../php/options-panel.php:35
+msgid "Replace [audio] syntax"
+msgstr "重置 [audio] 解析"
+
+#: ../php/options-panel.php:36
+msgid "This is the default behaviour and is the only way to apply options to a player instance. Use this option if you want to have more than one audio player per posting."
+msgstr "这是默认选项，也是使选项应用到播放器实例的唯一方法。如果您想在一篇文章中包含一个以上音频播放器，请开启这个选项。"
+
+#: ../php/options-panel.php:41
+msgid "Replace all links to mp3 files"
+msgstr "重置所有到 mp3 文件的链接"
+
+#: ../php/options-panel.php:42
+msgid "When selected, this option will replace all your links to mp3 files with a player instance. Be aware that this could produce odd results when links are in the middle of paragraphs."
+msgstr "选中后，将把所有指向 mp3 文件的链接替换成播放器实例。注意，当链接在段内时将产生奇怪的效果。"
+
+#: ../php/options-panel.php:47
+msgid "Enable in comments"
+msgstr "允许在评论中使用"
+
+#: ../php/options-panel.php:48
+msgid "When selected, Audio Player will be enabled for all comments on your blog."
+msgstr "选中后，博客上的所有评论都将开启 Audio Player。"
+
+#: ../php/options-panel.php:53
+msgid "Enclosure integration"
+msgstr "整合附件"
+
+#: ../php/options-panel.php:54
+msgid "Ideal for podcasting. If you set your enclosures manually, this option will automatically insert a player at the end of posts with an mp3 enclosure. The player will appear at the bottom of your posting."
+msgstr "对播客来说非常理想。如果您手动设置了附件，选项将自动在文章末尾插入播放器。"
+
+#: ../php/options-panel.php:59
+msgid "Move enclosures to the beginning of posts"
+msgstr "将附件移至文章开头"
+
+#: ../php/options-panel.php:60
+msgid "When selected, players will be inserted at the beginning of the post when the enclosure integration option is selected."
+msgstr "选中后，当整合附件选项开启时，播放器将被插入文章的开头。"
+
+#: ../php/options-panel.php:64
+msgid "Default audio folder location"
+msgstr "默认音频目录"
+
+#: ../php/options-panel.php:68
+#: ../php/options-panel.php:208
+#: ../php/options-panel.php:215
+msgid "Custom"
+msgstr "自定义"
+
+#: ../php/options-panel.php:74
+msgid "Verify"
+msgstr "校验"
+
+#: ../php/options-panel.php:75
+msgid "Click this button to verify that the audio folder is correctly configured"
+msgstr "点击按钮验证音频目录已经正确设置"
+
+#: ../php/options-panel.php:76
+msgid "Custom audio folder locations cannot be verified"
+msgstr "未能验证自定义音频目录"
+
+#: ../php/options-panel.php:77
+msgid "Checking..."
+msgstr "检查中…"
+
+#: ../php/options-panel.php:78
+msgid "Audio folder location verified"
+msgstr "音频目录已校验"
+
+#: ../php/options-panel.php:79
+msgid "Audio folder location not found. Please check that the following folder exists on your server:"
+msgstr "未找到音频目录。请检查您的服务器上是否存在下列目录："
+
+#: ../php/options-panel.php:83
+msgid "This is the default location for your audio files. When you use the [audio] syntax and don't provide an absolute URL for the mp3 file (the full URL including \"http://\") Audio Player will automatically look for the file in this location. You can set this to a folder located inside your blog folder structure or, alternatively, if you wish to store your audio files outside your blog (maybe even on a different server), choose \"Custom\" from the drop down and enter the absolute URL to that location."
+msgstr "这是音频文件的默认位置。当使用 [audio] 语法并且没有提供 mp3 文件的绝对 URL 时（包含 \"http://\" 的完整 URL），Audio Player 会在这个目录中查找指定文件。您可以把它设置为博客目录结构中的目录，或者如果您想在您的博客之外存储音频文件（或许是另一台服务器），请在下拉菜单中选择\"Custom\"，然后输入您想要的位置的绝对 URL 。"
+
+#: ../php/options-panel.php:88
+#: ../php/options-panel.php:90
+msgid "Player width"
+msgstr "播放器宽度"
+
+#: ../php/options-panel.php:92
+msgid "You can enter a value in pixels (e.g. 200) or as a percentage (e.g. 100%)"
+msgstr "输入像素值（例如 200）或者百分数（例如 100%）"
+
+#: ../php/options-panel.php:94
+msgid "Colour scheme"
+msgstr "配色方案"
+
+#: ../php/options-panel.php:113
+msgid "Background"
+msgstr "背景"
+
+#: ../php/options-panel.php:114
+msgid "Left background"
+msgstr "左侧背景"
+
+#: ../php/options-panel.php:115
+msgid "Left icon"
+msgstr "左侧图标"
+
+#: ../php/options-panel.php:116
+msgid "Volume control track"
+msgstr "音量控制背景"
+
+#: ../php/options-panel.php:117
+msgid "Volume control slider"
+msgstr "音量控制滑块"
+
+#: ../php/options-panel.php:118
+msgid "Right background"
+msgstr "右侧背景"
+
+#: ../php/options-panel.php:119
+msgid "Right background (hover)"
+msgstr "右背景（悬停）"
+
+#: ../php/options-panel.php:120
+msgid "Right icon"
+msgstr "右侧图标"
+
+#: ../php/options-panel.php:121
+msgid "Right icon (hover)"
+msgstr "右图标（悬停）"
+
+#: ../php/options-panel.php:122
+msgid "Text"
+msgstr "文本"
+
+#: ../php/options-panel.php:123
+msgid "Progress bar"
+msgstr "进度条"
+
+#: ../php/options-panel.php:124
+msgid "Progress bar track"
+msgstr "进度条（剩余）"
+
+#: ../php/options-panel.php:125
+msgid "Progress bar border"
+msgstr "进度条（边框）"
+
+#: ../php/options-panel.php:126
+msgid "Loading bar"
+msgstr "加载条"
+
+#: ../php/options-panel.php:127
+msgid "Next/Previous buttons"
+msgstr "前进/后退按钮"
+
+#: ../php/options-panel.php:131
+msgid "Pick"
+msgstr "拾色器"
+
+#: ../php/options-panel.php:133
+msgid "From your theme"
+msgstr "从您的主题"
+
+#: ../php/options-panel.php:135
+msgid "Theme colors"
+msgstr "主题颜色"
+
+#: ../php/options-panel.php:155
+msgid "Here, you can set the page background of the player. In most cases, simply select \"transparent\" and it will match the background of your page. In some rare cases, the player will stop working in Firefox if you use the transparent option. If this happens, untick the transparent box and enter the color of your page background in the box below (in the vast majority of cases, it will be white: #FFFFFF)."
+msgstr "您能够在此设置播放器的背景色。在大多数情况下，您只需选择\"透明\"即可，它会自动适应您的网页背景色。而在少数情况下（如 Firefox 中），如果您选择了\"透明\"，播放器可能会停止工作；如果此情况发生，请取消勾选\"透明\"并在下面的文本框中输入您的网页背景色（在绝大多数情况下，它会是白色：#FFFFFF)."
+
+#: ../php/options-panel.php:158
+msgid "Page background color"
+msgstr "页面背景颜色"
+
+#: ../php/options-panel.php:162
+msgid "Transparent"
+msgstr "透明"
+
+#: ../php/options-panel.php:168
+msgid "Reset colour scheme"
+msgstr "重置配色方案"
+
+#: ../php/options-panel.php:171
+msgid "Options"
+msgstr "选项"
+
+#: ../php/options-panel.php:176
+msgid "Disable animation"
+msgstr "禁用动画"
+
+#: ../php/options-panel.php:177
+msgid "If you don't like the open/close animation, you can disable it here."
+msgstr "如果您不喜欢 开/关 动画，您可以在此禁用它。"
+
+#: ../php/options-panel.php:182
+msgid "Show remaining time"
+msgstr "显示剩余时间"
+
+#: ../php/options-panel.php:183
+msgid "This will make the time display count down rather than up."
+msgstr "将显示音频剩余时间"
+
+#: ../php/options-panel.php:188
+msgid "Disable track information"
+msgstr "禁用音轨信息"
+
+#: ../php/options-panel.php:189
+msgid "Select this if you wish to disable track information display (the player won't show titles or artist names even if they are available.)"
+msgstr "如果您希望隐藏音轨信息（即使可以获取标题或艺术家名，播放器也将不会显示），请选择此项。"
+
+#: ../php/options-panel.php:194
+msgid "Switch to RTL layout"
+msgstr "切换至 RTL 布局"
+
+#: ../php/options-panel.php:195
+msgid "Select this to switch the player layout to RTL mode (right to left) for Arabic and Hebrew language blogs."
+msgstr "如果您的博客使用的是阿拉伯语或以色列语，请选择此项将播放器切换至 RTL （从右到左）模式"
+
+#: ../php/options-panel.php:203
+msgid "The following options determine what is included in your feeds. The plugin doesn't place a player instance in the feed. Instead, you can choose what the plugin inserts. You have three choices:"
+msgstr "下面的选项将决定播放器以怎样的形式出现在您的 feed 中。此插件不会在 feed 中插入一个播放器实例，您可以选择让此插件自动插入一段内容来替换它。您有 3 种选择："
+
+#: ../php/options-panel.php:206
+#: ../php/options-panel.php:213
+msgid "Download link"
+msgstr "下载链接"
+
+#: ../php/options-panel.php:206
+msgid "Choose this if you are OK with subscribers downloading the file."
+msgstr "如果您同意订阅者下载此文件，请选择此项。"
+
+#: ../php/options-panel.php:207
+#: ../php/options-panel.php:214
+msgid "Nothing"
+msgstr "空"
+
+#: ../php/options-panel.php:207
+msgid "Choose this if you feel that your feed shouldn't contain any reference to the audio file."
+msgstr "如果您认为您的 feed 中不必提到音频文件，请选择此项。"
+
+#: ../php/options-panel.php:208
+msgid "Choose this to use your own alternative content for all player instances. You can use this option to tell subscribers that they can listen to the audio file if they read the post on your blog."
+msgstr "如果您想用自定义内容来替换播放器，请选择此项。通过此项，您可以告诉订阅者他们可以到您博客的文章中聆听您的音频文件。"
+
+#: ../php/options-panel.php:211
+msgid "Alternate content for feeds"
+msgstr "feed 替换选项"
+
+#: ../php/options-panel.php:219
+msgid "Custom alternate content"
+msgstr "自定义替换内容"
+
+#: ../php/options-panel.php:225
+msgid "Pre and Post appended audio clips"
+msgstr "前奏/后缀音频片段"
+
+#: ../php/options-panel.php:227
+msgid "You may wish to pre-append or post-append audio clips into your players. The pre-appended audio will be played before the main audio, and the post-appended will come after. A typical podcasting use-case for this feature is adding a sponsorship message or simple instructions that help casual listeners become subscribers. <strong>This will apply to all audio players on your site</strong>. Your chosen audio clips should be substantially shorter than your main feature."
+msgstr "可能您会希望在播放器中加入前奏或后缀音频片段。前奏音频将会在主音频播放前播放，而后缀音频会在其后。典型性的播客可以通过此功能添加一段赞助信息或简介促使听众订阅您的播客。<strong>这会应用于您网站的所有播放器。</strong>您选择的音频片段应该比主题内容简短。"
+
+#: ../php/options-panel.php:230
+msgid "Pre-appended audio clip URL"
+msgstr "前奏音频片段链接"
+
+#: ../php/options-panel.php:232
+msgid "Leave this value blank for no pre-appended audio"
+msgstr "如果没有前奏音频，请留空"
+
+#: ../php/options-panel.php:235
+msgid "Post-appended audio clip URL"
+msgstr "后缀音频片段链接"
+
+#: ../php/options-panel.php:237
+msgid "Leave this value blank for no post-appended audio"
+msgstr "如果没有后缀音频，请留空"
+
+#: ../php/options-panel.php:242
+#: ../php/options-panel.php:247
+msgid "Alternate content for excerpts"
+msgstr "文章摘要中替换的内容"
+
+#: ../php/options-panel.php:244
+msgid "WordPress automatically creates excerpts (summaries) for your posts. These are used by some themes to show on archive pages instead of the full post. By default, WordPress strips all HTML from these excerpts. Here you can choose what Audio Player inserts in excerpts in place of the player."
+msgstr "WordPress 会自动为您的文章生成摘要，某些主题会在归档页面使用显示文章摘要来代替显示全文。在默认的情况下， WordPress 会在摘要中去除所有的 HTML 标签。您可以在此设置在替换摘要中的音频位置的内容。"
+
+#: ../php/options-panel.php:251
+#: ../php/options-panel.php:256
+msgid "Initial volume"
+msgstr "初始音量"
+
+#: ../php/options-panel.php:253
+msgid "This is the volume at which the player defaults to (0 is off, 100 is full volume)"
+msgstr "在这里设置播放器的默认音量（0 表示静音，100 表示最大音量）"
+
+#: ../php/options-panel.php:260
+msgid "Buffer time"
+msgstr "缓冲时间"
+
+#: ../php/options-panel.php:262
+msgid "If you think your target audience is likely to have a slow internet connection, you can increase the player's buffering time (for standard broadband connections, 5 seconds is enough)"
+msgstr "如果您觉得您的访问者的网速欠佳，您可以增加播放器的缓冲时间（对于标准的宽带连接， 5 秒的缓冲足够了）"
+
+#: ../php/options-panel.php:265
+msgid "Buffer time (in seconds)"
+msgstr "缓冲时间（以秒计）"
+
+#: ../php/options-panel.php:269
+#: ../php/options-panel.php:277
+msgid "Check for policy file"
+msgstr "检查政策文件"
+
+#: ../php/options-panel.php:271
+msgid "Enable this to tell Audio Player to check for a policy file on the server. This allows Flash to read ID3 tags on remote servers. Only enable this if all your mp3 files are located on a server with a policy file."
+msgstr "如果您选择此项，Audio Player 将会检查服务器上的政策文件，这允许 Flash 从远程服务器上读取 ID3 标签。仅当所有的 mp3 文件都在有政策文件的服务器上时启用。"
+
+#: ../php/options-panel.php:281
+msgid "Encoding"
+msgstr "编码"
+
+#: ../php/options-panel.php:283
+msgid "Enable this to encode the URLs to your mp3 files. This is the only protection possible against people downloading the mp3 file to their computers."
+msgstr "如果您选择此项，您的 mp3 文件的 URLs 将会被加密。这是防止 mp3 文件被下载（到人们的计算机上）的唯一可能的保护方法。"
+
+#: ../php/options-panel.php:289
+msgid "Encode mp3 URLs"
+msgstr "加密 mp3 URLs"
+
+#: ../php/options-panel.php:302
+#: ../php/options-panel.php:310
+msgid "Remove all enclosures from feeds"
+msgstr ""
+
+#: ../php/options-panel.php:304
+msgid "This will remove all enclosures from your blog feeds. Only do this if you do not want your visitors to download the mp3 files. Do not do this if you do any kind of podcasting via your blog."
+msgstr ""
+

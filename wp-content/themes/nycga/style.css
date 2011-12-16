@@ -338,16 +338,25 @@ text-shadow: 1px 1px 0 #EEE;
 		background: -o-linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* Opera 11.10+ */
 		background: -ms-linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* IE10+ */
 		background: linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* W3C */
+		margin: 90px 0 0 0; /* IE6-9 */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#ffcc33',GradientType=0 ); /* IE6-9 */
 }
 
 #nav {
-	margin: 90px 20px 0 0;
+	margin: 0 20px 0 0;
 	list-style: none;
 	padding: 0;
 	position: relative;
 	right: auto;
 	bottom: 0;
+}
+
+#nav li {
+	margin-left: 5px;
+	display: inline-block;
+	zoom: 1; /* IE6-7 */
+	*display:inline; /* IE6-7 */
+	_height: 40px; /* IE6 */
 }
 
 #nav li a {
