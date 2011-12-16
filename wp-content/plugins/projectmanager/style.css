@@ -1,0 +1,220 @@
+div.projectmanager { margin-bottom: 1em; }
+
+/* Header above simple Output */
+div.projectmanager_selections {
+	float: left;
+	margin-top: 1em;
+	clear: both;
+}
+div.projectmanager_selections select.postform {
+	padding: 0;
+	margin: 0;
+	background: white;
+	}
+div.projectmanager_selections select, div.projectmanager_selections select.postform {
+	margin-right: 0.5em;
+	}
+
+/* Simple Table Output */
+table.projectmanager {
+	clear: both;
+	border: none;
+	width: 100%;
+	margin: 1em 0 0 0;
+	padding: 0;
+	}
+table.projectmanager th, table.projectmanager td {
+	padding: 3px 5px;
+	}
+table.projectmanager th.image, table.projectmanager td.image {
+	text-align: center;
+	}
+table.projectmanager img { width: 40px; }
+table.projectmanager ul {
+	list-style-type: none;
+	}
+table.projectmanager ul li {
+	padding: 1px;
+	}
+table.projectmanager td img {
+	display: block;
+	vertical-align: middle;
+	margin: auto;
+	}
+
+/* Gallery Output */
+.dataset_gallery {
+	clear: both;
+	padding-top: 1em;
+}
+.dataset_gallery .gallery-item {
+	float: left;
+	}
+.dataset_gallery .gallery-image {
+	text-align: center;
+}
+.dataset_galley .gallery a {
+	display: block;
+	margin: 0 auto;
+	}
+.dataset_gallery .gallery-image img {
+	border: 1px solid #cfcfcf;
+	margin: 0.5em auto;
+	padding: 4px;
+}
+.dataset_gallery .gallery-image img:hover {
+	padding: 0;
+	border: 5px solid #cfcfcf;
+	}
+.dataset_gallery .caption {
+	/*text-align: center;*/
+	margin: 0.2em auto 1.5em auto;
+	font-size: 0.8em;
+	}
+
+/* Single View */
+fieldset.dataset {
+	font-size: 1em;
+	border: 1px solid;
+	padding: 1em;
+	margin: 1em 0
+	}
+fieldset.dataset legend {
+	font-size: 1.1em;
+	padding: 0px 3px;
+	}
+fieldset.dataset .image {
+	float: right;
+	padding: 2px;
+	border: 1px solid #cfcfcf;
+	margin-left: 1em;
+	}
+fieldset.dataset img {
+	margin: 0;
+	border: 1px solid #cfcfcf;
+	}
+fieldset.dataset dt {
+	font-weight: bold;
+	}
+fieldset.dataset dl {
+	}
+fieldset.dataset dt {
+	}
+fieldset.dataset dd {
+
+	}
+	
+ul.projectmanager, ol.projectmanager {
+	clear: both;
+	}
+
+/* dataset form in frontend */
+#datasetform {
+	margin: 1.5em auto;
+}
+#datasetform br {
+	clear: both;
+	}
+#datasetform label {
+	text-align: left;
+	width: 8em;
+	float: left;
+	margin-bottom: 1.75em;
+	}
+#datasetform input, #datasetform select {
+/*	border: 1px solid;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radis: 5px;*/
+	margin-left: 0;
+	margin-bottom: 1em;
+	}
+#datasetform p {
+	margin: 0;
+	padding: 0;
+	}
+#datasetform p.submit {
+	margin-top: 1em;
+	float: right;
+	}
+
+
+/* search form */
+form.search-form {
+	}
+
+/* Pages */
+p.page-numbers {
+	clear: both;
+	text-align: center;
+	font-size: 1em;
+	margin: 1em 0;
+	}
+p.page-numbers a {
+	padding: 2px 5px 0 5px;
+	border: 1px solid #cfcfcf;
+	border-bottom: none;
+	}
+p.page-numbers span { font-weight: bold; }
+p.page-numbers span.current {
+	font-weight: bold;
+	border: none;
+	}
+
+/* Error Message */
+p.error {
+	clear: both;
+	text-align: center;
+	margin-top: 3em;
+	color: #c00;
+	}
+
+/**
+ * @section Widget
+ */
+.projectmanager_slideshow {
+	background-image: none;
+	background-color: transparent;
+	position: relative;
+	display: block;
+	text-align: center;
+	margin: 1em auto;
+	padding: 0;
+}
+
+.projectmanager_slideshow a {
+	display: block;
+	}
+.projectmanager_slideshow img {
+	border: none;
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+}
+
+/*--- Documentation ---*/
+dl.projectmanager {
+}
+dl.projectmanager dt {
+	clear: both;
+	font-weight: bold;
+}
+dl.projectmanager dd {
+	text-indent: 1.5em;
+}
+
+/*--- JQuery Slideshow Styles. Cleaned ---*/
+
+.jQuery_slideshow {
+position:relative;
+display:none; /* Set to "none" for not preview slideshow content */
+}
+
+.jQuery_slideshow-content {
+background-color:#fff;
+color:#333;
+overflow:hidden;
+position:relative;
+width:100%;
+height:100%;
+}
