@@ -1,5 +1,7 @@
 <?php
 
+$timenow = date("h:i A");
+
 include("/var/www/nycga.net/web/env.php");
 
 //sanitize get input function
@@ -11,7 +13,6 @@ class MysqlStringEscaper
     }
 }
 $str = new MysqlStringEscaper;
-
 
   // Get the search variable from URL
 
@@ -28,7 +29,8 @@ mysql_select_db(constant("DB_NAME")) or die("Unable to select database"); //sele
 
 mysql_query("set time_zone = '-5:00'");
 
-  if ($trimmed == "9999") {
+
+ if ($trimmed == "9999") {
   
    $gaquery2 = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start_time,'%l:%i%p') as StartTime, DATE_FORMAT(wp_em_events.event_end_time,'%l:%i%p') as EndTime, DATE_FORMAT(wp_em_events.event_start_date,'%W %M %D') as StartDate, wp_em_events.location_id, wp_em_locations.location_name as LocationName, wp_em_locations.location_address as LocationAddress, wp_em_events.group_id, wp_bp_groups.name as GroupName, wp_em_categories.category_name as CategoryName " .
 "FROM wp_em_events LEFT JOIN wp_em_locations ON wp_em_events.location_id = wp_em_locations.location_id " .
@@ -42,7 +44,7 @@ mysql_query("set time_zone = '-5:00'");
  
   $garesult2 = mysql_query($gaquery2) or die("cccCouldn't execute query");
 
-$gacount2 = 1 + $s ;
+
 
 // now you can display the results returned
   while ($row= mysql_fetch_array($garesult2)) {
@@ -53,9 +55,10 @@ $gacount2 = 1 + $s ;
   $locationname = $row["LocationName"];
   $locationaddress = $row["LocationAddress"];
   $groupname = $row["GroupName"];
+  
 
   echo " . $startdate . $eventname . starts at  . Time.. $startime . to . $endtime . at $locationaddress . " ;
-  $gacount2++ ;
+
   }
 
 }
@@ -105,7 +108,7 @@ echo " . $numrows . events scheduled. ";
 // get results
  
   $result = mysql_query($query) or die("Couldn't execute query");
-//  $timenow = date("h:i A");
+
 // display what the person searched for
 
 // begin to show results set
@@ -139,6 +142,5 @@ $count = 1 + $s ;
   
   echo "These are events scheduled for the next 30 days.  You can say . date . to search for events on a specific date or say . group . to search for a different group";
 
- 
   
 ?>
