@@ -1,0 +1,307 @@
+/*
+Theme Name: NYCGA 2012
+Description: Three column bp-default based child theme.
+Version: 1.0
+Author: Internet Working Group of the NY General Assembly
+Template: bp-default
+Author URI: http://www.nycga.net
+Tags: buddypress, three-column, multi-site
+*/
+
+@import url('css/reset.css');
+@import url('css/grid_1000_24.css');
+@import url('css/nycga_core.css');
+@import url('css/font-oswald.css');
+@import url('css/type.css');
+@import url('css/events.css');
+
+/* ----------------------------------------------------------------------------
+ Header
+------------------------------------------------------------------------------*/
+
+#masthead{ margin-bottom:.5em; }
+
+#header{ padding: 2em 0 0 0; }
+
+#header h1,
+#header h1 a{
+	line-height: 1;
+	text-transform: uppercase;
+	color:#000 !important;
+}
+
+#header h1 .ows{
+	font-size: .75em;
+	margin-bottom:.25em;
+}
+
+#donate a.button{
+	display: block;
+	float:right;
+	width: 204px;
+	background: #0af;
+	padding: .125em .25em;
+	font-family:"OSWALD", helvetica, sans-serif;
+	font-size: 2em;
+	line-height: 1;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	border-radius: 4px;	
+}
+
+
+/* ----------------------------------------------------------------------------
+ Content
+------------------------------------------------------------------------------*/
+
+#content p{
+	margin-top: 1em;
+}
+
+/* ----------------------------------------------------------------------------
+ Activity
+------------------------------------------------------------------------------*/
+
+.bpfb_form_container{
+	padding:0 !important;
+	border-bottom: 1px #dedede solid;
+	background: #fff !important;
+	margin: 0 0 1em 0;
+}
+
+.bpfb_form_container #whats-new-avatar{
+	border: 3px #fff solid;
+	float: left;
+	margin-right: 2em;
+}
+
+#whats-new-content{
+	clear: both;
+}
+
+#whats-new{
+	width: 100%;
+	border: 1px #aaa solid;
+}
+
+#whats-new-submit{
+	float: left;
+	margin-right: 2em;
+}
+
+#whats-new-post-in-box{
+	font-size: .875em;
+}
+
+/* ----------------------------------------------------------------------------
+ Sidebar
+------------------------------------------------------------------------------*/
+
+.sidebar{
+	margin-top: 2.5em;
+}
+
+.widget{
+	margin-bottom: 1em;
+}
+
+.widgettitle{
+	margin-bottom: .5em !important;
+}
+
+#sidebar-me{ /* user chip */
+	padding:0.5em !important;
+}
+
+#sidebar-me a.avatar{
+	display: block;
+	float: left;
+	border: 3px #fff solid;
+	margin: 0 1em 0 0;
+}
+
+.widget_em_widget h5,
+.widget_em_widget{
+	line-height: 1.25;
+}
+
+.widget_em_widget ul li{
+	margin: 1em 0;
+}
+
+.widget_em_widget ul.details{
+	line-height: 1.25em;
+	margin-top: .5em;
+}
+
+.widget_em_widget ul.details li{
+	margin: .25em 0 0 0;
+}
+
+.widget_em_widget h5{
+	font-size: 1.25em;
+	font-weight: normal;
+}
+
+.widget_em_widget ul li .gaspokes{
+	padding-bottom: 1em;
+	border-bottom: 1px #dedede solid;
+}
+
+.widget_em_widget ul li .gaspokes h5{
+	font-size: 1.25em;
+}
+
+.widget_em_widget ul li .location a{
+	text-decoration: none;
+}
+
+/* ----------------------------------------------------------------------------
+ Primary Navigation
+------------------------------------------------------------------------------*/
+
+#navigation {}
+
+#nav {
+	background: #fc0; /* Old browsers */
+	margin: 0 2em 0 0;
+	position: relative;
+}
+
+#nav li{
+	display: inline-block;
+}
+
+#nav li a{
+	display: block;
+	padding: 1em 1.5em;
+	text-decoration: none;
+	color: #000;
+}
+
+#nav li a.active,
+#nav li:hover>a,
+#nav li a:hover{
+	background: #000;
+	color: #fc0;
+}
+
+#nav .sub-menu,
+#nav .children{
+	display: none;
+	position: absolute;
+	z-index: 150000;
+	background: #fc0;
+}
+
+#nav li:hover .sub-menu,
+#nav li:hover .sub-menu li,
+#nav li:hover .children li,
+#nav li:hover .children{
+	display: block;
+}
+
+#nav li:hover .sub-menu li a,
+#nav li:hover .children li a{
+	padding: .5em 1.5em;
+	border-bottom: 1px #da0 solid;
+}
+
+/* ----------------------------------------------------------------------------
+ Events
+------------------------------------------------------------------------------*/
+
+#em-wrapper .map{
+	display: block;
+	clear: both;
+	width: 590px;
+	margin: 1em 0;
+}
+
+#em-wrapper .datetime{
+	margin-left: 0;
+}
+
+#em-wrapper ul.event-categories li{ 
+	display: inline-block;
+	margin: 0.125em;
+}
+
+#em-wrapper ul.event-categories li a{ 
+	display: block;
+	font-size: .875em;
+	text-decoration: none;
+	background-color: #aaa;	
+	border-radius: 4px;
+	color:#fff;
+	padding: .125em .25em;
+}
+
+
+
+#em-wrapper .em-location-map{
+	width: 550px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+#em-wrapper .location,
+#em-wrapper .datetime{
+	font-size: 18px/21px;
+}
+
+/* ----------------------------------------------------------------------------
+ Buttons
+------------------------------------------------------------------------------*/
+
+a.button{
+}
+
+.like,
+.button {
+background: white;
+background: -moz-linear-gradient(top, white 0%, #EDEDED 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white), color-stop(100%,#EDEDED));
+background: -webkit-linear-gradient(top, white 0%,#EDEDED 100%);
+background: -o-linear-gradient(top, white 0%,#EDEDED 100%);
+background: -ms-linear-gradient(top, white 0%,#EDEDED 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
+border: 1px solid #f0f0f0;
+font-size: .875em;
+line-height: 1.2;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+color: #666;
+cursor: pointer;
+outline: none;
+padding: .25em 1em;
+text-align: center;
+text-decoration: none;
+}
+
+.like:hover,
+.button:hover {
+background: #eee; /* Old browsers */
+background: -moz-linear-gradient(top, #eeeeee 0%, #cacaca 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cacaca)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #eeeeee 0%,#cacaca 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #eeeeee 0%,#cacaca 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #cacaca 0%,#cacaca 100%); /* IE10+ */
+background: linear-gradient(top, #eeeeee 0%,#cacaca 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#aaaaaa',GradientType=0 ); /* IE6-9 */
+border: 1px solid #dedede;
+color: #555;
+outline: none;
+text-decoration: none;
+}
+
+/* ----------------------------------------------------------------------------
+ Social
+------------------------------------------------------------------------------*/
+.really_simple_share{
+	margin-top: 2em;
+	border-top: 1px #dedede solid;
+	padding-top: 1em !important;
+}
