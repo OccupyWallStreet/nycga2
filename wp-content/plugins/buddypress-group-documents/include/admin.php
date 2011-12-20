@@ -91,7 +91,7 @@ function bp_group_documents_admin() {
 		<?php if( isset($moved_count)) echo "<div id='message' class='updated fade'><p>" . sprintf(__( '%s Documents Moved.', 'bp-group-documents' ),$moved_count) . "</p></div>"; ?>
 		<?php if ( isset($updated) ) echo "<div id='message' class='updated fade'><p>" . __( 'Settings Updated.', 'bp-group-documents' ) . "</p></div>"; ?>
 			
-		<form action="<?php echo site_url() . '/wp-admin/admin.php?page=bp-group-documents-settings' ?>" name="group-documents-settings-form" id="group-documents-settings-form" method="post">				
+		<form action="<?php echo site_url() . '/wp-admin/network/admin.php?page=bp-group-documents-settings' ?>" name="group-documents-settings-form" id="group-documents-settings-form" method="post">				
 
 			<table class="form-table">
 				<tr valign="top">
