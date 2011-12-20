@@ -9,9 +9,10 @@ function bp_group_documents_admin() {
 	global $bp, $bbpress_live;
 		
 	do_action('bp_group_documents_admin');
-
+	if( is_super_admin() == false )
+		wp_die( __( 'You do not have permission to access this page.', 'bp_group_documents_admin' ) );
 	/* If the form has been submitted and the admin referrer checks out, save the settings */
-	if ( isset( $_POST['submit'] ) && check_admin_referer('group-documents-settings') ) {
+	if ( isset( $_POST['submit'] ) ) {
 
 		//strip whitespace from comma separated list
 		$formats = preg_replace('/\s+/','',$_POST['valid_file_formats']);
@@ -90,7 +91,7 @@ function bp_group_documents_admin() {
 		<?php if( isset($moved_count)) echo "<div id='message' class='updated fade'><p>" . sprintf(__( '%s Documents Moved.', 'bp-group-documents' ),$moved_count) . "</p></div>"; ?>
 		<?php if ( isset($updated) ) echo "<div id='message' class='updated fade'><p>" . __( 'Settings Updated.', 'bp-group-documents' ) . "</p></div>"; ?>
 			
-		<form action="<?php echo site_url() . ( is_multisite() ? '/wp-admin/network/admin.php?page=bp-group-documents-settings' : '/wp-admin/admin.php?page=bp-group-documents-settings' ) ?>" name="group-documents-settings-form" id="group-documents-settings-form" method="post">				
+		<form action="<?php echo site_url() . '/wp-admin/admin.php?page=bp-group-documents-settings' ?>" name="group-documents-settings-form" id="group-documents-settings-form" method="post">				
 
 			<table class="form-table">
 				<tr valign="top">

@@ -141,11 +141,7 @@ function bp_group_documents_setup_globals() {
 	do_action('bp_group_documents_globals_loaded');
 }
 add_action( 'plugins_loaded', 'bp_group_documents_setup_globals', 5 );
-if (is_multisite()){
 	add_action( 'network_admin_menu', 'bp_group_documents_setup_globals', 2 );
-}else{
-	add_action( 'admin_menu', 'bp_group_documents_setup_globals', 2 );
-}
 
 
 
@@ -183,11 +179,8 @@ function bp_group_documents_check_installed() {
 	add_option('bp_group_documents_progress_bar',true);
 	add_option('bp_group_documents_forum_attachments',false);
 }
-if (is_multisite()){
+
 	add_action( 'network_admin_menu', 'bp_group_documents_check_installed',50);
-}else{
-	add_action( 'admin_menu', 'bp_group_documents_check_installed',50);
-}
 
 
 /**************************************************************************
@@ -234,11 +227,8 @@ function bp_group_documents_setup_nav() {
 	do_action('bp_group_documents_nav_setup');
 }
 add_action( 'bp_setup_nav', 'bp_group_documents_setup_nav', 2 );
-if (is_multisite()){
+
 	add_action( 'network_admin_menu', 'bp_group_documents_setup_nav', 2 );
-}else{
-	add_action( 'admin_menu', 'bp_group_documents_setup_nav', 2 );
-}
 
 
 
