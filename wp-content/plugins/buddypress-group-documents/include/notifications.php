@@ -104,5 +104,5 @@ To download the new document directly: %s
 		unset( $to, $message);
 	} //end foreach
 }
-//add_action('bp_group_documents_add_success','bp_group_documents_email_notification',10);
+add_action('bp_group_documents_add_success','bp_group_documents_email_notification',10);
 

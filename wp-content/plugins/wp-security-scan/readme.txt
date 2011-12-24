@@ -4,7 +4,7 @@ Author: WebsiteDefender
 Tags: security, securityscan, chmod, permissions, admin, administration, authentication, database, dashboard, post, notification, password, plugin, posts, wsd, websitedefender,
 plugins, private, protection, tracking, wordpress
 Requires at least: 3.0
-Tested up to: 3.2.1
+Tested up to: 3.3
 Stable tag: trunk
 
 Scans your WordPress installation for security vulnerabilities.
@@ -22,7 +22,7 @@ WP Security Scan checks your WordPress website/blog for security vulnerabilities
 
 = Requirements =
 
-* WordPress version 3.0 and higher (tested at <= 3.2.1)
+* WordPress version 3.0 and higher (tested with 3.2.1, 3.3)
 * PHP5 (tested with PHP Interpreter >= 5.2.9)
 
 For more information on the WP Security Scan and other WordPress security news, visit the <a href="http://www.websitedefender.com/blog" target="_blank">WebsiteDefender Blog</a> and join our <a href="http://www.facebook.com/websitedefender" target="_blank">Facebook</a> page. Post any questions or feedback on the <a href="http://www.websitedefender.com/forums/wp-security-scan-plugin/" target="_blank">WP Security Scan plugin forum</a>.
@@ -40,6 +40,17 @@ If you do encounter any bugs, or have comments or suggestions, please contact th
 For more information on the WP Security Scan and other WordPress security news, visit the <a href="http://www.websitedefender.com/blog" target="_blank">WebsiteDefender Blog</a> and join our <a href="http://www.facebook.com/websitedefender" target="_blank">Facebook</a> page. Post any questions or feedback on the <a href="http://www.websitedefender.com/forums/wp-security-scan-plugin/" target="_blank">WP Security Scan plugin forum</a>.
 
 == Changelog ==
+
+= v3.0.9 =
+* New feature: Added tooltips to the most important sections of the System Information box
+* Update: Added 'nonce' fields to forms where needed (thanks to julio from boiteaweb.fr)
+* Update: Updated the deprecated function call get_bloginfo('siteurl') to get_bloginfo('url')
+* Update: Updated paths to external resources such as javascript and css files for ssl compatibility
+* Update: Updated validation for plug-in form fields (email address, user name, target id, etc.)
+* Update: Enhanced the input validation for the Change Database Prefix tool
+* Update: Plugin settings are now accessible only by WordPress administrators
+* Update: Improved user-rights retrieval in the WordPress database
+
 
 = v3.0.8 =
 * New feature: Option to open / close WebsiteDefender dashboard widget

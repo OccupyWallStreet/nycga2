@@ -412,6 +412,8 @@ add_filter( 'groups_create_group_steps', 'invite_anyone_remove_group_creation_in
 add_action( 'bp_setup_nav', 'invite_anyone_remove_invite_subnav', 15 );
 
 
+
+
 /* Utility function to test which members the current user can invite to a group */
 function invite_anyone_group_invite_access_test() {
 	global $current_user, $bp;

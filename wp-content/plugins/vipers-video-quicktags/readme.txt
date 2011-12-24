@@ -99,6 +99,10 @@ Sure! I do this in my free time and I appreciate all donations that I get. It ma
 
 == Changelog ==
 
+= v6.3.3 =
+
+* **General:** A couple CSS tweaks and Javascript improvements thanks to Andrew Ozz (azaozz).
+
 = v6.3.2 =
 
 * **YouTube:** Fix for YouTube playlists. See [forum thread](http://wordpress.org/support/topic/plugin-vipers-video-quicktags-youtube-playlists-do-not-work) for details.
@@ -490,6 +494,9 @@ This is a hotfix version to address WordPress 2.5 plus some bugfixes and such. A
 * Inital release.
 
 == Upgrade Notice ==
+
+= 6.3.3 =
+Various minor editor improvements thanks to Andrew Ozz (azaozz).
 
 = 6.3.2 =
 YouTube playlists fixed and better WordPress 3.3 support.

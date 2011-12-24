@@ -161,27 +161,7 @@ this.init = function() {
 			}
 			return true;
 		});
-
-		var $wsd_login_form = $('#wsd_login_form');
-		$wsd_login_form.delegate('#wsd-login', 'click',
-			function() {
-				var $wsd_login_form_password = $('#wsd_login_form_password');
-				var password = $wsd_login_form_password.val();
-				if (password != '') {
-					var passwordHash = wsdMD5(password);
-					$wsd_login_form_password.val(passwordHash);
-				}
-				else {
-					alert('Password is required!');
-					$wsd_login_form_password.focus();
-					return false;
-				}
-				return true;
-			});
-
-
-
-};
+    };
 
 }// end of wsdPassStrengthProvider
 

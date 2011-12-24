@@ -1,16 +1,5 @@
 <?php
 
-/*
-Plugin Name: Boone's Sortable Tables
-Plugin URI: http://github.com/boonebgorges/boones-sortable-tables
-Description: A handy, extensible sortable tables class for WordPress custom post type lists
-Version: 1.0
-Author: Boone B Gorges
-Author URI: http://boonebgorges.com
-Donate link: http://teleogistic.net/donate
-Licence: GPLv3
-*/
-
 if ( !class_exists( 'BBG_CPT_Sort' ) ) :
 
 class BBG_CPT_Sort {

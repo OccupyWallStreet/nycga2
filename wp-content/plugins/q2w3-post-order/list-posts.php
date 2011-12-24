@@ -13,11 +13,9 @@ if ($post_type) {
 	echo $pt->labels->name;
 	
 } elseif ($tax_name) {
-				
-	$term = get_term($term_id, $tax_name);
 
-	echo $term->name .' <a href="?page='. $_GET['page'] .'&amp;tax_name='. $tax_name .'" style="text-decoration: none">[...]</a>';
-			
+	echo q2w3_post_order_term_name($term_id, $tax_name) .' <a href="?page='. $_GET['page'] .'&amp;tax_name='. $tax_name .'" style="text-decoration: none" title="'. __('Return to terms list', self::ID) .'">[...]</a>';
+	
 }
 
 echo '</h3>'.PHP_EOL;
@@ -80,3 +78,37 @@ echo q2w3_post_order_table_paging::controls($total_posts, $rpp)
 </div>
 <input type="submit" value="<?php _e('Update Unsorted', self::ID) ?>" class="button-primary" />
 </form>
+
+<?php 
+
+function q2w3_post_order_term_name($term_id, $tax_name) {
+	
+	$terms_array = q2w3_post_order_term_array($term_id, $tax_name);
+	
+	return implode(' &bull; ', $terms_array);
+
+}
+
+function q2w3_post_order_term_array($term_id, $tax_name) {
+
+	$term = get_term($term_id, $tax_name);
+		
+	if ($term_id == $_GET['term_id']) {
+			
+		$link = $term->name;
+			
+	} else {
+			
+		$link = '<a href="?page='. $_GET['page'] .'&amp;tax_name='. $tax_name .'&amp;term_id='. $term_id .'" style="text-decoration: none">'. $term->name .'</a>';
+			
+	}
+		
+	$array[] = $link;
+	
+	if ($term->parent) $array = array_merge(q2w3_post_order_term_array($term->parent, $tax_name), $array);
+	
+	return $array;
+
+}
+
+?>

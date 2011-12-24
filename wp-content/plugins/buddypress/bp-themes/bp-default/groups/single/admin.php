@@ -65,9 +65,9 @@
 				<li><?php _e( 'Group content and activity will be visible to any site member.', 'buddypress' ) ?></li>
 			</ul>
 		</label>
-
+<!--
 		<label>
-			<input type="radio" name="group-status" value="private"<?php bp_group_show_status_setting( 'private' ) ?> />
+			<input type="radio" name="group-status" value="public"<?php bp_group_show_status_setting( 'public' ) ?> />
 			<strong><?php _e( 'This is a private group', 'buddypress' ) ?></strong>
 			<ul>
 				<li><?php _e( 'Only users who request membership and are accepted can join the group.', 'buddypress' ) ?></li>
@@ -77,7 +77,7 @@
 		</label>
 
 		<label>
-			<input type="radio" name="group-status" value="hidden"<?php bp_group_show_status_setting( 'hidden' ) ?> />
+			<input type="radio" name="group-status" value="public"<?php bp_group_show_status_setting( 'public' ) ?> />
 			<strong><?php _e( 'This is a hidden group', 'buddypress' ) ?></strong>
 			<ul>
 				<li><?php _e( 'Only users who are invited can join the group.', 'buddypress' ) ?></li>
@@ -85,6 +85,7 @@
 				<li><?php _e( 'Group content and activity will only be visible to members of the group.', 'buddypress' ) ?></li>
 			</ul>
 		</label>
+-->
 	</div>
 
 	<hr /> 

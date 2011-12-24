@@ -4,7 +4,7 @@ Plugin Name: Q2W3 Post Order
 Plugin URI: http://www.q2w3.ru/q2w3-post-order-wordpress-plugin/
 Description: With Q2W3 Post Order you can can change natural order of posts. Supported custom taxonomies and custom post type archive pages. Requires WP 3.1 or higher. 
 Author: Max Bond, AndreSC
-Version: 1.1.0
+Version: 1.2.1
 Author URI: http://www.q2w3.ru/
 */
 
@@ -287,11 +287,19 @@ class q2w3_post_order {
 	 */
 	public static function admin_menu_entry() {
        
-		self::$page_id = add_options_page(self::NAME, self::NAME, 'administrator', self::ID, array( __CLASS__,'settings_page' )); // Add a new menu under Manage 
+		$access_level = 'activate_plugins'; // Super Admin and Admin
+				
+		$options = get_option(self::ID);
 		
-		add_action( 'manage_'. self::$page_id .'_columns', array(__CLASS__, 'screen_options'));
+		if ($options['editors_access']) $access_level = 'moderate_comments'; // Super Admin, Admin and Editor
+
+		self::$page_id = add_options_page(self::NAME, self::NAME, $access_level, self::ID, array( __CLASS__, 'settings_page' ) ); // Add a new menu under Manage 
+		
+		add_action( 'manage_'. self::$page_id .'_columns', array(__CLASS__, 'screen_options') );
 		
 		add_action( 'contextual_help_list', array( __CLASS__, 'help_section' ) );
+		
+		add_action( 'admin_init', array( __CLASS__, 'reg_settings' ) ); // registers settings
 		
 	}
 	
@@ -387,12 +395,14 @@ class q2w3_post_order {
 	
 		$res .= '<h5>'. __('Posts Table Settings', self::ID) .'</h5><div class="screen-options">';
 		
-		$res .= __('Rows per page', self::ID).': <input type="text" class="screen-per-page" name="wp_screen_options[value][rows_per_page]" maxlength="3" value="'. $rpp .'" />'.PHP_EOL;
+		$res .= '<div style="margin-left: 9px;">'. __('Rows per page', self::ID).': <input type="text" class="screen-per-page" name="wp_screen_options[value][rows_per_page]" maxlength="3" value="'. $rpp .'" /></div>'.PHP_EOL;
 		
-		$res .= '<input type="hidden" name="wp_screen_options[option]" value="'. self::safe_plugin_id(self::ID) .'" /><input type="submit" class="button" value="'. __('Apply', self::ID) .'" />';
+		$res .= '<input type="hidden" name="wp_screen_options[option]" value="'. self::safe_plugin_id(self::ID) .'" />';
 		
+		$res .= '<br/><input type="submit" class="button" value="'. __('Apply', self::ID) .'" />';
+				
 		$res .= '</div>';
-	
+		
 		return array('screen_options_hack' => $res);
 		
 	}
@@ -415,7 +425,13 @@ class q2w3_post_order {
 	 */
 	public static function help_section($help_content) {
 		
-		$help = __('Problems, questions or ideas?', self::ID).' <a href="http://www.q2w3.ru/q2w3-post-order-wordpress-plugin/" target="_blank">'.__('Visit Plugin Home Page', self::ID).'</a>';
+		$help = '<h5>'. __('How to remove posts from Sorted group?', self::ID) .'</h5>';
+		
+		$help .= '<p>'. __('Set position number 0 for selected posts and then they\'ll return to Unsorted group.', self::ID) .'</p>';
+		
+		$help .= '<h5>---</h5>';
+		
+		$help .= '<p>'. __('Problems, questions, ideas?', self::ID).' <a href="http://www.q2w3.ru/q2w3-post-order-wordpress-plugin/" target="_blank">'.__('Visit Plugin Home Page', self::ID).'</a>'.'</p>';
 		
 		$help_content[self::$page_id] = $help;
 		
@@ -437,9 +453,19 @@ class q2w3_post_order {
 			
 			return;
 			
-		} 	
+		}
 
-		// load normal page
+		// load options page
+		
+		if (key_exists('options', $_GET) && $_GET['options'] == 'true') {
+			
+			self::options_page(); 
+			
+			return;
+			
+		}
+
+		// load main page
 		
 		global $wp_post_types, $wp_taxonomies;
 		
@@ -452,6 +478,16 @@ class q2w3_post_order {
 		if (isset($_GET['term_id'])) $term_id = (int)$_GET['term_id'];
 		
 		echo '<div class="wrap"><h2>'. self::NAME .'</h2>';
+		
+		// Options page link
+		
+		echo '<ul class="subsubsub">'.PHP_EOL;
+		
+		echo '<li><a href="?page='. self::ID .'&amp;options=true" style="padding-left: 0">'. __('General Options', self::ID) .'</a></li>'.PHP_EOL;
+		
+		echo '</ul>'.PHP_EOL;
+		
+		echo '<div class="clear"></div>'.PHP_EOL;
 		
 		// Links for post_tpes
 		
@@ -526,6 +562,68 @@ class q2w3_post_order {
 	}
 	
 	/**
+	 * Outputs plugin options page
+	 * 
+	 */
+	protected static function options_page() {
+		
+		$options = get_option(self::ID);
+		
+		echo '<div class="wrap">'.PHP_EOL;
+		
+		echo '<h2>'. self::NAME .' &raquo; '. __('Options', self::ID) .'</h2>'.PHP_EOL;
+		
+		echo '<ul class="subsubsub">'.PHP_EOL;
+		
+		echo '<li><a href="?page='. self::ID .'">&laquo; '. __('Back', self::ID) .'</a></li>'.PHP_EOL;
+		
+		echo '</ul>'.PHP_EOL;
+			
+		echo '<form method="post" action="options.php">'.PHP_EOL;
+		
+		echo settings_fields(self::ID);
+		
+		echo '<table class="form-table">'.PHP_EOL;
+        
+		echo '<tr valign="top">'.PHP_EOL;
+		
+		echo '<td style="width: 20px;"><input type="checkbox" name="'. self::ID .'[editors_access]" '. checked($options['editors_access'], 'on', false) .' /></td>'.PHP_EOL;
+        
+		echo '<td>'. __('Allow Editors to access plugin settings', self::ID) .'</td>'.PHP_EOL;
+		
+		echo '</tr>'.PHP_EOL;
+         
+        echo '<tr valign="top">'.PHP_EOL;
+        
+        echo '<td><input type="checkbox" name="'. self::ID .'[debug_mode]" '. checked($options['debug_mode'], 'on', false) .' /></td>'.PHP_EOL;
+        
+        echo '<td>'. __('Enable debug mode. Debug data will be shown on public pages only for logged in administrator!', self::ID) .'</td>'.PHP_EOL;
+                
+        echo '</tr>'.PHP_EOL;
+        
+    	echo '</table>'.PHP_EOL;
+    	
+   		echo '<p class="submit"><input type="submit" class="button-primary" value="'. __('Save Changes') .'" /></p>'.PHP_EOL;
+    
+   		echo ''.PHP_EOL;
+		
+		echo '</form>'.PHP_EOL;
+		
+		echo '</div><!--wrap-->'.PHP_EOL;
+		
+	}
+	
+	/**
+	 * Registers settings (needed for options update)
+	 * 
+	 */
+	public static function reg_settings() {
+	
+		register_setting(self::ID, self::ID);
+  	
+	}
+	
+	/**
 	 * Outputs plugin deactivation page
 	 * 
 	 */
@@ -590,10 +688,12 @@ class q2w3_post_order {
 			
 			// delete tables and options from db 
 			
-			$wpdb->query('DELETE FROM '. $wpdb->options ." WHERE option_name = '". self::POST_TABLE_OPTION ."'"); // delete from wp_options
-
-			$wpdb->query('DELETE FROM '. $wpdb->options ." WHERE option_name = '". self::META_TABLE_OPTION ."'"); // delete from wp_options
+			delete_option(self::ID);
 			
+			delete_option(self::POST_TABLE_OPTION);
+			
+			delete_option(self::META_TABLE_OPTION);
+									
 			$wpdb->query('DELETE FROM '. $wpdb->usermeta ." WHERE meta_key = '". self::safe_plugin_id(self::ID) ."'"); // delete all plugin entries in usermeta table
 			
 			$wpdb->query('DROP TABLE IF EXISTS '.self::posts_table()); // delete posts table
@@ -617,6 +717,10 @@ class q2w3_post_order {
 	public static function sort($the_wp_query) {
 		
 		global $wpdb, $wp_query;
+		
+		static $query_number = 0;
+		
+		$query_number++;
 		
 		$aspo = $_REQUEST['aspo']; // aspo=vanilla : don't use astickypostorderer for this listing 
 		
@@ -654,15 +758,15 @@ class q2w3_post_order {
 			
 			if (!empty($sorted_ids) && count($sorted_ids) > 1) {
 			
-				$inject_sql = ', '.$wpdb->prefix.'posts.ID IN ('.implode(',', $sorted_ids).') AS ordered';	
+				$inject_sql = ', '.$wpdb->posts.'.ID IN ('.implode(',', $sorted_ids).') AS ordered, (SELECT post_rank FROM '.self::posts_table()." WHERE post_id = {$wpdb->posts}.ID AND taxonomy = '$taxonomy' AND term_id = $term_id) as order_num ";	
 			
-				$inject_sql_order = 'ordered DESC, ';
+				$inject_sql_order = 'ordered DESC, order_num ASC, ';
 
 			} elseif (!empty($sorted_ids) && count($sorted_ids) == 1) {
 				
-				$inject_sql = ', '.$wpdb->prefix.'posts.ID = '.$sorted_ids[0].' AS ordered';	
+				$inject_sql = ', '.$wpdb->posts.'.ID = '.$sorted_ids[0].' AS ordered, (SELECT post_rank FROM '.self::posts_table()." WHERE post_id = {$wpdb->posts}.ID AND taxonomy = '$taxonomy' AND term_id = $term_id) as order_num ";	
 			
-				$inject_sql_order = 'ordered DESC, ';
+				$inject_sql_order = 'ordered DESC, order_num ASC, ';
 				
 			} else {
 				
@@ -672,7 +776,7 @@ class q2w3_post_order {
 				
 			}
 			
-			$left_join = 'LEFT JOIN '.self::posts_table().' ON ('.$wpdb->posts.'.ID = '.self::posts_table().'.post_id AND '.self::posts_table().".taxonomy = '".$taxonomy ."' ) ";
+			$left_join = 'LEFT JOIN '.self::posts_table().' ON ('.$wpdb->posts.'.ID = '.self::posts_table().'.post_id AND '.self::posts_table().".taxonomy = '$taxonomy' ) ";
 			
 		} elseif (is_home() || $wp_query->is_posts_page) { // Posts Archive page
 			
@@ -698,15 +802,15 @@ class q2w3_post_order {
 			
 			if (!empty($sorted_ids) && count($sorted_ids) > 1) {
 			
-				$inject_sql = ', '.$wpdb->prefix.'posts.ID IN ('.implode(',', $sorted_ids).') AS ordered';
+				$inject_sql = ', '.$wpdb->posts.'.ID IN ('.implode(',', $sorted_ids).') AS ordered, (SELECT post_rank FROM '.self::posts_table()." WHERE post_id = {$wpdb->posts}.ID AND post_type = '$post_type') as order_num ";
 
-				$inject_sql_order = 'ordered DESC, ';
+				$inject_sql_order = 'ordered DESC, order_num ASC, ';
 
 			} elseif (!empty($sorted_ids) && count($sorted_ids) == 1) {
 				
-				$inject_sql = ', '.$wpdb->prefix.'posts.ID = '.$sorted_ids[0].' AS ordered';	
+				$inject_sql = ', '.$wpdb->posts.'.ID = '.$sorted_ids[0].' AS ordered, (SELECT post_rank FROM '.self::posts_table()." WHERE post_id = {$wpdb->posts}.ID AND post_type = '$post_type') as order_num ";	
 			
-				$inject_sql_order = 'ordered DESC, ';
+				$inject_sql_order = 'ordered DESC, order_num ASC, ';
 				
 			} else {
 				
@@ -724,27 +828,63 @@ class q2w3_post_order {
 		
 			$c_query = $the_wp_query;
 		
-			$c_into = strpos($c_query, "FROM ");
+			$c_into = strpos($c_query, 'FROM '.$wpdb->posts);
 		
-			$c_query = substr_replace($c_query, $inject_sql.', '.self::posts_table().'.post_rank as porder ', $c_into, 0);
+			$c_query = substr_replace($c_query, $inject_sql, $c_into, 0);
 		
-			$c_into = strpos($c_query, "WHERE ");
+			$c_into = strpos($c_query, 'WHERE 1=1');
 			
 			$c_query = substr_replace($c_query, $left_join,  $c_into, 0);
 		
-			$c_into = strpos($c_query, "ORDER BY ")+9;
+			$c_into = strpos($c_query, $wpdb->posts.'.post_date DESC');
 		
-			$c_query = substr_replace($c_query, $inject_sql_order.self::posts_table().'.post_rank ASC, ', $c_into, 0);
+			$c_query = substr_replace($c_query, $inject_sql_order, $c_into, 0);
 		
-			//var_dump($c_query);
-		
-			return $c_query;
+			$result_query = $c_query;
 		
 		} else {
 			
-			return $the_wp_query;
+			$result_query = $the_wp_query;
 			
 		}
+		
+		// Debug info
+		
+		$options = get_option(self::ID);
+		
+		if ( $options['debug_mode'] && current_user_can('activate_plugins') ) {
+			
+			echo "<p>Query Number: $query_number</p>";
+			
+			echo '<p>WP Query Object:</p>';
+			
+			echo '<pre>';
+			
+			var_dump($wp_query);
+			
+			echo '</pre>';
+			
+			
+			echo '<p>Original SQL Query:</p>';
+			
+			echo '<pre>';
+			
+			var_dump($the_wp_query);
+			
+			echo '</pre>';
+			
+			
+			echo '<p>Result SQL Query:</p>';
+			
+			echo '<pre>';
+			
+			var_dump($result_query);
+			
+			echo '</pre>';
+					
+		}
+		
+		return $result_query;
 		
 	}
 	
@@ -760,11 +900,11 @@ class q2w3_post_order {
 		
 		global $post;
 		
-		if ($post->porder) {
+		if ($post->order_num) {
 			
 			$classes[] = 'q2w3-post-order';
 			
-			$classes[] = 'q2w3-post-order-'.$post->porder;
+			$classes[] = 'q2w3-post-order-'.$post->order_num;
 			
 		}
 		
@@ -1178,7 +1318,6 @@ class q2w3_post_order {
 		return preg_replace('/\d/', '', str_replace('-', '_', $plugin_id));
 		
 	}
-	
 		
 } // end of q2w3_post_order class
 
