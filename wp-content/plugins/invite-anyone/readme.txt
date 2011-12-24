@@ -3,8 +3,8 @@ Contributors: boonebgorges, cuny-academic-commons
 Donate link: http://teleogistic.net/donate
 Tags: buddypress, invitations, group, invite, friends, members
 Requires at least: WP 3.2, BuddyPress 1.2.9
-Tested up to: WP 3.2.1, BuddyPress 1.5
-Stable tag: 1.0.7
+Tested up to: WP 3.3, BuddyPress 1.5.2
+Stable tag: 1.0.8
 
 Makes BuddyPress's invitation features more powerful.
 
@@ -38,8 +38,13 @@ Invite Anyone features optional integration with CloudSponge http://cloudsponge.
 * Norwegian: Stig Ulfsby
 * Russian: Jettochkin
 * Spanish: Mauricio Camayo, Gregor Gimmy
+* Belarussian: Alexander Ovsov (<a href="http://webhostinggeeks.com/science">Web Geek Science</a>)
 
 == Changelog ==
+
+= 1.0.8 =
+* Yet another attempt at fixing activation problem
+* Adds Belarussian translation. Props Alexander Ovsov
 
 = 1.0.7 =
 * Another attempt at fixing problem that some users are having when activating plugin
