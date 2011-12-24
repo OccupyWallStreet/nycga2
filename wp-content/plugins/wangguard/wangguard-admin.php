@@ -3,7 +3,7 @@
 Plugin Name: WangGuard
 Plugin URI: http://www.wangguard.com
 Description: <strong>Stop Sploggers</strong>. It is very important to use <a href="http://www.wangguard.com" target="_new">WangGuard</a> at least for a week, reporting your site's unwanted users as sploggers from the Users panel. WangGuard will learn at that time to protect your site from sploggers in a much more effective way. WangGuard protects each web site in a personalized way using information provided by Administrators who report sploggers world-wide, that's why it's very important that you report your sploggers to WangGuard. The longer you use WangGuard, the more effective it will become.
-Version: 1.2.1
+Version: 1.2.3.1
 Author: WangGuard
 Author URI: http://www.wangguard.com
 License: GPL2
@@ -25,7 +25,9 @@ License: GPL2
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define('WANGGUARD_VERSION', '1.2.1');
+define('WANGGUARD_VERSION', '1.2.3.1');
+define('WANGGUARD_PLUGIN_FILE', 'wangguard/wangguard-admin.php');
+define('WANGGUARD_README_URL', 'http://plugins.trac.wordpress.org/browser/wangguard/trunk/readme.txt?format=txt');
 
 //error_reporting(E_ALL);
 //ini_set("display_errors", 1);
@@ -80,14 +82,29 @@ include_once 'wangguard-stats.php';
 /********************************************************************/
 
 // for wp regular
+add_action('register_form','wangguard_add_hfield_1' , rand(1,10));
+add_action('register_form','wangguard_add_hfield_2' , rand(1,10));
+add_action('register_form','wangguard_add_hfield_3' , rand(1,10));
+add_action('register_form','wangguard_add_hfield_4' , rand(1,10));
 add_action('register_form','wangguard_register_add_question');
 add_action('register_post','wangguard_signup_validate',10,3);
 
+
+$wangguard_bp_hook = "bp_after_account_details_fields";
+	
 // for buddypress 1.1 only
-add_action('bp_before_registration_submit_buttons', 'wangguard_register_add_question_bp11');
+add_action('','wangguard_add_hfield_1' , rand(1,10));
+add_action($wangguard_bp_hook,'wangguard_add_hfield_2' , rand(1,10));
+add_action($wangguard_bp_hook,'wangguard_add_hfield_3' , rand(1,10));
+add_action($wangguard_bp_hook,'wangguard_add_hfield_4' , rand(1,10));
+add_action($wangguard_bp_hook, 'wangguard_register_add_question_bp11');
 add_action('bp_signup_validate', 'wangguard_signup_validate_bp11' );
 
 // for wpmu and (buddypress versions before 1.1)
+add_action('signup_extra_fields','wangguard_add_hfield_1' , rand(1,10));
+add_action('signup_extra_fields','wangguard_add_hfield_2' , rand(1,10));
+add_action('signup_extra_fields','wangguard_add_hfield_3' , rand(1,10));
+add_action('signup_extra_fields','wangguard_add_hfield_4' , rand(1,10));
 add_action('signup_extra_fields', 'wangguard_register_add_question_mu' );
 add_filter('wpmu_validate_user_signup', 'wangguard_wpmu_signup_validate_mu');
 
@@ -174,6 +191,104 @@ function wangguard_email_aliases_exists($email) {
 	return false;
 }
 
+
+$wangguard_NonceHName = 'wangguard-hidden-field-check';
+$wangguard_NonceFName = 'wangguard-hidden-display-check';
+$wangguard_NoncePName = 'wangguard-hidden-position-check';
+$wangguard_NonceCName = 'wangguard-hidden-check-check';
+$wangguard_HPrefix = 'user_';
+$wangguard_FPrefix = 'newuser_';
+
+function wangguard_randomstring($rndLen) {
+	$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$str = '';
+	$strlen = strlen($chars);
+	for ($i=0; $i < $rndLen; $i++)
+	{
+		$str .= substr($chars, mt_rand(0, $strlen - 1), 1);
+	}
+	return $str;
+}
+function wangguard_add_hfield_1() {
+	global $wangguard_NonceHName , $wangguard_HPrefix;
+	
+	$nonceAct = $wangguard_NonceHName;
+	$nonceValue = wp_create_nonce( $nonceAct );
+	$fieldID = wangguard_randomstring(mt_rand(6,10));
+	$nonce_field = '<input type="hidden" id="' . $fieldID . '" name="' . $wangguard_HPrefix . $nonceValue . '" value="" />';
+	echo $nonce_field;
+}
+function wangguard_add_hfield_2() {
+	global $wangguard_NonceFName , $wangguard_FPrefix;
+	
+	$style = wangguard_randomstring(mt_rand(6,10));
+	$fieldID = wangguard_randomstring(mt_rand(6,10));
+	echo '<style type="text/css"><!-- .'.$style.' {display:none; visibility:hidden}  --></style>';
+	
+	$nonceAct = $wangguard_NonceFName;
+	$nonceValue = wp_create_nonce( $nonceAct );
+	$nonce_field = '<div class="'.$style.'"><input type="text" id="' . $fieldID . '" name="' . $wangguard_FPrefix . $nonceValue . '" value="" /></div>';
+	echo $nonce_field;
+}
+function wangguard_add_hfield_3() {
+	global $wangguard_NoncePName;
+	
+	$style = wangguard_randomstring(mt_rand(6,10));
+	$fieldID = wangguard_randomstring(mt_rand(6,10));
+	echo '<style type="text/css"><!-- .'.$style.' {position:absolute; top:-'.mt_rand(1000 , 2000).'px}  --></style>';
+	
+	$nonceAct = $wangguard_NoncePName;
+	$nonceValue = wp_create_nonce( $nonceAct );
+	$nonce_field = '<div class="'.$style.'"><label for="'.$nonceValue.'">Your name:</label><br/><input tabindex="'.mt_rand(9999,99999).'" type="text" id="' . $fieldID . '" name="' . $nonceValue . '" value="" /></div>';
+	echo $nonce_field;
+}
+function wangguard_add_hfield_4() {
+	global $wangguard_NonceCName;
+	
+	$style = wangguard_randomstring(mt_rand(6,10));
+	$fieldID = wangguard_randomstring(mt_rand(6,10));
+	echo '<style type="text/css"><!-- .'.$style.' {display:none; visibility:hidden}  --></style>';
+	
+	$nonceAct = $wangguard_NonceCName;
+	$nonceValue = wp_create_nonce( $nonceAct );
+	$nonce_field = '<div class="'.$style.'">Agree? <input type="checkbox" value="1" id="' . $fieldID . '" name="' . $nonceValue . '" /></div>';
+	echo $nonce_field;
+}
+
+function wangguard_get_nonce_value($action) {
+	$user = wp_get_current_user();
+	$uid = (int) $user->id;
+
+	$i = wp_nonce_tick();
+
+	return substr(wp_hash($i . $action . $uid, 'nonce'), -12, 10);
+}
+
+
+function wangguard_validate_hfields($userEmail) {
+	global $wangguard_NonceHName , $wangguard_HPrefix;
+	global $wangguard_NonceFName , $wangguard_FPrefix;
+	global $wangguard_NoncePName;
+	global $wangguard_NonceCName;
+
+	$hNonce = wangguard_get_nonce_value($wangguard_NonceHName);
+	$fNonce = wangguard_get_nonce_value($wangguard_NonceFName);
+	$pNonce = wangguard_get_nonce_value($wangguard_NoncePName);
+	$cNonce = wangguard_get_nonce_value($wangguard_NonceCName);
+	
+	$validated =  
+		empty ($_POST[$wangguard_HPrefix.$hNonce]) &&
+		empty ($_POST[$wangguard_FPrefix.$fNonce]) &&
+		empty ($_POST[$pNonce]) &&
+		empty ($_POST[$cNonce]);
+	
+	if (!$validated) {
+		wangguard_report_email($userEmail , $_SERVER['REMOTE_ADDR'] , true);
+	}
+	
+	return $validated;
+}
+
 //*********** WPMU ***********
 //Adds a security question if any exists
 function wangguard_register_add_question_mu($errors) {
@@ -211,14 +326,21 @@ function wangguard_wpmu_signup_validate_mu($param) {
 	if ( strpos($_SERVER['PHP_SELF'], 'wp-admin') !== false ) {
 		return $param;
 	}
+
 	
 	//BP1.1+ calls the new BP filter first (wangguard_signup_validate_bp11) and then the legacy MU filters (this one), if the BP new 1.1+ filter has been already called, silently return
 	if ($wangguard_bp_validated)
 		return $param;
 
-	$answerOK = wangguard_question_repliedOK();
 
 	$errors = $param['errors'];
+	
+	if (!wangguard_validate_hfields($_POST['user_email'])) {
+	    $errors->add('user_name',  __('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard'));
+		return $param;
+	}
+	
+	$answerOK = wangguard_question_repliedOK();
 
 	//If at least a question exists on the questions table, then check the provided answer
 	if (!$answerOK)
@@ -228,7 +350,7 @@ function wangguard_wpmu_signup_validate_mu($param) {
 		$reported = wangguard_is_email_reported_as_sp($param['user_email'] , $_SERVER['REMOTE_ADDR']);
 
 		if ($reported) 
-			$errors->add('user_email',  addslashes( __('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard')));
+			$errors->add('user_email',   __('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard'));
 		else if (wangguard_email_aliases_exists($param['user_email']))
 			$errors->add('user_email',  addslashes( __('<strong>ERROR</strong>: Duplicate alias email found by WangGuard.', 'wangguard')));
 		else if (!wangguard_mx_record_is_ok($param['user_email']))
@@ -282,6 +404,13 @@ function wangguard_signup_validate_bp11() {
 
 	$wangguard_bp_validated = true;
 
+	
+	if (!wangguard_validate_hfields($_POST['signup_email'])) {
+		$bp->signup->errors['signup_email'] = __('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard');
+		return;
+	}
+	
+	
 	$answerOK = wangguard_question_repliedOK();
 
 	//If at least a question exists on the questions table, then check the provided answer
@@ -292,7 +421,7 @@ function wangguard_signup_validate_bp11() {
 		$reported = wangguard_is_email_reported_as_sp($_REQUEST['signup_email'] , $_SERVER['REMOTE_ADDR']);
 
 		if ($reported)
-			$bp->signup->errors['signup_email'] = addslashes (__('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard'));
+			$bp->signup->errors['signup_email'] = __('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard');
 		else if (wangguard_email_aliases_exists($_REQUEST['signup_email']))
 			$bp->signup->errors['signup_email'] = addslashes (__('<strong>ERROR</strong>: Duplicate alias email found by WangGuard.', 'wangguard'));
 		else if (!wangguard_mx_record_is_ok($_REQUEST['signup_email']))
@@ -336,6 +465,11 @@ function wangguard_register_add_question(){
 
 //Validates security question
 function wangguard_signup_validate($user_name , $user_email,$errors){
+	if (!wangguard_validate_hfields($_POST['user_email'])) {
+		$errors->add('user_login',__('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard'));
+		return;
+	}
+	
 	$answerOK = wangguard_question_repliedOK();
 
 	//If at least a question exists on the questions table, then check the provided answer
@@ -1641,7 +1775,7 @@ function wangguard_add_admin_menu() {
 
 	if ( empty( $icon_url ) )
 		$icon_url = '';
-
+	
 	$menu[$position] = array ( $menu_title, "level_10", "wangguard_conf", $page_title, 'menu-top ' . $hookname, $hookname, $icon_url );
 
 	$_registered_pages[$hookname] = true;

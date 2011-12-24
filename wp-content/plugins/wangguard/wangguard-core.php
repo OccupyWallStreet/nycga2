@@ -266,6 +266,36 @@ function wangguard_stats_update($action) {
 }
 
 
+/**
+ * Reports a single email, the function doesn't look into the accounts, do not delete users nor blogs
+ * Used in functions which detect (for sure) sploggers that are attempting to create an account
+ * @param string $email 
+ * @param string $clientIP 
+ * @param boolean $isSplogger - send true if the email is a confirmed splogger
+ */
+function wangguard_report_email($email , $clientIP , $isSplogger = false) {
+	global $wangguard_api_key;
+
+	//update local stats disregarding the key
+	wangguard_stats_update("detected");
+
+	$valid = wangguard_verify_key($wangguard_api_key);
+	if ($valid == 'failed') {
+		echo "-2";
+		return;
+	}
+	else if ($valid == 'invalid') {
+		echo "-1";
+		return;
+	}
+	
+	$isSploggerParam = $isSplogger ? "1" : "0";
+	
+	wangguard_http_post("wg=<in><apikey>$wangguard_api_key</apikey><email>".$email."</email><ip>".$clientIP."</ip><issplogger>".$isSploggerParam."</issplogger></in>", 'add-email.php');
+}
+
+
+
 function wangguard_report_users($wpusersRs , $scope="email" , $deleteUser = true) {
 	global $wangguard_api_key;
 	global $wpdb;
@@ -781,6 +811,69 @@ function wangguard_admin_warnings() {
 }
 
 
+
+
+
+/**
+ * Show plugin changes
+ *
+ * @return void
+ */
+
+function wangguard_plugin_update_message() {
+
+	
+	$args = array(
+		'method' => 'GET'
+	);
+	$response = wp_remote_request(WANGGUARD_README_URL, $args);;
+	
+	
+	if (!is_wp_error($response) && $response['response']['code'] == 200) {
+		$matches = null;
+		$regexp = '~==\s*Changelog\s*==\s*=\s*[^\n]+\s*=(.*)(=\s*' . preg_quote(WANGGUARD_VERSION) . ')~Uis';
+		
+		if (preg_match($regexp, $response['body'], $matches)) {
+			
+			$changelog = (array) preg_split('~[\r\n]+~', trim($matches[1]));
+			
+			
+			$path = dirname( __FILE__ );
+			$path = ltrim( str_replace( '\\', '/', str_replace( rtrim( ABSPATH, '\\\/' ), '', $path ) ), '\\\/' );
+			$path = site_url() . '/' . $path;
+			
+			echo '<div style="margin-top:5px">';
+			echo '<span style="color: #a00000; font-weight:bold;"><img src="'.$path.'/newver.jpg" style="vertical-align:middle;margin-right:3px"/> '.__('These are the improvements of the new version', 'wangguard').':</span>';
+			$ul = false;
+
+			foreach ($changelog as $index => $line) {
+				if (preg_match('~^\s*\*\s*~', $line)) {
+					if (!$ul) {
+						echo '<ul style="list-style: disc; margin-left: 20px; font-weight:normal; margin-top:5px">';
+						$ul = true;
+					}
+					$line = preg_replace('~^\s*\*\s*~', '', htmlspecialchars($line));
+					echo '<li>' . $line . '</li>';
+				} else {
+					if ($ul) {
+						echo '</ul><div style="clear: left;"></div>';
+						$ul = false;
+					}
+					echo '<p style="margin: 5px 0;">' . htmlspecialchars($line) . '</p>';
+				}
+			}
+
+			if ($ul) {
+				echo '</ul>';
+			}
+
+			echo '</div>';
+		}
+	}
+}
+add_action('in_plugin_update_message-' . WANGGUARD_PLUGIN_FILE, 'wangguard_plugin_update_message');
+
+
 //dashboard right now activity
 function wangguard_rightnow() {
 	$stats = wangguard_get_option("wangguard_stats");
@@ -900,12 +993,17 @@ function wangguard_user_custom_columns($dummy , $column_name , $userid , $echo =
 			$html .= '<a href="http://'.$Domain.'" target="_new">'.esc_html(__('Open Web', 'wangguard')).'</a>';
 		}
 		$html .= "</div>";
+		
+		if ($echo)
+			echo $html;
+		else
+			return $html;
+		
    	}
+	else {
+		return $dummy;
+	}
 
-	if ($echo)
-		echo $html;
-	else
-		return $html;
 }
 add_filter('manage_users_columns', 'wangguard_add_status_column');
 add_filter('wpmu_users_columns', 'wangguard_add_status_column');

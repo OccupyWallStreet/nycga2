@@ -1,10 +1,10 @@
 === WangGuard ===
 Contributors: j.conti,maxidirienzo,InTouchSystem
 Author URI: http://wangguard.com
-Tags: wangguard, wgg, sploggers, splog, anti-splog, user spam, anti spam users, anti-spam, spam blog, spam blogs, wordpress, buddypress, wpmu, wordpress mu, wordpress multisite, standard WordPress, registration, security, security questions, plugin, sign up, signup, spam, wp-login.php, wp-signup.php, wp-register.php, register, registration, protect, protect registration, block agents, block ip, blog secure, bots, secure blog, secure wordpress, secure wp, website security, wp secure, wp security, block users, block user, block, block emails, block e-mails, block domains, block bots, block bot, bp, captcha, no captcha, recaptcha, unwanted users, block unwanted users, block splog, black hat, blackhat, bbpress
+Tags: wangguard, wgg, sploggers, splog, anti-splog, user spam, anti spam users, anti-spam, spam blog, spam blogs, wordpress, buddypress, wpmu, wordpress mu, wordpress multisite, standard WordPress, registration, security, security questions, plugin, sign up, signup, spam, wp-login.php, wp-signup.php, wp-register.php, register, registration, protect, protect registration, block agents, block ip, blog secure, bots, secure blog, secure wordpress, secure wp, website security, wp secure, wp security, block users, block user, block, block emails, block e-mails, block domains, block bots, block bot, bp, captcha, no captcha, recaptcha, unwanted users, block unwanted users, block splog, black hat, blackhat, bbpress, clean, clean database, clean splog, clean users, untrusted, untrusted users
 Requires at least: 2.8
-Tested up to: 3.2.1
-Stable tag: 1.2.1
+Tested up to: 3.3
+Stable tag: 1.2.3.1
 License: GPLv2
 
 Check your registered users against WangGuard web service to avoid Sploggers, is fully WordPress,WordPress MU ,BuddyPress and bbPress 2.0 compatible.
@@ -12,9 +12,28 @@ Check your registered users against WangGuard web service to avoid Sploggers, is
 
 == Description ==
 
+Welcome to WangGuard, Welcome to the revolution
+
+Over 1,110,000 Splogger/unwanted users blocked in just 7 months!
+
+WangGuard already is blocking 99.90% of sploggers and unwanted users.
+
+[What are users and Sploggers saying?](http://wordpress.org/extend/plugins/wangguard/other_notes/)
+
+
+= Advice =
+
+ * WangGuard NOT protect your site from comment spam, WangGuard protect your registration page from sploggers, unwanted users and untrusted users and WangGuard clean your database from them . For comment spam, you have another great plugin, [Akismet](http://wordpress.org/extend/plugins/akismet/).
+
+ * WangGuard protect the standard WordPress, WordPress Multisite, BuddyPress and bbPress 2.0 registration forms. If you use custom registration page, maybe WangGuard will not work. If you use a plugin or custom registration page, once you've installed WangGuard, test if it works. if it doesn't work, talk with the plugin developer or with your developer to make it compatible or use the standard WordPress, WordPress Multisite, BuddyPress or bbPress 2.0 signup form.
+
+
+
 WangGuard is fully compatible with Standard WordPress (non-multisite), WordPress MU, WordPress Multisite, BuddyPress (multisite and non-multisite) and bbPress 2.0 plugin.
 
 If you have signup enabled on your Standard WordPress, WordPress MU, WordPress Multisite, BuddyPress or bbPress 2.0, this is the plugin you were waiting for. There is nothing like it, is a next generation plugin associated a web service and a new concept of active protection from Sploggers, spam users, unwanted users and Black Hat SEO. This is just the beginning.
+
+WangGuard not only protect your site from sploggers, spam users or unwanted users, WangGuard cleans your database from them. No plugin or service does this, only with WangGuard you will get this feature.
 
 Free Api Key for personal use
 
@@ -131,7 +150,7 @@ No need to put any kind of filter in the user registration page (eg captcha). Th
 = Requirements/Restrictions =
 
 
- * Works with Wordpress 2.8+, WPMU 2.8+, BuddyPress 1.0.3+, bbPress 2.0+ (Wordpress 3.2.1+ is highly recommended)
+ * Works with Wordpress 2.8+, WPMU 2.8+, BuddyPress 1.0.3+, bbPress 2.0+ (Wordpress 3.3+ is highly recommended)
  * PHP 4.3 or above. (PHP 5+ is highly recommended)
   
  
@@ -205,9 +224,9 @@ Yes. The following translations are included in the download zip file:
 
 Of course! It will be very gratefully received.
 
-* Register on [WangGuard Blog](http://blog.wangguard.com/wp-login.php?action=register)
-* Login on [Tranlate WangGuard](http://translate.wangguard.com/login/)
-* Browse to [your language](http://translate.wangguard.com/projects/wangguard/)
+* Register on [WangGuard Blog](http://wangguard.org/wp-signup.php)
+* Login on [Tranlate WangGuard](http://translate.wangguard.org/login)
+* Browse to [your language](http://translate.wangguard.org/projects/wordpress-plugin)
 * Start to translate WangGuard to your language
 
 Please read [Translating WordPress](http://codex.wordpress.org/Translating_WordPress "Translating WordPress") first for background information on translating.
@@ -226,18 +245,28 @@ It is free for personal use. If you earn more than $200 with your site or you ar
 
 == Changelog ==
 
-== Changelog ==
+= 1.2.3.1 - 13 Dec 2011 =
+- Fix issue in users screen. When WangGuard is installed with s2member plugin, the columns added by the s2member plugin didn't display the value for each.
 
+= 1.2.3 - 9 Dec 2011 =
+- Minor tweak to the statistics
+
+= 1.2.2 - 8 Dec 2011 =
+- Compatibility with WordPress 3.3.
+- Changelog outline displayed in the plugins page when there's an available update for WangGuard.
+- Fix in wangguard-admin.php prompted by [boonebgorges](http://profiles.wordpress.org/users/boonebgorges) Thank you.
+- Updated statistics charting components, now are correclty viewed on iPad, iPhone and iPod.
+ 
 = 1.2.1 - 19 Sep 2011 =
 * New gmail.com and googlemail.com duplicated account verifications. As gmail.com and googlemail.com ignore dots on the left side of the @ in an email address, Sploggers uses email variations to create multiple accounts using only one gmail.com account. Also, googlemail.com is an alias of gmail.com. WangGuard now checks for existing accounts having in count these rules in order to prevent fake accounts to be created. You can turn off this feature from the Configuration page.
 * New optional DNS verification of the email domain (right side of the @ in an email address). New account's email domains are checked against your server's DNS for an associated MX record, if the resolution fails, a message is displayed to the user and the sign up process is stopped.
 
 = 1.2.0.2 - 14 Sep 2011 =
-* Adding 2 missing folders, Sorry
+* Adding 2 missing folders, Sorry.
 
 = 1.2.0.1 - 14 Sep 2011 =
-* NEW Added Italian Language, Thanks to Arturo
-* Minor bug fixing
+* NEW Added Italian Language, Thanks to Arturo.
+* Minor bug fixing.
 
 = 1.2.0 - 07 Sep 2011 =
 * Added the ability to flag a user as "Not Splogger", overriding WangGuard response or cancelling a false/accidental report sent from your site.
@@ -246,7 +275,7 @@ It is free for personal use. If you earn more than $200 with your site or you ar
 * Added a new dashboard box which shows the last 7 days activity.
 * BuddyPress only, when clicking on "Load more" in the latest activity screen, report buttons now works as expected.
 * BuddyPress only, you can now report users from the view post comments screen.
-* Minor tweaks and bug fixing
+* Minor tweaks and bug fixing.
 
 = 1.1.6 - 15 Aug 2011 =
 * Fixed minor issues involving the URL for some links to the Configuration screen.
@@ -289,3 +318,37 @@ It is free for personal use. If you earn more than $200 with your site or you ar
 
 = 1.0.0 - 1 Mar 2011 =
 * Initial Release
+
+== What say people? ==
+
+= What say users? =
+
+[Zaddick Blog:](http://zaddick.net/blog/best-spam-free-wordpress-buddypress-plugin/) WangGuard is the best plugin I have found to altogether eliminate spammers and sploggers from your WordPress and BuddyPress site.
+
+[OrangeCopper Blog](http://orangecopper.com/blog/best-buddypress-plugins-download) Best BuddyPress Plugins download
+
+[LOJ Tech](http://life.projektdeth.com/2011/07/07/spam-free-wordpress-blog/) Have a self hosted WordPress blog, and receiving an awful amount of spam? I’m not going to go over this like I usually do, I’ll just go over what it does and how great it can be to have on your WordPress Blog. The plugin is called WangGuard.
+
+[PracticalWP](http://www.practicalwp.com/wangguard-protect-your-wordpress-site-against-sploggers/) If you are planning to start a membership site or open registrations on your blog, WangGuard can help you deal with sploggers more effectively.
+
+[Kaliseo](http://www.agence-web-seo.com/2011/08/wangguard-lanti-splog/) Simple mais efficace. De quoi mettre des bâtons dans les roues aux développeurs de Link Farm Evolution et à 68 000 autres personnes.
+
+[WordPressのセキュリティ関連のプラグイン28個](http://wp.tekapo.com/2011/08/24/wordpress-security-28-plugins/) マルチサイトなどでスプロガーやスパマーの登録を防ぐために外部のWangGuardウェブサービスでチェックする。
+
+[AyudaWordpress](http://ayudawordpress.com/wangguard-el-anti-splog-definitivo/) Hace tiempo que José Conti viene luchando contra esa plaga de los blogs spam en instalaciones multisitio y BuddyPress, y parece que por fin ha dado con la solución.
+
+[spammers کو - Sexeinträge (8 جوابات)](http://yesbo.de/es/groups/yesbo/forum/topic/spameintraege-sexeintraege/) اتفاق سے ، میں نے پلگ ان "WangGuard" سب کے لئے فعال سپیم زیادہ مؤثر انداز میں لڑنا ہے.
+
+ [Blogurp](http://wordpress.org/support/topic/plugin-wangguard-works-perfect-with-wordpress-321-buddypress-15) Wang Guard works flawlessly on my website with WordPress 3.2.1 and BuddyPress 1.5. Thank You!!!!
+ 
+[sarangan112](http://wordpress.org/support/topic/the-best-ever-plugin-to-protect-wpmu-sites-from-sploggers) Hello, I just would like to thank the author for this wonderful plugin which is the best ever plugin to protect WPMU sites from sploggers! And it works! :-) After have tried with spam math plugins, captcha etc. finally I found this plugins. :D You saved my life.
+
+[Putoslocos](https://twitter.com/putoslokos/status/136756192205750272) @wangguard_es Es GENIAL. Ni un registro no real
+
+= What say Sploggers or Unwanted User? =
+
+From Twitter:
+
+* Quelqu'un sait comment peut-on se protéger du ban par le service WangGuard? #LFE #splog #WPMU #antispam # antisplog
+* #LFE does not work anymore. WangGuard… piece of shit!!!!!!.
+* Please HELP!!!! WangGuard is deleting all my Backlinks!! #LFE
