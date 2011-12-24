@@ -29,8 +29,8 @@ function wsd_site_url(){
 function wsd_parseUrl($url)
 {
 	$result = parse_url($url);
-	if($result === NULL) return array("error"=>"Invalid URL.");
-	$result["error"] = NULL;
+	if($result === null) return array("error"=>"Invalid URL.");
+	$result["error"] = null;
 	if(!array_key_exists("port", $result)) $result["port"] = 80;
 	if(!array_key_exists("scheme", $result)) $result["scheme"] = "http";
 	if(!array_key_exists("query", $result)) $result["query"] = ""; else $result["query"] = "?" . $result["query"];
@@ -77,15 +77,15 @@ function wsd_httpRequest($verb, $url, $body="", $headers=array(), $timeout = 10)
   $e = error_reporting(0);
 
 	$result = array();
-	$result["cookie"] = NULL;
+	$result["cookie"] = null;
 	$result["body"] = "";
-	$result["length"] = NULL;
-	$result["error"] = NULL;
+	$result["length"] = null;
+	$result["error"] = null;
 
 	$now = time();
 	$url = wsd_parseUrl($url);
 
-	if($url["error"] !== NULL) return $url;
+	if($url["error"] !== null) return $url;
 
 	$scheme = $url["scheme"]=="https" ? "ssl://" : "";
 
@@ -123,7 +123,7 @@ function wsd_httpRequest($verb, $url, $body="", $headers=array(), $timeout = 10)
   //print "<br>".str_replace("\r\n", "<br>", $out)."<br>";
 
   $status = HTTP_STATUS;
-  $chunked = False;
+  $chunked = false;
   $lastChunk = "";
   $chunkLength = 0;
 
@@ -166,7 +166,7 @@ function wsd_httpRequest($verb, $url, $body="", $headers=array(), $timeout = 10)
       $data = trim($data);
       $separator = strpos($data, ": ");
 
-      if(($separator === False)||($separator == 0) || ($separator >= (strlen($data) -2)))
+      if(($separator === false)||($separator == 0) || ($separator >= (strlen($data) -2)))
         return array("error"=>"Invalid HTTP response header.");
 
       $name 	= substr($data, 0, $separator);
@@ -181,9 +181,9 @@ function wsd_httpRequest($verb, $url, $body="", $headers=array(), $timeout = 10)
         $result["length"] = $value + 0;
         continue;
       }
-      if((strcasecmp("Transfer-Encoding", $name) == 0) && (strpos($value, 'chunked') !== False) )
+      if((strcasecmp("Transfer-Encoding", $name) == 0) && (strpos($value, 'chunked') !== false) )
       {
-        $chunked = True;
+        $chunked = true;
         continue;
       }
       continue;
@@ -193,7 +193,7 @@ function wsd_httpRequest($verb, $url, $body="", $headers=array(), $timeout = 10)
     {
       $data = trim($data);
       $sc = strpos($data, ';');
-      if($sc !== False) $data = substr($data, 0, $sc);
+      if($sc !== false) $data = substr($data, 0, $sc);
       $chunkLength = hexdec($data);
       if($chunkLength == 0)
         break;
@@ -216,14 +216,14 @@ function wsd_httpRequest($verb, $url, $body="", $headers=array(), $timeout = 10)
     if($status == HTTP_BODY)
     {
       $result["body"] .= $data;
-      if(($result["length"] !== NULL) && (strlen($result["body"]) >= $result["length"]))
+      if(($result["length"] !== null) && (strlen($result["body"]) >= $result["length"]))
         break;
       continue;
     }
   }
   fclose($fp);
 
-  if(($result["length"] !== NULL) && (strlen($result["body"]) != $result["length"]))
+  if(($result["length"] !== null) && (strlen($result["body"]) != $result["length"]))
     array("error"=>"Invalid HTTP body length.");
 
   error_reporting($e);
@@ -237,10 +237,10 @@ function wsd_jsonHttpRequest($url, $data, $timeout = 10)
 
   $cookie = '';
   $option_cookie = get_option("WSD-COOKIE");
-  if($option_cookie !== False) $cookie = $option_cookie;
+  if($option_cookie !== false) $cookie = $option_cookie;
 
   $token = get_option("WSD-TOKEN");
-  if($token !== False)
+  if($token !== false)
   {
     if($cookie != '') $cookie .= '; ';
     $cookie .= "token=".$token;
@@ -251,18 +251,18 @@ function wsd_jsonHttpRequest($url, $data, $timeout = 10)
 
 	$result = wsd_httpRequest("POST", $url, $body, $headers, $timeout);
 
-  if($result["cookie"] !== NULL)
+  if($result["cookie"] !== null)
   {
-    if($option_cookie === False)
+    if($option_cookie === false)
       add_option("WSD-COOKIE", $result["cookie"]);
     else
       update_option("WSD-COOKIE", $result["cookie"]);
   }
 
-  if($result["error"] === NULL)
+  if($result["error"] === null)
   {
     $decoded = json_decode($result["body"], true);
-    if($decoded == NULL) $result["error"] = "Invalid JSON response.".$result["body"];
+    if($decoded == null) $result["error"] = "Invalid JSON response.".$result["body"];
     $result["body"] = $decoded;
   }
 	return $result;
@@ -274,7 +274,7 @@ function wsd_jsonRPC($url, $method, $params, $timeout = 10)
 	$id = rand(1,100);
 
   $token = get_option("WSD-TOKEN");
-  if($token === False)
+  if($token === false)
     $request = array("jsonrpc"=>"2.0", "id"=>$id, "method"=>$method, "params"=>$params);
   else
     $request = array("jsonrpc"=>"2.0", "id"=>$id, "method"=>$method, "params"=>$params, "token"=>$token);
@@ -283,34 +283,34 @@ function wsd_jsonRPC($url, $method, $params, $timeout = 10)
 
   //print("request:");print_r($request); print("<hr>"); print("response:");print_r($response); print("<hr>");
 
-  if($response["error"] !== NULL)
+  if($response["error"] !== null)
   {
     $GLOBALS['wsd_last_err'] = array("code" => 0, "message" => $response["error"]);
-    return NULL;
+    return null;
   }
 
   if((! array_key_exists("id", $response["body"])) || ($response["body"]["id"] != $id) )
   {
     $GLOBALS['wsd_last_err'] = array("code" => 0, "message" => "Invalid JSONRPC response [0]." . var_export($response, true));
-    return NULL;
+    return null;
   }
 
   if( array_key_exists("token", $response["body"]))
   {
-    if($token === False) add_option("WSD-TOKEN", $response["body"]['token']);
+    if($token === false) add_option("WSD-TOKEN", $response["body"]['token']);
     else update_option("WSD-TOKEN", $response["body"]['token']);
   }
 
   if(array_key_exists("error", $response["body"]))
   {
     $GLOBALS['wsd_last_err'] = $response["body"]["error"];
-    return NULL;
+    return null;
   }
 
   if(! array_key_exists("result", $response["body"]))
   {
     $GLOBALS['wsd_last_err'] = array("code" => 0, "message" => "Invalid JSONRPC response [1].");
-    return NULL;
+    return null;
   }
 
   return $response["body"]["result"];
@@ -321,7 +321,7 @@ function wsd_jsonRPC($url, $method, $params, $timeout = 10)
 function wsd_render_error($custom_message = null)
 {
   $html = '';
-  if ($custom_message === NULL)
+  if ($custom_message === null)
     $html = '<p class="wsd-error-summary">' . $GLOBALS['wsd_last_err']['message'];
   else
     $html = '<p class="wsd-error-summary">' . $custom_message;
@@ -342,12 +342,12 @@ function wsd_render_user_login($error = '')
   if($error !== '') wsd_render_error($error);
   ?>
 
-<?php if(!empty($error)) { ?>
+<?php //if(!empty($error)) { ?>
 	<div class="wsd-inside">
-<?php } ?>
+<?php //} ?>
 
-		<p class="wsd-login-notice">Login here if you already have a WSD account.</p>
-	<form action="" method="post" id="wsd_login_form" name="wsd_login_form">
+	<p class="wsd-login-notice"><?php echo __('Login here if you already have a WSD account.');?></p>
+	<form action="" method="post" id="wsdss_login_form" name="wsdss_login_form">
 	  <div>
 		  <div class="wsd-login-section">
 			<label for="wsd_login_form_email">Email:</label>
@@ -360,10 +360,38 @@ function wsd_render_user_login($error = '')
 		<input type="submit" name="wsd-login" id="wsd-login" value="Login">
 	  </div>
 	</form>
+    <script type="text/javascript">
+        jQuery(document).ready(function($)
+        {
+            var $wsdss_login_form = $('#wsdss_login_form');
+            $wsdss_login_form.delegate('#wsd-login', 'click',
+                function() {
+                    var $wsdUserEmailInput = $("#wsd_login_form_email", $wsdss_login_form)
+                    var $wsdUserEmail = $.trim($wsdUserEmailInput.val());
+                    if('' == $wsdUserEmail){
+                        alert("Email address is required!");
+                        $wsdUserEmailInput.focus();
+                        return false;
+                    }
+                    var $wsd_login_form_password = $('#wsd_login_form_password', $wsdss_login_form);
+                    var password = $.trim($wsd_login_form_password.val());
+                    if (password != '') {
+                        var passwordHash = wsdMD5(password);
+                        $wsd_login_form_password.val(passwordHash);
+                    }
+                    else {
+                        alert('Password is required!');
+                        $wsd_login_form_password.focus();
+                        return false;
+                    }
+                    return true;
+             });
+        });
+    </script>
 
-<?php if(!empty($error)) { ?>
+<?php //if(!empty($error)) { ?>
 	</div>
-<?php } ?>
+<?php //} ?>
 
   <?php
 }
@@ -373,43 +401,45 @@ function wsd_render_new_user($error = '')
   //print "wsd_render_new_user $error<br>";
 
   $form = wsd_jsonRPC(WSD_URL_RPC, "cPlugin.getfrm", wsd_site_url());
-  if ($form === NULL)
+  if ($form === null)
   {
-	  wsd_render_error();
-	  return;
+      wsd_render_user_login();
+      return;
+//	  wsd_render_error();
+//	  return;
   }
   $recaptcha_publickey = $form['captcha'];
   if(empty($recaptcha_publickey))
   {
-    wsd_render_error('Invalid server response.');
+    wsd_render_error(__('Invalid server response. Please try again in a few minutes!'));
     return;
   }
 
   //intro text
   echo '<p class="wsd-inside" style="margin-top: 0px;">';
-	_e('WebsiteDefender.com is based upon web application scanning technology from <a href="http://www.acunetix.com/" target="_blank">Acunetix</a>; a pioneer in website security. <a href="http://www.websitedefender.com" target="_blank">WebsiteDefender</a> requires no installation, no learning curve and no maintenance. Above all, there is no impact on site performance! WebsiteDefender regularly scans and monitors your WordPress website/blog effortlessly, efficient, easily and is available for Free! Start scanning your WordPress website/blog against malware and hackers, absolutely free!', FB_SWP_TEXTDOMAIN);
+	_e('WebsiteDefender.com is based upon web application scanning technology from <a href="http://www.acunetix.com/" target="_blank">Acunetix</a>; a pioneer in website security. <a href="http://www.websitedefender.com" target="_blank">WebsiteDefender</a> requires no installation, no learning curve and no maintenance. Above all, there is no impact on site performance! WebsiteDefender regularly scans and monitors your WordPress website/blog effortlessly, efficient, easily and is available for Free! Start scanning your WordPress website/blog against malware and hackers, absolutely free!');
   echo "</p>";
 
   ?>
   <div class="wsd-inside">
     <?php
-    wsd_render_user_login();
+    //wsd_render_user_login();
     ?>
 
-		<h4><?php _e('Register here to use all the WebsiteDefender.com advanced features', FB_SWP_TEXTDOMAIN)?></h4>
-		<p><?php _e('WebsiteDefender is an online service that protects your website from any hacker activity by monitoring and auditing the security of your website, giving you easy to understand solutions to keep your website safe, always! WebsiteDefender\'s enhanced WordPress Security Checks allow it to optimise any threats on a blog or site powered by WordPress.',  FB_SWP_TEXTDOMAIN)?></p>
-		<p><?php _e('<strong>With WebsiteDefender you can:</strong>',  FB_SWP_TEXTDOMAIN)?></p>
+		<h4><?php _e('Register here to use all the WebsiteDefender.com advanced features');?></h4>
+		<p><?php _e('WebsiteDefender is an online service that protects your website from any hacker activity by monitoring and auditing the security of your website, giving you easy to understand solutions to keep your website safe, always! WebsiteDefender\'s enhanced WordPress Security Checks allow it to optimise any threats on a blog or site powered by WordPress.')?></p>
+		<p><?php _e('<strong>With WebsiteDefender you can:</strong>');?></p>
         <ul class="wsd_commonList">
-            <li><span>Detect Malware present on your website</span></li>
-            <li><span>Audit your website for security issues</span></li>
-            <li><span>Avoid getting blacklisted by Google</span></li>
-            <li><span>Keep your website content and data safe</span></li>
-            <li><span>Get alerted to suspicious hacker activity</span></li>
+            <li><span><?php _e('Detect Malware present on your website');?></span></li>
+            <li><span><?php _e('Audit your website for security issues');?></span></li>
+            <li><span><?php _e('Avoid getting blacklisted by Google');?></span></li>
+            <li><span><?php _e('Keep your website content and data safe');?></span></li>
+            <li><span><?php _e('Get alerted to suspicious hacker activity');?></span></li>
         </ul>
 
-        <p><?php _e('WebsiteDefender.com does all this an more via an easy-to-understand web-based dashboard, which gives step by step solutions on how to make sure your website stays secure!',  FB_SWP_TEXTDOMAIN)?></p>
+        <p><?php _e('WebsiteDefender.com does all this an more via an easy-to-understand web-based dashboard, which gives step by step solutions on how to make sure your website stays secure!')?></p>
 
-		<h4><?php _e('Sign up for your FREE account here',  FB_SWP_TEXTDOMAIN)?></h4>
+		<h4><?php _e('Sign up for your FREE account here')?></h4>
 
     <?php
       if($error !== '') wsd_render_error($error);
@@ -439,7 +469,7 @@ function wsd_render_new_user($error = '')
         </div>
         <div class="wsd-new-user-section">
           <?php
-                echo wsd_recaptcha_get_html($recaptcha_publickey, NULL, true);
+                echo wsd_recaptcha_get_html($recaptcha_publickey, null, true);
           ?>
         </div>
       <input type="submit" name="wsd-new-user" id="wsd-new-user" value="Register">
@@ -467,16 +497,17 @@ function wsd_process_login()
 	// $password is received as MD5 hash
 	$login = wsd_jsonRPC(WSD_URL_RPC, "cUser.login", array($email, $password));
 
-	if ($login == NULL) {
+	if ($login == null) {
 		wsd_render_user_login('Invalid login');
 		return;
 	}
 
+    $email = strtolower($email);
 	$user = get_option("WSD-USER");
-	if ($user === False)
-		add_option("WSD-USER", $email);
-	else
-		update_option("WSD-USER", $email);
+	if ($user === false){add_option("WSD-USER", $email);}
+	else{
+        $user = strtolower($user);
+		update_option("WSD-USER", $email);}
 
 	wsd_add_or_process_target();
 }
@@ -492,6 +523,7 @@ function wsd_render_add_target_id()
                 if(empty($emailAddress)){
                     $emailAddress = get_option('admin_email');
                 }
+                $emailAddress = strtolower($emailAddress);
             ?>
             <p>
                 <label><?php echo __('WebsiteDefender email account');?>:</label>
@@ -527,7 +559,8 @@ function wsd_process_add_target_id()
         add_option('WSD-TARGETID', $_POST['targetid']);
     }
     if( ! empty($_POST['wpss_user_email'])){
-        add_option('WSD-USER', $_POST['wpss_user_email']);
+        $em = strtolower($_POST['wpss_user_email']);
+        add_option('WSD-USER', $em);
     }
     wsd_render_target_status();
 }
@@ -546,14 +579,14 @@ function wsd_add_or_process_target()
   {
     //check first is this url is already there
     $target = wsd_jsonRPC(WSD_URL_RPC, "cPlugin.urlstatus", wsd_site_url());
-    if($target === NULL)
+    if($target === null)
     {
       wsd_render_error();
       return;
     }
-    if(array_key_exists('id', $target) && ($target['id'] != NULL))
+    if(array_key_exists('id', $target) && ($target['id'] != null))
     {
-      if($targetid === False) add_option('WSD-TARGETID', $target['id']);
+      if($targetid === false) add_option('WSD-TARGETID', $target['id']);
       else update_option('WSD-TARGETID', $target['id']);
       wsd_render_target_status();
       return;
@@ -562,7 +595,7 @@ function wsd_add_or_process_target()
 
   //the target was not there so we have to register a new one
   $newtarget = wsd_jsonRPC(WSD_URL_RPC, "cTargets.add", wsd_site_url());
-  if($newtarget === NULL)
+  if($newtarget === null)
   {
     if($GLOBALS['wsd_last_err']['code'] == WSD_ERROR_LIMITATION)
     {
@@ -592,13 +625,13 @@ function wsd_add_or_process_target()
 
   $headers = array("a"=>"a");
   $option_cookie = get_option("WSD-COOKIE");
-  if($option_cookie !== False) $headers["Cookie"] = $option_cookie;
+  if($option_cookie !== false) $headers["Cookie"] = $option_cookie;
 
   //print "<br>Downloading: ". WSD_URL_DOWN.'?id='.$newtarget['id'] ."#". print_r($headers, true). "<br>";
 
   $agent = wsd_httpRequest("GET", WSD_URL_DOWN.'?id='.$newtarget['id'], "", $headers);
 
-  if($agent["error"] !== NULL)
+  if($agent["error"] !== null)
     $targetInstalError = 'The WebsiteDefender Agent failed to install automatically [0x01].'; //can't download
   else
   {
@@ -669,7 +702,7 @@ function wsd_process_new_user_form()
                                       "source" => WSD_SOURCE
                                       )
                                 ));
-  if($register == NULL)
+  if($register == null)
   {
     if($GLOBALS['wsd_last_err']['code'] == WSD_ERROR_WPP_INVALID_CAPTCHA)
     {
@@ -684,8 +717,12 @@ function wsd_process_new_user_form()
     wsd_render_new_user('Registration failed! Please try again.');
     return;
   }
+  $email = strtolower($email);
   $user = get_option("WSD-USER");
-  if($user === False) add_option("WSD-USER", $email); else update_option("WSD-USER", $email);
+  if($user === false) {add_option("WSD-USER", $email); }
+  else {
+      $user = strtolower($user);
+      update_option("WSD-USER", $email);}
   wsd_add_or_process_target();
 }
 
@@ -694,8 +731,9 @@ function wsd_render_target_status()
   #echo "wsd_render_target_status<br>";
   $user = get_option('WSD-USER');
   if((!is_string($user))||($user == "") ) $user = get_option("admin_email");
+  $user = strtolower($user);
   $status = wsd_jsonRPC(WSD_URL_RPC, "cPlugin.status", array($user, get_option('WSD-TARGETID'), wsd_site_url()));
-  if($status === NULL)
+  if($status === null)
   {
     return;
   }
@@ -767,7 +805,7 @@ function wsd_render_target_status()
 
 <?php
 
-  return True;
+  return true;
 }
 
 function wsd_render_main()
@@ -780,6 +818,31 @@ function wsd_render_main()
     return;
   }
 
+//-- GET
+  $rm = strtoupper($_SERVER['REQUEST_METHOD']);
+  if ('GET' == $rm)
+  {
+      $targetid = get_option("WSD-TARGETID");
+      if($targetid !== false)
+      {
+        wsd_render_target_status();
+        return;
+      }
+
+      $u = get_option('WSD-USER');
+      if (false === $u)
+      {
+          wsd_render_new_user();
+          return;
+      }
+      else{
+          wsd_render_user_login();
+          return;
+      }
+  }
+
+
+//-- POST
   if(isset($_POST['wsd-new-user']))
   {
     wsd_process_new_user_form();
@@ -798,16 +861,9 @@ function wsd_render_main()
     return;
   }
 
-  $targetid = get_option("WSD-TARGETID");
-  if($targetid !== False)
-  {
-    wsd_render_target_status();
-    return;
-  }
-
   $hello = wsd_jsonRPC(WSD_URL_RPC, "cPlugin.hello", wsd_site_url());
 
-  if($hello == NULL)
+  if($hello == null)
   {
         // update sept 20
         wsd_render_new_user();
@@ -827,7 +883,7 @@ function wsd_render_main()
   }
   else
   {
-    wsd_render_error("Invalid server response.");
+    wsd_render_error(__("Invalid server response. Please try again in a few minutes!"));
     return;
   }
 }

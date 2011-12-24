@@ -5,7 +5,7 @@ Plugin URI: http://www.websitedefender.com/news/free-wordpress-security-scan-plu
 
 Description: Perform security scan of WordPress installation.
 Author: WebsiteDefender
-Version: 3.0.8
+Version: 3.0.9
 Author URI: http://www.websitedefender.com/
 */
 /*
@@ -17,6 +17,8 @@ Author URI: http://www.websitedefender.com/
  * $rev #6 09/20/2011 {c}
  * $rev #7 09/30/2011 {c}
  * $rev #8 10/03/2011 {c}
+ * $rev #9 11/15/2011 {c}
+ * $rev #9 12/17/2011 {c}
  */
 /*
 Copyright (C) 2008-2010 Acunetix / http://www.websitedefender.com/
@@ -48,8 +50,6 @@ if ( ! defined('WP_PLUGIN_URL')) {
 if ( ! defined('WP_PLUGIN_DIR')) {
     define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins' );
 }
-
-delete_option('wsd_feed_data');
 
 if(!function_exists('json_encode') || !class_exists('Services_JSON')) {
     @require_once(WP_PLUGIN_DIR . "/wp-security-scan/libs/json.php");
@@ -107,15 +107,21 @@ unset($plugin1,$plugin2);
 //@===
 
 function mrt_wpss_admin_init(){
-    wp_enqueue_style('wsd_style', WP_PLUGIN_URL . '/wp-security-scan/css/wsd.css');
+//    wp_enqueue_style('wsd_style', WP_PLUGIN_URL . '/wp-security-scan/css/wsd.css');
+    // @see: http://www.websitedefender.com/forums/wp-security-scan-plugin/wp-security-scan-and-ssl
+    wp_enqueue_style('wsd_style', plugin_dir_url(__FILE__) . 'css/wsd.css');
     /* #r5# */
     $h6 = 'swp-dashboard';
-    wp_register_style($h6, WP_PLUGIN_URL . '/wp-security-scan/css/acx-wp-dashboard.css');
+    wp_register_style($h6, plugin_dir_url(__FILE__) . 'css/acx-wp-dashboard.css');
     wp_enqueue_style($h6);
 }
 
 remove_action('wp_head', 'wp_generator');
-function add_men_pg() {
+function add_men_pg()
+{
+    // $#0000110$
+    if (!current_user_can('administrator')){return false;}
+
     if (function_exists('add_menu_page'))
     {
         add_menu_page('WSD security', 'WSD security', 'edit_pages', __FILE__, 'mrt_opt_mng_pg', WP_PLUGIN_URL.'/wp-security-scan/images/wsd-logo-small.png');
@@ -225,6 +231,7 @@ function wpss_mrt_meta_box2()
     <ul id="wsd-information-scan-list"">
             <?php mrt_get_serverinfo(); ?>
     </ul>
+    <script type="text/javascript" src="<?php echo plugin_dir_url(__FILE__);?>js/wsdwpss_tooltip_glossary.js"></script>
 <?php
 }
 
@@ -232,17 +239,18 @@ function wpss_mrt_meta_box2()
 // $rev #2: only load if they're not already.
 function wps_admin_init_load_resources()
 {
-    wp_enqueue_script('acx-json', WP_PLUGIN_URL.'/wp-security-scan/js/json.js');
-    wp_enqueue_script('acx-md5', WP_PLUGIN_URL.'/wp-security-scan/js/md5.js');
-    wp_enqueue_script('wsd-scripts', WP_PLUGIN_URL.'/wp-security-scan/js/scripts.js');
-    wp_enqueue_script('wsd-wsd', WP_PLUGIN_URL.'/wp-security-scan/js/wsd.js');
+    // @see: http://www.websitedefender.com/forums/wp-security-scan-plugin/wp-security-scan-and-ssl
+    wp_enqueue_script('acx-json', plugin_dir_url(__FILE__).'js/json.js');
+    wp_enqueue_script('acx-md5', plugin_dir_url(__FILE__).'js/md5.js');
+    wp_enqueue_script('wsd-scripts', plugin_dir_url(__FILE__).'js/scripts.js');
+    wp_enqueue_script('wsd-wsd', plugin_dir_url(__FILE__).'js/wsd.js');
 }
 
 function mrt_hd()
 {
 ?>
 	<script type="text/javascript">
-		var wordpress_site_name = "<?php echo htmlentities(get_bloginfo('siteurl'));?>"
+		var wordpress_site_name = "<?php echo htmlentities(get_bloginfo('url'));?>"
 	</script>
 	<script type="text/javascript">
 	  var _wsdPassStrengthProvider = null;
