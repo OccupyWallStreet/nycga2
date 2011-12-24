@@ -2,7 +2,7 @@
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') die();
 
-require_once('../../../wp-load.php');
+require_once dirname(dirname(dirname(dirname(__FILE__)))).'/wp-load.php';
 
 if (!check_admin_referer(q2w3_post_order::ID.'_post','wp_nonce')) wp_die(); 
 
