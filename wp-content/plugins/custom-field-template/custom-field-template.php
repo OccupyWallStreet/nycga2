@@ -4,7 +4,7 @@ Plugin Name: Custom Field Template
 Plugin URI: http://wpgogo.com/development/custom-field-template.html
 Description: This plugin adds the default custom fields on the Write Post/Page.
 Author: Hiroaki Miyashita
-Version: 1.9.6
+Version: 1.9.8
 Author URI: http://wpgogo.com/
 */
 
@@ -554,7 +554,8 @@ class custom_field_template {
 		wp_enqueue_script( 'datePicker', '/' . PLUGINDIR . '/' . $plugin_dir . '/js/jquery.datePicker.js', array('jquery') );
 		wp_enqueue_script( 'textarearesizer', '/' . PLUGINDIR . '/' . $plugin_dir . '/js/jquery.textarearesizer.js', array('jquery') );
 		if( strstr($_SERVER['REQUEST_URI'], 'wp-admin/post-new.php') || strstr($_SERVER['REQUEST_URI'], 'wp-admin/post.php') || strstr($_SERVER['REQUEST_URI'], 'wp-admin/page-new.php') || strstr($_SERVER['REQUEST_URI'], 'wp-admin/page.php') || (is_object($post) && $post->post_type=='page') ) :
-			wp_enqueue_script( 'editor' );
+			wp_enqueue_script('editor');
+			wp_enqueue_script('quicktags');
 		endif;
 
 		if ( !empty($options['custom_field_template_use_validation']) ) :
@@ -821,6 +822,7 @@ type = file';
 			$options['custom_field_template_replace_keys_by_labels'] = isset($_POST['custom_field_template_replace_keys_by_labels']) ? 1 : '';
 			$options['custom_field_template_replace_keys_by_labels'] = isset($_POST['custom_field_template_replace_keys_by_labels']) ? 1 : '';
 			$options['custom_field_template_replace_keys_by_labels'] = isset($_POST['custom_field_template_replace_keys_by_labels']) ? 1 : '';
+			$options['custom_field_template_disable_ad'] = isset($_POST['custom_field_template_disable_ad']) ? 1 : '';
 			update_option('custom_field_template_data', $options);
 			$message = __('Options updated.', 'custom-field-template');
 		elseif ( !empty($_POST['custom_field_template_css_submit']) ) :
@@ -930,7 +932,8 @@ margin-bottom:0pt;
 
 <br class="clear"/>
 
-<div id="poststuff" class="meta-box-sortables" style="position: relative; margin-top:10px;">
+<div id="poststuff" style="position: relative; margin-top:10px;">
+<?php if ( empty($options['custom_field_template_disable_ad']) ) : ?><div style="width:75%; float:left;"><?php endif; ?>
 <div class="postbox">
 <div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
 <h3><?php _e('Custom Field Template Options', 'custom-field-template'); ?></h3>
@@ -1072,6 +1075,11 @@ margin-bottom:0pt;
 <input type="text" name="custom_field_template_before_value" id="custom_field_template_before_value" value="<?php echo esc_attr(stripcslashes($options['custom_field_template_before_value'])); ?>" /></p>
 <p><label for="custom_field_template_after_value"><?php _e('Text to place after every value which is called by the cft shortcode', 'custom-field-template'); ?></label>:<br />
 <input type="text" name="custom_field_template_after_value" id="custom_field_template_after_value" value="<?php echo esc_attr(stripcslashes($options['custom_field_template_after_value'])); ?>" /></p>
+</td>
+</tr>
+<tr><td>
+<p><label for="custom_field_template_disable_ad"><?php _e('In case that you would like to hide the advertisement right column.', 'custom-field-template'); ?></label>:<br />
+<input type="checkbox" name="custom_field_template_disable_ad" id="custom_field_template_disable_ad" value="1" <?php if ( !empty($options['custom_field_template_disable_ad']) ) { echo 'checked="checked"'; } ?> /> <?php _e('I want to use a wider screen.', 'custom-field-template'); ?></p>
 </td>
 </tr>
 <tr><td>
@@ -1484,27 +1492,39 @@ hideKey = true<br />
 </form>
 </div>
 </div>
+</div>
 
-<div class="postbox closed">
+<?php if ( empty($options['custom_field_template_disable_ad']) ) : ?>
+<div style="width:24%; float:right;">
+<div class="postbox" style="min-width:200px;">
 <div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
 <h3><?php _e('Donation', 'custom-field-template'); ?></h3>
 <div class="inside">
 <p><?php _e('If you liked this plugin, please make a donation via paypal! Any amount is welcome. Your support is much appreciated.', 'custom-field-template'); ?></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<table class="form-table" style="margin-bottom:5px;">
-<tbody>
-<tr><td>
-<input type="hidden" name="cmd" value="_s-xclick" />
-<input type="hidden" name="hosted_button_id" value="100156" />
-<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif" border="0" name="submit" alt="" style="border:0;" />
-</td></tr>
-</tbody>
-</table>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="text-align:center;" target="_blank">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="WN7Y2442JPRU6">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif" border="0" name="submit" alt="PayPal">
 </form>
 </div>
 </div>
-</div>
 
+<?php
+	if ( WPLANG == 'ja' ) :
+?>
+<div class="postbox" style="min-width:200px;">
+<div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
+<h3><?php _e('CMS x WP', 'custom-field-template'); ?></h3>
+<div class="inside">
+<p><?php _e('There are much more plugins which are useful for developing business websites such as membership sites or ec sites. You could totally treat WordPress as CMS by use of CMS x WP plugins.', 'custom-field-template'); ?></p>
+<p style="text-align:center"><a href="http://www.cmswp.jp/" target="_blank"><img src="<?php echo get_option('home') . '/' . PLUGINDIR . '/' . $plugin_dir . '/js/'; ?>cmswp.jpg" width="125" height="125" alt="CMSxWP" /></a><br /><a href="http://www.cmswp.jp/" target="_blank"><?php _e('WordPress plugin sales site: CMS x WP', 'custom-field-template'); ?></a></p>
+</div>
+</div>
+<?php
+	endif;
+?>
+</div>
+<?php endif; ?>
 
 <script type="text/javascript">
 // <![CDATA[
@@ -2214,8 +2234,14 @@ jQuery(this).addClass("closed");
 				endif;
 			endif;
 		endif;
-			
-		$out = '';
+		
+		if ( substr($wp_version, 0, 3) >= '3.3' && !post_type_supports($post->post_type, 'editor') && $post->post_type!='post' && $post->post_type!='page' ) :
+			wp_editor('', 'content', array('dfw' => true, 'tabindex' => 1) );
+			$out = '<style type="text/css">#wp-content-wrap { display:none; }</style>';
+		else :
+			$out = '';
+		endif;
+		
 		if ( !empty($options['custom_fields'][$id]['instruction']) ) :
 			$instruction = $this->EvalBuffer(stripcslashes($options['custom_fields'][$id]['instruction']));
 			$out .= '<div id="cft_instruction">' . $instruction . '</div>';
