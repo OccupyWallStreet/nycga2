@@ -27,7 +27,7 @@ mysql_connect(constant("DB_HOST"),constant("DB_USER"),constant("DB_PASSWORD")); 
 
 //specify database ** EDIT REQUIRED HERE **
 mysql_select_db(constant("DB_NAME")) or die("Unable to select database"); //select which database we're using
-//mysql_query("set time_zone = '-5:00'");
+mysql_query("set time_zone = '-5:00'");
   
 // Build SQL Query  
 $query = "select group_id, user_id from wp_bp_groups_members where user_id = {$str->$trimmed}";
@@ -69,25 +69,10 @@ $count = 1 + $s ;
   
    
 
-  //$output .= "$count.  $eventname.   $startdate . Time.. $startime . to . $endtime .  Location. $locationname . at $locationaddress.    " ;
-  //$count++ ;
-
 
 
   
   }
-  
-  //echo "(group_id = 9999 $idlist)";
-  
-  
-  
-  //$badchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é", '"');
-  //$replacechars = array(" and ", " ", " and ", " and ", " and ", " and ", "o", "e", "");
-  //$output2 = str_replace($badchars, $replacechars, $output);
-  //$cleantext = preg_replace('/[^(\x20-\x7F)]*/','', $output2);
-  
-  
-  //echo $cleantext;
    
   
 // Build SQL Query  
@@ -121,9 +106,10 @@ $count = 1 + $s ;
   $locationname = $row["LocationName"];
   $locationaddress = $row["LocationAddress"];
   $groupname = $row["GroupName"];
+
   
 
-  $output .= "$count.  $groupname, $eventname.  Time. $startime . to . $endtime  .  Location. $locationname . at . $locationaddress.    " ;
+  $output .= " . $count.  $groupname, $eventname.  Time. $startime . to . $endtime  .  Location. $locationname . at . $locationaddress.    " ;
   $count++ ;
   
   
