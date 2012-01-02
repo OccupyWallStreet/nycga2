@@ -131,7 +131,7 @@ Please don't hesitate to contact me, especially if you run into trouble.  I will
 * Fixed a bug where the period was dropping from the file extension
 
 = 0.1.1 =
-* Fixed a folder naming discrepancy betweeen 'bp-group-documents' and 'buddypress-group-documents'
+* Fixed a folder naming discrepancy betweeen 'nycga-group-files' and 'buddypress-group-documents'
 
 = 0.1 =
 * Initial Realease

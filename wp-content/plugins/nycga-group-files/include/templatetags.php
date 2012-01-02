@@ -1,6 +1,6 @@
 <?php
 
-class BP_Group_Documents_Template {
+class NYCGA_Group_Files_Template {
 
 	//category filtering
 	public $category;
@@ -52,7 +52,7 @@ class BP_Group_Documents_Template {
 
 		$this->do_paging_logic();
 		
-		$this->document_list = BP_Group_Documents::get_list_by_group( $bp->groups->current_group->id, $this->category, $this->sql_sort, $this->sql_order, $this->start_record, $this->items_per_page );
+		$this->document_list = NYCGA_Group_Files::get_list_by_group( $bp->groups->current_group->id, $this->category, $this->sql_sort, $this->sql_order, $this->start_record, $this->items_per_page );
 	}
 
 	public static function get_parent_category_id() {
@@ -60,9 +60,9 @@ class BP_Group_Documents_Template {
 
 		//in order to shoehorn the group-less wordpress taxonomy to behave like groups,
 		//all groups have a unique parent taxonomy item.  eg: g3
-		$parent_info = term_exists( "g" . $bp->groups->current_group->id, 'group-documents-category');
+		$parent_info = term_exists( "g" . $bp->groups->current_group->id, 'group-files-category');
 		if( !$parent_info ){
-			$parent_info = wp_insert_term( "g" . $bp->groups->current_group->id, 'group-documents-category');
+			$parent_info = wp_insert_term( "g" . $bp->groups->current_group->id, 'group-files-category');
 		}
 
 		return $parent_info['term_id'];
@@ -77,38 +77,38 @@ class BP_Group_Documents_Template {
 	private function do_post_logic() {
 		global $bp;
 
-		do_action('bp_group_documents_template_do_post_action');
+		do_action('nycga_group_files_template_do_post_action');
 
-		if( isset( $_POST['bp_group_documents_operation'] ) ) {
+		if( isset( $_POST['nycga_group_files_operation'] ) ) {
 			if ( get_magic_quotes_gpc() ) {
 				$_POST = array_map( 'stripslashes_deep', $_POST );
 			}
 
-			switch( $_POST['bp_group_documents_operation'] ) {
+			switch( $_POST['nycga_group_files_operation'] ) {
 				case 'add':
-					$document = new BP_Group_Documents();
+					$document = new NYCGA_Group_Files();
 					$document->user_id = get_current_user_id();
 					$document->group_id = $bp->groups->current_group->id;
-					$document->name = $_POST['bp_group_documents_name'];
-					$document->description = $_POST['bp_group_documents_description'];
-					if ( isset( $_POST['bp_group_documents_featured'] ) )
-                        $document->featured = apply_filters('bp_group_documents_featured_in',$_POST['bp_group_documents_featured']);
+					$document->name = $_POST['nycga_group_files_name'];
+					$document->description = $_POST['nycga_group_files_description'];
+					if ( isset( $_POST['nycga_group_files_featured'] ) )
+                        $document->featured = apply_filters('nycga_group_files_featured_in',$_POST['nycga_group_files_featured']);
 					if( $document->save() ) {
 						self::update_categories($document);
-						do_action('bp_group_documents_add_success',$document);
-						bp_core_add_message( __('Document successfully uploaded','bp-group-documents') );
+						do_action('nycga_group_files_add_success',$document);
+						bp_core_add_message( __('File successfully uploaded','nycga-group-files') );
 					}
 				break;
 				case 'edit':
-					$document = new BP_Group_Documents($_POST['bp_group_documents_id']);
-					$document->name = $_POST['bp_group_documents_name'];
-					$document->description = $_POST['bp_group_documents_description'];
-                    if ( isset( $_POST['bp_group_documents_featured'] ) )
-					    $document->featured = apply_filters('bp_group_documents_featured_in',$_POST['bp_group_documents_featured']);
+					$document = new NYCGA_Group_Files($_POST['nycga_group_files_id']);
+					$document->name = $_POST['nycga_group_files_name'];
+					$document->description = $_POST['nycga_group_files_description'];
+                    if ( isset( $_POST['nycga_group_files_featured'] ) )
+					    $document->featured = apply_filters('nycga_group_files_featured_in',$_POST['nycga_group_files_featured']);
 					self::update_categories($document);
 					if( $document->save() ) {
-						do_action('bp_group_documents_edit_success',$document);
-						bp_core_add_message( __('Document successfully edited', 'bp-group-documents') );
+						do_action('nycga_group_files_edit_success',$document);
+						bp_core_add_message( __('Document successfully edited', 'nycga-group-files') );
 					}
 				break;
 			} //end switch
@@ -119,18 +119,18 @@ class BP_Group_Documents_Template {
 		global $bp;
 
 		//update categories from checkbox list
-        if ( isset( $_POST['bp_group_documents_categories'] ) )
-            $category_ids = apply_filters('bp_group_documents_category_ids_in',$_POST['bp_group_documents_categories']);
+        if ( isset( $_POST['nycga_group_files_categories'] ) )
+            $category_ids = apply_filters('nycga_group_files_category_ids_in',$_POST['nycga_group_files_categories']);
 
         if ( isset( $category_ids ) )
-		    wp_set_object_terms($document->id,$category_ids,'group-documents-category');
+		    wp_set_object_terms($document->id,$category_ids,'group-files-category');
 
 		//check if new category was added, if so, append to current list
-		if( isset( $_POST['bp_group_documents_new_category'] ) && $_POST['bp_group_documents_new_category'] ) {
+		if( isset( $_POST['nycga_group_files_new_category'] ) && $_POST['nycga_group_files_new_category'] ) {
 
-			if( !term_exists( $_POST['bp_group_documents_new_category'], 'group-documents-category',$this->parent_id ) ) {
-				$term_info = wp_insert_term( $_POST['bp_group_documents_new_category'],'group-documents-category',array('parent'=>$this->parent_id));
-				wp_set_object_terms($document->id, $term_info['term_id'], 'group-documents-category', true);
+			if( !term_exists( $_POST['nycga_group_files_new_category'], 'group-files-category',$this->parent_id ) ) {
+				$term_info = wp_insert_term( $_POST['nycga_group_files_new_category'],'group-files-category',array('parent'=>$this->parent_id));
+				wp_set_object_terms($document->id, $term_info['term_id'], 'group-files-category', true);
 			}
 		}
 
@@ -139,31 +139,31 @@ class BP_Group_Documents_Template {
 	private function do_url_logic() {
 		global $bp;
 
-		do_action('bp_group_documents_template_do_url_logic');
+		do_action('nycga_group_files_template_do_url_logic');
 
 		//figure out what to display in the bottom "detail" area based on url
 		//assume we are adding a new document
-		$document = new BP_Group_Documents();
+		$document = new NYCGA_Group_Files();
 		if( $document->current_user_can('add') ) {
-			$this->header =  __( 'Upload a New Document', 'bp-group-documents' );
+			$this->header =  __( 'Upload a New File', 'nycga-group-files' );
 			$this->show_detail = 1;
 		}
 		//if we're editing, grab existing data
 		if( ($bp->current_action == $bp->group_documents->slug ) && ( isset( $bp->action_variables[0] ) && $bp->action_variables[0] == 'edit') ) {
 			if( ctype_digit( $bp->action_variables[1] ) ){
-				$document = new BP_Group_Documents( $bp->action_variables[1] );
-				$this->name = apply_filters('bp_group_documents_name_out',$document->name);
-				$this->description = apply_filters('bp_group_documents_description_out',$document->description);
-				$this->featured = apply_filters('bp_group_documents_featured_out', $document->featured);
-				$this->doc_categories = wp_get_object_terms($document->id,'group-documents-category');
+				$document = new NYCGA_Group_Files( $bp->action_variables[1] );
+				$this->name = apply_filters('nycga_group_files_name_out',$document->name);
+				$this->description = apply_filters('nycga_group_files_description_out',$document->description);
+				$this->featured = apply_filters('nycga_group_files_featured_out', $document->featured);
+				$this->doc_categories = wp_get_object_terms($document->id,'group-files-category');
 				$this->operation = 'edit';
 				$this->id = $bp->action_variables[1];
-				$this->header =  __( 'Edit Document', 'bp-group-documents' );
+				$this->header =  __( 'Edit File', 'nycga-group-files' );
 			}
 		//otherwise, we might be deleting
 		} else if ( $bp->current_action == $bp->group_documents->slug && isset( $bp->action_variables[0] ) && $bp->action_variables[0] == 'delete' ) {
-			if( bp_group_documents_delete( $bp->action_variables[1] ) ){
-				bp_core_add_message( __('Document successfully deleted','bp-group-documents') );
+			if( nycga_group_files_delete( $bp->action_variables[1] ) ){
+				bp_core_add_message( __('File successfully deleted','nycga-group-files') );
 			}
 		}
 	}
@@ -180,15 +180,15 @@ class BP_Group_Documents_Template {
 	private function do_category_logic() {
 		global $bp;
 
-		do_action('bp_group_documents_template_do_category_logic');
+		do_action('nycga_group_files_template_do_category_logic');
 
 		//1st priority, category in url
 		if( isset( $_GET['category'] ) ) {
 			$this->category = $_GET['category'];
 
 		//category wasn't in url, check cookies
-		} elseif ( isset( $_COOKIE['bp-group-documents-category'])) {
-			$this->category = $_COOKIE['bp-group-documents-category'];
+		} elseif ( isset( $_COOKIE['nycga-group-files-category'])) {
+			$this->category = $_COOKIE['nycga-group-files-category'];
 
 		//show all categories
 		} else {
@@ -204,9 +204,9 @@ class BP_Group_Documents_Template {
 
 		$parent_id = self::get_parent_category_id();
 		if( $not_empty ) {
-			return get_terms( 'group-documents-category', array('parent'=>$parent_id ) );
+			return get_terms( 'group-files-category', array('parent'=>$parent_id ) );
 		} else {
-			return get_terms( 'group-documents-category', array('parent'=>$parent_id,'hide_empty'=>false ) );
+			return get_terms( 'group-files-category', array('parent'=>$parent_id,'hide_empty'=>false ) );
 		} 
 	}
 
@@ -214,15 +214,15 @@ class BP_Group_Documents_Template {
 	private function do_sorting_logic(){
 		global $bp;
 
-		do_action('bp_group_documents_template_do_sorting_logic');
+		do_action('nycga_group_files_template_do_sorting_logic');
 
 		//1st priority, order is in url.  Store in cookie as well
 		if( isset( $_GET['order'] ) ){
 			$this->order = $_GET['order'];
 
 		//order wasn't in url, check for cookies
-		} elseif( isset( $_COOKIE['bp-group-documents-order'] ) ) {
-			$this->order = $_COOKIE['bp-group-documents-order'];
+		} elseif( isset( $_COOKIE['nycga-group-files-order'] ) ) {
+			$this->order = $_COOKIE['nycga-group-files-order'];
 
 		//no order to be found, use default, and put in cookie
 		} else {
@@ -253,11 +253,11 @@ class BP_Group_Documents_Template {
 	private function do_paging_logic(){
 		global $bp;
 
-		do_action('bp_group_documents_template_do_paging_logic');
+		do_action('nycga_group_files_template_do_paging_logic');
 
-		$this->items_per_page = get_option('bp_group_documents_items_per_page');
+		$this->items_per_page = get_option('nycga_group_files_items_per_page');
 
-		$this->total_records = BP_Group_Documents::get_total( $bp->groups->current_group->id, $this->category );
+		$this->total_records = NYCGA_Group_Files::get_total( $bp->groups->current_group->id, $this->category );
 
 		$this->total_pages = ceil( $this->total_records / $this->items_per_page );
 
@@ -274,7 +274,7 @@ class BP_Group_Documents_Template {
 
 	public function pagination_count(){
 
-		printf( __('Viewing item %s to %s (of %s items)','bp-group-documents'), $this->start_record, $this->end_record, $this->total_records );
+		printf( __('Viewing item %s to %s (of %s items)','nycga-group-files'), $this->start_record, $this->end_record, $this->total_records );
 
 	}
 

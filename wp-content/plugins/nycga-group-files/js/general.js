@@ -1,40 +1,40 @@
 jQuery(document).ready( function($) {
 
 	//Hide the sort form submit, we're gonna submit on change
-	$('#bp-group-documents-sort-form input[type=submit]').hide();
-	$('#bp-group-documents-sort-form select[name=order]').change(function(){
-		$('form#bp-group-documents-sort-form').submit();
+	$('#nycga-group-files-sort-form input[type=submit]').hide();
+	$('#nycga-group-files-sort-form select[name=order]').change(function(){
+		$('form#nycga-group-files-sort-form').submit();
 	});
 
 	//Hide the category form submit, we're gonna submit on change
-	$('#bp-group-documents-category-form input[type=submit]').hide();
-	$('#bp-group-documents-category-form select[name=category]').change(function(){
-		$('form#bp-group-documents-category-form').submit();
+	$('#nycga-group-files-category-form input[type=submit]').hide();
+	$('#nycga-group-files-category-form select[name=category]').change(function(){
+		$('form#nycga-group-files-category-form').submit();
 	});
 
 	//Hide the upload form by default, expand as needed
-	$('#bp-group-documents-upload-new').hide();
-	$('#bp-group-documents-upload-button').show();
-	$('#bp-group-documents-upload-button').click(function(){
-		$('#bp-group-documents-upload-button').slideUp();
-		$('#bp-group-documents-upload-new').slideDown();
+	$('#nycga-group-files-upload-new').hide();
+	$('#nycga-group-files-upload-button').show();
+	$('#nycga-group-files-upload-button').click(function(){
+		$('#nycga-group-files-upload-button').slideUp();
+		$('#nycga-group-files-upload-new').slideDown();
 		return false;
 	});
 
 	//prefill the new category field
-	$('input.bp-group-documents-new-category').val('New Category...').css('color','#999').focus(function(){
+	$('input.nycga-group-files-new-category').val('New Category...').css('color','#999').focus(function(){
 		$(this).val('').css('color','inherit');
 	});
 		
 	//check for presence of a file before submitting form
-	$('form#bp-group-documents-form').submit(function(){
+	$('form#nycga-group-files-form').submit(function(){
 		
 		//check for pre-filled values, and remove before sumitting
-		if( $('input.bp-group-documents-new-category').val() == 'New Category...' ) {
-			$('input.bp-group-documents-new-category').val('');
+		if( $('input.nycga-group-files-new-category').val() == 'New Category...' ) {
+			$('input.nycga-group-files-new-category').val('');
 		}
-		if( $('input[name=bp_group_documents_operation]').val() == 'add' ) {
-			if($('input.bp-group-documents-file').val()) {
+		if( $('input[name=nycga_group_files_operation]').val() == 'add' ) {
+			if($('input.nycga-group-files-file').val()) {
 				return true;
 			}
 			alert('You must select a file to upload!');
@@ -46,13 +46,13 @@ jQuery(document).ready( function($) {
 	$('form#group-settings-form').submit(function() {
 		
 		//check for pre-filled values, and remove before sumitting
-		if( $('input.bp-group-documents-new-category').val() == 'New Category...' ) {
-			$('input.bp-group-documents-new-category').val('');
+		if( $('input.nycga-group-files-new-category').val() == 'New Category...' ) {
+			$('input.nycga-group-files-new-category').val('');
 		}
 	});
 
 	//Make the user confirm when deleting a document
-	$('a#bp-group-documents-delete').click(function(){
+	$('a#nycga-group-files-delete').click(function(){
 		return confirm('Are you sure you wish to permanently delete this document?');
 	});
 
@@ -62,7 +62,7 @@ jQuery(document).ready( function($) {
 		document_num = $(this).attr('id').substring(dash_position+1);
 
 		$.post( ajaxurl ,{
-			action:'bp_group_documents_increment_downloads',
+			action:'nycga_group_files_increment_downloads',
 			document_id:document_num
 		});
 
@@ -77,7 +77,7 @@ jQuery(document).ready( function($) {
 	$('#group-documents-group-admin-categories input[value=Add]').click(function(){
 		$.post(ajaxurl, {
 			action:'group_documents_add_category',
-			category:$('input[name=bp_group_documents_new_category]').val()
+			category:$('input[name=nycga_group_files_new_category]').val()
 		}, function(response){
 			$('#group-documents-group-admin-categories input[value=Add]').parent().before(response);
 		});
