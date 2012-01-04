@@ -1,17 +1,17 @@
 jQuery(document).ready( function($) {
 	
 	//prefill form fields for user
-	$('form.bp-group-documents-admin-upload input[name=name]').val('Display Name...').css('color','grey');
-	$('form.bp-group-documents-admin-upload input[name=name]').focus(function(){
+	$('form.nycga-group-files-admin-upload input[name=name]').val('Display Name...').css('color','grey');
+	$('form.nycga-group-files-admin-upload input[name=name]').focus(function(){
 		$(this).val('').css('color','black');
 	});
-	$('form.bp-group-documents-admin-upload textarea[name=description]').val('Description...').css('color','grey');
-	$('form.bp-group-documents-admin-upload textarea[name=description]').focus(function(){
+	$('form.nycga-group-files-admin-upload textarea[name=description]').val('Description...').css('color','grey');
+	$('form.nycga-group-files-admin-upload textarea[name=description]').focus(function(){
 		$(this).val('').css('color','black');
 	});
 
 	//on submit, hijack the form and process with ajax
-	$('form.bp-group-documents-admin-upload').submit(function(){
+	$('form.nycga-group-files-admin-upload').submit(function(){
 
 		//check and warn user if required field "group" is not selected
 		if( $(this).find('select[name=group]').val() == '0' ) {
@@ -32,7 +32,7 @@ jQuery(document).ready( function($) {
 
 		//run the server-side document move
 		$.post(ajaxurl, {
-			action:'bp_group_documents_admin_upload_submit',
+			action:'nycga_group_files_admin_upload_submit',
 			file:$(this).find('input[name=file]').val(),
 			group:$(this).find('select[name=group]').val(),
 			name:$(this).find('input[name=name]').val(),
@@ -45,9 +45,9 @@ jQuery(document).ready( function($) {
 					message = response.substring(0,sentence_end+1);
 					
 					//format the message and add response text
-					$('#bp-group-documents-bulk-message').html('<div id="message" class="updated"><p></p></div>');
-					$('#bp-group-documents-bulk-message #message p').html(message);
-					$('#bp-group-documents-bulk-message').fadeIn('fast');
+					$('#nycga-group-files-bulk-message').html('<div id="message" class="updated"><p></p></div>');
+					$('#nycga-group-files-bulk-message #message p').html(message);
+					$('#nycga-group-files-bulk-message').fadeIn('fast');
 					thisRow.slideUp('slow');
 
 				}
