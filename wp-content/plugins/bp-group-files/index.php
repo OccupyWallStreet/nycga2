@@ -14,11 +14,10 @@ Network: true
 */
 
 //some constants that can be checked when extending this plugin
-/*  We do not want this function 
-define ( 'BP_GROUP_DOCUMENTS_IS_INSTALLED', 1 );
-define ( 'BP_GROUP_DOCUMENTS_VERSION', '0.4.0' );
-define ( 'BP_GROUP_DOCUMENTS_DB_VERSION', '3' );
-*/
+define ( 'BP_GROUP_FILES_IS_INSTALLED', 1 );
+define ( 'BP_GROUP_FILES_VERSION', '1.0' );
+define ( 'BP_GROUP_FILES_DB_VERSION', '3' );
+
 
 //allow override of URL slug
 if ( !defined( 'BP_GROUP_DOCUMENTS_SLUG' ) )
@@ -114,7 +113,7 @@ function bp_group_documents_install() {
 	require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
 	dbDelta($sql);
 
-	update_site_option( 'bp-group-documents-db-version', BP_GROUP_DOCUMENTS_DB_VERSION );
+	update_site_option( 'bp-group-documents-db-version', BP_GROUP_FILES_DB_VERSION );
 }
 
 
