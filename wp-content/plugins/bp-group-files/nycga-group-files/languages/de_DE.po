@@ -1,0 +1,294 @@
+# Translation of the WordPress plugin   by .
+# Copyright (C) 2010
+# This file is distributed under the same license as the  package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/buddypress-group-documents\n"
+"POT-Creation-Date: 2010-03-11 17:53+0000\n"
+"PO-Revision-Date: 2010-03-12 14:11+0100\n"
+"Last-Translator: Michael Berra <michael.berra@gmail.com>\n"
+"Language-Team: Michael Berra <michael.berra@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+
+#: include/activity.php:11
+#, php-format
+msgid "%s uploaded the file: %s to %s"
+msgstr "%s hat die Datei %s in %s hochgeladen"
+
+#: include/activity.php:31
+#, php-format
+msgid "%s edited the file: %s in %s"
+msgstr "%s hat die Datei %s in %s bearbeitet"
+
+#: include/activity.php:48
+#, php-format
+msgid "%s deleted the file: %s from %s"
+msgstr "%s hat die Datei %s in %s gelöscht"
+
+#: include/admin-uploads.php:34
+msgid "Bulk File Uploads"
+msgstr "Massen-Datei-Upload"
+
+#: include/admin-uploads.php:38
+msgid "File Name"
+msgstr "Dateiname"
+
+#: include/admin-uploads.php:39
+msgid "Group"
+msgstr "Gruppe"
+
+#: include/admin-uploads.php:40
+msgid "Name"
+msgstr "Name"
+
+#: include/admin-uploads.php:41
+msgid "Description"
+msgstr "Beschreibung"
+
+#: include/admin-uploads.php:50
+msgid "Select Group..."
+msgstr "Gruppe wählen..."
+
+#: include/admin-uploads.php:60
+msgid "Move File"
+msgstr "Datei verschieben"
+
+#: include/admin-uploads.php:77
+msgid "You must choose a group for the file"
+msgstr "Du musst eine Gruppe für die Datei auswählen"
+
+#: include/admin-uploads.php:96
+msgid "Document moved successfully."
+msgstr "Dokument erfolgreich verschoben."
+
+#: include/admin-uploads.php:100
+msgid "There was a problem saving the file info."
+msgstr "Es gab ein Problem beim Speichern der Datei-Info."
+
+#: include/admin-uploads.php:103
+msgid "There was a problem moving the file."
+msgstr "Es gab ein Problem beim verschieben der Datei."
+
+#: include/admin.php:49
+#: index.php:158
+msgid "Group Documents Admin"
+msgstr "Gruppen-Dokumente Admin"
+
+#: include/admin.php:52
+#, php-format
+msgid "%s Documents Moved."
+msgstr "%s Dokumente verschoben."
+
+#: include/admin.php:53
+msgid "Settings Updated."
+msgstr "Einstellungen gespeichert."
+
+#: include/admin.php:59
+msgid "Valid File Formats"
+msgstr "Erlaubte Dateiformate"
+
+#: include/admin.php:65
+msgid "Items per Page"
+msgstr "Einträge pro Seite"
+
+#: include/admin.php:70
+msgid "Display Icons"
+msgstr "Zeige Icons"
+
+#: include/admin.php:75
+msgid "Display File Size"
+msgstr "Zeige Dateigrösse"
+
+#: include/admin.php:81
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+#: include/classes.php:174
+msgid "Whoops!  There was no file selected for upload."
+msgstr "Uuuuuups! Es wurde keine Datei für den Upload ausgewählt."
+
+#: include/classes.php:179
+msgid "The type of document submitted is not allowed"
+msgstr "Dieses Dateiformat ist nicht erlaubt"
+
+#: include/classes.php:187
+msgid "There was a problem; your file is larger than is allowed by the site administrator."
+msgstr "Es gab ein Problem: deine Datei ist grösser, als erlaubt."
+
+#: include/classes.php:190
+msgid "There was a problem; the file was only partially uploaded."
+msgstr "Es gab ein Problem: die Datei wurde nur teilweise hochgeladen."
+
+#: include/classes.php:193
+msgid "There was a problem; no file was found for the upload."
+msgstr "Es gab ein Problem: es wurde keine Datei für den Upload gefunden."
+
+#: include/classes.php:196
+msgid "There was a problem; the temporary folder for the file is missing."
+msgstr "Es gab ein Problem: der temporäre Ordner für die Datei fehlt."
+
+#: include/classes.php:199
+msgid "There was a problem; the file could not be saved."
+msgstr "Es gab ein Problem: die Datei konnte nicht gespeichert werden."
+
+#: include/classes.php:222
+msgid "There was a problem saving your file, please try again."
+msgstr "Es gab ein Problem beim Speichern deiner Datei, bitte versuche es nochmals."
+
+#: include/notifications.php:21
+#, php-format
+msgid "A document was uploaded to %s"
+msgstr "Es wurde ein Dokument in %s hochgeladen"
+
+#: include/notifications.php:69
+#, php-format
+msgid ""
+"%s uploaded a new file: %s to the group: %s.\n"
+"\n"
+"To see %s's profile: %s\n"
+"\n"
+"To see the group %s's homepage: %s\n"
+"\n"
+"To download the new document directly: %s\n"
+"\n"
+"------------------------\n"
+msgstr ""
+"%s hat die Datei %s in %s hochgeladen.\n"
+"\n"
+"Um %s's Profil zu sehen: %s\n"
+"\n"
+"Um die Homepage der Gruppe %s's zu sehen: %s\n"
+"\n"
+"Um das neue Dokument direkt herunterzuladen: %s\n"
+"\n"
+"------------------------\n"
+
+#: include/notifications.php:82
+#, php-format
+msgid "To disable these notifications please log in and go to: %s"
+msgstr "Um diese Benachrichtigungen abzustellen log dich bitte ein und geh zu: %s"
+
+#: include/templatetags.php:59
+msgid "Document successfully uploaded"
+msgstr "Dokument erfolgreich hochgeladen"
+
+#: include/templatetags.php:68
+msgid "Document successfully edited"
+msgstr "Dokument erfolgreich bearbeitet"
+
+#: include/templatetags.php:84
+#: index.php:375
+msgid "Upload a New Document"
+msgstr "Ein neues Dokument hochladen"
+
+#: include/templatetags.php:95
+msgid "Edit Document"
+msgstr "Dokument bearbeiten"
+
+#: include/templatetags.php:100
+msgid "Document successfully deleted"
+msgstr "Dokument erfolgreich gelöscht"
+
+#: include/templatetags.php:128
+#, php-format
+msgid "Viewing item %s to %s (of %s items)"
+msgstr "Zeige Dokument %s bis %s (von %s Dokumenten)"
+
+#: include/widgets.php:11
+msgid "Recent Group Documents"
+msgstr "Letzte Gruppen-Dokumente"
+
+#: include/widgets.php:40
+#, php-format
+msgid "%s posted in %s"
+msgstr "%s veröffentlicht  in %s"
+
+#: include/widgets.php:45
+msgid "There are no documents to display."
+msgstr "Es gibt keine Dokumente anzuzeigen."
+
+#: include/widgets.php:70
+msgid "Number of items to show:"
+msgstr "Anzahl Dokumente zu zeigen: "
+
+#: index.php:66
+msgid "The webserver does not appear to have write access to the document folder:"
+msgstr "Der Webserver scheint keinen Schreibzugriff auf den Ordner zu haben: "
+
+#: index.php:67
+msgid "Please check this, as must be enabled for the Group Documents plugin to work correctly."
+msgstr "Bitte überprüfe das, denn es muss aktiviert sein, damit das Gruppe-Dokumente Plugin korrekt funktioniert."
+
+#: index.php:68
+msgid "Click here</a> to return to the dashboard"
+msgstr "Klicke hier </a> um zum Dashboard zurückzugelangen"
+
+#: index.php:158
+#: index.php:270
+msgid "Group Documents"
+msgstr "Gruppen-Dokumente"
+
+#: index.php:229
+msgid "Documents"
+msgstr "Dokumente"
+
+#: index.php:273
+#: index.php:295
+msgid "Document List"
+msgstr "Liste der Dokumente"
+
+#: index.php:318
+#, php-format
+msgid "Uploaded by %s on %s"
+msgstr "Hochgeladen von %s am %s"
+
+#: index.php:326
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: index.php:330
+msgid "Delete"
+msgstr "Löschen"
+
+#: index.php:339
+msgid "There have been no documents uploaded for this group"
+msgstr "Bisher wurden keine Dokumente für diese Gruppe hochgeladen"
+
+#: index.php:360
+msgid "Choose File:"
+msgstr "Datei wählen:"
+
+#: index.php:363
+msgid "Display Name:"
+msgstr "Angezeigter Name:"
+
+#: index.php:366
+msgid "Description:"
+msgstr "Beschreibung:"
+
+#: index.php:370
+msgid "Submit"
+msgstr "Veröffentlichen"
+
+#: index.php:401
+msgid "A member uploads a document to a group you belong to"
+msgstr "Ein Mitglied hat ein Dokument in einer deiner Gruppen hochgeladen"
+
+#: index.php:407
+msgid "A member uploads a document to a group for which you are an moderator/admin"
+msgstr "Ein Mitglied hat ein Dokument in einer der Gruppen hochgeladen, in der du Moderator/Admin bist"
+
+#: index.php:424
+msgid "The item to delete could not be found"
+msgstr "Der zu löschende Eintrag wurde nicht gefunden"
+
+#: index.php:430
+msgid "There was a security problem"
+msgstr "Es gab ein Sicherheitsproblem"
+
