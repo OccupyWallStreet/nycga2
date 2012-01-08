@@ -1,0 +1,384 @@
+# Translation of the WordPress plugin   by .
+# Copyright (C) 2010
+# This file is distributed under the same license as the  package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: BP Group Documents\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/buddypress-group-documents\n"
+"POT-Creation-Date: 2010-04-11 01:46+0000\n"
+"PO-Revision-Date: 2010-05-20 15:31-0300\n"
+"Last-Translator: Eduardo Santos <eduardo@dotweb.com.br>\n"
+"Language-Team:  <eduardo@dotweb.com.br>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+
+#: include/activity.php:11
+#, php-format
+msgid "%s uploaded the file: %s to %s"
+msgstr "%s carregou o arquivo: %s to %s"
+
+#: include/activity.php:31
+#, php-format
+msgid "%s edited the file: %s in %s"
+msgstr "%s editou o arquivo: %s em %s"
+
+#: include/activity.php:48
+#, php-format
+msgid "%s deleted the file: %s from %s"
+msgstr "%s removeu o arquivo: %s em %s"
+
+#: include/admin-uploads.php:39
+msgid "Bulk File Uploads"
+msgstr "Carregar arquivos diversos"
+
+#: include/admin-uploads.php:48
+#: include/widgets.php:87
+#: include/widgets.php:187
+msgid "Select Group..."
+msgstr "Selecione o grupo..."
+
+#: include/admin-uploads.php:64
+msgid "Move File"
+msgstr "Mover arquivo"
+
+#: include/admin-uploads.php:93
+msgid "You must choose a group for the file."
+msgstr "Você deve escolher um grupo para o arquivo."
+
+#: include/admin-uploads.php:117
+msgid "Document moved successfully."
+msgstr "Documento movido com sucesso."
+
+#: include/admin-uploads.php:120
+msgid "There was a problem saving the file info."
+msgstr "Houve um problema ao salvar as informações do arquivo."
+
+#: include/admin-uploads.php:123
+msgid "There was a problem moving the file."
+msgstr "Houve um problema ao mover o arquivo."
+
+#: include/admin.php:66
+#: index.php:164
+msgid "Group Documents Admin"
+msgstr "Administração dos documentos de grupo"
+
+#: include/admin.php:69
+#, php-format
+msgid "%s Documents Moved."
+msgstr "%s documentos movidos."
+
+#: include/admin.php:70
+msgid "Settings Updated."
+msgstr "Configurações atualizadas."
+
+#: include/admin.php:76
+msgid "Valid File Formats"
+msgstr "Formatos de arquivo aceitos"
+
+#: include/admin.php:82
+msgid "Items per Page"
+msgstr "Itens por página"
+
+#: include/admin.php:87
+msgid "Upload Permission:"
+msgstr "Permissões de envio"
+
+#: include/admin.php:88
+msgid "Members &amp; Moderators"
+msgstr "Membros &amp; Moderadores"
+
+#: include/admin.php:89
+msgid "Moderators Only"
+msgstr "Somente Moderadores"
+
+#: include/admin.php:90
+msgid "Let individual moderators decide"
+msgstr "Deixar que os moderadores decidam individualmente"
+
+#: include/admin.php:93
+msgid "Use Categories"
+msgstr "Usar Categorias"
+
+#: include/admin.php:98
+msgid "Display Icons"
+msgstr "Mostrar Ícones"
+
+#: include/admin.php:103
+msgid "Display File Size"
+msgstr "Mostrar tamanho do arquivo"
+
+#: include/admin.php:109
+msgid "Save Settings"
+msgstr "Salvar configurações"
+
+#: include/classes.php:191
+msgid "Whoops!  There was no file selected for upload."
+msgstr "Ops! Não foi selecionado arquivo para carga."
+
+#: include/classes.php:196
+msgid "The type of document submitted is not allowed"
+msgstr "O tipo de documento submetido não é aceito"
+
+#: include/classes.php:204
+msgid "There was a problem; your file is larger than is allowed by the site administrator."
+msgstr "Houve um problema. Seu arquivo é maior do que o permitido pelo administrador do site."
+
+#: include/classes.php:207
+msgid "There was a problem; the file was only partially uploaded."
+msgstr "Houve um problema. O arquivo foi carregado apenas parcialmente."
+
+#: include/classes.php:210
+msgid "There was a problem; no file was found for the upload."
+msgstr "Houve um problema. Nenhum arquivo foi encontrado para carga."
+
+#: include/classes.php:213
+msgid "There was a problem; the temporary folder for the file is missing."
+msgstr "Houve um problema. A pasta de armazenamento temporária não foi encontrada."
+
+#: include/classes.php:216
+msgid "There was a problem; the file could not be saved."
+msgstr "Houve um problema. Não foi possível armazenar o arquivo."
+
+#: include/classes.php:237
+msgid "There was a problem saving your file, please try again."
+msgstr "Houve um problema ao armazenar seu arquivo. Tente novamente por favor."
+
+#: include/group-admin.php:12
+#: index.php:245
+msgid "Documents"
+msgstr "Documentos"
+
+#: include/group-admin.php:99
+msgid "Document Upload Permissions:"
+msgstr "Permissões de envio de documentos:"
+
+#: include/group-admin.php:100
+msgid "All Group Members"
+msgstr "Todos os membros do grupo"
+
+#: include/group-admin.php:101
+msgid "Only Group Moderators"
+msgstr "Somente Moderadores do Grupo"
+
+#: include/group-admin.php:111
+msgid "Category List:"
+msgstr "Lista de categorias:"
+
+#: include/group-admin.php:135
+msgid "Save Changes"
+msgstr "Salvar mudanças"
+
+#: include/group-admin.php:200
+msgid "Settings saved successfully"
+msgstr "Configurações salvas com sucesso"
+
+#: include/notifications.php:15
+msgid "A member uploads a document to a group you belong to"
+msgstr "Um membro envia um documento para um grupo a que você pertence"
+
+#: include/notifications.php:21
+msgid "A member uploads a document to a group for which you are an moderator/admin"
+msgstr "Um membro envia um documento para um grupo do qual você é moderador/administrador"
+
+#: include/notifications.php:50
+#, php-format
+msgid "A document was uploaded to %s"
+msgstr "Um documento foi enviado para %s"
+
+#: include/notifications.php:98
+#, php-format
+msgid ""
+"%s uploaded a new file: %s to the group: %s.\n"
+"\n"
+"To see %s's profile: %s\n"
+"\n"
+"To see the group %s's homepage: %s\n"
+"\n"
+"To download the new document directly: %s\n"
+"\n"
+"------------------------\n"
+msgstr ""
+"%s enviou um novo arquivo (%s) para o grupo %s.\n"
+"\n"
+"Para ver o perfil de %s: %s\n"
+"\n"
+"Para ver a página inicial do grupo %s: %s\n"
+"\n"
+"Para acessar diretamente o novo documento: %s\n"
+"\n"
+"------------------------\n"
+
+#: include/notifications.php:111
+#, php-format
+msgid "To disable these notifications please log in and go to: %s"
+msgstr "Para desabilitar os avisos por favor faça login e vá para %s"
+
+#: include/templatetags.php:97
+msgid "Document successfully uploaded"
+msgstr "Documento carregado com sucesso"
+
+#: include/templatetags.php:108
+msgid "Document successfully edited"
+msgstr "Documento editado com sucesso"
+
+#: include/templatetags.php:143
+#: index.php:486
+msgid "Upload a New Document"
+msgstr "Enviar um novo documento"
+
+#: include/templatetags.php:156
+msgid "Edit Document"
+msgstr "Editar documento"
+
+#: include/templatetags.php:161
+msgid "Document successfully deleted"
+msgstr "Documento excluído com sucesso"
+
+#: include/templatetags.php:309
+#, php-format
+msgid "Viewing item %s to %s (of %s items)"
+msgstr "Visualizando itens de %s a %s (de %s itens)"
+
+#: include/widgets.php:12
+msgid "The most recently uploaded group documents"
+msgstr "Os documentos mais recentes enviados para o grupo"
+
+#: include/widgets.php:13
+#: include/widgets.php:20
+msgid "Recent Group Documents"
+msgstr "Documentos recentes do grupo"
+
+#: include/widgets.php:45
+#: include/widgets.php:145
+#, php-format
+msgid "%s posted in %s"
+msgstr "%s publicou em %s"
+
+#: include/widgets.php:51
+#: include/widgets.php:151
+msgid "There are no documents to display."
+msgstr "Não há documentos a mostrar."
+
+#: include/widgets.php:82
+#: include/widgets.php:182
+msgid "Title:"
+msgstr "Título:"
+
+#: include/widgets.php:85
+#: include/widgets.php:185
+msgid "Filter by Group:"
+msgstr "Filtro por grupo:"
+
+#: include/widgets.php:99
+#: include/widgets.php:199
+msgid "Show featured documents only"
+msgstr "Mostrar somente documentos suportados"
+
+#: include/widgets.php:102
+#: include/widgets.php:202
+msgid "Number of items to show:"
+msgstr "Número de itens a mostrar:"
+
+#: include/widgets.php:111
+msgid "The most commonly downloaded group documents"
+msgstr "Os documentos do grupo mais frequentemente acessados"
+
+#: include/widgets.php:112
+#: include/widgets.php:119
+msgid "Popular Group Documents"
+msgstr "Documentos populares do grupo"
+
+#: index.php:164
+#: index.php:316
+msgid "Group Documents"
+msgstr "Documentos do grupo"
+
+#: index.php:285
+msgid "Group Document Categories"
+msgstr "Categorias de documentos do grupo"
+
+#: index.php:319
+#: index.php:369
+msgid "Document List"
+msgstr "Lista de documentos"
+
+#: index.php:343
+#: index.php:470
+msgid "Category:"
+msgstr "Categoria:"
+
+#: index.php:345
+msgid "All"
+msgstr "Todas"
+
+#: index.php:350
+#: index.php:363
+msgid "Go"
+msgstr "Ir"
+
+#: index.php:357
+msgid "Order by:"
+msgstr "Ordenar por:"
+
+#: index.php:359
+msgid "Newest"
+msgstr "Mais novo"
+
+#: index.php:360
+msgid "Alphabetical"
+msgstr "Alfabética"
+
+#: index.php:361
+msgid "Most Popular"
+msgstr "Mais popular"
+
+#: index.php:403
+#, php-format
+msgid "Uploaded by %s on %s"
+msgstr "Enviado por %s em %s"
+
+#: index.php:411
+msgid "Edit"
+msgstr "Editar"
+
+#: index.php:415
+msgid "Delete"
+msgstr "Excluir"
+
+#: index.php:425
+msgid "There have been no documents uploaded for this group"
+msgstr "Não há documentos carregados para este grupo"
+
+#: index.php:448
+msgid "Choose File:"
+msgstr "Selecione arquivo:"
+
+#: index.php:453
+msgid "Featured Document"
+msgstr "Documentos disponíveis"
+
+#: index.php:458
+msgid "Display Name:"
+msgstr "Nome a ser mostrado:"
+
+#: index.php:461
+msgid "Description:"
+msgstr "Descrição:"
+
+#: index.php:465
+msgid "Submit"
+msgstr "Enviar"
+
+#: index.php:508
+msgid "The item to delete could not be found"
+msgstr "Não foi possível encontrar o ítem a ser excluído"
+
+#: index.php:514
+msgid "There was a security problem"
+msgstr "Houve um problema de segurança"
+
