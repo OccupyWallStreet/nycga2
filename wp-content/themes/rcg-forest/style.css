@@ -1,0 +1,527 @@
+/*
+Theme Name: RCG Forest
+Theme URI: http://blog.rcg-pt.net/rcg-forest/
+Description: A simple green theme.
+Author: Rui Carlos A. Gonçalves <rcgoncalves.pt@gmail.com>
+Author URI: http://rcg-pt.net
+Version: 1.5.0
+Tags: green, fixed-width, two-columns, right-sidebar, translation-ready, custom-header
+
+License: This theme is released under GNU GPL.
+
+Acknowledgements:
+Thanks to Jean-Baptiste Nizet for the French translation.
+Thanks to Marcis G for the Russian and Belorussian translations.
+*/
+
+body {
+  font-size: 75%;
+  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  color: #333;
+  margin: 0;
+  background-color: #444;
+}
+
+#top {
+  width: 100%;
+  height: 60px;
+  background-color: #222;
+  border-bottom: #999 solid;
+}
+
+#topcenter {
+  width: 770px;
+  margin: 0 auto;
+}
+
+#search {
+  float: right;
+  margin-top: 20px;
+}
+
+#page {
+  background-color: #fff;
+  width: 780px;
+  margin: auto;
+}
+
+#header {
+  background: url(images/forest.png) no-repeat;
+  height: 120px;
+  border: 3px #fff solid;
+}
+
+#sidebar {
+  width: 200px;
+  margin-left: 540px;
+  padding: 15px 20px 20px 20px;
+}
+
+#footer {
+  background-color: #444;
+  text-align: center;
+  clear: both;
+  padding: 10px;
+}
+
+#commentform #submit {
+  margin: 0 0 15px auto;
+  float: right;
+}
+
+/*========================================================*/
+
+.button {
+  background-color: #7a3;
+  border: 1px solid #777;
+  color: #fff;
+  height: 20px;
+}
+
+/*========================================================*/
+
+.imagebg {
+  background: url(images/background.png);
+}
+
+.twocolumns {
+  width: 490px;
+  float: left;
+  padding: 0px 25px;
+}
+
+.onecolumn {
+  width: 500px;
+  margin: auto;
+}
+
+/*========================================================*/
+
+.post {
+  margin: 20px 0 40px 0;
+}
+
+.navigation {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 16px;
+}
+
+.postinfo {
+  clear: both;
+  margin: 10px 2px 20px 2px;
+  padding: 3px 2px 3px 2px;
+  border-top: thin dotted #CCC;
+  border-bottom: thin dotted #CCC;
+  color: #666;
+}
+
+.postinfocom {
+  clear: both;
+  height: 15px;
+  padding: 4px 2px 2px 2px;
+  border-top: thin dotted #CCC;
+  border-bottom: thin dotted #CCC;
+  color: #666;
+}
+
+.com {
+  display: inline;
+  float: right;
+}
+
+.nocomments {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.commentmetadata {
+  margin: 0;
+  display: block;
+  font-weight: normal;
+}
+
+.alt {
+  background-color: #f0f0f0;
+}
+
+/*========================================================*/
+
+p {
+  margin: 8px 0px;
+  padding: 0px;
+}
+
+a {
+  color: #589000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #6b0;
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  font-weight: bold;
+}
+
+h2, h2 a, h2 a:visited {
+  color: #333;
+}
+
+h2 a:hover {
+  color: #666;
+  text-decoration: none;
+}
+
+h2 {
+  margin: 24px 0 8px 0;
+  padding: 0;
+}
+
+h3 {
+  margin: 18px 0 8px 0;
+  padding: 0;
+}
+
+h4 {
+  margin: 16px 0 8px 0;
+  padding: 0;
+}
+
+cite {
+  color: #333;
+}
+
+code {
+  font: 1.2em 'Courier New', Courier, Fixed;
+}
+
+acronym, abbr {
+  font-size: 0.9em;
+  letter-spacing: .07em;
+}
+
+img.alignright {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+
+img.alignleft {
+  float: left;
+  margin:0 1em 1em 0;
+}
+
+img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a img.alignright {
+  float:right;
+  margin:0 0 1em 1em;
+}
+
+a img.alignleft {
+  float:left;
+  margin:0 1em 1em 0;
+}
+
+a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.aligncenter,
+div.aligncenter {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.alignleft {
+   float: left;
+}
+
+.alignright {
+   float: right;
+}
+
+.wp-caption {
+  border: 1px solid #ddd;
+  text-align: center;
+  background-color: #f3f3f3;
+  max-width: 96%;
+  padding-top: 5px;
+  margin: 10px;
+  /* optional rounded corners for browsers that support it */
+  -moz-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.wp-caption img {
+   margin: 0;
+   padding: 0;
+   border: 0 none;
+   max-width: 100%;
+   height: auto;
+}
+
+.wp-caption p.wp-caption-text {
+   font-size: 11px;
+   line-height: 17px;
+   padding: 5px;
+   margin: 0;
+}
+
+img {
+  border: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+blockquote {
+  color: #777;
+  margin: 15px 30px 0 20px;
+  padding-left: 10px;
+  border-left: 5px solid #ddd;
+}
+
+/*========================================================*/
+
+#topcenter h1 {
+  margin: 12px 2px;
+  font-size: 2.5em;
+  color: #dec;
+  display: inline;
+  float: left;
+}
+
+#topcenter h1 a {
+  text-decoration: none;
+  color: #dec;
+}
+
+#topcenter h2 {
+  margin: 24px 0px;
+  font-size: 1.2em;
+  color: #dec;
+  display: inline;
+  float: left;
+}
+
+/*========================================================*/
+
+.post {
+  text-align: justify;
+}
+
+.post h2 {
+  margin: 20px 0 2px 0;
+  clear: both;
+}
+
+.entry {
+  margin: 12px 0 8px 0;
+}
+
+.entry ul {
+  margin-left: 0;
+  padding: 0 0 0 10px;
+  list-style: none;
+  text-indent: -10px;
+}
+
+.entry ul li {
+  margin: 7px 0 8px 10px;
+}
+
+.entry ul li:before {
+  content: "\00BB \0020";
+}
+
+.entry ol {
+  margin-left: 0;
+  padding: 0 0 0 10px;
+  text-indent: -10px;
+}
+
+.entry ol li {
+  margin: 7px 0 8px 10px;
+  list-style-position: inside;
+}
+
+.entry ol li:before {
+  content: "";
+}
+
+.entry form {
+  text-align:center;
+}
+
+.com a {
+  background: url(images/comment.gif) left no-repeat;
+  padding-left: 18px;
+}
+
+ol.commentlist {
+  margin: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.commentlist li {
+  font: 0.9em 'Lucida Grande', Verdana, Arial, Sans-Serif;
+}
+
+.commentlist li {
+  border: #ccc 1px dotted;
+  margin: 4px 0;
+  padding: 4px;
+}
+
+.commentlist li .avatar { 
+  float: right;
+  border: 1px solid #eee;
+  padding: 2px;
+  background: #fff;
+}
+
+.commentlist cite, .commentlist cite a {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.1em;
+}
+
+.commentlist p {
+  font-weight: normal;
+}
+
+.commentmetadata a {
+  color: #333;
+  text-decoration: none;
+}
+
+#commentform input, #commentform textarea {
+  font: 0.9em 'Lucida Grande', Verdana, Arial, Sans-Serif;
+}
+
+#commentform input {
+  width: 170px;
+  padding: 2px;
+  margin: 5px 5px 1px 0;
+}
+
+#commentform textarea {
+  width: 100%;
+  padding: 2px;
+}
+
+/*========================================================*/
+
+#sidebar h2 {
+  font-family: 'Lucida Grande', Verdana, Sans-Serif;
+  font-size: 1.2em;
+  text-decoration: none;
+  margin: 0px 0px;
+  border-bottom: 1px dotted #888;
+}
+
+#sidebar ul ul li:before {
+  content: "\00BB \0020";
+}
+
+#sidebar ul, #sidebar ul ol {
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar ul li {
+  list-style-type: none;
+  list-style-image: none;
+  margin-bottom: 25px;
+}
+
+#sidebar ul p, #sidebar ul select {
+  margin: 5px 0 8px;
+}
+
+#sidebar ul ul, #sidebar ul ol {
+  margin: 0 0 0 10px;
+}
+
+#sidebar ul ul ul, #sidebar ul ol {
+  margin: 0 0 0 10px;
+}
+
+ol li, #sidebar ul ol li {
+  list-style: decimal outside;
+}
+
+#sidebar ul ul li, #sidebar ul ol li {
+  margin: 2px 0 0;
+  padding: 0;
+  font-size: 90%;
+}
+
+#wp-calendar {
+  empty-cells: show;
+  margin: 10px auto 0;
+  width: 155px;
+}
+
+#wp-calendar #next a {
+  font-size: 9pt;
+  padding-right: 10px;
+  text-align: right;
+}
+
+#wp-calendar #prev a {
+  font-size: 9pt;
+  padding-left: 10px;
+  text-align: left;
+}
+
+#wp-calendar a {
+   text-decoration: none;
+   display: block;
+}
+
+#wp-calendar caption {
+  text-align: center;
+  width: 100%;
+  font: bold 1.3em 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  text-decoration: none;
+}
+
+#wp-calendar th {
+  font-style: normal;
+  text-transform: capitalize;
+}
+
+#wp-calendar td {
+  padding: 3px 0;
+  text-align: center;
+}
+
+#wp-calendar td.pad:hover {
+  background-color: #fff;
+}
+
+/*========================================================*/
+
+#footer {
+  color: #bbb;
+}
+
+#footer a {
+  color: #ddd;
+}
