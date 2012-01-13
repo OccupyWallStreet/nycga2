@@ -21,7 +21,7 @@ define ( 'BP_GROUP_FILES_DB_VERSION', '3' );
 
 //allow override of URL slug
 if ( !defined( 'BP_GROUP_DOCUMENTS_SLUG' ) )
-	define ( 'BP_GROUP_DOCUMENTS_SLUG', 'documents' );
+	define ( 'BP_GROUP_DOCUMENTS_SLUG', 'files' );
 
 //we must hook this on to an action, otherwise it will get called before bp-custom.php
 function bp_group_documents_set_constants() {
