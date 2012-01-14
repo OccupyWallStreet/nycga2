@@ -21,6 +21,9 @@ define( 'BBDB_HOST', 'localhost' );
  * Other environment specific constants
  */
 
+// Text for "ENVIRONMENT" Tab
+define( 'ENV_TAB', 'DEV ENVIRONMENT' );
+
 // Only change this on production sites!
 define( 'IS_LOCAL_ENV', true );
 
