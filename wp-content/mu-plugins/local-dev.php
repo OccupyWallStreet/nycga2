@@ -35,7 +35,7 @@ if ( defined( 'IS_LOCAL_ENV' ) && IS_LOCAL_ENV ) :
 		</style>
 
 		<div id="local-env-flag">
-			DEV ENVIRONMENT
+		<?php echo ENV_TAB ?>
 		</div>
 
 		<?php
