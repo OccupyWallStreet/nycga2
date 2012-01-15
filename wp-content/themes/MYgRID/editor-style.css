@@ -1,0 +1,196 @@
+html .mceContentBody {
+    max-width: 540px;
+}
+* {
+	font-family: verdana, arial;
+	font-size: 1.0em;
+	border: 0;
+	color: #111;
+	line-height: 1.5em;
+}
+a, a:link, a:visited{
+	color: #006bff;
+	text-decoration: none;
+}
+a:hover, a:active {
+	color: #00a60c;
+	text-decoration: underline;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+h1 {
+	font-size: 1.9em;
+	margin: 30px 0 0 0;
+	color: #444;
+}
+h2 {
+	font-size: 1.7em;
+	margin: 25px 0 0 0;
+	padding: 0;
+	color: #444;
+}
+h3 {
+	font-size: 1.5em;
+	margin: 20px 0 0 0;
+	color: #444;
+}
+h4 {
+	font-size: 1.3em;
+	margin: 15px 0 0 0;
+	color: #444;
+}
+h5 {
+	font-size: 1.2em;
+	margin: 10px 0 0 0;
+	color: #444;
+	font-weight: bold;
+}
+h6 {
+	font-size: 1.0em;
+	margin: 5px 0 0 0;
+	color: #444;
+	font-weight: bold;
+}
+p {
+	margin: 5px 0 15px 0;
+}
+ul {
+	list-style: square inside;
+	margin: 0 0 20px 1.5em;
+}
+ol {
+	list-style: decimal inside;
+	margin: 0 0 20px 1.5em;
+}
+ol ol {
+	list-style: upper-alpha inside;
+}
+ol ol ol {
+	list-style: lower-roman inside;
+}
+ol ol ol ol {
+	list-style: lower-alpha inside;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+	margin-bottom: 5px;
+	font-size: 1.0em;
+}
+dl {
+	margin: 10px 0 20px 0;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin-bottom: 20px;
+}
+strong {
+	font-weight: bold;
+}
+cite,
+em,
+i {
+	font-style: italic;
+}
+big {
+	font-size: 1.3em;
+}
+ins {
+	padding: 1px 2px;
+	background: #ffa;
+	text-decoration: none;
+}
+code, pre {
+	padding: 3px 8px;
+	margin: 0 1px;
+	background: #eeeeee;
+	color: #222 !important;
+	font-size: 0.9em;
+	font-family: Monospace, "Courier New", Courier;
+}
+del, strike, s{
+	text-decoration: line-through;
+}
+pre {
+	font-family: "Courier 10 Pitch", Courier, monospace;
+}
+small {
+	font-size: 0.7em;
+}
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+sup,
+sub {
+	height: 0;
+	line-height: 1;
+	position: relative;
+	vertical-align: baseline;
+	font-size: 0.8em;
+}
+sup {
+	bottom: 1ex;
+}
+sub {
+	top: .5ex;
+}
+var, kbd, tt {
+	font-size: 1.1em;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+}
+blockquote {
+	margin-left: 30px;
+	padding: 15px;
+	font-size: 1.1em;
+	font-weight: normal;
+	font-style: italic;
+	text-align: justify;
+	color: #666;
+}
+blockquote:before { 
+	content:open-quote;
+	color: #777;
+	font-size: 3.0em;
+	line-height: 15px;
+	float: left;
+	margin-left: -40px;
+	font-family: "Times New Roman";
+}
+blockquote:after{ 
+	content:close-quote;
+	color: #777;
+	font-size: 3.0em;
+	line-height: 15px;
+	float: right;
+	margin-top: -10px;
+	font-family: "Times New Roman";
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 1px solid #ddd;
+	margin: 20px 0;
+	text-align: left;
+	width: 100%;
+}
+tr th,
+thead th {
+	color: #555;
+	font-size: 1.0em;
+	font-weight: bold;
+	line-height: 1.0em;
+	padding: 5px 15px;
+}
+tr td {
+	border-top: 1px solid #ddd;
+	padding: 5px 15px;
+}
+tr.odd td {
+	background: #eee;
+}

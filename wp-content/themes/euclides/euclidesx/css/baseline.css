@@ -1,0 +1,136 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td { margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent; }
+blockquote,q { quotes:none; }
+blockquote:before,blockquote:after,q:before,q:after { content:''; content:none; }
+:focus { outline:0; }
+
+/* basic rules */
+body { font:14px/20px "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif; }
+h1 { font-size:40px; }
+h2 { font-size:40px; }
+h3 { font-size:30px; }
+h4 { font-size:26px; }
+h5 { font-size:20px; }
+h6 { font-size:16px; }
+h1,h2,h3,h4,h5,h6 { line-height:1; letter-spacing:-1px; }
+a {  text-decoration:none; }
+abbr,acronym { border-bottom-width:0; }
+strong { font-weight:bold; }
+em { font-style:italic; }
+ins { text-decoration:none; }
+del { text-decoration:line-through; }
+.alignleft { float:left; }
+.alignright { float:right; }
+.text { border:none; padding:8px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; }
+textarea { border:none; padding:8px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; }
+fieldset { margin-bottom:10px; }
+
+/* clearfix */
+.group:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+
+/* structure */
+#page { width:980px; margin:0 auto; }
+#header { position:relative; padding:20px 0 40px 0; margin-bottom:40px;  }
+#posts { float:left; width:640px; }
+#sidebar { float:right; width:300px; }
+
+/* logo */
+#logo { margin:30px 0; }
+#logo a { display:block; font-size:60px; font-weight:bold; line-height: 1; letter-spacing:-1px;  }
+#logo em { font:normal 11px Georgia,serif; letter-spacing:1px; text-transform:uppercase; }
+
+/* navigation */
+#nav { padding:10px 0 0 10px; }
+#nav ul { list-style: none; }
+.main-nav ul { position:absolute; top:-999em; width:15em; }
+.main-nav ul li { width:100%; }
+.main-nav li:hover { visibility:inherit; }
+.main-nav li { float:left; position:relative; z-index:2000; }
+.main-nav a { display:block; position:relative; padding:0 .6em .7em; text-decoration:none; }
+.main-nav li a { font-size:14px; text-transform:uppercase; }
+.main-nav li ul { background:#3a404c; }
+.main-nav li li a { font-weight:normal; text-transform:none; padding:10px;  }
+.main-nav li li a:hover { background:none; }
+.main-nav li:hover ul,.main-nav li.sfHover ul { left:5px; top:2.1em; z-index:99; }
+.main-nav li:hover li ul,.main-nav li.sfHover li ul { top:-999em; }
+.main-nav li li:hover ul,.main-nav li li.sfHover ul { left:16em; top:0; }
+.main-nav li li:hover li ul,.main-nav li li.sfHover li ul { top:-999em; }
+.main-nav li li li:hover ul,.main-nav li li li.sfHover ul { left:15em; top:0; }
+.main-nav a.sf-with-ul { min-width:1px; }
+.main-nav ul a:focus > .sf-sub-indicator,.main-nav ul a:hover > .sf-sub-indicator,.main-nav ul a:active > .sf-sub-indicator,.main-nav ul li:hover > a > .sf-sub-indicator,.main-nav ul li.sfHover > a > .sf-sub-indicator { background-position:-10px 0; }
+
+/* post */
+.post { margin-bottom:80px;  }
+.post a:hover { text-decoration:underline; }
+.post h1 a:hover,.post h2 a:hover,.post-footer a:hover { text-decoration:none; }
+.post h2,.post h3,.post h4,.post h5 { margin-bottom:15px; }
+.post p { margin-bottom:15px; }
+.post ol,.post ul { margin-bottom:15px; }
+.post .alignleft { margin:5px 15px 15px 0; }
+.post .alignright { margin:5px 0 15px 15px; }
+.date { margin:20px 0; font:normal 12px Georgia,serif; font-style:italic; }
+.tags { margin-bottom:10px; }
+.post .post-thumb {  padding:10px 10px 20px; margin:0 20px 20px 0; }
+.post-footer { clear:both; position:relative; padding:15px 0; }
+.post-footer a { font-weight:bold; }
+.more { position:absolute; top:15px; right:0; }
+.meta { clear:both; margin-bottom:25px; line-height:1; }
+.meta p {  float:left; width:405px; padding:25px 0; margin-bottom:0; }
+.meta ul { list-style:none; float:right; width:215px; margin-top:27px; font-size:12px; font-weight:bold; }
+.meta ul li { padding-bottom:5px; }
+.meta ul li span { font:normal 12px Georgia,serif; font-style:italic; }
+.meta-button { display:inline-block; height:58px; padding:0 10px 0 0; line-height:1; margin-right:25px;  }
+.meta-button span { display:inline-block; height:18px; padding:20px 30px 20px 40px;text-align:center; font-size:18px; font-weight:bold; }
+.meta-button:hover,.meta-button:hover span { text-decoration:none!important; }
+
+/* related posts */
+#related { margin:50px 0 10px; padding:25px 0; }
+#related ul { list-style:none; }
+#related ul li { float:left; width:194px; margin-right:29px; }
+#related ul li.last { margin-right:0; }
+#related ul li img {  padding:5px 5px 15px 7px; }
+#related a { display:block; padding-left:1px; }
+
+/* comments */
+.post-comments { margin:5px 0 20px; padding-top:25px; line-height:1.5; }
+.post-comments ul,.post-comments ol { list-style:none; }
+.comment-text { padding:15px 0; }
+.comment-copy { margin-left:110px; padding-bottom:10px; }
+.comment-meta { font-size:12px; margin-bottom:5px; }
+.avatar { float:left; margin-top:5px; }
+.depth-2,.depth-3,.depth-4,.depth-5 { margin-left:110px; }
+.btn-reply { display:inline-block; }
+
+/* form */
+#form-wrapper { margin-top:40px; padding-top:25px; }
+.post-form { margin-bottom:30px; }
+.post-form h2 { margin-bottom:30px; }
+.post-form label { display:block; }
+textarea { width:90%; height:140px; }
+
+/* paging */
+#paging { margin-bottom:30px; }
+
+/* sideblock */
+.block { margin-bottom:40px; }
+.block ul { list-style:none; }
+.block h3 {font-size:18px; padding:14px 0; margin-bottom:15px;  }
+.block p { font-size:12px; margin-bottom:10px; }
+
+/* newsletter */
+#newsletter .text { width:284px; }
+
+/* latest posts */
+.ci_category_latest li { padding-bottom:10px; }
+.ci_category_latest h4 { font-size:18px; }
+.ci_category_latest .date { margin:5px 0; }
+
+/* ads125 */
+#ads125 li { float:left; }
+#ads125 li a { display:block; margin:0 20px 20px 0; }
+#ads125 li.last a { margin:0 0 20px; }
+#ads125 li a img { display:block; }
+
+/* footer */
+#footer-wrap { background:#3a404c; }
+#footer { width:980px; margin:0 auto; }
+#footer p { padding:10px 0;  font-size:11px; }

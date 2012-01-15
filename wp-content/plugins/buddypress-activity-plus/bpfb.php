@@ -97,11 +97,11 @@ function bpfb_plugin_init () {
 	require_once(BPFB_PLUGIN_BASE_DIR . '/lib/class_bpfb_binder.php');
 	require_once(BPFB_PLUGIN_BASE_DIR . '/lib/class_bpfb_codec.php');
 	// Group Documents integration
-	//if (defined('BP_GROUP_DOCUMENTS_IS_INSTALLED') && BP_GROUP_DOCUMENTS_IS_INSTALLED) {
-		//require_once(BPFB_PLUGIN_BASE_DIR . '/lib/bpfb_group_documents.php');
+	if (defined('BP_GROUP_DOCUMENTS_IS_INSTALLED') && BP_GROUP_DOCUMENTS_IS_INSTALLED) {
+		require_once(BPFB_PLUGIN_BASE_DIR . '/lib/bpfb_group_documents.php');
 	}
 	do_action('bpfb_init');
 	BpfbBinder::serve();
-
+}
 // Only fire off if BP is actually loaded.
 add_action('bp_loaded', 'bpfb_plugin_init');
