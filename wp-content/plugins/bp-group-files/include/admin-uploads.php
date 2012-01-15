@@ -105,7 +105,7 @@ function bp_group_documents_check_uploads_submit($msg_fmt = true) {
 			$document->name = $_POST['file'];
 		}
 		$document->description = apply_filters('bp_group_documents_description_in', $_POST['description']);
-		$current_path = WP_PLUGIN_DIR . '/buddypress-group-documents/uploads/' . $_POST['file'];
+		$current_path = WP_PLUGIN_DIR . '/bp-group-files/uploads/' . $_POST['file'];
 
 		if( rename( $current_path, $document->get_path(0,1))) {
 			if( $document->save(false)) {//passing false tells it not to look for uplaods

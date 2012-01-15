@@ -1,33 +1,34 @@
 <?php
 /*
 Plugin Name: BP Group Files
-PLugin URI: http://wordpress.org/extend/plugins/buddypress-group-documents/
-Description: This BuddyPress component creates a document storage area within each group
-Version: 0.4.0
-Revision Date: Sept 28, 2011
+PLugin URI: http://www.nycga.net
+Description: Fork of BuddyPress Group Documents Plugin, originally by Peter Anselmo, for NYCGA.net.  Now Multisite compatible, this plugin creates a Files tab and document storage area within each group.
+Version: 1.0
+Revision Date: December 28, 2011
 Requires at least: WPMU 3.0, BuddyPress 1.5
 Tested up to: WP 3.2.1, BuddyPress 1.5
 License: Example: GNU General Public License 2.0 (GPL) http://www.gnu.org/licenses/gpl.html
-Author: Peter Anselmo, Studio66
-Author URI: http://code-zen.net/
+Author: Rachel Baker
+Author URI: http://www.rachelbaker.me
 Network: true
 */
 
 //some constants that can be checked when extending this plugin
-define ( 'BP_GROUP_DOCUMENTS_IS_INSTALLED', 1 );
-define ( 'BP_GROUP_DOCUMENTS_VERSION', '0.4.0' );
-define ( 'BP_GROUP_DOCUMENTS_DB_VERSION', '3' );
+define ( 'BP_GROUP_FILES_IS_INSTALLED', 1 );
+define ( 'BP_GROUP_FILES_VERSION', '1.0' );
+define ( 'BP_GROUP_FILES_DB_VERSION', '3' );
+
 
 //allow override of URL slug
 if ( !defined( 'BP_GROUP_DOCUMENTS_SLUG' ) )
-	define ( 'BP_GROUP_DOCUMENTS_SLUG', 'documents' );
+	define ( 'BP_GROUP_DOCUMENTS_SLUG', 'files' );
 
 //we must hook this on to an action, otherwise it will get called before bp-custom.php
 function bp_group_documents_set_constants() {
 
 	//This is where to look for admin bulk uploads
 	if( !defined( 'BP_GROUP_DOCUMENTS_ADMIN_UPLOAD_PATH') )
-		define ( 'BP_GROUP_DOCUMENTS_ADMIN_UPLOAD_PATH', WP_PLUGIN_DIR . '/buddypress-group-documents/uploads/');
+		define ( 'BP_GROUP_DOCUMENTS_ADMIN_UPLOAD_PATH', WP_PLUGIN_DIR . '/bp-group-files/uploads/');
 
 	//Widgets can be set to only show documents in certain (site-admin specified) groups
 	if( !defined( 'BP_GROUP_DOCUMENTS_WIDGET_GROUP_FILTER' ) )
@@ -112,7 +113,7 @@ function bp_group_documents_install() {
 	require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
 	dbDelta($sql);
 
-	update_site_option( 'bp-group-documents-db-version', BP_GROUP_DOCUMENTS_DB_VERSION );
+	update_site_option( 'bp-group-documents-db-version', BP_GROUP_FILES_DB_VERSION );
 }
 
 

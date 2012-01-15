@@ -337,7 +337,7 @@ class BP_Group_Documents {
 					$document_url = BP_GROUP_DOCUMENTS_FILE_URL . $this->file;
 
 				} else { //if not there, check legacy location
-					$document_url = WP_PLUGIN_URL . '/buddypress-group-documents/documents/' . $this->file;
+					$document_url = WP_PLUGIN_URL . '/bp-group-files/documents/' . $this->file;
 				}
 			}
 		}
@@ -386,7 +386,7 @@ class BP_Group_Documents {
 
 			/* if not there, check legacy default */
 			else
-				$document_path = WP_PLUGIN_DIR . '/buddypress-group-documents/documents/' . $this->file;
+				$document_path = WP_PLUGIN_DIR . '/bp-group-files/documents/' . $this->file;
 		}
 
 		return apply_filters( 'bp_group_documents_file_path', $document_path, $this->group_id, $this->file );
@@ -471,7 +471,7 @@ class BP_Group_Documents {
 			if( !isset( $icons[$extension] ) )
 				return false;
 
-			$img_folder = WP_PLUGIN_URL . '/buddypress-group-documents/images/icons/';
+			$img_folder = WP_PLUGIN_URL . '/bp-group-files/images/icons/';
 
 			$img_url = $img_folder . $icons[$extension];
 
