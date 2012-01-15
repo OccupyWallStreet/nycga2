@@ -99,6 +99,10 @@ Sure! I do this in my free time and I appreciate all donations that I get. It ma
 
 == Changelog ==
 
+= v6.3.4 =
+
+* **DailyMotion:** Fix incorrect fallback URL. A slash was missing. Props [Sutherland Boswell](http://sutherlandboswell.com/) for [findind the bug]((http://wordpress.org/support/topic/plugin-video-thumbnails-thumnail-not-found-for-dailymotion-videos).
+
 = v6.3.3 =
 
 * **General:** A couple CSS tweaks and Javascript improvements thanks to Andrew Ozz (azaozz).
@@ -494,6 +498,9 @@ This is a hotfix version to address WordPress 2.5 plus some bugfixes and such. A
 * Inital release.
 
 == Upgrade Notice ==
+
+= 6.3.4 =
+DailyMotion bug fix.
 
 = 6.3.3 =
 Various minor editor improvements thanks to Andrew Ozz (azaozz).

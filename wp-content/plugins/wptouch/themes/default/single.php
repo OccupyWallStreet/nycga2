@@ -23,9 +23,9 @@
 	</div>
 
 		<div class="clearer"></div>
-			<?php wptouch_include_adsense(); ?>
+			<?php wptouch_include_ads(); ?>
 
-         <div class="post" id="post-<?php the_ID(); ?>">
+        	<div class="post" id="post-<?php the_ID(); ?>">
          	<div id="singlentry" class="<?php echo $wptouch_settings['style-text-justify']; ?>">
             	<?php the_content(); ?>				
 			</div>  

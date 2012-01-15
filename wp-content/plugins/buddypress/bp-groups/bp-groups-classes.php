@@ -266,7 +266,7 @@ Class BP_Groups_Group {
 
 		$sql = array();
 
-		$sql['select'] = "SELECT DISTINCT g.*, gm1.meta_value AS total_member_count, gm2.meta_value AS last_activity";
+		$sql['select'] = "SELECT g.*, gm1.meta_value AS total_member_count, gm2.meta_value AS last_activity";
 		$sql['from']   = " FROM {$bp->groups->table_name_groupmeta} gm1, {$bp->groups->table_name_groupmeta} gm2,";
 
 		if ( !empty( $user_id ) )

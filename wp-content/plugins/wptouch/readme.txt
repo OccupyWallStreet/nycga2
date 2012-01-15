@@ -3,25 +3,25 @@ Contributors: bravenewcode, duanestorey, dalemugford
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=paypal%40bravenewcode%2ecom&item_name=WPtouch%20Beer%20Fund&no_shipping=0&no_note=1&tax=0&currency_code=CAD&lc=CA&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: wptouch, iphone, ipod, theme, apple, mac, bravenewcode, ajax, mobile, android, blackberry, smartphone, 
 Requires at least: 3.0
-Tested up to: 3.3
-Stable tag: 1.9.35
+Tested up to: 3.3.1
+Stable tag: 1.9.37
 
 WPtouch: A simple, powerful and elegant mobile theme for your website.
 
-WPtouch automatically transforms your WordPress blog into an iPhone application-style theme, complete with ajax loading articles and effects, when viewed from an iPhone, iPod touch, Android, Opera Mini, Palm Pre and BlackBerry Storm mobile devices.
+WPtouch automatically transforms your WordPress website into an application-like theme, complete with ajax loading articles and effects when viewed from the most popular mobile web browsing devices like the iPhone, iPod touch, Android mobile devices, Palm Pre/Pixi and BlackBerry OS6 mobile devices.
 
 *Now includes .pot file for translations (submit yours @ http://www.bravenwcode.com/contact)*
 
 *Now Available: WPtouch Pro!*
 Totally re-written top to bottom, with a slew of new features like more style, color and branding customizations, themes, 10 languages, more advertising options, Web-App mode, and more!
 
-Awesome iPad theme support is now available in WPtouch Pro 2.1!!!
+Awesome iPad theme support is now available in WPtouch Pro, now at version 2.5!
 
 For more information visit http://www.bravenewcode.com/wptouch-pro
 
 == Description ==
 
-WPtouch automatically transforms your WordPress blog into an iPhone application-style theme, complete with ajax loading articles and effects, when viewed from iPhone, iPod touch, Android, Palm Pre, Samsung touch and BlackBerry Storm/Torch mobile devices.
+WPtouch automatically transforms your WordPress website into an application-like theme, complete with ajax loading articles and effects when viewed from the most popular mobile web browsing devices like the iPhone, iPod touch, Android mobile devices, Palm Pre/Pixi and BlackBerry OS6 mobile devices.
 
 The admin panel allows you to customize many aspects of its appearance, and deliver a fast, user-friendly and stylish version of your site to touch mobile visitors, without modifying *a single bit of code* (or affecting) your regular desktop theme.
 
@@ -30,13 +30,22 @@ The theme also includes the ability for visitors to switch between *WPtouch* vie
 *Now Available: WPtouch Pro!*
 Totally re-written top to bottom, with a slew of new features like more style, color and branding customizations, themes, 10 languages, more advertising options, Web-Application mode, and more!
 
-Awesome iPad theme support is now available in WPtouch Pro 2, now at 2.4!!!
+Awesome iPad theme support is now available in WPtouch Pro, now at version 2.5!
 
 For more information visit http://www.bravenewcode.com/wptouch-pro
 
 'WPtouch' and 'WPtouch Pro' are trademarks of BraveNewCode Inc.
 
 == Changelog ==
+
+= Version 1.9.37 =
+
+* Added: More CSS prefixes for Mozilla/Opera browsers
+* Added: Social Share plugin hiding
+* Changed: Layout of advertising section
+* Changed: Removed fixed header option for iOS5— it's half-baked and not fully working correctly yet
+* Fixed: Issue with ordered lists
+* Fixed: Issue with Login/My Account tab always showing in some situations
 
 = Version 1.9.35 =
 
@@ -720,37 +729,36 @@ For more information visit http://www.bravenewcode.com/wptouch-pro
 == Installation ==
 
 = 2.8 and Older =
-Sorry, we do not officially support installations on WordPress 2.8 or older. You can use WPtouch versions 1.9.3.4 or previous on these installations, however.
+Sorry, we do not officially support installations on WordPress 2.9 or older. You can use WPtouch versions 1.9.3.4 or previous on these installations, however.
 
 = 2.9, 3.0+ =
-You can install *WPtouch* directly from the WordPress admin! Visit the *Plugins/Add New* page and search for 'WPtouch'. Click to install.
+You can install *WPtouch* directly from the WordPress admin! Visit the *Plugins - > Add New* page and search for 'WPtouch'. Click to install.
 
 Once installed and activated visit the WPtouch admin page (*Settings/WPtouch*) to customize your WPtouch installation's appearance.
 
 = WordPress MU/Multisite =
 
-The best way to use WPtouch on WordPress Multisite Installations is to do so via the "Activate WPtouch Site Wide" link in the plugins area.
-
-* Install WPtouch, either manually or via the "Add New" option in the plugins menu
-* Ensure that you have site wide plugins enabled in the Site Admin / Options menu
-* On the plugin configuration page activate WPtouch as a site wide plugin by clicking the "Activate WPtouch iPhone Theme Site Wide" link.  If WPtouch is already activated, deactivate it first.
-
-You can also checkout our brand new Support Forums at http://www.bravenewcode.com/support/ to post questions and learn tips and tricks for *WPtouch* and our other plugins.
-
+The best way to use WPtouch on WordPress Multisite Installations is to do so via the *Activate WPtouch Site Wide* (2.9) or *Network Activate* link in the plugins area.
 
 == Frequently Asked Questions ==
 
-= I thought the iPhone/iPod touch/Pre/Storm/Android shows my website fine the way it is now? =
+= I thought most touch smartphones show my website fine the way it is now? =
 
-Yes, that's true for the most part. However, not all websites are created equal, with some sites failing to translate well in the viewport of a small mobile device. Many WordPress sites today make heavy use of different javascript files which significantly increase the load time of pages, and drive your visitors on 3G/EDGE batty. So we've come up with *WPtouch*, a lightweight, fast-loading, feature-rich and highly-customized "theme application" which includes an admin interface to let you customize many aspects of your site's presentation.
+Yes, that's true in general. However *not all websites are created equal, with some sites significantly failing to translate well in small mobile device viewports. 
+
+Many WordPress sites today also make heavy use of a variety of javascript, css and image files which significantly increase load times, in turn driving visitors on data connections crazy, often causing them to abandon your site altogether. 
+
+So we created *WPtouch* to be a lightweight, fast-loading, feature-rich mobile plugin to add a theme shown to mobile visitors. The plugin includes an admin panel for customizing many aspects of your site's presentation when showing the mobile theme.
 
 = Well, what if my users don't like it and want to see my regular site? =
 
-There's a mobile switch option in the footer on *WPtouch* for your users with browsers that support cookies to easily switch between the *WPtouch* view and your site's regular appearance. It's that easy. We even automatically put a little snippet of code into your current theme which will be shown only to iPhone, iPod touch, Android or BlackBerry touch mobile device visitors, giving them control to switch between the two site themes easily.
+There's a theme switch in the footer area of *WPtouch* for your visitors to easily switch between the *WPtouch* view and your site's regular appearance. 
+
+We even automatically put a little snippet of code into your current desktop theme which will be shown only to iPhone, iPod touch, Android or BlackBerry touch mobile device visitors, giving them control to switch between the two themes easily.
 
 = Will it slow down my blog, or increase my server load? =
 
-Not bloody likely! Unless of course you're getting slammed with all sorts of traffic because you've installed this sexy plugin. The entire theme files footprint for *WPtouch* is small. It was designed to be as lightweight and speedy as possible, while still serving your site's content in a richly presented way, sparing no essential features like search, login, categories, tags, comments etc.
+No. The entire *WPtouch* footprint is small. In fact, it should reduce load, because of its streamlined approach to serving optimized content to mobile visitors. It was designed to be as lightweight and speedy as possible, while still serving your site's content in a richly presented way, sparing no essential features like search, login, categories, tags, comments etc.
 
 == Screenshots ==
 

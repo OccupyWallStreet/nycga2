@@ -1,9 +1,9 @@
-/* @override 
-	http://beta.bravenewcode.com/wordpress/wp-content/plugins/wptouch/admin-css/wptouch-admin.css
-	http://www.bravenewcode.com/wordpress/wp-content/plugins/wptouch/admin-css/wptouch-admin.css
-*/
-
 /* WPtouch 1.9 Admin CSS */
+
+.left-content p {
+	color: #777;
+	line-height: 1.4em;
+}
 
 /* @group head-area.php */
 
@@ -17,7 +17,7 @@
 
 #wptouch-head #wptouch-head-colour {
 	background-color: #d7ebf7;
-	padding: 10px;
+	padding: 10px 10px 0;
 	margin: -10px -10px -20px;
 }
 
@@ -132,11 +132,11 @@
 #wptouch-news-support li {
 	border-bottom: 1px solid #e6e6e6;
 	margin: 0;
-	padding: 5px 0 5px 12px;
+	padding: 8px 0 8px 12px;
 	list-style-type: disc;
 	list-style-position: inside;
 	color: #c1cfd1;
-	width: 80%;
+	width: 78%;
 	text-indent: -12px;
 }
 
@@ -241,7 +241,7 @@ em.supported {
 	height: auto;
 }
 
-#bnc-global ul.wptouch-iconblock li {
+#bnc-global .right-content ul.wptouch-iconblock li {
 	width: 80px;
 	color: #666;
 	font-size: 9px;
@@ -371,6 +371,15 @@ em.supported {
 	margin-left: -1px;
 }
 
+#bnc-global .wptouch-pages ul.pages {
+	max-height: 500px;
+	overflow: scroll;
+	margin-top: 50px;
+	border: 2px solid #eee;
+	width: 100%;
+	padding: 10px;
+}
+
 /* @end */
 
 /* @group ads-stats-area.php */
@@ -380,7 +389,6 @@ textarea#wptouch-stats {
 	-moz-border-radius: 5px;
 	width: 95%;
 	margin-left: 5px;
-	margin-top: 45px;
 	height: 100px;
 	margin-bottom: 15px;
 	color: #444;
@@ -529,5 +537,20 @@ textarea#wptouch-stats {
 	margin-top: 6px;
 	margin-left: 33px;
 }
+
+/* @end */
+
+/* @group New Styling */
+
+#bnc-global .new-styles .right-content {
+	padding-bottom: 25px;
+	margin-top: 20px;
+}
+
+#bnc-global .right-content ul li {
+	padding-bottom: 3px;
+	padding-top: 3px;
+}
+
 
 /* @end */
