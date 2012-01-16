@@ -1,0 +1,325 @@
+/*
+Theme Name: Yoko
+
+Adding support for language written in a Right To Left (RTL) direction is easy -
+it's just a matter of overwriting all the horizontal positioning attributes
+of your CSS stylesheet in a separate stylesheet file named rtl.css.
+
+http://codex.wordpress.org/Right_to_Left_Language_Support
+
+*/
+
+/* General Structure and Styles
+--------------------------------------------- */
+body {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+#page {
+	margin: 12px auto;
+	padding:0 30px 30px;
+}
+#wrap {
+	margin:4px 0 0;
+	padding:40px 0;
+}
+#main {
+	float: right;
+}
+#content {
+	float: right;
+}
+#secondary {
+	margin-right:7.054%;
+	float: right;
+}
+#tertiary {
+	float: left;
+}
+#colophon {
+	float: right;
+	padding:30px 0 0;
+}
+.aligncenter, div.aligncenter {
+	margin-right: auto;
+	margin-left: auto;
+}
+.alignleft {
+	float: right;
+}
+.alignright {
+	float: left;
+}
+/* Lists
+--------------------------------------------- */
+#content .post ul, #content .page ul  {
+	padding:7px 30px 7px 0;
+}
+#content .post ul li, #content .page ul li {
+	padding:0 0 12px;
+}
+#content .post ol, #content .page ol  {
+	padding:7px 30px 7px 0;
+}
+#content .post ol li, #content .page ol li {
+	padding:0 0 12px;
+}
+#content dt {
+	padding: 10px 5px 5px;
+}
+#content dd {
+	padding: 0 15px 10px 0;
+}
+/* Header
+--------------------------------------------- */
+#site-title h1 {
+	margin: 0 0 0 10px;
+	float: right;
+}
+/* Navigations
+--------------------------------------------- */
+/* --- Main Nav --- */
+#branding #mainnav {
+	float:left;
+}
+#branding #mainnav ul li {
+	float: right;
+}
+#branding #mainnav ul li a {
+	margin:0 8px 0 0;
+	padding:9px 12px;
+}
+/* --- Sub Nav --- */
+nav#subnav ul.menu li.menu-item {
+	float: right;
+}
+/* Posts
+--------------------------------------------- */
+#content .entry-details {
+	padding: 2px 0 0 18px;
+	float: right;
+}
+#content .entry-content {
+	float: left;
+}
+.page-link a {
+	margin: 0 1px;
+}
+/* --- Post Typography --- */
+#content .post blockquote {
+	margin: 0 0 10px 20px;
+}
+#content blockquote cite {
+	margin: 10px 0 0 0;
+	padding: 0 0 15px 25px;
+	float: left;
+}
+/* --- Post Images and Video --- */
+#content img.aligncenter {
+	margin: 20px auto;
+}
+#content img.alignleft ,#content .wp-caption.alignleft {
+	margin: 10px 0 10px 20px;
+}
+#content img.alignright,#content .wp-caption.alignright {
+	margin: 10px 20px 10px 0;
+}
+#content img.alignnone {
+	margin: 20px 0;
+}
+/* Single Posts
+--------------------------------------------- */
+#content .single-entry-details {
+	padding: 0 0 0 18px;
+	float: right;
+}
+#content .single-entry-content {
+	float: right;
+}
+#content .post .author-info .avatar {
+	margin: 0 0 0 15px;
+	float: right;
+}
+/* --- Post Nav Below --- */
+#content #nav-below .nav-previous a {
+	float: right;
+}
+#content #nav-below .nav-next a {
+	float: left;
+}
+/* --- Comments --- */
+#content #comments ol li.depth-2, #content #comments ol li.depth-3, #content #comments ol li.depth-4, #content #comments ol li.depth-5 {
+	margin:0 35px 0 0;
+}
+.reply {
+	float:right;
+}
+#comments ol li img.avatar {
+	margin:22px 0 0 15px;
+	float:right;
+}
+/* --- Comment Reply --- */
+a#cancel-comment-reply-link {
+	float:left;
+}
+input#submit {
+	margin: 10px 0 0;
+	padding: 9px 8px 8px;
+	display: inline-block;
+	vertical-align: baseline;
+}
+/* Post Formats
+--------------------------------------------- */
+#content .entry-link, #content .entry-gallery {
+	float: right;
+}
+/* --- Video and Gallery Post Format --- */
+#content .entry-gallery .entry-content-gallery {
+	float: right;
+}
+#content .entry-gallery .gallery-thumb {
+	float: right;
+	margin: 5px 0 15px 15px;
+}
+/* WordPress Image Gallery
+--------------------------------------------- */
+#content .post .gallery {
+	margin: auto;
+	padding:5px 0;
+}
+#content .post .gallery .gallery-item {
+	float: right;
+	margin: 0 0 10px 10px;
+	text-align: center;
+	vertical-align: top;
+}
+#content .post .gallery .gallery-caption {
+	margin-right: 0;
+}
+/* --- Standard Sidebar Widgets --- */
+.widget_categories ul li ul.children li, .widget_nav_menu ul li ul.sub-menu li, .widget_pages ul li ul.children li {
+	margin: 0 20px 0 0;
+}
+.widget_recent_entries ul, .widget_recent_comments ul {
+	padding: 0 15px 0 0;
+}
+.widget_calendar #wp-calendar caption {
+	text-align: right;
+}
+.widget_calendar table#wp-calendar th, .widget_calendar table#wp-calendar td {
+	padding: 0 0 6px 6px;
+}
+/* --- Search Widget --- */
+.searchform {
+	float: right;
+}
+#tertiary .searchform .search-input {
+	margin: 0 0 5px 2px;
+}
+.searchform .search-input {
+	margin: 0 0 5px 2px;
+}
+/* --- Recent Comments Widget --- */
+.widget_get_recent_comments li.sidebar-comment .comment-content {
+	padding:0 6px 0 0;
+}
+.widget_get_recent_comments .kjgrcGravatar {
+	float:right;
+}
+/* --- Flickr Fotostream Widget --- */
+.flickr_badge_image {
+	margin:0 0 6px 6px;
+	float:right;
+}
+
+/* Media queries for responsive design
+--------------------------------------------- */
+/* --- iPad Landscape --- */
+@media screen and (max-width: 1024px) {
+/* --- General --- */
+#page {
+	margin: 0 auto;
+	padding: 0 30px 30px;
+}
+#main {
+	float: right;
+}
+#content {
+	float: right;
+}
+#tertiary {
+	float: left;
+}
+/* --- Sub Nav --- */
+nav#subnav ul.menu li.menu-item {
+	float: right;
+}
+/* --- Sidebars --- */
+#secondary {
+	margin-right:0;
+	float: right;
+}
+.widget .sidebar-theme {
+	margin: 0 0 8px 20px;
+	float: right;
+}
+.widget .rss-widget ul li, .widget_archive ul li, .widget_categories ul li, .widget_social_links ul li, .widget_meta ul li, .widget_links ul li {
+	margin: 0 0 0 20px;
+	float: right;
+}
+}
+
+/* --- iPad Portrait --- */
+@media screen and (max-width: 880px) {
+#page {
+	padding: 0 50px 30px 50px;
+}
+/* --- Header --- */
+#site-title h1 a {
+	margin: 0 auto;
+}
+/* --- Main Nav --- */
+#branding #mainnav ul li a {
+	margin: 0 4px 0 0;
+}
+/* --- Sub Nav --- */
+nav#subnav ul.menu li.menu-item a {
+	float: right;
+	margin: 6px 10px 10px 20px;
+}
+nav#subnav ul.menu li.menu-item ul.sub-menu {
+	float: right;
+}
+nav#subnav ul.menu li.menu-item ul.sub-menu li.menu-item {
+	float: right;
+}
+nav#subnav ul.menu li.menu-item ul.sub-menu li.menu-item a {
+	margin: 0 0 0 20px;
+}
+/* --- Post Content --- */
+#content .entry-content {
+	float: right;
+}
+}
+/* --- Smartphones and small Tablet PCs --- */
+@media screen and (max-width : 620px) {
+#page {
+	padding: 0 20px 20px;
+}
+/* --- Header --- */
+#site-title {
+	float: right;
+}
+/* --- Sub Nav --- */
+nav#subnav ul.menu li.menu-item a {
+	float: right;
+}
+/* --- Post Nav Below --- */
+#content #nav-below .nav-next a {
+	text-align: left;
+}
+/* --- Post Formats ---- */
+#content .entry-gallery .gallery-thumb {
+	margin: 5px 0 15px 15px;
+}
+}

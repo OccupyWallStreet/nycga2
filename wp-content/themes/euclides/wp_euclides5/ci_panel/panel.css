@@ -1,0 +1,52 @@
+/* basic rules */
+#ci_panel { font:14px/20px "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif; }
+#ci_panel h1 { font-size:28px; }
+#ci_panel h2 { font-size:24px; }
+#ci_panel h3 { font-size:20px; }
+#ci_panel h4 { font-size:16px; }
+#ci_panel h5 { font-size:12px; }
+#ci_panel h6 { font-size:11px; }
+#ci_panel p { margin-bottom:10px; }
+#ci_panel a { text-decoration:none; }
+#ci_panel ul li { padding:0; margin:0; }
+#ci_panel abbr,acronym { border-bottom-width:0; }
+#ci_panel strong { font-weight:bold; }
+#ci_panel em { font-style:italic; }
+#ci_panel ins { text-decoration:none; }
+#ci_panel del { text-decoration:line-through; }
+
+/* clearfix */
+.group:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+* html .group { height: 1%; }
+.group { min-height: 1px; }
+
+/* panel styles */
+#ci_panel { width:700px; -moz-box-shadow:5px 5px rgba(0,0,0,0.1); -webkit-box-shadow:5px 5px rgba(0,0,0,0.1); }
+#ci_main { background:#fff; border-left:solid 1px #ddd;}
+#ci_sidebar { width:199px; float:left;}
+#ci_sidebar ul li a { display:block; outline:0; font-size:14px; padding:11px 20px; background:#f1f1f1; color:#222; text-shadow:1px 1px #fff; font-weight:bold; border-bottom:solid 1px #ddd; position:relative; }
+#ci_sidebar ul li a:hover { background:#e0e0e0; }
+#ci_sidebar ul li a.active { display:block; padding:11px 20px; background:#3a3a3a url(img/pointer.png) no-repeat top right; border-bottom:none; color:#ffcc00; text-shadow:1px 1px #000; width:170px; }
+#ci_options { width:458px; float:right; padding:13px 20px; border-left:solid 1px #ddd; border-right:solid 1px #ddd; min-height:500px; }
+.ci_save { background:#111; padding:10px 20px; border-top:solid 1px #404040; text-align: right;}
+#ci-reset-box { width:660px; text-align:right; padding:20px 40px 0 22px; }
+#ci_panel .success { position:fixed; top:0; left:0; width:100%; z-index:100; padding:14px; color:#fff; background:red; font-weight:bold; text-align:center; }
+#ci_panel .resetbox { position:fixed; top:0; left:0; width:100%; z-index:100; padding:14px; color:#fff; background:red!important; font-weight:bold; text-align:center; }
+#ci_panel .up-preview { margin:10px 0; }
+
+/* field styles */
+.tab { font-size:12px; }
+.tab label { display:block; margin-bottom:3px; font-weight:bold; }
+.tab input, .tab textarea { margin-bottom:10px; width:456px;}
+.tab p.guide { background:#fffce6; padding:10px; margin-top:0; border:solid 1px #eeeac9; }
+.tab input.radio { float:left; width:30px; clear:both; vertical-align:middle; }
+.tab input.check { float:left; width:30px; clear:both; vertical-align:middle; }
+.tab .set { margin-bottom:20px; }
+
+/* theme info */
+#ci-theme-info { margin:20px 0 40px 0; width:700px; color:#f1f1f1; -moz-box-shadow:5px 5px rgba(0,0,0,0.1); -webkit-box-shadow:5px 5px rgba(0,0,0,0.1); }
+.ci-theme-meta { width:100%; border-top:solid 1px #4c4c4c; }
+.ci-theme-meta tr.odd td { background:#333; }
+.ci-theme-meta td { background:#444; padding:10px; border-bottom:solid 1px #4c4c4c; font:bold 12px "Helvetica Neue", Helvetica, Tahoma, Arial, Verdana, sans-serif; }
+.ci-theme-meta td a { color:#ffcc00; text-decoration:none; }
+.ci-theme-meta td.cell-title { width:30%; font-weight:normal; }
