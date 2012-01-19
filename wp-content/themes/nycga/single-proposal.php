@@ -1,3 +1,9 @@
+<?php
+/*
+Template Name: Single Proposal
+*/
+?>
+
 <?php get_header() ?>
 	<div id="content">
 		<div class="padder">
