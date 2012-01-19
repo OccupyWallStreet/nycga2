@@ -1,0 +1,329 @@
+/* @override 
+	http://labs.dagensskiva.com/trunk/wp-content/plugins/more-fields/more-plugins/more-plugins.css
+	http://labs.dagensskiva.com/trunk/wp-content/plugins/more-types/more-plugins/more-plugins.css
+	http://labs.dagensskiva.com/trunk/wp-content/plugins/more-types/more-plugins/more-plugins.css
+	http://labs.dagensskiva.com/trunk/wp-content/plugins/more-taxonomies/more-plugins/more-plugins.css
+	http://labs.dagensskiva.com/trunk/wp-content/plugins/more-plugins.css
+*/
+
+#more-plugins
+{
+}
+
+	#more-plugins .inside
+	{
+		padding: 6px 6px 8px;
+	}
+
+
+#more-plugins .form-table
+{
+	
+}
+
+	#more-plugins .form-table th,
+	#more-plugins .form-table td
+	{
+		padding: .5em 0;
+	}
+	
+		#more-plugins .more-advanced-settings .form-table th,
+		#more-plugins .more-advanced-settings .form-table td
+		{
+			padding: .5em .75em .75em;
+		}
+
+	#more-plugins .form-table th
+	{
+/*		padding: 0; */
+	}
+
+	#more-plugins .form-table td
+	{
+/*		padding: 0; */
+	}
+
+
+#more-plugins .widefat
+{
+	clear: none;
+}
+
+	#more-plugins .widefat tfoot th
+	{
+		
+	}
+
+		#more-plugins .widefat tfoot th p
+		{
+			margin: 0;
+			text-align: right;
+		}
+	
+
+ul.subsubsub.mp {
+	float: none;
+	display: block;
+}
+
+#more-plugins table.form-table label
+{
+	display: block;
+}
+
+#more-plugins table.form-table caption
+{
+	font-style: normal;
+	color: #929292;
+	text-align: left;
+	padding: 5px 10px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#more-plugins table.form-table em
+{
+	display: block;
+	font-style: normal;
+	color: #929292;
+	font-size: 11px;
+}
+
+
+ul.subsubsub.mp li {
+	border-left: 1px solid #ccc;
+	padding: 0 .5em;
+}
+
+ul.subsubsub.mp li:first-child {
+	padding-left: 0;
+	border-left: none;
+}
+
+#more-plugins .input-text
+{
+	width: 250px;
+}
+
+#more-plugins textarea
+{
+	width: 250px;
+}
+
+	#more-plugins textarea.readonly
+	{
+		width: 100%;
+	}
+
+
+#more-plugins select
+{
+	width: 250px;
+}
+
+/* @group More Plugins Admin */
+
+#more-plugins-box dl
+{
+    margin: 0;
+}
+
+#more-plugins-box dt
+{
+	font-weight: bold;
+}
+
+#more-plugins-box dd
+{
+	font-style: normal;
+	color: #929292;
+	font-size: 11px;
+	margin-bottom: 0;
+	margin-left: 0;
+}
+
+#more-plugins-box h3 em
+{
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	margin-left: 3px;
+}
+
+
+/* @end */
+
+
+/* @group more-plugins-edit menu */
+
+#more-plugins-edit
+{
+	overflow: hidden;
+	margin-top: .5em;
+}
+
+	#more-plugins-edit li
+	{
+		float: left;
+		background: #fdfdfd;
+		position: relative;
+
+		line-height: 14px;
+		font-size: 11px!important;
+		text-shadow:rgba(0,0,0,0.1) 0 -1px 0 !important;
+		font-weight: bold;
+
+		border: 1px solid #bbb;
+		-moz-border-radius-topright: 1em;
+		-moz-border-radius-bottomright: 1em;
+		-webkit-border-top-right-radius: 1em;
+		-webkit-border-bottom-right-radius: 1em;
+		color:#464646;
+
+		margin-right: -1em;
+		padding: .4em 1em .4em 1.75em;
+	}
+	
+		#more-plugins-edit a
+		{
+			color: #464646;
+			text-decoration: none;
+		}
+
+			#more-plugins-edit a:before
+			{
+/*				content: "« "; */
+			}
+
+	#more-plugins-edit li:first-child
+	{
+		z-index: 30;
+		background: #f1f1f1;
+		padding-left: .75em;
+		padding-right: 1em;
+		-moz-border-radius-topleft: 1em;
+		-webkit-border-top-left-radius: .25em;
+		-webkit-border-bottom-left-radius: .25em;
+	}
+
+	#more-plugins-edit li:nth-child(2)
+	{
+		z-index: 20;
+		background: #fafafa;
+	}
+
+	#more-plugins-edit li:nth-child(3)
+	{
+		z-index: 10;
+		background: #fdfdfd;
+	}
+
+/* @end */
+
+/* @group advanced-settings */
+
+.more-plugins-advanced-settings
+{
+	margin: 1em 0 1em;
+}
+
+h3.more-advanced-settings-toggle
+{
+	border-width:1px 1px 0;
+	border-style: solid solid none;
+	padding: 0;
+	overflow: hidden;
+	border-color: #e3e3e3;
+	line-height: 1;
+}
+
+	h3.more-advanced-settings-toggle a
+	{
+		display:block;
+		line-height:18px;
+		padding: 5px 0 5px 5px;
+		text-decoration: none;
+		background: #f1f1f1 url(images/menu-bits.gif) repeat-x scroll left -379px;
+		height: 18px;
+	}
+
+	h3.more-advanced-settings-toggle a:hover
+	{
+		color:#d54e21;
+	}
+
+h3.more-advanced-settings-toggle a span
+{
+	background: transparent url(images/menu-bits.gif) no-repeat scroll left -115px;
+	display: block;
+	width:22px;
+	clear:right;
+	float:right;
+	margin:1px 0 0;
+	height:18px;
+	padding:1px 2px 0 0;
+	text-indent: -9999px;
+
+}
+
+	.more-advanced-settings
+	{
+		background-color:#fff;
+		border-style: none solid solid;
+		border-width: 1px;
+		border-color: #e1e1e1;
+		background: #fff url(images/menu-bits.gif) repeat-x scroll left -379px;
+		padding: .25em 0 .5em;
+		display: none;
+	}
+	
+		.more-advanced-settings table
+		{
+			margin-top: 0;
+		}
+#more-plugins .widefat tr.disabled
+{
+       color: #ccc;
+}
+
+#more-plugins .widefat caption h3,
+#more-plugins .widefat caption p
+{
+       text-align: left;
+       line-height: 1.5;
+       margin: 0 0 0 9px;
+       color: #999;
+}
+#more-plugins .widefat thead th:first-child
+{
+	width: 35%;
+} 
+#more-plugins .widefat thead th:last-child
+{
+	width: 35%;
+} 
+#more-plugins .widefat caption h3
+{
+       padding: 9px 0 0 0;
+       margin-top: 0;
+       color: black;
+}
+
+#more-plugins .widefat caption p
+{
+       padding: 0 0 2px 0;
+       font-size: 10px;
+}
+
+#more-plugins .widefat tr.disabled td
+{
+        color: #999;
+}
+
+.mf_field_wrapper.wysiwyg table
+{
+	background: #fff;
+}
+
+/* @end */
+
