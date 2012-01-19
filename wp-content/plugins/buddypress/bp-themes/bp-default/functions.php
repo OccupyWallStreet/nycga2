@@ -139,7 +139,7 @@ if ( !function_exists( 'bp_dtheme_enqueue_scripts' ) ) :
  */
 function bp_dtheme_enqueue_scripts() {
 	// Bump this when changes are made to bust cache
-	$version = '20111013';
+	$version = '20120110';
 
 	// Enqueue the global JS - Ajax will not work without it
 	wp_enqueue_script( 'dtheme-ajax-js', get_template_directory_uri() . '/_inc/global.js', array( 'jquery' ), $version );
@@ -153,7 +153,9 @@ function bp_dtheme_enqueue_scripts() {
 		'show_all'          => __( 'Show all', 'buddypress' ),
 		'comments'          => __( 'comments', 'buddypress' ),
 		'close'             => __( 'Close', 'buddypress' ),
-		'view'              => __( 'View', 'buddypress' )
+		'view'              => __( 'View', 'buddypress' ),
+		'mark_as_fav'	    => __( 'Favorite', 'buddypress' ),
+		'remove_fav'	    => __( 'Remove Favorite', 'buddypress' )
 	);
 
 	wp_localize_script( 'dtheme-ajax-js', 'BP_DTheme', $params );
@@ -178,8 +180,9 @@ if ( !function_exists( 'bp_dtheme_enqueue_styles' ) ) :
  * @since 1.5
  */
 function bp_dtheme_enqueue_styles() {
+	
 	// Bump this when changes are made to bust cache
-	$version = '20111013';
+	$version = '20120110';
 
 	// Register our main stylesheet
 	wp_register_style( 'bp-default-main', get_template_directory_uri() . '/_inc/css/default.css', array(), $version );
@@ -204,7 +207,7 @@ function bp_dtheme_enqueue_styles() {
 			wp_enqueue_style( 'bp-default-responsive-rtl', get_template_directory_uri() . '/_inc/css/responsive-rtl.css', array( 'bp-default-responsive' ), $version );
 	}
 }
-add_action( 'wp_print_styles', 'bp_dtheme_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'bp_dtheme_enqueue_styles' );
 endif;
 
 if ( !function_exists( 'bp_dtheme_admin_header_style' ) ) :

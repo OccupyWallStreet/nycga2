@@ -3,8 +3,8 @@ Contributors: j.conti,maxidirienzo,InTouchSystem
 Author URI: http://wangguard.com
 Tags: wangguard, wgg, sploggers, splog, anti-splog, user spam, anti spam users, anti-spam, spam blog, spam blogs, wordpress, buddypress, wpmu, wordpress mu, wordpress multisite, standard WordPress, registration, security, security questions, plugin, sign up, signup, spam, wp-login.php, wp-signup.php, wp-register.php, register, registration, protect, protect registration, block agents, block ip, blog secure, bots, secure blog, secure wordpress, secure wp, website security, wp secure, wp security, block users, block user, block, block emails, block e-mails, block domains, block bots, block bot, bp, captcha, no captcha, recaptcha, unwanted users, block unwanted users, block splog, black hat, blackhat, bbpress, clean, clean database, clean splog, clean users, untrusted, untrusted users
 Requires at least: 2.8
-Tested up to: 3.3
-Stable tag: 1.2.3.1
+Tested up to: 3.3.1
+Stable tag: 1.2.4
 License: GPLv2
 
 Check your registered users against WangGuard web service to avoid Sploggers, is fully WordPress,WordPress MU ,BuddyPress and bbPress 2.0 compatible.
@@ -12,17 +12,29 @@ Check your registered users against WangGuard web service to avoid Sploggers, is
 
 == Description ==
 
-Welcome to WangGuard, Welcome to the revolution
+= Welcome to WangGuard, Welcome to the revolution =
 
-Over 1,110,000 Splogger/unwanted users blocked in just 7 months!
+[Please, read the WangGuard's philosophy](http://wangguard.org/2011/12/26/welcome-to-wangguard-welcome-to-the-revolution/)
+
+WangGuard works by incorporating an antivirus philosophy.
+
+WangGuard Always will be free for personal use, this means that whenever you have less than 500 daily registrations or you make less than $200/month, you never have to pay anything for WangGuard.
+
+Over 1,200,000 Splogger/unwanted users blocked in just 7 months!
 
 WangGuard already is blocking 99.90% of sploggers and unwanted users.
 
 [What are users and Sploggers saying?](http://wordpress.org/extend/plugins/wangguard/other_notes/)
 
+[Did you find a bug?](http://bugs.wangguard.org)
+[Do you want to translate WangGuard?](http://translate.wangguard.org)
+[Do you have an Idea for WangGuard?](http://feedback.wangguard.org)
+
 
 = Advice =
 
+ * If you are using W3 Total Cache and you have enabled HTML&XML Minify and you use BuddyPress or a custom registration page. Please, go to Performance -> Minify -> Advanced -> "Never minify the following pages:" and add you registration page. If you dont do this, you could have some issues.
+ 
  * WangGuard NOT protect your site from comment spam, WangGuard protect your registration page from sploggers, unwanted users and untrusted users and WangGuard clean your database from them . For comment spam, you have another great plugin, [Akismet](http://wordpress.org/extend/plugins/akismet/).
 
  * WangGuard protect the standard WordPress, WordPress Multisite, BuddyPress and bbPress 2.0 registration forms. If you use custom registration page, maybe WangGuard will not work. If you use a plugin or custom registration page, once you've installed WangGuard, test if it works. if it doesn't work, talk with the plugin developer or with your developer to make it compatible or use the standard WordPress, WordPress Multisite, BuddyPress or bbPress 2.0 signup form.
@@ -35,9 +47,8 @@ If you have signup enabled on your Standard WordPress, WordPress MU, WordPress M
 
 WangGuard not only protect your site from sploggers, spam users or unwanted users, WangGuard cleans your database from them. No plugin or service does this, only with WangGuard you will get this feature.
 
-Free Api Key for personal use
 
-Now Free to everyone for a limited time!
+Now Free to everyone for a limited time!. Who make more than $200/month, need more than 500 API Queries/month or a company they not have to pay anything until at least June 2012, being able to extend until 2013. We will not charge anything until we develop everything that we want to develop and be the best service by far.
 
 
 = Introduction to WangGuard: =
@@ -91,7 +102,6 @@ No need to put any kind of filter in the user registration page (eg captcha). Th
  * Protect BuddyPress registration page against Web Service from Sploggers, spam-user or unwanted users
  * Protect bbPress 2.0 registration page against Web Service from Sploggers, spam-user or unwanted users
  * Anti-splog Web Service.
- * Free API key for personal use.
  
 
 = WordPress Simple Features =
@@ -208,9 +218,27 @@ If you flag manually a user as Splogger, the user will be reported to WangGuard 
 
 == Frequently Asked Questions ==
 
+
+= What do you mean with Personal use? =
+
+This means that whenever you have less than 500 daily registrations, you make less than $200/month or you are not a company, you never have to pay anything for WangGuard.
+
+
+= What do you mean with Limited Time? =
+
+Who make more than $200/month, need more than 500 API Queries/month or is a company they not have to pay anything until at least June 2012, being able to extend until 2013. We will not charge anything until we develop everything that we want to develop and be the best service by far.
+
+
+= If I am a personal user, Why I need an API Key? =
+
+The API is that your site can talk to our server. If you have connected your site with other services like Facebook or Twitter services (also free) you're using API keys also, but they put other names to the API Key. We need to know who is connecting to our server for security reasons.
+
+
+
 = Can I use WangGuard on non-multisites WordPress Installs (Standard WordPress)? =
 
 Yes, absolutely. Only the WangGuard plugin and its associated web service will help to protect the registration page of your WordPress Standard, WordPress Multisite, or BuddyPress from sploggers and unwanted users.
+
 
 = Is this plugin available in other languages? =
 
@@ -238,12 +266,20 @@ Please read [Translating WordPress](http://codex.wordpress.org/Translating_WordP
 If you need another localization, please feel free to [contact us](http://www.wangguard.com/contact)
 
 
-= Is wangguard a free service? =
+= Is WangGuard a free service? =
 
-It is free for personal use. If you earn more than $200 with your site or you are a company, you must pay a very small fee. Now WangGuard are Free to everyone for a limited time!. Use this time to perform all the tests you want and determine the effectiveness of WangGuard.
+It is free for personal use. If you earn more than $200/month with your site or you are a company, you must pay a very small fee. Now WangGuard are Free to everyone for a limited time!. Use this time to perform all the tests you want and determine the effectiveness of WangGuard.
 
 
 == Changelog ==
+
+= 1.2.4 - 12 Jan 2011 =
+- Fix minor compatibility issue with BuddyPress 1.5.2 and 1.5.3 on register page.
+- When running on jQuery 1.7.1 (WordPress 3.3+), the plugin doesn't uses the deprecated live() functions, instead it uses the new on() function to hook certain events.
+- Revamped plugin configuration look and feel.
+
+= 1.2.3.2 - 5 Jan 2011 =
+- Fix minor compatibility issue with W3C Total Cache when the HTML output was minified.
 
 = 1.2.3.1 - 13 Dec 2011 =
 - Fix issue in users screen. When WangGuard is installed with s2member plugin, the columns added by the s2member plugin didn't display the value for each.
@@ -321,7 +357,11 @@ It is free for personal use. If you earn more than $200 with your site or you ar
 
 == What say people? ==
 
+
+
 = What say users? =
+
+[Verasoul](http://www.verasoul.com/2011/12/como-mantener-wordpress-libre-de-sploggers.html) Como mantener wordpress libre de sploggers.
 
 [Zaddick Blog:](http://zaddick.net/blog/best-spam-free-wordpress-buddypress-plugin/) WangGuard is the best plugin I have found to altogether eliminate spammers and sploggers from your WordPress and BuddyPress site.
 

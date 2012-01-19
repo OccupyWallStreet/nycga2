@@ -39,14 +39,11 @@ a.wangguard-recheck {
 	color: #d54e21;
 }
 
-#wangguard-questions {
-	border-top: 1px solid #cFcFcF;
-	border-bottom: 1px solid #cFcFcF;
-}
 .wangguard-question {
-	padding: 10px 0;
-	margin-top: 10px;
-	border-top: 1px solid #cFcFcF;
+	padding: 15px 10px;
+	margin-bottom: 15px;
+	border: 1px solid #d0d0d0;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 #wangguardnewquestionerror {
@@ -132,4 +129,116 @@ li#wangguard-report-menu-noop {
 	width: 97% !important;; 
 	height: 500px !important;; 
 	margin:0 auto !important;;
+}
+
+#wangguard-tabs {
+	display: block;
+	border-bottom: 1px solid #c3c3c3 !important; 
+	height: 30px;
+	margin-bottom: 0px;
+	margin-top: 15px;
+}
+#wangguard-tabs li {
+	float: left !important;
+	list-style: none outside none;
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	white-space: nowrap;
+	border: 1px solid #d0d0d0;
+	
+	background: #ededed; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ededed 0%, #d0d0d0 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ededed), color-stop(100%,#d0d0d0)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ededed 0%,#d0d0d0 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ededed 0%,#d0d0d0 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ededed 0%,#d0d0d0 100%); /* IE10+ */
+	background: linear-gradient(top,  #ededed 0%,#d0d0d0 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#d0d0d0',GradientType=0 ); /* IE6-9 */
+	
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	margin-right: 5px;
+}
+#wangguard-tabs li:hover {
+	background: #d0d0d0; /* Old browsers */
+	background: -moz-linear-gradient(top,  #d0d0d0 0%, #ededed 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d0d0d0), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #d0d0d0 0%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #d0d0d0 0%,#ededed 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #d0d0d0 0%,#ededed 100%); /* IE10+ */
+	background: linear-gradient(top,  #d0d0d0 0%,#ededed 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0d0d0', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+}
+#wangguard-tabs li a {
+	display: inline-block;
+	padding: 0.5em 1em;
+	text-decoration: none;
+}
+#wangguard-tabs li.ui-tabs-selected {
+	background: url("../../../wp-admin/images/button-grad.png") repeat-x scroll left top #21759B !important;
+	filter:none;
+    border-color: #298CBA;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+	
+}
+#wangguard-tabs li.ui-tabs-selected a {
+	color: #fff;
+	font-weight:bold;
+}
+
+#wangguard-tabs-container {
+	border: 1px solid #d0d0d0;
+	border-top: 0;
+	padding: 10px 20px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.wangguard-input {
+	padding: 6px;
+	border: 1px solid #b0b0b0 !important;
+	width: 300px;
+}
+
+.wangguard-info {
+	background-color: #EEDC94;
+    background-image: -moz-linear-gradient(center top , #FCEEC1, #EEDC94);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+    color: #404040;
+    margin-bottom: 18px;
+    padding: 7px 15px;
+    position: relative;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.wangguard-info a {
+	color: #404040 !important;
+}
+.wangguard-success {
+    background-color: #57A957;
+    background-image: -moz-linear-gradient(center top , #62C462, #57A957);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	color: #fff;
+	font-weight:bold;
+}
+.wangguard-error {
+    background-color: #C43C35;
+    background-image: -moz-linear-gradient(center top , #EE5F5B, #C43C35);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	color: #fff;
+	font-weight:bold;
 }

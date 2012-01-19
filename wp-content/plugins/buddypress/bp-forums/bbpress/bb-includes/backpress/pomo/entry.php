@@ -2,12 +2,12 @@
 /**
  * Contains Translation_Entry class
  *
- * @version $Id: entry.php 588 2010-12-16 19:31:04Z nbachiyski $
+ * @version $Id: entry.php 115 2009-05-11 18:56:15Z nbachiyski $
  * @package pomo
  * @subpackage entry
  */
 
-if ( !class_exists( 'Translation_Entry' ) ):
+
 /**
  * Translation_Entry class encapsulates a translatable string
  */
@@ -46,6 +46,7 @@ class Translation_Entry {
 			return;
 		}
 		// get member variable values from args hash
+		$object_varnames = array_keys(get_object_vars($this));
 		foreach ($args as $varname => $value) {
 			$this->$varname = $value;
 		}
@@ -65,11 +66,5 @@ class Translation_Entry {
 		// prepend context and EOT, like in MO files
 		return is_null($this->context)? $this->singular : $this->context.chr(4).$this->singular;
 	}
-	
-	function merge_with(&$other) {
-		$this->flags = array_unique( array_merge( $this->flags, $other->flags ) );
-		$this->references = array_unique( array_merge( $this->references, $other->references ) );
-		$this->extracted_comments .= $other->extracted_comments;
-	}
 }
-endif;
+?>

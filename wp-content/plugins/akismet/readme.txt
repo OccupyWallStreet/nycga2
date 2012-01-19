@@ -2,8 +2,8 @@
 Contributors: matt, ryan, andy, mdawaffe, tellyworth, josephscott, lessbloat, automattic
 Tags: akismet, comments, spam
 Requires at least: 3.0
-Tested up to: 3.1
-Stable tag: 2.5.3
+Tested up to: 3.3.1
+Stable tag: 2.5.5
 License: GPLv2 or later
 
 Akismet checks your comments against the Akismet web service to see if they look like spam or not.
@@ -30,6 +30,18 @@ Upload the Akismet plugin to your blog, Activate it, then enter your [Akismet.co
 1, 2, 3: You're done!
 
 == Changelog ==
+
+= 2.5.5 =
+* Add nonce check for comment author URL remove action
+* Fix the settings link
+
+= 2.5.4 =
+* Limit Akismet CSS and Javascript loading in wp-admin to just the pages that need it
+* Added author URL quick removal functionality
+* Added mShot preview on Author URL hover
+* Added empty index.php to prevent directory listing
+* Move wp-admin menu items under Jetpack, if it is installed
+* Purge old Akismet comment meta data, default of 15 days
 
 = 2.5.3 = 
 * Specify the license is GPL v2 or later

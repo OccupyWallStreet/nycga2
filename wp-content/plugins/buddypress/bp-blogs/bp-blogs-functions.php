@@ -160,8 +160,16 @@ function bp_blogs_record_post( $post_id, $post, $user_id = 0 ) {
 	if ( !$user_id )
 		$user_id = (int)$post->post_author;
 
-	// This is to stop infinite loops with Donncha's sitewide tags plugin
-	if ( !empty( $bp->site_options['tags_blog_id'] ) && (int)$blog_id == (int)$bp->site_options['tags_blog_id'] )
+	// Stop infinite loops with WordPress MU Sitewide Tags.
+	// That plugin changed the way its settings were stored at some point. Thus the dual check.
+	if ( !empty( $bp->site_options['sitewide_tags_blog'] ) ) {
+		$st_options = maybe_unserialize( $bp->site_options['sitewide_tags_blog'] );
+		$tags_blog_id = isset( $st_options['tags_blog_id'] ) ? $st_options['tags_blog_id'] : 0;
+	} else {
+		$tags_blog_id = isset( $bp->site_options['tags_blog_id'] ) ? $bp->site_options['tags_blog_id'] : 0;
+	}
+
+	if ( (int)$blog_id == $tags_blog_id && apply_filters( 'bp_blogs_block_sitewide_tags_activity', true ) )
 		return false;
 
 	// Don't record this if it's not a post
@@ -228,7 +236,7 @@ function bp_blogs_record_comment( $comment_id, $is_approved = true ) {
 		return false;
 
 	// Get the user_id from the comment author email.
-	$user    = get_user_by_email( $recorded_comment->comment_author_email );
+	$user    = get_user_by( 'email', $recorded_comment->comment_author_email );
 	$user_id = (int)$user->ID;
 
 	// If there's no registered user id, don't record activity
@@ -298,11 +306,10 @@ add_action( 'wp_set_comment_status', 'bp_blogs_manage_comment', 10, 2 );
 
 function bp_blogs_add_user_to_blog( $user_id, $role = false, $blog_id = 0 ) {
 	global $wpdb;
-
-	if ( empty( $blog_id ) && isset( $wpdb->blogid ) )
-		$blog_id = $wpdb->blogid;
-	else
-		$blog_id = bp_get_root_blog_id();
+	
+	if ( empty( $blog_id ) ) {
+		$blog_id = isset( $wpdb->blogid ) ? $wpdb->blogid : bp_get_root_blog_id();
+	}
 
 	if ( empty( $role ) ) {
 		$key = $wpdb->get_blog_prefix( $blog_id ). 'capabilities';
@@ -391,9 +398,9 @@ function bp_blogs_remove_comment( $comment_id ) {
 	global $wpdb, $bp;
 
 	// Delete activity stream item
-	bp_blogs_delete_activity( array( 'item_id' => $wpdb->blogid , 'secondary_item_id' => $comment_id, 'type' => 'new_blog_comment' ) );
+	bp_blogs_delete_activity( array( 'item_id' => $wpdb->blogid, 'secondary_item_id' => $comment_id, 'type' => 'new_blog_comment' ) );
 
-	do_action( 'bp_blogs_remove_comment', $blog_id, $comment_id, $bp->loggedin_user->id );
+	do_action( 'bp_blogs_remove_comment', $wpdb->blogid, $comment_id, $bp->loggedin_user->id );
 }
 add_action( 'delete_comment', 'bp_blogs_remove_comment' );
 

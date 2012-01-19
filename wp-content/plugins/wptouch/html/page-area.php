@@ -50,6 +50,8 @@
 				</select>
 				<?php _e( "Menu List Sort Order", "wptouch" ); ?>
 			</li>
+			</ul>
+			<ul class="pages">
 			<?php } ?>
 			<?php $pages = bnc_get_pages_for_icons(); ?>
 			<?php if ( count( $pages ) ) { ?>
