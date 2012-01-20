@@ -36,4 +36,14 @@ bp_core_redirect( "http://nycga.net/groups" );
 }
 add_action( 'bp_actions', 'bbg_redirect_from_inactive_group', 1 );
 
+
+//create filter for group queries
+
+function jdg_dont_show_inactive($sql) {
+		var_dump($sql);
+		}
+
+add_filter( 'bp_groups_get_total_groups_sql', 'jdg_dont_show_inactive');
+add_filter( 'bp_groups_get_paged_groups_sql', 'jdg_dont_show_inactive');
+
 ?>
