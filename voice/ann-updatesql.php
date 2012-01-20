@@ -23,8 +23,9 @@ $str = new MysqlStringEscaper;
 date_default_timezone_set('EST');
 $timenow = date("l M jS  h:i A");
 
-$mp3base = "http://voicetest.occupy.net/voice/voicefiles";
+$mp3base = "http://199.119.177.50/nycga411/audiofiles";
 $wavurl = $currentvm ;
+$wavurls = escapeshellcmd($wavurl); 
 $wavurl1 = strrchr($wavurl, "/");
 $wavurl2 = substr( $wavurl1, 1 );
 $wavurl3 = substr($wavurl2, 0, -4); 
@@ -67,6 +68,9 @@ mysql_select_db(constant("DB_NAME")) or die("Unable to select database"); //sele
 // Build SQL Query  
 mysql_query("INSERT INTO voice_log (currentseq, datetime, currentvm, callername, userid, callerid)
 VALUES ('{$str->$currentseq}', '{$str->$datetime}', '{$str->$currentvm}', '{$str->$callername}', '{$str->$userid1}', '{$str->$callerid}')");
+
+//$wget = "wget -P /var/www/nycga.net/web/voice/voicefiles http://voicetest.nycga.net/voice/convertwav.php?wavurl=$wavurls";
+//echo exec ($wget);
 
 
 ?>
