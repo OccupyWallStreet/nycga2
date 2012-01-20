@@ -1,0 +1,120 @@
+/*--------------------------------------------------------------------------------------------
+*
+*	ACF manage field groups
+*
+*--------------------------------------------------------------------------------------------*/
+#icon-edit {
+	background: url(../images/acf-icon-32.png) 0 0 no-repeat !important;
+}
+
+#toplevel_page_edit-post_type-acf .wp-menu-image { background: url("../../../../wp-admin/images/menu.png") no-repeat scroll 0 -1px transparent; }
+
+
+#acf-cols {
+	position: relative; clear: both;
+}
+
+#acf-col-left {
+	margin-right: 300px;
+}
+
+#acf-col-left .tablenav,
+#acf-col-left p.search-box {
+	display: none;
+}
+
+#acf-col-left form {
+	overflow: hidden; position: relative; clear: left;
+}
+
+#acf-col-right {
+	float: right; 
+	width: 281px; 
+	padding-top: 86px !important;
+}
+
+
+h3.h2 {
+	font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
+	font-size: 23px;
+    line-height: 29px;
+    padding: 9px 15px 4px 0;
+    margin: 0;
+    font-weight: normal;
+}
+
+h3.h2 span {
+	color: #ccc;
+}
+
+
+table.acf_activate {
+	border: #DFDFDF solid 1px;
+	border-collapse:separate; 
+	border-spacing:0; 
+	vertical-align:top; 
+	width: 100%;
+	background: #FEFEFE;
+}
+
+table.acf_activate tr:nth-child(even) {
+	background: #F9F9F9
+}
+
+table.acf_activate tr:nth-child(odd) {
+	background: transparent;
+}
+
+table.acf_activate tr.field_save {
+	background: #EAF2FA;
+}
+
+table.acf_activate tr td,
+table.acf_activate tr th {
+	padding: 8px;
+}
+
+table.acf_activate tr:last-child  td {
+	border-bottom: 0 none;
+}
+
+table.acf_activate tr td:last-child {
+	border-right: 0 none;
+}
+
+table.acf_activate input[type="text"] {
+	padding: 7px;
+	width: 200px;
+}
+
+table.acf_activate input[type="submit"] {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+/*--------------------------------------------------------------------------------------------
+	Columns
+--------------------------------------------------------------------------------------------*/
+.row-actions .inline {
+	display: none;
+}
+
+/*--------------------------------------------------------------------------------------------
+	Export
+--------------------------------------------------------------------------------------------*/
+
+#acf-screen-meta-form-1 {
+	float: left;
+	width: 48%;
+}
+
+#acf-screen-meta-form-1 select {
+	width: 99%;
+	height: 80px;
+	margin-bottom: 10px;
+}
+
+#acf-screen-meta-form-2 {
+	float: right;
+	width: 48%;
+}

@@ -1,0 +1,495 @@
+/*---------------------------------------------------------------------------------------------
+	Postbox
+---------------------------------------------------------------------------------------------*/
+#icon-edit {
+	background: url(../images/acf-icon-32.png) 0 0 no-repeat !important;
+}
+
+#toplevel_page_edit-post_type-acf .wp-menu-image { background: url("../../../../wp-admin/images/menu.png") no-repeat scroll 0 -1px transparent; }
+		
+#message p a {
+	display: none;
+}
+
+.postbox#acf_fields {
+	border: 0 none;
+}
+
+.postbox#acf_fields .handlediv {
+	display: none;
+}
+
+.postbox#acf_fields h3.hndle {
+	display: none;
+}
+
+.postbox#acf_fields .inside {
+	margin: 0;
+	padding: 0;
+}
+
+.postbox#acf_fields a {
+	text-decoration: none;
+}
+
+#minor-publishing,
+#misc-publishing-actions {
+	display: none;
+}
+
+/*---------------------------------------------------------------------------------------------
+	Table
+---------------------------------------------------------------------------------------------*/
+table.widefat.acf {
+	border: 0 none;
+	background: transparent none;
+}
+
+table.widefat.acf td {
+	border: 0 none;
+}
+
+.acf,
+.acf tr,
+.acf tr td {
+	vertical-align: top;
+}
+
+.acf tr th span {
+	color: #666;
+	font-size: 10px;
+	line-height: 1.2;
+	font-weight: normal;
+	text-shadow: 0 1px 0 #FFFFFF;
+}
+
+.acf tr td.field_order,
+.acf tr th.field_order  {
+ text-indent: 6px;
+}
+
+.acf tr td.field_order {
+	cursor: move;
+}
+
+.acf tr td.field_order,
+.acf tr th.field_order  {
+	width: 25%;
+}
+
+.acf tr td.field_label,
+.acf tr th.field_label  {
+	width: 25%;
+}
+
+.acf tr td.field_name,
+.acf tr th.field_name  {
+	width: 25%;
+}
+
+.acf tr td.field_type,
+.acf tr th.field_type  {
+	width: 25%;
+}
+
+.acf tr td {
+	background: transparent;
+    padding: 8px;
+    position: relative;
+    font-size: 12px;
+}
+
+
+
+
+/*---------------------------------------------------------------------------------------------
+	Fields Header
+---------------------------------------------------------------------------------------------*/
+.fields_header {
+	-moz-border-radius: 3px 3px 0 0; 
+	-webkit-border-radius: 3px 3px 0 0; 
+	-khtml-border-radius: 3px 3px 0 0; 
+	border-radius: 3px 3px 0 0; 
+	border: #DFDFDF solid 1px;
+	border-bottom: 0 none;
+}
+
+
+/*---------------------------------------------------------------------------------------------
+	Field Meta
+---------------------------------------------------------------------------------------------*/
+
+#acf_fields .field_meta {
+	position: relative;
+	overflow: hidden;
+}
+
+#acf_fields .field .field_meta {
+	border: #DFDFDF solid 1px;
+	border-top: 0 none;
+}
+
+#acf_fields .field .field_meta strong {
+	display: block;
+	padding-bottom: 6px;
+	font-size: 13px;
+	line-height: 13px;
+}
+
+#acf_fields .field .field_meta .row_options {
+	font-size: 12px;
+	line-height: 12px;
+	visibility: hidden;
+}
+
+#acf_fields .field .field_meta:hover .row_options {
+	visibility: visible;
+}
+
+#acf_fields .field.form_open > .field_meta {
+	background: #6e6e6e url(../images/backgrounds.png) 0 0 repeat-x;
+	color: #fff;
+	text-shadow: #000 0 1px 0;
+	border: #565656 solid 1px;
+	/*border-top: #565656 solid 1px;
+	border-left:0 none;
+	border-right:0 none;*/
+	
+}
+
+#acf_fields .field.form_open > .field_meta td,
+#acf_fields .field.form_open > .field_meta a {
+	color: #fff;
+}
+
+#acf_fields .field.form_open > .field_meta a:hover {
+	color: #ff8a4f;
+}
+
+#acf_fields .fields .field .field_meta .circle {
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	font-size: 11px;
+	line-height: 20px;
+	display: block;
+	float: left;
+	margin: 7px 0 0 7px;
+	text-indent: 0;
+	background: url(../images/backgrounds.png) 0 -100px no-repeat;
+}
+
+#acf_fields .fields .field:nth-child(2n) .field_meta .circle {
+	background-position: 0 -150px;
+
+}
+
+#acf_fields .field.form_open > .field_meta .circle {
+	background-position: 0 -50px !important;
+}
+
+
+.fields {
+	position: relative;
+	overflow: hidden;
+	background: #F5F5F5;
+}
+
+.fields .field {
+	position: relative;
+	overflow: hidden;
+	background: #F5F5F5;
+}
+
+.fields .field:nth-child(even) {
+	background: #FCFCFC;
+}
+
+.fields .field_clone {
+	display: none;
+}
+
+.fields .field:first-child {
+	border-top: 0 none;
+}
+
+.fields .field:last-child {
+	border-bottom: 0 none;
+}
+
+
+
+/*---------------------------------------------------------------------------------------------
+	Table Body - Fields
+---------------------------------------------------------------------------------------------*/
+.no_fields_message {
+	padding: 15px 10px;
+	text-shadow: #fff 0 1px 0;
+	border: #DFDFDF solid 1px;
+	border-top: #fff solid 1px;
+}
+
+
+/*---------------------------------------------------------------------------------------------
+	Table Footer
+---------------------------------------------------------------------------------------------*/
+#acf_fields .table_footer {
+	position: relative;
+	overflow: hidden;
+	padding: 8px;
+	background: #EAF2FA;
+	border: #c7d7e2 solid 1px;
+	border-top:0 none;
+}
+
+#acf_fields .table_footer .order_message {
+	background: url(../images/drag_and_drop_to_reorder.png);
+	width: 161px;
+	height: 23px;
+	float: left;
+	margin-left: 5px;
+}
+
+#acf_fields .table_footer a#add_field{
+	display: block;
+    float: right;
+    margin: 0;
+    text-align: center;
+    width: 70px;
+}
+
+.inline_metabox {
+	border: 0 none;
+	width: 100%;
+}
+
+.inline_metabox h3 {
+	border: 0 none;
+}
+
+/*---------------------------------------------------------------------------------------------
+	Field Options
+---------------------------------------------------------------------------------------------*/
+.field_options {
+	background: #DFDFDF;
+	position: relative;
+	overflow: hidden;
+}
+
+.field_options .field_option {
+	display: none;
+	position: relative;
+	overflow: hidden;
+	padding: 6px;
+}
+
+.field_options .field_option.open {
+	display: block;
+}
+
+.field_options .field_option table {
+	border: #CCCCCC solid 1px;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; -khtml-border-radius: 5px; border-radius: 5px; 
+}
+
+
+.field_save td {
+	line-height: 25px;
+}
+/*---------------------------------------------------------------------------------------------
+	Repeater
+---------------------------------------------------------------------------------------------*/
+.repeater { 
+	position: relative;
+}
+
+.field_options .field_option .repeater table {
+}
+
+table.acf_input tr td .acf tr td {
+	background: transparent;
+    padding: 8px;
+    position: relative;
+    font-size: 12px;
+    border: 0 none;
+}
+
+
+/*---------------------------------------------------------------------------------------------
+	Field Form
+---------------------------------------------------------------------------------------------*/
+.field_form {
+	border: #98b6cb solid 1px;
+	border-top: 0 none;
+	background: #accde4;
+	padding: 10px;
+	clear: both;
+	vertical-align: top;
+}
+
+.field_form table.acf_input {
+	border: #98b6cb solid 1px;
+	position: relative;
+	overflow: hidden;
+}
+
+.field_form table.acf_input tr.field_label td {
+	border-top: 0 none;
+}
+
+.field_form table.acf_input td {
+	background: transparent;
+	border-bottom-color: #DFDFDF;
+    border-top-color: #FFFFFF;
+}
+
+.field_form_mask {
+	display: none;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	clear: both;
+}
+
+.field_form .field_option {
+	display: none;
+}
+
+
+/*---------------------------------------------------------------------------------------------
+	Location
+---------------------------------------------------------------------------------------------*/
+
+.postbox#acf_location .inside {
+	margin: 0;
+	padding: 0;
+}
+
+.postbox#acf_location .widefat {
+	border: 0 none;
+}
+
+.postbox#acf_location h3 span.description {
+	font-size: 11px;
+	color: #666;
+	font-weight: normal;
+	font-style: normal;
+	padding-left: 4px;
+}
+
+table.acf_input > tbody > tr > td > select[multiple="multiple"] {
+    height: auto !important;
+}
+
+td.param {
+	width: 40%;
+}
+td.operator {
+	width: 20%;
+}
+
+/*---------------------------------------------------------------------------------------------
+	Location Rules
+---------------------------------------------------------------------------------------------*/
+.location_rules {
+	
+}
+
+table#location_rules {
+
+}
+
+table#location_rules tr {
+
+}
+
+table#location_rules tr td {
+	padding: 4px;
+	border: 0 none;
+}
+
+table#location_rules tr td:first-child {
+	padding-left: 0;
+}
+
+table#location_rules tr td:last-child {
+	padding-right: 0;
+}
+
+table#location_rules tr td.buttons {
+	width: 40px;
+	vertical-align: middle;
+}
+
+table#location_rules a.remove {
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: url(../images/button_remove.png) 0 0 no-repeat;
+	float: left;
+	margin-right: 4px;
+}
+
+table#location_rules a.remove:hover {
+	background-position: 0 100%;
+}
+
+table#location_rules a.remove.disabled {
+	opacity: 0.4;
+	background-position: 0 0 !important;
+	cursor: default;
+}
+
+table#location_rules a.add {
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: url(../images/button_add.png) 0 0 no-repeat;
+	float: left;
+}
+
+table#location_rules a.add:hover {
+	background-position: 0 100%;
+}
+
+.location_rules p select {
+	width: 50px;
+}
+
+table#location_rules tr td.value div {
+	display: none;
+}
+
+
+/*---------------------------------------------------------------------------------------------
+	Options
+---------------------------------------------------------------------------------------------*/
+
+.postbox#acf_options .inside {
+	margin: 0;
+	padding: 0;
+}
+
+.postbox#acf_options h3 span.description {
+	font-size: 11px;
+	color: #666;
+	font-weight: normal;
+	font-style: normal;
+	padding-left: 4px;
+}
+
+.postbox#acf_options ul.checkbox_list {
+	display: block;
+	float: left;
+	width: 300px;
+}
+
+.postbox#acf_options ul.checkbox_list li {
+	display: block;
+}
+
+ul.checkbox_list li input {
+	margin: 2px 5px 0 0;
+	vertical-align: top;
+} 
+

@@ -1,0 +1,621 @@
+/*---------------------------------------------------------------------------------------------
+	Post Box
+---------------------------------------------------------------------------------------------*/
+
+#poststuff .acf_postbox .inside {
+	margin: 0;
+	padding: 0;
+}
+
+.acf_postbox .field {
+	position: relative;
+	padding: 10px 10px;
+	border-top: 1px solid #fff;
+	border-bottom: #e8e8e8 solid 1px;
+}
+
+.acf_postbox .field:last-child {
+	border-bottom: none;
+}
+
+#poststuff .acf_postbox label.field_label {
+	display: block;
+	color: #21759B;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 20px 0 8px;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+#poststuff .acf_postbox label.field_label:first-child {
+	padding-top: 0;
+}
+
+#poststuff .acf_postbox p.instructions {
+	font-size: 11px;
+	margin: -6px 0 10px;
+	padding: 0;
+	color: #999;
+}
+
+/* no box style */
+#poststuff .acf_postbox.no_box {
+	border: 0 none;
+	background: transparent;
+}
+
+#poststuff .acf_postbox.no_box > h3,
+#poststuff .acf_postbox.no_box > .handlediv {
+	display: none;
+}
+
+#poststuff .acf_postbox.no_box .field {
+    border-bottom: 1px solid #F4F4F4;
+}
+
+
+/*---------------------------------------------------------------------------------------------
+	Basic Field Styles
+---------------------------------------------------------------------------------------------*/
+
+.acf_postbox .field  input[type="text"], 
+.acf_postbox .field  input[type="password"], 
+.acf_postbox .field  textarea,
+.acf_postbox .field  select{
+    width: 100%;
+	padding: 5px;
+	resize: none;
+}
+
+/*---------------------------------------------------------------------------------------------
+	Field: WYSIWYG
+---------------------------------------------------------------------------------------------*/
+
+.acf_wysiwyg .wp_themeSkin table.mceToolbarRow1 {
+    margin-top: 2px !important;
+}
+
+
+
+/*---------------------------------------------------------------------------------------------
+	Image Upload
+---------------------------------------------------------------------------------------------*/
+.acf_image_uploader {
+	position: relative;
+}
+
+.acf_image_uploader a.remove_image {
+	width: 16px;
+	height: 16px;
+	background: url(../images/button_remove.png) 0 0 no-repeat;
+	position: absolute;
+	top:0;
+	left: 0;
+	cursor: pointer;
+	margin: -3px 0 0 -3px;
+	display: none;
+}
+
+.acf_image_uploader.active:hover a.remove_image {
+	display: block;
+}
+
+.acf_image_uploader a.remove_image:hover  {
+	background-position: 0% 100%;
+}
+
+.acf_image_uploader img {
+	display: none;
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.acf_image_uploader.active img {
+	display: block;
+}
+
+.acf_image_uploader p {
+	display: block;
+	margin: 0 !important;
+}
+
+.acf_image_uploader.active p {
+	display: none;
+}
+
+/*---------------------------------------------------------------------------------------------
+	File Upload
+---------------------------------------------------------------------------------------------*/
+.acf_file_uploader {
+	position: relative;
+}
+
+.acf_file_uploader p {
+	margin: 0 !important;
+}
+
+.acf_file_uploader p.file {
+	display: none;
+}
+
+.acf_file_uploader p.no_file {
+	display: block;
+}
+
+.acf_file_uploader.active p.file {
+	display: block;
+}
+
+.acf_file_uploader.active p.no_file {
+	display: none;
+}
+
+
+/*---------------------------------------------------------------------------------------------
+	Repeater
+---------------------------------------------------------------------------------------------*/
+.repeater {
+	
+	
+}
+
+.repeater > table {
+
+}
+
+.repeater > table > tbody > tr > td {
+	background: transparent;
+    border-right: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
+    padding: 8px;
+    position: relative;
+}
+
+.repeater > table > tbody > tr:last-child td {
+	border-bottom: 0 none;
+}
+
+.repeater > table > tbody > tr td:last-child{
+	border-right: 0 none;
+}
+
+.repeater > table > tbody > tr:nth-child(even) {
+	background: #F9F9F9;
+}
+
+.repeater > table > tbody > tr:nth-child(odd) {
+	background: #FCFCFC;
+}
+
+.repeater > table > thead > tr > th {
+
+	border-right: 1px solid #e1e1e1;
+}
+
+.repeater > table > thead > tr > th:last-child {
+	border-right: 0 none;
+}
+
+.repeater > table > tbody > tr:hover a.remove_field {
+	visibility: visible;
+}
+
+.repeater.hide_remove_buttons > table > tbody > tr:hover a.remove_field {
+	visibility: hidden;
+}
+
+
+.repeater > table.row_layout > tbody > tr > td > label:first-child {
+	padding-top: 0;
+}
+
+a.remove_field {
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: url(../images/button_remove.png) 0 0 no-repeat;
+	visibility: hidden;
+}
+
+a.remove_field:hover {
+	background-position: 0 100%;
+}
+
+.repeater table tr td.order,
+.repeater table tr th.order{
+	width: 16px;
+	text-align: center;
+	vertical-align: middle;
+	color: #aaa;
+	text-shadow: #fff 0 1px 0;
+}
+
+.repeater table tr td.order {
+	cursor: move;
+}
+
+.repeater table tr td.remove,
+.repeater table tr th.remove {
+	width: 16px;
+	vertical-align: middle;
+}
+
+.repeater > table td.order a.order_up {
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: green;
+	margin: 0 auto;
+}
+
+.repeater > table td.order a.order_down {
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: red;
+	margin: 0 auto;
+}
+
+
+.repeater table tr td select {
+	width: 120px;
+	margin: 0;
+}
+
+.repeater .table_footer {
+	position: relative;
+	overflow: hidden;
+	padding: 8px 0;
+}
+
+.repeater .table_footer a#add_field{
+	display: block;
+    float: right;
+    margin: 0;
+    text-align: center;
+}
+
+#acf_input .wp_themeSkin tr.mceFirst td.mceToolbar {
+     
+}
+
+#poststuff #acf_input .wp_themeSkin .mceStatusbar {
+  
+}
+
+#wpcontent select[multiple] {
+	height: auto;
+}
+
+#wpcontent select optgroup {
+	padding: 0 2px
+}
+
+#wpcontent select optgroup option {
+	padding-left: 6px;
+}
+
+ul.checkbox_list {
+	background: transparent !important;
+}
+
+.repeater tr.row_clone {
+	display: none;
+}
+
+
+/*---------------------------------------------------------------------------------------------
+	In Box
+---------------------------------------------------------------------------------------------*/
+
+
+/*---------------------------------------------------------------------------------------------
+	relationship
+---------------------------------------------------------------------------------------------*/
+
+.acf_relationship {
+	position: relative;
+	overflow: hidden;
+}
+
+.acf_relationship .relationship_left {
+	width: 50%;
+	float: left;
+}
+
+.acf_relationship .relationship_right {
+	width: 50%;
+	float: left;
+}
+
+.acf_relationship .relationship_label {
+	font-size: 12px;
+	font-family: sans-serif;
+	color: #999;
+	position: absolute;
+	margin-top: 4px;
+	margin-left: 7px;
+}
+
+.acf_relationship .widefat {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.acf_relationship .widefat th {
+	border-bottom: 0 none;
+}
+
+
+.acf_relationship .relationship_search {
+	margin: 0;
+	font-size: 12px;
+	line-height: 13px;
+	padding: 5px;
+	border-radius: 13px
+}
+
+.acf_relationship .relationship_list {
+	background: #fff;
+	position: relative;
+	overflow: auto;
+	height: 150px;
+	border: #DFDFDF solid 1px;
+	border-top-width: 0;
+}
+
+.acf_relationship .relationship_list a.hide {
+	display: none;
+}
+
+.acf_relationship .relationship_list a.filter_hide {
+	display: none;
+}
+
+.acf_relationship .relationship_list a {
+	display: block;
+	position: relative;
+	padding: 7px 9px;
+	text-decoration: none;
+	border-bottom: #f8f8f8 solid 1px;
+}
+
+
+.acf_relationship .relationship_list a:hover {
+	background: #eaf2fa;
+	border-bottom-color: #eaf2fa;
+	color: #000;
+}
+
+.acf_relationship .relationship_right .relationship_list {
+	margin-left: 10px;
+	height: 193px;
+	border-top-width:1px; 
+}
+
+.acf_relationship .relationship_list a .add {
+	width: 16px;
+	height: 16px;
+	background: url(../images/button_add.png) 0 0 no-repeat;
+	position: absolute;
+	top:0;
+	right: 0;
+	cursor: pointer;
+	margin: 5px 9px 0 0;
+	display: none;
+}
+
+.acf_relationship .relationship_list a.sortable_active {
+	background: #eaf2fa;
+}
+
+.acf_relationship .relationship_list a:hover .add {
+	display: block;
+}
+
+.acf_relationship .relationship_list a .add:hover {
+	background-position: 0 100%;
+}
+
+.acf_relationship .relationship_list a .remove {
+	width: 16px;
+	height: 16px;
+	background: url(../images/button_remove.png) 0 0 no-repeat;
+	position: absolute;
+	top:0;
+	right: 0;
+	cursor: pointer;
+	margin: 5px 9px 0 0;
+	display: none;
+}
+
+.acf_relationship .relationship_list a:hover .remove {
+	display: block;
+}
+
+.acf_relationship .relationship_list a .remove:hover {
+	background-position: 0 100%;
+}
+
+.acf_relationship .relationship_right .relationship_list a {
+	cursor: move;
+}
+
+
+/*---------------------------------------------------------------------------------------------
+	Flexible Content
+---------------------------------------------------------------------------------------------*/
+.acf_flexible_content {
+	
+}
+
+.acf_flexible_content > .values > table {
+	margin-bottom: 10px;
+	position: relative;
+}
+
+.acf_flexible_content > .values > table > tbody > tr > td {
+	background: transparent;
+    border-right: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
+    padding: 8px;
+    position: relative;
+}
+
+.acf_flexible_content > .values > table > tbody > tr:last-child td {
+	border-bottom: 0 none;
+}
+
+.acf_flexible_content > .values > table > tbody > tr td:last-child{
+	border-right: 0 none;
+}
+
+.acf_flexible_content > .values > table > tbody > tr:nth-child(even) {
+	background: #F9F9F9;
+}
+
+.acf_flexible_content > .values > table > tbody > tr:nth-child(odd) {
+	background: #FCFCFC;
+}
+
+.acf_flexible_content > .values > table > thead > tr > th {
+
+	border-right: 1px solid #e1e1e1;
+}
+
+.acf_flexible_content > .values > table > thead > tr > th:last-child {
+	border-right: 0 none;
+}
+
+.acf_flexible_content > .values > table > tbody > tr:hover a.remove_field {
+	visibility: visible;
+}
+
+.acf_flexible_content > .values > table.row_layout > tbody > tr > td > label {
+	display: block;
+	color: #21759B;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 20px 0 8px;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+.acf_flexible_content > .values > table.row_layout > tbody > tr > td > label:first-child {
+	padding-top: 0;
+}
+
+.acf_flexible_content table tr td.order,
+.acf_flexible_content table tr th.order{
+	width: 16px;
+	text-align: center;
+	vertical-align: middle;
+	color: #aaa;
+	text-shadow: #fff 0 1px 0;
+}
+
+.acf_flexible_content table tr td.order {
+	cursor: move;
+}
+
+.acf_flexible_content table tr td.remove,
+.acf_flexible_content table tr th.remove {
+	width: 16px;
+	vertical-align: middle;
+}
+
+.acf_flexible_content table tr td select {
+	width: 120px;
+	margin: 0;
+}
+
+.acf_flexible_content .clones {
+	display: none;
+}
+			
+
+.acf_flexible_content .table_footer {
+	position: relative;
+	padding: 8px 0;
+}
+
+.acf_flexible_content .table_footer a#add_field{
+	display: block;
+    float: right;
+    margin: 0;
+    text-align: center;
+}
+
+.acf_popup {
+	position: absolute;
+	bottom: 25px;
+	right: 0;
+	background: #464646;
+	border-radius: 5px;
+	box-shadow: rgba(0,0,0,0.25) 0 0 13px;
+	margin-bottom: 25px;
+	margin-right: -5px;
+	display: none;
+}
+
+.acf_popup .bit {
+	position: absolute;
+	width: 56px;
+	height: 25px;
+	right: 17px;
+	margin-bottom: -25px;
+	background: url(../images/popup-bit.png);
+}
+
+.acf_popup ul {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+.acf_popup ul li {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+.acf_popup ul li a {
+	color: #cccccc;
+	font-size: 12px;
+	line-height: 14px;
+	padding: 7px 11px;
+	display: block;
+	border: 1px solid transparent;
+	border-bottom: 1px solid #333333;
+	border-top: 1px solid #555555;
+	text-decoration: none;
+	min-width: 100px;
+}
+
+.acf_popup ul li:first-child a {
+	border-radius: 5px 5px 0 0;
+}
+
+.acf_popup ul li:last-child a {
+	border-radius: 0 0 5px 5px;
+	border-bottom-color: transparent;
+}
+
+.acf_popup ul li:only-child a {
+	border-radius: 5px 5px 5px 5px;
+	border-bottom-color: transparent;
+}
+
+.acf_popup ul li a:hover {
+	background: #2b8ab8;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2b8ab8', endColorstr='#227096'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#2b8ab8), to(#227096)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #2b8ab8,  #227096); /* for firefox 3.6+ */
+    border: 1px solid #227096 !important;
+    color: #FFFFFF;
+    text-shadow: 0 1px 0 #227096;
+}
+
+.acf_flexible_content .no_value_message {
+	padding: 19px;
+	border: #ccc dashed 1px;
+	text-align: center;
+}
