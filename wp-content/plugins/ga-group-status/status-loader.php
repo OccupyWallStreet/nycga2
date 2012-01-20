@@ -1,17 +1,11 @@
 <?php
 class GA_Status extends BP_Group_Extension {
-	var $group_categories = false;
 	var $nav_item_position = 17;
-	var $visibility = true;	
-	var $enable_edit_item = true;
-	var $display_hook = 'groups_statustab_group_boxes';
-	var $template_file = 'groups/single/plugins';
-	var $enable_create_step = false;
+	var $enable_nav_item = false;
 	function GA_Status(){
 		global $bp;
 		$this->name = 'GA Status';
 		$this->slug = 'status';
-		$this->create_step_position = 21;
                 $this->enable_edit_item = current_user_can('manage_options');
 		// In Admin
 		$this->name = "Active Status";

@@ -4,7 +4,7 @@ Plugin Name: GA Group Categories
 Plugin URI: http://nycga.net/
 Description: Adds extra categories to group directory
 Version: 1.0
-Author: Internet Working Group
+Author: #OWS Tech Ops
 */
 /*ini_set('display_errors',1); 
 error_reporting(E_ALL);*/
