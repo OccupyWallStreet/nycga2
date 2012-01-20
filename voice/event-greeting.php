@@ -103,11 +103,17 @@ $gacount = 1 + $s ;
   $groupname = $row["GroupName"];
 
 // text for ga or spokes time
-  echo " . $eventname starts at . $startime at $locationaddress ." ;
+  $output .= " . $eventname starts at . $startime at $locationaddress ." ;
   $gacount++ ;
   }
 
-  
+  $badchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é", '"');
+  $replacechars = array(" and ", " ", " and ", " and ", " and ", " and ", "o", "e", "");
+  $output2 = str_replace($badchars, $replacechars, $output);
+  $output3 = preg_replace('/[^(\x20-\x7F)]*/','', $output2);
+  $cleantext = substr($output3,0,2400);
+
+  echo $cleantext;
   
   if ($ganumrows < 1) {
   
@@ -143,12 +149,19 @@ $gacount2 = 1 + $s ;
   $groupname = $row["GroupName"];
 
 // text for ga or spokes time
-  echo " . Tomorrows . $eventname starts at . $startime at $locationaddress ." ;
+  $output .= " . Tomorrows . $eventname starts at . $startime at $locationaddress ." ;
   $gacount2++ ;
   }
 
   
+  $badchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é", '"');
+  $replacechars = array(" and ", " ", " and ", " and ", " and ", " and ", "o", "e", "");
+  $output2 = str_replace($badchars, $replacechars, $output);
+  $output3 = preg_replace('/[^(\x20-\x7F)]*/','', $output2);
+  $cleantext = substr($output3,0,2400);
+
   
+  echo $cleantext;
   
   
   
