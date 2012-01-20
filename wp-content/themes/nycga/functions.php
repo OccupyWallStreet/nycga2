@@ -287,14 +287,3 @@ function nycga_modify_group_membership_by_username() {
 		</script>
 	";
 }
-
-
-//allow hard-hiding of inactive groups
-function bbg_redirect_from_inactive_group() { 
-if ( bp_is_group() ) { 
-if ( 'inactive' == groups_get_groupmeta( bp_get_current_group_id(), 'active_status' ) && !is_super_admin() ) { 
-bp_core_redirect( "http://nycga.net/groups" ); 
-} 
-} 
-}
-add_action( 'bp_actions', 'bbg_redirect_from_inactive_group', 1 );
