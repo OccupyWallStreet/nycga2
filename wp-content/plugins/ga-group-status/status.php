@@ -35,3 +35,5 @@ bp_core_redirect( "http://nycga.net/groups" );
 } 
 }
 add_action( 'bp_actions', 'bbg_redirect_from_inactive_group', 1 );
+
+?>

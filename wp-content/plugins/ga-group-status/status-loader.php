@@ -14,7 +14,7 @@ class GA_Status extends BP_Group_Extension {
 		$this->create_step_position = 21;
                 $this->enable_edit_item = current_user_can('manage_options');
 		// In Admin
-		$this->name = "Group Status";
+		$this->name = "Active Status";
 	}
 	function create_screen() {
 	}
