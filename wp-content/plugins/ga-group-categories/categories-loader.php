@@ -33,25 +33,15 @@ class GA_Categories extends BP_Group_Extension {
 		echo '</select>';
 		echo '<p><input type="submit" name="save_category" id="save" value="Save"></p>';
 		wp_nonce_field('groups_edit_group_categories');
-		
-		$status = groups_get_groupmeta($bp->groups->current_group->id, 'active_status');
-		echo '<label>Group Status</label>';
-		echo '<select name="group-status" id="group-status">';
-		echo '<option value="active">Active	</option>';
-		echo '<option value="inactive" '. ($status=='inactive' ? 'selected="selected"':'') . '>Inactive</option>';
-		echo '</select>';
-		echo '<p><input type="submit" name="save_status" id="save" value="Save"></p>';
 
 	}
-	
 	// save all changes into DB
 	function edit_screen_save() {
 		global $bp;
 		if ( $bp->current_component == $bp->groups->slug && 'categories' == $bp->action_variables[0] ) {
 			if ( !$bp->is_item_admin )
 				return false;
-				
-			// Save Category
+			// Save general settings
 			if ( isset($_POST['save_category'])){
 				/* Check the nonce first. */
 				if ( !check_admin_referer( 'groups_edit_group_categories' ) )
@@ -61,22 +51,7 @@ class GA_Categories extends BP_Group_Extension {
 				
 				// Save into groupmeta table
 				groups_update_groupmeta( $bp->groups->current_group->id, 'category', $meta );
-				bp_core_add_message(__('Group Category Saved: ' . groups_get_groupmeta($bp->groups->current_group->id, 'category')));
-				
-				bp_core_redirect( bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/' );
-			}
-			
-			// Save Status
-			if ( isset($_POST['save_status'])){
-				/* Check the nonce first. */
-				if ( !check_admin_referer( 'groups_edit_group_categories' ) )
-					return false;
-				
-				$meta = $_POST['group-status'];
-				
-				// Save into groupmeta table
-				groups_update_groupmeta( $bp->groups->current_group->id, 'active_status', $meta );
-				bp_core_add_message(__('Group Status Saved: ' . groups_get_groupmeta($bp->groups->current_group->id, 'active_status')));
+				bp_core_add_message(__('Group category saved:' . $meta['category'],'group-categories'));
 				
 				bp_core_redirect( bp_get_group_permalink( $bp->groups->current_group ) . 'admin/'.$this->slug .'/' );
 			}
