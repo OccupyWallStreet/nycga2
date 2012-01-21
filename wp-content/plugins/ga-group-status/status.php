@@ -40,17 +40,24 @@ add_action( 'bp_actions', 'bbg_redirect_from_inactive_group', 1 );
 //create filter for group queries
 
 function filter_out_inactive($sql) {
-    $sql = str_replace(' WHERE ', 
-" WHERE g.id NOT IN (
+    $filter_clause = "
+ WHERE g.id NOT IN (
    SELECT gm.group_id
    FROM wp_bp_groups_groupmeta gm
    WHERE gm.meta_key = 'active_status'
    AND gm.meta_value = 'inactive'
-) AND ", $sql);
+) ";
+    if (strpos($sql, ' WHERE ') !== false) {
+        $sql = str_replace(' WHERE ', $filter_clause . " AND ", $sql);
+    } else {
+        $sql .= $filter_clause;
+    }
     return $sql;
 }
 
 add_filter( 'bp_groups_get_total_groups_sql', 'filter_out_inactive');
 add_filter( 'bp_groups_get_paged_groups_sql', 'filter_out_inactive');
+add_filter( 'bp_group_member_get_total_group_count', 'filter_out_inactive');
+add_filter( 'bp_group_get_total_group_count', 'filter_out_inactive');
 
 ?>

@@ -577,8 +577,10 @@ Class BP_Groups_Group {
 		$hidden_sql = '';
 		if ( !is_super_admin() )
 			$hidden_sql = "WHERE status != 'hidden'";
-
-		return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->groups->table_name} {$hidden_sql}" ) );
+		
+		$group_count_sql = "SELECT COUNT(id) FROM {$bp->groups->table_name} g {$hidden_sql}";
+		$group_count_sql = apply_filters( 'bp_group_get_total_group_count', $group_count_sql );
+		return $wpdb->get_var( $wpdb->prepare( $group_count_sql ) );
 	}
 
 	function get_global_forum_topic_count( $type ) {
@@ -939,10 +941,12 @@ Class BP_Groups_Member {
 			$user_id = $bp->displayed_user->id;
 
 		if ( $user_id != $bp->loggedin_user->id && !is_super_admin() ) {
-			return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.group_id) FROM {$bp->groups->table_name_members} m, {$bp->groups->table_name} g WHERE m.group_id = g.id AND g.status != 'hidden' AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0", $user_id ) );
+                        $group_count_sql = "SELECT COUNT(DISTINCT m.group_id) FROM {$bp->groups->table_name_members} m, {$bp->groups->table_name} g WHERE m.group_id = g.id AND g.status != 'hidden' AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0";
 		} else {
-			return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.group_id) FROM {$bp->groups->table_name_members} m, {$bp->groups->table_name} g WHERE m.group_id = g.id AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0", $user_id ) );
+			$group_count_sql = "SELECT COUNT(DISTINCT m.group_id) FROM {$bp->groups->table_name_members} m, {$bp->groups->table_name} g WHERE m.group_id = g.id AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0";
 		}
+ 		$group_count_sql = apply_filters( 'bp_group_member_get_total_group_count', $group_count_sql );
+		return $wpdb->get_var( $wpdb->prepare( $group_count_sql, $user_id ) );
 	}
 
 	function get_invites( $user_id, $limit = false, $page = false, $exclude = false ) {
