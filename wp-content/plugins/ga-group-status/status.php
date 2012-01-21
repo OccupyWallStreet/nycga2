@@ -40,8 +40,13 @@ add_action( 'bp_actions', 'bbg_redirect_from_inactive_group', 1 );
 //create filter for group queries
 
 function filter_out_inactive($sql) {
-    $sql = str_replace(' FROM ', ' FROM wp_bp_groups_groupmeta gm_active, ', $sql);
-    $sql = str_replace(' WHERE ', " WHERE g.id = gm_active.group_id AND gm_active.meta_key = 'active_status' AND gm_active.meta_value = 'active' AND ", $sql);
+    $sql = str_replace(' WHERE ', 
+" WHERE g.id NOT IN (
+   SELECT gm.group_id
+   FROM wp_bp_groups_groupmeta gm
+   WHERE gm.meta_key = 'active_status'
+   AND gm.meta_value = 'inactive'
+) AND ", $sql);
     return $sql;
 }
 
