@@ -39,11 +39,13 @@ add_action( 'bp_actions', 'bbg_redirect_from_inactive_group', 1 );
 
 //create filter for group queries
 
-function jdg_dont_show_inactive($sql) {
-		var_dump($sql);
-		}
+function filter_out_inactive($sql) {
+    $sql = str_replace(' FROM ', ' FROM wp_bp_groups_groupmeta gm_active, ', $sql);
+    $sql = str_replace(' WHERE ', " WHERE g.id = gm_active.group_id AND gm_active.meta_key = 'active_status' AND gm_active.meta_value = 'active' AND ", $sql);
+    return $sql;
+}
 
-add_filter( 'bp_groups_get_total_groups_sql', 'jdg_dont_show_inactive');
-add_filter( 'bp_groups_get_paged_groups_sql', 'jdg_dont_show_inactive');
+add_filter( 'bp_groups_get_total_groups_sql', 'filter_out_inactive');
+add_filter( 'bp_groups_get_paged_groups_sql', 'filter_out_inactive');
 
 ?>
