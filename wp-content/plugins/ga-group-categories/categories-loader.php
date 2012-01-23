@@ -14,7 +14,7 @@ class GA_Categories extends BP_Group_Extension {
 		$this->create_step_position = 21;
                 $this->enable_edit_item = current_user_can('manage_options');
 		// In Admin
-		$this->name = "Group Categories";
+		$this->name = "Category";
 	}
 	function create_screen() {
 	}
