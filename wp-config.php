@@ -76,7 +76,7 @@ define('WPLANG', '');
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-
+//define('WP_CACHE', true);
 /* Multisite */
 define( 'MULTISITE', true );
 define( 'SUBDOMAIN_INSTALL', true );
@@ -97,4 +97,3 @@ require_once(ABSPATH . 'wp-settings.php');
 
 /* Environment Config */
 define('OWS_ENV', 'staging');
-
