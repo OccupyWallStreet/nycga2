@@ -83,7 +83,7 @@
 		</form><!-- #groups-directory-form -->
 
 		<?php do_action( 'bp_after_directory_groups' ); ?>
-<span class="new-group-message">To create a new group at Occupy Wall Street, please see the GA-approved guidelines and instructions on our <a href="http://www.nycga.net/groups/new-group/">New Group page</a></span>
+<span class="new-group-message">Where did my group go? If you're not seeing your group here, check out <a href="http://www.nycga.net/2012/01/25/groups-policy-implementation/">this post</a> for more information. <br> To create a new group at Occupy Wall Street, please see the GA-approved guidelines and instructions on our <a href="http://www.nycga.net/groups/new-group/">New Group page</a></span>
 
 		</div><!-- .padder -->
 	</div><!-- #content -->
