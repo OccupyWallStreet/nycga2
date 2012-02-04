@@ -23,7 +23,7 @@ $str = new MysqlStringEscaper;
 date_default_timezone_set('EST');
 $timenow = date("l M jS  h:i A");
 
-$mp3base = "http://199.119.177.50/nycga411/audiofiles";
+$mp3base = "http://audiofiles.nycga.net/audiofiles";
 $wavurl = $currentvm ;
 $wavurls = escapeshellcmd($wavurl); 
 $wavurl1 = strrchr($wavurl, "/");
