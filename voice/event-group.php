@@ -27,7 +27,7 @@ mysql_connect(constant("DB_HOST"),constant("DB_USER"),constant("DB_PASSWORD")); 
 //specify database ** EDIT REQUIRED HERE **
 mysql_select_db(constant("DB_NAME")) or die("Unable to select database"); //select which database we're using
 
-mysql_query("set time_zone = '-5:00'");
+//mysql_query("set time_zone = '-5:00'");
 
 
  if ($trimmed == "9999") {
