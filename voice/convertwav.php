@@ -20,8 +20,8 @@ $wavurl2s = escapeshellcmd($wavurl2);
 $wavurl3 = substr($wavurl2, 0, -4);
 $wavurl3s = escapeshellcmd($wavurl3); 
 
-$wget = "wget -P /var/www/nycga.net/web/voice/voicefiles $wavurl0s";
-$ffmpeg = "ffmpeg -i /var/www/nycga.net/web/voice/voicefiles/$wavurl2s -ab 128k /var/www/nycga.net/web/voice/voicefiles/$wavurl3s.mp3";
+$wget = "wget -P /var/www/nycga411/audiofiles $wavurl0s";
+$ffmpeg = "ffmpeg -i /var/www/nycga411/audiofiles/$wavurl2s -ab 128k /var/www/nycga411/audiofiles/$wavurl3s.mp3";
 echo exec($wget);
 echo exec ($ffmpeg);
 

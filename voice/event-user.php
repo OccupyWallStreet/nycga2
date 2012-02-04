@@ -40,7 +40,7 @@ mysql_connect(constant("DB_HOST"),constant("DB_USER"),constant("DB_PASSWORD")); 
 
 //specify database ** EDIT REQUIRED HERE **
 mysql_select_db(constant("DB_NAME")) or die("Unable to select database"); //select which database we're using
-mysql_query("set time_zone = '-5:00'");
+//mysql_query("set time_zone = '-5:00'");
   
 // Build SQL Query  
 //$query = "select wp_bp_xprofile_data.field_id, wp_bp_xprofile_data.value, wp_bp_xprofile_data.user_id, wp_users.display_name from wp_bp_xprofile_data LEFT JOIN wp_users ON wp_bp_xprofile_data.user_id = wp_users.id where field_id = 5 and value = $phonenumber";
