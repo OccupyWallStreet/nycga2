@@ -8,4 +8,10 @@ Author URI: http://www.louiemccoy.com
 License: GPLv2
 */
 
+// Run things when BP is ready for it.
+function gait_loader(){
+ // do stuff
+}
+add_action( 'bp_include', 'gait_loader' );
+
 require_once('functions.php');
