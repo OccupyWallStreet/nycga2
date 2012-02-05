@@ -2,11 +2,12 @@
 class gait_info_tab extends BP_Group_Extension {
 
 	var $visibility = 'public';
+	var $enable_nav_item = true;
 	
 	function my_group_extension() {
 		$this->name = 'GA Group Info Tab Extension';
 		$this->slug = 'ga-info';
-		$this->greate_step_position = 21;
+		$this->create_step_position = 21;
 		$this->nav_item_position = 31;
 	}
 	
