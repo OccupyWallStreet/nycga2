@@ -7,3 +7,5 @@ Author: LMCv3
 Author URI: http://www.louiemccoy.com
 License: GPLv2
 */
+
+require_once('functions.php');
