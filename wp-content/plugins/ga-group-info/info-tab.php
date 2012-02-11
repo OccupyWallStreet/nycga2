@@ -4,8 +4,8 @@ Plugin Name: GA Group Info Tab Plugin
 Description: Adds an Info tab to the "Groups" page with a custom set of fields
 Version: 0.1
 Requires at least: WordPress 3.1 / BuddyPress 1.5
-Author: LMCv3
-Author URI: http://www.louiemccoy.com
+Author: #OWS Tech Ops
+Author URI: http://www.nycga.net/groups/tech/
 License: GPLv2
 */
 
