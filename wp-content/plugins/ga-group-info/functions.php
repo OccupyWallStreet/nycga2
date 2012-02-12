@@ -15,7 +15,7 @@ function gait_htmlify_links($string) {
     $regex = '/((?:[\w\d]+\:\/\/)?(?:[\w\-\d]+\.)+[\w\-\d]+(?:\/[\w\-\d]+)*(?:\/|\.[\w\-\d]+)?(?:\?[\w\-\d]+\=[\w\-\d]+\&?)?(?:\#[\w\-\d]*)?)/';
     $format = '<a href="$1">$1</a>';
     $replaced = preg_replace( $regex, $format, $string );
-    return $sting
+    return $string;
 }
 
 /*

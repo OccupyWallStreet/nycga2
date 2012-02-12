@@ -14,6 +14,11 @@ function gait_loader(){
  require_once(  dirname( __FILE__ ) . '/info-tab-extension.php' );
  bp_register_group_extension( 'gait_info_tab' );
 }
-add_action( 'bp_include', 'gait_loader' );
+add_action( 'bp_loaded', 'gait_loader' );
 
 require_once('functions.php');
+
+function gait_is_loaded(){
+ echo "<!-- Info Tab is loaded! -->\r\n";
+}
+add_action('wp_head','gait_is_loaded');
