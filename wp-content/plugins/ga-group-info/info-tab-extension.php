@@ -7,15 +7,15 @@ class gait_info_tab extends BP_Group_Extension {
 	function my_group_extension() {
 		$this->name = 'GA Group Info Tab Extension';
 		$this->slug = 'ga-info';
-		$this->create_step_position = 21;
-		$this->nav_item_position = 31;
+		$this->create_step_position = 6;
+		$this->nav_item_position = 14;
 	}
 	
 	function create_screen(){
 		if ( !bp_is_group_creation_step( $this->slug ) )
 			return false;
 		?>
-		HTML GOES HERE
+		Curent Function: gait_info_tab::create_screen() (line 18)
 		
 		<?php
 		wp_nonce_field( 'groups_create_save_' . $this->slug );
@@ -35,7 +35,7 @@ class gait_info_tab extends BP_Group_Extension {
 			return false; ?>
 		<h2><?php echo esc_attr( $this->name ); ?></h2>
 		
-		<p>Edit steps here</p>
+		<p>Current Function: gait_info_tab::edit_screen()</p>
 		<input type="submit" name="save" value="save" />
 		
 		<?php
