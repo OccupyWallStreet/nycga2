@@ -70,8 +70,7 @@ if (!$infometa) {
 			}
 		    }
 		?>
-		
-		<input type="submit" name="save" value="save" />
+		<p><input type="submit" name="save" value="Save Changes" /></p>
 		
 		<?php
 		wp_nonce_field( 'gait_edit_save_' . $this->slug );
