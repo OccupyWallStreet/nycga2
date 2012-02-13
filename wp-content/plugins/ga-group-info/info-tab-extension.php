@@ -5,13 +5,13 @@ class gait_info_tab extends BP_Group_Extension {
 	var $enable_nav_item = true;
 	
 	function gait_info_tab() {
-		$this->name = 'GA Group Info Tab Extension';
-		$this->slug = 'ga-info';
+		$this->name = 'Info';
+		$this->slug = 'info';
 		//$this->create_step_position = 6;
 		$this->nav_item_position = 14;
 	}
 	
-	function create_screen(){
+	function create_screen(){ 
 		if ( !bp_is_group_creation_step( $this->slug ) )
 			return false;
 		?>
