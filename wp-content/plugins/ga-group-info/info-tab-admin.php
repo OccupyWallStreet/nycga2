@@ -61,11 +61,11 @@ if (!$infometa) {
 			<?php
 			switch($type){
 			    case 'single-line':
-				echo "<input id='gait-{$slug}' type='text' value='{$value}' name='gait-{$slug}' />";
+				echo "<input id='gait-{$slug}' type='text' value='{$value}' name='gait-[{$slug}]' />";
 				break;
 			    
 			    case 'multi-line':
-				echo "<textarea id='gait-{$slug}' name='gait-{$slug}'>{$value}</textarea>";
+				echo "<textarea id='gait-{$slug}' name='gait-[{$slug}]'>{$value}</textarea>";
 				break;
 			}
 		    }

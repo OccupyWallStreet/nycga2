@@ -47,7 +47,22 @@ class gait_info_tab extends BP_Group_Extension {
 		check_admin_referer( 'groups_edit_save' . $this->slug );
 		
 		/* Put Edit Screen "Save" code here */
-		groups_update_groupmeta( $bp->groups->current_group->id, 'some-new-data', $data );
+		$finaldata = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug ); // grab current data to be updated
+		$data = $_POST['gait'];
+		$allowed_html = array( // any html not in this array will get filtered out.
+			'a' => array(
+				'href' => array(),
+				'title' => array()
+			),
+			'br' => array(),
+			'em' => array(),
+			'strong' => array()
+		);
+		foreach ($finaldata['name'] as $slug => $name){
+			$finaldata['data'][$slug] = wp_kses( $_POST['gait-'.$slug], $allowed_html );
+		}
+		
+		groups_update_groupmeta( $bp->groups->current_group->id, $this->slug, $finaldata );
 		
 		/* error & success messages */
 		if ( !$success )
