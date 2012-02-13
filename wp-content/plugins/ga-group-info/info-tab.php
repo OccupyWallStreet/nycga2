@@ -11,6 +11,7 @@ License: GPLv2
 
 // Run things when BP is ready for it.
 function gait_loader(){
+ global $bp;
  require_once(  dirname( __FILE__ ) . '/info-tab-extension.php' );
  bp_register_group_extension( 'gait_info_tab' );
 }

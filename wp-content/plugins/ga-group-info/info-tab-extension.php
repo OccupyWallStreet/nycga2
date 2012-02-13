@@ -4,10 +4,10 @@ class gait_info_tab extends BP_Group_Extension {
 	var $visibility = 'public';
 	var $enable_nav_item = true;
 	
-	function my_group_extension() {
+	function gait_info_tab() {
 		$this->name = 'GA Group Info Tab Extension';
 		$this->slug = 'ga-info';
-		$this->create_step_position = 6;
+		//$this->create_step_position = 6;
 		$this->nav_item_position = 14;
 	}
 	
@@ -26,7 +26,7 @@ class gait_info_tab extends BP_Group_Extension {
 		
 		check_admin_referer( 'groups_create_save_' . $this->slug );
 		
-		/* Save details here - update this later */
+		// Save details here - update this later 
 		groups_updated_groupmeta( $bp->groups->new_group_id, 'my_meta_name', 'value' );
 	}
 	
@@ -51,6 +51,7 @@ class gait_info_tab extends BP_Group_Extension {
 		check_admin_referer( 'groups_edit_save' . $this->slug );
 		
 		/* Put Edit Screen "Save" code here */
+		groups_update_groupmeta( $bp->groups->current_group->id, 'some-new-data', $data );
 		
 		/* error & success messages */
 		if ( !$success )
