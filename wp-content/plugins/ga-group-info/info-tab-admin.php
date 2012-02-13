@@ -51,6 +51,26 @@ if (!$infometa) {
 ?>
 <h2>Edit: <?php echo esc_attr( $this->name ); ?></h2>
 		
+		<?php
+		    foreach( $infometa['name'] as $slug => $name ){
+			$value = $infometa['data'][$slug];
+			$active = $infometa['active'][$slug];
+			$type = $infometa['type'][$slug];
+			?>
+			<label for="gait-<?php echo $slug; ?>"><?php echo $name; ?></label>
+			<?php
+			switch($type){
+			    case 'single-line':
+				echo "<input id='gait-{$slug}' type='text' value='{$value}' name='gait-{$slug}' />";
+				break;
+			    
+			    case 'multi-line':
+				echo "<textarea id='gait-{$slug}' name='gait-{$slug}'>{$value}</textarea>";
+				break;
+			}
+		    }
+		?>
+		
 		<input type="submit" name="save" value="save" />
 		
 		<?php
