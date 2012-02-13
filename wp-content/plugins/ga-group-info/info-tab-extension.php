@@ -44,7 +44,7 @@ class gait_info_tab extends BP_Group_Extension {
 		if ( !isset( $_POST['save'] ) )
 			return false;
 		
-		check_admin_referer( 'groups_edit_save' . $this->slug );
+		check_admin_referer( 'gait_edit_save_' . $this->slug );
 		
 		/* Put Edit Screen "Save" code here */
 		$finaldata = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug ); // grab current data to be updated

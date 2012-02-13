@@ -74,5 +74,5 @@ if (!$infometa) {
 		<input type="submit" name="save" value="save" />
 		
 		<?php
-		wp_nonce_field( 'groups_edit_save_' . $this->slug );
+		wp_nonce_field( 'gait_edit_save_' . $this->slug );
 
