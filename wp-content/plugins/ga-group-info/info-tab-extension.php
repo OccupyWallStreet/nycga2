@@ -32,14 +32,10 @@ class gait_info_tab extends BP_Group_Extension {
 	
 	function edit_screen(){
 		if ( !bp_is_group_admin_screen( $this->slug ) )
-			return false; ?>
-		<h2><?php echo esc_attr( $this->name ); ?></h2>
+			return false;
 		
-		<p>Current Function: gait_info_tab::edit_screen()</p>
-		<input type="submit" name="save" value="save" />
+		require_once( 'info-tab-admin.php' );
 		
-		<?php
-		wp_nonce_field( 'groups_edit_save_' . $this->slug );
 	}
 	
 	function edit_screen_save(){
