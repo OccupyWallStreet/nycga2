@@ -34,7 +34,7 @@ class gait_info_tab extends BP_Group_Extension {
 		if ( !bp_is_group_admin_screen( $this->slug ) )
 			return false;
 		
-		require_once( 'info-tab-admin.php' );
+		require_once( dirname( __FILE__ ) . '/info-tab-admin.php' );
 		
 	}
 	
