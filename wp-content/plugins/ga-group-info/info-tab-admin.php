@@ -1,7 +1,7 @@
 <?php
 // Fetch info metadata - Does the metadata exist already?
-$infometa = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug );
-
+//$infometa = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug );
+$infometa = false;
 // If not, create it. TO DO: pull in old info from the places that this info used to live
 if (!$infometa) {
     $infometa = array(
@@ -64,6 +64,7 @@ if (!$infometa) {
 			$value = $data['value'];
 			$active = $data['active'];
 			$type = $data['type'];
+			$name = $data['name'];
 			?>
 			<label for="gait-<?php echo $slug; ?>"><?php echo $name; ?></label>
 			<?php
