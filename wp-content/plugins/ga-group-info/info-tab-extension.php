@@ -58,8 +58,8 @@ class gait_info_tab extends BP_Group_Extension {
 			'em' => array(),
 			'strong' => array()
 		);
-		foreach ($finaldata['name'] as $slug => $name){
-			$finaldata['data'][$slug] = wp_kses( $_POST['gait-'.$slug], $allowed_html );
+		foreach ($finaldata as $slug => $metadata){
+			$finaldata[$slug]['value'] = wp_kses( $_POST['gait-'.$slug], $allowed_html );
 		}
 		
 		groups_update_groupmeta( $bp->groups->current_group->id, $this->slug, $finaldata );

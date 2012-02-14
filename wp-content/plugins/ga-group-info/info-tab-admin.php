@@ -5,45 +5,53 @@ $infometa = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug );
 // If not, create it. TO DO: pull in old info from the places that this info used to live
 if (!$infometa) {
     $infometa = array(
-	'name' => array (
-	    'email' =>		'Email Address',
-	    'phone' =>		'Group Phone',
-	    'twitter' =>	'Twitter',
-	    'facebook' =>	'Facebook',
-	    'website' =>	'External Website',
-	    'listserve' =>	'List Serve',
-	    'description' =>	'Detailed Description / Charter',
-	    'contact' =>	'Contact Phone'
+	'email' => array(
+	    'name' =>	'Email Address',
+	    'value' =>	'',
+	    'active' =>	true,
+	    'type' =>	'single-line'
 	),
-	'data' => array (
-	    'email' =>		'',
-	    'phone' =>		'',
-	    'twitter' =>	'',
-	    'facebook' =>	'',
-	    'website' =>	'',
-	    'listserve' =>	'',
-	    'description' =>	'',
-	    'contact' =>	''
+	'phone' => array(
+	    'name' =>	'Group Phone',
+	    'value' =>	'',
+	    'active' =>	true,
+	    'type' =>	'single-line'
 	),
-	'active' => array (
-	    'email' =>		true,
-	    'phone' =>		true,
-	    'twitter' =>	true,
-	    'facebook' =>	true,
-	    'website' =>	true,
-	    'listserve' =>	true,
-	    'description' =>	true,
-	    'contact' =>	true
+	'twitter' => array(
+	    'name' =>	'Twitter',
+	    'value' =>	'',
+	    'active' =>	true,
+	    'type' =>	'single-line'
 	),
-	'type' => array (
-	    'email' =>		'single-line',
-	    'phone' =>		'single-line',
-	    'twitter' =>	'single-line',
-	    'facebook' =>	'single-line',
-	    'website' =>	'single-line',
-	    'listserve' =>	'single-line',
-	    'description' =>	'multi-line',
-	    'contact' =>	'single-line'
+	'facebook' => array(
+	    'name' =>	'Facebook',
+	    'value' =>	'',
+	    'active' =>	true,
+	    'type' =>	'single-line'
+	),
+	'website' => array(
+	    'name' =>	'External Website',
+	    'value' =>	'',
+	    'active' =>	true,
+	    'type' =>	'single-line'
+	),
+	'listserve' => array(
+	    'name' =>	'List Serve',
+	    'value' =>	'',
+	    'active' =>	true,
+	    'type' =>	'single-line'
+	),
+	'description' => array(
+	    'name' =>	'Detailed Description / Charter',
+	    'value' =>	'',
+	    'active' =>	true,
+	    'type' =>	'multi-line'
+	),
+	'contact' => array(
+	    'name' =>	'Contact Phone',
+	    'value' =>	'',
+	    'active' =>	true,
+	    'type' =>	'single-line'
 	)
     );
     groups_update_groupmeta( $bp->groups->current_group->id, $this->slug , $infometa );
@@ -52,10 +60,10 @@ if (!$infometa) {
 <h2>Edit: <?php echo esc_attr( $this->name ); ?></h2>
 		
 		<?php
-		    foreach( $infometa['name'] as $slug => $name ){
-			$value = $infometa['data'][$slug];
-			$active = $infometa['active'][$slug];
-			$type = $infometa['type'][$slug];
+		    foreach( $infometa as $slug => $data ){
+			$value = $data['value'];
+			$active = $data['active'];
+			$type = $data['type'];
 			?>
 			<label for="gait-<?php echo $slug; ?>"><?php echo $name; ?></label>
 			<?php
