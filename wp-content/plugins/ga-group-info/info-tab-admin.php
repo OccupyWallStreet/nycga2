@@ -1,7 +1,7 @@
 <?php
 // Fetch info metadata - Does the metadata exist already?
-//$infometa = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug );
-$infometa = false;
+$infometa = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug );
+
 // If not, create it. TO DO: pull in old info from the places that this info used to live
 if (!$infometa) {
     $infometa = array(
@@ -55,6 +55,7 @@ if (!$infometa) {
 	)
     );
     groups_update_groupmeta( $bp->groups->current_group->id, $this->slug , $infometa );
+
 }
 ?>
 <h2>Edit: <?php echo esc_attr( $this->name ); ?></h2>
@@ -70,11 +71,11 @@ if (!$infometa) {
 			<?php
 			switch($type){
 			    case 'single-line':
-				echo "<input id='gait-{$slug}' type='text' value='{$value}' name='gait-[{$slug}]' />";
+				echo "<input id='gait-{$slug}' type='text' value='{$value}' name='gait-{$slug}' />";
 				break;
 			    
 			    case 'multi-line':
-				echo "<textarea id='gait-{$slug}' name='gait-[{$slug}]'>{$value}</textarea>";
+				echo "<textarea id='gait-{$slug}' name='gait-{$slug}'>{$value}</textarea>";
 				break;
 			}
 		    }

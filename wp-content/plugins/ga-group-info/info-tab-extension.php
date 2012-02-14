@@ -58,13 +58,11 @@ class gait_info_tab extends BP_Group_Extension {
 			'em' => array(),
 			'strong' => array()
 		);
-		//foreach ($finaldata as $slug => $metadata){
-		//	$finaldata[$slug]['value'] = wp_kses( $_POST['gait-'.$slug], $allowed_html );
-		//}
-		echo "<!--";
-		print_r($finaldata);
-		echo "-->";
-		groups_update_groupmeta( $bp->groups->current_group->id, $this->slug, $finaldata );
+		foreach ($finaldata as $slug => $metadata){
+			$finaldata[$slug]['value'] = wp_kses( $_POST['gait-'.$slug], $allowed_html );
+		}
+
+		$success = groups_update_groupmeta( $bp->groups->current_group->id, $this->slug, $finaldata );
 		
 		/* error & success messages */
 		if ( !$success )
