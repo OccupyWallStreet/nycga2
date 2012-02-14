@@ -6,7 +6,7 @@ class gait_info_tab extends BP_Group_Extension {
 	
 	function gait_info_tab() {
 		$this->name = 'Info';
-		$this->slug = 'info';
+		$this->slug = 'ga-info';
 		//$this->create_step_position = 6;
 		$this->nav_item_position = 14;
 	}
@@ -34,6 +34,7 @@ class gait_info_tab extends BP_Group_Extension {
 		if ( !bp_is_group_admin_screen( $this->slug ) )
 			return false;
 		
+		global $bp;
 		require_once( dirname( __FILE__ ) . '/info-tab-admin.php' );
 		
 	}
@@ -48,7 +49,6 @@ class gait_info_tab extends BP_Group_Extension {
 		
 		/* Put Edit Screen "Save" code here */
 		$finaldata = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug ); // grab current data to be updated
-		$data = $_POST['gait'];
 		$allowed_html = array( // any html not in this array will get filtered out.
 			'a' => array(
 				'href' => array(),
@@ -58,10 +58,12 @@ class gait_info_tab extends BP_Group_Extension {
 			'em' => array(),
 			'strong' => array()
 		);
-		foreach ($finaldata as $slug => $metadata){
-			$finaldata[$slug]['value'] = wp_kses( $_POST['gait-'.$slug], $allowed_html );
-		}
-		
+		//foreach ($finaldata as $slug => $metadata){
+		//	$finaldata[$slug]['value'] = wp_kses( $_POST['gait-'.$slug], $allowed_html );
+		//}
+		echo "<!--";
+		print_r($finaldata);
+		echo "-->";
 		groups_update_groupmeta( $bp->groups->current_group->id, $this->slug, $finaldata );
 		
 		/* error & success messages */
@@ -70,7 +72,7 @@ class gait_info_tab extends BP_Group_Extension {
 		else
 			bp_core_add_message( __( 'Successfully saved', 'buddypress' ) );
 		
-		bp_core_redirect( bp_get_group_permalink( $bp->groups->current_group ) . '/admin/' . $this->slug );
+		//bp_core_redirect( bp_get_group_permalink( $bp->groups->current_group ) . '/admin/' . $this->slug );
 	}
 	
 	function display(){
