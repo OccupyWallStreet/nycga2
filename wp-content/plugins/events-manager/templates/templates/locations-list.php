@@ -7,13 +7,10 @@
  * 
  * $args - the args passed onto EM_Locations::output()
  * 
- */ 	
-$locations = EM_Locations::get( apply_filters('em_content_locations_args', $args) );
-$args['limit'] = get_option('dbem_events_default_limit');
+ */ 
+$args['limit'] = get_option('dbem_locations_default_limit');
 $args['page'] = (!empty($_REQUEST['page']) && is_numeric($_REQUEST['page']) )? $_REQUEST['page'] : 1;
-if( count($locations) > 0 ){
-	echo EM_Locations::output( $locations, $args );
-}else{
-	echo get_option ( 'dbem_no_locations_message' );
-}
+$args['offset'] = ($args['page']-1)*$args['limit'];
+$args['pagination'] = true;
+echo EM_Locations::output(apply_filters('em_content_locations_args', $args));
 	

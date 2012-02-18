@@ -8,15 +8,15 @@
 	<input type="hidden" name="register_user" value="1" />
 	<p>
 		<label for='user_name'><?php _e('Name','dbem') ?></label>
-		<input type="text" name="user_name" id="user_name" class="input" />
+		<input type="text" name="user_name" id="user_name" class="input" <?php if(!empty($_REQUEST['user_name'])) echo "value='{$_REQUEST['user_name']}'"; ?> />
 	</p>
 	<p>
 		<label for='dbem_phone'><?php _e('Phone','dbem') ?></label>
-		<input type="text" name="dbem_phone" id="dbem_phone" class="input" />
+		<input type="text" name="dbem_phone" id="dbem_phone" class="input" <?php if(!empty($_REQUEST['dbem_phone'])) echo "value='{$_REQUEST['dbem_phone']}'"; ?> />
 	</p>
 	<p>
 		<label for='user_email'><?php _e('E-mail','dbem') ?></label> 
-		<input type="text" name="user_email" id="user_email" class="input"  />
+		<input type="text" name="user_email" id="user_email" class="input" <?php if(!empty($_REQUEST['user_email'])) echo "value='{$_REQUEST['user_email']}'"; ?>  />
 	</p>
 	<?php do_action('register_form'); ?>					
 <?php endif; ?>		

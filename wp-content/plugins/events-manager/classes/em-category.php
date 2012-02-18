@@ -1,24 +1,40 @@
 <?php
-//TODO expand em_category to be like other classes
+/**
+ * Get an category in a db friendly way, by checking globals and passed variables to avoid extra class instantiations
+ * @param mixed $id
+ * @return EM_Category
+ */
+function em_get_category($id = false) {
+	global $EM_Category;
+	//check if it's not already global so we don't instantiate again
+	if( is_object($EM_Category) && get_class($EM_Category) == 'EM_Category' ){
+		if( $EM_Category->term_id == $id ){
+			return $EM_Category;
+		}elseif( is_object($id) && $EM_Category->term_id == $id->term_id ){
+			return $EM_Category;
+		}
+	}
+	if( is_object($id) && get_class($id) == 'EM_Category' ){
+		return $id;
+	}else{
+		return new EM_Category($id);
+	}
+}
 class EM_Category extends EM_Object {	
-	//DB Fields
+	//Taxonomy Fields
 	var $id = '';
-	var $slug = '';
-	var $owner = '';
-	var $name = '';
+	var $term_id;
+	var $name;
+	var $slug;
+	var $term_group;
+	var $term_taxonomy_id;
+	var $taxonomy;
 	var $description = '';
-	//Other Vars
-	var $fields = array(
-		'category_id' => array('name'=>'id','type'=>'%d'),
-		'category_slug' => array('name'=>'slug','type'=>'%s'), 
-		'category_owner' => array('name'=>'owner','type'=>'%d'),
-		'category_name' => array('name'=>'name','type'=>'%s'),
-		'category_description' => array('name'=>'description','type'=>'%s')
-	);
-	var $required_fields;
-	var $feedback_message = "";
-	var $errors = array();
+	var $parent = 0;
+	var $count;
+	//extra attributes imposed by EM_Category
 	var $image_url = '';
+	var $color;
 	
 	/**
 	 * Gets data from POST (default), supplied array, or from the database if an ID is supplied
@@ -27,117 +43,60 @@ class EM_Category extends EM_Object {
 	 */
 	function EM_Category( $category_data = false ) {
 		global $wpdb;
+		$this->ms_global_switch();
 		//Initialize
-		$this->required_fields = array("name" => __('The category name', 'dbem'));
 		$category = array();
 		if( !empty($category_data) ){
 			//Load category data
-			if( is_array($category_data) && isset($category_data['category_name']) ){
+			if( is_object($category_data) && !empty($category_data->taxonomy) && $category_data->taxonomy == EM_TAXONOMY_CATEGORY ){
 				$category = $category_data;
-			}elseif( is_numeric($category_data) ){
-				//Retreiving from the database		
-				$sql = "SELECT * FROM ". EM_CATEGORIES_TABLE ." WHERE category_id ='{$category_data}'";   
-			  	$category = $wpdb->get_row($sql, ARRAY_A);
-			}else{
-				$sql = "SELECT * FROM ". EM_CATEGORIES_TABLE ." WHERE category_slug ='{$category_data}'";   
-			  	$category = $wpdb->get_row($sql, ARRAY_A);
+			}elseif( !is_numeric($category_data) ){
+				$category = get_term_by('slug', $category_data, EM_TAXONOMY_CATEGORY);
+			}else{		
+				$category = get_term_by('id', $category_data, EM_TAXONOMY_CATEGORY);
 			}
-			//Save into the object
-			$this->to_object($category);
-		} 
-		$this->get_image_url();
-		add_action('em_category_save',array(&$this, 'image_upload'), 1, 2);
+		}
+		if( is_object($category) || is_array($category) ){
+			foreach($category as $key => $value){
+				$this->$key = $value;
+			}
+		}
+		$this->id = $this->term_id; //backward compatability
+		$this->ms_global_switch_back();
 		do_action('em_category',$this, $category_data);
 	}
 	
-	function get_post(){
-		//We are getting the values via POST or GET
-		do_action('em_category_get_post_pre', $this);
-		$category = array();
-		$category['category_id'] = ( !empty($_POST['category_id']) ) ? $_POST['category_id']:'';
-		$category['category_name'] = ( !empty($_POST['category_name']) ) ? stripslashes($_POST['category_name']):'';
-		$category['category_slug'] = ( !empty($_POST['category_slug']) ) ? sanitize_title($_POST['category_slug']) : '' ;
-		$category['category_description'] = ( !empty($_POST['content']) ) ? stripslashes($_POST['content']) : ''; //WP TinyMCE field
-		$category['category_owner'] = ( !empty($_POST['category_owner']) && is_numeric($_POST['category_owner']) ) ? $_POST['category_owner']:get_current_user_id();
-		$this->to_object( apply_filters('em_category_get_post', $category, $this) );
-		return apply_filters('em_category_get_post',$this->validate(), $this);
+	function get_color(){
+		if( empty($this->color) ){
+			global $wpdb;
+			$color = $wpdb->get_var('SELECT meta_value FROM '.EM_META_TABLE." WHERE object_id='{$this->term_id}' AND meta_key='category-bgcolor' LIMIT 1");
+			$this->color = ($color != '') ? $color:'#FFFFFF';
+		}
+		return $this->color;
 	}
 	
-	function validate(){
-		//check required fields
-		foreach ( $this->required_fields as $field => $description) {
-			if ( $this->$field == "" ) {
-				$this->add_error($description.__(" is required.", "dbem"));
-			}
+	function get_image_url(){
+		if( empty($this->image_url) ){
+			global $wpdb;
+			$image_url = $wpdb->get_var('SELECT meta_value FROM '.EM_META_TABLE." WHERE object_id='{$this->term_id}' AND meta_key='category-image' LIMIT 1");
+			$this->image_url = ($image_url != '') ? $image_url:'';
 		}
-		$this->image_validate();
-		return apply_filters('em_location_validate', ( count($this->errors) == 0 ), $this);
+		return $this->image_url;
 	}
 	
-	function save(){
-		global $wpdb;
-		$result = false;
-		if( $this->can_manage('edit_categories') ){
-			do_action('em_category_save_pre', $this);
-			$table = EM_CATEGORIES_TABLE;
-			$this->slug = $this->sanitize_title();
-			$data = $this->to_array();
-			unset($data['category_id']);
-			if($this->id != ''){
-				$where = array( 'category_id' => $this->id );  
-				$result = $wpdb->update($table, $data, $where, $this->get_types($data));
-				if( $result !== false ){
-					$this->feedback_message = sprintf(__('%s successfully updated.', 'dbem'), __('Category','dbem'));
-				}
-			}else{
-				$wpdb->insert($table, $data, $this->get_types($data));
-			    $result = $this->id = $wpdb->insert_id;   
-				if( $result !== false ){
-					$this->feedback_message = sprintf(__('%s successfully added.', 'dbem'), __('Category','dbem'));
-				}
-			}
-		}else{
-			$this->add_error( sprintf(__('You do not have permission to create/edit %s.','dbem'), __('categories','dbem')) );
+	function get_url(){
+		if( empty($this->link) ){
+			$this->ms_global_switch();
+			$this->link = get_term_link($this->slug, EM_TAXONOMY_CATEGORY);
+			$this->ms_global_switch_back();
+			if ( is_wp_error($this->link) ) $this->link = '';
 		}
-		return apply_filters('em_category_save', ($result !== false), $this);
-	}
-	
-	/**
-	 * Takes the title and gives either a unique slug or returns the currently used slug if this record already has it.
-	 * @param unknown_type $title
-	 */
-	function sanitize_title($iteration = 1){
-		global $wpdb;
-		//Generate the slug. If this is a new event, create the slug automatically, if not, verify it is still unique and if not rewrite
-		if( empty($this->slug) ){
-			$this->slug = sanitize_title($this->name);
-		}
-		$slug = $this->slug;
-		$slug_matches = $wpdb->get_results('SELECT category_id FROM '.EM_CATEGORIES_TABLE." WHERE category_slug='{$slug}'", ARRAY_A);
-		if( count($slug_matches) > 0 ){ //we will check that the slug is unique
-			if( $slug_matches[0]['category_id'] != $this->id || count($slug_matches) > 1 ){
-				//we have a conflict, so try another alternative
-				$this->slug = preg_replace('/\-[0-9]+$/', '', $slug).'-'.($iteration+1);
-				$this->sanitize_title($iteration+1);
-			}
-		}
-		return apply_filters('em_category_title', $this->slug, $this);
-	}
-	
-	function delete(){
-		global $wpdb;
-		$result = false;
-		if( $this->can_manage('edit_categories') ){
-			do_action('em_category_delete_pre', $this);
-			$table_name = EM_CATEGORIES_TABLE;
-			$sql = "DELETE FROM $table_name WHERE category_id = '{$this->id}';";
-			$result = $wpdb->query($sql);
-		}
-		return apply_filters('em_category_delete', $result, $this);
+		return $this->link;
 	}
 	
 	function has_events(){
-		global $wpdb;	
+		global $wpdb;
+		//FIXME old event category checking
 		$events_table = EM_EVENTS_TABLE;
 		$sql = "SELECT count(event_id) as events_no FROM $events_table WHERE category_id = {$this->id}";   
 	 	$affected_events = $wpdb->get_row($sql);
@@ -160,7 +119,6 @@ class EM_Category extends EM_Object {
 		$category_string = $format;		 
 	 	preg_match_all("/(#@?_?[A-Za-z0-9]+)({([a-zA-Z0-9,]+)})?/", $format, $placeholders);
 		foreach($placeholders[1] as $key => $result) {
-			$match = true;
 			$replace = '';
 			$full_result = $placeholders[0][$key];
 			switch( $result ){
@@ -168,7 +126,7 @@ class EM_Category extends EM_Object {
 					$replace = $this->name;
 					break;
 				case '#_CATEGORYID':
-					$replace = $this->id;
+					$replace = $this->term_id;
 					break;
 				case '#_CATEGORYNOTES':
 				case '#_CATEGORYDESCRIPTION':
@@ -176,27 +134,29 @@ class EM_Category extends EM_Object {
 					break;
 				case '#_CATEGORYIMAGE':
 				case '#_CATEGORYIMAGEURL':
-					if( $this->image_url != ''){
+					if( $this->get_image_url() != ''){
 						if($result == '#_CATEGORYIMAGEURL'){
-		        			$replace =  $this->image_url;
+		        			$replace =  $this->get_image_url();
 						}else{
 							if( empty($placeholders[3][$key]) ){
-								$replace = "<img src='".esc_url($this->image_url)."' alt='".esc_attr($this->name)."'/>";
+								$replace = "<img src='".esc_url($this->get_image_url())."' alt='".esc_attr($this->name)."'/>";
 							}else{
 								$image_size = explode(',', $placeholders[3][$key]);
 								if( $this->array_is_numeric($image_size) && count($image_size) > 1 ){
-									$replace = "<img src='".em_get_thumbnail_url($this->image_url, $image_size[0], $image_size[1])."' alt='".esc_attr($this->name)."'/>";
+									$replace = "<img src='".em_get_thumbnail_url($this->get_image_url(), $image_size[0], $image_size[1])."' alt='".esc_attr($this->name)."'/>";
 								}else{
-									$replace = "<img src='".esc_url($this->image_url)."' alt='".esc_attr($this->name)."'/>";
+									$replace = "<img src='".esc_url($this->get_image_url())."' alt='".esc_attr($this->name)."'/>";
 								}
 							}
 						}
 					}
 					break;
+				case '#_CATEGORYCOLOR':
+					$replace = $this->get_color(); 
+					break;
 				case '#_CATEGORYLINK':
 				case '#_CATEGORYURL':
-					$joiner = (stristr(EM_URI, "?")) ? "&amp;" : "?";
-					$link = esc_url(EM_URI.$joiner."category_id=".$this->id);
+					$link = $this->get_url();
 					$replace = ($result == '#_CATEGORYURL') ? $link : '<a href="'.$link.'">'.esc_html($this->name).'</a>';
 					break;
 				case '#_CATEGORYEVENTSPAST': //depreciated, erroneous documentation, left for compatability
@@ -212,14 +172,16 @@ class EM_Category extends EM_Object {
 					//forget it ever happened? :/
 					if ($result == '#_CATEGORYPASTEVENTS'){ $scope = 'past'; }
 					elseif ( $result == '#_CATEGORYNEXTEVENTS' ){ $scope = 'future'; }
-					else{ $scope = 'all'; }
-					$events = EM_Events::get( array('category'=>$this->id, 'scope'=>$scope) );
+					else{ $scope = 'all'; }					
+					$events = EM_Events::get( array('category'=>$this->term_id, 'scope'=>$scope) );
 					if ( count($events) > 0 ){
+						$replace .= get_option('dbem_category_event_list_item_header_format','<ul>');
 						foreach($events as $EM_Event){
 							$replace .= $EM_Event->output(get_option('dbem_category_event_list_item_format'));
 						}
+						$replace .= get_option('dbem_category_event_list_item_footer_format');
 					} else {
-						$replace = get_option('dbem_category_no_events_message');
+						$replace = get_option('dbem_category_no_events_message','</ul>');
 					}
 					break;
 				default:
@@ -241,7 +203,7 @@ class EM_Category extends EM_Object {
 		$can_manage = current_user_can($capability_owner);
 		//if multisite and supoer admin, just return true
 		if( is_multisite() && is_super_admin() ){ return true; }
-		if( is_multisite() && get_site_option('dbem_ms_global_table') && !is_main_site() ){
+		if( EM_MS_GLOBAL && !is_main_site() ){
 			//User can't admin this bit, as they're on a sub-blog
 			$can_manage = false;
 			if(array_key_exists($capability_owner, $em_capabilities_array) ){

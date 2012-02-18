@@ -12,10 +12,9 @@ class EM_Tickets extends EM_Object implements Iterator{
 	 */
 	var $tickets = array();
 	/**
-	 * Event ID
-	 * @var EM_Event
+	 * @var int
 	 */
-	var $event;
+	var $event_id;
 	/**
 	 * @var EM_Booking
 	 */
@@ -30,32 +29,22 @@ class EM_Tickets extends EM_Object implements Iterator{
 	 */
 	function EM_Tickets( $object = false ){
 		global $wpdb;
-		if( is_object($object) && get_class($object) == "EM_Event" ){ //Creates a blank tickets object if needed
-			$this->event = $object;
-			$sql = "SELECT * FROM ". EM_TICKETS_TABLE ." WHERE event_id ='{$this->event->id}' ORDER BY ".get_option('dbem_bookings_tickets_orderby');
+		if( is_numeric($object) || (is_object($object) && in_array(get_class($object), array("EM_Event","EM_Booking"))) ){
+			$this->event_id = (is_object($object)) ? $object->event_id:$object;
+			$sql = "SELECT * FROM ". EM_TICKETS_TABLE ." WHERE event_id ='{$this->event_id}' ORDER BY ".get_option('dbem_bookings_tickets_orderby');
 			$tickets = $wpdb->get_results($sql, ARRAY_A);
 			foreach ($tickets as $ticket){
 				$EM_Ticket = new EM_Ticket($ticket);
-				$EM_Ticket->event = $this->event;
+				$EM_Ticket->event_id = $this->event_id;
 				$this->tickets[] = $EM_Ticket;
 			}
-		}elseif( is_object($object) && get_class($object) == "EM_Booking"){
-			$this->booking = $object;
-			$this->event = $this->booking->get_event();
-			$sql = "SELECT * FROM ". EM_TICKETS_TABLE ." WHERE event_id ='{$this->event->id}' ORDER BY ".get_option('dbem_bookings_tickets_orderby');
-			$tickets = $wpdb->get_results($sql, ARRAY_A);
-			foreach ($tickets as $ticket){
-				$EM_Ticket = new EM_Ticket($ticket);
-				$EM_Ticket->event = $this->event;
-				$this->tickets[] = $EM_Ticket;
-			}
-		}elseif( is_array($object) ){
+		}elseif( is_array($object) ){ //expecting an array of EM_Ticket objects or ticket db array
 			if( is_object(current($object)) && get_class(current($object)) == 'EM_Ticket' ){
 				$this->tickets = $object;
 			}else{
 				foreach($object as $ticket){
 					$EM_Ticket = new EM_Ticket($ticket);
-					$EM_Ticket->event = $this->event;
+					$EM_Ticket->event_id = $this->event_id;
 					$this->tickets[] = $EM_Ticket;				
 				}
 			}
@@ -67,7 +56,25 @@ class EM_Tickets extends EM_Object implements Iterator{
 	 * @return EM_Event
 	 */
 	function get_event(){
-		return $this->event;
+		global $EM_Event;
+		if( is_object($EM_Event) && $EM_Event->event_id == $this->event_id ){
+			return $EM_Event;
+		}else{
+			return new EM_Event($this->event_id);
+		}
+	}
+
+	/**
+	 * does this ticket exist?
+	 * @return bool 
+	 */
+	function has_ticket($ticket_id){
+		foreach( $this->tickets as $EM_Ticket){
+			if($EM_Ticket->ticket_id == $ticket_id){
+				return apply_filters('em_tickets_has_ticket',true, $EM_Ticket, $this);
+			}
+		}
+		return apply_filters('em_tickets_has_ticket',false, false,$this);
 	}
 	
 	/**
@@ -94,7 +101,7 @@ class EM_Tickets extends EM_Object implements Iterator{
 		$result = false;
 		$ticket_ids = array();
 		foreach( $this->tickets as $EM_Ticket ){
-			$ticket_ids[] = $EM_Ticket->id;
+			$ticket_ids[] = $EM_Ticket->ticket_id;
 		}
 		//check that tickets don't have bookings
 		if(count($ticket_ids) > 0){
@@ -123,10 +130,10 @@ class EM_Tickets extends EM_Object implements Iterator{
 				$EM_Ticket = new EM_Ticket($ticket_data);
 				$this->tickets[] = $EM_Ticket;
 			}
-		}elseif( is_object($this->event) ){
+		}else{
 			//we create a blank standard ticket
 			$EM_Ticket = new EM_Ticket(array(
-				'event_id' => $this->event->id,
+				'event_id' => $this->event_id,
 				'ticket_name' => __('Standard','dbem')
 			));
 			$this->tickets[] = $EM_Ticket;
@@ -138,11 +145,13 @@ class EM_Tickets extends EM_Object implements Iterator{
 	 * Go through the tickets in this object and validate them 
 	 */
 	function validate(){
-		$errors = array();
+		$this->errors = array();
 		foreach($this->tickets as $EM_Ticket){
-			$errors[] = $EM_Ticket->validate();
+			if( !$EM_Ticket->validate() ){
+				$this->add_error($EM_Ticket->get_errors());
+			} 
 		}
-		return apply_filters('em_tickets_validate', !in_array(false, $errors), $this);
+		return apply_filters('em_tickets_validate', count($this->errors) == 0, $this);
 	}
 	
 	/**
@@ -151,7 +160,8 @@ class EM_Tickets extends EM_Object implements Iterator{
 	function save(){
 		$errors = array();
 		foreach( $this->tickets as $EM_Ticket ){
-			$EM_Ticket->event = $this->event; //pass on saved event_data
+			/* @var $EM_Ticket EM_Ticket */
+			$EM_Ticket->event_id = $this->event_id; //pass on saved event_data
 			$errors[] = $EM_Ticket->save();
 		}
 		return apply_filters('em_tickets_save', !in_array(false, $errors), $this);

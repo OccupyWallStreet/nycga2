@@ -8,9 +8,5 @@
  */
 global $EM_Event;
 /* @var $EM_Event EM_Event */
-if( $EM_Event->status == 1 ){
-	echo $EM_Event->output_single();
-}else{
-	echo get_option('dbem_no_events_message');
-}
+echo $EM_Event->output_single();
 ?>

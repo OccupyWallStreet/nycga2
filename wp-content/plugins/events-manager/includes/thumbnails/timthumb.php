@@ -700,7 +700,7 @@ class timthumb {
 			imageconvolution ($canvas, $sharpenMatrix, $divisor, $offset);
 
 		}
-		//Straight from Wordpress core code. Reduces filesize by up to 70% for PNG's
+		//Straight from WordPress core code. Reduces filesize by up to 70% for PNG's
 		if ( (IMAGETYPE_PNG == $origType || IMAGETYPE_GIF == $origType) && function_exists('imageistruecolor') && !imageistruecolor( $image ) && imagecolortransparent( $image ) > 0 ){
 			imagetruecolortopalette( $canvas, false, imagecolorstotal( $image ) );
 		}

@@ -1,56 +1,61 @@
-=== Events Manager ===  
-Contributors: nutsmuggler, netweblogic    
+=== Events Manager ===
+Contributors: nutsmuggler, netweblogic
 Donate link: http://wp-events-plugin.com
-Tags: events, event, event registration, event calendar, events calendar, event management, paypal, registration, ticket, tickets, ticketing, tickets, theme, widget, locations, maps, booking, attendance, attendee, buddypress, calendar, gigs, payment, payments, sports, 
+Tags: events, event, event registration, event calendar, events calendar, event management, paypal, registration, ticket, tickets, ticketing, tickets, theme, widget, locations, maps, booking, attendance, attendee, buddypress, calendar, gigs, payment, payments, sports,
 Requires at least: 3.1
-Tested up to: 3.2.1
-Stable tag: 4.212
+Tested up to: 3.3.1
+Stable tag: 5.0.51
 
 Fully featured event registration management including recurring events, locations management, calendar, Google map integration, booking management
 
-== Upgrade Notice ==
-
-For those upgrading from version 3 to 4, you must upgrade to version 3.0.98 manually and then to the latest version as usual. Please [see this screencast](http://wp-events-plugin.com/news/upgrade-issues-screencast-walkthrough/) for a walkthrough.
-           
 == Description ==
 
-Events Manager is a full-featured event registration management solution for Wordpress based on the principles of flexibility, reliability and powerful features!
+Events Manager is a full-featured event registration plugin for WordPress based on the principles of flexibility, reliability and powerful features!
 
-For documentation, tutorials and support please visit the [plugin website](http://wp-events-plugin.com/).
+Version 5 now makes events and locations WordPress Custom Post Types, allowing for more possibilities than ever before!
 
-Main Features
+* [Demo](http://demo.wp-events-plugin.com/)
+* [Documentation](http://wp-events-plugin.com/documentation/)
+* [Tutorials](http://wp-events-plugin.com/tutorials/)
+
+= Main Features =
 
 * Easy event registration (single day with start/end times)
 * Recurring and long (multi-day) event registration
 * Bookings Management (including approval/rejections, export CVS, and more!)
 * Multiple Tickets
-* Multisite Support
+* MultiSite Support
 * BuddyPress Support
+ * Submit Events
  * Group Events
  * Personal Events
  * Activity Stream
  * more on the way
-* Guest/Member event submissions (beta)
-* SEO Permalinks
+* Guest/Member Event submissions (
 * Assign event locations and view events by location
 * Event categories
 * Easily create custom event attributes (e.g. dress code)
-* Google Map integration straight out the box!
+* Google Maps
 * Advanced permissions - restrict user management of events and locations.
-* Sidebars to display your events and locations
-* Calendaring widgets show your events in an AJAX calendar format
+* Widgets for Events, Locations and Calendars
 * Fine grained control of how every aspect of your events are shown on your site, easily modify templates from the settings pages and template files
 * iCal Feed
+* Add to Google Calendar buttons
 * RSS Feeds
+* SEO Permalinks
 * Plenty of template tags and shortcodes for use in your posts and pages
 * Actively maintained and supported
 * Lots of documentation and tutorials
-* Guest Event Submissions (new, beta)
 * And much more!
 
-We have just released a [pro add-on](http://wp-events-plugin.com/events-manager-pro/) which adds PayPal and priority support, as well as many more powerful upcoming features for those with serious eventing needs!
+= Go Pro =
+We have also released an add-on for Events Manager which not only demonstrates the flexibility of Events Manager, but also adds some important features:
 
-Events Manager was rewritten in 3.0 from the ground up with flexibility in mind. Through use of object oriented programming and exposing hooks and filters throughout the site, you can modify Events Manager just like you would Wordpress!
+* PayPal and Offline Payments
+* Custom booking forms
+* Faster support via private forums
+
+For more information or to go pro, [visit our plugin website](http://wp-events-plugin.com).
 
 == Installation ==
 
@@ -59,7 +64,7 @@ Events Manager works like any standard Wordpress plugin, and requires little con
 Whenever installing or upgrading any plugin, or even Wordpress itself, it is always recommended you back up your database first!
 
 = Installing =
- 
+
 1. If installing, go to Plugins > Add New in the admin area, and search for events manager.
 2. Click install, once installed, activate and you're done!
 
@@ -70,10 +75,14 @@ Once installed, you can start adding events straight away, although you may want
 1. When upgrading, visit the plugins page in your admin area, scroll down to events manager and click upgrade.
 2. Wordpress will help you upgrade automatically.
 
-= Upgrading from 3.x to 4.x =
+= Upgrading from version 4 to 5 =
 
-Please view [this page](http://wp-events-plugin.com/news/events-manager-4-0-released/) for information on upgrading events manager.
- 
+Please [read these instructions](http://wp-events-plugin.com/updating-to-v5/).
+
+== Upgrade Notice ==
+
+For those upgrading from version 4 to 5, please [read these instructions](http://wp-events-plugin.com/updating-to-v5/).
+
 == Frequently Asked Questions ==
 
 See our [FAQ](http://wp-events-plugin.com/documentation/faq/) page, which is updated more regularly.
@@ -88,6 +97,141 @@ See our [FAQ](http://wp-events-plugin.com/documentation/faq/) page, which is upd
 6. Manage attendees with various booking reports
 
 == Changelog ==
+
+= 5.0.51 =
+* fixed limit issue for calendars when no limit is set
+* bookings feedback messages showing properly again
+* manage my bookings page link functioning correctly now
+* GBP pound sign fixed
+* fixed location atts setting box not being checked for placeholders
+
+= 5.0.50 =
+* bookings table now within a unified ajax table
+* added location attributes
+* added currency formatting
+* added "all day" format setting for #_EVENTTIMES
+* added calendar ordering an limits (full-sized calendar)
+* moved 'add new' button next to event lists outside wp-admin
+* fixed some redirection issues for some themes
+* small date formatting fixes for international english
+* ticket bookings now deleted with overall booking
+* categories now copied correctly when duplicating events
+* tickets can now just be shown to logged out users
+* added is_long, not_long, logged_in, not_logged_in, fully_booked and has_spaces conditionals
+* fixed a preg issue with date formatting
+* booking modifications possible again (ticket numbers)
+* pending space counting in emails corrected
+
+= 5.0.42 =
+* changed csv booking time to 24 hr format
+* fixed EM_URI error
+* added logged_in not_logged_in conditional placeholders
+* buddypress does not override pages defined in settings > pages > other pages
+* default events install properly now
+* title seperator problem fixed
+* fixed add theme support for thumbnail function not firing early enough
+
+= 5.0.41 =
+* fixed fatal error on install (bug since 5.0.4)
+* italian js translation added to prevent js error
+* CVS title bug fix
+
+= 5.0.4 =
+* added installation throttle, to prevent double event imports
+* pending events migrate as pending now
+* index auto-correction for non-indexed events/locations on save
+* wp_rewrite theme compat hack for some offending themes
+* guest submission now showing success message
+* added events_gcal shortcode for google calendar
+* fixed bad BP links in edit event/location tables
+* added single event ical endpoint
+* added import to google event placeholder
+* fixed em_content_pre problem
+* group event locations label showing
+* empty attributes are saved when previously filled
+
+= 5.0.3 =
+* searching from/to without one or another date works as intended
+* fixed various old-named properties (and refreshed old properties after object save)
+* fixed overriding front-end edit links from within admin area
+* fixed #_EDITEVENTURL
+* fixed location placeholder output/filter function
+* fixed missing php in opening tag of search template
+
+= 5.0.2 =
+* fixed new booking id not being saved and passed to filters
+* fixed booking placeholders not showing
+* single category placeholders working for event formats
+* search form has options section with configurable texts
+
+= 5.0.1 =
+* js correction preventing maps loading
+
+= 5.0 =
+* Events and Locations are now custom post types
+* categories are now custom taxonomies
+* events can have tags
+* new placeholders, conditionals and search attributes
+* BuddyPress module rewritten using 1.5 BP_Component api
+* list pages split up, assign a page for each list
+* extended page formatting options
+* new time picker and improved datepicker
+* various bugs fixed
+* streamlined templates and consolidated varoius list templates
+* event and location editors revamped, consolidated and basic CSS added for front-end forms
+* Locations are now optional (if chosen)
+* more capabilities added for finer permission control
+* all day events possible
+
+= 4.305 =
+* fixed my-bookings.php template for pagination errors
+* fixed duplicate tickets produced in buddypress editor
+* removed console.log from js
+* fixed owner=0 when admins create ownerless events
+* fixed bp activity posting of member links in 1.5
+
+= 4.304 =
+* added pubdate to rss feed
+* fixed datepickers in single ticket mode not showing saved dates
+* fixed bookings view/edit link on second pages of ajax navigator
+* added Aruba to countries list
+* corrected login error string not being overriden
+* removed bogus event settings page in BP (for now)
+* attendees list now ommitting unconfirmed bookings
+* booking addon pages should now override correctly
+* improved buddypress activity notification (supports pro stuses and only one activity if a group event)
+
+= 4.303 =
+* fixed PHPMailer conflict when in wp_mail mode
+* added html support in emails (if using smtp)
+* new event owner now auto-selected
+* tickets now duplicated along with event
+* blank ticket price validation error fixed
+* fixed 'available spaces' bug when only one remaining reserved/pending space is confirmed
+
+= 4.302 =
+* group events show proper links to event pages, not edit pages
+* PHPMailer updated to v5.2.0
+* can_manage bug in MS Mode fixed
+* added more actions to ticket forms/tables
+* events_calendar shortcode now filtering location search attributes as expected
+
+= 4.301 =
+* saving event tickets will now validate properly with meaningful errors
+* my-bookings page will show/hide bookings depending on multisite settings (MS only)
+* adjusted EM_Events output to use old preg from 4.212 but process custom atts beforehand
+
+= 4.300 =
+* more calendar css cleanup
+* timepicker now working for public event forms
+* user cancellation of bookings now an option in settings
+* tax percentage option
+* fixed compatability with yoast seo plugin (EM overwrites the title)
+* custom attributes breaking when nested in conditional tags fixed
+* BP child themes should work properly now without the plugins.php file
+* ical DQUOTES problem removed
+* events now receive approval confirmation by email
+* optional user registration
 
 = 4.212 =
 * removed JS entirely from booking form template, still included in footer (overriden templates should remove JS to avoid errors)
@@ -192,7 +336,7 @@ See our [FAQ](http://wp-events-plugin.com/documentation/faq/) page, which is upd
 * event details aren't copied by mistake to a location
 * fixed booking notes
 * added em_event_owner_dropdown_users filter
-* added category selection in calendar widget 
+* added category selection in calendar widget
 
 = 4.12 =
 * fixed JS problem in admin area when WPLANG is set
@@ -280,7 +424,7 @@ See our [FAQ](http://wp-events-plugin.com/documentation/faq/) page, which is upd
 
 = 4.0.5 =
 * removed various php warnings
-* added explanation for incorrect recurrences 
+* added explanation for incorrect recurrences
 * fixed RSS title/desc not using html entities
 * fixed event widget scope problem
 * MultiSite superadmins can manage all
@@ -307,7 +451,7 @@ See our [FAQ](http://wp-events-plugin.com/documentation/faq/) page, which is upd
 * added extra linking formatting for calendars (minor tweak for bug report)
 * datepicker locale now matches WPLANG setting (if applicable)
 * fixed recurrence and category issues
-* changed version update mechanism 
+* changed version update mechanism
 
 = 4.0.1 =
 * fixed recurrence slug and creation issue
@@ -371,7 +515,7 @@ See our [FAQ](http://wp-events-plugin.com/documentation/faq/) page, which is upd
 * export CSV of bookings
 * booking approvals added
 * bookings can have individual notes
-* calendar widget shows selected month if clicked on 
+* calendar widget shows selected month if clicked on
 * custom attributes field, for atts that don't need to be in a template (e.g. pdf file url)
 * time limit for main events list and events widget (e.g. show events that occur within x months)
 * default location
@@ -394,7 +538,7 @@ See our [FAQ](http://wp-events-plugin.com/documentation/faq/) page, which is upd
 * fixed date translations
 * cleaned up the settings page documentation and added placeholder docs on help page.
 * fixed "enable notification emails" option in settings
-* added admin email option that would be send every event booking to admin 
+* added admin email option that would be send every event booking to admin
 
 = 3.0.81 =
 * Fixed pagination bugs
@@ -464,13 +608,13 @@ See our [FAQ](http://wp-events-plugin.com/documentation/faq/) page, which is upd
 * Fixed error for #_EXCERPT not showing
 
 = 3.0 =
-* Refactored all the underlying architecture, to make it object oriented. Now classes and templates are separate.    
-* Merged the events and recurrences tables                                                   
+* Refactored all the underlying architecture, to make it object oriented. Now classes and templates are separate.
+* Merged the events and recurrences tables
 * Tables migration from dbem to em (to provide a fallback in case the previous merge goes wrong)
 * Bugfix: 127 limit increased (got rid of tinyint types)
 * Bugfix: fixed all major php bugs preventing the use with Wordpress 3.0
 * Bugfix: fixed all major js bugs preventing the use with Wordpress 3.0
-* Restyling of the Settings page    
+* Restyling of the Settings page
 * Added a setting to revert to 2.2
 * optimizing EM_Locations and removing redundant code across objects
 

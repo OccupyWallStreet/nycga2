@@ -46,10 +46,7 @@ function em_bookings_events_table() {
 			<input type="hidden" name="em_obj" value="em_bookings_events_table" />
 			<?php if(!empty($_GET['page'])): ?>
 			<input type='hidden' name='page' value='events-manager-bookings' />
-			<?php endif; ?>
-			<ul class="subsubsub">
-				<li><a href='#' class="current"><?php _e ( 'Total', 'dbem' ); ?> <span class="count">(<?php echo (count ( $events )); ?>)</span></a></li>
-			</ul>			
+			<?php endif; ?>		
 			<div class="tablenav">			
 				<div class="alignleft actions">
 					<!--
@@ -124,7 +121,7 @@ function em_bookings_events_table() {
 							<tr <?php echo "$class $style"; ?>>
 				
 								<td>
-									<input type='checkbox' class='row-selector' value='<?php echo $event->id; ?>' name='events[]' />
+									<input type='checkbox' class='row-selector' value='<?php echo $event->event_id; ?>' name='events[]' />
 								</td>
 								<td>
 									<strong>

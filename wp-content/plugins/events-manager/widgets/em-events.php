@@ -17,10 +17,16 @@ class EM_Widget extends WP_Widget {
     		'category' => 0,
     		'format' => '#_LINKEDNAME<ul><li>#j #M #y</li><li>#_TOWN</li></ul>',
     		'nolistwrap' => false,
-    		'orderby' => 'start_date,start_time,name',
+    		'orderby' => 'event_start_date,event_start_time,event_name',
 			'all_events' => 0,
 			'all_events_text' => __('all events', 'dbem')
     	);
+		$this->em_orderby_options = apply_filters('em_settings_events_default_orderby_ddm', array(
+			'event_start_date,event_start_time,event_name' => __('start date, start time, event name','dbem'),
+			'event_name,event_start_date,event_start_time' => __('name, start date, start time','dbem'),
+			'event_name,event_end_date,event_end_time' => __('name, end date, end time','dbem'),
+			'event_end_date,event_end_time,event_name' => __('end date, end time, event name','dbem'),
+		)); 
     	$widget_ops = array('description' => __( "Display a list of events on Events Manager.", 'dbem') );
         parent::WP_Widget(false, $name = 'Events', $widget_ops);	
     }
@@ -34,7 +40,21 @@ class EM_Widget extends WP_Widget {
 	    echo $instance['title'];
 	    echo $args['after_title'];
 		$instance['owner'] = false;
-		 
+		//orderby fix for previous versions with old orderby values
+		if( !array_key_exists($instance['orderby'], $this->em_orderby_options) ){
+			//replace old values
+			$old_vals = array(
+				'name' => 'event_name',
+				'end_date' => 'event_end_date',
+				'start_date' => 'event_start_date',
+				'end_time' => 'event_end_time',
+				'start_time' => 'event_start_time'
+			);
+			foreach($old_vals as $old_val => $new_val){
+				$instance['orderby'] = str_replace($old_val, $new_val, $instance['orderby']);
+			}
+		}
+		
 		$events = EM_Events::get(apply_filters('em_widget_events_get_args',$instance));
 		echo "<ul>";
 		$li_wrap = !preg_match('/^<li>/i', trim($instance['format']));
@@ -95,15 +115,10 @@ class EM_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id('order'); ?>"><?php _e('Order By','dbem'); ?>: </label>
 			<select  id="<?php echo $this->get_field_id('orderby'); ?>" name="<?php echo $this->get_field_name('orderby'); ?>">
-				<?php 
-					$orderby_options = apply_filters('em_widget_orderby_ddm', array(
-						'start_date,start_time,name' => __('start date, start time, event name','dbem'),
-						'name,start_date,start_time' => __('name, start date, start time','dbem'),
-						'name,end_date,end_time' => __('name, end date, end time','dbem'),
-						'end_date,end_time,name' => __('end date, end time, event name','dbem'),
-					)); 
+				<?php  
+					echo $this->em_orderby_options;
 				?>
-				<?php foreach($orderby_options as $key => $value) : ?>   
+				<?php foreach($this->em_orderby_options as $key => $value) : ?>   
 	 			<option value='<?php echo $key ?>' <?php echo ( !empty($instance['orderby']) && $key == $instance['orderby']) ? "selected='selected'" : ''; ?>>
 	 				<?php echo $value; ?>
 	 			</option>

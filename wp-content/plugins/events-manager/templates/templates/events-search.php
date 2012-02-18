@@ -7,22 +7,29 @@
 ?>
 <div class="em-events-search">
 	<?php 
-	$s_default = __('Search Events', 'dbem'); 
+	global $em_localized_js;
+	$s_default = get_option('dbem_search_form_text_label');	
 	$s = !empty($_REQUEST['search']) ? $_REQUEST['search']:$s_default;
 	if( empty($_REQUEST['country']) && empty($_REQUEST['page']) ){
 		$country = get_option('dbem_location_default_country');
-	}elseif( empty($_REQUEST['country']) ){
+	}elseif( !empty($_REQUEST['country']) ){
 		$country = $_REQUEST['country'];
 	}
 	//convert scope to an array in event of pagination
 	if(!empty($_REQUEST['scope']) && !is_array($_REQUEST['scope'])){ $_REQUEST['scope'] = explode(',',$_REQUEST['scope']); }
+	//get the events page to display search results
 	?>
 	<form action="<?php echo EM_URI; ?>" method="post" class="em-events-search-form">
 		<?php do_action('em_template_events_search_form_header'); ?>
+		
+		<?php if( !empty($search_text) || (get_option('dbem_search_form_text') && empty($search_text)) ): ?>
 		<!-- START General Search -->
 		<?php /* This general search will find matches within event_name, event_notes, and the location_name, address, town, state and country. */ ?>
-		<input type="text" name="search" class="em-events-search-text" value="<?php echo $s; ?>" onfocus="if(this.value=='<?php echo $s_default; ?>')this.value=''" onblur="if(this.value=='')this.value='<?php echo $s_default; ?>'" />
+		<input type="text" name="em_search" class="em-events-search-text" value="<?php echo $s; ?>" onfocus="if(this.value=='<?php echo $s_default; ?>')this.value=''" onblur="if(this.value=='')this.value='<?php echo $s_default; ?>'" />
 		<!-- END General Search -->
+		<?php endif; ?>
+		
+		<?php if( !empty($search_dates) || (get_option('dbem_search_form_dates') && empty($search_dates)) ): ?>
 		<!-- START Date Search -->
 		<span class="em-events-search-dates">
 			<?php _e('between','dbem'); ?>:
@@ -32,18 +39,24 @@
 			<input type="text" id="em-date-end-loc" />
 			<input type="hidden" id="em-date-end" name="scope[1]" value="<?php if( !empty($_REQUEST['scope'][1]) ) echo $_REQUEST['scope'][1]; ?>" />
 		</span>
-		<!-- END Date Search -->		
+		<!-- END Date Search -->
+		<?php endif; ?>
+		
+		<?php if( !empty($search_categories) || (get_option('dbem_search_form_categories') && empty($search_categories)) ): ?>	
 		<!-- START Category Search -->
 		<select name="category" class="em-events-search-category">
-			<option value=''><?php _e('All Categories','dbem'); ?></option>
+			<option value=''><?php echo get_option('dbem_search_form_categories_label') ?></option>
 			<?php foreach(EM_Categories::get(array('orderby'=>'category_name')) as $EM_Category): ?>
 			 <option value="<?php echo $EM_Category->id; ?>" <?php echo (!empty($_REQUEST['category']) && $_REQUEST['category'] == $EM_Category->id) ? 'selected="selected"':''; ?>><?php echo $EM_Category->name; ?></option>
 			<?php endforeach; ?>
 		</select>
 		<!-- END Category Search -->
+		<?php endif; ?>
+		
+		<?php if( !empty($search_countries) || (get_option('dbem_search_form_countries') && empty($search_countries)) ): ?>
 		<!-- START Country Search -->
 		<select name="country" class="em-events-search-country">
-			<option value=''><?php _e('All Countries','dbem'); ?></option>
+			<option value=''><?php echo get_option('dbem_search_form_countries_label'); ?></option>
 			<?php 
 			//get the counties from locations table
 			global $wpdb;
@@ -55,99 +68,74 @@
 			<?php endforeach; ?>
 		</select>
 		<!-- END Country Search -->	
+		<?php endif; ?>
+		
+		<?php if( !empty($search_regions) || (get_option('dbem_search_form_regions') && empty($search_regions)) ): ?>
 		<!-- START Region Search -->
 		<select name="region" class="em-events-search-region">
-			<option value=''><?php _e('All Regions','dbem'); ?></option>
+			<option value=''><?php echo get_option('dbem_search_form_regions_label'); ?></option>
 			<?php 
 			if( !empty($country) ){
 				//get the counties from locations table
 				global $wpdb;
-				$em_states = $wpdb->get_results($wpdb->prepare("SELECT DISTINCT location_region FROM ".EM_LOCATIONS_TABLE." WHERE location_region IS NOT NULL AND location_region != '' AND location_country=%s", $country), ARRAY_N);
+				$em_states = $wpdb->get_results($wpdb->prepare("SELECT DISTINCT location_region FROM ".EM_LOCATIONS_TABLE." WHERE location_region IS NOT NULL AND location_region != '' AND location_country=%s ORDER BY location_region", $country), ARRAY_N);
 				foreach($em_states as $state){
 					?>
-					 <option <?php echo ($_REQUEST['region'] == $state[0]) ? 'selected="selected"':''; ?>><?php echo $state[0]; ?></option>
+					 <option <?php echo (!empty($_REQUEST['region']) && $_REQUEST['region'] == $state[0]) ? 'selected="selected"':''; ?>><?php echo $state[0]; ?></option>
 					<?php 
 				}
 			}
 			?>
 		</select>	
 		<!-- END Region Search -->	
+		<?php endif; ?>
+		
+		<?php if( !empty($search_states) || (get_option('dbem_search_form_states') && empty($search_states)) ): ?>
 		<!-- START State/County Search -->
 		<select name="state" class="em-events-search-state">
-			<option value=''><?php _e('All States','dbem'); ?></option>
+			<option value=''><?php echo get_option('dbem_search_form_states_label'); ?></option>
 			<?php 
 			if( !empty($country) ){
 				//get the counties from locations table
 				global $wpdb;
-				$em_states = $wpdb->get_results($wpdb->prepare("SELECT DISTINCT location_state FROM ".EM_LOCATIONS_TABLE." WHERE location_state IS NOT NULL AND location_state != '' AND location_country=%s", $country), ARRAY_N);
+				$cond = !empty($_REQUEST['region']) ? $wpdb->prepare(" AND location_region=%s ", $_REQUEST['region']):'';
+				$em_states = $wpdb->get_results($wpdb->prepare("SELECT DISTINCT location_state FROM ".EM_LOCATIONS_TABLE." WHERE location_state IS NOT NULL AND location_state != '' AND location_country=%s $cond ORDER BY location_state", $country), ARRAY_N);
 				foreach($em_states as $state){
 					?>
-					 <option <?php echo ($_REQUEST['state'] == $state[0]) ? 'selected="selected"':''; ?>><?php echo $state[0]; ?></option>
+					 <option <?php echo (!empty($_REQUEST['state']) && $_REQUEST['state'] == $state[0]) ? 'selected="selected"':''; ?>><?php echo $state[0]; ?></option>
 					<?php 
 				}
 			}
 			?>
 		</select>
 		<!-- END State/County Search -->
-		<?php do_action('em_template_events_search_form_ddm'); ?>
-
-		<?php do_action('em_template_events_search_form_footer'); ?>
-		<input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('search_events'); ?>" />
-		<input type="submit" value="<?php _e('Search','dbem'); ?>" class="em-events-search-submit" />		
-	</form>
-</div>
-<script type="text/javascript">
-	jQuery(document).ready( function($){
-		$('.em-events-search-form select[name=country]').change( function(){
-			$('.em-events-search select[name=state]').html('<option><?php _e('Loading...','dbem'); ?></option>');
-			$('.em-events-search select[name=region]').html('<option><?php _e('Loading...','dbem'); ?></option>');
-			var data = {
-				_wpnonce : '<?php echo wp_create_nonce('search_states'); ?>',
-				action : 'search_states',
-				country : $(this).val(),
-				return_html : true
-			};
-			$('.em-events-search select[name=state]').load( EM.ajaxurl, data );
-			data.action = 'search_regions';
-			data._wpnonce = '<?php echo wp_create_nonce('search_regions'); ?>';
-			$('.em-events-search select[name=region]').load( EM.ajaxurl, data );
-		});
-
-		$('.em-events-search-form select[name=region]').change( function(){
-			$('.em-events-search select[name=state]').html('<option><?php _e('Loading...','dbem'); ?></option>');
-			var data = {
-				_wpnonce : '<?php echo wp_create_nonce('search_states'); ?>',
-				action : 'search_states',
-				region : $(this).val(),
-				country : $('.em-events-search-form select[name=country]').val(),
-				return_html : true
-			};
-			$('.em-events-search select[name=state]').load( EM.ajaxurl, data );
-		});
+		<?php endif; ?>
 		
-		//in order for this to work, you need the above classes to be present in your theme
-		$('.em-events-search-form').submit(function(){
-	    	if( this.search.value=='<?php echo $s_default; ?>'){
-	    		this.search.value = '';
-	    	}
-	    	if( $('#em-wrapper .em-events-list').length == 1 ){
-				$(this).ajaxSubmit({
-					url : EM.ajaxurl,
-				    data : {
-						_wpnonce : '<?php echo wp_create_nonce('search_states'); ?>',
-						action : 'search_states',
-						country : $(this).val(),
-						return_html : true
-					},
-				    beforeSubmit: function(form) {
-						$('.em-events-search-form :submit').val('<?php _e('Searching...','dbem'); ?>');
-				    },
-				    success : function(responseText) {
-						$('.em-events-search-form :submit').val('<?php _e('Search','dbem'); ?>');
-						$('#em-wrapper .em-events-list').replaceWith(responseText);
-				    }
-				});
-	    	} 
-		});
-	});	
-</script>
+		<?php if( !empty($search_towns) || (get_option('dbem_search_form_towns') && empty($search_towns)) ): ?>
+		<!-- START City Search -->
+		<select name="town" class="em-events-search-town">
+			<option value=''><?php echo get_option('dbem_search_form_towns_label'); ?></option>
+			<?php 
+			if( !empty($country) ){
+				//get the counties from locations table
+				global $wpdb;
+				$cond = !empty($_REQUEST['region']) ? $wpdb->prepare(" AND location_region=%s ", $_REQUEST['region']):'';
+				$cond .= !empty($_REQUEST['state']) ? $wpdb->prepare(" AND location_state=%s ", $_REQUEST['state']):'';
+				$em_towns = $wpdb->get_results($wpdb->prepare("SELECT DISTINCT location_town FROM ".EM_LOCATIONS_TABLE." WHERE location_town IS NOT NULL AND location_town != '' AND location_country=%s $cond ORDER BY location_town", $country), ARRAY_N);
+				foreach($em_towns as $town){
+					?>
+					 <option <?php echo (!empty($_REQUEST['town']) && $_REQUEST['town'] == $town[0]) ? 'selected="selected"':''; ?>><?php echo $town[0]; ?></option>
+					<?php 
+				}
+			}
+			?>
+		</select>
+		<!-- END City Search -->
+		<?php endif; ?>
+		
+		<?php do_action('em_template_events_search_form_ddm'); //depreciated, don't hook, use the one below ?>
+		<?php do_action('em_template_events_search_form_footer'); ?>
+		<input type="hidden" name="action" value="search_events" />
+		<input type="submit" value="<?php echo $s_default; ?>" class="em-events-search-submit" />		
+	</form>	
+</div>

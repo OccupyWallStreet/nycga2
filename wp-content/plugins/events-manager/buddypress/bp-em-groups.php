@@ -3,7 +3,7 @@
  * @param EM_Event $EM_Event
  */
 function bp_em_group_event_save($EM_Event){
-	if( is_object($EM_Event) && empty($EM_Event->group_id) && !empty($_REQUEST['group_id']) && is_numeric($_REQUEST['group_id']) ){
+	if( is_object($EM_Event) && empty($EM_Event->group_id) && !empty($_REQUEST['group_id']) && is_numeric($_REQUEST['group_id']) && bp_is_active('groups') ){
 		//we have been requested an event creation tied to a group, so does this group exist, and does this person have admin rights to it?
 		if( groups_is_user_admin(get_current_user_id(), $_REQUEST['group_id']) ){
 			$EM_Event->group_id = $_REQUEST['group_id'];
@@ -18,7 +18,7 @@ add_action('em_event_save_pre','bp_em_group_event_save',1,1);
  * @param EM_Event $EM_Event
  */
 function bp_em_group_event_can_manage( $result, $EM_Event){
-	if( !$result && !empty($EM_Event->group_id) ){ //only override if already false, incase it's true
+	if( !$result && !empty($EM_Event->group_id) && bp_is_active('groups') ){ //only override if already false, incase it's true
 		if( groups_is_user_admin(get_current_user_id(),$EM_Event->group_id) && current_user_can('edit_events') ){
 			//This user is an admin of the owner's group, so they can edit this event.
 			return true;
@@ -26,18 +26,26 @@ function bp_em_group_event_can_manage( $result, $EM_Event){
 	}
 	return $result;
 }
-add_action('em_event_can_manage','bp_em_group_event_can_manage',1,2);
+add_filter('em_event_can_manage','bp_em_group_event_can_manage',1,2);
 
 
 function bp_em_group_events_accepted_searches($searches){
-	$searches[] = 'group';
+	if( bp_is_active('groups') ){
+		$searches[] = 'group';
+	}
 	return $searches;
 }
 add_filter('em_accepted_searches','bp_em_group_events_accepted_searches',1,1);
 
 function bp_em_group_events_get_default_search($searches, $array){
-	if( !empty($array['group']) && (is_numeric($array['group']) || $array['group'] == 'my') ){
-		$searches['group'] = $array['group'];
+	if( !empty($array['group']) && (is_numeric($array['group']) || $array['group'] == 'my' || $array['group'] == 'this') && bp_is_active('groups') ){
+		if($array['group'] == 'this'){ //shows current group, if applicable
+			if( is_numeric(bp_get_current_group_id()) ){
+				$searches['group'] = bp_get_current_group_id();
+			}
+		}else{
+			$searches['group'] = $array['group'];
+		}
 	}
 	return $searches;
 }

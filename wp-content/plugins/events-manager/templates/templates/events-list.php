@@ -7,32 +7,32 @@
  * 
  * $args - the args passed onto EM_Events::output()
  * 
- */ 
-
-$events = EM_Events::get( apply_filters('em_content_events_args', $args) );
-$args['limit'] = get_option('dbem_events_default_limit'); //since we are passing this info to an output function or template, we should get all the events first
-$args['page'] = (!empty($_REQUEST['page']) && is_numeric($_REQUEST['page']) )? $_REQUEST['page'] : 1;
-$events_count = count($events);
-
-if( get_option('dbem_events_page_search') ){
+ */
+if( get_option('dbem_events_page_search') && !defined('DOING_AJAX') ){
 	em_locate_template('templates/events-search.php',true);
-}	
+}
+
+//TODO fine tune ajax searches - we have some pagination issues
+if( get_option('dbem_events_page_ajax', false) ) echo "<div class='em-events-search-ajax'>";
+$events_count = EM_Events::count( apply_filters('em_content_events_args', $args) );
+$args['limit'] = get_option('dbem_events_default_limit');
+$args['page'] = (!empty($_REQUEST['page']) && is_numeric($_REQUEST['page']) )? $_REQUEST['page'] : 1;
 if( $events_count > 0 ){
 	//If there's a search, let's change the pagination a little here
-	if(!empty($_REQUEST['_wpnonce']) && wp_verify_nonce($_REQUEST['_wpnonce'], 'search_events')){
+	if(!empty($_REQUEST['action']) && $_REQUEST['action'] == 'search_events'){
 		$args['pagination'] = false;
-		echo EM_Events::output( $events, $args );
+		echo EM_Events::output( $args );
 		//do some custom pagination (if needed/requested)
 		if( !empty($args['limit']) && $events_count > $args['limit'] ){
 			//Show the pagination links (unless there's less than $limit events)
-			$search_args = EM_Events::get_post_search() + array('page'=>'%PAGE%','_wpnonce'=>$_REQUEST['_wpnonce']);
-			$page_link_template = preg_replace('/(&|\?)page=\d+/i','',$_SERVER['REQUEST_URI']);
-			$page_link_template = em_add_get_params($page_link_template, $search_args);
+			$search_args = EM_Events::get_post_search() + array('page'=>'%PAGE%','action'=>'search_events');
+			$page_link_template = em_add_get_params($_SERVER['REQUEST_URI'], $search_args, false); //don't html encode, so em_paginate does its thing
 			echo apply_filters('em_events_output_pagination', em_paginate( $page_link_template, $events_count, $args['limit'], $args['page']), $page_link_template, $events_count, $args['limit'], $args['page']);
 		}
 	}else{
-		echo EM_Events::output( $events, $args );
+		echo EM_Events::output( $args );
 	}
 }else{
 	echo get_option ( 'dbem_no_events_message' );
 }
+if( get_option('dbem_events_page_ajax', false) ) echo "</div>";

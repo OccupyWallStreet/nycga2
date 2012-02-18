@@ -13,9 +13,9 @@
 <table class="em-calendar">
 	<thead>
 		<tr>
-			<td><a class="em-calnav" href="<?php echo $calendar['links']['previous_url']; ?>">&lt;&lt;</a></td>
+			<td><a class="em-calnav em-calnav-prev" href="<?php echo $calendar['links']['previous_url']; ?>">&lt;&lt;</a></td>
 			<td class="month_name" colspan="5"><?php echo ucfirst(date_i18n('M Y', $calendar['month_start'])); ?></td>
-			<td><a class="em-calnav" href="<?php echo $calendar['links']['next_url']; ?>">&gt;&gt;</a></td>
+			<td><a class="em-calnav em-calnav-next" href="<?php echo $calendar['links']['next_url']; ?>">&gt;&gt;</a></td>
 		</tr>
 	</thead>
 	<tbody>

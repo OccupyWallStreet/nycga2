@@ -26,7 +26,8 @@ class EM_Object {
 			'order' => 'ASC', //hard-coded at end of this function
 			'orderby' => false,
 			'format' => '', 
-			'category' => 0, 
+			'category' => 0,
+			'tag' => 0,
 			'location' => 0,
 			'event' => 0, 
 			'offset'=>0,
@@ -56,7 +57,7 @@ class EM_Object {
 			if( array_key_exists('category_id', $array) && !array_key_exists('category', $array) ) { $array['category'] = $array['category_id']; }
 		
 			//Clean all id lists
-			$array = self::clean_id_atts($array, array('location', 'event', 'category'));
+			$array = self::clean_id_atts($array, array('location', 'event', 'category', 'tag', 'post_id'));
 			
 			//OrderBy - can be a comma-seperated array of field names to order by (field names of object, not db)
 			if( array_key_exists('orderby', $array)){
@@ -89,13 +90,19 @@ class EM_Object {
 			$defaults['year'] = preg_match($year_regex, $defaults['year']) ? $defaults['year']:'';
 		}
 		//Deal with scope and date searches
-		if ( !is_array($defaults['scope']) && preg_match ( "/^[0-9]{4}-[0-9]{2}-[0-9]{2},[0-9]{4}-[0-9]{2}-[0-9]{2}$/", $defaults['scope'] ) ) {
+		if ( !is_array($defaults['scope']) && preg_match ( "/^([0-9]{4}-[0-9]{2}-[0-9]{2})?,([0-9]{4}-[0-9]{2}-[0-9]{2})?$/", $defaults['scope'] ) ) {
 			//This is to become an array, so let's split it up
 			$defaults['scope'] = explode(',', $defaults['scope']);
 		}
 		if( is_array($defaults['scope']) ){
 			//looking for a date range here, so we'll verify the dates validate, if not get the default.
-			if ( !preg_match("/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/", $defaults['scope'][0]) || !preg_match("/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/", $defaults['scope'][1]) ) {
+			if ( !preg_match("/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/", $defaults['scope'][0]) ){
+				$defaults['scope'][0] = '';
+			}
+			if( !preg_match("/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/", $defaults['scope'][1]) ) {
+				$defaults['scope'][1] = '';
+			}
+			if( empty($defaults['scope'][0]) && empty($defaults['scope'][1]) ){
 				$defaults['scope'] = $super_defaults['scope'];
 			}
 		}
@@ -115,7 +122,7 @@ class EM_Object {
 		$defaults['limit'] = (is_numeric($defaults['limit'])) ? $defaults['limit']:$super_defaults['limit'];
 		$defaults['offset'] = (is_numeric($defaults['offset'])) ? $defaults['offset']:$super_defaults['offset'];
 		$defaults['recurring'] = ($defaults['recurring'] == true);
-		$defaults['owner'] = (is_numeric($defaults['owner'])) ? $defaults['owner']:$super_defaults['owner'];
+		$defaults['owner'] = (is_numeric($defaults['owner']) || $defaults['owner'] == 'me') ? $defaults['owner']:$super_defaults['owner'];
 		$defaults['search'] = ($defaults['search']) ? trim($wpdb->escape(like_escape($defaults['search']))):false;
 		//Calculate offset if event page is set
 		if($defaults['page'] > 1){
@@ -143,6 +150,7 @@ class EM_Object {
 		$recurring = $args['recurring'];
 		$recurrence = $args['recurrence'];
 		$category = $args['category'];
+		$tag = $args['tag'];
 		$location = $args['location'];
 		$bookings = $args['rsvp'];
 		$bookings = !empty($args['bookings']) ? $args['bookings']:$bookings;
@@ -192,7 +200,20 @@ class EM_Object {
 			//This is an array, let's split it up
 			$date_start = $scope[0];
 			$date_end = $scope[1];
-			$conditions['scope'] = " ( ( event_start_date <= CAST('$date_end' AS DATE) AND event_end_date >= CAST('$date_start' AS DATE) ) OR (event_start_date BETWEEN CAST('$date_start' AS DATE) AND CAST('$date_end' AS DATE)) OR (event_end_date BETWEEN CAST('$date_start' AS DATE) AND CAST('$date_end' AS DATE)) )";
+			if( !empty($date_start) && empty($date_end) ){
+				//do a from till infinity
+				$conditions['scope'] = " event_start_date >= CAST('$date_start' AS DATE)";
+			}elseif( empty($date_start) && !empty($date_end) ){
+				//do past till $date_end
+				if( get_option('dbem_events_current_are_past') ){
+					$conditions['scope'] = " event_start_date <= CAST('$date_end' AS DATE)";
+				}else{
+					$conditions['scope'] = " event_end_date <= CAST('$date_end' AS DATE)";
+				}
+			}else{
+				//date range
+				$conditions['scope'] = " ( ( event_start_date <= CAST('$date_end' AS DATE) AND event_end_date >= CAST('$date_start' AS DATE) ) OR (event_start_date BETWEEN CAST('$date_start' AS DATE) AND CAST('$date_end' AS DATE)) OR (event_end_date BETWEEN CAST('$date_start' AS DATE) AND CAST('$date_end' AS DATE)) )";
+			}
 		} elseif ( preg_match ( "/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/", $scope ) ) {
 			//Scope can also be a specific date. However, if 'day', 'month', or 'year' are set, that will take precedence
 			$conditions['scope'] = " ( event_start_date = CAST('$scope' AS DATE) OR ( event_start_date <= CAST('$scope' AS DATE) AND event_end_date >= CAST('$scope' AS DATE) ) )";
@@ -254,10 +275,10 @@ class EM_Object {
 		}elseif ( self::array_is_numeric($location) ){
 			$conditions['location'] = "( {$locations_table}.location_id = " . implode(" OR {$locations_table}.location_id = ", $location) .' )';
 		}elseif ( is_object($location) && get_class($location)=='EM_Location' ){ //Now we deal with objects
-			$conditions['location'] = " {$locations_table}.location_id = $location->id";
+			$conditions['location'] = " {$locations_table}.location_id = $location->location_id";
 		}elseif ( is_array($location) && @get_class(current($location)=='EM_Location') ){ //we can accept array of ids or EM_Location objects
 			foreach($location as $EM_Location){
-				$location_ids[] = $EM_Location->id;
+				$location_ids[] = $EM_Location->location_id;
 			}
 			$conditions['location'] = "( {$locations_table}.location_id=". implode(" {$locations_table}.location_id=", $location_ids) ." )";
 		}	
@@ -268,10 +289,10 @@ class EM_Object {
 		}elseif ( self::array_is_numeric($event) ){ //array of ids
 			$conditions['event'] = "( {$events_table}.event_id = " . implode(" OR {$events_table}.event_id = ", $event) .' )';
 		}elseif ( is_object($event) && get_class($event)=='EM_Event' ){ //Now we deal with objects
-			$conditions['event'] = " {$events_table}.event_id = $event->id";
+			$conditions['event'] = " {$events_table}.event_id = $event->event_id";
 		}elseif ( is_array($event) && @get_class(current($event)=='EM_Event') ){ //we can accept array of ids or EM_event objects
 			foreach($event as $EM_Event){
-				$event_ids[] = $EM_Event->id;
+				$event_ids[] = $EM_Event->event_id;
 			}
 			$conditions['event'] = "( {$events_table}.event_id=". implode(" {$events_table}.event_id=", $event_ids) ." )";
 		}
@@ -300,14 +321,54 @@ class EM_Object {
 		if( !empty($args['region']) ){
 			$conditions['region'] = "location_region='".$args['region']."'";
 		}
-				
 		//Add conditions for category selection
 		//Filter by category, can be id or comma seperated ids
 		//TODO create an exclude category option
 		if ( is_numeric($category) && $category > 0 ){
-			$conditions['category'] = " event_id IN ( SELECT object_id FROM ".EM_META_TABLE." WHERE meta_key='event-category' AND meta_value='$category' ) ";
+			//get the term id directly
+			$term = new EM_Category($category);
+			if( $term !== false && !is_wp_error($term) ){
+				if( EM_MS_GLOBAL ){
+					$conditions['category'] = " ".EM_EVENTS_TABLE.".event_id IN ( SELECT object_id FROM ".EM_META_TABLE." WHERE meta_value={$term->term_id} AND meta_key='event-category' ) ";
+				}else{
+					$conditions['category'] = " ".EM_EVENTS_TABLE.".post_id IN ( SELECT object_id FROM ".$wpdb->term_relationships." WHERE term_taxonomy_id={$term->term_taxonomy_id} ) ";
+				}
+			} 
 		}elseif( self::array_is_numeric($category) ){
-			$conditions['category'] = " event_id IN ( SELECT object_id FROM ".EM_META_TABLE." WHERE meta_key='event-category' AND meta_value IN (".implode(',',$category).") ) ";
+			$term_ids = array();
+			foreach($category as $category_id){
+				$term = new EM_Category($category_id);
+				if( $term !== false && !is_wp_error($term) ){
+					$term_ids[] = $term->term_taxonomy_id;
+				}
+			}
+			if( count($term_ids) > 0 ){
+				if( EM_MS_GLOBAL ){
+					$conditions['category'] = " ".EM_EVENTS_TABLE.".event_id IN ( SELECT object_id FROM ".EM_META_TABLE." WHERE meta_value IN (".implode(',',$term_ids).") AND meta_name='event-category ) ";
+				}else{
+					$conditions['category'] = " ".EM_EVENTS_TABLE.".post_id IN ( SELECT object_id FROM ".$wpdb->term_relationships." WHERE term_taxonomy_id IN (".implode(',',$term_ids).") ) ";
+				}
+			}
+		}		
+		//Add conditions for tags
+		//Filter by tag, can be id or comma seperated ids
+		if ( is_numeric($tag) && $tag > 0 ){
+			//get the term id directly
+			$term = new EM_Tag($tag);
+			if( $term !== false && !is_wp_error($term) ){
+				$conditions['tag'] = " ".EM_EVENTS_TABLE.".post_id IN ( SELECT object_id FROM ".$wpdb->term_relationships." WHERE term_taxonomy_id={$term->term_taxonomy_id} ) ";
+			} 
+		}elseif( self::array_is_numeric($tag) ){
+			$term_ids = array();
+			foreach($tag as $tag_id){
+				$term = new EM_Tag($tag_id);
+				if( $term !== false && !is_wp_error($term) ){
+					$term_ids[] = $term->term_taxonomy_id;
+				}
+			}
+			if( count($term_ids) > 0 ){
+				$conditions['tag'] = " ".EM_EVENTS_TABLE.".post_id IN ( SELECT object_id FROM ".$wpdb->term_relationships." WHERE term_taxonomy_id IN (".implode(',',$term_ids).") ) ";
+			}
 		}
 	
 		//If we want rsvped items, we usually check the event
@@ -317,6 +378,8 @@ class EM_Object {
 		//Default ownership belongs to an event, child objects can just overwrite this if needed.
 		if( is_numeric($owner) ){
 			$conditions['owner'] = 'event_owner='.$owner;
+		}elseif( $owner == 'me' && is_user_logged_in() ){
+			$conditions['owner'] = 'event_owner='.get_current_user_id();
 		}
 		return apply_filters('em_object_build_sql_conditions', $conditions);
 	}
@@ -365,15 +428,19 @@ class EM_Object {
 	 * @param string $admin_capability If the user isn't the owner of the object, this capability will be checked for.
 	 * @return boolean
 	 */
-	function can_manage( $owner_capability = false, $admin_capability = false ){
+	function can_manage( $owner_capability = false, $admin_capability = false, $user_to_check = false ){
 		global $em_capabilities_array;
+		if( $user_to_check ){
+			$user = new WP_User($user_to_check);
+			if( empty($user->ID) ) $user = false;
+		} 
 		//if multisite and supoer admin, just return true
 		if( is_multisite() && is_super_admin() ){ return true; }
 		//do they own this?
-		$is_owner = ( $this->owner == get_current_user_id() || empty($this->id) );
+		$is_owner = ( (!empty($this->owner) && ($this->owner == get_current_user_id()) || empty($this->id) || (!empty($user) && $this->owner == $user->ID)) );
 		//now check capability
 		$can_manage = false;
-		if( $is_owner && current_user_can($owner_capability) ){
+		if( $is_owner && (current_user_can($owner_capability) || (!empty($user) && $user->has_cap($owner_capability))) ){
 			//user owns the object and can therefore manage it
 			$can_manage = true;
 		}elseif( array_key_exists($owner_capability, $em_capabilities_array) ){
@@ -381,25 +448,33 @@ class EM_Object {
 			$error_msg = $em_capabilities_array[$owner_capability];
 		}
 		//admins have special rights
-		if( current_user_can($admin_capability) ){
+		if( current_user_can($admin_capability) || (!empty($user) && $user->has_cap($admin_capability)) ){
 			$can_manage = true;
 		}elseif( array_key_exists($admin_capability, $em_capabilities_array) ){
 			$error_msg = $em_capabilities_array[$admin_capability];
 		}
-		//Figure out if this is multisite in global mode and require an extra bit of validation
-		if( !empty($this->id) && is_multisite() && get_site_option('dbem_ms_global_table') ){
-			if( get_class($this) == "EM_Event" ){
-				//Other user-owned events can be modified by admins if it's on the same blog, otherwise it must be an admin on the main site.
-				$can_manage = $this->blog_id == get_current_blog_id() || is_main_site() || (defined('BP_ROOT_BLOG') && get_current_blog_id() == BP_ROOT_BLOG);
-			}
-		}
 		
-		if( !$can_manage && !empty($error_msg) ){
+		if( !$can_manage && !$is_owner && !empty($error_msg) ){
 			$this->add_error($error_msg);
 		}
 		return $can_manage;
 	}
 
+	
+	function ms_global_switch(){
+		if( EM_MS_GLOBAL && !is_main_site() ){
+			//If in multisite global, then get the main blog categories
+			global $current_site;
+			switch_to_blog($current_site->blog_id);
+		}
+	}
+	
+	function ms_global_switch_back(){
+		if( EM_MS_GLOBAL && !is_main_site() ){
+			restore_current_blog();
+		}
+	}
+	
 	/**
 	 * Save an array into this class.
 	 * If you provide a record from the database table corresponding to this class type it will add the data to this object.
@@ -410,16 +485,25 @@ class EM_Object {
 		//Save core data
 		if( is_array($array) ){
 			$array = apply_filters('em_to_object', $array);
-			foreach ( $this->fields as $key => $val ) {
+			foreach ( array_keys($this->fields) as $key ) {
 				if(array_key_exists($key, $array)){
 					if( !is_object($array[$key]) && !is_array($array[$key]) ){
 						$array[$key] = ($addslashes) ? stripslashes($array[$key]):$array[$key];
 					}elseif( is_array($array[$key]) ){
 						$array[$key] = ($addslashes) ? stripslashes_deep($array[$key]):$array[$key];
 					}
-					$this->$val['name'] = $array[$key];
+					$this->$key = $array[$key];
 				}
 			}
+		}
+	}
+	
+	/**
+	 * Copies all the properties to shorter property names for compatability, do not use the old properties.
+	 */
+	function compat_keys(){
+		foreach($this->fields as $key => $fieldinfo){
+			if(!empty($this->$key)) $this->$fieldinfo['name'] = $this->$key;
 		}
 	}
 
@@ -431,11 +515,11 @@ class EM_Object {
 		$array = array();
 		foreach ( $this->fields as $key => $val ) {
 			if($db){
-				if( !empty($this->$val['name']) || empty($val['null']) ){
-					$array[$key] = $this->$val['name'];
+				if( !empty($this->$key) || $this->$key === 0 || empty($val['null']) ){
+					$array[$key] = $this->$key;
 				}
 			}else{
-				$array[$key] = $this->$val['name'];
+				$array[$key] = $this->$key;
 			}
 		}
 		return apply_filters('em_to_array', $array);
@@ -468,9 +552,9 @@ class EM_Object {
 			$return = array();
 			foreach($this->fields as $fieldName => $fieldArray){
 				if($inverted_array){
-					$return[$fieldArray['name']] = $fieldName;
+					$return[$fieldName] = $fieldName;
 				}else{
-					$return[$fieldName] = $fieldArray['name'];
+					$return[$fieldName] = $fieldName;
 				}
 			}
 			return apply_filters('em_object_get_fields', $return, $this, $inverted_array);
@@ -575,13 +659,13 @@ class EM_Object {
 	/**
 	 * Adds an error to the object
 	 */
-	function add_error($error){
-		if(is_array($this->errors)){
+	function add_error($errors){
+		if(!is_array($errors)){ $errors = array($errors); } //make errors var an array if it isn't already
+		if(!is_array($this->errors)){ $this->errors = array(); } //create empty array if this isn't an array
+		foreach($errors as $error){			
 			if( !in_array($error, $this->errors) ){
 				$this->errors[] = $error;
 			}
-		}else{
-			$this->errors = array($error);
 		}
 	}
 	
@@ -685,36 +769,51 @@ class EM_Object {
 		return apply_filters('em_object_get_image_type',$type, $path, $this);
 	}
 	
-	function get_image_url(){
-		if( !empty($this->id) ){
-			$type = $this->get_image_type();
-			$id = ( get_class($this) == "EM_Event" && $this->is_recurrence() ) ? $this->recurrence_id:$this->id; //quick fix for recurrences
-			if( $type ){
-				if($this->image_url == ''){
-				  	foreach($this->mime_types as $mime_type) { 
+	function get_image_url($size = 'full'){
+		$image_url = $this->image_url;
+		if( !empty($this->post_id) && (empty($this->image_url) || $size != 'full') ){
+			$post_thumbnail_id = get_post_thumbnail_id( $this->post_id );
+			$src = wp_get_attachment_image_src($post_thumbnail_id, $size);
+			if( !empty($src[0]) && $size == 'full' ){
+				$image_url = $this->image_url = $src[0];
+			}elseif(!empty($src[0])){
+				$image_url = $src[0];
+			}
+			//legacy image finder, annoying, but must be done
+			if( empty($image_url) ){
+				$type = $this->get_image_type();
+				$id = ( get_class($this) == "EM_Event" && $this->is_recurrence() ) ? $this->recurrence_id:$this->event_id; //quick fix for recurrences
+				if( $type ){
+				  	foreach($this->mime_types as $mime_type) {
 						$file_name = $this->get_image_type(true)."-{$id}.$mime_type";
 						if( file_exists( EM_IMAGE_UPLOAD_DIR . $file_name) ) {
-				  			$this->image_url = EM_IMAGE_UPLOAD_URI.$file_name;
+				  			$image_url = $this->image_url = EM_IMAGE_UPLOAD_URI.$file_name;
 						}
 					}
 				}
 			}
 		}
-		return apply_filters('em_object_get_image_url', $this->image_url, $this);
+		return apply_filters('em_object_get_image_url', $image_url, $this);
 	}
 	
-	function image_delete() {
+	function image_delete($force_delete=true) {
 		$type = $this->get_image_type();
 		if( $type ){
-			if( $this->image_url == '' ){
+			if( $this->get_image_url() == '' ){
 				$result = true;
 			}else{
-				$file_name= EM_IMAGE_UPLOAD_DIR.$this->get_image_type(true)."-".$this->id;
-				$result = false;
-				foreach($this->mime_types as $mime_type) { 
-					if (file_exists($file_name.".".$mime_type)){
-				  		$result = unlink($file_name.".".$mime_type);
-				  		$this->image_url = '';
+				$post_thumbnail_id = get_post_thumbnail_id( $this->post_id );
+				$delete_attachment = wp_delete_attachment($post_thumbnail_id, $force_delete);
+				if( $delete_attachment !== false ){
+					//check legacy image
+					$type_id_name = $type.'_id';
+					$file_name= EM_IMAGE_UPLOAD_DIR.$this->get_image_type(true)."-".$this->$type_id_name;
+					$result = false;
+					foreach($this->mime_types as $mime_type) { 
+						if (file_exists($file_name.".".$mime_type)){
+					  		$result = unlink($file_name.".".$mime_type);
+					  		$this->image_url = '';
+						}
 					}
 				}
 			}
@@ -722,35 +821,43 @@ class EM_Object {
 		return apply_filters('em_object_get_image_url', $result, $this);
 	}
 	
-	function image_upload($result, $object){
-		//due to php versions and handling of refernece we'll just reference the $object instead of $this, essentially making this a static function
-		$type = $object->get_image_type();
-		if( $result && $type ){
-			do_action('em_object_image_upload_pre', $type, $object);
-			if ( !empty($_FILES[$type.'_image']['size']) && file_exists($_FILES[$type.'_image']['tmp_name'])) {
-				$object->image_delete();   
-				list($width, $height, $mime_type, $attr) = getimagesize($_FILES[$type.'_image']['tmp_name']);
-				$image_path = $object->get_image_type(true)."-".$object->id.".".$object->mime_types[$mime_type];	
-				if( $object->image_validate()){
-					if ( move_uploaded_file($_FILES[$type.'_image']['tmp_name'], EM_IMAGE_UPLOAD_DIR.$image_path) ){
-						$object->image_url = EM_IMAGE_UPLOAD_URI.$image_path;
-					}else{
-						if($result){				
-							$object->feedback_message .= ' '. __('However, the image could not be saved.','dbem');
-						}
-						$object->add_error(__('The image could not be saved','dbem'));
-					}					
-				}else{
-					if($result){
-						$object->feedback_message .= ' '.  __('However, the image could not be saved:','dbem');
-						$object->feedback_message .= '<p>'.implode('<br />',$object->errors).'</p>';
-					}
-				}
-			}elseif( !empty($_REQUEST[$type.'_image_delete']) ){
-				$object->image_delete();
+	function image_upload(){
+		$type = $this->get_image_type();
+		//Handle the attachment as a WP Post
+		$attachment = '';
+		$user_to_check = ( !is_user_logged_in() && get_option('dbem_events_anonymous_submissions') ) ? get_option('dbem_events_anonymous_user'):false;		
+		if ( !empty($_FILES[$type.'_image']['size']) && file_exists($_FILES[$type.'_image']['tmp_name']) && $this->image_validate() && $this->can_manage('upload_event_images','upload_event_images', $user_to_check) ) {
+			require_once(ABSPATH . "wp-admin" . '/includes/file.php');					
+			require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+					
+			$attachment = wp_handle_upload($_FILES[$type.'_image'], array('test_form'=>false), current_time('mysql'));
+						
+			if ( isset($attachment['error']) ){
+				$this->add_error('Image Error: ' . $attachment['error'] );
 			}
+			
+			/* Attach file to ticket */
+			if ( count($this->errors) == 0 && $attachment ){
+				$attachment_data = array(
+					'post_mime_type' => $attachment['type'],
+					'post_title' => $this->post_title,
+					'post_content' => '',
+					'post_status' => 'inherit'
+				);
+				$attachment_id = wp_insert_attachment( $attachment_data, $attachment['file'], $this->post_id );
+				$attachment_metadata = wp_generate_attachment_metadata( $attachment_id, $attachment['file'] );
+				wp_update_attachment_metadata( $attachment_id,  $attachment_metadata );
+				//delete the old attachment
+				$this->image_delete();
+				update_post_meta($this->post_id, '_thumbnail_id', $attachment_id);
+				return apply_filters('em_object_image_upload', true, $this);
+			}else{
+				return apply_filters('em_object_image_upload', false, $this);
+			}
+		}elseif( !empty($_REQUEST[$type.'_image_delete']) ){
+			$this->image_delete();
 		}
-		return apply_filters('em_object_image_upload', $result, $object);
+		return apply_filters('em_object_image_upload', false, $this);
 	}
 	
 	function image_validate(){

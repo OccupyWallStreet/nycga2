@@ -11,7 +11,6 @@
 			foreach($EM_Bookings as $EM_Booking){
 				$event_ids[] = $EM_Booking->event_id;
 			}
-			$EM_Events = EM_Events::get($event_ids);
 		}
 		$limit = ( !empty($_GET['limit']) ) ? $_GET['limit'] : 20;//Default limit
 		$page = ( !empty($_GET['pno']) ) ? $_GET['pno']:1;
@@ -30,7 +29,8 @@
 				<div class='tablenav'>
 					<?php 
 					if ( $bookings_count >= $limit ) {
-						$bookings_nav = em_admin_paginate( $bookings_count, $limit, $page, array('em_ajax'=>0, 'em_obj'=>'em_bookings_confirmed_table'));
+						$link = em_add_get_params($_SERVER['REQUEST_URI'], array('pno'=>'%PAGE%'), false); //don't html encode, so em_paginate does its thing
+						$bookings_nav = em_paginate( $link, $bookings_count, $limit, $page);
 						echo $bookings_nav;
 					}
 					?>
@@ -71,7 +71,7 @@
 										<?php
 										$cancel_link = '';
 										if($EM_Booking->status != 3 && get_option('dbem_bookings_user_cancellation')){
-											$cancel_url = em_add_get_params($_SERVER['REQUEST_URI'], array('action'=>'booking_cancel', 'booking_id'=>$EM_Booking->id, '_wpnonce'=>$nonce));
+											$cancel_url = em_add_get_params($_SERVER['REQUEST_URI'], array('action'=>'booking_cancel', 'booking_id'=>$EM_Booking->booking_id, '_wpnonce'=>$nonce));
 											$cancel_link = '<a class="em-bookings-cancel" href="'.$cancel_url.'" onclick="if( !confirm(\''. __('Are you sure you want to cancel your booking?','dbem') .'\') ){ return false; }">'.__('Cancel','dbem').'</a>';
 										}
 										echo apply_filters('em_my_bookings_booking_actions', $cancel_link, $EM_Booking);

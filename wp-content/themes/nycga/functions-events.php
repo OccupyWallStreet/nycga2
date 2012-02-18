@@ -1,6 +1,8 @@
 <?php
 
 // add filter to enable recurrence_id arg in count function
+// so we can count recurring events as 1 (non-recurring and recurring templates both have recurrence id = 0)
+// look into em_events_get_default_search filter instead
 add_filter('em_events_count', 'nycga_allow_recurrence', 2, 10);
 function nycga_allow_recurrence ($count, $args)
 {
@@ -50,17 +52,11 @@ function nycga_allow_recurrence ($count, $args)
 	return $count;
 }
 
-// needed to fix memory issues -- by default the plugin pulls all events and then does limit/offset in the php.
-function nycga_remove_offset_for_output($args)
-{
-	unset($args['offset']);
-	return $args;
-}
-
+// count recurring events as one in profile
+// bp_em_setup_nav was changed to BP_EM_Component $bp->events -- add_action( 'bp_init', array(&$this, 'setup_group_nav') );
 add_action('init', 'nycga_remove_events_tabs', 10);
 function nycga_remove_events_tabs()
 {
-
 	remove_action('wp', 'bp_em_setup_nav', 2);
 
 	global $bp; //print_r($bp);
@@ -127,14 +123,16 @@ function nycga_remove_events_tabs()
 }
 
 // add events.js
+// this hides the events subnav in the account dropdown, useless stuff in there
 add_action('wp_head', 'nycga_events_js');
 function nycga_events_js()
 {
 	?><script type="text/javascript" src="<?php echo bloginfo('stylesheet_directory') ?>/events.js"></script><?php
 }
 
-// allow site admins & group mods to attach eventsto a group, 
+// allow site admins & group mods to attach events to a group, 
 // allow group to be changed or removed (by admin only, in dashboard only)
+// i *think* this still works, have to test
 add_action('em_event_save_pre','nycga_group_event_save',2,1);
 function nycga_group_event_save($EM_Event){
 	if( is_object($EM_Event) && !empty($_REQUEST['group_id']) && is_numeric($_REQUEST['group_id']) ){
@@ -151,6 +149,7 @@ function nycga_group_event_save($EM_Event){
 }
 
 // allow mod to manage group events
+// i *think* this still works, have to test
 add_action('em_event_can_manage','nycga_em_group_event_can_manage',2,2);
 function nycga_em_group_event_can_manage( $result, $EM_Event){
 	if( !$result && !empty($EM_Event->group_id) ){ //only override if already false, incase it's true
@@ -163,18 +162,20 @@ function nycga_em_group_event_can_manage( $result, $EM_Event){
 }
 
 // require categories
-add_action('em_event_validate', 'nycga_require_category', 2, 10);
-function nycga_require_category($valid, $event)
+// successfully tested with v5
+add_action('em_event_validate_meta', 'nycga_require_category', 10, 2);
+function nycga_require_category($valid, $event = 'none')
 {
-	if ( empty($_POST['event_categories']) || $_POST['event_categories'][0] == '')
+	if (empty($_POST['tax_input'][1]))
 	{
-		$event->add_error(__('Category is required'));
+		$event->add_error(__('Category is required.'));
 		return false;
 	}
 	return $valid;
 }
 
 // include general assembly events when showing events from "My Groups"
+// i think this works, have to test
 add_filter('em_events_build_sql_conditions','nycga_my_events_include_general',10,2);
 function nycga_my_events_include_general( $conditions, $args ){
 	if( !empty($args['group']) && $args['group'] == 'my' ){
@@ -189,6 +190,7 @@ function nycga_my_events_include_general( $conditions, $args ){
 }
 
 add_filter('em_events_build_sql_conditions','nycga_events_fix_future',10,2);
+// i think this still works, have to check
 function nycga_events_fix_future( $conditions, $args )
 {
 	if ($args['scope'] == 'future')
@@ -209,8 +211,11 @@ function nycga_events_fix_future( $conditions, $args )
 	return $conditions;
 }
 
+// function below is commented because i couldn't find any other instance of it in the code, 
+// i think it was an unfinished project
+
 // render strip of edit/delete buttons
-function nycga_em_edit_strip($event, $url, $echo = true)
+/* function nycga_em_edit_strip($event, $url, $echo = true)
 {
 	$html = '';
 	if ($event->can_manage('edit_events', 'edit_others_events') || $event->can_manage('delete_events', 'delete_others_events'))
@@ -251,10 +256,13 @@ function nycga_em_edit_strip($event, $url, $echo = true)
 	}
 	return false;
 }
+*/
 
 // make locations list show all instead of only "eventful" locations 
 // (this basically replicates the EM_Locations::get function
-add_filter('em_locations_get', 'nycga_get_all_locations', 10, 2);
+//commenting, i don't think it's needed anymore in v5.
+
+/* add_filter('em_locations_get', 'nycga_get_all_locations', 10, 2); */
 function nycga_get_all_locations($locations, $args)
 {
 	if (empty($args['eventful']))
@@ -313,8 +321,10 @@ function nycga_get_all_locations($locations, $args)
 	return $locations;
 }
 
+// below function was to fix memory issue, don't think it's needed in v5, but should double check
+// 'em_admin_events_page' hook doesn't exist anymore, need to find the admin list code
 add_action('toplevel_page_events-manager', 'nycga_limit_events_list');
-
+/*
 add_action('admin_menu', 'nycga_override_em_admin_list', 100);
 function nycga_override_em_admin_list()
 {
@@ -449,8 +459,8 @@ function nycga_limit_events_list()
 					$rowno = 0;
 					$event_count = 0;
 					foreach ( $events as $event ) {
-						/* @var $event EM_Event */
-/* 							if( ($rowno < $limit || empty($limit)) && ($event_count >= $offset || $offset === 0) ) { */
+//						 @var $event EM_Event 
+// 							if( ($rowno < $limit || empty($limit)) && ($event_count >= $offset || $offset === 0) ) { 
 							$rowno++;
 							$class = ($rowno % 2) ? 'alternate' : '';
 							// FIXME set to american
@@ -528,7 +538,7 @@ function nycga_limit_events_list()
 								</td>
 							</tr>
 							<?php
-/* 							} */
+// 							} 
 						$event_count++;
 					}
 					?>
@@ -554,9 +564,11 @@ function nycga_limit_events_list()
 	</div>
 	<?php
 }
+*/
 
 // add groups dropdown to dashboard event edit form
-add_action('em_admin_event_form_side_header', 'nycga_admin_group_dropdown');
+// pretty sure this is no longer needed in v5, there is a group dropdown already
+/* add_action('em_admin_event_form_side_header', 'nycga_admin_group_dropdown'); */
 function nycga_admin_group_dropdown()
 {
 	if (current_user_can('manage_options'))
@@ -593,6 +605,7 @@ function nycga_admin_group_dropdown()
 }
 
 // remove events menu from dashboard, for everyone except admins
+// pretty sure this should still work, have to test
 add_action('admin_menu', 'nycga_remove_events_from_dashboard');
 function nycga_remove_events_from_dashboard()
 {
@@ -604,6 +617,7 @@ function nycga_remove_events_from_dashboard()
 
 
 // deny access to events pages, for everyone except admins
+// pretty sure this should still work, have to test
 add_action ('admin_notices', 'nycga_check_events_access');
 function nycga_check_events_access()
 {

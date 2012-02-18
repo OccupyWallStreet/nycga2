@@ -16,6 +16,7 @@ class EM_Tickets_Bookings extends EM_Object implements Iterator{
 	 * @var EM_Booking
 	 */
 	var $booking;
+	var $booking_id;
 	/**
 	 * This object belongs to this booking object
 	 * @var EM_Ticket
@@ -34,12 +35,12 @@ class EM_Tickets_Bookings extends EM_Object implements Iterator{
 		if($object){
 			if( is_object($object) && get_class($object) == "EM_Booking"){
 				$this->booking = $object;
-				$sql = "SELECT * FROM ". EM_TICKETS_BOOKINGS_TABLE ." bt LEFT JOIN ". EM_BOOKINGS_TABLE ." b ON bt.booking_id=b.booking_id  WHERE b.booking_id ='{$this->booking->id}'";
+				$sql = "SELECT * FROM ". EM_TICKETS_BOOKINGS_TABLE ." WHERE booking_id ='{$this->booking->booking_id}'";
 			}elseif( is_object($object) && get_class($object) == "EM_Ticket"){
 				$this->ticket = $object;
-				$sql = "SELECT * FROM ". EM_TICKETS_BOOKINGS_TABLE ." bt LEFT JOIN ". EM_TICKETS_TABLE ." t ON bt.ticket_id=t.ticket_id  WHERE t.ticket_id ='{$this->ticket->id}'";
+				$sql = "SELECT * FROM ". EM_TICKETS_BOOKINGS_TABLE ." WHERE ticket_id ='{$this->ticket->ticket_id}'";
 			}elseif( is_numeric($object) ){
-				$sql = "SELECT * FROM ". EM_TICKETS_BOOKINGS_TABLE ." bt LEFT JOIN ". EM_BOOKINGS_TABLE ." t ON bt.booking_id=t.booking_id  WHERE t.booking_id ='{$object}'";
+				$sql = "SELECT * FROM ". EM_TICKETS_BOOKINGS_TABLE ." WHERE booking_id ='{$object}'";
 			}
 			$tickets_bookings = $wpdb->get_results($sql, ARRAY_A);
 			//Get tickets belonging to this tickets booking.
@@ -85,7 +86,7 @@ class EM_Tickets_Bookings extends EM_Object implements Iterator{
 			$ticket_booking_key = $this->has_ticket($EM_Ticket_Booking->ticket_id);
 			if( $ticket_booking_key !== false && is_object($this->tickets_bookings[$ticket_booking_key]) ){
 				//previously booked ticket, so let's just replace it
-				$this->tickets_bookings[$ticket_booking_key]->spaces = $EM_Ticket_Booking->get_spaces();
+				$this->tickets_bookings[$ticket_booking_key]->ticket_booking_spaces = $EM_Ticket_Booking->get_spaces();
 				$this->tickets_bookings[$ticket_booking_key]->get_price(true);
 				return apply_filters('em_tickets_bookings_add',true,$this);
 			}elseif( $EM_Ticket_Booking->get_spaces() > 0 ){
@@ -122,9 +123,9 @@ class EM_Tickets_Bookings extends EM_Object implements Iterator{
 	function get_booking(){
 		global $EM_Booking;
 		$booking_id = $this->get_booking_id();
-		if( is_object($this->booking) && get_class($this->booking)=='EM_Booking' && $this->booking->id == $booking_id ){
+		if( is_object($this->booking) && get_class($this->booking)=='EM_Booking' && $this->booking->booking_id == $booking_id ){
 			return $this->booking;
-		}elseif( is_object($EM_Booking) && $EM_Booking->id == $booking_id ){
+		}elseif( is_object($EM_Booking) && $EM_Booking->booking_id == $booking_id ){
 			$this->booking = $EM_Booking;
 		}else{
 			if(is_numeric($booking_id)){
@@ -137,11 +138,12 @@ class EM_Tickets_Bookings extends EM_Object implements Iterator{
 	}
 	
 	function get_booking_id(){
-		if( count($this->tickets_bookings) > 0 ){
-			foreach($this->tickets_bookings as $EM_Booking_Ticket){ break; } //get first array item
-			return apply_filters('em_tickets_bookings_get_booking_id', $EM_Booking_Ticket->id, $this);
+		if( empty($this->booking_id) && count($this->tickets_bookings) > 0 ){
+			foreach($this->tickets_bookings as $EM_Ticket_Booking){ break; } //get first array item
+			$this->booking_id = $EM_Ticket_Booking->get_booking()->booking_id;
+			return apply_filters('em_tickets_bookings_get_booking_id', $this->booking_id, $this);
 		}
-		return apply_filters('em_tickets_bookings_get_booking_id', false, $this);
+		return apply_filters('em_tickets_bookings_get_booking_id', $this->booking_id, $this);
 	}
 	
 	/**
@@ -151,14 +153,14 @@ class EM_Tickets_Bookings extends EM_Object implements Iterator{
 	function delete(){
 		global $wpdb;
 		if( $this->get_booking()->can_manage() ){
-			$result = $wpdb->query("DELETE FROM ".EM_TICKETS_BOOKINGS_TABLE." WHERE booking_id='{$this->get_booking()->id}'");
+			$result = $wpdb->query("DELETE FROM ".EM_TICKETS_BOOKINGS_TABLE." WHERE booking_id='{$this->get_booking_id()}'");
 			//echo "<pre>";print_r($this->get_booking());echo "</pre>";
 		}else{
 			//FIXME ticket bookings
 			$ticket_ids = array();
 			foreach( $this->tickets_bookings as $EM_Ticket_Booking ){
 				if( $EM_Ticket_Booking->can_manage() ){
-					$tickets_bookings_ids[] = $EM_Ticket_Booking->id;
+					$tickets_bookings_ids[] = $EM_Ticket_Booking->booking_id;
 				}else{
 					$this->errors[] = sprintf(__('You do not have the rights to manage this %s.','dbem'),__('Booking','dbem'));					
 				}
@@ -202,16 +204,16 @@ class EM_Tickets_Bookings extends EM_Object implements Iterator{
 	 * @param boolean $force_refresh
 	 * @return float
 	 */
-	function get_price( $force_refresh=false, $format = false ){
+	function get_price( $force_refresh=false, $format = false, $add_tax = 'x' ){
 		$price = 0;
-		if($force_refresh || $this->price == 0){
+		if($force_refresh || $this->price == 0 || $add_tax !== 'x' || get_option('dbem_bookings_tax_auto_add')){
 			foreach($this->tickets_bookings as $EM_Ticket_Booking){
-				$price += $EM_Ticket_Booking->get_price();
+				$price += $EM_Ticket_Booking->get_price($force_refresh, false, $add_tax);
 			}
 			$this->price = $price;
 		}
 		if($format){
-			return apply_filters('em_tickets_bookings_get_prices', em_get_currency_symbol().number_format($this->price,2),$this);
+			return apply_filters('em_tickets_bookings_get_prices', em_get_currency_formatted($this->price) ,$this);
 		}
 		return apply_filters('em_tickets_bookings_get_prices',$this->price,$this);
 	}

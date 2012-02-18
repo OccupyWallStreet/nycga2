@@ -12,6 +12,17 @@ function em_get_calendar_shortcode($atts) {
 }
 add_shortcode('events_calendar', 'em_get_calendar_shortcode');
 
+function em_get_gcal_shortcode($atts){
+	$img_url = is_ssl() ? 'https://www.google.com/calendar/images/ext/gc_button6.gif':'http://www.google.com/calendar/images/ext/gc_button6.gif';
+	$atts = shortcode_atts(array('img'=>$img_url, 'button'=>6), $atts);
+	if( $img_url == $atts['img'] && $atts['button'] != 6 ){
+		$img_url = str_replace('gc_button6.gif', 'gc_button'.$atts['button'].'.gif', $img_url);
+	}
+	$url = '<a href="http://www.google.com/calendar/render?cid='.urlencode(trailingslashit(get_home_url()).'events.ics').'" target="_blank"><img src="'.$img_url.'" alt="0" border="0"></a>';
+	return $url;
+}
+add_shortcode('events_gcal', 'em_get_gcal_shortcode');
+
 /**
  * Generates a map of locations that match given query attributes. Accepts any location query attributes. 
  * @param array $args
@@ -25,7 +36,7 @@ function em_get_locations_map_shortcode($args){
 	return ob_get_clean();
 }
 add_shortcode('locations_map', 'em_get_locations_map_shortcode');
-add_shortcode('locations-map', 'em_get_locations_map_shortcode'); //Depreciate this... confusing for wordpress 
+add_shortcode('locations-map', 'em_get_locations_map_shortcode'); //Depreciate this... confusing for WordPress 
 
 /**
  * Shows a list of events according to given specifications. Accepts any event query attribute.
@@ -67,6 +78,8 @@ function em_get_locations_list_shortcode( $atts, $format='' ) {
 	$atts['format'] = html_entity_decode($atts['format']); //shorcode doesn't accept html
 	$atts['page'] = ( !empty($atts['page']) && is_numeric($atts['page']) )? $atts['page'] : 1;
 	$atts['page'] = ( !empty($_GET['page']) && is_numeric($_GET['page']) )? $_GET['page'] : $atts['page'];
+	$args['orderby'] = !empty($args['orderby']) ? $args['orderby'] : get_option('dbem_locations_default_orderby');
+	$args['order'] = !empty($args['order']) ? $args['order'] : get_option('dbem_locations_default_order');
 	return EM_Locations::output( $atts );
 }
 add_shortcode('locations_list', 'em_get_locations_list_shortcode');
@@ -86,6 +99,16 @@ function em_get_location_shortcode($atts, $format='') {
 	}
 }
 add_shortcode ( 'location', 'em_get_location_shortcode' );
+
+function em_get_categories_shortcode($args, $format=''){
+	$args = (array) $args;
+	$args['format'] = ($format != '' || empty($args['format'])) ? $format : $args['format']; 
+	$args['format'] = html_entity_decode($args['format']); //shorcode doesn't accept html
+	$args['orderby'] = !empty($args['orderby']) ? $args['orderby'] : get_option('dbem_categories_default_orderby');
+	$args['order'] = !empty($args['order']) ? $args['order'] : get_option('dbem_categories_default_order');
+	return EM_Categories::output($args);
+}
+add_shortcode ( 'categories_list', 'em_get_categories_shortcode' );
 
 /**
  * DO NOT DOCUMENT! This should be replaced with shortcodes events-link and events_uri
@@ -152,8 +175,28 @@ add_shortcode ( 'events_rss_url', 'em_get_rss_url_shortcode');
  * @return string
  */
 function em_get_event_form_shortcode( $args = array() ){
-	ob_start();
-	em_get_event_form( $args );
-	return ob_get_clean();
+	return em_get_event_form( $args );
 }
 add_shortcode ( 'event_form', 'em_get_event_form_shortcode');
+
+/**
+ * Creates a form to search events with
+ * @param array $atts
+ * @return string
+ */
+function em_get_event_search_form_shortcode( $args = array() ){
+	return em_get_event_search_form( $args );
+}
+add_shortcode ( 'event_search_form', 'em_get_event_search_form_shortcode');
+
+/**
+ * Creates a grouped list of events by year, month, week or day
+ * @since 4.213
+ * @param array $args
+ * @param string $format
+ * @return string
+ */
+function em_get_events_list_grouped_shortcode($args = array(), $format = ''){
+	return em_get_events_list_grouped($args,$format);
+}
+add_shortcode ( 'events_list_grouped', 'em_get_events_list_grouped_shortcode' );

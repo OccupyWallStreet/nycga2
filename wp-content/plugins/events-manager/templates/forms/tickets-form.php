@@ -11,6 +11,7 @@
 		<div><label><?php _e('End date of ticket availability','dbem') ?></label><input type="hidden" name="ticket_end" class="end" /><input type="text" name="ticket_end_pub" class="end-loc" /></div>
 		<div><label><?php _e('Minimum tickets required per booking','dbem') ?></label><input type="text" name="ticket_min" /></div>
 		<div><label><?php _e('Maximum tickets required per booking','dbem') ?></label><input type="text" name="ticket_max" /></div>
+		<?php do_action('em_tickets_edit_form_fields'); ?>
 		<p class="submit">
 			<input type="hidden" name="ticket_id" />
 			<input type="hidden" name="event_id" />
