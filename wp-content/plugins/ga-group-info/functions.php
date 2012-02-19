@@ -5,20 +5,6 @@ Contains prerequisite functions
 */
 
 /*
- * HTML-ifies links
- * @since 0.1
- * @author Louie McCoy <louie@louiemccoy.com>
- * @param string $string Any string containing a link to be html-ified
- * @return string The HTML-ified string
- */
-function gait_htmlify_links($string) {
-    $regex = '/((?:http|https):\/\/[a-z0-9\/\?=_#&%~-]+(\.[a-z0-9\/\?=_#&%~-]+)+)|(www(\.[a-z0-9\/\?=_#&%~-]+){2,})/';
-    $format = '<a href="$1">$1</a>';
-    $string = preg_replace( $regex, $format, $string );
-    return $string;
-}
-
-/*
  * HTML-ifies & Obfuscates email addresses -
  * checks to see if [pluginname] is available for use before doing it manually
  * @since 0.1
@@ -43,7 +29,7 @@ function gait_htmlify_email($string) {
 function gait_htmlify_tweet($string){
     $regex = array(
 	'handle'	=>	'/\B@(\w+)\b/',
-	'hashtag'	=>	'/\B#([a-zA-Z0-9]+)\b/'
+	'hashtag'	=>	'/\B#(\w+)\b/'
     );
     $format = array(
 	'handle'	=>	'<a href="http://twitter.com/$1">@$1</a>',
@@ -61,9 +47,9 @@ function gait_htmlify_tweet($string){
  * @return string The HTML-ified string.
  */
 function gait_htmlify($string){
-    $string = gait_htmlify_links( $string );
-    $string = gait_htmlify_email( $string );
     $string = gait_htmlify_tweet( $string );
+    $string = make_clickable( htmlspecialchars_decode( $string ) );
+    //$string = gait_htmlify_email( $string );
     return $string;
 }
 ?>
