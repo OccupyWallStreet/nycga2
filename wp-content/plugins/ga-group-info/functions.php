@@ -43,7 +43,7 @@ function gait_htmlify_email($string) {
 function gait_htmlify_tweet($string){
     $string = gait_htmlify_links($string);
     $regex = array(
-	'handle'	=>	'/@([a-zA-Z0-9]+)/',
+	'handle'	=>	'/\B@(\w+)\b/',
 	'hashtag'	=>	'/#([a-zA-Z0-9]+)/'
     );
     $format = array(
@@ -51,7 +51,7 @@ function gait_htmlify_tweet($string){
 	'hashtag'	=>	'<a href="https://twitter.com/#!/search?q=%23$1">#$1</a>'
     );
     $replaced = preg_replace( $regex, $format, $string );
-    return $string;
+    return $replaced;
 }
 
 /*
