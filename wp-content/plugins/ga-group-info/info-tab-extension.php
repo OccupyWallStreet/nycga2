@@ -2,13 +2,13 @@
 class gait_info_tab extends BP_Group_Extension {
 
 	var $visibility = 'public';
-	var $enable_nav_item = true;
 	
 	function gait_info_tab() {
 		$this->name = 'Info';
 		$this->slug = 'ga-info';
 		//$this->create_step_position = 6;
 		$this->nav_item_position = 14;
+		$this->enable_nav_item = $this->enable_nav_item();
 	}
 	
 	function create_screen(){ 
@@ -75,6 +75,17 @@ class gait_info_tab extends BP_Group_Extension {
 	
 	function display(){
 		require( dirname( __FILE__ ) . '/info-tab-content.php' );
+	}
+	
+	function enable_nav_item() {
+		global $bp;
+		
+		$data = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug );
+		if (is_array($data)){
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
