@@ -12,9 +12,9 @@ Contains prerequisite functions
  * @return string The HTML-ified string
  */
 function gait_htmlify_links($string) {
-    $regex = '/((?:[\w\d]+\:\/\/)?(?:[\w\-\d]+\.)+[\w\-\d]+(?:\/[\w\-\d]+)*(?:\/|\.[\w\-\d]+)?(?:\?[\w\-\d]+\=[\w\-\d]+\&?)?(?:\#[\w\-\d]*)?)/';
+    $regex = '/((?:http|https):\/\/[a-z0-9\/\?=_#&%~-]+(\.[a-z0-9\/\?=_#&%~-]+)+)|(www(\.[a-z0-9\/\?=_#&%~-]+){2,})/';
     $format = '<a href="$1">$1</a>';
-    $replaced = preg_replace( $regex, $format, $string );
+    $string = preg_replace( $regex, $format, $string );
     return $string;
 }
 
@@ -41,7 +41,6 @@ function gait_htmlify_email($string) {
  * @retun string The HTML-ified tweet
  */
 function gait_htmlify_tweet($string){
-    $string = gait_htmlify_links($string);
     $regex = array(
 	'handle'	=>	'/\B@(\w+)\b/',
 	'hashtag'	=>	'/\B#([a-zA-Z0-9]+)\b/'
