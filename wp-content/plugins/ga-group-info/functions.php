@@ -54,4 +54,17 @@ function gait_htmlify_tweet($string){
     return $string;
 }
 
+/*
+ * Wrapper function for tweet, URL, & email HTML-ification
+ * @since 0.1
+ * @author Louie McCoy <louie@louiemccoy.com>
+ * @param string $string A String to be HTML-ified.
+ * @return string The HTML-ified string.
+ */
+function gait_htmlify($string){
+    $string = gait_htmlify_links( $string );
+    $string = gait_htmlify_email( $string );
+    $string = gait_htmlify_tweet( $string );
+    return $string;
+}
 ?>

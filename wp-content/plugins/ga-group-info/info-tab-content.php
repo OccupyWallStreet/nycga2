@@ -5,9 +5,10 @@
 <div class="extra-data">
     <?php foreach ( $data as $slug => $data ) {
 	if (!empty($data['value'])) :
+	$value = gait_htmlify( $data['value'] );
 	?>
 	<h4 title=""><?php echo $data['name']; ?></h4>
-	<p><?php echo $data['value']; ?></p>
+	<p><?php echo $value; ?></p>
 	<?php
 	endif;
     } ?>
