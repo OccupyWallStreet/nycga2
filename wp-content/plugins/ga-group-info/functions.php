@@ -44,7 +44,7 @@ function gait_htmlify_tweet($string){
     $string = gait_htmlify_links($string);
     $regex = array(
 	'handle'	=>	'/\B@(\w+)\b/',
-	'hashtag'	=>	'/#([a-zA-Z0-9]+)/'
+	'hashtag'	=>	'/\B#([a-zA-Z0-9]+)\b/'
     );
     $format = array(
 	'handle'	=>	'<a href="http://twitter.com/$1">@$1</a>',
