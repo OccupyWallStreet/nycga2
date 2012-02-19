@@ -5,21 +5,6 @@ Contains prerequisite functions
 */
 
 /*
- * HTML-ifies & Obfuscates email addresses -
- * checks to see if [pluginname] is available for use before doing it manually
- * @since 0.1
- * @author Louie McCoy <louie@louiemccoy.com>
- * @param string $string The string containing an email address to be modified
- * @return string The string containing the html-ified & obfuscated email
- */
-function gait_htmlify_email($string) {
-    $regex = '/([\w\-\d]+\@[\w\-\d]+\.[\w\-\d]+)/';
-    $format = '<a href="mailto:$1">$1</a>';
-    $replaced = preg_replace( $regex, $format, $string );
-    return $replaced;
-}
-
-/*
  * HTML-ifies Twitter info & tweets (hashtags, usernames, links, etc.)
  * @since 0.1
  * @author Louie McCoy <louie@louiemccoy.com>
@@ -49,7 +34,6 @@ function gait_htmlify_tweet($string){
 function gait_htmlify($string){
     $string = gait_htmlify_tweet( $string );
     $string = make_clickable( htmlspecialchars_decode( $string ) );
-    //$string = gait_htmlify_email( $string );
     return $string;
 }
 ?>
