@@ -55,24 +55,21 @@ class Walker_Group_Edit extends Walker_Group  {
 
 		$classes = array(
 			'menu-item menu-item-depth-' . $depth,
-			'menu-item-' . esc_attr( $item->object ),
 			'menu-item-edit-' . ( ( isset( $_GET['edit-menu-item'] ) && $item_id == $_GET['edit-menu-item'] ) ? 'active' : 'inactive'),
 		);
 
-		$title = $item->title;
+		$title = $item->name;
 
-		if ( ! empty( $item->_invalid ) ) {
-			$classes[] = 'menu-item-invalid';
-			/* translators: %s: title of menu item which is invalid */
-			$title = sprintf( __( '%s (Invalid)' ), $item->title );
-		} elseif ( isset( $item->post_status ) && 'draft' == $item->post_status ) {
-			$classes[] = 'pending';
-			/* translators: %s: title of menu item in draft status */
-			$title = sprintf( __('%s (Pending)'), $item->title );
+		if ( isset( $item->status ) && 'private' == $item->status ) {
+			$classes[] = 'status-private';
+			/* translators: %s: title of private group */
+			$title = sprintf( __( '%s (Private)', 'bp-group-organizer' ), $title );
+		} elseif ( isset( $item->status ) && 'hidden' == $item->status ) {
+			$classes[] = 'status-hidden';
+			/* translators: %s: title of hidden group */
+			$title = sprintf( __('%s (Hidden)', 'bp-group-organizer' ), $title );
 		}
 
-		$title = empty( $item->label ) ? $title : $item->label;
-		
 		if(defined( 'BP_GROUP_HIERARCHY_IS_INSTALLED' ) && method_exists('BP_Groups_Hierarchy','get_tree')) {
 			$all_groups = BP_Groups_Hierarchy::get_tree();
 		}
@@ -81,7 +78,7 @@ class Walker_Group_Edit extends Walker_Group  {
 		<li id="menu-item-<?php echo $item_id; ?>" class="<?php echo implode(' ', $classes ); ?>">
 			<dl class="menu-item-bar">
 				<dt class="menu-item-handle">
-					<span class="item-title"><?php echo esc_html( $item->name ); ?></span>
+					<span class="item-title"><?php echo esc_html( $title ); ?></span>
 					<span class="item-controls">
 						<span class="item-type"><?php echo esc_html( $item->slug ); ?></span>
 						<a class="item-edit" id="edit-<?php echo $item_id; ?>" title="<?php _e('Edit Group', 'bp-group-organizer' ); ?>" href="<?php
@@ -147,7 +144,7 @@ class Walker_Group_Edit extends Walker_Group  {
 				<?php do_action( 'bp_group_organizer_display_group_options' , $item ); ?>
 				
 				<div class="menu-item-actions description-wide submitbox">
-					<?php if( 'custom' != $item->type && $original_title !== false ) : ?>
+					<?php if( $original_title !== false ) : ?>
 						<p class="link-to-original">
 							<?php printf( __('Original: %s'), '<a href="' . esc_attr( bp_get_group_permalink( $item ) ) . '">' . esc_html( $item->name ) . '</a>' ); ?>
 						</p>
@@ -169,7 +166,7 @@ class Walker_Group_Edit extends Walker_Group  {
 				<input class="menu-item-data-db-id" type="hidden" name="menu-item-db-id[<?php echo $item_id; ?>]" value="<?php echo $item_id; ?>" />
 				<input class="menu-item-data-object-id" type="hidden" name="menu-item-object-id[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->object_id ); ?>" />
 				<input class="menu-item-data-object" type="hidden" name="menu-item-object[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->object ); ?>" />
-				<input class="menu-item-data-parent-id" type="hidden" name="menu-item-parent-id[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->menu_item_parent ); ?>" />
+				<input class="menu-item-data-parent-id" type="hidden" name="menu-item-parent-id[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->parent_id ); ?>" />
 				<input class="menu-item-data-position" type="hidden" name="menu-item-position[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->menu_order ); ?>" />
 				<input class="menu-item-data-type" type="hidden" name="menu-item-type[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->type ); ?>" />
 			</div><!-- .menu-item-settings-->
