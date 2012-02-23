@@ -185,8 +185,7 @@ li#wangguard-report-menu-noop {
     border-color: #298CBA;
     color: #FFFFFF;
     font-weight: bold;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-	
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 #wangguard-tabs li.ui-tabs-selected a {
 	color: #fff;
@@ -196,7 +195,6 @@ li#wangguard-report-menu-noop {
 #wangguard-tabs-container {
 	border: 1px solid #d0d0d0;
 	border-top: 0;
-	padding: 10px 20px;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
@@ -219,7 +217,7 @@ li#wangguard-report-menu-noop {
     margin-bottom: 18px;
     padding: 7px 15px;
     position: relative;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 .wangguard-info a {
 	color: #404040 !important;
@@ -229,7 +227,7 @@ li#wangguard-report-menu-noop {
     background-image: -moz-linear-gradient(center top , #62C462, #57A957);
     background-repeat: repeat-x;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 	color: #fff;
 	font-weight:bold;
 }
@@ -238,7 +236,89 @@ li#wangguard-report-menu-noop {
     background-image: -moz-linear-gradient(center top , #EE5F5B, #C43C35);
     background-repeat: repeat-x;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 	color: #fff;
 	font-weight:bold;
+}
+
+.wangguard-blockeddomain-header {
+	margin-top: 20px;
+	font-weight:bold;
+	color: #fff;
+	font-size: 14px;
+	background: url("../../../wp-admin/images/button-grad.png") repeat-x scroll left top #21759B !important;
+	filter:none;
+    border-color: #298CBA;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+	padding: 7px 10px;
+}
+.wangguard-blockeddomain-header a {
+	color: #fff;
+	display: block;
+	text-decoration: none;
+}
+.wangguard-blockeddomain-header a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+.wangguard-blockeddomain-header a:active , .wangguard-blockeddomain-header a:focus {
+	color: #fff;
+}
+.wangguard-blockeddomain-domains {
+	border: 1px solid #d0d0d0;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+	padding: 0 15px 15px 15px;
+}
+
+.wangguard-blockeddomain-list {
+	line-height: 2em;
+}
+
+.wangguard-confico {
+	float: right; 
+	margin: 10px 5px 20px 20px;
+}
+wangguard-confico img {
+	width: 40px;
+	height: 40px;
+}
+#wangguard-conf-apikeys {
+	background: url('img/apikey-bg.png') bottom right no-repeat;
+	padding: 10px 20px 70px;
+}
+#wangguard-conf-questions {
+	background: url('img/security-bg.png') bottom right no-repeat;
+	padding: 10px 20px 30px;
+}
+#wangguard-conf-settings {
+	background: url('img/settings-bg.png') bottom right no-repeat;
+	padding: 10px 20px 70px;
+}
+#wangguard-conf-domains {
+	background: url('img/blocked-bg.png') bottom right no-repeat;
+	padding: 10px 20px 110px;
+}
+#wangguard-conf-conectivity {
+	background: url('img/connectivity-bg.png') bottom right no-repeat;
+	padding: 10px 20px 80px;
+}
+#wangguard-queue-cont {
+	background: url('img/queue-bg.png') bottom right no-repeat;
+	padding: 10px 20px 150px;
+	margin: 10px 0px -25px 0px;
+	clear: both;
+}
+#wangguard-wizard-cont {
+	background: url('img/wizard-bg.png') bottom right no-repeat;
+	padding: 10px 20px 150px;
+	margin: 10px 0px -25px 0px;
+	clear: both;
+}
+#wangguard-stats-cont {
+	background: url('img/stats-bg.png') bottom right no-repeat;
+	padding: 10px 20px 150px;
+	margin: 10px 0px -25px 0px;
+	clear: both;
 }

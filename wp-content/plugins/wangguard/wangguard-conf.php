@@ -33,10 +33,25 @@ function wangguard_conf() {
 			$ms[] = 'new_key_failed';
 		}
 		
+	} elseif ( isset($_POST['saveblockeddomain']) ) {
+		echo "<div id='wangguard-warning' class='updated fade'><p><strong>".__('Blocked domains has been saved.', 'wangguard')."</strong></p></div>";
+
+		$selectedDomains = array();
+		if (is_array($_POST['domains'])) {
+			foreach ($_POST['domains'] as $domain) {
+				$selectedDomains[$domain] = true;
+			}
+		}
+		
+		wangguard_update_option('blocked-list-domains' , $selectedDomains) ;
+
+		
+		$selectedTab = 3;
+
 	} elseif ( isset($_POST['check']) ) {
 
 		wangguard_get_server_connectivity(0);
-		$selectedTab = 3;
+		$selectedTab = 4;
 
 	} elseif ( isset($_POST['optssave']) ) {
 
@@ -113,16 +128,18 @@ function wangguard_conf() {
 
 		<div id="wangguard-conf-tabs">
 			<ul id="wangguard-tabs">
-				<li><a href="#wangguard-apikeys"><?php _e('WangGuard API Key', 'wangguard'); ?></a></li>
-				<li><a href="#wangguard-questions"><?php _e('Security questions', 'wangguard'); ?></a></li>
-				<li><a href="#wangguard-settings"><?php _e('WangGuard settings', 'wangguard'); ?></a></li>
-				<li><a href="#wangguard-conectivity"><?php _e('Server Connectivity', 'wangguard'); ?></a></li>
+				<li><a href="#wangguard-conf-apikeys"><?php _e('WangGuard API Key', 'wangguard'); ?></a></li>
+				<li><a href="#wangguard-conf-questions"><?php _e('Security questions', 'wangguard'); ?></a></li>
+				<li><a href="#wangguard-conf-settings"><?php _e('WangGuard settings', 'wangguard'); ?></a></li>
+				<li><a href="#wangguard-conf-domains"><?php _e('Blocked domains', 'wangguard'); ?></a></li>
+				<li><a href="#wangguard-conf-conectivity"><?php _e('Server Connectivity', 'wangguard'); ?></a></li>
 			</ul>
 			<div id="wangguard-tabs-container">
 				
 
 			<!--WANGGUARD API KEY-->
-			<div id="wangguard-apikeys">
+			<div id="wangguard-conf-apikeys">
+					<div class="wangguard-confico"><img src="<?php echo WP_PLUGIN_URL ?>/wangguard/img/apikey.png" alt="<?php echo htmlentities(__('WangGuard API Key', 'wangguard')) ?>" /></div>
 				<form action="" method="post" id="wangguard-conf" style="margin: auto;">
 					<p><?php printf(__('For many people, <a href="%1$s">WangGuard</a> will greatly reduce or even completely eliminate the Sploggers you get on your site. If one does happen to get through, simply mark it as Splogger on the Users screen. If you don\'t have an API key yet, <a href="%2$s" target="_new">get one here</a>.', 'wangguard'), 'http://wangguard.com/', 'http://wangguard.com/getapikey'); ?></p>
 
@@ -147,8 +164,10 @@ function wangguard_conf() {
 
 
 			<!--WANGGUARD QUESTIONS-->
-			<div id="wangguard-questions" style="margin: auto;">
+			<div id="wangguard-conf-questions" style="margin: auto;">
 
+				<div class="wangguard-confico"><img src="<?php echo WP_PLUGIN_URL ?>/wangguard/img/security.png" alt="<?php echo htmlentities(__('Security questions', 'wangguard')) ?>" /></div>
+				
 				<h3><?php _e('Security questions', 'wangguard'); ?></h3>
 				<p><?php _e('Security questions are randomly asked on the registration form to prevent automated signups.', 'wangguard')?></p>
 				<p><?php _e('Security questions are optional, it\'s up to you whether to use them or not.', 'wangguard')?></p>
@@ -185,7 +204,10 @@ function wangguard_conf() {
 
 
 			<!--WANGGUARD SETTINGS-->
-			<div id="wangguard-settings" style="margin: auto;">
+			<div id="wangguard-conf-settings" style="margin: auto;">
+				
+				<div class="wangguard-confico"><img src="<?php echo WP_PLUGIN_URL ?>/wangguard/img/settings.png" alt="<?php echo htmlentities(__('WangGuard settings', 'wangguard')) ?>" /></div>
+				
 				<?php 
 				$wangguard_edit_prefix = "";
 				if (function_exists( 'is_network_admin' )) 
@@ -239,13 +261,148 @@ function wangguard_conf() {
 				</form>
 			</div>
 
+			
+
+			<!--WANGGUARD BLOCKED DOMAINS-->
+			<div id="wangguard-conf-domains" style="margin: auto;">
+				
+				<div class="wangguard-confico"><img src="<?php echo WP_PLUGIN_URL ?>/wangguard/img/blocked.png" alt="<?php echo htmlentities(__('Blocked domains', 'wangguard')) ?>" /></div>
+				
+				<h3><?php _e('Blocked domains', 'wangguard'); ?></h3>
+				<p><?php _e('Here are different domain lists maintained by WangGuard.', 'wangguard'); ?></p>
+				<p><?php _e('You should never block all domains contained in these listings or no one can register on your site.', 'wangguard'); ?></p>
+				<p><?php _e('If a domain is in this list, it is because one or more of its users have used for undesirable activities, but that does not mean they are entirely sploggers.', 'wangguard'); ?></p>
+				<p><?php _e('These lists are updated automatically each time you enter this screen.', 'wangguard'); ?></p>
+				
+				<?php
+				$lang = substr(WPLANG, 0,2);
+				$response = wangguard_http_post("wg=<in><apikey>$wangguard_api_key</apikey><lang>$lang</lang></in>", 'get-domain-list.php');
+				$xml = XML_unserialize($response);
+				if (!is_array($xml)) {
+					?><p><?php _e("There was an error while pulling the domains list from WangGuard, please try again later. If the problem persists please contact WangGuard to report it.", 'wangguard') ?></p><?php
+				}
+				else {
+					
+					$selectedDomains = maybe_unserialize( wangguard_get_option('blocked-list-domains') );
+					if (!is_array($selectedDomains)) $selectedDomains = array();
+					?>
+					<form action="" method="post" id="wangguard-blockeddomainsform">
+						<?php
+						$first = true;
+						$lists = $xml['out']['list'];
+						$domainix = 0;
+						foreach ($lists as $ix => $list) {
+							
+							$domainQ = 0;
+							if (@is_array($list['domains']['domain']))
+								$domainQ = count($list['domains']['domain']);
+							elseif (isset($list['domains']['domain']))
+								$domainQ = 1;
+							
+							echo "<div class='wangguard-blockeddomain-header' id='wangguard-blockeddomain-header-".$ix."'><a href='javascript:void(0)' rel='".$ix."'>".$list['name']."&nbsp;&nbsp;&nbsp;(<span id='wangguard-domain-count-".$ix."'>0</span> ".sprintf(__('out of %d domains selected', 'wangguard') , $domainQ).")</a></div>";
+							echo "<div class='wangguard-blockeddomain-domains' id='wangguard-blockeddomain-domains-".$ix."' wgix='".$ix."' ".("style='display:none'").">";
+							echo "<p>".$list['description']."</p>";
+							echo "<div class='wangguard-blockeddomain-list'>";
+
+							echo '<table class="wp-list-table widefat" cellspacing="0">';
+
+							echo '<thead>';
+							echo '<tr>';
+							echo '<td colspan="4" class="check-column" style="padding: 4px 7px 2px; font-style:italic; font-weight:bold">';
+							echo "<input type='checkbox' wgix='".$ix."' id='wangguard-selectall-".$ix."' /> <label for='wangguard-selectall-".$ix."'>" . __('select / unselect all domains', 'wangguard') . "</label><br/>";
+							echo "</td>";
+							echo "</tr>";
+							echo '</thead>';
+
+							echo '<tbody>';
+							
+							if (@is_array($list['domains']['domain'])) {
+								echo '<tr>';
+								$colIX = 1;
+								foreach ($list['domains']['domain'] as $domain) {
+									$checked = isset( $selectedDomains[$domain] ) ? "checked" : "";
+									echo '<td class="check-column wangguard-domain" style="padding: 4px 7px 2px;">';
+									echo "<input wgix='".$ix."' name='domains[]' type='checkbox' value='$domain' $checked id='wangguard-domain-".(++$domainix)."' /> <label for='wangguard-domain-".($domainix)."'>" . $domain . "</label><br/>";
+									echo "</td>";
+									if (++$colIX > 4) {
+										echo '</tr><tr>';
+										$colIX = 1;
+									}
+									
+								}
+								echo "</tr>";
+							}
+							elseif (isset($list['domains']['domain'])) {
+								$domain = $list['domains']['domain'];
+								$checked = isset( $selectedDomains[$domain] ) ? "checked" : "";
+								echo '<tr>';
+								echo '<td class="check-column wangguard-domain" style="padding: 4px 7px 2px;">';
+								echo "<input wgix='".$ix."' name='domains[]' type='checkbox' value='$domain' $checked id='wangguard-domain-".(++$domainix)."' /> <label for='wangguard-domain-".($domainix)."'>" . $domain . "</label><br/>";
+								echo "</td>";
+								echo "</tr>";
+							}
+							
+							echo "</tbody>";
+							echo "</table>";
+							echo "</div>";
+							echo "</div>";
+							$first = false;
+						}
+						?>
+						<p class="submit"><input class="button-primary" type="submit" name="saveblockeddomain" value="<?php _e('Save blocked domains &raquo;', 'wangguard'); ?>" /></p>
+					</form>
+					<script type="text/javascript">
+						
+						function wangguard_update_domain_count(ix) {
+							var q = jQuery("#wangguard-blockeddomain-domains-"+ix+" td.wangguard-domain input[type=checkbox]:checked").length;
+							jQuery('#wangguard-domain-count-' + ix).html(q);
+						}
+						
+						var wangguardDomainBlockIX = -1;
+						jQuery(document).ready(function() {
+							
+							jQuery(".wangguard-blockeddomain-domains input[type=checkbox]").change(function() {
+								wangguard_update_domain_count(jQuery(this).attr("wgix"));
+							});
+							
+							jQuery(".wangguard-blockeddomain-header a").click(function() {
+								var ix = jQuery(this).attr('rel');
+								
+								if (wangguardDomainBlockIX == ix) {
+									jQuery('#wangguard-blockeddomain-domains-'+wangguardDomainBlockIX).slideUp('fast');
+									wangguardDomainBlockIX = -1;
+								}
+								else {
+									if (wangguardDomainBlockIX != -1)
+										jQuery('#wangguard-blockeddomain-domains-'+wangguardDomainBlockIX).slideUp('fast');
+									
+									jQuery('#wangguard-blockeddomain-domains-'+ix).slideDown('fast');
+									wangguardDomainBlockIX = ix;
+								}
+							});
+							
+							jQuery(".wangguard-blockeddomain-domains").each(function() {
+								wangguard_update_domain_count(jQuery(this).attr("wgix"));
+							});
+						});
+					</script>
+					<?php
+				}
+				?>
+				
+			</div>
+			<!--WANGGUARD BLOCKED DOMAINS-->
+
+			
 
 			<!--WANGGUARD SERVERS-->
-			<div id="wangguard-conectivity" style="margin: auto;">
+			<div id="wangguard-conf-conectivity" style="margin: auto;">
 
+				<div class="wangguard-confico"><img src="<?php echo WP_PLUGIN_URL ?>/wangguard/img/connectivity.png" alt="<?php echo htmlentities(__('Server Connectivity', 'wangguard')) ?>" /></div>
+			
 				<form action="" method="post" id="wangguard-connectivity" style="margin:0px auto 0 auto;  ">
 
-				<h3><?php _e('Server Connectivity', 'wangguard'); ?></h3>
+					<h3 style="margin-bottom: 30px;"><?php _e('Server Connectivity', 'wangguard'); ?></h3>
 				<?php
 					if ( !function_exists('fsockopen') || !function_exists('gethostbynamel') ) {
 						?>
@@ -283,23 +440,27 @@ function wangguard_conf() {
 
 					if ( !empty($servers) ) {
 					?>
-						<table style="width: 100%;">
-						<thead><th><?php _e('WangGuard server', 'wangguard'); ?></th><th><?php _e('Network Status', 'wangguard'); ?></th></thead>
+						<table style="width: 100%;"> 
+						<thead>
+							<th style="border-bottom: 1px solid #999; padding-bottom: 5px; margin-bottom: 5px;"><?php _e('WangGuard server', 'wangguard'); ?></th>
+							<th style="border-bottom: 1px solid #999; padding-bottom: 5px; margin-bottom: 5px;"><?php _e('Network Status', 'wangguard'); ?></th>
+						</thead>
 						<tbody>
 							<?php
 							asort($servers);
 							foreach ( $servers as $ip => $status ) {
 								$class = ( $status ? 'wangguard-info wangguard-success' : 'wangguard-info wangguard-error');?>
 							<tr>
-							<td><?php echo htmlspecialchars($ip); ?></td>
-							<td><p class="<?php echo $class?>"><?php echo ($status ? __('No problems', 'wangguard') : __('Obstructed', 'wangguard') ); ?></p></td>
-
+								<td style="text-align:center; font-weight:bold;"><?php echo htmlspecialchars($ip); ?></td>
+								<td><p class="<?php echo $class?>"><?php echo ($status ? __('No problems', 'wangguard') : __('Obstructed', 'wangguard') ); ?></p></td>
+							</tr>
 							<?php
-							}
+							}?>
+						</tbody>
+						</table>
+						<?php
 					}
 					?>
-					</tbody>
-					</table>
 					<p><?php if ( wangguard_get_option('wangguard_connectivity_time') ) echo sprintf( __('Last checked %s ago.', 'wangguard'), human_time_diff( wangguard_get_option('wangguard_connectivity_time') ) ); ?></p>
 					<p class="submit"><input type="submit" name="check" class="button-primary" value="<?php _e('Check network status &raquo;', 'wangguard'); ?>" /></p>
 				</form>

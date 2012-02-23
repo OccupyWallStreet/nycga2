@@ -1,5 +1,5 @@
 <?php
-$wangguard_db_version = 1.2;
+$wangguard_db_version = 1.4;
 
 /********************************************************************/
 /*** INIT & INSTALL BEGINS ***/
@@ -87,6 +87,7 @@ function wangguard_install($current_version) {
 			ID BIGINT(20) NOT NULL,
 			user_status VARCHAR(20) NOT NULL,
 			user_ip VARCHAR(15) NOT NULL,
+			user_proxy_ip VARCHAR(15) NOT NULL,
 			UNIQUE KEY ID (ID)
 		);";
 
@@ -122,6 +123,7 @@ function wangguard_install($current_version) {
 			signup_username VARCHAR(60) NOT NULL,
 			user_status VARCHAR(20) NOT NULL,
 			user_ip VARCHAR(15) NOT NULL,
+			user_proxy_ip VARCHAR(15) NOT NULL,
 			UNIQUE KEY signup_username (signup_username)
 		);";
 
@@ -135,7 +137,7 @@ function wangguard_install($current_version) {
 		$sql = "CREATE TABLE " . $table_name . " (
 			option_name varchar(64) NOT NULL,
 			option_value longtext NOT NULL,			
-			UNIQUE KEY signup_username (option_name)
+			UNIQUE KEY option_name (option_name)
 		);";
 
 		dbDelta($sql);
@@ -162,6 +164,18 @@ function wangguard_install($current_version) {
 		delete_option("wangguard-enable-bp-report-btn");
 		delete_option("wangguard-enable-bp-report-blog");
 	}
+	
+	if ($current_version < 1.4) {
+		$table_name = $wpdb->base_prefix . "wangguarduserstatus";
+		$sql = "ALTER TABLE " . $table_name . " ADD user_proxy_ip VARCHAR(15) NOT NULL;";
+		@$wpdb->query($sql);
+
+
+		$table_name = $wpdb->base_prefix . "wangguardsignupsstatus";
+		$sql = "ALTER TABLE " . $table_name . " ADD user_proxy_ip VARCHAR(15) NOT NULL;";
+		@$wpdb->query($sql);
+	}
+	
 	
 	//stats array
 	$stats = wangguard_get_option("wangguard_stats");
@@ -221,6 +235,33 @@ add_filter('plugin_action_links', 'wangguard_action_links', 10, 2);
 /********************************************************************/
 /*** HELPER FUNCS BEGINS ***/
 /********************************************************************/
+/**
+ * Returns the client IP
+ */
+function wangguard_getRemoteIP() {
+	return $_SERVER['REMOTE_ADDR'];
+}
+
+/**
+ * Returns the HTTP_X_FORWARDED_FOR header if present
+ */
+function wangguard_getRemoteProxyIP() {
+	$ipAddress = '';
+	if ($_SERVER['HTTP_X_FORWARDED_FOR'] != "" ) {
+		$ipAddress = $_SERVER["HTTP_X_FORWARDED_FOR"];
+		if (strpos($ipAddress, ',') !== false) {
+			$ipAddress = explode(',', $ipAddress);
+			$ipAddress = $ipAddress[0];
+		}
+		
+		$test = ip2long($ipAddress);
+		if (($test === FALSE) || ($test === -1))
+			$ipAddress = '';
+	}
+	
+	return $ipAddress;
+}
+
 //Is multisite?
 function wangguard_is_multisite() {
 	if (function_exists('is_multisite')) {
@@ -245,7 +286,7 @@ if ( !function_exists('wp_nonce_field') ) {
 
 //Extracts the domain part from an email address
 function wangguard_extract_domain($email) {
-	$emailArr = split("@" , $email);
+	$emailArr = explode("@" , $email);
 	if (!is_array($emailArr)) {
 		return "";
 	}
@@ -273,7 +314,7 @@ function wangguard_stats_update($action) {
  * @param string $clientIP 
  * @param boolean $isSplogger - send true if the email is a confirmed splogger
  */
-function wangguard_report_email($email , $clientIP , $isSplogger = false) {
+function wangguard_report_email($email , $clientIP , $ProxyIP , $isSplogger = false) {
 	global $wangguard_api_key;
 
 	//update local stats disregarding the key
@@ -291,7 +332,7 @@ function wangguard_report_email($email , $clientIP , $isSplogger = false) {
 	
 	$isSploggerParam = $isSplogger ? "1" : "0";
 	
-	wangguard_http_post("wg=<in><apikey>$wangguard_api_key</apikey><email>".$email."</email><ip>".$clientIP."</ip><issplogger>".$isSploggerParam."</issplogger></in>", 'add-email.php');
+	wangguard_http_post("wg=<in><apikey>$wangguard_api_key</apikey><email>".$email."</email><ip>".$clientIP."</ip><proxyip>".$ProxyIP."</proxyip><issplogger>".$isSploggerParam."</issplogger></in>", 'add-email.php');
 }
 
 
@@ -326,11 +367,12 @@ function wangguard_report_users($wpusersRs , $scope="email" , $deleteUser = true
 				//Get the user's client IP from which he signed up
 				$table_name = $wpdb->base_prefix . "wangguarduserstatus";
 				$clientIP = $wpdb->get_var( $wpdb->prepare("select user_ip from $table_name where ID = %d" , $user_object->ID) );
+				$ProxyIP = $wpdb->get_var( $wpdb->prepare("select user_proxy_ip from $table_name where ID = %d" , $user_object->ID) );
 
 				if ($scope == 'domain')
-					$response = wangguard_http_post("wg=<in><apikey>$wangguard_api_key</apikey><domain>".wangguard_extract_domain($user_object->user_email)."</domain><ip>".$clientIP."</ip></in>", 'add-domain.php');
+					$response = wangguard_http_post("wg=<in><apikey>$wangguard_api_key</apikey><domain>".wangguard_extract_domain($user_object->user_email)."</domain><ip>".$clientIP."</ip><proxyip>".$ProxyIP."</proxyip></in>", 'add-domain.php');
 				elseif ($scope == 'email')
-					$response = wangguard_http_post("wg=<in><apikey>$wangguard_api_key</apikey><email>".$user_object->user_email."</email><ip>".$clientIP."</ip></in>", 'add-email.php');
+					$response = wangguard_http_post("wg=<in><apikey>$wangguard_api_key</apikey><email>".$user_object->user_email."</email><ip>".$clientIP."</ip><proxyip>".$ProxyIP."</proxyip></in>", 'add-email.php');
 			}
 
 
@@ -472,9 +514,10 @@ function wangguard_verify_user($user_object) {
 	//Get the user's client IP from which he signed up
 	$table_name = $wpdb->base_prefix . "wangguarduserstatus";
 	$clientIP = $wpdb->get_var( $wpdb->prepare("select user_ip from $table_name where ID = %d" , $user_object->ID) );
+	$ProxyIP = $wpdb->get_var( $wpdb->prepare("select user_proxy_ip from $table_name where ID = %d" , $user_object->ID) );
 
 	//Rechecks the user agains WangGuard service
-	$response = wangguard_http_post("wg=<in><apikey>$wangguard_api_key</apikey><email>".$user_object->user_email."</email><ip>".$clientIP."</ip></in>", 'query-email.php');
+	$response = wangguard_http_post("wg=<in><apikey>$wangguard_api_key</apikey><email>".$user_object->user_email."</email><ip>".$clientIP."</ip><proxyip>".$ProxyIP."</proxyip></in>", 'query-email.php');
 	$responseArr = XML_unserialize($response);
 	if ( is_array($responseArr)) {
 		if (($responseArr['out']['cod'] == '10') || ($responseArr['out']['cod'] == '11')) {
@@ -493,10 +536,11 @@ function wangguard_verify_user($user_object) {
 
 	$table_name = $wpdb->base_prefix . "wangguarduserstatus";
 	$tmpIP = $wpdb->get_var( $wpdb->prepare("select user_ip from $table_name where ID = %d" , $user_object->ID) );
+	$tmpProxyIP = $wpdb->get_var( $wpdb->prepare("select user_proxy_ip from $table_name where ID = %d" , $user_object->ID) );
 
 	//There may be cases where OUR record for the user isn't there (DB migrations for example or manual inserts) so we just delete and re-insert the user
 	$wpdb->query( $wpdb->prepare("delete from $table_name where ID = %d" , $user_object->ID ) );
-	$wpdb->query( $wpdb->prepare("insert into $table_name(ID , user_status , user_ip) values (%d , '%s' , '%s')" , $user_object->ID , $user_check_status , $tmpIP ) );
+	$wpdb->query( $wpdb->prepare("insert into $table_name(ID , user_status , user_ip , user_proxy_ip) values (%d , '%s' , '%s' , '%s')" , $user_object->ID , $user_check_status , $tmpIP , $tmpProxyIP ) );
 	
 	return $user_check_status;
 }
@@ -747,7 +791,6 @@ function wangguard_http_post($request, $op , $ip=null) {
 	}
 	/*fsock connection*/
 
-
 	$response = str_replace("\r", "", $response);
 	$response = substr($response, strpos($response, "\n\n")+2);
 
@@ -876,6 +919,16 @@ add_action('in_plugin_update_message-' . WANGGUARD_PLUGIN_FILE, 'wangguard_plugi
 
 //dashboard right now activity
 function wangguard_rightnow() {
+
+	if (function_exists('is_multisite')) {
+		if ((is_multisite() && !is_super_admin()) || (!current_user_can('level_10')))
+			return;
+	}
+	else {
+		if (!current_user_can('level_10'))
+			return;
+	}
+	
 	$stats = wangguard_get_option("wangguard_stats");
 	if (!is_array($stats)) {
 		$stats = array("check"=>0 , "detected"=>0);
@@ -970,7 +1023,7 @@ function wangguard_user_custom_columns($dummy , $column_name , $userid , $echo =
 
 		$user_object = new WP_User($userid);
 
-		$Domain = split("@",$user_object->user_email);
+		$Domain = explode("@",$user_object->user_email);
 		$Domain = $Domain[1];
 
 		$deleteUser = wangguard_get_option ("wangguard-delete-users-on-report")=='1';
