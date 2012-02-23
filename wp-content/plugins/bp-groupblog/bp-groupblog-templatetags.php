@@ -132,7 +132,7 @@ function bp_groupblog_slug() {
 }
 	function bp_get_groupblog_slug() {
 
-		$group = new BP_Groups_Group( bp_get_groupblog_id(), false, false );		
+		$group = groups_get_group( array( 'group_id' => bp_get_groupblog_id() ) );	
 		return apply_filters( 'bp_get_groupblog_slug', $group->slug );
 	}
 
