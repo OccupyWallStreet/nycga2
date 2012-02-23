@@ -4,7 +4,7 @@ Donate link:
 Tags: wysiwyg, formatting, tinymce, write, editor
 Requires at least: 3.3
 Tested up to: 3.3
-Stable tag: 3.4.5
+Stable tag: 3.4.5.1
 
 Enables the advanced features of TinyMCE, the WordPress WYSIWYG editor. 
 
@@ -21,25 +21,21 @@ This plugin adds 16 plugins to [TinyMCE](http://tinymce.moxiecode.com/): Advance
 
 * Imports the CSS classes from the theme stylesheet and add them to a drop-down list.
 * Support for making and editing tables.
-* In-line css styles.
+* Editing in-line css styles.
 * Advanced list and image dialogs that offer a lot of options.
-* Search and Replace while editing.
+* Search and Replace in the editor.
 * Support for XHTML specific tags and for (div based) layers.
 
 
 == Installation ==
 
-= Manual installation (FTP) =
-
-1. Download.
-2. Unzip.
-3. Upload to the plugins directory.
-4. Activate the plugin.
-5. Set your preferences at "Settings - TinyMCE Advanced".
-6. Clear your browser cache.
+Best is to install directly from WordPress. If manual installation is required, please make sure all of the plugin files are in a folder named "tinymce-advanced" (not two nested folders) in the plugin directory.
 
 
 == Changelog ==
+
+= 3.4.5.1 =
+Fixed a bug preventing TinyMCE from importing CSS classes from editor-style.css.
 
 = 3.4.5 =
 Updated for WordPress 3.3 or later and TinyMCE 3.4.5.
