@@ -1,0 +1,148 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Plugin Commander\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-21 14:32+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jorge Ferrando <jferrando@cc.upv.es>\n"
+"Language-Team: Hweia <webmistress@hweia.ru>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11) ? 0 : ((n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20)) ? 1 : 2);\n"
+"X-Poedit-Language: ru\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_c;__ngettext_noop:1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: D:\\Projects\\wp-projects\\plugin-commander-1.1.0\n"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:34
+msgid "Plugin Commander"
+msgstr "Plugin Commander"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:55
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:113
+msgid "Manage plugins"
+msgstr "Administrar Plugins"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:59
+msgid ""
+"As site administrator, you can activate or deactivate all plugins for this blog,<br/>even plugins that are not under user control in Site Admin -> Plugin Commander.<br/>Plugins that are under user control are marked in grey."
+msgstr ""
+"Como administrador, puedes activar o desactivar todos los plugins de ete blog,<br/>\n"
+"incluso los plugins que no están controlados por el usuario en Administrar -> Plugin Commander.<br/>\n"
+"Los plugins controlados por el usuario están marcados en gris."
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:67
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:82
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:123
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:140
+msgid "Name"
+msgstr "Nombre"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:68
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:83
+msgid "Description"
+msgstr "Descripción"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:69
+msgid "Action"
+msgstr "Acción"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:82
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:124
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:141
+msgid "Version"
+msgstr "Versión"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:83
+msgid "by"
+msgstr "por"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:83
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:125
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:142
+msgid "Author"
+msgstr "Autor"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:90
+msgid "Deactivate"
+msgstr "Desactivar"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:95
+msgid "Activate"
+msgstr "Activar"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:114
+msgid "Help"
+msgstr "Ayuda"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:115
+msgid "Auto activation"
+msgstr "Autoactivación"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:116
+msgid "When auto activation is on for a plugin, newly created blogs will have that plugin activated automatically.<br/>this does not effect existing blogs."
+msgstr "Cuando está marcada la autoactivación para un plugin, los nuevos blogs tendrán ese plugin activado automáticamente.<br/>Esto no afecta a los blogs existentes."
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:117
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:127
+msgid "User control"
+msgstr "Controlado por el usuario"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:118
+msgid "When user control is enabled for a plugin, all users will be able to activate/deactivate the plugin through the <cite>Manage->Plugins</cite> menu.<br/>This menu will only appear if there is at least one plugin with user control enabled.<br/>Note: if you want to use this, be sure to disable the built-in plugins menu from <cite>Site Admin->Options->Menus</cite> to prevent users from activating plugins which should not be under user control."
+msgstr "Cuando el control por el usuario está activado para un plugin, todos los usuarios podrán activar/desactivar el plugin a través del menú <cite>Administrar->Plugins</cite>.<br/>Este menú solo aparecerá si hay al menos un plugin controlado por el usuario.<br/>Nota: si quiere usar esto, desactive el menú de plugins en <cite>Administrar->Opciones->Menus</cite> para evitar que los usuarios activen plugins que no están bajo su control."
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:119
+msgid "Mass activation/deactivation"
+msgstr "Activación/Desactivación general"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:120
+msgid "Mass activate and Mass deactivate buttons activate/deactivates the specified plugin for all blogs. this only effects existing blogs."
+msgstr "Los botones Activación/Desactivación general activan/desactivan el plugin especificado para todos los blogs. Esto solo afecta a los blogs existentes."
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:126
+msgid "Automatically activate for new blogs"
+msgstr "Activar automáticamente para nuevos blogs"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:126
+msgid "Auto-activate"
+msgstr "Auto-activar"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:127
+msgid "Users may activate/deactivate"
+msgstr "Los usuarios pueden activar/desactivar"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:128
+msgid "Mass activate"
+msgstr "Activación general"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:129
+msgid "Mass deactivate"
+msgstr "Desactivación general"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:149
+msgid "On, click to turn off"
+msgstr "Activo, pulsa para desactivar"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:154
+msgid "Off, click to turn on"
+msgstr "Desactivado, pulsa para activar"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:165
+msgid "Enabled, click to disable"
+msgstr "Habilitado, pulsa para deshabilitar"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:170
+msgid "Disabled, click to enable"
+msgstr "Deshabilitado, pulsa para habilitar"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:175
+msgid "Activate all"
+msgstr "Activar todo"
+
+#: D:\Projects\wp-projects\plugin-commander-1.1.0/plugin-commander.php:176
+msgid "Deactivate all"
+msgstr "Desactivar todo"
+
