@@ -209,4 +209,4 @@ include( dirname(__FILE__) . '/../core/core-header.php' );
 	 </div>
  <?php } ?>
 </div>
-<?php wptouch_core_header_check_use(); ?>
+<?php wptouch_core_header_check_use();

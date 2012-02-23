@@ -12,6 +12,8 @@
 				<h4><?php _e( "Home Page Re-Direction", "wptouch" ); ?></h4>
 				<p><?php echo sprintf( __( "WPtouch by default follows your %sWordPress &raquo; Reading Options%s.", "wptouch"), '<a href="options-reading.php">', '</a>' ); ?></p>
 
+				<br /><br />
+				
 				<h4><?php _e( "Site Title", "wptouch" ); ?></h4>
 				<p><?php _e( "You can change your site title (if needed) in WPtouch.", "wptouch" ); ?></p>
 
@@ -34,7 +36,7 @@
 				<p><?php _e( "Choose between calendar Icons, post thumbnails (WP 2.9) or none for your post listings.", "wptouch" ); ?></p>
 				<p><?php _e( "Select which meta items are shown below titles on main, search, &amp; archives pages.", "wptouch" ); ?></p>
 
-				<br /><br />
+				<br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 				<h4><?php _e( "Footer Message", "wptouch" ); ?></h4>
 				<p><?php _e( "Customize the default footer message shown in WPtouch here.", "wptouch" ); ?></p>

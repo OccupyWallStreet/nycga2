@@ -1,5 +1,3 @@
-/* @override http://beta.bravenewcode.com/wordpress/wp-content/plugins/wptouch/admin-css/bnc-global.css */
-
 /* Global styles applied to BraveNewCode plugins */
 
 /* @group Global Plugin Styles */
@@ -99,14 +97,14 @@
 	margin-right: 5px;
 }
 
-#bnc-global input.checkbox {
+#bnc-global .right-content input.checkbox {
 	margin-right: 5px;
 	vertical-align: middle;
 	width: auto;
 	border-style: none;
 }
 
-#bnc-global input {
+#bnc-global .right-content input {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	margin-right: 7px;
@@ -115,7 +113,7 @@
 	margin-left: 5px;
 }
 
-#bnc-global input:focus {
+#bnc-global .right-content input:focus {
 	background-color: #fff;
 }
 
@@ -180,27 +178,16 @@
 
 /* @end */
 
-/* @group Save/Restore Button Area */
+/* @group Save/Reset */
 
-#bnc-global input#bnc-button {
-	color: #fff;
-}
-
-#bnc-global input#bnc-button, #bnc-global input#bnc-button-reset {
-	border: 2px solid #b2cfe4;
+input#bnc-button {
 	float: left;
-	width: 12%;
-	padding: 4px;
+	margin-right: 10px;
 }
 
-#bnc-global input#bnc-button-reset:hover {
-	border-color: red;
-	color: red;
+input#bnc-button-reset {
 }
 
-#bnc-global input#bnc-button:hover {
-	border: 2px solid #305769;
-	color: #cdebfd;
-}
+
 
 /* @end */

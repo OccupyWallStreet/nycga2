@@ -1,9 +1,4 @@
-/* WPtouch 1.9 Admin CSS */
-
-.left-content p {
-	color: #777;
-	line-height: 1.4em;
-}
+/* WPtouch 1.9.x Admin CSS */
 
 /* @group head-area.php */
 
@@ -39,14 +34,13 @@
 #wptouch-head-links {
 	float: right;
 	position: relative;
-	bottom: 6px;
+	bottom: 4px;
 }
 
 #wptouch-head-links a {
 	color: #62727c;
-	font-weight: normal;
+	font-weight: bold;
 	text-shadow: rgba(255,255,255,.5) 0 1px 0;
-	font-style: normal;
 	padding-right: 5px;
 	padding-left: 5px;
 }
@@ -541,6 +535,11 @@ textarea#wptouch-stats {
 /* @end */
 
 /* @group New Styling */
+
+#bnc-global .left-content p {
+	color: #777;
+	line-height: 1.4em;
+}
 
 #bnc-global .new-styles .right-content {
 	padding-bottom: 25px;

@@ -94,5 +94,4 @@
  <?php endif; ?>
 
 <!-- If it's ajax, we're not bringing in footer.php -->
-<?php global $is_ajax; if (!$is_ajax) 
-get_footer();
+<?php global $is_ajax; if (!$is_ajax) get_footer();
