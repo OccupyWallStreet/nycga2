@@ -229,7 +229,9 @@ class q2w3_post_order_table_search {
 		
 		if (isset($_GET['term_id'])) $res .= '<input type="hidden" name="term_id" value="'.$_GET['term_id'].'" />';
 		
-		$res .= '<input type="text" id="post-search-input" name="'. self::VAR_NAME .'" value="'. $_GET[self::VAR_NAME] .'" />'.PHP_EOL;
+		if (isset($_GET[self::VAR_NAME])) $search_string = $_GET[self::VAR_NAME]; else $search_string = '';
+		
+		$res .= '<input type="text" id="post-search-input" name="'. self::VAR_NAME .'" value="'. $search_string .'" />'.PHP_EOL;
 			
 		$res .= '<input type="submit" name="" id="search-submit" class="button" value="'. __('Search') .'">'.PHP_EOL;
 		

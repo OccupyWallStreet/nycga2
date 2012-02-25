@@ -4,7 +4,7 @@ Plugin Name: Q2W3 Post Order
 Plugin URI: http://www.q2w3.ru/q2w3-post-order-wordpress-plugin/
 Description: With Q2W3 Post Order you can can change natural order of posts. Supported custom taxonomies and custom post type archive pages. Requires WP 3.1 or higher. 
 Author: Max Bond, AndreSC
-Version: 1.2.1
+Version: 1.2.2
 Author URI: http://www.q2w3.ru/
 */
 
@@ -291,7 +291,9 @@ class q2w3_post_order {
 				
 		$options = get_option(self::ID);
 		
-		if ($options['editors_access']) $access_level = 'moderate_comments'; // Super Admin, Admin and Editor
+		if (isset($options['editors_access']) && $options['editors_access']) $editors_access = true; else $editors_access = false;
+		
+		if ($editors_access) $access_level = 'moderate_comments'; // Super Admin, Admin and Editor
 
 		self::$page_id = add_options_page(self::NAME, self::NAME, $access_level, self::ID, array( __CLASS__, 'settings_page' ) ); // Add a new menu under Manage 
 		
@@ -469,6 +471,12 @@ class q2w3_post_order {
 		
 		global $wp_post_types, $wp_taxonomies;
 		
+		$post_type = '';
+		
+		$tax_name = '';
+		
+		$term_id = '';
+		
 		$settings = self::user_settings_load();
 		
 		if (isset($_GET['p_type'])) $post_type = sanitize_key($_GET['p_type']);
@@ -569,6 +577,10 @@ class q2w3_post_order {
 		
 		$options = get_option(self::ID);
 		
+		if (isset($options['editors_access'])) $editors_access = $options['editors_access']; else $editors_access = '';
+		
+		if (isset($options['debug_mode'])) $debug_mode = $options['debug_mode']; else $debug_mode = '';
+		
 		echo '<div class="wrap">'.PHP_EOL;
 		
 		echo '<h2>'. self::NAME .' &raquo; '. __('Options', self::ID) .'</h2>'.PHP_EOL;
@@ -587,7 +599,7 @@ class q2w3_post_order {
         
 		echo '<tr valign="top">'.PHP_EOL;
 		
-		echo '<td style="width: 20px;"><input type="checkbox" name="'. self::ID .'[editors_access]" '. checked($options['editors_access'], 'on', false) .' /></td>'.PHP_EOL;
+		echo '<td style="width: 20px;"><input type="checkbox" name="'. self::ID .'[editors_access]" '. checked($editors_access, 'on', false) .' /></td>'.PHP_EOL;
         
 		echo '<td>'. __('Allow Editors to access plugin settings', self::ID) .'</td>'.PHP_EOL;
 		
@@ -595,7 +607,7 @@ class q2w3_post_order {
          
         echo '<tr valign="top">'.PHP_EOL;
         
-        echo '<td><input type="checkbox" name="'. self::ID .'[debug_mode]" '. checked($options['debug_mode'], 'on', false) .' /></td>'.PHP_EOL;
+        echo '<td><input type="checkbox" name="'. self::ID .'[debug_mode]" '. checked($debug_mode, 'on', false) .' /></td>'.PHP_EOL;
         
         echo '<td>'. __('Enable debug mode. Debug data will be shown on public pages only for logged in administrator!', self::ID) .'</td>'.PHP_EOL;
                 
@@ -750,9 +762,13 @@ class q2w3_post_order {
 			
 			$sorted_ids = array();
 			
-			foreach ($sorted_posts as $sorted_post) {
+			if (is_array($sorted_posts)) {
+			
+				foreach ($sorted_posts as $sorted_post) {
+					
+					$sorted_ids[] = $sorted_post['ID'];
 				
-				$sorted_ids[] = $sorted_post['ID'];
+				}
 				
 			}
 			
@@ -1175,7 +1191,7 @@ class q2w3_post_order {
 			
 			echo "<tr $alter>".PHP_EOL;
 			
-			if ($post['post_rank']) $pos = $post['post_rank']; else $pos = $tr_count;
+			if (isset($post['post_rank']) && $post['post_rank']) $pos = $post['post_rank']; else $pos = $tr_count;
 		
 			echo '<td style="text-align: center">'. $pos .'</td>'.PHP_EOL;
 		
@@ -1185,13 +1201,13 @@ class q2w3_post_order {
 		
 			echo '<td style="text-align: center">';
 			
-			echo '<input name="posts['. $post['ID'] .'][new_pos]" type="text" size="5" maxlength="5">';
+			echo '<input name="posts['. $post['ID'] .'][new_pos]" type="text" size="6" maxlength="6">';
 			
 			if ($post_type) echo '<input type="hidden" name="posts['. $post['ID'] .'][post_type]" value="'. $post_type .'" />';
 			
 				elseif ($tax_name) echo '<input type="hidden" name="posts['. $post['ID'] .'][tax_name]" value="'. $tax_name .'" />';
 			
-			if ($post['id']) { // We are in sorted posts table
+			if (isset($post['id']) && $post['id']) { // We are in sorted posts table
 				
 				echo '<input type="hidden" name="posts['. $post['ID'] .'][id]" value="'. $post['id'] .'" />';
 			

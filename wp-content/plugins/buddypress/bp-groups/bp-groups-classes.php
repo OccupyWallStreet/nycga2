@@ -266,7 +266,7 @@ Class BP_Groups_Group {
 
 		$sql = array();
 
-		$sql['select'] = "SELECT DISTINCT g.*, gm1.meta_value AS total_member_count, gm2.meta_value AS last_activity";
+		$sql['select'] = "SELECT g.*, gm1.meta_value AS total_member_count, gm2.meta_value AS last_activity";
 		$sql['from']   = " FROM {$bp->groups->table_name_groupmeta} gm1, {$bp->groups->table_name_groupmeta} gm2,";
 
 		if ( !empty( $user_id ) )
@@ -577,10 +577,8 @@ Class BP_Groups_Group {
 		$hidden_sql = '';
 		if ( !is_super_admin() )
 			$hidden_sql = "WHERE status != 'hidden'";
-		
-		$group_count_sql = "SELECT COUNT(id) FROM {$bp->groups->table_name} g {$hidden_sql}";
-		$group_count_sql = apply_filters( 'bp_group_get_total_group_count', $group_count_sql );
-		return $wpdb->get_var( $wpdb->prepare( $group_count_sql ) );
+
+		return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->groups->table_name} {$hidden_sql}" ) );
 	}
 
 	function get_global_forum_topic_count( $type ) {
@@ -941,12 +939,10 @@ Class BP_Groups_Member {
 			$user_id = $bp->displayed_user->id;
 
 		if ( $user_id != $bp->loggedin_user->id && !is_super_admin() ) {
-                        $group_count_sql = "SELECT COUNT(DISTINCT m.group_id) FROM {$bp->groups->table_name_members} m, {$bp->groups->table_name} g WHERE m.group_id = g.id AND g.status != 'hidden' AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0";
+			return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.group_id) FROM {$bp->groups->table_name_members} m, {$bp->groups->table_name} g WHERE m.group_id = g.id AND g.status != 'hidden' AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0", $user_id ) );
 		} else {
-			$group_count_sql = "SELECT COUNT(DISTINCT m.group_id) FROM {$bp->groups->table_name_members} m, {$bp->groups->table_name} g WHERE m.group_id = g.id AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0";
+			return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.group_id) FROM {$bp->groups->table_name_members} m, {$bp->groups->table_name} g WHERE m.group_id = g.id AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0", $user_id ) );
 		}
- 		$group_count_sql = apply_filters( 'bp_group_member_get_total_group_count', $group_count_sql );
-		return $wpdb->get_var( $wpdb->prepare( $group_count_sql, $user_id ) );
 	}
 
 	function get_invites( $user_id, $limit = false, $page = false, $exclude = false ) {

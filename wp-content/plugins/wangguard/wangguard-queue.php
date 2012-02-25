@@ -103,7 +103,8 @@ function wangguard_queue() {
 
 	
 	
-	<div class="wrap">
+	<div class="wrap" id="wangguard-queue-cont">
+		<div class="wangguard-confico"><img src="<?php echo WP_PLUGIN_URL ?>/wangguard/img/queue.png" alt="<?php echo htmlentities(__('WangGuard Moderation Queue', 'wangguard')) ?>" /></div>
 		<div class="icon32" id="icon-wangguard"><br></div>
 		<h2><?php _e('WangGuard Moderation Queue', 'wangguard'); ?></h2>
 

@@ -169,4 +169,4 @@
  <?php endif; ?>
 
 <!-- Here we're establishing whether the page was loaded via Ajax or not, for dynamic purposes. If it's ajax, we're not bringing in footer.php -->
-<?php global $is_ajax; if (!$is_ajax) get_footer(); ?>
+<?php global $is_ajax; if (!$is_ajax) get_footer();

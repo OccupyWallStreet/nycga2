@@ -4,7 +4,7 @@ Plugin Name: Custom Field Template
 Plugin URI: http://wpgogo.com/development/custom-field-template.html
 Description: This plugin adds the default custom fields on the Write Post/Page.
 Author: Hiroaki Miyashita
-Version: 1.9.8
+Version: 1.9.9
 Author URI: http://wpgogo.com/
 */
 
@@ -13,7 +13,7 @@ This program is based on the rc:custom_field_gui plugin written by Joshua Sigar.
 I appreciate your efforts, Joshua.
 */
 
-/*  Copyright 2008 -2011 Hiroaki Miyashita
+/*  Copyright 2008 -2012 Hiroaki Miyashita
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -482,7 +482,7 @@ class custom_field_template {
 			endif;
 		endif;
 		
-		echo $output;
+		if ( isset($output) ) echo $output;
 	}
 	
 	function add_manage_posts_columns($columns) {
@@ -699,7 +699,7 @@ type = file';
 				if ( is_feed() && !$options['hook'][$i]['feed'] ) break;
 				if ( !empty($options['hook'][$i]['category']) ) :
 					if ( is_category() || is_single() || is_feed() ) :
-						if ( $options['hook'][$i]['use_php'] ) :
+						if ( !empty($options['hook'][$i]['use_php']) ) :
 							$options['hook'][$i]['content'] = $this->EvalBuffer(stripcslashes($options['hook'][$i]['content']));
 						endif;
 						$needle = explode(',', $options['hook'][$i]['category']);
@@ -719,7 +719,7 @@ type = file';
 					endif;
 				elseif ( $options['hook'][$i]['post_type']=='post' ) :
 					if ( is_category() || is_single() ) :
-						if ( $options['hook'][$i]['use_php'] ) :
+						if ( !empty($options['hook'][$i]['use_php']) ) :
 							$options['hook'][$i]['content'] = $this->EvalBuffer(stripcslashes($options['hook'][$i]['content']));
 						endif;
 						if ( $options['hook'][$i]['position'] == 0 )
@@ -731,7 +731,7 @@ type = file';
 					endif;		
 				elseif ( $options['hook'][$i]['post_type']=='page' ) :
 					if ( is_page() ) :
-						if ( $options['hook'][$i]['use_php'] ) :
+						if ( !empty($options['hook'][$i]['use_php']) ) :
 							$options['hook'][$i]['content'] = $this->EvalBuffer(stripcslashes($options['hook'][$i]['content']));
 						endif;
 						if ( $options['hook'][$i]['position'] == 0 )
@@ -746,7 +746,7 @@ type = file';
 					$custom_post_type = array_filter( $custom_post_type );
 					array_walk( $custom_post_type, create_function('&$v', '$v = trim($v);') );
 					if ( in_array($post->post_type, $custom_post_type) ) :
-						if ( $options['hook'][$i]['use_php'] ) :
+						if ( !empty($options['hook'][$i]['use_php']) ) :
 							$options['hook'][$i]['content'] = $this->EvalBuffer(stripcslashes($options['hook'][$i]['content']));
 						endif;
 						if ( $options['hook'][$i]['position'] == 0 )
@@ -757,7 +757,7 @@ type = file';
 							$content = $options['hook'][$i]['content'] . $content;
 					endif;
 				else :
-					if ( $options['hook'][$i]['use_php'] ) :
+					if ( !empty($options['hook'][$i]['use_php']) ) :
 							$options['hook'][$i]['content'] = $this->EvalBuffer(stripcslashes($options['hook'][$i]['content']));
 					endif;
 					if ( $options['hook'][$i]['position'] == 0 )
@@ -1670,7 +1670,7 @@ jQuery(this).addClass("closed");
 		if ( !empty($class) ) $class = ' class="' . $class . '"';
 		if ( !empty($style) ) $style = ' style="' . $style . '"';
 
-		if ( !empty($label) && $options['custom_field_template_replace_keys_by_labels'] )
+		if ( !empty($label) && !empty($options['custom_field_template_replace_keys_by_labels']) )
 			$title = stripcslashes($label);
 
 		$event = array('onclick' => $onclick, 'ondblclick' => $ondblclick, 'onkeydown' => $onkeydown, 'onkeypress' => $onkeypress, 'onkeyup' => $onkeyup, 'onmousedown' => $onmousedown, 'onmouseup' => $onmouseup, 'onmouseover' => $onmouseover, 'onmouseout' => $onmouseout, 'onmousemove' => $onmousemove, 'onfocus' => $onfocus, 'onblur' => $onblur, 'onchange' => $onchange, 'onselect' => $onselect);
@@ -1820,7 +1820,7 @@ jQuery(this).addClass("closed");
 		if ( !empty($class) ) $class = ' class="' . $class . '"';
 		if ( !empty($style) ) $style = ' style="' . $style . '"';
 
-		if ( !empty($label) && $options['custom_field_template_replace_keys_by_labels'] )
+		if ( !empty($label) && !empty($options['custom_field_template_replace_keys_by_labels']) )
 			$title = stripcslashes($label);
 
 		$event = array('onclick' => $onclick, 'ondblclick' => $ondblclick, 'onkeydown' => $onkeydown, 'onkeypress' => $onkeypress, 'onkeyup' => $onkeyup, 'onmousedown' => $onmousedown, 'onmouseup' => $onmouseup, 'onmouseover' => $onmouseover, 'onmouseout' => $onmouseout, 'onmousemove' => $onmousemove, 'onfocus' => $onfocus, 'onblur' => $onblur, 'onchange' => $onchange, 'onselect' => $onselect);
@@ -1978,7 +1978,7 @@ jQuery(this).addClass("closed");
 		$content_class .= '"';
 		if ( !empty($style) ) $style = ' style="' . $style . '"';
 
-		if ( !empty($label) && $options['custom_field_template_replace_keys_by_labels'] )
+		if ( !empty($label) && !empty($options['custom_field_template_replace_keys_by_labels']) )
 			$title = stripcslashes($label);
 
 		$event = array('onclick' => $onclick, 'ondblclick' => $ondblclick, 'onkeydown' => $onkeydown, 'onkeypress' => $onkeypress, 'onkeyup' => $onkeyup, 'onmousedown' => $onmousedown, 'onmouseup' => $onmouseup, 'onmouseover' => $onmouseover, 'onmouseout' => $onmouseout, 'onmousemove' => $onmousemove, 'onfocus' => $onfocus, 'onblur' => $onblur, 'onchange' => $onchange, 'onselect' => $onselect);
@@ -2020,7 +2020,7 @@ jQuery(this).addClass("closed");
 			'<dt><span' . $hide . '><label for="' . $name . $sid . '_' . $cftnum . '">' . $title . '</label></span><br />' . $addfield . $media . $switch . '</dt>' .
 			'<dd>';
 
-		if ( !empty($label) && !$options['custom_field_template_replace_keys_by_labels'] )
+		if ( !empty($label) && empty($options['custom_field_template_replace_keys_by_labels']) )
 			$out .= '<p class="label">' . stripcslashes($label) . '</p>';
 		
 		$out .= trim($before);
@@ -2074,7 +2074,7 @@ jQuery(this).addClass("closed");
 		if ( !empty($class) ) $class = ' class="' . $class . '"';
 		if ( !empty($style) ) $style = ' style="' . $style . '"';
 		
-		if ( !empty($label) && $options['custom_field_template_replace_keys_by_labels'] )
+		if ( !empty($label) && !empty($options['custom_field_template_replace_keys_by_labels']) )
 			$title = stripcslashes($label);
 			
 		if ( $multipleButton == true && $ct_value == $cftnum ) :
@@ -2363,6 +2363,35 @@ jQuery(this).addClass("closed");
 		$out .= 	'<script type="text/javascript">' . "\n" .
 					'// <![CDATA[' . "\n";
 		$out .=		'function qt_set(new_id) { eval("qt_"+new_id+" = new QTags(\'qt_"+new_id+"\', \'"+new_id+"\', \'editorcontainer_"+new_id+"\', \'more\');");}';
+		
+		$out .=     'function _edInsertContent(myField, myValue) {
+	var sel, startPos, endPos, scrollTop;
+
+	//IE support
+	if (document.selection) {
+		myField.focus();
+		sel = document.selection.createRange();
+		sel.text = myValue;
+		myField.focus();
+	}
+	//MOZILLA/NETSCAPE support
+	else if (myField.selectionStart || myField.selectionStart == "0") {
+		startPos = myField.selectionStart;
+		endPos = myField.selectionEnd;
+		scrollTop = myField.scrollTop;
+		myField.value = myField.value.substring(0, startPos)
+		              + myValue
+                      + myField.value.substring(endPos, myField.value.length);
+		myField.focus();
+		myField.selectionStart = startPos + myValue.length;
+		myField.selectionEnd = startPos + myValue.length;
+		myField.scrollTop = scrollTop;
+	} else {
+		myField.value += myValue;
+		myField.focus();
+	}
+}';
+
 		$out .= 	'function send_to_custom_field(h) {' . "\n" .
 					'	if ( tmpFocus ) ed = tmpFocus;' . "\n" .
 					'	else if ( typeof tinyMCE == "undefined" ) ed = document.getElementById("content");' . "\n" .
@@ -2383,7 +2412,7 @@ jQuery(this).addClass("closed");
 					'		}' . "\n" .
 					'		ed.execCommand("mceInsertContent", false, h);' . "\n" .
 					'	} else {' . "\n" .
-					'		if ( tmpFocus ) edInsertContent(tmpFocus, h);' . "\n" .
+					'		if ( tmpFocus ) _edInsertContent(tmpFocus, h);' . "\n" .
 					'		else edInsertContent(edCanvas, h);' . "\n" .
 					'	}' . "\n";
 					
@@ -2492,7 +2521,7 @@ jQuery("#edButtonPreview").trigger("click"); }' . "\n";*/
 			endif;
 		endif;
 
-		if ( $options['custom_fields'] ) :
+		if ( !empty($options['custom_fields']) ) :
 			if ( substr($wp_version, 0, 3) < '3.0' ) $taxonomy = 'categories';
 			else $taxonomy = 'category';
 		
@@ -2797,11 +2826,11 @@ jQuery("#edButtonPreview").trigger("click"); }' . "\n";*/
 			return;
 			
 		if ( substr($wp_version, 0, 3) >= '2.8' ) {
-			if ( !class_exists('SimpleTags') && $_POST['tax_input']['post_tag'] ) {
+			if ( !class_exists('SimpleTags') && !empty($_POST['tax_input']['post_tag']) ) {
 				$tags_input = explode(",", $_POST['tax_input']['post_tag']);
 			}
 		} else {
-			if ( !class_exists('SimpleTags') && $_POST['tags_input'] ) {
+			if ( !class_exists('SimpleTags') && !empty($_POST['tags_input']) ) {
 				$tags_input = explode(",", $_POST['tags_input']);
 			}
 		}
@@ -3503,7 +3532,7 @@ jQuery("#edButtonPreview").trigger("click"); }' . "\n";*/
 			foreach( $fields as $field_key => $field_val) :
 				foreach( $field_val as $key => $val) :
 					if ( $val['search'] == true ) :
-						if ( !empty($val['label']) && $options['custom_field_template_replace_keys_by_labels'] )
+						if ( !empty($val['label']) && !empty($options['custom_field_template_replace_keys_by_labels']) )
 							$key = stripcslashes($val['label']);
 						$output .= '<dl>' ."\n";
 						if ( $val['hideKey'] != true) :

@@ -3,15 +3,13 @@
 Plugin Name: BP Group Organizer
 Plugin URI: http://www.generalthreat.com/projects/buddypress-group-organizer
 Description: Easily create, edit, and delete BuddyPress groups - with drag and drop simplicity
-Version: 1.0.2
-Revision Date: 10/23/2011
+Version: 1.0.3
+Revision Date: 01/26/2012
 Requires at least: WP 3.0, BuddyPress 1.2
-Tested up to: WP 3.3-beta1 , BuddyPress 1.5.1
+Tested up to: WP 3.3.1 , BuddyPress 1.5.3.1
 License: Example: GNU General Public License 2.0 (GPL) http://www.gnu.org/licenses/gpl.html
 Author: David Dean
 Author URI: http://www.generalthreat.com/
-Site Wide Only: true
-Network: true
 */
 
 /** load localization files if present */
@@ -147,7 +145,7 @@ function bp_group_organizer_admin_page() {
 			$groups_order = $_POST['group'];
 			
 			$parent_ids = $_POST['menu-item-parent-id'];
-			$db_ids = $_POST['menu_item-db-id'];
+			$db_ids = $_POST['menu-item-db-id'];
 			
 			
 			foreach($groups_order as $id => $group) {
@@ -157,9 +155,9 @@ function bp_group_organizer_admin_page() {
 				if( defined( 'BP_GROUP_HIERARCHY_IS_INSTALLED' ) && method_exists('BP_Groups_Hierarchy','get_tree') ) {
 					// if group hierarchy is installed and available, check for tree changes
 	
-					$group_hierarchy = new BP_Groups_Hierarchy( $id);
+					$group_hierarchy = new BP_Groups_Hierarchy( $id );
 	
-					if($parent_ids[$id] != null) {
+					if( $parent_ids[$id] !== null && $group_hierarchy->parent_id != $parent_ids[$id] ) {
 						$group_hierarchy->parent_id = $parent_ids[$id];
 						$group_hierarchy->save();
 					} else if($group_hierarchy->parent_id != $group['parent_id']) {
