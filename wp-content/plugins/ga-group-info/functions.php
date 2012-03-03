@@ -24,4 +24,18 @@ function gait_htmlify($string){
     $string = make_clickable( htmlspecialchars_decode( $string ) );
     return $string;
 }
+
+/*
+ * Filters Multiline content
+ * @since 0.1
+ * @author Louie McCoy <louie@louiemccoy.com>
+ * @param unfiltered content
+ * @return string The full filtered html of the multiline content
+ */
+function gait_content($content){
+    $content = apply_filters('the_content', $content); // Standard WP the_content() filters
+    $content = str_replace(']]>', ']]&gt;', $content);
+    $content = gait_htmlify( $content ); // Info-tab specific function to make things clickable
+    echo $content;
+}
 ?>
