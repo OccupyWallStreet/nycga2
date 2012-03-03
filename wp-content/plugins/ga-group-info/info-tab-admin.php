@@ -57,6 +57,11 @@ if (!$infometa) {
     groups_update_groupmeta( $bp->groups->current_group->id, $this->slug , $infometa );
 
 }
+
+$editor_options = array(
+    'media_buttons'	=>	true,
+    'textarea_name'	=>	'' // we'll set this later, in the foreach loop.
+)
 ?>
 <h2>Edit: <?php echo esc_attr( $this->name ); ?></h2>
 		
@@ -75,7 +80,9 @@ if (!$infometa) {
 				break;
 			    
 			    case 'multi-line':
-				echo "<textarea id='gait-{$slug}' name='gait-{$slug}'>{$value}</textarea>";
+				$editor_options['textarea_name'] = 'gait-' . $slug;
+				wp_editor( $value, 'gait-' . $slug, $editor_options );
+				//echo "<textarea id='gait-{$slug}' name='gait-{$slug}'>{$value}</textarea>";
 				break;
 			}
 		    }
