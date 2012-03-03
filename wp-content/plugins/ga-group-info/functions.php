@@ -46,6 +46,7 @@ function gait_twitlink($content) {
 function gait_content($content){
     $content = apply_filters('the_content', $content); // Standard WP the_content() filters
     $content = str_replace(']]>', ']]&gt;', $content);
+    $content = gait_twitlink( html_entity_decode( $content ) );
     $content = make_clickable ( $content ); // Make links & emails clickable
     echo $content;
 }
