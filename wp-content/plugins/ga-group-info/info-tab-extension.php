@@ -6,7 +6,7 @@ class gait_info_tab extends BP_Group_Extension {
 	function gait_info_tab() {
 		$this->name = 'Info';
 		$this->slug = 'info';
-		//$this->create_step_position = 6;
+		$this->create_step_position = 2;
 		$this->nav_item_position = 14;
 		$this->enable_nav_item = $this->enable_nav_item();
 		$this->enable_edit_item = current_user_can('manage_options');
