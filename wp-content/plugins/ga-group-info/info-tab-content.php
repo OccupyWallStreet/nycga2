@@ -1,7 +1,7 @@
 <?php
     global $bp;
-    $data_store = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug );
-    ?>
+    $data_store = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug );   
+?>
 <div class="extra-data">
     <?php foreach ( $data_store as $slug => $data ) {
 	if (!empty($data['value'])) :
