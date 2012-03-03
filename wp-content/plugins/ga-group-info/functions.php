@@ -12,6 +12,19 @@ Contains prerequisite functions
  * @return string The HTML-ified string.
  */
 function gait_htmlify($string){
+    $string = gait_twitlink($string);
+    $string = make_clickable( htmlspecialchars_decode( $string ) );
+    return $string;
+}
+
+/*
+ * Linkifies Twitter Usernames and Hashtags
+ * @since 0.1
+ * @author Louie McCoy <louie@louiemccoy.com>
+ * @param string unlinked content
+ * @return string linked content
+ */
+function gait_twitlink($content) {
     $regex = array(
 	'handle'	=>	'/\B@(\w+)\b/',
 	'hashtag'	=>	'/\B#(\w+)\b/'
@@ -20,9 +33,7 @@ function gait_htmlify($string){
 	'handle'	=>	'<a href="http://twitter.com/$1">@$1</a>',
 	'hashtag'	=>	'<a href="https://twitter.com/#!/search?q=%23$1">#$1</a>'
     );
-    $string = preg_replace( $regex, $format, $string );
-    $string = make_clickable( htmlspecialchars_decode( $string ) );
-    return $string;
+    return preg_replace( $regex, $format, $content );    
 }
 
 /*
@@ -35,7 +46,7 @@ function gait_htmlify($string){
 function gait_content($content){
     $content = apply_filters('the_content', $content); // Standard WP the_content() filters
     $content = str_replace(']]>', ']]&gt;', $content);
-    $content = gait_htmlify( $content ); // Info-tab specific function to make things clickable
+    $content = make_clickable ( $content ); // Make links & emails clickable
     echo $content;
 }
 ?>
