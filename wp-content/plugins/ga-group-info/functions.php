@@ -14,6 +14,10 @@ Contains prerequisite functions
 function gait_htmlify($string){
     $string = gait_twitlink($string);
     $string = make_clickable( htmlspecialchars_decode( $string ) );
+    if(class_exists('HkMuob')){
+	global $hkMuob;
+	$string = $hkMuob->filter( $string );
+    }
     return $string;
 }
 
