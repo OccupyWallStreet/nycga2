@@ -274,19 +274,19 @@ function make_http_post_request($url, $data)
 
 // send user email address to CiviCRM so they can be added to lists
 function send_email_to_civi($user_id, $old_user_data) {
-    $info = get_userdata( $user_id );
-    $url = "http://contribute.occupywallstreet.net/civicrm/profile/create?gid=28&amp;reset=1"; // 28 = profile ID
-    $email = $info->user_email;
-    $data = array('postURL'=>'',
-                  'cancelURL'=>'',
-                  'add_to_group'=>15, // 15 = group ID
-                  'email-Primary'=>$email,
-                  '_qf_default'=>'',
-                  '_qf_Edit_next'=>'');
+    if ( defined( 'CIVICRM_EMAIL_POST_URL' ) && defined( 'CIVICRM_EMAIL_GROUP_ID' ) ) {
+        $info = get_userdata( $user_id );
+        $email = $info->user_email;
+        $data = array('postURL' => '',
+                      'cancelURL' => '',
+                      'add_to_group' => CIVICRM_EMAIL_GROUP_ID,
+                      'email-Primary' => $email,
+                      '_qf_default' => '',
+                      '_qf_Edit_next' => '');
 
-    make_http_post_request($url, $data);
+        make_http_post_request( CIVICRM_EMAIL_POST_URL, $data );
+    }
 }
-
 add_action( 'user_register', 'send_email_to_civi' );
 //add_action( 'profile_update', 'send_email_to_civi' ); // this doesn't seem to have any effect - further investigation is needed
 
