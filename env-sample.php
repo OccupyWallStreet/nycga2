@@ -35,4 +35,8 @@ define( 'WP_CACHE', false );
 
 define( 'WP_MEMORY_LIMIT', '128M' );
 
+// Use to automatically send user emails to a CiviCRM instance on user activation
+//define( 'CIVICRM_EMAIL_POST_URL', 'http://<your_civi_domain>/civicrm/profile/create?gid=<civi_profile_id>&amp;reset=1' );
+//define( 'CIVICRM_EMAIL_GROUP_ID', '<civi_group_id>' );
+
 ?>
