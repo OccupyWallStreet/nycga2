@@ -248,6 +248,48 @@ function nycga_hidden_activities($a, $activities)
 	return $activities;
 }
 
+// adapted from http://wezfurlong.org/blog/2006/nov/http-post-from-php-without-curl/
+function make_http_post_request($url, $data)
+{
+    $params = array(
+        'http' => array(
+            'method' => 'POST',
+            'content' => http_build_query($data)
+        )
+    );
+
+    $ctx = stream_context_create($params);
+    $fp = @fopen($url, 'rb', false, $ctx);
+    if (!$fp) {
+        throw new Exception("Problem with $url, $php_errormsg");
+    }
+
+    $response = @stream_get_contents($fp);
+    if ($response === false) {
+        throw new Exception("Problem reading data from $url, $php_errormsg");
+    }
+
+    return $response;
+}
+
+// send user email address to CiviCRM so they can be added to lists
+function send_email_to_civi($user_id, $old_user_data) {
+    if ( defined( 'CIVICRM_EMAIL_POST_URL' ) && defined( 'CIVICRM_EMAIL_GROUP_ID' ) ) {
+        $info = get_userdata( $user_id );
+        $email = $info->user_email;
+        $data = array('postURL' => '',
+                      'cancelURL' => '',
+                      'add_to_group' => CIVICRM_EMAIL_GROUP_ID,
+                      'email-Primary' => $email,
+                      '_qf_default' => '',
+                      '_qf_Edit_next' => '');
+
+        make_http_post_request( CIVICRM_EMAIL_POST_URL, $data );
+    }
+}
+add_action( 'user_register', 'send_email_to_civi' );
+//add_action( 'profile_update', 'send_email_to_civi' ); // this doesn't seem to have any effect - further investigation is needed
+
 add_action('bp_before_group_manage_members_admin', 'nycga_modify_group_membership_by_username');
 function nycga_modify_group_membership_by_username() {
 	echo "<div class='bp-widget'>
