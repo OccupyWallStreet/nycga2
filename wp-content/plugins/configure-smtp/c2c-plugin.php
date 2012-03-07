@@ -719,6 +719,8 @@ CSS;
 			echo '</fieldset>';
 		} elseif ( $input == 'checkbox' ) {
 			echo "<input type='$input' $attribs value='1' " . checked( $value, 1, false ) . " />\n";
+		} elseif ( $input =='password' ) {
+			echo "<input type='$input' $attribs value='' />\n";
 		} else { // Only 'text' and 'password' should fall through to here.
 			echo "<input type='$input' $attribs value='" . esc_attr( $value ) . "' />\n";
 		}

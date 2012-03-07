@@ -1,10 +1,10 @@
 === BP Group Organizer ===
 Contributors: ddean
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=6BKDCMJRYPKNN&lc=US&item_name=BP%20Group%20Organizer&currency_code=USD
-Tags: buddypress, group, groups, organize
+Tags: buddypress, group, groups, edit, organize, move, drag and drop
 Requires at least: 3.0
-Tested up to: 3.3-beta1
-Stable tag: 1.0.2
+Tested up to: 3.3.1
+Stable tag: 1.0.3
 
 Easily create, edit, and delete BuddyPress groups - with drag and drop simplicity
 
@@ -40,6 +40,12 @@ No questions yet.
 
 == Changelog ==
 
+= 1.0.3 =
+* Added: Organizer handle changes to indicate when a group is Private or Hidden
+* Changed: no longer Network-only
+* Changed: reduced JS size for organizer; should improve speed
+* Fixed: some bugs that triggered warnings
+
 = 1.0.2 =
 * Changed: switched to load_plugin_textdomain for translation
 * Fixed: resolved a rendering issue with WP 3.3
@@ -55,6 +61,9 @@ No questions yet.
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.3 =
+Bug fixes and group status indicator
 
 = 1.0.2 =
 Updated for WP 3.3 and with better translation support

@@ -5,7 +5,9 @@ Description:  A slick theme for your blog or website that is shown only when vis
 Author:  BraveNewCode Inc.
 Author URI:  http://www.bravenewcode.com/
  */
+
 /* @group Body and Theme-Wide Elements */
+
 body {
 	margin: 0;
 	padding: 0;
@@ -150,8 +152,14 @@ blockquote {
 	margin-right: auto;
 }
 
+.wptouch-videos {
+	-webkit-transform: translate3d(0,0,0);
+}
+
 /* @end */
+
 /* @group Header */
+
 #headerbar *,#wptouch-menu * {
 	-webkit-touch-callout: none;
 }
@@ -174,7 +182,6 @@ blockquote {
 	margin: 0;
 	border-style: none;
 	padding-bottom: 4px;
-
 	-o-text-overflow: ellipsis;
 	-ms-text-overflow: ellipsis;
 	text-overflow: ellipsis;
@@ -225,11 +232,11 @@ blockquote {
 }
 
 /* @group Sub-Menu */
+
 #drop-fade {
 	width: 100%;
 	display: block;
 	position: relative;
-
 	-webkit-box-shadow: #000 -3px 2px 3px;
 	-moz-box-shadow: #000 -3px 2px 3px;
 	box-shadow: #000 -3px 2px 3px;
@@ -285,7 +292,9 @@ blockquote {
 }
 
 /* @end */
+
 /* @group DropDown Menu */
+
 .dropper {
 	width: 100%;
 	position: relative;
@@ -365,11 +374,11 @@ blockquote {
 }
 
 /* @group Tab Menus */
+
 #wptouch-menu {
 	position: absolute;
 	z-index: 2;
 	top: 45px;
-
 	-webkit-box-shadow: #333 -6px 6px 6px;
 	-moz-box-shadow: #333 -6px 6px 6px;
 	box-shadow: #333 -6px 6px 6px;
@@ -417,7 +426,6 @@ blockquote {
 	margin-left: -1px;
 	margin-right: -1px;
 	color: #fff !important;
-
 	-webkit-box-shadow: #222 0px -2px 3px;
 	-moz-box-shadow: #222 0px -2px 3px;
 	box-shadow: #222 0px -2px 3px;
@@ -430,8 +438,11 @@ blockquote {
 }
 
 /* @end */
+
 /* @end */
+
 /* @group WordTwit Menu */
+
 #wptouch-wordtwit {
 	position: absolute;
 	border-top: 1px solid #3e3e3e;
@@ -451,7 +462,6 @@ blockquote {
 #wordtwit-avatar {
 	text-align: left;
 	padding-bottom: 10px;
-
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
@@ -468,7 +478,6 @@ blockquote {
 	border: 1px solid #222;
 	float: left;
 	margin-right: 15px;
-
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
@@ -529,7 +538,9 @@ blockquote {
 }
 
 /* @end */
+
 /* @group Push Message Area */
+
 #prowl-message {
 	color: #eee;
 	text-shadow: #000000 0 -1px 1px;
@@ -569,7 +580,6 @@ blockquote {
 
 #prowl-message input {
 	width: 60%;
-
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -592,7 +602,6 @@ blockquote {
 
 #prowl-message textarea {
 	width: 98%;
-
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -617,6 +626,7 @@ blockquote {
 }
 
 /* @group Success */
+
 #prowl-success {
 	color: #eee;
 	text-shadow: #000000 0 -1px 1px;
@@ -633,11 +643,9 @@ blockquote {
 	width: 90%;
 	margin-left: 5%;
 	margin-top: 25px;
-
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-
 	-webkit-box-shadow: #444 0px 0px 15px;
 	-moz-box-shadow: #444 0px 0px 15px;
 	box-shadow: #444 0px 0px 15px;
@@ -665,19 +673,20 @@ blockquote {
 	width: 90%;
 	margin-left: 5%;
 	margin-top: 25px;
-
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-
 	-webkit-box-shadow: #444 0px 0px 15px;
 	-moz-box-shadow: #444 0px 0px 15px;
 	box-shadow: #444 0px 0px 15px;
 }
 
 /* @end */
+
 /* @end */
+
 /* @group Login & Search */
+
 #wptouch-login {
 	position: absolute;
 	top: 0;
@@ -698,7 +707,6 @@ blockquote {
 
 #wptouch-login input#log {
 	width: 120px;
-
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -711,7 +719,6 @@ blockquote {
 
 #wptouch-login input#pwd {
 	width: 120px;
-
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -777,8 +784,11 @@ img.head-close {
 }
 
 /* @end */
+
 /* @end */
+
 /* @group Index Page */
+
 .post {
 	background-color: #fff;
 	padding: 10px;
@@ -786,13 +796,11 @@ img.head-close {
 	margin-right: 10px;
 	margin-left: 10px;
 	border: 1px solid #b1b1b1;
-
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
 	position: relative;
 	z-index: 0;
-
 	-webkit-box-shadow: rgba(255,255,255,.8) 0px 1px 0px;
 	-moz-box-shadow: rgba(255,255,255,.8) 0px 1px 0px;
 	box-shadow: rgba(255,255,255,.8) 0px 1px 0px;
@@ -810,17 +818,14 @@ a.post-arrow {
 	padding: 0;
 	background: #f4f4f4 url(../core/core-images/post-arrow.png) no-repeat center 8px;
 	border: 1px solid #ddd;
-
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-
 	-webkit-transform: scale(1.0) rotate(0deg);
 	-moz-transform: scale(1.0) rotate(0deg);
 	-o-transform: scale(1.0) rotate(0deg);
 	-ms-transform: scale(1.0) rotate(0deg);
 	transform: scale(1.0) rotate(0deg);
-
 	-webkit-transition-duration: 0.6s;
 	-moz-transition-duration: 0.6s;
 	-o-transition-duration: 0.6s;
@@ -835,7 +840,6 @@ a.post-arrow-down {
 	-o-transform: scale(1.0) rotate(180deg);
 	-ms-transform: scale(1.0) rotate(180deg);
 	transform: scale(1.0) rotate(180deg);
-
 	-webkit-transition-duration: 0.6s;
 	-moz-transition-duration: 0.6s;
 	-o-transition-duration: 0.6s;
@@ -896,13 +900,11 @@ a.h2 {
 	background: -o-linear-gradient(top, #de939e, #a40717, #be4958 0.5);
 	background: -ms-linear-gradient(top, #de939e, #a40717, #be4958 0.5);
 	background: linear-gradient(top, #de939e, #a40717, #be4958 0.5);
-
 	-webkit-background-clip: padding-box;
 	-moz-background-clip: padding-box;
 	background-clip: padding-box;
 	height: 16px;
 	display: block;
-
 	-webkit-border-radius: 32px;
 	-moz-border-radius: 32px;
 	border-radius: 32px;
@@ -912,7 +914,6 @@ a.h2 {
 	text-align: center;
 	border-style: solid;
 	border-width: 2px;
-
 	-webkit-box-shadow: rgba(0,0,0, .6) 0px 2px 3px;
 	-moz-box-shadow: rgba(0,0,0, .6) 0px 2px 3px;
 	box-shadow: rgba(0,0,0, .6) 0px 2px 3px;
@@ -993,6 +994,7 @@ a.h2 {
 }
 
 /* @group Calendar CSS Icons */
+
 .calendar {
 	text-align: center;
 	position: relative;
@@ -1000,17 +1002,14 @@ a.h2 {
 	margin-right: 10px;
 	margin-top: 0;
 	border: 1px solid #c9c9c9;
-
 	-webkit-border-radius: 7px;
 	-moz-border-radius: 7px;
 	border-radius: 7px;
-
 	-webkit-background-clip: padding-box;
 	-moz-background-clip: padding-box;
 	background-clip: padding-box;
 	top: 3px;
 	float: left;
-
 	-webkit-box-shadow: #c6c6c6 1px 1px 3px;
 	-moz-box-shadow: #c6c6c6 1px 1px 3px;
 	box-shadow: #c6c6c6 1px 1px 3px;
@@ -1043,6 +1042,7 @@ a.h2 {
 }
 
 /* @group Cal Month Colors */
+
 .month-01 {
 	background-color: #767c8f;
 }
@@ -1092,7 +1092,9 @@ a.h2 {
 }
 
 /* @end */
+
 /* @end */
+
 .post-author {
 	color: #555;
 	font-size: 9px;
@@ -1137,7 +1139,9 @@ a.h2 {
 }
 
 /* @end */
+
 /* @group Ajax */
+
 .ajax-load-more {
 	margin-top: 15px;
 	margin-right: auto;
@@ -1167,7 +1171,9 @@ a.ajax {
 }
 
 /* @end */
+
 /* @group Single Post Page */
+
 a.sh2 {
 	letter-spacing: -1px;
 	margin: 0;
@@ -1211,6 +1217,7 @@ a.sh2 {
 }
 
 /* @group Post Options Bar */
+
 .single-post-meta-bottom .post-page-nav {
 	font-size: 14px;
 	line-height: 25px;
@@ -1226,7 +1233,6 @@ a.sh2 {
 	padding: 2px 5px 2px 8px;
 	background-color: #fff;
 	border: 1px solid #ccc;
-
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -1293,7 +1299,9 @@ ul#post-options li a#obook {
 }
 
 /* @end */
+
 /* @group Gallery / Captions */
+
 #singlentry .wp-caption {
 	text-align: center;
 	font-size: 11px;
@@ -1331,7 +1339,9 @@ ul#post-options li a#obook {
 }
 
 /* @end */
+
 /* @group Twitter / Bookmarking */
+
 #twitter-box {
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -1423,8 +1433,11 @@ ul#post-options li a#obook {
 }
 
 /* @end */
+
 /* @end */
+
 /* @group Pages */
+
 .page h2 {
 	font-size: 22px;
 	letter-spacing: -1px;
@@ -1467,6 +1480,7 @@ img.pageicon {
 }
 
 /* @group Archives */
+
 #wptouch-tagcloud {
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -1529,7 +1543,9 @@ img.pageicon {
 }
 
 /* @end */
+
 /* @group Links */
+
 #wptouch-links a {
 	color: #222;
 	display: block;
@@ -1582,7 +1598,9 @@ img.pageicon {
 }
 
 /* @end */
+
 /* @group Photos */
+
 #wptouch-flickr {
 	text-align: center;
 	width: auto;
@@ -1597,7 +1615,9 @@ img.pageicon {
 }
 
 /* @end */
+
 /* @group 404 */
+
 #fourohfour {
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -1610,8 +1630,11 @@ img.pageicon {
 }
 
 /* @end */
+
 /* @end */
+
 /* @group Comments */
+
 ol#commentlist {
 	list-style-type: none;
 	display: none;
@@ -1633,7 +1656,6 @@ ol.commentlist li {
 	border-left: 1px solid #b1b1b1;
 	position: relative;
 	line-height: 17px;
-
 	-webkit-box-shadow: rgba(255,255,255,.8) 0px 1px 0px;
 	-moz-box-shadow: rgba(255,255,255,.8) 0px 1px 0px;
 	box-shadow: rgba(255,255,255,.8) 0px 1px 0px;
@@ -1642,7 +1664,6 @@ ol.commentlist li {
 h3#com-head {
 	font-weight: bold;
 	font-size: 13px;
-
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
@@ -1663,13 +1684,11 @@ h3#com-head img#com-arrow {
 	margin-right: 5px;
 	position: relative;
 	top: 1px;
-
 	-webkit-transform: scale(1.0) rotate(0deg);
 	-moz-transform: scale(1.0) rotate(0deg);
 	-o-transform: scale(1.0) rotate(0deg);
 	-ms-transform: scale(1.0) rotate(0deg);
 	transform: scale(1.0) rotate(0deg);
-
 	-webkit-transition-duration: 0.6s;
 	-moz-transition-duration: 0.6s;
 	-o-transition-duration: 0.6s;
@@ -1690,7 +1709,6 @@ h3#com-head img#com-arrow {
 	-o-transform: scale(1.0) rotate(90deg) !important;
 	-ms-transform: scale(1.0) rotate(90deg) !important;
 	transform: scale(1.0) rotate(90deg) !important;
-
 	-webkit-transition-duration: 0.6s !important;
 	-moz-transition-duration: 0.6s !important;
 	-o-transition-duration: 0.6s !important;
@@ -1729,7 +1747,6 @@ ol.commentlist .parent {
 ol.commentlist .parent ul.children li {
 	border: 1px solid #ddd;
 	background-color: #e9f8fd;
-
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
@@ -1740,7 +1757,6 @@ ol.commentlist ul.children .parent ul.children li.alt {
 	background-color: #fff;
 	padding: 10px;
 	margin: 10px 0 0;
-
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
@@ -1751,7 +1767,6 @@ ol.commentlist ul.children .parent ul.children li.even {
 	background-color: #f9fbf6;
 	padding: 10px;
 	margin: 10px 0 0;
-
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
@@ -1766,7 +1781,6 @@ ol.commentlist .reply a,.comdater {
 	background-color: #e5e5e5;
 	padding: 1px 5px;
 	border: 1px solid #fff;
-
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -1846,10 +1860,10 @@ ol.commentlist .comment-meta a {
 	padding-top: 7px;
 }
 
-/*
+/* @end */
 
-@end */
 /* @group Leaving A Comment */
+
 h3#comments,h3#respond {
 	color: #475d79;
 	text-shadow: #eee 1px 1px 0;
@@ -1928,7 +1942,6 @@ textarea#comment {
 	height: 110px;
 	width: 98%;
 	padding: 3px;
-
 	-webkit-box-shadow: rgba(255,255,255,.8) 0px 1px 0px;
 	-moz-box-shadow: rgba(255,255,255,.8) 0px 1px 0px;
 	box-shadow: rgba(255,255,255,.8) 0px 1px 0px;
@@ -1937,7 +1950,6 @@ textarea#comment {
 #loading {
 	position: relative;
 	background-color: #dedede;
-
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
@@ -2003,7 +2015,6 @@ form#commentform label {
 
 p.subscribe-to-comments {
 	padding: 8px;
-
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
@@ -2028,16 +2039,15 @@ p.subscribe-to-comments input#subscribe {
 	text-align: center;
 	font-weight: bold;
 	text-shadow: #ffecec 0 1px 0;
-
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
 }
 
-/*
+/* @end */
 
-@end */
 /* @group Text Options */
+
 .full-justified {
 	text-align: justify;
 }
@@ -2059,7 +2069,9 @@ p.subscribe-to-comments input#subscribe {
 }
 
 /* @end */
+
 /* @group Background Options */
+
 .classic-wptouch-bg {
 	background-image: url(../core/core-images/pinstripes-classic.gif);
 }
@@ -2085,7 +2097,9 @@ p.subscribe-to-comments input#subscribe {
 }
 
 /* @end */
+
 /* @group Footer */
+
 #footer {
 	text-align: center;
 	color: #475d79;
@@ -2103,6 +2117,7 @@ p.subscribe-to-comments input#subscribe {
 }
 
 /* @group Switch Link */
+
 #wptouch-switch-link {
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -2119,7 +2134,6 @@ p.subscribe-to-comments input#subscribe {
 	font-size: 13px;
 	text-align: left;
 	background-color: #fff;
-
 	-webkit-box-shadow: rgba(255,255,255,.8) 0px 1px 0px;
 	-moz-box-shadow: rgba(255,255,255,.8) 0px 1px 0px;
 	box-shadow: rgba(255,255,255,.8) 0px 1px 0px;
@@ -2143,8 +2157,11 @@ p.subscribe-to-comments input#subscribe {
 }
 
 /* @end */
+
 /* @end */
+
 /* @group WPtouch Adsense area */
+
 #adsense-area {
 	height: 50px;
 	overflow: none;
@@ -2158,7 +2175,9 @@ p.subscribe-to-comments input#subscribe {
 }
 
 /* @end */
+
 /* @group No Script Overlay */
+
 #noscript-wrap {
 	width: 100%;
 	height: 100%;
@@ -2177,11 +2196,9 @@ p.subscribe-to-comments input#subscribe {
 	display: block;
 	height: 54%;
 	text-shadow: #000000 -1px -1px 0;
-
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-
 	-webkit-box-shadow: #444 0px 0px 15px;
 	-moz-box-shadow: #444 0px 0px 15px;
 	box-shadow: #444 0px 0px 15px;
@@ -2197,7 +2214,9 @@ p.subscribe-to-comments input#subscribe {
 }
 
 /* @end */
+
 /* @group Post Thumbnails (2.9+ only) */
+
 .wptouch-post-thumb-wrap {
 	position: relative;
 	margin-right: 8px;
@@ -2250,14 +2269,15 @@ p.subscribe-to-comments input#subscribe {
 }
 
 /* @end */
+
 /* @group Compatibility */
+
 #livefyre {
 	margin-left: 9px;
 	margin-right: 9px;
 	width: 100%;
 	background-color: #fff;
 	border: 1px solid #CCC;
-
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
@@ -2269,18 +2289,23 @@ p.subscribe-to-comments input#subscribe {
 }
 
 /* @group Dynamic Contact Form */
+
 #dwp-contact-button,.dwpcontact-page {
 	display: none !important;
 }
 
 /* @end */
+
 /* @group Banner Cycler */
+
 #cycler,#cyclerNav {
 	display: none;
 }
 
 /* @end */
+
 /* @group Gravity Forms */
+
 .gform_wrapper li,.gform_wrapper form li {
 	list-style-type: none !important;
 	padding-left: 30px;
@@ -2302,13 +2327,17 @@ body.wptouch-pro .post .gform_wrapper .gform_body ul.gform_fields li {
 }
 
 /* @end */
+
 /* @group WP Skypscraper */
+
 .wp_skyscraper_c2 {
 	display: none;
 }
 
 /* @end */
+
 /* @group AddThis / Tweet This */
+
 .addthis_container {
 	display: none !important;
 }
@@ -2318,7 +2347,9 @@ a.tt {
 }
 
 /* @end */
+
 /* @group Peter's Anti Spam Support */
+
 #secureimgdiv img#cas_image {
 	-webkit-border-radius: 2px !important;
 	-moz-border-radius: 2px !important;
@@ -2358,16 +2389,19 @@ a.tt {
 }
 
 /* @end */
+
 /* @group Ribbon Manager Plugin Override */
+
 a#ribbon {
 	display: none !important;
 }
 
 /* @end */
+
 /* @group Subscribe To Comments */
+
 p.subscribe-to-comments {
 	padding: 8px;
-
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
@@ -2388,26 +2422,34 @@ p.subscribe-to-comments input#subscribe {
 }
 
 /* @end */
+
 /* @group Digg Box */
+
 span.db-body {
 	display: none;
 }
 
 /* @end */
+
 /* @group WP Thread Comment */
+
 p.thdrpy,p.thdmang {
 	display: inline;
 	margin-right: 10px;
 }
 
 /* @end */
+
 /* @group WP Greet Box */
+
 #greet_block {
 	display: none;
 }
 
 /* @end */
+
 /* @group Comment Reply Notification */
+
 #commentform input#comment_mail_notify {
 	margin-right: 5px;
 	margin-top: 15px;
@@ -2415,7 +2457,9 @@ p.thdrpy,p.thdmang {
 }
 
 /* @end */
+
 /* @group Share and Follow */
+
 .footer #follow.right {
 	display: none !important;
 }
@@ -2425,7 +2469,9 @@ p.thdrpy,p.thdmang {
 }
 
 /* @end */
+
 /* @group Disqus */
+
 #disqus_thread {
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -2439,13 +2485,17 @@ p.thdrpy,p.thdmang {
 }
 
 /* @end */
+
 /* @group WP Tweet Button */
+
 #content .tw_button {
 	display: none !important;
 }
 
 /* @end */
+
 /* @group Follow Me */
+
 #followMeTabLeftSm,#followMeTabLeftSm img {
 	display: none !important;
 	height: 0 !important;
@@ -2455,7 +2505,9 @@ p.thdrpy,p.thdmang {
 }
 
 /* @end */
+
 /* @group Comment Quicktags */
+
 #commentform #ed_toolbar {
 	margin-left: 9px;
 }
@@ -2465,7 +2517,6 @@ p.thdrpy,p.thdmang {
 	margin-bottom: 10px;
 	margin-top: 5px;
 	margin-right: 3px;
-
 	-webkit-border-radius: 4px !important;
 	-moz-border-radius: 4px !important;
 	border-radius: 4px !important;
@@ -2475,96 +2526,61 @@ p.thdrpy,p.thdmang {
 }
 
 /* @end */
+
 /* @group Zenbox */
+
 #zenbox_tab {
 	display: none !important;
 }
 
 /* @end */
+
 /* @group AttentionGrabber */
+
 #attentionGrabber,#attentionGrabberWrap #openAttentionGrabber {
 	display: none !important;
 }
 
 /* @end */
+
 /* @group smartPop-Up Box */
+
 #smartPopupfade,#pietimerholder {
 	display: none !important;
 }
 
 /* @end */
+
 /* @group Mega Dropdown */
+
 .megadropdown-wrapper {
 	display: none !important;
 }
 
 /* @end */
+
 /* @group Easy Button */
+
 .buttonfixed {
 	display: none !important;
 }
 
 /* @end */
+
 /* @group AS Sharebar */
+
 #as-share-window {
 	display: none !important;
 }
 
 /* @end */
+
 /* @group Social Share */
+
 .leftcontainerBox {
 	display: none !important;
 }
 
 /* @end */
-/* @end */
-/* Not in use */
-/* @group iOS 5 */
-/*
 
-.ios5 #headerbar  {
-	
-position:  fixed;
-	
-top:  0;
-	
-z-index:  1;
-	
-}
-
-.ios5 #drop-fade  {
-	
-position:  fixed;
-	
-top:  46px;
-	
-}
-
-.ios5 #wptouch-menu  {
-	
-position:  fixed;
-	
-}
-
-.ios5 .content  {
-	
-padding-top:  56px;
-	
-}
-
-.ios5 .content.single  {
-	
-padding-top:  66px;
-	
-}
-
-.ios5 #wptouch-search   {
-	
-z-index:  2;
-	
-position:  fixed;
-	
-}
-
- */
 /* @end */

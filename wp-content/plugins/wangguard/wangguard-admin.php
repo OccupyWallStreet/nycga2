@@ -3,7 +3,7 @@
 Plugin Name: WangGuard
 Plugin URI: http://www.wangguard.com
 Description: <strong>Stop Sploggers</strong>. It is very important to use <a href="http://www.wangguard.com" target="_new">WangGuard</a> at least for a week, reporting your site's unwanted users as sploggers from the Users panel. WangGuard will learn at that time to protect your site from sploggers in a much more effective way. WangGuard protects each web site in a personalized way using information provided by Administrators who report sploggers world-wide, that's why it's very important that you report your sploggers to WangGuard. The longer you use WangGuard, the more effective it will become.
-Version: 1.2.4
+Version: 1.3.2
 Author: WangGuard
 Author URI: http://www.wangguard.com
 License: GPL2
@@ -25,7 +25,7 @@ License: GPL2
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define('WANGGUARD_VERSION', '1.2.4');
+define('WANGGUARD_VERSION', '1.3.2');
 define('WANGGUARD_PLUGIN_FILE', 'wangguard/wangguard-admin.php');
 define('WANGGUARD_README_URL', 'http://plugins.trac.wordpress.org/browser/wangguard/trunk/readme.txt?format=txt');
 
@@ -101,7 +101,7 @@ if (defined('BP_VERSION')) {
 		add_action($wangguard_bp_hook,'wangguard_add_hfield_2' , rand(1,10));
 		add_action($wangguard_bp_hook,'wangguard_add_hfield_3' , rand(1,10));
 		add_action($wangguard_bp_hook,'wangguard_add_hfield_4' , rand(1,10));
-		add_action($wangguard_bp_hook, 'wangguard_register_add_question_bp11');
+		add_action('bp_before_registration_submit_buttons', 'wangguard_register_add_question_bp11');
 		add_action('bp_signup_validate', 'wangguard_signup_validate_bp11' );
 	}
 }
@@ -119,7 +119,12 @@ if ($wangguard_add_mu_filter_actions) {
 
 
 
-
+/**
+ * Checks MX record for an email domain's
+ * 
+ * @param type $email
+ * @return boolean 
+ */
 function wangguard_mx_record_is_ok($email) {
 	//checks if an associated MX record is found on the server's DNS for the email domain
 	
@@ -141,6 +146,9 @@ function wangguard_mx_record_is_ok($email) {
 	return $ret && count($mxr);
 }
 
+/**
+ * Cleans username from an email address
+ */
 function wangguard_get_clean_gmail_username($email) {
 	//Cleans dots and + from gmail.com and googlemail.com addresses, lowercases the username and returns it. Returns false otherwise.
 	
@@ -166,6 +174,13 @@ function wangguard_get_clean_gmail_username($email) {
 		return false;
 }
 
+/**
+ * Checks wheter an alias of an email already exists
+ * 
+ * @global type $wpdb
+ * @param type $email
+ * @return boolean 
+ */
 function wangguard_email_aliases_exists($email) {
 	global $wpdb;
 	
@@ -206,6 +221,9 @@ $wangguard_NonceCName = 'wangguard-hidden-check-check';
 $wangguard_HPrefix = 'user_';
 $wangguard_FPrefix = 'newuser_';
 
+/**
+ * Get a random string
+ */
 function wangguard_randomstring($rndLen) {
 	$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	$str = '';
@@ -222,7 +240,7 @@ function wangguard_add_hfield_1() {
 	$nonceAct = $wangguard_NonceHName;
 	$nonceValue = wp_create_nonce( $nonceAct );
 	$fieldID = wangguard_randomstring(mt_rand(6,10));
-	$nonce_field = '<input type="hidden" id="' . $fieldID . '" name="' . $wangguard_HPrefix . $nonceValue . '" value="" />';
+	$nonce_field = '<input  type="hidden" id="' . $fieldID . '" name="' . $wangguard_HPrefix . $nonceValue . '" value="" />';
 	echo $nonce_field;
 }
 function wangguard_add_hfield_2() {
@@ -246,7 +264,7 @@ function wangguard_add_hfield_3() {
 	
 	$nonceAct = $wangguard_NoncePName;
 	$nonceValue = wp_create_nonce( $nonceAct );
-	$nonce_field = '<div class="'.$style.'"><label for="'.$nonceValue.'">Your name:</label><br/><input tabindex="'.mt_rand(9999,99999).'" type="text" id="' . $fieldID . '" name="' . $nonceValue . '" value="" /></div>';
+	$nonce_field = '<div class="'.$style.'"><label for="'.$nonceValue.'">Write down whats your favorite hobby is (required)</label><br/><input tabindex="'.mt_rand(9999,99999).'" type="text" id="' . $fieldID . '" name="' . $nonceValue . '" value="" /></div>';
 	echo $nonce_field;
 }
 function wangguard_add_hfield_4() {
@@ -258,10 +276,13 @@ function wangguard_add_hfield_4() {
 	
 	$nonceAct = $wangguard_NonceCName;
 	$nonceValue = wp_create_nonce( $nonceAct );
-	$nonce_field = '<div class="'.$style.'">Agree? <input type="checkbox" value="1" id="' . $fieldID . '" name="' . $nonceValue . '" /></div>';
+	$nonce_field = '<div class="'.$style.'"><input type="checkbox" value="1" id="' . $fieldID . '" name="' . $nonceValue . '" /></div>';
 	echo $nonce_field;
 }
 
+/**
+ * WangGuard nonce
+ */
 function wangguard_get_nonce_value($action) {
 	$user = wp_get_current_user();
 	$uid = (int) $user->id;
@@ -271,7 +292,18 @@ function wangguard_get_nonce_value($action) {
 	return substr(wp_hash($i . $action . $uid, 'nonce'), -12, 10);
 }
 
-
+/**
+ * Validates if there is suspicius activity on signup
+ * 
+ * @global string $wangguard_NonceHName
+ * @global string $wangguard_HPrefix
+ * @global string $wangguard_NonceFName
+ * @global string $wangguard_FPrefix
+ * @global string $wangguard_NoncePName
+ * @global string $wangguard_NonceCName
+ * @param type $userEmail
+ * @return boolean 
+ */
 function wangguard_validate_hfields($userEmail) {
 	global $wangguard_NonceHName , $wangguard_HPrefix;
 	global $wangguard_NonceFName , $wangguard_FPrefix;
@@ -290,14 +322,19 @@ function wangguard_validate_hfields($userEmail) {
 		empty ($_POST[$cNonce]);
 	
 	if (!$validated) {
-		wangguard_report_email($userEmail , $_SERVER['REMOTE_ADDR'] , true);
+		wangguard_report_email($userEmail , wangguard_getRemoteIP() , wangguard_getRemoteProxyIP() , true);
 	}
 	
 	return $validated;
 }
 
 //*********** WPMU ***********
-//Adds a security question if any exists
+/**
+ * Adds a security question if any exists
+ * 
+ * @global type $wpdb
+ * @param type $errors 
+ */
 function wangguard_register_add_question_mu($errors) {
 	global $wpdb;
 
@@ -326,9 +363,13 @@ function wangguard_register_add_question_mu($errors) {
 	}
 }
 
-
-
-//Validates security question
+/**
+ * Validates security question
+ * 
+ * @global type $wangguard_bp_validated
+ * @param type $param
+ * @return array
+ */
 function wangguard_wpmu_signup_validate_mu($param) {
 	global $wangguard_bp_validated;
 
@@ -340,9 +381,6 @@ function wangguard_wpmu_signup_validate_mu($param) {
 	if ($wangguard_bp_validated)
 		return $param;
 
-	$wangguard_mu_validated = true;
-	
-	
 
 	$errors = $param['errors'];
 	
@@ -358,14 +396,21 @@ function wangguard_wpmu_signup_validate_mu($param) {
 	    $errors->add('wangguardquestansw', addslashes( __('<strong>ERROR</strong>: The answer to the security question is invalid.', 'wangguard')));
 	else {
 
-		$reported = wangguard_is_email_reported_as_sp($param['user_email'] , $_SERVER['REMOTE_ADDR']);
+		//check domain against the list of selected blocked domains
+		$blocked = wangguard_is_domain_blocked($param['user_email']);
+		if ($blocked) {
+			$errors->add('user_email',   __('<strong>ERROR</strong>: Domain not allowed.', 'wangguard'));
+		}
+		else {
+			$reported = wangguard_is_email_reported_as_sp($param['user_email'] , wangguard_getRemoteIP() , wangguard_getRemoteProxyIP());
 
-		if ($reported) 
-			$errors->add('user_email',   __('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard'));
-		else if (wangguard_email_aliases_exists($param['user_email']))
-			$errors->add('user_email',  addslashes( __('<strong>ERROR</strong>: Duplicate alias email found by WangGuard.', 'wangguard')));
-		else if (!wangguard_mx_record_is_ok($param['user_email']))
-			$errors->add('user_email',  addslashes( __("<strong>ERROR</strong>: WangGuard couldn't find an MX record associated with your email domain.", 'wangguard')));
+			if ($reported) 
+				$errors->add('user_email',   __('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard'));
+			else if (wangguard_email_aliases_exists($param['user_email']))
+				$errors->add('user_email',  addslashes( __('<strong>ERROR</strong>: Duplicate alias email found by WangGuard.', 'wangguard')));
+			else if (!wangguard_mx_record_is_ok($param['user_email']))
+				$errors->add('user_email',  addslashes( __("<strong>ERROR</strong>: WangGuard couldn't find an MX record associated with your email domain.", 'wangguard')));
+		}
 	}
 	return $param;
 }
@@ -375,7 +420,12 @@ function wangguard_wpmu_signup_validate_mu($param) {
 
 
 //*********** BP1.1+ ***********
-//Adds a security question if any exists
+/**
+ * Adds a security question if any exists
+ * 
+ * @global type $wpdb
+ * @return array 
+ */
 function wangguard_register_add_question_bp11(){
 	global $wpdb;
 
@@ -393,7 +443,7 @@ function wangguard_register_add_question_bp11(){
 		$questionID = $qrs->id;
 
 		$html = '
-			<div id="wangguard-bp-register-form" class="register-section">
+		<div class="register-section" style=" width: 200px; clear:left; margin-top:-10px;">
 			<label for="wangguardquestansw">' . $question . '</label>';
 		echo $html;
 
@@ -408,7 +458,12 @@ function wangguard_register_add_question_bp11(){
 	}
 }
 
-//Validates security question
+/**
+ * Validates security question
+ * 
+ * @global type $bp
+ * @global boolean $wangguard_bp_validated
+ */
 function wangguard_signup_validate_bp11() {
 	global $bp;
 	global $wangguard_bp_validated;
@@ -429,14 +484,21 @@ function wangguard_signup_validate_bp11() {
 		$bp->signup->errors['wangguardquestansw'] = addslashes (__('<strong>ERROR</strong>: The answer to the security question is invalid.', 'wangguard'));
 	else {
 
-		$reported = wangguard_is_email_reported_as_sp($_REQUEST['signup_email'] , $_SERVER['REMOTE_ADDR']);
+		//check domain against the list of selected blocked domains
+		$blocked = wangguard_is_domain_blocked($_REQUEST['signup_email']);
+		if ($blocked) {
+			$bp->signup->errors['signup_email'] = addslashes( __("<strong>ERROR</strong>: Domain not allowed.", 'wangguard'));
+		}
+		else {
+			$reported = wangguard_is_email_reported_as_sp($_REQUEST['signup_email'] , wangguard_getRemoteIP() , wangguard_getRemoteProxyIP());
 
-		if ($reported)
-			$bp->signup->errors['signup_email'] = __('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard');
-		else if (wangguard_email_aliases_exists($_REQUEST['signup_email']))
-			$bp->signup->errors['signup_email'] = addslashes (__('<strong>ERROR</strong>: Duplicate alias email found by WangGuard.', 'wangguard'));
-		else if (!wangguard_mx_record_is_ok($_REQUEST['signup_email']))
-			$bp->signup->errors['signup_email'] = addslashes( __("<strong>ERROR</strong>: WangGuard couldn't find an MX record associated with your email domain.", 'wangguard'));
+			if ($reported)
+				$bp->signup->errors['signup_email'] = __('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard');
+			else if (wangguard_email_aliases_exists($_REQUEST['signup_email']))
+				$bp->signup->errors['signup_email'] = addslashes (__('<strong>ERROR</strong>: Duplicate alias email found by WangGuard.', 'wangguard'));
+			else if (!wangguard_mx_record_is_ok($_REQUEST['signup_email']))
+				$bp->signup->errors['signup_email'] = addslashes( __("<strong>ERROR</strong>: WangGuard couldn't find an MX record associated with your email domain.", 'wangguard'));
+		}
 	}
 	
 	if (isset ($bp->signup->errors['signup_email']))
@@ -449,7 +511,11 @@ function wangguard_signup_validate_bp11() {
 
 
 //*********** WP REGULAR ***********
-//Adds a security question if any exists
+/**
+ * Adds a security question if any exists
+ * 
+ * @global type $wpdb 
+ */
 function wangguard_register_add_question(){
 	global $wpdb;
 
@@ -477,7 +543,13 @@ function wangguard_register_add_question(){
 }
 
 
-//Validates security question
+/**
+ * Validates security question
+ * 
+ * @param type $user_name
+ * @param type $user_email
+ * @param type $errors
+ */
 function wangguard_signup_validate($user_name , $user_email,$errors){
 	if (!wangguard_validate_hfields($_POST['user_email'])) {
 		$errors->add('user_login',__('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard'));
@@ -491,25 +563,82 @@ function wangguard_signup_validate($user_name , $user_email,$errors){
 		$errors->add('wangguard_error',__('<strong>ERROR</strong>: The answer to the security question is invalid.', 'wangguard'));
 	else {
 
-		$reported = wangguard_is_email_reported_as_sp($_REQUEST['user_email'] , $_SERVER['REMOTE_ADDR'] , true);
+		//check domain against the list of selected blocked domains
+		$blocked = wangguard_is_domain_blocked($_REQUEST['user_email']);
+		if ($blocked) {
+			$errors->add('wangguard_error',__('<strong>ERROR</strong>: Domain not allowed.', 'wangguard'));
+		}
+		else {
+			$reported = wangguard_is_email_reported_as_sp($_REQUEST['user_email'] , wangguard_getRemoteIP() , wangguard_getRemoteProxyIP() , true);
 
-		if ($reported)
-			$errors->add('wangguard_error',__('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard'));
-		else if (wangguard_email_aliases_exists($_REQUEST['user_email']))
-			$errors->add('wangguard_error',  addslashes( __('<strong>ERROR</strong>: Duplicate alias email found by WangGuard.', 'wangguard')));
-		else if (!wangguard_mx_record_is_ok($_REQUEST['user_email']))
-			$errors->add('wangguard_error',  addslashes( __("<strong>ERROR</strong>: WangGuard couldn't find an MX record associated with your email domain.", 'wangguard')));
+			if ($reported)
+				$errors->add('wangguard_error',__('<strong>ERROR</strong>: Banned by WangGuard <a href="http://www.wangguard.com/faq" target="_new">Is a mistake?</a>.', 'wangguard'));
+			else if (wangguard_email_aliases_exists($_REQUEST['user_email']))
+				$errors->add('wangguard_error',  addslashes( __('<strong>ERROR</strong>: Duplicate alias email found by WangGuard.', 'wangguard')));
+			else if (!wangguard_mx_record_is_ok($_REQUEST['user_email']))
+				$errors->add('wangguard_error',  addslashes( __("<strong>ERROR</strong>: WangGuard couldn't find an MX record associated with your email domain.", 'wangguard')));
+		}
 	}
 }
 //*********** WP REGULAR ***********
 
 
+/**
+ * Checks if a domain for an email address is selected to be blocked on the "Blocked domains" configuration screen
+ * 
+ * @param type $email 
+ */
+function wangguard_is_domain_blocked($email) {
+	$parts = explode("@", $email);
+	
+	//if email is not well formed, return TRUE, this should never happens as WP already checks for a valid email format
+	if (count($parts) != 2)
+		return true;
+	
+	$domain = strtolower($parts[1]);
+	$selectedDomains = maybe_unserialize( wangguard_get_option('blocked-list-domains') );
+	if (!is_array($selectedDomains)) $selectedDomains = array();
+	
+	//matches exact domain?
+	if (isset($selectedDomains[$domain]))
+		return true;
+	
+	$domainParts = explode(".", $domain);
+	if (count($domainParts) > 1) {
+		$subdomcheck = $domainParts[count($domainParts)-1];
+		
+		//check for the top level domain
+		if (isset($selectedDomains["*." . $subdomcheck]))
+			return true;
+
+		//n-level domains
+		$from = count($domainParts)-2;
+		for ($i = $from ; $i>=0 ; $i-- ) {
+			$subdomcheck = $domainParts[$i] . "." . $subdomcheck;
+			if (isset($selectedDomains["*." . $subdomcheck]))
+				return true;
+		}
+	}
+	else
+		//malformed domain
+		return true;
+	
+	return false;
+}
 
 
-
-//Verify the email against WangGuard service
-//$callingFromRegularWPHook regular WP hook sends true on this param
-function wangguard_is_email_reported_as_sp($email , $clientIP , $callingFromRegularWPHook = false) {
+/**
+ * Verifies the email against WangGuard service
+ * 
+ * @global type $wpdb
+ * @global type $wangguard_api_key
+ * @global type $wangguard_user_check_status
+ * @param type $email
+ * @param type $clientIP
+ * @param type $callingFromRegularWPHook regular WP hook sends true on this param
+ * @return boolean 
+ */
+function wangguard_is_email_reported_as_sp($email , $clientIP , $ProxyIP , $callingFromRegularWPHook = false) {
 	global $wpdb;
 	global $wangguard_api_key;
 	global $wangguard_user_check_status;
@@ -519,7 +648,7 @@ function wangguard_is_email_reported_as_sp($email , $clientIP , $callingFromRegu
 
 	$wangguard_user_check_status = "not-checked";
 
-	$response = wangguard_http_post("wg=<in><apikey>$wangguard_api_key</apikey><email>".$email."</email><ip>".$clientIP."</ip></in>", 'query-email.php');
+	$response = wangguard_http_post("wg=<in><apikey>$wangguard_api_key</apikey><email>".$email."</email><ip>".$clientIP."</ip><proxyip>".$ProxyIP."</proxyip></in>", 'query-email.php');
 	$responseArr = XML_unserialize($response);
 
 	wangguard_stats_update("check");
@@ -544,7 +673,11 @@ function wangguard_is_email_reported_as_sp($email , $clientIP , $callingFromRegu
 
 
 
-//Verify the security question, used from the WP, WPMU and BP validation functions
+/**
+ *	Verifies the security question, used from the WP, WPMU and BP validation functions
+ * @global type $wpdb
+ * @return boolean 
+ */
 function wangguard_question_repliedOK() {
 	
 	
@@ -617,7 +750,12 @@ add_action('make_ham_user','wangguard_make_ham_user');
 add_action('bp_core_action_set_spammer_status','wangguard_bp_core_action_set_spammer_status' , 10 , 2);
 
 
-//Save the status of the verification upon BP signsups
+/**
+ * Save the status of the verification upon BP signups
+ * 
+ * @global type $wpdb
+ * @global type $wangguard_user_check_status 
+ */
 function wangguard_plugin_bp_complete_signup() {
 	global $wpdb;
 	global $wangguard_user_check_status;
@@ -628,11 +766,20 @@ function wangguard_plugin_bp_complete_signup() {
 	$wpdb->query( $wpdb->prepare("delete from $table_name where signup_username = '%s'" , $_POST['signup_username']));
 
 	//Insert the new signup record
-	$wpdb->query( $wpdb->prepare("insert into $table_name(signup_username , user_status , user_ip) values ('%s' , '%s' , '%s')" , $_POST['signup_username'] , $wangguard_user_check_status , $_SERVER['REMOTE_ADDR'] ) );
+	$wpdb->query( $wpdb->prepare("insert into $table_name(signup_username , user_status , user_ip , user_proxy_ip) values ('%s' , '%s' , '%s' , '%s')" , $_POST['signup_username'] , $wangguard_user_check_status , wangguard_getRemoteIP() , wangguard_getRemoteProxyIP() ) );
 }
 
 
-//Account activated on BP
+/**
+ * Account activated on BP hook
+ * 
+ * @global type $wpdb
+ * @global type $wangguard_api_key
+ * @global type $wangguard_user_check_status
+ * @param type $userid
+ * @param type $key
+ * @param type $user 
+ */
 function wangguard_bp_core_activated_user($userid, $key, $user) {
 	global $wpdb;
 	global $wangguard_api_key;
@@ -641,7 +788,16 @@ function wangguard_bp_core_activated_user($userid, $key, $user) {
 	wangguard_plugin_user_register($userid);
 }
 
-//Account activated on WPMU
+/**
+ * Account activated on WPMU hook
+ * 
+ * @global type $wpdb
+ * @global type $wangguard_api_key
+ * @global type $wangguard_user_check_status
+ * @param type $userid
+ * @param type $password
+ * @param type $meta 
+ */
 function wangguard_wpmu_activate_user($userid, $password, $meta) {
 	global $wpdb;
 	global $wangguard_api_key;
@@ -650,7 +806,13 @@ function wangguard_wpmu_activate_user($userid, $password, $meta) {
 	wangguard_plugin_user_register($userid);
 }
 
-//Save the status of the verification against WangGuard service upon user registration
+/**
+ * Saves the status of the verification against WangGuard service upon user registration
+ * 
+ * @global type $wpdb
+ * @global type $wangguard_user_check_status
+ * @param type $userid 
+ */
 function wangguard_plugin_user_register($userid) {
 	global $wpdb;
 	global $wangguard_user_check_status;
@@ -677,14 +839,19 @@ function wangguard_plugin_user_register($userid) {
 	$user_status = $wpdb->get_var( $wpdb->prepare("select ID from $table_name where ID = %d" , $userid));
 	if ($user_status == null)
 		//insert the new status
-		$wpdb->query( $wpdb->prepare("insert into $table_name(ID , user_status , user_ip) values (%d , '%s' , '%s')" , $userid , $wangguard_user_check_status , $_SERVER['REMOTE_ADDR'] ) );
+		$wpdb->query( $wpdb->prepare("insert into $table_name(ID , user_status , user_ip , user_proxy_ip) values (%d , '%s' , '%s' , '%s')" , $userid , $wangguard_user_check_status , wangguard_getRemoteIP() , wangguard_getRemoteProxyIP() ) );
 	else
 		//update the new status
 		$wpdb->query( $wpdb->prepare("update $table_name set user_status = '%s' where ID = %d" , $wangguard_user_check_status , $userid  ) );
 }
 
 
-//Delete the status of a user from the WangGuard status tracking table
+/**
+ * Deletes the status of a user from the WangGuard status tracking table
+ * 
+ * @global type $wpdb
+ * @param type $userid 
+ */
 function wangguard_plugin_user_delete($userid) {
 	global $wpdb;
 
@@ -708,7 +875,11 @@ function wangguard_plugin_user_delete($userid) {
 }
 
 
-//User has been reported as spam, send to WangGuard
+/**
+ * User has been reported as spam, send to WangGuard
+ * @global type $wpdb
+ * @param type $userid 
+ */
 function wangguard_make_spam_user($userid) {
 	global $wpdb;
 
@@ -719,7 +890,11 @@ function wangguard_make_spam_user($userid) {
 	wangguard_report_users($wpusersRs , "email" , false);
 }
 
-//User has been reported as safe, rollback on WangGuard
+/**
+ * User has been reported as safe, rollback on WangGuard
+ * @global type $wpdb
+ * @param type $userid 
+ */
 function wangguard_make_ham_user($userid) {
 	global $wpdb;
 
@@ -730,6 +905,11 @@ function wangguard_make_ham_user($userid) {
 	wangguard_rollback_report($wpusersRs);
 }
 
+/**
+ * Updates WangGuard user staus when a user is flagged as spam or ham 
+ * @param type $userid
+ * @param type $is_spam 
+ */
 function wangguard_bp_core_action_set_spammer_status($userid , $is_spam) {
 	if ($is_spam)
 		wangguard_make_spam_user ($userid);
@@ -751,6 +931,12 @@ function wangguard_bp_core_action_set_spammer_status($userid , $is_spam) {
 /********************************************************************/
 add_action('wp_head', 'wangguard_ajax_front_setup');
 add_action('wp_ajax_wangguard_ajax_front_handler', 'wangguard_ajax_front_callback');
+
+/**
+ * Front end ajax functions
+ * 
+ * @global type $wuangguard_parent
+ */
 function wangguard_ajax_front_setup() {
 	global $wuangguard_parent;
 	
@@ -859,12 +1045,28 @@ jQuery(document).ready(function() {
 <?php
 }
 
+
+/**
+ * Checks whether a user is reported on queue
+ * 
+ * @global type $wpdb
+ * @param type $userid
+ * @return boolean 
+ */
 function wangguard_is_user_reported($userid) {
 	global $wpdb;
 	$table_name = $wpdb->base_prefix . "wangguardreportqueue";
 	$Count = $wpdb->get_col( $wpdb->prepare("select count(*) as q from $table_name where ID = %d" , $userid) );
 	return $Count[0] > 0;
 }
+
+/**
+ * Checks whether a blog is reported on queue
+ * 
+ * @global type $wpdb
+ * @param type $blogid
+ * @return boolean
+ */
 function wangguard_is_blog_reported($blogid) {
 	global $wpdb;
 	$table_name = $wpdb->base_prefix . "wangguardreportqueue";
@@ -872,6 +1074,11 @@ function wangguard_is_blog_reported($blogid) {
 	return $Count[0] > 0;
 }
 
+/**
+ * Front end AJAX handler
+ * 
+ * @global type $wpdb
+ */
 function wangguard_ajax_front_callback() {
 	global $wpdb;
 	if (!is_user_logged_in()) return;
@@ -943,6 +1150,13 @@ add_action('wp_ajax_wangguard_ajax_recheck', 'wangguard_ajax_recheck_callback');
 add_action('wp_ajax_wangguard_ajax_questionadd', 'wangguard_ajax_questionadd');
 add_action('wp_ajax_wangguard_ajax_questiondelete', 'wangguard_ajax_questiondelete');
 
+/**
+ * Admin side AJAX functions
+ * 
+ * @global type $wuangguard_parent
+ * @global type $wuangguard_parent
+ * @global type $wuangguard_parent
+ */
 function wangguard_ajax_setup() {
 	global $wuangguard_parent;
 	
@@ -1418,7 +1632,11 @@ jQuery(document).ready(function($) {
 }
 
 
-
+/**
+ * Admin side AJAX handler
+ * 
+ * @global type $wpdb 
+ */
 function wangguard_ajax_callback() {
 	global $wpdb;
 
@@ -1491,6 +1709,11 @@ function wangguard_ajax_callback() {
 	die();
 }
 
+/**
+ * Add question handler
+ * 
+ * @global type $wpdb 
+ */
 function wangguard_ajax_questionadd() {
 	global $wpdb;
 
@@ -1517,6 +1740,11 @@ function wangguard_ajax_questionadd() {
 	die();
 }
 
+/**
+ * Delete question handler
+ * 
+ * @global type $wpdb 
+ */
 function wangguard_ajax_questiondelete() {
 	global $wpdb;
 
@@ -1531,6 +1759,12 @@ function wangguard_ajax_questiondelete() {
 	die();
 }
 
+/**
+ * Recheck user on WangGuard handler
+ * 
+ * @global type $wpdb
+ * @global type $wangguard_api_key
+ */
 function wangguard_ajax_recheck_callback() {
 	global $wpdb;
 	global $wangguard_api_key;
@@ -1586,6 +1820,17 @@ function wangguard_ajax_recheck_callback() {
 /********************************************************************/
 /*** BP FRONTEND REPORT BUTTONS BEGINS ***/
 /********************************************************************/
+/**
+ * Hook to insert the report user on BP comment
+ * 
+ * @global type $bp
+ * @global type $user_ID
+ * @param string $link
+ * @param type $args
+ * @param type $comment
+ * @param type $post
+ * @return string 
+ */
 function wangguard_bp_comment_reply_link($link , $args, $comment, $post='') {
 	global $bp , $user_ID;
 	$userid = $comment->user_id;
@@ -1600,6 +1845,15 @@ function wangguard_bp_comment_reply_link($link , $args, $comment, $post='') {
 	$link .= '<a href="javascript:void(0)" style="margin-left:10px" class="comment-reply-link wangguard-user-report" rel="'.$userid.'" title="'.__('Report user', 'wangguard').'">'.__('Report user', 'wangguard').'</a>';
 	return $link;
 }
+
+/**
+ * Hook to insert the report user on BP blog post and activity
+ * 
+ * @global type $l10n
+ * @global type $post
+ * @param type $id
+ * @param type $type
+ */
 function wangguard_bp_report_button($id = '', $type = '') {
 
 	if (!is_user_logged_in())
@@ -1660,6 +1914,11 @@ if (wangguard_get_option ("wangguard-enable-bp-report-btn")==1) {
 	add_filter( 'comment_reply_link', 'wangguard_bp_comment_reply_link' , 10 , 4);
 }
 
+/**
+ * Hook to insert the report user on user's profile
+ * 
+ * @global type $bp
+ */
 function wangguard_bp_report_button_header() {
 	global $bp;
 	if (!$bp) return;
@@ -1691,6 +1950,13 @@ if (wangguard_get_option ("wangguard-enable-bp-report-btn")==1) {
 /********************************************************************/
 /*** ADMIN BAR REPORT BEGIN ***/
 /********************************************************************/
+/**
+ * Add WangGuard to BP admin bar
+ * 
+ * @global type $current_blog
+ * @global type $wangguard_is_network_admin
+ * @global type $wp_version
+ */
 function wangguard_add_bp_admin_bar_menus() {
 	global $current_blog , $wangguard_is_network_admin;
 
@@ -1773,6 +2039,15 @@ function wangguard_add_bp_admin_bar_menus() {
 }
 add_action('bp_adminbar_menus', 'wangguard_add_bp_admin_bar_menus' , 10 );
 
+
+/**
+ * Add WangGuard to WP admin bar
+ * @global type $wp_admin_bar
+ * @global type $current_blog
+ * @global type $current_site
+ * @global type $wangguard_is_network_admin
+ * @global type $wp_version
+ */
 function wangguard_add_wp_admin_bar_menus() {
 	global $wp_admin_bar , $current_blog , $current_site , $wangguard_is_network_admin;
 
@@ -1836,6 +2111,15 @@ add_action('admin_bar_menu', 'wangguard_add_wp_admin_bar_menus', 100 );
 /********************************************************************/
 /*** ADMIN GROUP MENU BEGINS ***/
 /********************************************************************/
+/**
+ * Add WangGuard to WP menu
+ * 
+ * @global type $menu
+ * @global array $admin_page_hooks
+ * @global array $_registered_pages
+ * @global type $wpdb
+ * @return boolean 
+ */
 function wangguard_add_admin_menu() {
 	if ( !is_super_admin() )
 		return false;
@@ -1908,6 +2192,9 @@ else
 /********************************************************************/
 /*** DASHBOARD BEGINS ***/
 /********************************************************************/
+/**
+ * Show stats box on dashboard
+ */
 function wangguard_dashboard_stats() {
 	if ( !is_super_admin() )
 		return false;
@@ -1935,6 +2222,14 @@ function wangguard_dashboard_stats() {
 	
 }
 
+/**
+ * Renders the stats box content on dashboard
+ * 
+ * @global type $wangguard_api_key
+ * @global type $wangguard_is_network_admin
+ * @global type $wangguard_api_host
+ * @global type $wangguard_rest_path
+ */
 function wangguard_dashboard_stats_render() {
 	global $wangguard_api_key , $wangguard_is_network_admin,$wangguard_api_host,$wangguard_rest_path;
 

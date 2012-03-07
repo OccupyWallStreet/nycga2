@@ -10,10 +10,10 @@ function wangguard_stats() {
 	$lang = substr(WPLANG, 0,2);
 	?>
 
-<div class="wrap">
+<div class="wrap" id="wangguard-stats-cont">
+	<div class="wangguard-confico"><img src="<?php echo WP_PLUGIN_URL ?>/wangguard/img/stats.png" alt="<?php echo htmlentities(__('WangGuard Stats', 'wangguard')) ?>" /></div>
 	<div class="icon32" id="icon-wangguard"><br></div>
 	<h2><?php _e('WangGuard Stats', 'wangguard'); ?></h2>
-</div>
 	
 	<script type="text/javascript">
 		jQuery(document).ready(function () {
@@ -53,6 +53,7 @@ function wangguard_stats() {
 	</div>		
 	
 
-	<?php
+</div>
+<?php
 }
 ?>

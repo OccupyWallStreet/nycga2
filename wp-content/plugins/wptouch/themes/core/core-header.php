@@ -25,4 +25,4 @@
 		</script>
 <?php } ?>
 </head>
-<?php flush(); ?>
+<?php flush();
