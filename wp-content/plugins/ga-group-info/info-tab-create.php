@@ -1,41 +1,20 @@
 <?php
-// Fetch info metadata - Does the metadata exist already?
-$infometa = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug );
-
-// If not, create it. TO DO: pull in old info from the places that this info used to live
-if (!$infometa) {
-    // get old contact fields
-    $old_fields = json_decode( groups_get_groupmeta( $bp->groups->current_group->id, 'contact_fields' ) );
-    $old_data = array();
-    if (!empty($old_fields)) { // if the fields have been setup, get the field data
-	foreach ($old_fields as $field){
-	    $old_data[$field->slug] = groups_get_groupmeta($bp->groups->current_group->id, $field->slug);
-	}
-    } else {
-	$old_data = array( // make the indices exist in case they didn't before...
-	    'e_mail' => '',
-	    'phone' => '',
-	    'twitter' => '',
-	    'mailing_list' => ''
-	);
-    }
-    
     $infometa = array(
 	'email' => array( 
 	    'name' =>	'Email Address',
-	    'value' =>	$old_data['e_mail'],
+	    'value' =>	'',
 	    'active' =>	true,
 	    'type' =>	'single-line'
 	),
 	'phone' => array( 
 	    'name' =>	'Group Phone',
-	    'value' =>	$old_data['phone'],
+	    'value' =>	'',
 	    'active' =>	true,
 	    'type' =>	'single-line'
 	),
 	'twitter' => array( 
 	    'name' =>	'Twitter',
-	    'value' =>	$old_data['twitter'],
+	    'value' =>	'',
 	    'active' =>	true,
 	    'type' =>	'single-line'
 	),
@@ -53,7 +32,7 @@ if (!$infometa) {
 	),
 	'listserve' => array( 
 	    'name' =>	'List Serve',
-	    'value' =>	$old_data['mailing_list'],
+	    'value' =>	'',
 	    'active' =>	true,
 	    'type' =>	'single-line'
 	),
@@ -70,9 +49,6 @@ if (!$infometa) {
 	    'type' =>	'single-line'
 	)
     );
-    groups_update_groupmeta( $bp->groups->current_group->id, $this->slug , $infometa );
-
-}
 
 $editor_options = array(
     'media_buttons'	=>	true,
@@ -106,5 +82,5 @@ $editor_options = array(
 		<p><input type="submit" name="save" value="Save Changes" /></p>
 		
 		<?php
-		wp_nonce_field( 'gait_edit_save_' . $this->slug );
+		wp_nonce_field( 'groups_create_save_' . $this->slug );
 
