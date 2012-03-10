@@ -41,16 +41,16 @@ class gait_info_tab extends BP_Group_Extension {
 		check_admin_referer( 'groups_create_save_' . $this->slug );
 		
 		// build default field structure
-		require( dirname( __FILE__ ) . '/info-tab-defaultdata.php');
+		require( dirname( __FILE__ ) . '/info-tab-default-data.php');
 		$data = gait_default_fields();
-
+		
 		// update structure with inputted data
-		foreach ($finaldata as $slug => $metadata){
-			$finaldata[$slug]['value'] = wp_kses( $_POST['gait-'.$slug], $allowed_html );
+		foreach ($data as $slug => $metadata){
+			$data[$slug]['value'] = wp_kses( $_POST['gait-'.$slug], $this->allowed_html );
 		}
 		
 		// put it into the db
-		$success = groups_update_groupmeta( $bp->groups->current_group->id, $this->slug, this->allowed_html );
+		$success = groups_update_groupmeta( $bp->groups->current_group->id, $this->slug, $data );
 		
 	}
 	
@@ -75,7 +75,7 @@ class gait_info_tab extends BP_Group_Extension {
 		$finaldata = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug ); // grab current data to be updated
 
 		foreach ($finaldata as $slug => $metadata){
-			$finaldata[$slug]['value'] = wp_kses( $_POST['gait-'.$slug], this->allowed_html );
+			$finaldata[$slug]['value'] = wp_kses( $_POST['gait-'.$slug], $this->allowed_html );
 		}
 
 		$success = groups_update_groupmeta( $bp->groups->current_group->id, $this->slug, $finaldata );

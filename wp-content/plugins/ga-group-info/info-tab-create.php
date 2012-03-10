@@ -79,7 +79,6 @@ $editor_options = array(
 			}
 		    }
 		?>
-		<p><input type="submit" name="save" value="Save Changes" /></p>
 		
 		<?php
 		wp_nonce_field( 'groups_create_save_' . $this->slug );
