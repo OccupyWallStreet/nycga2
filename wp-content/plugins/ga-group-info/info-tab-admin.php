@@ -2,8 +2,12 @@
 // Fetch info metadata - Does the metadata exist already?
 $infometa = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug );
 
-// If not, create it. TO DO: pull in old info from the places that this info used to live
+// If not, create it.
 if (!$infometa) {
+    // Get default data
+    include( dirname( __FILE__ ) . '/info-tab-default-data.php' );
+    $infometa = gait_default_fields();
+
     // get old contact fields
     $old_fields = json_decode( groups_get_groupmeta( $bp->groups->current_group->id, 'contact_fields' ) );
     $old_data = array();
@@ -20,56 +24,13 @@ if (!$infometa) {
 	);
     }
     
-    $infometa = array(
-	'email' => array( 
-	    'name' =>	'Email Address',
-	    'value' =>	$old_data['e_mail'],
-	    'active' =>	true,
-	    'type' =>	'single-line'
-	),
-	'phone' => array( 
-	    'name' =>	'Group Phone',
-	    'value' =>	$old_data['phone'],
-	    'active' =>	true,
-	    'type' =>	'single-line'
-	),
-	'twitter' => array( 
-	    'name' =>	'Twitter',
-	    'value' =>	$old_data['twitter'],
-	    'active' =>	true,
-	    'type' =>	'single-line'
-	),
-	'facebook' => array(
-	    'name' =>	'Facebook',
-	    'value' =>	'',
-	    'active' =>	true,
-	    'type' =>	'single-line'
-	),
-	'website' => array(
-	    'name' =>	'External Website',
-	    'value' =>	'',
-	    'active' =>	true,
-	    'type' =>	'single-line'
-	),
-	'listserve' => array( 
-	    'name' =>	'List Serve',
-	    'value' =>	$old_data['mailing_list'],
-	    'active' =>	true,
-	    'type' =>	'single-line'
-	),
-	'description' => array(
-	    'name' =>	'Detailed Description / Charter',
-	    'value' =>	'',
-	    'active' =>	true,
-	    'type' =>	'wysiwyg'
-	),
-	'contact' => array(
-	    'name' =>	'Contact Phone',
-	    'value' =>	'',
-	    'active' =>	true,
-	    'type' =>	'single-line'
-	)
-    );
+    // import the old data into the new data structure
+    $infometa['email']['value'] = $old_data['e_mail'];
+    $infometa['phone']['value'] = $old_data['phone'];
+    $infometa['twitter']['value'] = $old_data['twitter'];
+    $infometa['listserve']['value'] = $old_data['mailing_list'];
+    
+    // save it so we've got something to work from later.
     groups_update_groupmeta( $bp->groups->current_group->id, $this->slug , $infometa );
 
 }
@@ -98,7 +59,6 @@ $editor_options = array(
 			    case 'wysiwyg':
 				$editor_options['textarea_name'] = 'gait-' . $slug;
 				wp_editor( $value, 'gait-' . $slug, $editor_options );
-				//echo "<textarea id='gait-{$slug}' name='gait-{$slug}'>{$value}</textarea>";
 				break;
 			}
 		    }

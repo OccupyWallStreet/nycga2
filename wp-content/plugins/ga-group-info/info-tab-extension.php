@@ -29,6 +29,9 @@ class gait_info_tab extends BP_Group_Extension {
 		
 		// Save details here - update this later 
 		groups_updated_groupmeta( $bp->groups->new_group_id, 'my_meta_name', 'value' );
+		// build default field structure
+		require( dirname( __FILE__ ) . '/info-tab-defaultdata.php');
+		$data = gait_default_fields();
 	}
 	
 	function edit_screen(){
