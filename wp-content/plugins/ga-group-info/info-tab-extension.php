@@ -2,6 +2,22 @@
 class gait_info_tab extends BP_Group_Extension {
 
 	var $visibility = 'public';
+	var $allowed_html = array( // any html not in this array will get filtered out of all fields
+			'a' => array(
+				'href' => array(),
+				'title' => array()
+			),
+			'br' => array(),
+			'em' => array(),
+			'strong' => array(),
+			'img' => array(
+				'src' => array(),
+				'title' => array(),
+				'alt' => array(),
+				'class' => array(),
+				'id' => array()
+			)
+		);
 	
 	function gait_info_tab() {
 		$this->name = 'Info';
@@ -53,17 +69,9 @@ class gait_info_tab extends BP_Group_Extension {
 		
 		/* Put Edit Screen "Save" code here */
 		$finaldata = groups_get_groupmeta( $bp->groups->current_group->id, $this->slug ); // grab current data to be updated
-		$allowed_html = array( // any html not in this array will get filtered out.
-			'a' => array(
-				'href' => array(),
-				'title' => array()
-			),
-			'br' => array(),
-			'em' => array(),
-			'strong' => array()
-		);
+
 		foreach ($finaldata as $slug => $metadata){
-			$finaldata[$slug]['value'] = wp_kses( $_POST['gait-'.$slug], $allowed_html );
+			$finaldata[$slug]['value'] = wp_kses( $_POST['gait-'.$slug], this->allowed_html );
 		}
 
 		$success = groups_update_groupmeta( $bp->groups->current_group->id, $this->slug, $finaldata );
