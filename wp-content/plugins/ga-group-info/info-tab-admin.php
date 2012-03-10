@@ -61,7 +61,7 @@ if (!$infometa) {
 	    'name' =>	'Detailed Description / Charter',
 	    'value' =>	'',
 	    'active' =>	true,
-	    'type' =>	'multi-line'
+	    'type' =>	'wysiwyg'
 	),
 	'contact' => array(
 	    'name' =>	'Contact Phone',
@@ -95,7 +95,7 @@ $editor_options = array(
 				echo "<input id='gait-{$slug}' type='text' value='{$value}' name='gait-{$slug}' />";
 				break;
 			    
-			    case 'multi-line':
+			    case 'wysiwyg':
 				$editor_options['textarea_name'] = 'gait-' . $slug;
 				wp_editor( $value, 'gait-' . $slug, $editor_options );
 				//echo "<textarea id='gait-{$slug}' name='gait-{$slug}'>{$value}</textarea>";

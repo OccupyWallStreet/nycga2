@@ -8,7 +8,7 @@
 	    $value = gait_htmlify( $data['value'] );
 	    ?>
 	    <h4><?php echo $data['name']; ?></h4>
-	    <?php if ($data['type'] == 'multi-line') {
+	    <?php if ($data['type'] == 'wysiwyg') {
 		gait_content($data['value']);
 	    } else {
 		echo '<p>' . $value . '</p>'; 
