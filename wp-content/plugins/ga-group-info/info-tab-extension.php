@@ -31,11 +31,8 @@ class gait_info_tab extends BP_Group_Extension {
 	function create_screen(){ 
 		if ( !bp_is_group_creation_step( $this->slug ) )
 			return false;
-		?>
-		Curent Function: gait_info_tab::create_screen() (line 18)
 		
-		<?php
-		wp_nonce_field( 'groups_create_save_' . $this->slug );
+		require( dirname( __FILE__) . '/info-tab-create.php' );
 	}
 	
 	function create_screen_save(){
@@ -43,11 +40,18 @@ class gait_info_tab extends BP_Group_Extension {
 		
 		check_admin_referer( 'groups_create_save_' . $this->slug );
 		
-		// Save details here - update this later 
-		groups_updated_groupmeta( $bp->groups->new_group_id, 'my_meta_name', 'value' );
 		// build default field structure
 		require( dirname( __FILE__ ) . '/info-tab-defaultdata.php');
 		$data = gait_default_fields();
+
+		// update structure with inputted data
+		foreach ($finaldata as $slug => $metadata){
+			$finaldata[$slug]['value'] = wp_kses( $_POST['gait-'.$slug], $allowed_html );
+		}
+		
+		// put it into the db
+		$success = groups_update_groupmeta( $bp->groups->current_group->id, $this->slug, this->allowed_html );
+		
 	}
 	
 	function edit_screen(){
