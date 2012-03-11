@@ -1,0 +1,813 @@
+# Copyright (C) 2010 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/bp-moderation\n"
+"POT-Creation-Date: 2011-09-28 23:55:10+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: examples/bpMod_ContentType_BlogPostExample.php:43
+msgid "Blog post example"
+msgstr ""
+
+#: examples/bpMod_ContentType_BlogPostExample.php:95
+#: classes/bpModDefaultContentTypes.php:267
+msgid "Flag this post as inappropriate"
+msgstr ""
+
+#: classes/bpModActions.php:44
+msgid "You have already flagged this content"
+msgstr ""
+
+#: classes/bpModActions.php:46 classes/bpModActions.php:213
+msgid "Thank you for your report"
+msgstr ""
+
+#: classes/bpModActions.php:48
+msgid "There was a problem flagging that content"
+msgstr ""
+
+#: classes/bpModActions.php:73
+msgid "Already flagged"
+msgstr ""
+
+#: classes/bpModActions.php:76 classes/bpModActions.php:243
+msgid "Error"
+msgstr ""
+
+#: classes/bpModActions.php:174
+msgid "one of your contents has been reported as inappropriate"
+msgstr ""
+
+#: classes/bpModActions.php:189
+msgid "a warning for inappropriate content has been sent to %s"
+msgstr ""
+
+#: classes/bpModActions.php:190
+msgid ""
+"Content url: %1$s\n"
+"Total flags: %2$s\n"
+"Author profile: %3$s\n"
+"\n"
+"----- Message sent to the author -----\n"
+msgstr ""
+
+#: classes/bpModActions.php:211
+msgid "This content wasn't flagged"
+msgstr ""
+
+#: classes/bpModActions.php:215
+msgid "There was a problem unflagging that content"
+msgstr ""
+
+#: classes/bpModActions.php:239
+msgid "It wasn't flagged"
+msgstr ""
+
+#: classes/bpModFrontend.php:162
+msgid "Unflag this content"
+msgstr ""
+
+#: classes/bpModFrontend.php:162
+msgid "Flag as inappropriate"
+msgstr ""
+
+#: classes/bpModInstaller.php:103 classes/bpModDefaultContentTypes.php:592
+msgid "Flag"
+msgstr ""
+
+#: classes/bpModInstaller.php:104
+msgid "Unflag"
+msgstr ""
+
+#: classes/bpModInstaller.php:156
+msgid "You are using WordPress %s, please upgrade."
+msgstr ""
+
+#: classes/bpModInstaller.php:159
+msgid ""
+" Please install <a href=\"http://buddypress.org/\" target=\"_blank\" "
+">Buddypress</a>."
+msgstr ""
+
+#: classes/bpModInstaller.php:161
+msgid "You are using BuddyPress %s, please upgrade."
+msgstr ""
+
+#: classes/bpModInstaller.php:168
+msgid ""
+"BuddyPress Moderation require at least WordPress %1$s and BuddyPress %2$s to "
+"work."
+msgstr ""
+
+#: classes/bpModBackend.php:38
+msgid "BuddyPress Moderation"
+msgstr ""
+
+#: classes/bpModBackend.php:39
+msgid "Moderation"
+msgstr ""
+
+#: classes/bpModBackend.php:57
+msgid "BP Moderation: "
+msgstr ""
+
+#: classes/bpModBackend.php:64
+msgid "<a href=\"%1$s\">%2$d content</a> is awaiting your moderation"
+msgid_plural "<a href=\"%1$s\">%2$d contents</a> are awaiting your moderation"
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/bpModBackend.php:73
+msgid ""
+" and the owner of <a href=\"%1$s\">%2$d of them</a> has already been warned"
+msgid_plural ""
+" and the owners of <a href=\"%1$s\">%2$d of them</a> have already been warned"
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/bpModBackend.php:86
+msgid ""
+"there are no contents awaiting your moderation, <a href=\"%1$s\">%2$d "
+"reported content</a> has already been viewed."
+msgid_plural ""
+"there are no contents awaiting your moderation, <a href=\"%1$s\">%2$d "
+"reported contents</a> have already been viewed."
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/bpModBackend.php:94
+msgid "no content has ever been reported."
+msgstr ""
+
+#: classes/bpModBackend.php:137
+msgid "Cheatin&#8217; uh?"
+msgstr ""
+
+#: classes/bpModBackend.php:143
+msgid "Contents"
+msgstr ""
+
+#: classes/bpModBackend.php:144
+msgid "Users"
+msgstr ""
+
+#: classes/bpModBackend.php:145
+msgid "Settings"
+msgstr ""
+
+#: classes/bpModBackend.php:152
+msgid "BP Moderation"
+msgstr ""
+
+#: classes/bpModBackend.php:161
+msgid "%s has been marked as spammer."
+msgid_plural "%d members have been marked as spammers."
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/bpModBackend.php:162
+msgid "%s has been marked as not spammer."
+msgid_plural "%d members have been marked as not spammers."
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/bpModBackend.php:163
+msgid "%d item has been ignored."
+msgid_plural "%d items have been ignored."
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/bpModBackend.php:164
+msgid "%d item has been marked as moderated."
+msgid_plural "%d items have been marked as moderated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/bpModBackend.php:165
+msgid "%d item has been deleted."
+msgid_plural "%d items have been deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/bpModBackend.php:175
+msgid "Operation failed on these items: %s"
+msgstr ""
+
+#: classes/bpModBackend.php:208 classes/bpModBackend.php:756
+msgid "Custom Query"
+msgstr ""
+
+#: classes/bpModBackend.php:210 classes/bpModBackend.php:758
+msgid "Filters"
+msgstr ""
+
+#: classes/bpModBackend.php:218
+msgid "Content types"
+msgstr ""
+
+#: classes/bpModBackend.php:241
+msgid "Status"
+msgstr ""
+
+#: classes/bpModBackend.php:264
+msgid "Times reported"
+msgstr ""
+
+#: classes/bpModBackend.php:270
+msgid "Reported at least %s times"
+msgstr ""
+
+#: classes/bpModBackend.php:279
+msgid "Content posted by"
+msgstr ""
+
+#: classes/bpModBackend.php:287 classes/bpModBackend.php:304
+#: classes/bpModBackend.php:773
+msgid "User ids (comma separeted)"
+msgstr ""
+
+#: classes/bpModBackend.php:296
+msgid "Content reported by"
+msgstr ""
+
+#: classes/bpModBackend.php:308 classes/bpModBackend.php:834
+msgid "Order"
+msgstr ""
+
+#: classes/bpModBackend.php:313 classes/bpModBackend.php:839
+msgid "Order by"
+msgstr ""
+
+#: classes/bpModBackend.php:321 classes/bpModBackend.php:847
+msgid "none"
+msgstr ""
+
+#: classes/bpModBackend.php:323
+msgid "times reported"
+msgstr ""
+
+#: classes/bpModBackend.php:325
+msgid "first time reported"
+msgstr ""
+
+#: classes/bpModBackend.php:327
+msgid "last time reported"
+msgstr ""
+
+#: classes/bpModBackend.php:329
+msgid "item id"
+msgstr ""
+
+#: classes/bpModBackend.php:331
+msgid "secondary id"
+msgstr ""
+
+#: classes/bpModBackend.php:346 classes/bpModBackend.php:880
+msgid "Limit"
+msgstr ""
+
+#: classes/bpModBackend.php:351
+msgid "Display at most %s contents"
+msgstr ""
+
+#: classes/bpModBackend.php:354
+msgid "Query Contents"
+msgstr ""
+
+#: classes/bpModBackend.php:366 classes/bpModBackend.php:900
+msgid "&laquo;"
+msgstr ""
+
+#: classes/bpModBackend.php:367 classes/bpModBackend.php:901
+msgid "&raquo;"
+msgstr ""
+
+#: classes/bpModBackend.php:379 classes/bpModBackend.php:913
+msgid "Bulk Actions"
+msgstr ""
+
+#: classes/bpModBackend.php:381 classes/bpModBackend.php:497
+msgid "Ignore"
+msgstr ""
+
+#: classes/bpModBackend.php:383 classes/bpModBackend.php:509
+msgid "Mark as moderated"
+msgstr ""
+
+#: classes/bpModBackend.php:385 classes/bpModBackend.php:515
+msgid "Delete"
+msgstr ""
+
+#: classes/bpModBackend.php:387
+msgid "Mark authors as spammers"
+msgstr ""
+
+#: classes/bpModBackend.php:389
+msgid "Mark authors as not spammers"
+msgstr ""
+
+#: classes/bpModBackend.php:390
+msgid "View authors in users view"
+msgstr ""
+
+#: classes/bpModBackend.php:396 classes/bpModBackend.php:923
+msgid "Apply"
+msgstr ""
+
+#: classes/bpModBackend.php:402 classes/bpModBackend.php:929
+msgid "Displaying %s&#8211;%s of %s"
+msgstr ""
+
+#: classes/bpModBackend.php:418 classes/bpModBackend.php:430
+msgid "Author"
+msgstr ""
+
+#: classes/bpModBackend.php:420 classes/bpModBackend.php:432
+msgid "Content"
+msgstr ""
+
+#: classes/bpModBackend.php:422 classes/bpModBackend.php:434
+msgid "Flags"
+msgstr ""
+
+#: classes/bpModBackend.php:461 classes/bpModBackend.php:986
+msgid "Mark the author of this content as not spammer"
+msgstr ""
+
+#: classes/bpModBackend.php:461 classes/bpModBackend.php:986
+msgid "Mark as not spammer"
+msgstr ""
+
+#: classes/bpModBackend.php:465 classes/bpModBackend.php:990
+msgid "Mark the author of this content as spammer"
+msgstr ""
+
+#: classes/bpModBackend.php:465 classes/bpModBackend.php:990
+msgid "Mark as spammer"
+msgstr ""
+
+#: classes/bpModBackend.php:469 classes/bpModBackend.php:982
+msgid "Unregistered"
+msgstr ""
+
+#: classes/bpModBackend.php:472
+msgid "Not a member"
+msgstr ""
+
+#: classes/bpModBackend.php:477
+msgid "Status:"
+msgstr ""
+
+#: classes/bpModBackend.php:479
+msgid "Type:"
+msgstr ""
+
+#: classes/bpModBackend.php:481
+msgid "not found"
+msgstr ""
+
+#: classes/bpModBackend.php:483
+msgid "Item ID:"
+msgstr ""
+
+#: classes/bpModBackend.php:487
+msgid "Date:"
+msgstr ""
+
+#: classes/bpModBackend.php:492
+msgid "View this content"
+msgstr ""
+
+#: classes/bpModBackend.php:492
+msgid "View"
+msgstr ""
+
+#: classes/bpModBackend.php:497
+msgid "Mark this content as clean"
+msgstr ""
+
+#: classes/bpModBackend.php:503
+msgid "Link to the edit page for this content"
+msgstr ""
+
+#: classes/bpModBackend.php:503
+msgid "Edit"
+msgstr ""
+
+#: classes/bpModBackend.php:509
+msgid ""
+"Manually mark this content as moderated if it has already been edited/"
+"deleted without this plugin"
+msgstr ""
+
+#: classes/bpModBackend.php:515
+msgid "Delete this content"
+msgstr ""
+
+#: classes/bpModBackend.php:520
+msgid "Flags:"
+msgstr ""
+
+#: classes/bpModBackend.php:522
+msgid "First:"
+msgstr ""
+
+#: classes/bpModBackend.php:524
+msgid "Last:"
+msgstr ""
+
+#: classes/bpModBackend.php:526
+msgid "Reporters:"
+msgstr ""
+
+#: classes/bpModBackend.php:542
+msgid "No content to display, try a different search"
+msgstr ""
+
+#: classes/bpModBackend.php:561
+msgid "Send a private message to the author of this content"
+msgstr ""
+
+#: classes/bpModBackend.php:561
+msgid "Send PM"
+msgstr ""
+
+#: classes/bpModBackend.php:562 classes/bpModDefaultContentTypes.php:345
+msgid "Send an email to the author of this content"
+msgstr ""
+
+#: classes/bpModBackend.php:562 classes/bpModDefaultContentTypes.php:345
+msgid "Send email"
+msgstr ""
+
+#: classes/bpModBackend.php:568 classes/bpModBackend.php:597
+msgid "User #%d"
+msgstr ""
+
+#: classes/bpModBackend.php:594
+msgid "See more details on this user in the users table"
+msgstr ""
+
+#: classes/bpModBackend.php:595
+msgid ""
+"This user is not registered anymore, but you can still see some details on "
+"it in the users table"
+msgstr ""
+
+#: classes/bpModBackend.php:622
+msgid "Hotkeys are enabled. <a href=\"%s\">Disable</a>"
+msgstr ""
+
+#: classes/bpModBackend.php:626
+msgid "Hotkeys are disabled. <a href=\"%s\">Enable</a>"
+msgstr ""
+
+#: classes/bpModBackend.php:765
+msgid "Specific users"
+msgstr ""
+
+#: classes/bpModBackend.php:779
+msgid "Total flags on own contents"
+msgstr ""
+
+#: classes/bpModBackend.php:780
+msgid "Own contents have been flagged for a total of at least %s flags"
+msgstr ""
+
+#: classes/bpModBackend.php:784
+msgid "Total own contents reported"
+msgstr ""
+
+#: classes/bpModBackend.php:785
+msgid "Own contents have been reported at least %s times"
+msgstr ""
+
+#: classes/bpModBackend.php:789
+msgid "Ignored own contents"
+msgstr ""
+
+#: classes/bpModBackend.php:790
+msgid "Own contents have been ignored at least %s times"
+msgstr ""
+
+#: classes/bpModBackend.php:794
+msgid "Moderated own contents"
+msgstr ""
+
+#: classes/bpModBackend.php:795
+msgid "Own contents have been moderated at least %s times"
+msgstr ""
+
+#: classes/bpModBackend.php:799
+msgid "Total contents reported by user"
+msgstr ""
+
+#: classes/bpModBackend.php:800
+msgid "User has been reported at least %s contents"
+msgstr ""
+
+#: classes/bpModBackend.php:804
+msgid "Ignored contents reported by user"
+msgstr ""
+
+#: classes/bpModBackend.php:805
+msgid "Contents reported by user have been ignored at least %s times"
+msgstr ""
+
+#: classes/bpModBackend.php:809
+msgid "Moderated contents reported by user"
+msgstr ""
+
+#: classes/bpModBackend.php:810
+msgid "Contents reported by user have been moderated at least %s times"
+msgstr ""
+
+#: classes/bpModBackend.php:849
+msgid "total own contents reported"
+msgstr ""
+
+#: classes/bpModBackend.php:851
+msgid "pending own contents"
+msgstr ""
+
+#: classes/bpModBackend.php:853
+msgid "ignored own contents"
+msgstr ""
+
+#: classes/bpModBackend.php:855
+msgid "moderated own contents"
+msgstr ""
+
+#: classes/bpModBackend.php:857
+msgid "total flags on own contents"
+msgstr ""
+
+#: classes/bpModBackend.php:859
+msgid "total contents reported by user"
+msgstr ""
+
+#: classes/bpModBackend.php:861
+msgid "pending contents reported by user"
+msgstr ""
+
+#: classes/bpModBackend.php:863
+msgid "ignored contents reported by user"
+msgstr ""
+
+#: classes/bpModBackend.php:865
+msgid "moderated contents reported by user"
+msgstr ""
+
+#: classes/bpModBackend.php:885
+msgid "Display at most %s users"
+msgstr ""
+
+#: classes/bpModBackend.php:888
+msgid "Query Users"
+msgstr ""
+
+#: classes/bpModBackend.php:915
+msgid "Mark users as spammers"
+msgstr ""
+
+#: classes/bpModBackend.php:917
+msgid "Mark users as not spammers"
+msgstr ""
+
+#: classes/bpModBackend.php:945 classes/bpModBackend.php:957
+msgid "User"
+msgstr ""
+
+#: classes/bpModBackend.php:947 classes/bpModBackend.php:959
+msgid "Own contents reported by others"
+msgstr ""
+
+#: classes/bpModBackend.php:949 classes/bpModBackend.php:961
+msgid "Contents reported by user"
+msgstr ""
+
+#: classes/bpModBackend.php:995
+msgid "%d content from this user has been reported"
+msgid_plural "%d contents from this user have been reported"
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/bpModBackend.php:999 classes/bpModBackend.php:1019
+msgid "New:"
+msgstr ""
+
+#: classes/bpModBackend.php:1001 classes/bpModBackend.php:1021
+msgid "Ignored:"
+msgstr ""
+
+#: classes/bpModBackend.php:1003 classes/bpModBackend.php:1023
+msgid "Moderated:"
+msgstr ""
+
+#: classes/bpModBackend.php:1005
+msgid "Total flags:"
+msgstr ""
+
+#: classes/bpModBackend.php:1010 classes/bpModBackend.php:1028
+msgid ""
+"Show the contents from this user that have been reported in the contents view"
+msgstr ""
+
+#: classes/bpModBackend.php:1010 classes/bpModBackend.php:1028
+msgid "Show in contents view"
+msgstr ""
+
+#: classes/bpModBackend.php:1015
+msgid "this user reported %d content"
+msgid_plural "this user reported %d contents"
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/bpModBackend.php:1045
+msgid "No users to display, try a different search"
+msgstr ""
+
+#: classes/bpModBackend.php:1327
+msgid "Settings saved."
+msgstr ""
+
+#: classes/bpModBackend.php:1338
+msgid "General Settings"
+msgstr ""
+
+#: classes/bpModBackend.php:1339
+msgid "Link text when unflagged"
+msgstr ""
+
+#: classes/bpModBackend.php:1340
+msgid "Link text when flagged"
+msgstr ""
+
+#: classes/bpModBackend.php:1344
+msgid "Generate test data"
+msgstr ""
+
+#: classes/bpModBackend.php:1345
+msgid ""
+"NOTE: will destroy all users except #1 — USE ONLY ON WORTHLESS TEST INSTALLS"
+msgstr ""
+
+#: classes/bpModBackend.php:1348
+msgid "Content Types"
+msgstr ""
+
+#: classes/bpModBackend.php:1349
+msgid "Choose which content types can be flagged by site members."
+msgstr ""
+
+#: classes/bpModBackend.php:1350
+msgid ""
+"Note: if you deactivate one that was previously active you will still see "
+"previously flagged contents of that type in the backend tables."
+msgstr ""
+
+#: classes/bpModBackend.php:1356
+msgid "Automatic Moderation"
+msgstr ""
+
+#: classes/bpModBackend.php:1356
+msgid "Automatic warnings and deletion."
+msgstr ""
+
+#: classes/bpModBackend.php:1357
+msgid "Automatic warning"
+msgstr ""
+
+#: classes/bpModBackend.php:1358
+msgid ""
+"When a content is flagged %s times send a warning message to the author (0 = "
+"disabled)."
+msgstr ""
+
+#: classes/bpModBackend.php:1359
+msgid "Forward warning"
+msgstr ""
+
+#: classes/bpModBackend.php:1360
+msgid "Forward the warning also to these addresses (comma separated) <br/>%s"
+msgstr ""
+
+#: classes/bpModBackend.php:1361
+msgid "Warning message"
+msgstr ""
+
+#: classes/bpModBackend.php:1361
+msgid ""
+"\n"
+"\t\t\t\t<br/>placeholders:\n"
+"\t\t\t\t<br/>%AUTHORNAME% : content author username\n"
+"\t\t\t\t<br/>%CONTENTURL% : reported content url\n"
+"\t\t\t\t<br/>%SITENAME% : wordpress site name\n"
+"\t\t\t\t<br/>%SITEURL% : wordpress site url\n"
+"\t\t\t"
+msgstr ""
+
+#: classes/bpModBackend.php:1369
+msgid "Uninstall"
+msgstr ""
+
+#: classes/bpModBackend.php:1369
+msgid ""
+"If you check the field below all plugin data will be erased on plugin "
+"deactivation."
+msgstr ""
+
+#: classes/bpModBackend.php:1370
+msgid "Clean Up on Deactivation"
+msgstr ""
+
+#: classes/bpModBackend.php:1378
+msgid "Save Changes"
+msgstr ""
+
+#: classes/bpModAbstractCore.php:84
+msgid "new"
+msgstr ""
+
+#: classes/bpModAbstractCore.php:85
+msgid "author warned"
+msgstr ""
+
+#: classes/bpModAbstractCore.php:86
+msgid "ignored"
+msgstr ""
+
+#: classes/bpModAbstractCore.php:87
+msgid "moderated (unknown)"
+msgstr ""
+
+#: classes/bpModAbstractCore.php:88
+msgid "moderated (edited)"
+msgstr ""
+
+#: classes/bpModAbstractCore.php:89
+msgid "moderated (deleted)"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:30
+msgid "Status update"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:43
+msgid "Activity comment"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:58
+msgid "Blog post"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:73
+msgid "Blog page"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:87
+msgid "Blog comment"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:102
+msgid "Member"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:115
+msgid "Group"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:128
+msgid "Forum topic"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:141
+msgid "Forum post"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:286
+msgid "Flag this page as inappropriate"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:363
+msgid "Flag this comment as inappropriate"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:422
+msgid "Flag this member as inappropriate"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:469
+msgid "Flag this group as inappropriate"
+msgstr ""
+
+#: classes/bpModDefaultContentTypes.php:513
+msgid "Flag Whole Topic"
+msgstr ""
