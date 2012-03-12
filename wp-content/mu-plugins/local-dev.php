@@ -16,24 +16,6 @@ if ( defined( 'IS_LOCAL_ENV' ) && IS_LOCAL_ENV ) :
 	 */
 	function nycga_local_env_flag() {
 		?>
-
-		<style type="text/css">
-			#local-env-flag {
-				position: fixed;
-				right: 0;
-				bottom: 50px;
-				width: 200px;
-				padding: 10px 15px;
-				text-align: center;
-				background: #f00;
-				color: #fff;
-				font-size: 1.5em;
-				line-height: 1.8em;
-				border: 2px solid #666;
-				z-index: 1000;
-			}
-		</style>
-
 		<div id="local-env-flag">
 			DEV ENVIRONMENT
 		</div>

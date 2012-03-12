@@ -35,24 +35,19 @@
 	margin: 0;
 }
 
-
-/*.nav ul li{
-	float: left;
+#local-env-flag {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	opacity: .75;
+	padding: 10px 15px;
+	text-align: center;
+	background: #f00;
+	color: #300;
+	font-size: 1em;
+	line-height: 1.8em;
+	z-index: 1000;
 }
-
-.nav a{
-	display: block;
-	padding: 1em 1em;
-	color: #000;
-	text-decoration: none;
-}
-
-.nav a.active,
-.nav a:hover{
-	background-color: #000;
-	color: #fc0;
-}
-*/
 
 /* we here in ny really like the tent for home thing */
 .nav a.home{
@@ -68,7 +63,6 @@
 	background-position: 3px 12px;
 	background-repeat: no-repeat;	
 }
-
 
 #content{
 	padding: 2em 0 6em 0;
