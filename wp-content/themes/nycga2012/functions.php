@@ -12,6 +12,8 @@ function bp_dtheme_enqueue_styles() {
 add_action( 'wp_print_styles', 'bp_dtheme_enqueue_styles' );
 endif;
 
+add_theme_support( 'post-thumbnails' );
+
 function nycga_register_sidebars() {
 	register_sidebar(
 		array(
