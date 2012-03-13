@@ -34,7 +34,7 @@
 
 			<div id="masthead" class="container_24 clearfix">
 				
-				<h1 id="logo" role="banner" class="grid_13">
+				<h1 id="logo" role="banner" class="grid_13 alpha">
 					<a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>">
 						<span class='ows'><?php echo get_bloginfo ( 'description' );?></span><br/>
 						<?php bp_site_name();?>
@@ -46,7 +46,9 @@
 			</div><!-- #masthead -->
 			
 			<div id="navigation" role="navigation" class="nav clearfix">
+				<div class="container_24">
 				<?php wp_nav_menu( array( 'container' => false, 'menu_id' => 'nav', 'theme_location' => 'primary', 'fallback_cb' => 'bp_dtheme_main_nav' ) ); ?>
+				</div>
 			</div>
 
 			<?php do_action( 'bp_header' ) ?>
