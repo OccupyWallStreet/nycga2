@@ -1,13 +1,11 @@
 <?php
 /*
-
 logged in / logged out redirect kludge
 
-if logged in, and page is "welcome" show activity stream.  "/activity/"
-
-if not logged in, show normal homepage
+if logged in, and page is "welcome" (as denoted by the page slug, slug) show activity stream.  "http://www.nycga.net/activity/"
+this will always redirect logged in users to /activty as their default page.  dynamically changing what content is shown on http://www.nycga.net/ would be a much more complex change than redirecting.
+if not logged in, show normal homepage (http://www.nycga.net)
 */
-//Welcome to NYCGA.net
 if (is_user_logged_in() && $post->post_name=="welcome") {
   wp_redirect('http://www.nycga.net/activity');
 }
