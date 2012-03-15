@@ -1,3 +1,18 @@
+<?php
+/*
+
+logged in / logged out redirect kludge
+
+if logged in, and page is "welcome" show activity stream.  "/activity/"
+
+if not logged in, show normal homepage
+*/
+//Welcome to NYCGA.net
+if (is_user_logged_in() && $post->post_name=="welcome") {
+  wp_redirect('http://www.nycga.net/activity');
+}
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
