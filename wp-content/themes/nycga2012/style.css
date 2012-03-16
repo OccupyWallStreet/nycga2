@@ -15,9 +15,11 @@ Tags: buddypress, three-column, multi-site
 @import url('css/type.css');
 @import url('css/events.css');
 
-/* ----------------------------------------------------------------------------
+/*
+--------------------------------------------------------------
  Header
-------------------------------------------------------------------------------*/
+--------------------------------------------------------------
+*/
 
 #masthead{ margin-bottom:.5em; }
 
@@ -37,17 +39,22 @@ Tags: buddypress, three-column, multi-site
 }
 
 
-/* ----------------------------------------------------------------------------
+/*
+--------------------------------------------------------------
  Content
-------------------------------------------------------------------------------*/
+--------------------------------------------------------------
+*/
 
 #content p{
 	margin-top: 1em;
 }
 
-/* ----------------------------------------------------------------------------
+
+/*
+--------------------------------------------------------------
  Activity
-------------------------------------------------------------------------------*/
+--------------------------------------------------------------
+*/
 
 .bpfb_form_container{
 	padding:0 !important;
@@ -80,9 +87,11 @@ Tags: buddypress, three-column, multi-site
 	font-size: .875em;
 }
 
-/* ----------------------------------------------------------------------------
+/*
+--------------------------------------------------------------
  Sidebar
-------------------------------------------------------------------------------*/
+--------------------------------------------------------------
+*/
 
 .sidebar{
 	margin-top: 2.5em;
@@ -96,7 +105,8 @@ Tags: buddypress, three-column, multi-site
 	margin-bottom: .5em !important;
 }
 
-#sidebar-me{ /* user chip */
+#sidebar-me{
+	/* user chip */
 	padding:0.5em !important;
 }
 
@@ -143,14 +153,17 @@ Tags: buddypress, three-column, multi-site
 	text-decoration: none;
 }
 
-/* ----------------------------------------------------------------------------
+/*
+--------------------------------------------------------------
  Primary Navigation
-------------------------------------------------------------------------------*/
+--------------------------------------------------------------
+*/
 
 #navigation {}
 
 #nav {
-	background: #fc0; /* Old browsers */
+	background: #fc0;
+	/* Old browsers */
 	margin: 0 2em 0 0;
 	position: relative;
 }
@@ -194,9 +207,12 @@ Tags: buddypress, three-column, multi-site
 	border-bottom: 1px #da0 solid;
 }
 
-/* ----------------------------------------------------------------------------
+
+/*
+--------------------------------------------------------------
  Events
-------------------------------------------------------------------------------*/
+--------------------------------------------------------------
+*/
 
 #em-wrapper .map{
 	display: block;
@@ -224,8 +240,6 @@ Tags: buddypress, three-column, multi-site
 	padding: .125em .25em;
 }
 
-
-
 #em-wrapper .em-location-map{
 	width: 550px !important;
 	margin: 0 !important;
@@ -237,55 +251,60 @@ Tags: buddypress, three-column, multi-site
 	font-size: 18px/21px;
 }
 
-/* ----------------------------------------------------------------------------
- Buttons
-------------------------------------------------------------------------------*/
 
-a.button{
-}
+/*
+--------------------------------------------------------------
+ Buttons
+--------------------------------------------------------------
+*/
+
+a.button{}
 
 .like,
 .button {
-background: white;
-background: -moz-linear-gradient(top, white 0%, #EDEDED 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white), color-stop(100%,#EDEDED));
-background: -webkit-linear-gradient(top, white 0%,#EDEDED 100%);
-background: -o-linear-gradient(top, white 0%,#EDEDED 100%);
-background: -ms-linear-gradient(top, white 0%,#EDEDED 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
-border: 1px solid #f0f0f0;
-font-size: .875em;
-line-height: 1.2;
--moz-border-radius: 3px;
--webkit-border-radius: 3px;
-border-radius: 3px;
-color: #666;
-cursor: pointer;
-outline: none;
-padding: .25em 1em;
-text-align: center;
-text-decoration: none;
+	background: white;
+	background: -moz-linear-gradient(top, white 0%, #EDEDED 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white), color-stop(100%,#EDEDED));
+	background: -webkit-linear-gradient(top, white 0%,#EDEDED 100%);
+	background: -o-linear-gradient(top, white 0%,#EDEDED 100%);
+	background: -ms-linear-gradient(top, white 0%,#EDEDED 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
+	border: 1px solid #f0f0f0;
+	font-size: .875em;
+	line-height: 1.2;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	color: #666;
+	cursor: pointer;
+	outline: none;
+	padding: .25em 1em;
+	text-align: center;
+	text-decoration: none;
 }
 
 .like:hover,
 .button:hover {
-background: #eee; /* Old browsers */
-background: -moz-linear-gradient(top, #eeeeee 0%, #cacaca 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cacaca)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #eeeeee 0%,#cacaca 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #eeeeee 0%,#cacaca 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #cacaca 0%,#cacaca 100%); /* IE10+ */
-background: linear-gradient(top, #eeeeee 0%,#cacaca 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#aaaaaa',GradientType=0 ); /* IE6-9 */
-border: 1px solid #dedede;
-color: #555;
-outline: none;
-text-decoration: none;
+	background: #eee; /* Old browsers */
+	background: -moz-linear-gradient(top, #eeeeee 0%, #cacaca 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cacaca)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #eeeeee 0%,#cacaca 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #eeeeee 0%,#cacaca 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #cacaca 0%,#cacaca 100%); /* IE10+ */
+	background: linear-gradient(top, #eeeeee 0%,#cacaca 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#aaaaaa',GradientType=0 ); /* IE6-9 */
+	border: 1px solid #dedede;
+	color: #555;
+	outline: none;
+	text-decoration: none;
 }
 
-/* ----------------------------------------------------------------------------
+
+/*
+--------------------------------------------------------------
  Social
-------------------------------------------------------------------------------*/
+--------------------------------------------------------------
+*/
 .really_simple_share{
 	margin-top: 2em;
 	border-top: 1px #dedede solid;

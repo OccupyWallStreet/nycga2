@@ -1,8 +1,3 @@
-<?php
-/*
-Template Name: NYCGA Homepage
-*/
-?>
 <!-- index.php -->
 
 	<?php get_header() ?>
@@ -11,51 +6,44 @@ Template Name: NYCGA Homepage
 
 	<div id="content" class="grid_14">
 
-	<?php do_action( 'bp_before_blog_home' ) ?>
 	<?php do_action( 'template_notices' ) ?>
 
 	<div class="page" id="blog-latest" role="main">
-
-	
-		<?php
-			$wp_query = new WP_Query('category_name=homepage-featured'); // don't show posts from category ID 6, a.k.a Links
-	 
-		 if ( $wp_query->have_posts() ) : ?>
+		
+		<div id="homapgeFeatures" class="carrousel clearfix">
+			<ul class="gallery clearfix">
+			<?php if ( have_posts() ) : ?>
 			<?php bp_dtheme_content_nav( 'nav-above' ); ?>
-			<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
-			
-			<?if( has_post_thumbnail() ): // if there's an image, lets print the post, otherwise....'?>
-				<?php do_action( 'bp_before_blog_post' ) ?>
-			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<?/*	
-			// design attribution into the features somehow?
-			<div class="author-box">
-				<?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
-				<p><?php printf( _x( 'by %s', 'Post written by...', 'buddypress' ), bp_core_get_userlink( $post->post_author ) ) ?></p>
-				<?php if ( is_sticky() ) : ?>
-					<span class="activity sticky-post"><?php _ex( 'Featured', 'Sticky post', 'buddypress' ); ?></span>
-				<?php endif; ?>
-			</div>
-*/?>
-			<div class="post-content">
-				<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-				<?php the_post_thumbnail( 'large' ); // check if the post has a Post Thumbnail assigned to it. ?>
-				<p class="date"><?php printf( __( '%1$s', 'buddypress' ), get_the_date() ); ?></p>
-				<?/*<p class="date"><?php printf( __( '%1$s <span>in %2$s</span>', 'buddypress' ), get_the_date(), get_the_category_list( ', ' ) ); ?></p>*/?>
-				<div class="entry">
-					<?php the_content( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>
-					<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
-				</div>
-<?/*
-				<p class="postmetadata"><?php the_tags( '<span class="tags">' . __( 'Tags: ', 'buddypress' ), ', ', '</span>' ); ?> <span class="comments"><?php comments_popup_link( __( 'No Comments &#187;', 'buddypress' ), __( '1 Comment &#187;', 'buddypress' ), __( '% Comments &#187;', 'buddypress' ) ); ?></span></p>
-*/?>
-			</div>
-		</div>
-				<?/* php do_action( 'bp_after_blog_post' ) */?>
-			<?endif;?>
-			<?php endwhile; ?>
-<?/*			<?php bp_dtheme_content_nav( 'nav-below' ); ?>
-*/?>
+			<?php
+				$query = 'category_name=homepage-featured&posts_per_page=5';
+				$my_query = new WP_Query( $query );
+		  	while ( $my_query->have_posts() ) : $my_query->the_post();
+			?>
+			<!-- check if the post has a Post Thumbnail assigned to it. Otherwise skip it. -->
+				<?php if ( has_post_thumbnail() ):?> 
+				<li class='post-content'>
+					<?php do_action( 'bp_before_blog_post' ) ?>
+<!-- we should give attribution somehow but the featurebox isn't where, maybe a little caption -->
+					<a class="imageWrapLink" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'grid14', array( 'class'=>'post-image') );?></a>
+					<div class="content">
+						<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+						<p><?php the_content();?></p>
+						<p class="date"><?php the_date();?></p>
+					</div>
+				</li><!-- end .post-content -->
+				<?php endif;?>
+				<?php endwhile; ?>	
+			</ul><!-- end .gallery -->
+			<ul class="nav">
+		  	<?php while ( $my_query->have_posts() ) : $my_query->the_post();?>
+				<li>
+					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+				</li>
+				<?endwhile;?>
+			</ul>
+		</div><!-- end .carrousel -->
+
+		<?php bp_dtheme_content_nav( 'nav-below' ); ?>
 		<?php else : ?>
 			<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
 			<p class="center"><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'buddypress' ) ?></p>

@@ -127,9 +127,9 @@ function nycga_remove_events_tabs(){
 
 // add events.js
 add_action('wp_head', 'nycga_events_js');
-function nycga_events_js()
-{
-	?><script type="text/javascript" src="<?php echo bloginfo('stylesheet_directory') ?>/events.js"></script><?php
+function nycga_events_js(){?>
+	<script type="text/javascript" src="<?php echo bloginfo('stylesheet_directory') ?>/events.js"></script>
+<?php
 }
 
 // allow site admins & group mods to attach eventsto a group, 

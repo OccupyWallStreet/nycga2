@@ -1,13 +1,122 @@
+/*
+-----------------------------------------------------
+	Utilitiy Classes
+-----------------------------------------------------
+*/
 
-.floatLeft{
-	float: left;
-}
-
-.floatRight{
-	float: right;
-}
-
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.floatLeft{ float: left; }
+.floatRight{ float: right; }
 .hidden, .hideme{ display: none; }
+
+/*
+-----------------------------------------------------
+	Homepage Feature
+-----------------------------------------------------
+*/
+
+.carrousel{
+	width: 565px;
+	height: 390px;
+
+}
+
+.carrousel ul{
+	list-style: none;
+}
+
+.carrousel ul.gallery{
+ overflow: hidden; 
+	height:346px;
+}
+
+.carrousel ul.gallery li.post-content{
+	position: relative;
+	width: 565px;
+	height: 340px;
+	border: 1px #fff solid;
+}
+
+.carrousel ul.gallery li.post-content a.imageWrapLink,
+.carrousel ul.gallery li.post-content .content{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.carrousel ul.gallery li.post-content a.imageWrapLink{
+	display: block;
+	z-index: 1;
+}
+
+.carrousel ul.gallery li.post-content .content{
+	z-index: 2;
+}
+
+.carrousel li.post-content .content{
+	margin-top: 12em;
+	height: 10em;
+	background: url( '../images/bgBlack70.png' );
+	color:#fff;
+	padding: 1em;
+	margin-left: 0;
+}
+
+.carrousel li.post-content h2 a{
+	color: #fc0;
+	text-decoration: none;
+}
+
+.carrousel li.post-content h2 a:hover{
+	text-decoration: underline;
+}
+
+.carrousel p.caption{
+	color: #888;
+	font-size: .875em;
+}
+
+.carrousel ul.nav{
+	position: relative;
+	margin-top: .5em;
+}
+
+.carrousel ul.nav li{
+	margin: 0 0 .125em 0;
+	display: inline !important;
+	padding: 0 .25em 0 0 ;
+}
+
+.carrousel .really_simple_share{ display: none; }
+
+.carrousel ul.nav li{
+	float: left;
+	margin: 0 0 0 .25em;
+	cursor: pointer;
+	text-indent: -3000px;
+}
+
+.carrousel ul.nav li:first-child{
+	margin-left: 0;
+}
+
+.carrousel ul.nav li a{
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: url( '../images/navdot_sprite.png' ) top left;
+}
+
+.carrousel ul.nav li.active a,
+.carrousel ul.nav li a:hover{
+	background: url( '../images/navdot_sprite.png') top right;
+}
+
+
+/* -------------------------------------------------------- */
+
+
+
 
 .content ul{
 	list-style-type: disc !important;
