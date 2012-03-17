@@ -25,11 +25,17 @@
 					<?php do_action( 'bp_before_blog_post' ) ?>
 <!-- we should give attribution somehow but the featurebox isn't where, maybe a little caption -->
 					<a class="imageWrapLink" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'grid14', array( 'class'=>'post-image') );?></a>
-					<div class="content">
-						<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						<p><?php the_content();?></p>
-						<p class="date"><?php the_date();?></p>
-					</div>
+					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>">
+						<div class="content">
+							<p class="date small"><?php the_date();?></p>
+							<h3 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+							<p>
+								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>">
+								<?php the_content();?>
+								</a>
+							</p>
+						</div>
+					</a>
 				</li><!-- end .post-content -->
 				<?php endif;?>
 				<?php endwhile; ?>	

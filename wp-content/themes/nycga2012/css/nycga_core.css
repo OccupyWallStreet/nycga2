@@ -8,6 +8,7 @@
 .floatLeft{ float: left; }
 .floatRight{ float: right; }
 .hidden, .hideme{ display: none; }
+.small{ font-size: .75em; }
 
 /*
 -----------------------------------------------------
@@ -35,6 +36,7 @@
 	width: 565px;
 	height: 340px;
 	border: 1px #fff solid;
+	overflow: hidden;
 }
 
 .carrousel ul.gallery li.post-content a.imageWrapLink,
@@ -54,26 +56,25 @@
 }
 
 .carrousel li.post-content .content{
-	margin-top: 12em;
+	margin-top: 13em;
 	height: 10em;
 	background: url( '../images/bgBlack70.png' );
 	color:#fff;
-	padding: 1em;
+	padding: .5em 1em;
 	margin-left: 0;
 }
 
-.carrousel li.post-content h2 a{
-	color: #fc0;
+.carrousel li.post-content a{
 	text-decoration: none;
+	color: #eee;
 }
 
-.carrousel li.post-content h2 a:hover{
+.carrousel li.post-content h3 a{
+	color: #fc0;
+}
+
+.carrousel li.post-content h3 a:hover{
 	text-decoration: underline;
-}
-
-.carrousel p.caption{
-	color: #888;
-	font-size: .875em;
 }
 
 .carrousel ul.nav{

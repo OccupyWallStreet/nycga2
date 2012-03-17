@@ -25,7 +25,6 @@ jQuery(document).ready(function() {
 				nycga.gallery.element.animate({
 				    scrollTop: scrollPos
 				});
-				console.log(":::::::", index, scrollPos, nycga.gallery.element.scrollTop() );
 			});
 		});
 
