@@ -85,7 +85,7 @@ add_filter('bp_search_form_type_select','my_bp_search_form_type_select');
 function add_script() {
 	if (!is_admin()) {
 		wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js', false, '1.5.2');
-		wp_register_script('jqueryscrollto', get_stylesheet_directory_uri()  . '/js/jquery.scrollTo-min.js', false, '0.5');
+		// wp_register_script('jqueryscrollto', get_stylesheet_directory_uri()  . '/js/jquery.scrollTo-min.js', false, '0.5');
 		wp_register_script('boxShadow', get_stylesheet_directory_uri()  . '/js/boxShadow.js', false, '0.5');
 		wp_register_script('tipTip', get_stylesheet_directory_uri()  . '/js/jquery.tipTip.js', false, '1.3	');
 		wp_register_script('nycgaui', get_stylesheet_directory_uri()  . '/js/nycga_ui.js', false, '0.5');
