@@ -342,6 +342,18 @@ a.button{}
 --------------------------------------------------------------
 */
 
+.info.notice{
+	padding:.5em;
+	background:#fc0;
+	color: #000;
+}
+
+.shadow{
+  -moz-box-shadow: 1px 1px 4px #cacaca; /* Firefox */
+  -webkit-box-shadow: 1px 1px 4px #cacaca; /* Safari, Chrome */
+	  box-shadow: 1px 1px 4px #cacaca; /* CSS3 */
+}
+
 .item-list-tabs,
 .pagination{
 	clear: both;
