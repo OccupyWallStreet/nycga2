@@ -140,6 +140,39 @@ register_sidebar(
 
 register_sidebar(
 	array(
+		'name' => 'JoinUs',
+		'id' => 'Joinus',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widgettitle">',
+		'after_title' => '</h3>'
+	)
+);
+
+register_sidebar(
+	array(
+		'name' => 'GroupDirectoryTout',
+		'id' => 'GroupDirectoryTout',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widgettitle">',
+		'after_title' => '</h3>'
+	)
+);
+
+register_sidebar(
+	array(
+		'name' => 'FrequentlyAsked',
+		'id' => 'faqs',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widgettitle">',
+		'after_title' => '</h3>'
+	)
+);
+
+register_sidebar(
+	array(
 		'name' => 'Bulletin-Main',
 		'id' => 'sidebar-2',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
