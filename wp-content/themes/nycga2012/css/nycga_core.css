@@ -145,7 +145,6 @@
 	width: 180px;
 	background: #0af;
 	padding: .125em .25em;
-	font-family:"OSWALD", helvetica, sans-serif;
 	font-size: 2em;
 	line-height: 1;
 	text-align: center;
@@ -182,7 +181,7 @@
 }
 
 .nav a.home:hover,
-.nav a.home.active{
+.nav a.home.current-menu-item{
 	background-image: url( ../images/icon_home.png );
 	background-position: 3px 12px;
 	background-repeat: no-repeat;	
@@ -195,12 +194,11 @@
 /* some padding on shadowed bits */
 .gridbox{
 	margin-bottom: 2em;
-	padding: 1em 0;
 }
 
 /* need padding? */
 .gridbox .padded {
-	padding: 1em;
+	padding: .5em;
 }
 
 /* section header, mere suggestion */

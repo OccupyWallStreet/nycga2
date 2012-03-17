@@ -1,14 +1,84 @@
+/* change url paths to suit your project */
+@font-face {
+	font-family: 'OSWALD';
+	src: url('../fonts/oswald-webfont.eot');
+	src: url('../fonts/oswald-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/oswald-webfont.woff') format('woff'),
+		url('../fonts/oswald-webfont.ttf') format('truetype'),
+		url('../fonts/oswald-webfont.svg#OSWALD') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'PTSansBoldItalic';
+    src: url('../fonts/PT-Sans/PTS76F-webfont.eot');
+    src: url('../fonts/PT-Sans/PTS76F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/PT-Sans/PTS76F-webfont.woff') format('woff'),
+         url('../fonts/PT-Sans/PTS76F-webfont.ttf') format('truetype'),
+         url('../fonts/PT-Sans/PTS76F-webfont.svg#PTSansBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'PTSansBold';
+    src: url('../fonts/PT-Sans/PTS75F-webfont.eot');
+    src: url('../fonts/PT-Sans/PTS75F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/PT-Sans/PTS75F-webfont.woff') format('woff'),
+         url('../fonts/PT-Sans/PTS75F-webfont.ttf') format('truetype'),
+         url('../fonts/PT-Sans/PTS75F-webfont.svg#PTSansBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'PTSansItalic';
+    src: url('../fonts/PT-Sans/PTS56F-webfont.eot');
+    src: url('../fonts/PT-Sans/PTS56F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/PT-Sans/PTS56F-webfont.woff') format('woff'),
+         url('../fonts/PT-Sans/PTS56F-webfont.ttf') format('truetype'),
+         url('../fonts/PT-Sans/PTS56F-webfont.svg#PTSansItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'PTSansRegular';
+    src: url('../fonts/PT-Sans/PTS55F-webfont.eot');
+    src: url('../fonts/PT-Sans/PTS55F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/PT-Sans/PTS55F-webfont.woff') format('woff'),
+         url('../fonts/PT-Sans/PTS55F-webfont.ttf') format('truetype'),
+         url('../fonts/PT-Sans/PTS55F-webfont.svg#PTSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body{
 	/* bodycopy this will likely change soon to something OS */
-	font-family: 'Lucida Grande', Helvetica, arial, sans-serif;
+	font-family: 'PTSansRegular', Helvetica, arial, sans-serif;
 	font-size: 12px;
 	line-height: 1.2;
 }
 
-h1, h2, h3, h4{
+#donate a.button{
+	font-family: 'OSWALD', Arial, sans-serif; font-weight: normal;
+}
+
+h1, h2, h3, h4, h5{
 	padding: .125em 0 0 0;
 	line-height: 1.25;
 }
+
+h1{ font-size: 3.5em; /* 42px */ }
+h2{ font-size: 2.5em; /* 30px */ }
+h3{	font-size: 2em; /* 24px */ }
+h4{	font-size: 1.5em; /* 18px */ }
+h5{	font-size: 1.25em; /* 15em */ }
 
 #content{
 	font-size: 1.2em;

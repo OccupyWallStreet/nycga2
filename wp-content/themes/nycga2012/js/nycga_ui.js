@@ -11,15 +11,16 @@ if( !nycga ) var nycga = {};
 if( !nycga.ui ) nycga.ui = {};
 
 /* 
-	Function addHoverMenus - loop through all elements containing the class 'hoverMenu'
+	Function addToolTips - loop through all elements containing the class 'hoverMenu'
 	instantiate it with a tipTip, then passes the tipTip the content argument containing its child
-	with the class 'methods' then hides the method object
+	with the class 'content' then hides the method object
 	Requires — jquery.tipTip — code.drewwilson.com/entry/tiptip-jquery-plugin
 */
-nycga.ui.addToolTips = function(selector){
-	selector = ( selector )? selector : '.tipTip';
-	console.log("selector", selector, jQuery( selector ));
-	jQuery( selector ).tipTip({ delay: 250 });
+nycga.ui.addToolTips = function( actuatorSelector, tipContentSelector ){
+	console.log( "nycga.ui.addToolTips", actuatorSelector, tipContentSelector );
+	actuatorSelector = ( actuatorSelector )? actuatorSelector : '.tipTipActuator';
+	tipContentSelector = ( tipContentSelector )? tipContentSelector : '.tipTipContent';
+	jQuery( actuatorSelector ).tipTip({ delay: 250, content: tipContentSelector });
 }
 
 /* cross browser friendly css3 dropshadow */

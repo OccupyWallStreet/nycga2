@@ -15,6 +15,7 @@ Tags: buddypress, three-column, multi-site
 @import url('css/type.css');
 @import url('css/events.css');
 
+
 /*
 --------------------------------------------------------------
  Header
@@ -38,6 +39,22 @@ Tags: buddypress, three-column, multi-site
 	margin-bottom:.25em;
 }
 
+/*
+--------------------------------------------------------------
+ Groups
+--------------------------------------------------------------
+*/
+
+#groups-list{
+	margin-top: 1em;
+}
+.gtags-top-cloud{
+	display: none;
+}
+
+.gtags-results{
+	font-size: 12px !important;
+}
 
 /*
 --------------------------------------------------------------
@@ -179,7 +196,7 @@ Tags: buddypress, three-column, multi-site
 	color: #000;
 }
 
-#nav li a.active,
+#nav li a.current-menu-item,
 #nav li:hover>a,
 #nav li a:hover{
 	background: #000;
@@ -305,8 +322,64 @@ a.button{}
  Social
 --------------------------------------------------------------
 */
+
+.item-avatar{
+	float: left;
+	margin-right: .5em;
+}
+
 .really_simple_share{
 	margin-top: 2em;
 	border-top: 1px #dedede solid;
 	padding-top: 1em !important;
+}
+
+
+
+/*
+--------------------------------------------------------------
+	Aux Nav ( Wayfinding, tabs, pagination )
+--------------------------------------------------------------
+*/
+
+.item-list-tabs,
+.pagination{
+	clear: both;
+	padding: .5em;
+	background: #ededed;
+	margin-bottom: .125em;
+}
+	
+.item-list-tabs li{
+	display: inline-block;
+	margin: 0 .25em 0 0;
+	border-radius: 3px;
+	background: #ccc;
+	color: #222;
+	padding: .125em .25em;
+	text-decoration: none;
+}
+
+.itemCount{
+	display: inline-block;
+	background:#000;
+	color: #fff;
+	font-size: .65em;
+	padding: .25em .5em;
+	border-radius: 12px;
+	position: relative;
+	top: -.25em;
+}
+.item-list-tabs li.selected{
+	background-color:#fc0;
+}
+
+.item-list-tabs li a{
+	color: inherit;
+	text-decoration: none;
+}
+
+.pagination .pag-count{
+	float: left;
+	margin-right: 1em;
 }

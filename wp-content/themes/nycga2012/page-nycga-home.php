@@ -37,7 +37,7 @@
 			<ul class="nav">
 		  	<?php while ( $my_query->have_posts() ) : $my_query->the_post();?>
 				<li>
-					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+					<a title="<?php the_title();?>" class="tipTipActuator" href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title();?></a>
 				</li>
 				<?endwhile;?>
 			</ul>
