@@ -23,19 +23,19 @@
 				<?php if ( has_post_thumbnail() ):?> 
 				<li class='post-content'>
 					<?php do_action( 'bp_before_blog_post' ) ?>
+					<?php $photoCredit = get_post_meta( $post->ID, 'photo_credit', true );?>
+					<?=$photoCredit;?>
 <!-- we should give attribution somehow but the featurebox isn't where, maybe a little caption -->
 					<a class="imageWrapLink" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'grid14', array( 'class'=>'post-image') );?></a>
-					<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>">
-						<div class="content">
-							<p class="date small"><?php the_date();?></p>
-							<h3 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-							<p>
-								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>">
-								<?php the_content();?>
-								</a>
-							</p>
-						</div>
-					</a>
+					<div class="content">
+						<p class="small"><?php the_date();?> by <a href="<?php the_author_link();?>"><?php the_author();?></a> <?php if( $photoCredit ):?>photo by <?php echo $photoCredit;?><?endif;?></p>
+						<h3 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+						<p>
+							<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>">
+							<?php the_content();?>
+							</a>
+						</p>
+					</div>
 				</li><!-- end .post-content -->
 				<?php endif;?>
 				<?php endwhile; ?>	
@@ -48,6 +48,8 @@
 				<?endwhile;?>
 			</ul>
 		</div><!-- end .carrousel -->
+
+
 
 		<?php bp_dtheme_content_nav( 'nav-below' ); ?>
 		<?php else : ?>
