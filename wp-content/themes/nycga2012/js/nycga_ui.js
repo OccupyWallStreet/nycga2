@@ -19,8 +19,7 @@ if( !nycga.ui ) nycga.ui = {};
 nycga.ui.addToolTips = function( actuatorSelector, tipContentSelector ){
 	console.log( "nycga.ui.addToolTips", actuatorSelector, tipContentSelector );
 	actuatorSelector = ( actuatorSelector )? actuatorSelector : '.tipTipActuator';
-	tipContentSelector = ( tipContentSelector )? tipContentSelector : null;
-	jQuery( actuatorSelector ).tipTip({ delay: 250, content: tipContentSelector });
+	jQuery( actuatorSelector ).tipTip({ delay: 250 });
 }
 
 /* cross browser friendly css3 dropshadow */

@@ -28,6 +28,7 @@
 			maxWidth: "200px",
 			edgeOffset: 3,
 			defaultPosition: "bottom",
+			tipContentSelector: ".tipTipContent",
 			delay: 400,
 			fadeIn: 200,
 			fadeOut: 200,
@@ -52,16 +53,15 @@
 		
 		return this.each(function(){
 			var org_elem = $(this);
-			if(opts.content){
-				
-				if( org_elem.find( opts.content ) ){
-					var org_title = org_elem.find( opts.content )[0];
-					//hide it from view grab it
-					tiptip_content.html(org_title);
-				}else{
-					var org_title = opts.content;					
-				}
-			} else {
+			if( org_elem.find( opts.tipContentSelector )[0] ){
+				console.log("A", opts.tipContentSelector, org_elem.find( opts.tipContentSelector ) );
+				var org_title = org_elem.find( opts.tipContentSelector )[0];				
+				tiptip_content.html(org_title);
+			}else if( opts.content ){
+				console.log("B", opts.tipContentSelector );
+				tiptip_content.html(org_title);
+			}else{				
+				console.log("C", opts.tipContentSelector );
 				var org_title = org_elem.attr(opts.attribute);
 			}
 			if(org_title != ""){

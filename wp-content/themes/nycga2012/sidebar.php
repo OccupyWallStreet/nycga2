@@ -49,6 +49,7 @@
 		If we're in the groups directory, no point in showing some of this sidebar stuff 
 		We'll break out other bits if we need.
 	-->
+	<?the_page();?>
 	<?php if( !is_page('Groups Directory') ):?>
 	<?php dynamic_sidebar( 'sidebar-1' ) ?>
 	<?endif;?>
