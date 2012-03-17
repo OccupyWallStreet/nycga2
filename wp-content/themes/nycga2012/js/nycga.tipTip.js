@@ -54,14 +54,11 @@
 		return this.each(function(){
 			var org_elem = $(this);
 			if( org_elem.find( opts.tipContentSelector )[0] ){
-				console.log("A", opts.tipContentSelector, org_elem.find( opts.tipContentSelector ) );
 				var org_title = org_elem.find( opts.tipContentSelector )[0];				
 				tiptip_content.html(org_title);
 			}else if( opts.content ){
-				console.log("B", opts.tipContentSelector );
 				tiptip_content.html(org_title);
 			}else{				
-				console.log("C", opts.tipContentSelector );
 				var org_title = org_elem.attr(opts.attribute);
 			}
 			if(org_title != ""){
