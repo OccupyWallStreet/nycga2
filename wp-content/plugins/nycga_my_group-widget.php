@@ -33,15 +33,14 @@ class NYCGA_My_Groups_Widget extends WP_Widget {
 		$title = apply_filters('widget_title', empty($instance['title'])?__('My Groups','buddypress'):$instance['title']);
 
 		echo $before_widget;
-		echo $before_title
-		   . $title
-		   . $after_title; ?>
+
+	?>
 
 		<?php if ( bp_has_groups( 'type=alphabetical&user_id=' . $bp->loggedin_user->id )&& is_user_logged_in()) : ?>
-
+			<?php echo $before_title . $title . $after_title;?>
 			<ul class="my-groups-list item-list">
 				<?php while ( bp_groups() ) : bp_the_group(); ?>
-					<li>
+					<li class="clearfix">
 						<div class="item-avatar">
 							<a href="<?php bp_group_permalink() ?>"><?php bp_group_avatar_thumb() ?></a>
 						</div>
@@ -59,12 +58,9 @@ class NYCGA_My_Groups_Widget extends WP_Widget {
 
 		<?php else: ?>
 			
-			<div class="widget-error">
-				<?php if( is_user_logged_in() ) {
-					_e('You have not joined any groups.','buddypress');
-				} else {
-					_e('Please log in to see your groups.', 'buddypress');
-				} ?> 
+			<div class="tout groups-tout">
+				<a class="toutLink" href="groups">Click here to view the NYCGA working groups.</a>
+				<h5 class="transBg"><a href="groups"><?php _e('Groups Directory', 'buddypress');?></a></h5>
 			</div>
 
 		<?php endif; ?>
