@@ -45,7 +45,7 @@
 
 			</div><!-- #masthead -->
 			
-			<div id="navigation" role="navigation" class="nav clearfix">
+			<div id="navigation" role="navigation" class="nav clearfix shadow">
 				<div class="container_24">
 				<?php wp_nav_menu( array( 'container' => false, 'menu_id' => 'nav', 'theme_location' => 'primary', 'fallback_cb' => 'bp_dtheme_main_nav' ) ); ?>
 				</div>
