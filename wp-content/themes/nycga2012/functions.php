@@ -15,6 +15,8 @@ endif;
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'grid14', 565, 360, true );
+	add_image_size( 'grid4', 237, 120, true );
+
 }
 
 
@@ -25,8 +27,8 @@ function nycga_register_sidebars() {
 			'name' 					=> 'Left Sidebar',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'	=> '</div>',
-			'before_title'	=> '<h3 class="widgettitle">',
-			'after_title'		=> '</h3>'
+			'before_title'	=> '<h4 class="widgettitle">',
+			'after_title'		=> '</h4>'
 		)
 	);
 }
@@ -122,8 +124,8 @@ register_sidebar(
 		'id' => 'blurb_login',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>'
 	)
 );
 
@@ -133,8 +135,8 @@ register_sidebar(
 		'id' => 'blurb',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>'
 	)
 );
 
@@ -144,8 +146,8 @@ register_sidebar(
 		'id' => 'Joinus',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>'
 	)
 );
 
@@ -155,8 +157,8 @@ register_sidebar(
 		'id' => 'GroupDirectoryTout',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>'
 	)
 );
 
@@ -166,8 +168,8 @@ register_sidebar(
 		'id' => 'faqs',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>'
 	)
 );
 
@@ -177,8 +179,8 @@ register_sidebar(
 		'id' => 'sidebar-2',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>'
 	)
 );
 
@@ -188,8 +190,8 @@ register_sidebar(
 		'id' => 'sidebar-3',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>'
 	)
 );
 
@@ -199,8 +201,8 @@ register_sidebar(
 		'id' => 'sidebar-4',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>'
 	)
 );
 
