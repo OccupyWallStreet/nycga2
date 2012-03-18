@@ -48,10 +48,6 @@
 				<?endwhile;?>
 			</ul>
 		</div><!-- end .carrousel -->
-
-
-
-		<?php bp_dtheme_content_nav( 'nav-below' ); ?>
 		<?php else : ?>
 			<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
 			<p class="center"><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'buddypress' ) ?></p>
@@ -59,10 +55,49 @@
 		<?php endif; ?>
 	</div>
 
+
+			<div id="CommHub" class="clearfix">
+				<ul class="clearfix">
+				<?php if ( have_posts() ) : ?>
+				<?php
+					$query = 'category_name=commhub&posts_per_page=8';
+					$my_query = new WP_Query( $query );
+					$i = 0;
+			  	while ( $my_query->have_posts() ) : $my_query->the_post();
+					$i++;
+					$postCount = $my_query->post_count;
+				?>
+				<!-- check if the post has a Post Thumbnail assigned to it. Otherwise skip it. -->
+					<li class="post-tout grid_5 <?php if($i==1):?>alpha<?php elseif($i==$postCount):?>omega<?php endif;?>">
+						<?php $photoCredit = get_post_meta( $post->ID, 'photo_credit', true );?>
+	<!-- we should give attribution somehow but the featurebox isn't where, maybe a little caption -->
+						<div class="toutHeader">
+							<?php if ( has_post_thumbnail() ):?> 
+							<a class="imageWrapLink" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'grid4', array( 'class'=>'post-image') );?></a>
+							<?php endif;?>
+							
+							<div class="titleBlock">
+								<p class="small transBg"><?php the_date();?> by <a href="<?php the_author_link();?>"><?php the_author();?></a> <?php if( $photoCredit ):?>photo by <?php echo $photoCredit;?><?endif;?></p>
+								<h5 class="posttitle transBg"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h5>
+							</div>
+						</div>
+						<p>
+							<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>">
+							<?php the_excerpt();?>
+							</a>
+						</p>
+					</li><!-- end .post-content -->
+					<?php endwhile; ?>
+					<?php endif;?>
+				</ul><!-- end .gallery -->
+			</div><!-- end .carrousel -->
+
+
+
 	<?php do_action( 'bp_after_blog_home' ) ?>
 
 	</div><!-- #content -->
 
-	<?php get_sidebar() ?>
+	<?php get_sidebar(); ?>
+	<?php get_footer(); ?>
 
-<?php get_footer() ?>
