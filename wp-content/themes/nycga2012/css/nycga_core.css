@@ -1,6 +1,6 @@
 /*
 -----------------------------------------------------
-	Utilitiy Classes
+	Utilitiy Classes, and General 
 -----------------------------------------------------
 */
 
@@ -9,6 +9,46 @@
 .floatRight{ float: right; }
 .hidden, .hideme{ display: none; }
 .small{ font-size: .75em; }
+ol { list-style: decimal; }
+
+.transBg,
+.transBg,
+.transBg,
+.transBg{
+	padding: .25em 0;
+	text-indent: 6px;
+	background: url(../images/bgBlack70.png);
+}
+
+
+/*
+-----------------------------------------------------
+	Links
+-----------------------------------------------------
+*/
+
+p a { text-decoration:underline; color:#0af; }
+a:focus { outline: 1px dotted; }
+
+h2 a,
+h3 a,
+h3 a,
+h4 a,
+h5 a,
+.transBg a{
+	color: #fc0;
+	text-decoration: none;
+}
+
+h2 a:hover,
+h3 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+.transBg a:hover{
+	text-decoration: underline;
+}
+
 
 /*
 -----------------------------------------------------
@@ -68,15 +108,10 @@
 
 .carrousel li.post-content a{
 	text-decoration: none;
+}
+
+.carrousel li.post-content p a{
 	color: #eee;
-}
-
-.carrousel li.post-content h3 a{
-	color: #fc0;
-}
-
-.carrousel li.post-content h3 a:hover{
-	text-decoration: underline;
 }
 
 .carrousel ul.nav{
@@ -116,9 +151,38 @@
 }
 
 
+/*
+-----------------------------------------------------
+	Homepage Post-Touts
+-----------------------------------------------------
+*/
+
+.post-tout .toutHeader{
+	position: relative;
+	height: 120px;
+	background: #aaa;
+}
+
+.post-tout.grid_5 .toutHeader .imageWrapLink{
+	display: block;
+	position: absolute;
+	height: 120px;
+	width: 100%;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.post-tout.grid_5 .toutHeader .titleBlock{
+	position: absolute;
+	width: 100%;
+	top: 4.25em;
+	z-index: 12;
+	color: #fff;
+}
+
+
+
 /* -------------------------------------------------------- */
-
-
 
 
 .content ul{
@@ -274,18 +338,6 @@ dl dd{
 }
 
 /* -------------------------------------------------------------------------------------------------
-    Links
----------------------------------------------------------------------------------------------------- */
-
-a { text-decoration:underline; color:#0af; }
-a:focus { outline: 1px dotted; }
-
-/* -------------------------------------------------------------------------------------------------
-    Spacing
----------------------------------------------------------------------------------------------------- */
-ol { list-style: decimal; }
-
-/* -------------------------------------------------------------------------------------------------
 /* TipTip CSS - Version 1.2
 /* for usage http://code.drewwilson.com/entry/tiptip-jquery-plugin
 ---------------------------------------------------------------------------------------------------- */
@@ -390,6 +442,47 @@ ol { list-style: decimal; }
 	margin-left: -7px;
 	border-left-color: rgb(25,25,25);
 	border-left-color: rgba(25,25,25,0.92);
+}
+
+
+/*
+-----------------------------------------------------
+	Sidebar
+-----------------------------------------------------
+*/
+
+.groups-tout{
+	height: 56px;
+	background: url( '../images/tout_groupdirectory.jpg') 0 -2em;
+}
+
+.tout .toutLink{
+	display:block;
+	width: 100%;
+	height: 34px;
+	text-indent: -30000px;
+}
+
+.groups-tout h4{
+	padding: .5em 0;
+	text-align: center;
+}
+
+/*
+-----------------------------------------------------
+	My Groups Widget
+-----------------------------------------------------
+*/
+.my-groups-list .item-avatar{
+	display: block;
+	float: left;
+	margin-right: 1em;
+}
+
+.my-groups-list li{
+	padding: .25em;
+	background: #ededed;
+	margin-bottom: .125em !important;
 }
 
 /* Webkit Hacks  */
