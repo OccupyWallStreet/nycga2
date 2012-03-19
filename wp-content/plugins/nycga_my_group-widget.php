@@ -41,14 +41,10 @@ class NYCGA_My_Groups_Widget extends WP_Widget {
 			<ul class="my-groups-list item-list">
 				<?php while ( bp_groups() ) : bp_the_group(); ?>
 					<li class="clearfix">
-						<div class="item-avatar">
-							<a href="<?php bp_group_permalink() ?>"><?php bp_group_avatar_thumb() ?></a>
-						</div>
-
+						<a class="item-avatar" href="<?php bp_group_permalink() ?>"><?php bp_group_avatar('type=thumb&width=24&height=24') ?></a>
 						<div class="item">
 							<div class="item-title"><a href="<?php bp_group_permalink() ?>" title="<?php bp_group_name() ?>"><?php bp_group_name() ?></a></div>
-							<div class="item-meta"><span class="activity"><?php bp_group_member_count() ?></span></div>
-						</div>
+							</div>
 					</li>
 
 				<?php endwhile; ?>

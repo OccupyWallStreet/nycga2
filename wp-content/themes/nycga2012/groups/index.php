@@ -15,7 +15,7 @@
 
 	<?php /* locate_template( array( 'leftsidebar.php' ), true ) */ ?>
 
-	<div id="content" class="grid_19 clearFix">
+	<div id="content" class="grid_18 clearFix">
 		<form action="" method="post" id="groups-directory-form" class="dir-form">
 			<?php do_action( 'bp_before_directory_groups' ); ?>
 			<h3><?php _e( 'Groups Directory', 'buddypress' ); ?><?php if ( is_user_logged_in() && bp_user_can_create_groups() ) : ?> &nbsp;<a class="button" href="<?php echo trailingslashit( bp_get_root_domain() . '/' . bp_get_groups_root_slug() . '/create' ); ?>"><?php _e( 'Create a Group', 'buddypress' ); ?></a><?php endif; ?></h3>

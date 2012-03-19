@@ -35,7 +35,7 @@
 
 	<?php while ( bp_groups() ) : bp_the_group(); ?>
 
-		<li class="grid_6 gridbox shadow tipTipActuator">
+		<li class="group grid_4 gridbox shadow tipTipActuator">
 			<div class="padded">
 				<div class="item-avatar">
 					<a href="<?php bp_group_permalink(); ?>"><?php bp_group_avatar( 'type=thumb&width=42&height=42' ); ?></a>

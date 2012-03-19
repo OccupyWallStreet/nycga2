@@ -27,7 +27,7 @@ ol { list-style: decimal; }
 -----------------------------------------------------
 */
 
-p a { text-decoration:underline; color:#0af; }
+a { text-decoration:underline; color:#0af; }
 a:focus { outline: 1px dotted; }
 
 h2 a,
@@ -473,18 +473,32 @@ dl dd{
 	My Groups Widget
 -----------------------------------------------------
 */
+.widget_nycga_my_groups_widget{
+	margin-top: 1em;
+}
+
 .my-groups-list .item-avatar{
 	display: block;
 	float: left;
 	margin-right: 1em;
 }
 
+.my-groups-list .item-title a{
+	font-size: 15;
+	font-weight: 700;
+	text-decoration: none;
+}
+
 .my-groups-list li{
+	line-height: 2.125em;
 	padding: .25em;
 	background: #ededed;
 	margin-bottom: .125em !important;
 }
 
+.my-groups-list li:hover{
+	background:#222;
+}
 /* Webkit Hacks  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {	
 	#tiptip_content {
