@@ -1,0 +1,274 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Peters'login redirect v2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-06 08:48-0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Peter <peter@keung.biz>\n"
+"Language-Team: jibo.ro <contact@jibo.ro>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;esc_attr_e;esc_attr__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Romanian\n"
+"X-Poedit-Country: ROMANIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: wplogin_redirect.php:536
+msgid "Register"
+msgstr "Inregistrare"
+
+#: wplogin_redirect.php:540
+msgid "Site Admin"
+msgstr "Administrator site"
+
+#: wplogin_redirect.php:675
+msgid "ERROR: Non-local or invalid URL submitted for user "
+msgstr "EROARE: URL-ul trimis de utilizator este invalid sau nu este local"
+
+#: wplogin_redirect.php:685
+msgid "ERROR: Unknown error updating user-specific URL for user "
+msgstr "EROARE: Eroare necunoscuta la actualizarea URL-ului specific pentru utilizator"
+
+#: wplogin_redirect.php:694
+msgid "ERROR: Non-existent username submitted "
+msgstr "Eroare: A fost introdus un username inexistent"
+
+#: wplogin_redirect.php:707
+msgid "Successfully updated user-specific URLs"
+msgstr "URL-urile specifice utilizatorilor actualizate cu succes"
+
+#: wplogin_redirect.php:751
+msgid "ERROR: Non-local or invalid URL submitted for role "
+msgstr "EROARE: URL-ul trimis pentru rol este invalid sau nu este local"
+
+#: wplogin_redirect.php:760
+msgid "ERROR: Unknown error updating role-specific URL for role "
+msgstr "EROARE: Eroare necunoscuta la actualizarea URL-ului pentru rol"
+
+#: wplogin_redirect.php:769
+msgid "ERROR: Non-existent role submitted "
+msgstr "EROARE: Rolul introdus este inexistent"
+
+#: wplogin_redirect.php:782
+msgid "Successfully updated role-specific URLs"
+msgstr "URL-urile specifice rolurilor actualizate cu succes"
+
+#: wplogin_redirect.php:832
+msgid "ERROR: Non-local or invalid URL submitted for level "
+msgstr "EROARE: URL invalid sau extern trimis pentru nivel"
+
+#: wplogin_redirect.php:841
+msgid "ERROR: Unknown error updating level-specific URL for level "
+msgstr "EROARE: Eroare necunoscuta la actualizare URL pentru nivel"
+
+#: wplogin_redirect.php:850
+msgid "ERROR: Non-existent level submitted "
+msgstr "EROARE: Nivelul trimis este inexistent"
+
+#: wplogin_redirect.php:863
+msgid "Successfully updated level-specific URLs"
+msgstr "Nivelele specifice URL-urilor actualizate cu succes"
+
+#: wplogin_redirect.php:902
+msgid "ERROR: Unknown database problem removing URL for &#34;all other users&#34; "
+msgstr "EROARE: Eroare de baza de date necunoscuta la inlaturarea URL-urilor pentru &#34;toti utilizatorii&#34; "
+
+#: wplogin_redirect.php:906
+msgid "Successfully removed URL for &#34;all other users&#34; "
+msgstr "S-a inlaturat cu succes URL-ul pentru &#34;toti utilizatorii&#34; "
+
+#: wplogin_redirect.php:917
+#: wplogin_redirect.php:986
+msgid "ERROR: Non-local or invalid URL submitted "
+msgstr "EROARE: S-a trimis un URL inexistent sau nu este local"
+
+#: wplogin_redirect.php:930
+msgid "ERROR: Unknown database problem updating URL for &#34;all other users&#34; "
+msgstr "EROARE: Problema necunoscuta la actualizarea URL-ului in baza de date pentru &#34;toti utilizatorii&#34; "
+
+#: wplogin_redirect.php:934
+msgid "Successfully updated URL for &#34;all other users&#34;"
+msgstr "URL actualizat cu succes pentru &#34;toti ceilalti utilizatori&#34;"
+
+#: wplogin_redirect.php:973
+#, fuzzy
+msgid "ERROR: Unknown database problem removing URL for &#34;post-registration&#34; "
+msgstr "EROARE: Eroare de baza de date necunoscuta la inlaturarea URL-urilor pentru &#34;toti utilizatorii&#34; "
+
+#: wplogin_redirect.php:976
+#, fuzzy
+msgid "Successfully removed URL for &#34;post-registration&#34; "
+msgstr "S-a inlaturat cu succes URL-ul pentru &#34;toti utilizatorii&#34; "
+
+#: wplogin_redirect.php:999
+#, fuzzy
+msgid "ERROR: Unknown database problem updating URL for &#34;post-registration&#34; "
+msgstr "EROARE: Problema necunoscuta la actualizarea URL-ului in baza de date pentru &#34;toti utilizatorii&#34; "
+
+#: wplogin_redirect.php:1003
+#, fuzzy
+msgid "Successfully updated URL for &#34;post-registration&#34;"
+msgstr "URL actualizat cu succes pentru &#34;toti ceilalti utilizatori&#34;"
+
+#: wplogin_redirect.php:1029
+#, fuzzy
+msgid "Successfully updated plugin settings"
+msgstr "URL-urile specifice utilizatorilor actualizate cu succes"
+
+#: wplogin_redirect.php:1198
+#, fuzzy
+msgid "Manage redirect rules"
+msgstr "Modifica regulile de redirectionare a autentificarii"
+
+#: wplogin_redirect.php:1200
+#, fuzzy
+msgid "Define custom URLs to which different users, users with specific roles, users with specific levels, and all other users will be redirected upon login."
+msgstr "Specifica URL-uri locale diferite pentru care utilizatorii diferiti, utilizatorii cu roluri specifice, utilizatorii cu nivele specifice si toti ceilalti utilizatori vor fi redirectionati."
+
+#: wplogin_redirect.php:1201
+msgid "Define a custom URL to which all users will be redirected upon logout"
+msgstr ""
+
+#: wplogin_redirect.php:1202
+msgid "Note that you can use the syntax <strong>[variable]username[/variable]</strong> in your URLs so that the system will build a dynamic URL upon each login, replacing that text with the users username."
+msgstr "Tine minte ca poti folosi sintaxa <strong>[variable]username[/variable]</strong> in URL-urile tale pentru ca sistemul sa construiasca un URL dinamic dupa fiecare autentificare, schimband acel text cu numele utilizatorului."
+
+#: wplogin_redirect.php:1204
+msgid "Specific users"
+msgstr "Utilizatori specifici"
+
+#: wplogin_redirect.php:1208
+msgid "Username"
+msgstr "Username"
+
+#: wplogin_redirect.php:1209
+#: wplogin_redirect.php:1229
+#: wplogin_redirect.php:1250
+msgid "URL"
+msgstr "URL"
+
+#: wplogin_redirect.php:1214
+#: wplogin_redirect.php:1234
+#: wplogin_redirect.php:1255
+msgid "Add:"
+msgstr "Adauga:"
+
+#: wplogin_redirect.php:1216
+msgid "Select a username"
+msgstr "Selecteaza un username"
+
+#: wplogin_redirect.php:1219
+#: wplogin_redirect.php:1239
+#: wplogin_redirect.php:1261
+#: wplogin_redirect.php:1268
+#: wplogin_redirect.php:1277
+msgid "URL:"
+msgstr "URL:"
+
+#: wplogin_redirect.php:1221
+#: wplogin_redirect.php:1241
+#: wplogin_redirect.php:1263
+#: wplogin_redirect.php:1270
+#: wplogin_redirect.php:1278
+#: wplogin_redirect.php:1355
+msgid "Update"
+msgstr "Actualizeaza"
+
+#: wplogin_redirect.php:1224
+msgid "Specific roles"
+msgstr "Roluri specifice"
+
+#: wplogin_redirect.php:1228
+msgid "Role"
+msgstr "Rol"
+
+#: wplogin_redirect.php:1236
+msgid "Select a role"
+msgstr "Selecteaza un rol"
+
+#: wplogin_redirect.php:1244
+msgid "Specific levels"
+msgstr "Nivele specifice"
+
+#: wplogin_redirect.php:1248
+msgid "Level"
+msgstr "Nivel"
+
+#: wplogin_redirect.php:1249
+msgid "Order"
+msgstr "Ordoneaza"
+
+#: wplogin_redirect.php:1257
+msgid "Select a level"
+msgstr "Selecteaza un nivel"
+
+#: wplogin_redirect.php:1260
+msgid "Order:"
+msgstr "Ordine:"
+
+#: wplogin_redirect.php:1266
+msgid "All other users"
+msgstr "Toti utilizatorii ramasi"
+
+#: wplogin_redirect.php:1269
+msgid "Logout URL:"
+msgstr ""
+
+#: wplogin_redirect.php:1270
+#: wplogin_redirect.php:1278
+msgid "Delete"
+msgstr "Sterge"
+
+#: wplogin_redirect.php:1275
+msgid "Post-registration"
+msgstr ""
+
+#: wplogin_redirect.php:1283
+msgid "Customize plugin settings"
+msgstr ""
+
+#: wplogin_redirect.php:1288
+msgid "Redirect restrictions"
+msgstr ""
+
+#: wplogin_redirect.php:1292
+msgid "Any http or https URL"
+msgstr ""
+
+#: wplogin_redirect.php:1293
+#, fuzzy
+msgid "Any URL"
+msgstr "URL"
+
+#: wplogin_redirect.php:1294
+msgid "Any URL on the same domain"
+msgstr ""
+
+#: wplogin_redirect.php:1300
+msgid "Allow a POST or GET &#34;redirect_to&#34; variable to take redirect precedence"
+msgstr ""
+
+#: wplogin_redirect.php:1304
+#: wplogin_redirect.php:1315
+#: wplogin_redirect.php:1327
+msgid "Yes"
+msgstr ""
+
+#: wplogin_redirect.php:1305
+#: wplogin_redirect.php:1316
+#: wplogin_redirect.php:1328
+msgid "No"
+msgstr ""
+
+#: wplogin_redirect.php:1311
+msgid "Allow a POST or GET &#34;redirect_to&#34; logout variable to take redirect precedence"
+msgstr ""
+
+#: wplogin_redirect.php:1334
+msgid "Permission level required to edit redirect URLs"
+msgstr ""
+
