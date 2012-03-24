@@ -129,6 +129,7 @@ Tags: buddypress, three-column, multi-site
 
 #sidebar-me{
 	/* user chip */
+	margin-bottom: 2em;
 	padding:0.5em !important;
 }
 
@@ -174,6 +175,31 @@ Tags: buddypress, three-column, multi-site
 .widget_em_widget ul li .location a{
 	text-decoration: none;
 }
+
+/*
+--------------------------------------------------------------
+ Footer
+--------------------------------------------------------------
+*/
+
+#footer {}
+
+#footer .widget { margin-bottom:1em; }
+
+#footer li { margin-bottom:.5em; }
+
+#footer .widget-area {
+	display:inline;
+	float: left;
+	position: relative;
+	margin-left: 5px;
+	margin-right: 4px;
+	width:237px;
+}
+
+#footer .menu .sub-menu { margin-top:.5em; padding-left:.5em; }
+
+#site-generator { clear:both; }
 
 /*
 --------------------------------------------------------------
