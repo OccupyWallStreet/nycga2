@@ -15,7 +15,6 @@ Tags: buddypress, three-column, multi-site
 @import url('css/type.css');
 @import url('css/events.css');
 
-
 /*
 --------------------------------------------------------------
  Header
@@ -50,8 +49,45 @@ Tags: buddypress, three-column, multi-site
 }
 
 #groups-list .group{
-	border-top: 1px #333 solid;
+	border-top: 1px #aaa solid;
+	width: 173px !important;
+	height: 12em;
 }
+
+#groups-list .group .padded{
+	height: 11em;
+	position: relative;
+}
+
+#groups-list .group .padded .action{
+	position: absolute;
+	left: .5em;
+	bottom: .5em;
+}
+
+#groups-list .group div.group-button,
+#groups-list .group .meta div{
+	border-radius: 6px;
+	padding: .25em .5em;
+	margin: 0 1em 2px 0;
+}
+
+#groups-list .group div.group-button{
+	background: #000 !important;
+	color:#fc0;	
+}
+
+#groups-list .group div.group-button a{
+	color:#fff;
+	text-decoration: none;
+}
+#groups-list .group .meta div{
+	background: #dedede;
+	padding: .125em .25em;
+	color:#222;
+	float: left;
+}
+
 
 .gtags-top-cloud{
 	display: none;
