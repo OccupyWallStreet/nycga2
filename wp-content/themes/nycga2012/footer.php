@@ -6,7 +6,6 @@
 		<div id="footer" class="container_24">
 			
 			<?php if ( is_active_sidebar( 'first-footer-widget-area' ) || is_active_sidebar( 'second-footer-widget-area' ) || is_active_sidebar( 'third-footer-widget-area' ) || is_active_sidebar( 'fourth-footer-widget-area' ) ) : ?>
-				<h3>
 				<div id="footer-widgets">
 					<?php get_sidebar( 'footer' ) ?>
 				</div>
@@ -17,7 +16,7 @@
 				<p><?php printf( __( 'Proudly powered by <a href="%1$s">WordPress</a> and <a href="%2$s">BuddyPress</a>.', 'buddypress' ), 'http://wordpress.org', 'http://buddypress.org' ) ?></p>
 			</div>
 
-			<?php do_action( 'bp_footer' ) ?>
+			<?php do_action( 'bp_footer', 'clear' ) ?>
 		</div><!-- #footer -->
 
 		<?php do_action( 'bp_after_footer' ) ?>
