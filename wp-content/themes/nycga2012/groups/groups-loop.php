@@ -85,6 +85,6 @@
 -->
 
 <script type="text/javascript">
-nycga.ui.addToolTips();
+nycga.ui.addToolTips('#groups-list');
 </script>
 <?php do_action( 'bp_after_groups_loop' ); ?>
