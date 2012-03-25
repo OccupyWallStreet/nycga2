@@ -279,43 +279,7 @@ h5 a:hover,
 }
 
 .gridbox p{
-	padding: 2em 0 0 0;
-}
-
-/* a little emphasis */
-.gridbox p.intro{
-	font-size: 1.25em;
-	line-height: 1.2;
-	color: #333;
-}
-
-.gridbox ul{
-	margin-top: 2em;
-	list-style: none;
-	list-style-position: inside;
-}
-
-.gridbox ul.listing li{
-	margin: 0 2em 0 1em;
-	padding: 1em 0;
-	border-bottom: 1px #dedede solid;
-}
-
-.gridbox table{
-	margin-top: 2em;
-}
-
-.gridbox th{
-	text-align: left;
-	font-weight: normal;
-	padding: 1em 0 .5em .4em;
-	border-top: 1px #000 solid;
-}
-
-.gridbox td{
-	padding: .5em;
-	border: 1px #fff solid;
-	background: #eee;
+	padding: 0 0 2em 0;
 }
 
 dl{
@@ -369,13 +333,13 @@ dl dd{
 
 #tiptip_content {
 	/* tamerpered with from original 11px no leading specified */
-	font-size: 12px;
+	font-size: 14px;
 	line-height: 1.5;
 	/* end tampering */
 	color: #fff;
 	text-shadow: 0 0 2px #000;
-	padding: .5em .75em;
-	border: 1px solid rgba(255,255,255,0.25);
+	padding: .75em 1em;
+	
 	background-color: rgb(25,25,25);
 	background-color: rgba(25,25,25,0.92);
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), to(#000));
@@ -444,6 +408,19 @@ dl dd{
 	border-left-color: rgba(25,25,25,0.92);
 }
 
+/* Webkit Hacks  */
+@media screen and (-webkit-min-device-pixel-ratio:0) {	
+	#tiptip_content {
+		padding: 4px 8px 5px 8px;
+		background-color: rgba(45,45,45,0.88);
+	}
+	#tiptip_holder.tip_bottom #tiptip_arrow_inner { 
+		border-bottom-color: rgba(45,45,45,0.88);
+	}
+	#tiptip_holder.tip_top #tiptip_arrow_inner { 
+		border-top-color: rgba(20,20,20,0.92);
+	}
+}
 
 /*
 -----------------------------------------------------
@@ -498,17 +475,4 @@ dl dd{
 
 .my-groups-list li:hover{
 	background:#222;
-}
-/* Webkit Hacks  */
-@media screen and (-webkit-min-device-pixel-ratio:0) {	
-	#tiptip_content {
-		padding: 4px 8px 5px 8px;
-		background-color: rgba(45,45,45,0.88);
-	}
-	#tiptip_holder.tip_bottom #tiptip_arrow_inner { 
-		border-bottom-color: rgba(45,45,45,0.88);
-	}
-	#tiptip_holder.tip_top #tiptip_arrow_inner { 
-		border-top-color: rgba(20,20,20,0.92);
-	}
 }
