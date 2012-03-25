@@ -7,9 +7,6 @@ jQuery(document).ready(function() {
 	// shadows.each( function( i, element ){
 	// 	nycga.ui.addDropShadow( element );
 	// });
-
-	// show a tooltip for each element with the '.hoverMenu' class
-	// code.drewwilson.com/entry/tiptip-jquery-plugin
 	
 	var galleryElement = jQuery(document).find('#homapgeFeatures ul.gallery');
 	if( galleryElement ){
