@@ -1,0 +1,126 @@
+/* Reset */
+#admincp span, #admincp applet, #admincp object, #admincp iframe,
+#admincp h1, #admincp h2, #admincp h3, #admincp h4, #admincp h5, #admincp h6, #admincp p, #admincp blockquote, 
+#admincp a, #admincp abbr, #admincp acronym, #admincp address, #admincp big, #admincp cite, #admincp code,
+#admincp del, #admincp dfn, #admincp font, #admincp img, #admincp ins, #admincp kbd, #admincp q, #admincp s, #admincp samp,
+#admincp small, #admincp strike, #admincp strong, #admincp tt, #admincp var, #admincp fieldset,
+#admincp dl, #admincp dt, #admincp dd, #admincp ol, #admincp ul, #admincp li,
+#admincp form, #admincp label, #admincp legend,
+#admincp table,#admincp  caption, #admincp tbody, #admincp tfoot, #admincp thead, #admincp tr, #admincp th, #admincp td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+#admincp pre, #admincp sub, #admincp sup, #admincp em { margin: 0; padding: 0; border: 0; outline: 0; }
+
+:focus { outline: 0; }
+.clearfix { clear: both; }
+
+/* Admin CP Style */
+#admincp ol, #admincp ul { list-style: none; }
+#wrapper { text-align: left; width: 960px; margin: 20px 0 0 5px; position: relative; }
+#panel-wrap { float: left; position: relative; width: 707px; margin-bottom: 20px; border: 1px solid #e6e6e6; }
+#admincp-wrapper { background: #f5f5f5; width: 707px; float: left; }
+#admincp { background: #f5f5f5; width: 707px; font-family: Arial, sans-serif; float: left; padding-bottom: 5px; }
+#admincp a { text-decoration: none; }
+#admincp-sidebar { width: 174px; float: left; }
+#admincp-logo { background: url(../images/logo.png) no-repeat; width: 300px; height: 32px; line-height: 32px; margin: 30px 0 0 14px; padding-left: 40px; font-family: Georgia; font-size: 20px; color: #555; text-shadow: 0 1px 1px #fff; }
+#admincp-content ul#admincp-mainmenu { float: left; position: absolute; left: -178px; top: 0px; border-top: 1px solid #e6e6e6; }
+#admincp-content ul#admincp-mainmenu li { padding-bottom: 0px; padding-right: 0px; float: none; }
+#admincp-content ul#admincp-mainmenu li.ui-tabs-selected { background:#fff; padding-bottom: 0px; }
+#admincp-content ul#admincp-mainmenu li a { color: #666; border-bottom: 1px solid #e6e6e6; display: block; height: 36px; width: 140px; padding: 0px 0px 0px 38px; line-height: 36px; position: relative; font-size: 12px; font-weight: bold; }
+#admincp-content ul#admincp-mainmenu li.ui-tabs-selected a { color: #369; display: block; height: 36px; width: 140px; padding: 0px 0px 0px 38px; line-height: 36px; }
+#admincp-content ul#admincp-mainmenu li.ui-tabs-selected a img {  }
+#admincp-content ul#admincp-mainmenu li a img { position: absolute; top: 10px; left: 13px; }
+#admincp-content-wrap { background: #fff; width: 529px; min-height: 500px; float: left; display: inline; margin: 30px 0px 0px 177px; position: relative; border-top: 1px solid #e9e9e9; border-left: 1px solid #e9e9e9; }
+#admincp-content { position: relative; }
+#admincp-content div.content-div { margin-top: -1px; position: relative; padding: 25px 0px 25px 25px; }
+#admincp-content ul.idTabs { background: #f5f5f5 url(../images/bg-submenu.gif) left center; position: absolute; top: -31px; right: 20px; border: 1px solid #e6e6e6; border-bottom: none; border-right: none; }
+#admincp-content ul.idTabs li { float: left; color: #666; border-right: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6; }
+#admincp-content ul.idTabs li a { font-size: 12px; color: #555; padding-left: 8px; display: block; line-height: 30px; }
+#admincp-content ul.idTabs li a span { background: url('../images/bullet-submenu.png') no-repeat 5px center; padding-left: 18px; }
+#admincp-content ul.idTabs li { padding-right: 22px; }
+#admincp-content ul.idTabs li.ui-tabs-selected { background: #fff; border-bottom: 1px solid #fff; }
+#admincp-content ul.idTabs li.ui-tabs-selected a { color: #369; }
+
+/* #admincp-content .tab-content { position: relative; } */
+#admincp-content .admincp-box { width: 480px; background: #ffffff; margin-bottom: 18px; }
+#admincp .admincp-box div.box-title { border-bottom: 1px solid #e6e6e6; background: #fff; padding: 10px 0px 10px 0px; height: 18px; width: 463px; float: left; }
+#admincp .admincp-box-small-1 div.box-title, #admincp .admincp-box-small-2 div.box-title { width: 463px; }
+#admincp .admincp-box div.box-title h3 { color: #444; font-weight: bold; font-size: 12px; float: left; width: 90%; }
+#admincp .admincp-box-small-1 div.box-title h3, #admincp .admincp-box-small-2 div.box-title h3 { width: 403px; }
+#admincp-content .admincp-box img.box-description { float: right; margin: -1px 0px 0px 0px; }
+#admincp-content .admincp-box .box-content { padding: 22px 17px 22px 0px; clear: both; }
+#admincp-content .admincp-box input, #admincp-content .admincp-box select, .admincp-box textarea { border: 1px solid #e6e6e6; background: #fefefe; padding: 10px 15px; font-size: 15px; color: #646464; width: 461px; -moz-border-radius: 0px; font-family: Arial, sans-serif; }
+#admincp-content .admincp-box select { width: 461px; height: 40px; }
+#admincp-content .admincp-box textarea { height: 145px; }
+#admincp-content .admincp-box input.usual-checkbox { border: none; background: none; padding: 0px; width: 15px; }
+#admincp-content .admincp-box p.inputs { margin-bottom: 5px; }
+#admincp-bottom { background: #f5f5f5; width: 707px; height: 62px; float: left; margin-top: -5px; margin-bottom: 0px; border-top: 1px solid #e6e6e6; }
+#admincp-save, #admincp-reset { text-indent: -9999px; border: none; cursor: pointer; }
+#admincp-save { background: url('../images/save.png') no-repeat; width: 80px; height: 40px; float: right; margin: 10px 19px 10px 0px; }
+.defaults-hover { display: none; position: absolute; background: #fdfdcd; width: 222px; height: 105px; font-size: 11px; padding: 15px; line-height: 18px; top: -330px; left:400px; border: 1px solid #f0f0f0; }
+.defaults-button { cursor: pointer; float: right; margin-right: 10px; margin: 10px 10px 10px 0px; }
+#admincp-reset { background: url('../images/yes.png') no-repeat; width: 50px; height: 28px; float: right; margin: 5px 6px 0px 0px; }
+.no { float: right; cursor: pointer; margin: 5px 1px 0px 0px; }
+.box-desc { position: fixed; top: 30%; left: 25%; width: 394px; z-index: 10000; overflow: auto; font-family: Arial, sans-serif; }
+.box-desc-top { background: #fff; width: 394px; height: 0px; }
+.box-desc-content { background: #fff; display: block; padding: 15px 15px 20px 15px; color: #858585; font-size: 12px; line-height: 23px; position: relative; }
+.box-desc-content h3 { color: #369; font-size: 18px; line-height: 25px; margin: 0px 0px 15px; width: 320px; font-weight: normal; }
+.box-desc-content p { margin: 0px; line-height: 23px; }
+.box-desc-content .lightboxclose { position: absolute; top: 15px; right: 10px; }
+.box-desc-bottom { background: #fff; width: 394px; height: 0px; }
+.ui-tabs-hide, .box-descr { display: none; }
+div.shadow { position: fixed; top: 0%; left: 0%; width: 100%; height: 100%; background-color: black; z-index: 9500; }
+.box-description, .lightboxclose { cursor: pointer; }
+
+/* admincp css changes */
+/* #admincp-content .admincp-box { clear: both; } */
+#admincp-content .admincp-box-small-1, #admincp-content .admincp-box-small-2 { width: 463px; clear: none; }
+#admincp-content .admincp-box-small-1 { margin-right: 22px; }
+
+/* additions for jquery checkbox */
+.jquery-checkbox { cursor: pointer; }
+.jquery-checkbox img { vertical-align: middle; width: 150px; height: 18px; background: transparent url(../images/checkbox.gif) no-repeat; margin-left: 0px !important; }
+.jquery-checkbox img { background-position: -150px 0px; }
+.jquery-checkbox-checked img { background-position: 0px 0px; }
+#admincp p.inputs { width: 133px; float: left; margin: 0px 15px 15px 0px; }
+#admincp p.inputs.last { margin: 0px 0px 8px 0px; }
+#admincp p.inputs .jquery-checkbox img { vertical-align: middle; width: 23px; height: 19px; background: transparent url(../images/checkbox-2.gif) no-repeat; margin-right: 3px; margin-left: 0px !important; }
+#admincp p.inputs .jquery-checkbox img { background-position: 0px 0px; }
+#admincp p.inputs .jquery-checkbox-checked img { background-position: -26px 0px; }
+#admincp p.inputs.different .jquery-checkbox img { background-position: -26px 0; }
+#admincp p.inputs.different .jquery-checkbox-checked img { background-position: 0px 0; }
+#admincp p.inputs  span.jquery-checkbox { float: left; }
+#admincp p.inputs label { vertical-align: middle; font-size: 12px; float: left; width: 105px; margin-bottom: 15px; }
+#admincp-content div.content-div .inner-content { padding: 0px 25px 0px 0px; }
+#admincp-content div.content-div .inner-content .boldtext { color: #333; font-size: 12px; font-weight: bold; }
+#admincp-content div.content-div .inner-content .indent { margin-bottom: 15px; margin-top: 6px; padding-left: 27px; }
+#admincp-content div.content-div .inner-content p { padding: 10px 0px; color: #444; font-family: Arial,Helvetica,sans-serif; font-size: 12px; line-height: 22px; }
+#admincp-content div.content-div .inner-content strong { font-weight: bold; font-style: italic; }
+#admincp-content div.content-div .inner-content ol li { margin: 0 0 5px 20px; list-style: decimal outside; } 
+
+/* Navigation Tabs */
+.navigationTabs { height: 23px; line-height: 23px; border-bottom: 1px solid #ccc; }
+.navigationTabs li { float: left; height: 23px; line-height: 23px; padding-right: 3px; }
+.navigationTabs li a { float: left; display: block; height: 23px; line-height: 23px; padding: 0 10px; overflow: hidden; color: #52697E; background-color: #eee; position: relative; text-decoration: none; }
+.navigationTabs li a:hover { background-color: #f0f0f0; }
+.navigationTabs li a.active { background-color: #fff; border: 1px solid #ccc; border-bottom: 0px solid; }
+.tabsContent { border: 1px solid #ccc; border-top: 0px solid; width: 698px; overflow: hidden; }
+.tab { padding: 16px; display: none; }
+.tab h2 { font-weight: bold; font-size: 16px; }
+.tab h3 { font-weight: bold; font-size: 14px; margin-top: 20px; }
+.tab p { margin-top: 16px; clear: both; }
+.tab ul { margin-top: 16px; list-style: disc; }
+.tab li { margin: 10px 0 0 35px; }
+.tab a { color: #8FB0CF; }
+.tab strong { font-weight: bold; }
+.tab pre { font-size: 11px; margin-top: 20px; width: 668px; overflow: auto; clear: both; }
+.tab table { width: 100%; }
+.tab table td { padding: 6px 10px 6px 0; vertical-align: top; }
+.tab dt { margin-top: 16px; }
+
+/* Ajax Saving */
+div#admincp-ajax-saving { position: fixed; top: 35%; left: 30%; padding: 20px 30px 20px 24px; background: #ffffff; overflow: hidden; border: 1px solid #eeeeee; -webkit-box-shadow: 2px 2px 5px #888; -moz-box-shadow: 2px 2px 5px #888; display: none; width: 140px; }
+div#admincp-ajax-saving img { float: left; }
+div#admincp-ajax-saving span { font-size: 20px; color: #c6c6c6; letter-spacing: -1px; margin: 6px 0px 0px 30px; float: right; }
+.upload_buttons { float: right; }
+#admincp-content .admincp-box .upload_image_button, #admincp-content .admincp-box .upload_image_reset { color: #000000; float: left; font-size: 11px; font-weight: bold; margin-top: 10px; padding: 4px; width: 100px; cursor: pointer; }
+#admincp-content .admincp-box .upload_image_reset { margin-right: 7px; background: url("../images/bg-input-top.png") repeat-x scroll 0 0 #FFFFFF; border: 1px solid #e6e6e6; padding: 3px 7px 3px 8px; width: 33px; color: #666666; }
+#admincp-content .admincp-box .upload_image_reset:hover { color: #111111; }
