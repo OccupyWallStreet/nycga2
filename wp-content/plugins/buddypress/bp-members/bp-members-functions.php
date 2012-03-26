@@ -445,11 +445,11 @@ add_filter( 'bp_core_get_user_displayname', 'stripslashes'  );
  * @package BuddyPress Core
  * @param $email str The email address for the user.
  * @uses bp_core_get_userlink() BuddyPress function to get a userlink by user ID.
- * @uses get_user_by_email() WordPress function to get userdata via an email address
+ * @uses get_user_by() WordPress function to get userdata via an email address
  * @return str The link to the users home base. False on no match.
  */
 function bp_core_get_userlink_by_email( $email ) {
-	$user = get_user_by_email( $email );
+	$user = get_user_by( 'email', $email );
 	return apply_filters( 'bp_core_get_userlink_by_email', bp_core_get_userlink( $user->ID, false, false, true ) );
 }
 
@@ -657,14 +657,14 @@ add_action( 'pre_user_login', 'bp_core_strip_username_spaces' );
  * @package BuddyPress Core
  * @param $auth_obj The WP authorization object
  * @param $username The username of the user logging in.
- * @uses get_userdatabylogin() Get the userdata object for a user based on their username
+ * @uses get_user_by() Get the userdata object for a user based on their username
  * @uses bp_core_redirect() Safe redirect to a page
  * @return $auth_obj If the user is not a spammer, return the authorization object
  */
 function bp_core_boot_spammer( $auth_obj, $username ) {
 	global $bp;
 
-	if ( !$user = get_userdatabylogin( $username ) )
+	if ( !$user = get_user_by( 'login',  $username ) )
 		return $auth_obj;
 
 	if ( ( is_multisite() && (int)$user->spam ) || 1 == (int)$user->user_status )

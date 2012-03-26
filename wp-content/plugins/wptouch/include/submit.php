@@ -251,6 +251,12 @@ if ( isset( $_POST['submit'] ) ) {
 	} else {
 		$a['wptouch-language'] = "auto";	
 	}
+	
+	if ( isset( $_POST['ad_service'] ) ) {
+		$a['ad_service'] = $_POST['ad_service'];
+	} else {
+		$a['ad_service'] = 'none';	
+	}	
 
 	foreach ($_POST as $k => $v) {
 		if ($k == 'enable_main_title') {

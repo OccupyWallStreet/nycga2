@@ -2,7 +2,7 @@
 /**
  * Class for working with PO files
  *
- * @version $Id: po.php 589 2010-12-18 01:40:57Z nbachiyski $
+ * @version $Id: po.php 123 2009-05-13 19:35:43Z nbachiyski $
  * @package pomo
  * @subpackage po
  */
@@ -16,10 +16,8 @@ ini_set('auto_detect_line_endings', 1);
 /**
  * Routines for working with PO files
  */
-if ( !class_exists( 'PO' ) ):
 class PO extends Gettext_Translations {
 	
-	var $comments_before_headers = '';
 
 	/**
 	 * Exports headers to a PO entry
@@ -32,11 +30,7 @@ class PO extends Gettext_Translations {
 			$header_string.= "$header: $value\n";
 		}
 		$poified = PO::poify($header_string);
-		if ($this->comments_before_headers)
-			$before_headers = $this->prepend_each_line(rtrim($this->comments_before_headers)."\n", '# ');
-		else
-			$before_headers = '';
-		return rtrim("{$before_headers}msgid \"\"\nmsgstr $poified");
+		return rtrim("msgid \"\"\nmsgstr $poified");
 	}
 
 	/**
@@ -79,15 +73,6 @@ class PO extends Gettext_Translations {
 		$res = fwrite($fh, $export);
 		if (false === $res) return false;
 		return fclose($fh);
-	}
-	
-	/**
-	 * Text to include as a comment before the start of the PO contents
-	 * 
-	 * Doesn't need to include # in the beginning of lines, these are added automatically
-	 */
-	function set_comment_before_headers( $text ) {
-		$this->comments_before_headers = $text;
 	}
 
 	/**
@@ -331,9 +316,7 @@ class PO extends Gettext_Translations {
 				return false;
 			}
 		}
-		if (array() == array_filter($entry->translations, create_function('$t', 'return $t || "0" === $t;'))) {
-			$entry->translations = array();
-		}
+		if (array() == array_filter($entry->translations)) $entry->translations = array();
 		return array('entry' => $entry, 'lineno' => $lineno);
 	}
 	
@@ -374,4 +357,4 @@ class PO extends Gettext_Translations {
 		return $s;
 	}
 }
-endif;
+?>

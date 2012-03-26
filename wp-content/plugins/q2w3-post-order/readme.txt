@@ -2,8 +2,8 @@
 Contributors: Max Bond, AndreSC 
 Tags: q2w3, astickypostorderer, post order, order, posts, category, tag, custom taxonomy, custom post type archive, english 
 Requires at least: 3.1
-Tested up to: 3.2.1
-Stable tag: 1.1.0
+Tested up to: 3.3.0
+Stable tag: 1.2.1
 
 Lets you manipulate the order in which posts are displayed. Requires WP 3.1 or higher!
 
@@ -74,6 +74,14 @@ Q2W3 Plugins:
 * [Q2W3 Screen Options Hack Demo](http://wordpress.org/extend/plugins/q2w3-screen-options-hack-demo/)
 
 == Changelog ==
+
+= 1.2.1 =
+* Fixed bug with 404 page on sites with non standard db_prefix
+* Checked compatibility with WordPress 3.3 RC3
+
+= 1.2.0 =
+* Added debug mode.
+* Added option which allows Editors to access plugin settings page.
 
 = 1.1.0 =
 * Added ability to stylize ordered posts.

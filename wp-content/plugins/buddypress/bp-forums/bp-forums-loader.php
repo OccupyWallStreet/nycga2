@@ -47,15 +47,8 @@ class BP_Forums_Component extends BP_Component {
 			define( 'BP_FORUMS_SLUG', $this->id );
 
 		// The location of the bbPress stand-alone config file
-		if ( isset( $bp->site_options['bb-config-location'] ) ) {
-			if ( false === strpos( $bp->site_options['bb-config-location'] , 'bb-config.php' ) ) {
-				if ( '/' != substr( $bp->site_options['bb-config-location'] , -1, 1 ) )
-					$bp->site_options['bb-config-location']  .= '/';
-
-				$bp->site_options['bb-config-location'] .= 'bb-config.php';
-			}
+		if ( isset( $bp->site_options['bb-config-location'] ) )
 			$this->bbconfig = $bp->site_options['bb-config-location'];
-		}
 
 		// All globals for messaging component.
 		// Note that global_tables is included in this array.
@@ -205,6 +198,7 @@ class BP_Forums_Component extends BP_Component {
 			// Topics
 			$wp_admin_nav[] = array(
 				'parent' => 'my-account-' . $this->id,
+				'id'     => 'my-account-' . $this->id . '-topics-started',
 				'title'  => __( 'Topics Started', 'buddypress' ),
 				'href'   => trailingslashit( $forums_link . 'topics' )
 			);
@@ -212,6 +206,7 @@ class BP_Forums_Component extends BP_Component {
 			// Replies
 			$wp_admin_nav[] = array(
 				'parent' => 'my-account-' . $this->id,
+				'id'     => 'my-account-' . $this->id . '-replies',
 				'title'  => __( 'Replies', 'buddypress' ),
 				'href'   => trailingslashit( $forums_link . 'replies' )
 			);
@@ -219,6 +214,7 @@ class BP_Forums_Component extends BP_Component {
 			// Favorites
 			$wp_admin_nav[] = array(
 				'parent' => 'my-account-' . $this->id,
+				'id'     => 'my-account-' . $this->id . '-favorite-topics',
 				'title'  => __( 'Favorite Topics', 'buddypress' ),
 				'href'   => trailingslashit( $forums_link . 'favorites' )
 			);

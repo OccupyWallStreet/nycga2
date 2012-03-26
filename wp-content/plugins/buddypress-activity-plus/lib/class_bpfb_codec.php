@@ -61,6 +61,7 @@ class BpfbCodec {
 		$activity_id = bp_get_activity_id();
 		global $blog_id;
 		$activity_blog_id = $blog_id;
+		$use_thickbox = defined('BPFB_USE_THICKBOX') ? esc_attr(BPFB_USE_THICKBOX) : 'thickbox';
 		if ($activity_id) {
 			$activity_blog_id = bp_activity_get_meta($activity_id, 'bpfb_blog_id');
 		}

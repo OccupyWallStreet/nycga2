@@ -67,27 +67,7 @@ $count = 1 + $s ;
   $idlist .= " or group_id = $groupid0 ";
   
   
-   
-
-  //$output .= "$count.  $eventname.   $startdate . Time.. $startime . to . $endtime .  Location. $locationname . at $locationaddress.    " ;
-  //$count++ ;
-
-
-
-  
   }
-  
-  //echo "(group_id = 9999 $idlist)";
-  
-  
-  
-  //$badchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é", '"');
-  //$replacechars = array(" and ", " ", " and ", " and ", " and ", " and ", "o", "e", "");
-  //$output2 = str_replace($badchars, $replacechars, $output);
-  //$cleantext = preg_replace('/[^(\x20-\x7F)]*/','', $output2);
-  
-  
-  //echo $cleantext;
    
   
 // Build SQL Query  
@@ -121,9 +101,10 @@ $count = 1 + $s ;
   $locationname = $row["LocationName"];
   $locationaddress = $row["LocationAddress"];
   $groupname = $row["GroupName"];
+
   
 
-  $output .= "$count.  $groupname, $eventname.  Time. $startime . to . $endtime  .  Location. $locationname . at . $locationaddress.    " ;
+  $output .= " . $count.  $groupname, $eventname.  Time. $startime . to . $endtime  .  Location. $locationname . at . $locationaddress.    " ;
   $count++ ;
   
   

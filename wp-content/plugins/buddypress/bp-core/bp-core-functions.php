@@ -1000,15 +1000,18 @@ function bp_core_get_root_options() {
 
 	$root_blog_option_keys  = array_keys( $root_blog_options );
 	$blog_options_keys      = "'" . join( "', '", (array) $root_blog_option_keys ) . "'";
-	$blog_options_query     = $wpdb->prepare( "SELECT option_name AS name, option_value AS value FROM {$wpdb->options} WHERE option_name IN ( {$blog_options_keys} )" );
+	$blog_options_table	= bp_is_multiblog_mode() ? $wpdb->options : $wpdb->get_blog_prefix( bp_get_root_blog_id() ) . 'options';
+
+	$blog_options_query     = $wpdb->prepare( "SELECT option_name AS name, option_value AS value FROM {$blog_options_table} WHERE option_name IN ( {$blog_options_keys} )" );
 	$root_blog_options_meta = $wpdb->get_results( $blog_options_query );
 
 	// On Multisite installations, some options must always be fetched from sitemeta
 	if ( is_multisite() ) {
 		$network_options = apply_filters( 'bp_core_network_options', array(
-			'tags_blog_id'    => '0',
-			'registration'    => '0',
-			'fileupload_maxk' => '1500'
+			'tags_blog_id'       => '0',
+			'sitewide_tags_blog' => '',
+			'registration'       => '0',
+			'fileupload_maxk'    => '1500'
 		) );
 
 		$current_site           = get_current_site();

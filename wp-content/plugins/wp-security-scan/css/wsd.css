@@ -63,31 +63,31 @@ p.wsd-error-summary a:hover, .wsd-inside a:hover {
 /********************************************************
  * BEGIN >> Login form styling
 */
-#wsd_login_form {
+#wsdss_login_form {
 	margin: 0px;
 }
 
-#wsd_login_form .wsd-login-section {
+#wsdss_login_form .wsd-login-section {
 	display: block;
 	float: left;
 	width: 100%;
 	margin-bottom: 5px;
 }
 
-#wsd_login_form .wsd-login-section label {
+#wsdss_login_form .wsd-login-section label {
 	display: block;
 	float: left;
 	width: 70px;
 	padding-top: 6px;
 }
 
-#wsd_login_form .wsd-login-section input {
+#wsdss_login_form .wsd-login-section input {
 	display: block;
 	width: 200px;
 	float: left;
 }
 
-#wsd_login_form #wsd-login {
+#wsdss_login_form #wsd-login {
 	clear: left;
 	margin-left: 70px;
 }
@@ -278,7 +278,7 @@ span.wsd-target-status-section-disabled {
 .wsd_info_list {
     list-style-type: disc;
     list-style-position: outside;
-    margin: 0 0 10px 25px; 
+    margin: 0 0 10px 25px;
 }
 div.wsd_user_information, div.wsd_user_notify, div.wsd_user_success { margin: 1em 0 !important; }
 
@@ -323,7 +323,34 @@ div.wsd_user_information, div.wsd_user_notify, div.wsd_user_success { margin: 1e
 
 .wsd_cursor_help { cursor: help; border-bottom: dotted 1px #000; }
 
+.wswdwp-tooltip {
+    cursor: pointer;
+    margin-left: 15px;
+    color: #21759B;
+}
 
-
-
-
+#tt {
+ position:absolute;
+ display:block;
+ }
+ #tttop {
+ display:block;
+ height:5px;
+ margin-left:5px;
+ background:url("../images/tooltips/tt_top.gif") top right no-repeat;
+ overflow:hidden;
+ }
+ #ttcont {
+ display:block;
+ padding:2px 12px 3px 12px;
+ margin-left:5px;
+ background:#666;
+ color:#fff;
+ }
+#ttbot {
+display:block;
+height:5px;
+margin-left:5px;
+background:url("../images/tooltips/tt_bottom.gif") top right no-repeat;
+overflow:hidden;
+}

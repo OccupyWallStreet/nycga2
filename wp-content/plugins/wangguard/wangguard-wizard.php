@@ -77,7 +77,7 @@ jQuery(document).ready(function() {
 					if ($userCount == 0) {?>
 						<p><?php echo __( "No spam users were found on your site. Click the button below to check your users." , "wangguard") ?></p>
 						<input type="hidden" name="wangguard_step" value="2" />
-						<p class="submit"><input type="submit" name="submit" value="<?php _e('Continue', 'wangguard'); ?>" /></p>
+						<p class="submit"><input type="submit" name="submit" class="button-primary" value="<?php _e('Continue', 'wangguard'); ?>" /></p>
 						<?php
 					}
 					else {?>
@@ -123,7 +123,7 @@ jQuery(document).ready(function() {
 				else {?>
 					<p><?php echo __( "The WangGuard wizard has finished reporting spam users. Click the button below to check the rest of your users." , "wangguard") ?></p>
 					<input type="hidden" name="wangguard_step" value="2" />
-					<p class="submit"><input type="submit" name="submit" value="<?php _e('Continue', 'wangguard'); ?>" /></p>
+					<p class="submit"><input type="submit" name="submit" class="button-primary" value="<?php _e('Continue', 'wangguard'); ?>" /></p>
 				<?php }	?>
 
 			</div>
@@ -255,7 +255,7 @@ jQuery(document).ready(function() {
 
 					<div id="wangguard-visible-step-status">
 						<p><input type="checkbox" value="1" name="wangguard_delete_splogguers" id="wangguard_delete_splogguers" /> <label for="wangguard_delete_splogguers"><?php echo __( "Delete the users marked as Sploggers from my site." , "wangguard") ?></label</p>
-						<p class="submit"><input type="submit" name="submit" value="<?php _e('Finish', 'wangguard'); ?>" /></p>
+						<p class="submit"><input type="submit" name="submit" class="button-primary" value="<?php _e('Finish', 'wangguard'); ?>" /></p>
 					</div>
 
 					<div id="wangguard-hidden-step-status" style="display: none">
@@ -390,14 +390,14 @@ jQuery(document).ready(function() {
 				$valid = wangguard_verify_key($wangguard_api_key);
 				if (($valid == 'failed') || ($valid == 'invalid')) {
 					?>
-					<p style="padding: .5em; background-color: #d22; color: #fff; font-weight: bold;"><?php echo __('Your WangGuard API KEY is invalid.', 'wangguard'); ?></p>
+					<p class="wangguard-info wangguard-error" style="margin-right: 20px;"><?php echo __('Your WangGuard API KEY is invalid.', 'wangguard'); ?></p>
 					<?php
 				}
 				else {
 					?>
 					<p><?php echo __( "Click the button below when you're ready to clean your site!." , "wangguard") ?></p>
 					<input type="hidden" name="wangguard_step" value="1" />
-					<p class="submit"><input type="submit" name="submit" value="<?php _e('Start cleaning my site!', 'wangguard'); ?>" /></p>
+					<p class="submit"><input type="submit" name="submit" class="button-primary" value="<?php _e('Start cleaning my site!', 'wangguard'); ?>" /></p>
 					<?php
 				}
 				?>

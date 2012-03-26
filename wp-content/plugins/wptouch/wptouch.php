@@ -2,7 +2,7 @@
 /*
 Plugin Name: WPtouch
 Plugin URI: http://wordpress.org/extend/plugins/wptouch/
-Version: 1.9.35
+Version: 1.9.37
 Description: A plugin which formats your site with a mobile theme for visitors on Apple <a href="http://www.apple.com/iphone/">iPhone</a> / <a href="http://www.apple.com/ipodtouch/">iPod touch</a>, <a href="http://www.android.com/">Google Android</a>, <a href="http://www.blackberry.com/">Blackberry Storm and Torch</a>, <a href="http://www.palm.com/us/products/phones/pre/">Palm Pre</a> and other touch-based smartphones.
 Author: BraveNewCode Inc.
 Author URI: http://www.bravenewcode.com
@@ -28,7 +28,7 @@ License: GNU General Public License 2.0 (GPL) http://www.gnu.org/licenses/gpl.ht
 load_plugin_textdomain( 'wptouch', false, dirname( plugin_basename( __FILE__ ) ) );
 
 global $bnc_wptouch_version;
-$bnc_wptouch_version = '1.9.35';
+$bnc_wptouch_version = '1.9.37';
 
 require_once( 'include/plugin.php' );
 require_once( 'include/compat.php' );
@@ -86,7 +86,8 @@ $wptouch_defaults = array(
 	'enable-flat-icon' => false,
 	'wptouch-language' => 'auto',
 	'enable-twenty-eleven-footer' => 0,
-	'enable-fixed-header' => false
+	'enable-fixed-header' => false,
+	'ad_service' => 'adsense'
 );
 
 function wptouch_get_plugin_dir_name() {
@@ -152,14 +153,37 @@ function wptouch_init() {
 	}
 }
 
-function wptouch_include_adsense() {
+function wptouch_include_ads() {
 	global $wptouch_plugin;
 	$settings = bnc_wptouch_get_settings();
-	if ( bnc_is_iphone() && $wptouch_plugin->desired_view == 'mobile' && isset( $settings['adsense-id'] ) && strlen( $settings['adsense-id'] ) && is_single() ) {
-		global $wptouch_settings;
-		$wptouch_settings = $settings;
-		
-		include( 'include/adsense-new.php' );
+	
+	// Check to make sure it's on a mobile site
+	if ( bnc_is_iphone() && $wptouch_plugin->desired_view == 'mobile' ) {
+		// Check which type of advertising the user has selected
+		switch ( $settings['ad_service'] ) {
+			case 'adsense':
+				if ( isset( $settings['adsense-id'] ) && strlen( $settings['adsense-id'] ) && is_single() ) {
+					global $wptouch_settings;
+					$wptouch_settings = $settings;
+					
+					include( 'include/adsense-new.php' );
+				}				
+				break;
+			case 'appstores':
+				break;
+			default:
+				break;
+		}
+	}
+}
+
+function wptouch_header_advertising() {
+	$settings = bnc_wptouch_get_settings();
+
+	if ( bnc_is_iphone() && $wptouch_plugin->desired_view == 'mobile' ) {
+		if ( is_single() && !is_page() && ( $settings['ad_service'] == 'appstores' ) ) {
+			echo '<script src="http://wptouch.appstores.com/widgets/161/wIframe/MzhfYmlzdHJv/mobile/stars?widget_attrs[style]=single_app" type="text/javascript" charset="utf-8"></script>';
+		}
 	}
 }
 
@@ -347,6 +371,7 @@ class WPtouchPlugin {
 		add_filter( 'parse_request', array( &$this, 'wptouch_parse_request' ) );
 		add_action( 'comment_post', array( &$this, 'wptouch_handle_new_comment' ) );
 		add_action( 'user_register', array( &$this, 'wptouch_handle_new_user' ) );
+		add_action( 'wptouch_core_header_enqueue', 'wptouch_header_advertising' );
 		
 		$this->detectAppleMobile();
 	}
@@ -583,8 +608,7 @@ class WPtouchPlugin {
 			if ( preg_match( "#$useragent#i", $container ) || file_exists( $devfile ) ) {
 				$this->applemobile = true;
 				break;
-			} 	
-			
+			}
 		}
 
 		if ( $this->applemobile && !file_exists( $devfile ) ) {
@@ -803,7 +827,7 @@ function bnc_is_flat_icon_enabled() {
 
 function bnc_is_login_button_enabled() {
 	$ids = bnc_wp_touch_get_menu_pages();
-	if (get_option( 'comment_registration' ) || get_option( 'users_can_register' ) ||  $ids['enable-login-button'] ) {
+	if ( ( get_option( 'comment_registration' ) || get_option( 'users_can_register' ) ) && $ids['enable-login-button'] ) {
 		return true;
 	} else {
 		return false;
@@ -1034,10 +1058,10 @@ function bnc_wp_touch_page() {
 		<?php require_once( 'html/advanced-area.php' ); ?>
 		<?php require_once( 'html/push-area.php' ); ?>
 		<?php require_once( 'html/style-area.php' ); ?>
+		<?php require_once( 'html/ads-stats-area.php' ); ?>
 		<?php require_once( 'html/icon-area.php' ); ?>
 		<?php require_once( 'html/page-area.php' ); ?>
-		<?php require_once( 'html/ads-stats-area.php' ); ?>
-		<?php require_once( 'html/plugin-compat-area.php' ); ?>		
+		<?php // require_once( 'html/plugin-compat-area.php' ); ?>		
 		<input type="hidden" name="wptouch-nonce" value="<?php echo wp_create_nonce( 'wptouch-nonce' ); ?>" />
 		<input type="submit" name="submit" value="<?php _e('Save Options', 'wptouch' ); ?>" id="bnc-button" class="button-primary" />
 	</form>

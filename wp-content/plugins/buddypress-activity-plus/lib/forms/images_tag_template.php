@@ -12,7 +12,7 @@
 			bpfb_get_image_url($activity_blog_id) . $img
 		;
 		?>
-		<a href="<?php echo bpfb_get_image_url($activity_blog_id) . $img; ?>" class="thickbox" rel="<?php echo $rel;?>">
+		<a href="<?php echo bpfb_get_image_url($activity_blog_id) . $img; ?>" class="<?php echo $use_thickbox; ?>" rel="<?php echo $rel;?>">
 			<img src="<?php echo $thumbnail;?>" />
 		</a>
 	<?php } ?>

@@ -4,6 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: security, encryption, ssl, shared ssl, private ssl, public ssl, private ssl, http, https
 Requires at least: 2.7.0
 Tested up to: 3.3
+Stable tag: 2.0.3
 
 WordPress HTTPS is intended to be an all-in-one solution to using SSL on WordPress sites.
 
@@ -17,30 +18,25 @@ WordPress HTTPS is intended to be an all-in-one solution to using SSL on WordPre
 
 If you're having partially encrypted/mixed content errors or other problems, please read the <a href="http://wordpress.org/extend/plugins/wordpress-https/faq/">FAQ</a>. If you're still having trouble, please <a href="http://wordpress.org/tags/wordpress-https#postform">start a support topic</a> and I will do my best to assist you.
 
-= Known Issues =
-When using a subdomain as the SSL Host, logged in cookies are not properly deleted upon logging out.
-
 == Installation ==
-
 1. Upload the `wordpress-https` folder to the `/wp-content/plugins/` directory.
 1. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Frequently Asked Questions ==
-
 = How do I make my whole website secure? =
-
 To make your entire website secure, you simply need to change your home url and site url to use HTTPS instead of HTTP. Please read <a href="http://codex.wordpress.org/Changing_The_Site_URL" target="_blank">how to change the site url</a>.
 
 = How do I make only certain pages secure? =
-
 In the Publish box on the add/edit post screen, a checkbox for 'Force SSL' has been added to make this process easy. See Screenshots if you're having a hard time finding it.
 
-= I'm getting 404 errors on all of my pages. Why? =
+= I changed my SSL Host and now I can't get into my admin panel! =
+Go to your wp-config.php file and add this line. Hit any page on your site, and then remove it.
+`define('WPHTTPS_RESET', true);`
 
+= I'm getting 404 errors on all of my pages. Why? =
 If you're using a public/shared SSL, try disabling your custom permalink structure. Some public/shared SSL's have issues with WordPress' permalinks because of the way they are configured.
 
 = How do I fix partially encrypted/mixed content errors? =
-
 To identify what is causing your page(s) to be insecure, please follow the instructions below.
 <ol>
  <li>Download <a href="http://www.google.com/chrome" target="_blank">Google Chrome</a>.</li>
@@ -61,25 +57,32 @@ Most insecure content warnings can generally be resolved by changing absolute re
 = Is there a hook or filter to force pages to be secure? =
 
 Yes! Here is an example of how to use the 'force_ssl' hook to force a page to be secure.
-<code>
-function custom_force_ssl( $force_ssl, $post_id ) {
+`function custom_force_ssl( $force_ssl, $post_id ) {
 	if ( $post_id == 5 ) {
 		return true
 	}
 	return $force_ssl;
 }
 
-add_filter('force_ssl' , 'custom_force_ssl', 10, 2);
-</code>
+add_filter('force_ssl' , 'custom_force_ssl', 10, 2);`
 
 == Screenshots ==
 1. WordPress HTTPS Settings screen
 2. Force SSL checkbox added to add/edit posts screen
 
 == Changelog ==
-
+= 2.0.4 =
+* Bug Fix - Users using Shared SSL should no longer have broken URL's and redirects.
+* Bug Fix - Pages should correctly be identified as HTTPS if PHP returns an IP address for HTTP_HOST in $_SERVER.
+* Bug Fix - Users using the default permalink structure should now have URL's being properly changed to/from HTTPS.
+= 2.0.3 =
+* Force SSL Admin will always be enabled when FORCE_SSL_ADMIN is true in wp-config.php.
+* Bug Fix - Users using Shared SSL should no longer have issues with the SSL Host path duplicating in URL's.
+* Bug Fix - The plugin should now function properly when using a subdomain as the SSL Host.
+* Bug Fix - Page and post links will only be forced to HTTPS when using a different SSL Host that is not a subdomain of your Home URL.
+* Bug Fix - WordPress HTTPS should no longer generate erroneous notices and warnings in apache error logs. (If I missed any, let me know)
 = 2.0.2 =
-* Bug Fix - SSL Host option was not being saved correctly upon subsiquent saves. This was causing redirect loops for most users.
+* Bug Fix - SSL Host option was not being saved correctly upon subsequent saves. This was causing redirect loops for most users.
 = 2.0.1 =
 * Ensured that deprected options are removed from a WordPress installation when activating the plugin.
 * Added a button to the WordPress HTTPS settings page to reset all plugin settings and cache.
