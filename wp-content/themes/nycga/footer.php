@@ -14,9 +14,9 @@
 				<?php do_action( 'bp_dtheme_credits' ) ?>
 				<p>
 					<?php printf( __( 'Created in <a href="%1$s">WordPress</a> and <a href="%2$s">BuddyPress</a> by <a href="%3$s">#OccupyWallStreet Tech Ops</a>.', 'buddypress' ), 'http://wordpress.org', 'http://buddypress.org', 'http://nycga.net/groups/tech') ?>
-					<?php printf("You can't copyright a movement") ?>
+					<?php printf( __( 'You <a href="%1$s">can\'t copyright</a> a movement' ), 'https://github.com/OccupyWallStreet/nycga2') ?>
 					<?php printf("</br>") ?>
-					<?php printf( __( '<a href="%1$s">Privacy Policy</a> | <a href="%2$s">Terms Of Use</a> | <a href="%3$s">Dispute Resolution</a>'), 'http://www.nycga.net/groups/tech/docs/privacy-policy-for-nyc-general-assembly-digital-properties', 'http://www.nycga.net/groups/tech/docs/terms-and-conditions-of-use-policy-for-nyc-general-assembly-digital-properties', 'http://www.nycga.net/groups/tech/docs/dispute-resolutions-policy-for-nyc-general-assembly-digital-properties') ?>
+					<?php printf( __( '<a href="%1$s">Privacy Policy</a> | <a href="%2$s">Terms of Use</a> | <a href="%3$s">Dispute Resolution</a>'), '/privacy-policy/', '/terms-and-conditions-of-use-policy/', '/dispute-resolutions-policy/') ?>
 				</p>
 			</div>
 
