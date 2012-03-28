@@ -16,7 +16,7 @@ mysql_connect(constant("DB_HOST"),constant("DB_USER"),constant("DB_PASSWORD")); 
 
 //specify database ** EDIT REQUIRED HERE **
 mysql_select_db(constant("DB_NAME")) or die("Unable to select database"); //select which database we're using
-mysql_query("set time_zone = '-5:00'");
+//mysql_query("set time_zone = '-5:00'");
 
 // Build SQL Query  
 $query = "SELECT wp_em_events.event_name, DATE_FORMAT(wp_em_events.event_start_time,'%l:%i%p') as StartTime, DATE_FORMAT(wp_em_events.event_end_time,'%l:%i%p') as EndTime, DATE_FORMAT(wp_em_events.event_start_date,'%W %M %D') as StartDate, wp_em_events.location_id, wp_em_locations.location_name as LocationName, wp_em_locations.location_address as LocationAddress, wp_em_events.group_id, wp_bp_groups.name as GroupName, wp_em_categories.category_name as CategoryName " .
@@ -103,11 +103,17 @@ $gacount = 1 + $s ;
   $groupname = $row["GroupName"];
 
 // text for ga or spokes time
-  echo " . $eventname starts at . $startime at $locationaddress ." ;
+  $output .= " . $eventname starts at . $startime at $locationaddress ." ;
   $gacount++ ;
   }
 
-  
+  $badchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é", '"');
+  $replacechars = array(" and ", " ", " and ", " and ", " and ", " and ", "o", "e", "");
+  $output2 = str_replace($badchars, $replacechars, $output);
+  $output3 = preg_replace('/[^(\x20-\x7F)]*/','', $output2);
+  $cleantext = substr($output3,0,2400);
+
+  echo $cleantext;
   
   if ($ganumrows < 1) {
   
@@ -143,12 +149,19 @@ $gacount2 = 1 + $s ;
   $groupname = $row["GroupName"];
 
 // text for ga or spokes time
-  echo " . Tomorrows . $eventname starts at . $startime at $locationaddress ." ;
+  $output .= " . Tomorrows . $eventname starts at . $startime at $locationaddress ." ;
   $gacount2++ ;
   }
 
   
+  $badchars = array(">", "<", "&amp;", "/", "&", "\\","ó", "é", '"');
+  $replacechars = array(" and ", " ", " and ", " and ", " and ", " and ", "o", "e", "");
+  $output2 = str_replace($badchars, $replacechars, $output);
+  $output3 = preg_replace('/[^(\x20-\x7F)]*/','', $output2);
+  $cleantext = substr($output3,0,2400);
+
   
+  echo $cleantext;
   
   
   

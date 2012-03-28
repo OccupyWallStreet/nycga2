@@ -3,8 +3,21 @@
  * Change Database table Prefix
  */
 ?>
-<br/><br/>
+<br/>
 <h2 class="wpss_icon">Change database table prefix</h2>
+<br/>
+<div class="metabox-holder">
+    <?php
+    /*
+     * CHANGE DATABASE PREFIX TOOL
+     * ================================================================
+     */
+    ?>
+    <div class="postbox">
+        <h3 class="hndle"><span><?php echo __('Change Database Prefix');?></span></h3>
+        <div class="inside">
+
+
 
 <?php
     // Holds the error/info messages generated on form postback
@@ -13,7 +26,7 @@
     // Check if user has enough rights to alter the Table structure
     $wsd_userDbRights = wsd_getDbUserRights();
     $showPage = false; // assume we don't have ALTER rights
-    if ($wsd_userDbRights['rightsEnough']) {
+    if (! empty($wsd_userDbRights['rightsEnough'])) {
         $showPage = true;
         $canAlter = '<span style="color: #060; font-weight: 900;">(Yes)</span>';
     }
@@ -22,6 +35,7 @@
 <p>Change your database table prefix to mitigate zero-day SQL Injection attacks.</p>
 <p><strong>Before running this script:</strong>
 <ul class="wsd_info_list">
+    <li>Make a backup of your database.</li>
     <li>The <strong title="<?php echo ABSPATH.'wp-config.php'; ?>" class="wsd_cursor_help">wp-config.php</strong> file must be set to writable before running this script. <span style="color: #060; font-weight: 900;">(Yes)</span></li>
     <li>The database user you're using with WordPress must have <strong>ALTER</strong> rights. <?php echo $canAlter;?></li>
 </ul>
@@ -31,7 +45,7 @@
  */
 if ( ! $showPage )
 {
-    echo wsd_eInfo('The User: <strong>'.DB_USER.'</strong> used to access the database server must have <strong>ALTER</strong> rights in order to perform this action!');
+    echo wsd_eInfo('The User which is used to access your Wordpress Database must have <strong>ALTER</strong> rights in order to perform this action!');
 
     // Stop here, no need to load the rest of the page
     return;
@@ -50,6 +64,13 @@ echo wsd_eInfo($infoMessage,'information');
 
 
 <?php
+
+    if (function_exists('wp_create_nonce')){
+        $wsdwpssnonce = wp_create_nonce();
+    }
+    else {$wsdwpssnonce = '';}
+
+
 /*
  * VALIDATE FORM
  */
@@ -57,24 +78,29 @@ echo wsd_eInfo($infoMessage,'information');
     {
         $wsd_isPostBack = true;
 
-        check_admin_referer('prefix-changer-change_prefix');
+        if (function_exists('check_admin_referer')) {
+            check_admin_referer('wsdwpss-db-change-prefix');
+            $_nonce = $_POST['_wsdwpss_chp_wpnonce'];
+            if (empty($_nonce) || ($_nonce <> $wsdwpssnonce)){
+                wp_die("Invalid request!");
+            }
+        }
 
         $wpdb =& $GLOBALS['wpdb'];
-        $new_prefix = preg_replace("[^0-9a-zA-Z_]", "", $_POST['newPrefixInput']);
+        $new_prefix = preg_replace("/[^0-9a-zA-Z_]/", "", $_POST['newPrefixInput']);
         if (empty($wsd_userDbRights['rightsEnough'])) {
             $wsd_Message .= wsd_eInfo('The User which is used to access your Wordpress Database, hasn\'t enough rights (is missing the ALTER right) to alter the Table structure.
                 <br/>Please visit the <a href="http://www.websitedefender.com/category/faq/" target=_blank">WebsiteDefender WP Security Scan WordPress plugin documentation</a> website for more information.
                 <br/>If the user <code>has ALTER rights</code> and the tool is still not working, please <a href="http://www.websitedefender.com/support/" target="_blank">contact us</a> for assistance!');
         }
-        if (!empty($wsd_userDbRights['rightsTooMuch'])) {
-            $wsd_Message .= wsd_eInfo('Your currently used User to access the Wordpress Database, holds too many rights.'.
-                '<br/>We suggest that you limit his rights or to use another User with more limited rights instead, to increase your Security.','information');
-        }
+//        if (!empty($wsd_userDbRights['rightsTooMuch'])) {
+//            $wsd_Message .= wsd_eInfo('The database user used to access the WordPress Database has too many rights. Limit the user\'s rights to increase your Website\'s Security','information');
+//        }
         if (strlen($new_prefix) < strlen($_POST['newPrefixInput'])){
-            $wsd_Message .= wsd_eInfo('You used some characters disallowed in Table names. The sanitized prefix will be used instead: '. $new_prefix,'information');
+            $wsd_Message .= wsd_eInfo('You used some characters disallowed for the table prefix. The sanitized version will be used instead: <strong>'. $new_prefix.'</strong>','information');
         }
         if ($new_prefix == $old_prefix) {
-            $wsd_Message .= wsd_eInfo('No change! Please select a new table prefix value.');
+            $wsd_Message .= wsd_eInfo('No change! Please provide a new table prefix.');
         }
         else
         {
@@ -89,10 +115,10 @@ echo wsd_eInfo($infoMessage,'information');
                 $result = wsd_renameTables($tables, $old_prefix, $new_prefix);
 
                 // check for errors
-                if (!empty($result)) 
+                if (!empty($result))
                 {
                     $wsd_Message .= wsd_eInfo('All tables have been successfully updated!','success');
-                    
+
                     // try to rename the fields
                     $wsd_Message .= wsd_renameDbFields($old_prefix, $new_prefix);
 
@@ -120,16 +146,16 @@ echo wsd_eInfo($infoMessage,'information');
 
 <br/>
 <form action="#cdtp" method="post" name="prefixchanging">
-    <?php
-    if (function_exists('wp_nonce_field')) {
-        wp_nonce_field('prefix-changer-change_prefix');
-    }
-    ?>
-     <p>Change the current:
+	<?php if (function_exists('wp_nonce_field')) {
+        echo '<input type="hidden" name="_wsdwpss_chp_wpnonce" value="'.$wsdwpssnonce.'" />';
+        wp_nonce_field('wsdwpss-db-change-prefix');
+        }
+        ?>
+     <p><?php echo __('Change the current:');?>
          <input type="text" name="newPrefixInput" value="<?php echo $new_prefix;?>" size="20" maxlength="15"/>
-         table prefix to something different.</p>
-     <p>Allowed characters: all latin alphanumeric as well as the <strong>_</strong> (underscore).</p>
-    <input type="submit" name="changePrefixButton" value="Start Renaming" />
+         <?php echo __('table prefix to something different.');?></p>
+     <p><?php echo __('Allowed characters: all latin alphanumeric as well as the <strong>_</strong> (underscore).');?></p>
+    <input type="submit" class="button-primary" name="changePrefixButton" value="<?php echo __('Start Renaming');?>" />
 </form>
 
 <div id="cdtp">
@@ -140,4 +166,8 @@ echo wsd_eInfo($infoMessage,'information');
             echo $wsd_Message;
         }
     ?>
+</div>
+
+        </div>
+    </div>
 </div>

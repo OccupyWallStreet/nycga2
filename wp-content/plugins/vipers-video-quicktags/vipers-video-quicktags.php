@@ -5,7 +5,7 @@
 Plugin Name:  Viper's Video Quicktags
 Plugin URI:   http://www.viper007bond.com/wordpress-plugins/vipers-video-quicktags/
 Description:  Easily embed videos from various video websites such as YouTube, DailyMotion, and Vimeo into your posts.
-Version:      6.3.2
+Version:      6.3.4
 Author:       Viper007Bond
 Author URI:   http://www.viper007bond.com/
 
@@ -55,7 +55,7 @@ http://downloads.wordpress.org/plugin/vipers-video-quicktags.5.4.4.zip
 **************************************************************************/
 
 class VipersVideoQuicktags {
-	var $version = '6.3.2';
+	var $version = '6.3.4';
 	var $settings = array();
 	var $defaultsettings = array();
 	var $swfobjects = array();
@@ -381,6 +381,7 @@ class VipersVideoQuicktags {
 				// Adding buttons to the HTML editor in WordPress 3.3+
 				if ( version_compare( $wp_version, '3.3', '>=' ) ) {
 					add_action( 'admin_footer-post.php', array( &$this, 'quicktag_buttons' ) );
+					add_action( 'admin_footer-post-new.php', array( &$this, 'quicktag_buttons' ) );
 				}
 			}
 		}
@@ -783,12 +784,19 @@ class VipersVideoQuicktags {
 
 		// Make the "Dimensions" bar adjust the dialog box height
 		jQuery("#vvq-dialog-slide-header").click(function(){
+			var slide = jQuery('#vvq-dialog-slide');
+
 			if ( jQuery(this).hasClass("selected") ) {
 				jQuery(this).removeClass("selected");
-				jQuery(this).parents(".ui-dialog").animate({ height: VVQDialogHeight });
+				jQuery(this).parents(".ui-dialog").animate({ height: VVQDialogHeight }, function(){
+					if ( !slide.hasClass('hidden') )
+						slide.hide();
+				});
 			} else {
 				jQuery(this).addClass("selected");
 				jQuery(this).parents(".ui-dialog").animate({ height: VVQDialogMaxHeight });
+				if ( !slide.hasClass('hidden') )
+					slide.show();
 			}
 		});
 
@@ -822,9 +830,7 @@ class VipersVideoQuicktags {
 		if ( 1 != $this->settings[$id]['button'] )
 			continue;
 
-		$wrapperfunc = "VVQButton_$id";
-		echo "\tfunction $wrapperfunc() { VVQButtonClick( '$id' ); }\n";
-		echo "\tQTags.addButton( 'vvq_$id', '" . esc_attr( $details[0] ) . "', $wrapperfunc, false, false, '" . esc_attr( $details[1] ) . "' );\n";
+		echo "\tQTags.addButton( 'vvq_$id', '" . esc_attr( $details[0] ) . "', function(){VVQButtonClick( '$id' );}, false, false, '" . esc_attr( $details[1] ) . "' );\n";
 	}
 ?>
 // ]]>
@@ -3031,7 +3037,7 @@ class VipersVideoQuicktags {
 
 		$this->swfobjects[$objectid] = array( 'width' => $atts['width'], 'height' => $atts['height'], 'url' => 'http://www.dailymotion.com/swf/' . $videoid . '&colors=' . $backgroundcolor . $glowcolor . $foregroundcolor . $seekbarcolor . '&autoPlay=' . $autoplay . '&related=' . $related );
 
-		return '<span class="vvqbox vvqdailymotion" style="width:' . $atts['width'] . 'px;height:' . $atts['height'] . 'px;"><span id="' . $objectid . '"><a href="http://www.dailymotion.com/video' . $videoid . '">http://www.dailymotion.com/video' . $videoid . '</a></span></span>';
+		return '<span class="vvqbox vvqdailymotion" style="width:' . $atts['width'] . 'px;height:' . $atts['height'] . 'px;"><span id="' . $objectid . '"><a href="http://www.dailymotion.com/video/' . $videoid . '">http://www.dailymotion.com/video/' . $videoid . '</a></span></span>';
 	}
 
 

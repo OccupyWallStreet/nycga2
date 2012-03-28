@@ -27,7 +27,7 @@
 			keepAlive: false,
 			maxWidth: "200px",
 			edgeOffset: 3,
-			defaultPosition: "bottom",
+			defaultPosition: "top",
 			tipContentSelector: ".tipTipContent",
 			delay: 400,
 			fadeIn: 200,

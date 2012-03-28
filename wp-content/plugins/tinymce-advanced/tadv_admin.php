@@ -114,39 +114,64 @@ if ( empty($toolbar_1) && empty($toolbar_2) && empty($toolbar_3) && empty($toolb
 	$allbtns = array_merge( $toolbar_1, $toolbar_2, $toolbar_3, $toolbar_4 );
 }
 
-if ( in_array('advhr', $allbtns) ) $plugins[] = 'advhr';
-if ( in_array('insertlayer', $allbtns) ) $plugins[] = 'layer';
-if ( in_array('visualchars', $allbtns) ) $plugins[] = 'visualchars';
+if ( in_array('advhr', $allbtns, true) )
+	$plugins[] = 'advhr';
 
-if ( in_array('nonbreaking', $allbtns) ) $plugins[] = 'nonbreaking';
-if ( in_array('styleprops', $allbtns) ) $plugins[] = 'style';
-if ( in_array('emotions', $allbtns) ) $plugins[] = 'emotions';
-if ( in_array('insertdate', $allbtns) ||
-	in_array('inserttime', $allbtns) ) $plugins[] = 'insertdatetime';
+if ( in_array('insertlayer', $allbtns, true) )
+	$plugins[] = 'layer';
 
-if ( in_array('tablecontrols', $allbtns) ) $plugins[] = 'table';
-if ( in_array('print', $allbtns) ) $plugins[] = 'print';
-if ( in_array('iespell', $allbtns) ) $plugins[] = 'iespell';
-if ( in_array('search', $allbtns) ||
-	in_array('replace', $allbtns) ) $plugins[] = 'searchreplace';
+if ( in_array('visualchars', $allbtns, true) )
+	$plugins[] = 'visualchars';
 
-if ( in_array('cite', $allbtns) ||
-	in_array('ins', $allbtns) ||
-	in_array('del', $allbtns) ||
-	in_array('abbr', $allbtns) ||
-	in_array('acronym', $allbtns) ||
-	in_array('attribs', $allbtns) ) $plugins[] = 'xhtmlxtras';
+if ( in_array('nonbreaking', $allbtns, true) )
+	$plugins[] = 'nonbreaking';
 
-if ( $tadv_options['advlink1'] == '1' ) $plugins[] = 'advlink';
-if ( $tadv_options['advlist'] == '1' ) $plugins[] = 'advlist';
-if ( $tadv_options['advimage'] == '1' ) $plugins[] = 'advimage';
-if ( $tadv_options['contextmenu'] == '1' ) $plugins[] = 'contextmenu';
+if ( in_array('styleprops', $allbtns, true) )
+	$plugins[] = 'style';
+
+if ( in_array('emotions', $allbtns, true) )
+	$plugins[] = 'emotions';
+
+if ( in_array('insertdate', $allbtns, true) || in_array('inserttime', $allbtns, true) )
+	$plugins[] = 'insertdatetime';
+
+if ( in_array('tablecontrols', $allbtns, true) )
+	$plugins[] = 'table';
+
+if ( in_array('print', $allbtns, true) )
+	$plugins[] = 'print';
+
+if ( in_array('iespell', $allbtns, true) )
+	$plugins[] = 'iespell';
+
+if ( in_array('search', $allbtns, true) || in_array('replace', $allbtns, true) )
+	$plugins[] = 'searchreplace';
+
+if ( in_array('cite', $allbtns, true) || in_array('ins', $allbtns, true) ||
+	in_array('del', $allbtns, true) || in_array('abbr', $allbtns, true) ||
+	in_array('acronym', $allbtns, true) || in_array('attribs', $allbtns, true) )
+		$plugins[] = 'xhtmlxtras';
+
+if ( isset($tadv_options['advlink1']) && $tadv_options['advlink1'] )
+	$plugins[] = 'advlink';
+
+if ( isset($tadv_options['advlist']) && $tadv_options['advlist'] )
+	$plugins[] = 'advlist';
+
+if ( isset($tadv_options['advimage']) && $tadv_options['advimage'] )
+	$plugins[] = 'advimage';
+
+if ( isset($tadv_options['contextmenu']) && $tadv_options['contextmenu'] )
+	$plugins[] = 'contextmenu';
 
 $buttons = array( 'Horizontal rule' => 'hr', 'Hide next row' => 'wp_adv', 'Quote' => 'blockquote', 'Bold' => 'bold', 'Italic' => 'italic', 'Strikethrough' => 'strikethrough', 'Underline' => 'underline', 'Bullet List' => 'bullist', 'Numbered List' => 'numlist', 'Outdent' => 'outdent', 'Indent' => 'indent', 'Allign Left' => 'justifyleft', 'Center' => 'justifycenter', 'Alligh Right' => 'justifyright', 'Justify' => 'justifyfull', 'Cut' => 'cut', 'Copy' => 'copy', 'Paste' => 'paste', 'Link' => 'link', 'Remove Link' => 'unlink', 'Insert Image' => 'image', 'More Tag' => 'wp_more', 'Split Page' => 'wp_page', 'Search' => 'search', 'Replace' => 'replace', '<!--fontselect-->' => 'fontselect', '<!--fontsizeselect-->' => 'fontsizeselect', 'Help' => 'wp_help', 'Full Screen' => 'fullscreen', '<!--styleselect-->' => 'styleselect', '<!--formatselect-->' => 'formatselect', 'Text Color' => 'forecolor', 'Back Color' => 'backcolor', 'Paste as Text' => 'pastetext', 'Paste from Word' => 'pasteword', 'Remove Format' => 'removeformat', 'Clean Code' => 'cleanup', 'Check Spelling' => 'spellchecker', 'Character Map' => 'charmap', 'Print' => 'print', 'Undo' => 'undo', 'Redo' => 'redo', 'Table' => 'tablecontrols', 'Citation' => 'cite', 'Inserted Text' => 'ins', 'Deleted Text' => 'del', 'Abbreviation' => 'abbr', 'Acronym' => 'acronym', 'XHTML Attribs' => 'attribs', 'Layer' => 'layer', 'Advanced HR' => 'advhr', 'View HTML' => 'code', 'Hidden Chars' => 'visualchars', 'NB Space' => 'nonbreaking', 'Sub' => 'sub', 'Sup' => 'sup', 'Visual Aids' => 'visualaid', 'Insert Date' => 'insertdate', 'Insert Time' => 'inserttime', 'Anchor' => 'anchor', 'Style' => 'styleprops', 'Smilies' => 'emotions', 'Insert Movie' => 'media', 'IE Spell' => 'iespell' );
 
 if ( function_exists('moxiecode_plugins_url') ) {
-	if ( moxiecode_plugins_url('imagemanager') ) $buttons['MCFileManager'] = 'insertimage';
-	if ( moxiecode_plugins_url('filemanager') ) $buttons['MCImageManager'] = 'insertfile';
+	if ( moxiecode_plugins_url('imagemanager') )
+		$buttons['MCFileManager'] = 'insertimage';
+
+	if ( moxiecode_plugins_url('filemanager') )
+		$buttons['MCImageManager'] = 'insertfile';
 }
 
 $tadv_allbtns = array_values($buttons);

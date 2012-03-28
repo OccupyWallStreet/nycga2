@@ -16,10 +16,15 @@ if( !nycga.ui ) nycga.ui = {};
 	with the class 'content' then hides the method object
 	Requires — jquery.tipTip — code.drewwilson.com/entry/tiptip-jquery-plugin
 */
-nycga.ui.addToolTips = function( actuatorSelector, tipContentSelector ){
+nycga.ui.addToolTips = function( whereToLook, actuatorSelector, tipContentSelector ){
 	console.log( "nycga.ui.addToolTips", actuatorSelector, tipContentSelector );
 	actuatorSelector = ( actuatorSelector )? actuatorSelector : '.tipTipActuator';
-	jQuery( actuatorSelector ).tipTip({ delay: 250 });
+	if( whereToLook ){
+		console.log( whereToLook, jQuery( whereToLook ), jQuery( whereToLook ).find( actuatorSelector ) );
+		jQuery( whereToLook ).find( actuatorSelector ).tipTip({ delay: 250 });
+	}else{
+		jQuery( actuatorSelector ).tipTip({ delay: 250 });
+	}
 }
 
 /* cross browser friendly css3 dropshadow */

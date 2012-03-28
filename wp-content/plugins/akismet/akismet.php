@@ -4,9 +4,9 @@
  */
 /*
 Plugin Name: Akismet
-Plugin URI: http://akismet.com/
-Description: Used by millions, Akismet is quite possibly the best way in the world to <strong>protect your blog from comment and trackback spam</strong>. It keeps your site protected from spam even while you sleep. To get started: 1) Click the "Activate" link to the left of this description, 2) <a href="http://akismet.com/get/?return=true">Sign up for an Akismet API key</a>, and 3) Go to your <a href="plugins.php?page=akismet-key-config">Akismet configuration</a> page, and save your API key.
-Version: 2.5.3
+Plugin URI: http://akismet.com/?return=true
+Description: Used by millions, Akismet is quite possibly the best way in the world to <strong>protect your blog from comment and trackback spam</strong>. It keeps your site protected from spam even while you sleep. To get started: 1) Click the "Activate" link to the left of this description, 2) <a href="http://akismet.com/get/?return=true">Sign up for an Akismet API key</a>, and 3) Go to your <a href="admin.php?page=akismet-key-config">Akismet configuration</a> page, and save your API key.
+Version: 2.5.5
 Author: Automattic
 Author URI: http://automattic.com/wordpress-plugins/
 License: GPLv2 or later
@@ -28,7 +28,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-define('AKISMET_VERSION', '2.5.3');
+define('AKISMET_VERSION', '2.5.5');
 define('AKISMET_PLUGIN_URL', plugin_dir_url( __FILE__ ));
 
 /** If you hardcode a WP.com API key here, all key config screens will be hidden */
@@ -119,6 +119,8 @@ function akismet_http_post($request, $host, $path, $port = 80, $ip=null) {
 
 	$akismet_ua = "WordPress/{$wp_version} | ";
 	$akismet_ua .= 'Akismet/' . constant( 'AKISMET_VERSION' );
+
+	$akismet_ua = apply_filters( 'akismet_ua', $akismet_ua );
 
 	$content_length = strlen( $request );
 
@@ -303,7 +305,9 @@ function akismet_auto_check_comment( $commentdata ) {
 	$comment['blog_charset'] = get_option('blog_charset');
 	$comment['permalink']  = get_permalink($comment['comment_post_ID']);
 	
-	$comment['user_role'] = akismet_get_user_roles($comment['user_ID']);
+	if ( !empty( $comment['user_ID'] ) ) {
+		$comment['user_role'] = akismet_get_user_roles($comment['user_ID']);
+	}
 
 	$akismet_nonce_option = apply_filters( 'akismet_comment_nonce', get_option( 'akismet_comment_nonce' ) );
 	$comment['akismet_comment_nonce'] = 'inactive';
@@ -335,6 +339,9 @@ function akismet_auto_check_comment( $commentdata ) {
 			$comment["$key"] = '';
 	}
 
+	$post = get_post( $comment['comment_post_ID'] );
+	$comment[ 'comment_post_modified_gmt' ] = $post->post_modified_gmt;
+
 	$query_string = '';
 	foreach ( $comment as $key => $data )
 		$query_string .= $key . '=' . urlencode( stripslashes($data) ) . '&';
@@ -349,7 +356,6 @@ function akismet_auto_check_comment( $commentdata ) {
 
 		do_action( 'akismet_spam_caught' );
 
-		$post = get_post( $comment['comment_post_ID'] );
 		$last_updated = strtotime( $post->post_modified_gmt );
 		$diff = time() - $last_updated;
 		$diff = $diff / 86400;
@@ -358,14 +364,16 @@ function akismet_auto_check_comment( $commentdata ) {
 			// akismet_result_spam() won't be called so bump the counter here
 			if ( $incr = apply_filters('akismet_spam_count_incr', 1) )
 				update_option( 'akismet_spam_count', get_option('akismet_spam_count') + $incr );
-			wp_redirect( $_SERVER['HTTP_REFERER'] );
+			wp_safe_redirect( $_SERVER['HTTP_REFERER'] );
 			die();
 		}
 	}
 	
 	// if the response is neither true nor false, hold the comment for moderation and schedule a recheck
 	if ( 'true' != $response[1] && 'false' != $response[1] ) {
-		add_filter('pre_comment_approved', 'akismet_result_hold');
+		if ( !wp_get_current_user() ) {
+			add_filter('pre_comment_approved', 'akismet_result_hold');
+		}
 		wp_schedule_single_event( time() + 1200, 'akismet_schedule_cron_recheck' );
 	}
 	
@@ -402,7 +410,42 @@ function akismet_delete_old() {
 
 }
 
+function akismet_delete_old_metadata() { 
+	global $wpdb; 
+
+	$now_gmt = current_time( 'mysql', 1 ); 
+	$interval = apply_filters( 'akismet_delete_commentmeta_interval', 15 );
+
+	# enfore a minimum of 1 day
+	$interval = absint( $interval );
+	if ( $interval < 1 ) {
+		return;
+	}
+
+	// akismet_as_submitted meta values are large, so expire them 
+	// after $interval days regardless of the comment status 
+	while ( TRUE ) {
+		$comment_ids = $wpdb->get_col( "SELECT $wpdb->comments.comment_id FROM $wpdb->commentmeta INNER JOIN $wpdb->comments USING(comment_id) WHERE meta_key = 'akismet_as_submitted' AND DATE_SUB('$now_gmt', INTERVAL {$interval} DAY) > comment_date_gmt LIMIT 10000" ); 
+
+		if ( empty( $comment_ids ) ) {
+			return; 
+		}
+
+		foreach ( $comment_ids as $comment_id ) {
+			delete_comment_meta( $comment_id, 'akismet_as_submitted' );
+		}
+	}
+
+	/*
+	$n = mt_rand( 1, 5000 ); 
+	if ( apply_filters( 'akismet_optimize_table', ( $n == 11 ), 'commentmeta' ) ) { // lucky number 
+		$wpdb->query( "OPTIMIZE TABLE $wpdb->commentmeta" ); 
+	}
+	*/
+} 
+
 add_action('akismet_scheduled_delete', 'akismet_delete_old');
+add_action('akismet_scheduled_delete', 'akismet_delete_old_metadata'); 
 
 function akismet_check_db_comment( $id, $recheck_reason = 'recheck_queue' ) {
     global $wpdb, $akismet_api_host, $akismet_api_port;

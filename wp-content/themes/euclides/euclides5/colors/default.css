@@ -1,0 +1,55 @@
+/* basic rules */
+body { background:#f7f5e9 url(../images/bg.gif); color:#363636; }
+a { color:#0d81ca; }
+.text { background:#dedcd1; background:rgba(0,0,0,0.1); }
+textarea {  background:#dedcd1; background:rgba(0,0,0,0.1);  }
+
+/* structure */
+#wrap { border-top:solid 5px #3a404c; }
+#header { background: url(../images/bg_header_top.png) no-repeat bottom;  }
+
+/* logo */
+#logo a { color:#3a404c; }
+#logo em { color:#7b7a74; }
+
+/* navigation */
+#nav { background:#3a404c;}
+.main-nav li a { color:#adadad; }
+.main-nav li ul { background:#3a404c; color:#898466; border-bottom:solid 1px #313131;}
+.main-nav li li a { color:#adadad; border-bottom:solid 1px #535a69; }
+.main-nav li li a:hover { color:#fff; }
+.main-nav li.current a,li.sfHover > a { background:#3a404c; color:#fff; }
+.main-nav li.current li a { color:#adadad; }
+.main-nav li.current li a:hover { color:#fff; }
+
+/* post */
+.post { border-bottom:solid 3px #3a404c; }
+.post h1,.post h2 { text-shadow:3px 3px rgba(0,0,0,0.1); }
+.post h1 a,.post h2 a { color:#3a404c; }
+.post h1 a:hover,.post h2 a:hover,.post-footer a:hover { color:#0d81ca; }
+.post h2,.post h3,.post h4,.post h5 {  text-shadow:2px 2px rgba(0,0,0,0.1); }
+.post .post-thumb { background:url(../images/bg_post_thumbnail.png) no-repeat;}
+.post-footer { border-top:solid 1px #d9d7cd; }
+.post-footer a { color:#3a404c; }
+.meta { border-top:solid 1px #d9d7cd; border-bottom:solid 1px #d9d7cd; }
+.meta p { border-right:solid 1px #d9d7cd; }
+.meta-button { background:url(../images/btn_right.png) no-repeat top right; text-shadow:1px 1px #000; }
+.meta-button span { background:url(../images/btn_left.png) no-repeat top left; color:#fff; }
+
+/* related posts */
+#related { background:url(../images/bg_sep.png) repeat-x top; }
+#related ul li img { background:url(../images/bg_related.png) no-repeat top left; }
+
+/* comments */
+.post-comments { background: url(../images/bg_sep.png) repeat-x; }
+.comment-copy {  border-bottom:solid 1px #d9d7cd;  }
+
+/* form */
+#form-wrapper { background:url(../images/bg_sep.png) repeat-x top; }
+
+/* sideblock */
+.block h3 { background:url(../images/bg_header.png) no-repeat; text-shadow:2px 2px rgba(0,0,0,0.1); }
+
+/* footer */
+#footer-wrap { background:#3a404c; }
+#footer p, #footer a { color:#fff; }

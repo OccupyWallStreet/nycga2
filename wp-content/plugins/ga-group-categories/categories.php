@@ -4,7 +4,7 @@ Plugin Name: GA Group Categories
 Plugin URI: http://nycga.net/
 Description: Adds extra categories to group directory
 Version: 1.0
-Author: Internet Working Group
+Author: #OWS Tech Ops
 */
 /*ini_set('display_errors',1); 
 error_reporting(E_ALL);*/
@@ -110,7 +110,9 @@ function gcats_get_groups_by_cat( $limit = null, $page = null, $user_id = false,
                 }
 	}
 
-        $sql = "SELECT DISTINCT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity, gm3.meta_value as gtags_group_tags FROM {$bp->groups->table_name_groupmeta} gm1, {$bp->groups->table_name_groupmeta} gm2, {$bp->groups->table_name_groupmeta} gm3, {$bp->groups->table_name} g WHERE g.id = gm1.group_id AND g.id = gm2.group_id AND g.id = gm3.group_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND gm3.meta_key = 'category'  {$hidden_sql} {$search_sql} {$cat_sql} ${order_sql} {$pag_sql}";
+	$inactive_sql = " g.id NOT IN (SELECT gm.group_id FROM wp_bp_groups_groupmeta gm WHERE gm.meta_key = 'active_status' AND gm.meta_value = 'inactive') ";
+
+        $sql = "SELECT DISTINCT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity, gm3.meta_value as gtags_group_tags FROM {$bp->groups->table_name_groupmeta} gm1, {$bp->groups->table_name_groupmeta} gm2, {$bp->groups->table_name_groupmeta} gm3, {$bp->groups->table_name} g WHERE g.id = gm1.group_id AND g.id = gm2.group_id AND g.id = gm3.group_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND gm3.meta_key = 'category' AND ${inactive_sql} {$hidden_sql} {$search_sql} {$cat_sql} ${order_sql} {$pag_sql}";
         $paged_groups = $wpdb->get_results( $sql ) ;
         $total_groups = count($paged_groups);
         
@@ -146,7 +148,8 @@ function bp_get_category_group_count($category) {
 		  join wp_bp_groups_groupmeta gm on g.id = gm.group_id
 		 where gm.meta_key = 'category'
                    AND g.status != 'hidden'
-		   and gm.meta_value = '$category';
+		   and gm.meta_value = '$category'
+                   AND g.id NOT IN (SELECT gm.group_id FROM wp_bp_groups_groupmeta gm WHERE gm.meta_key = 'active_status' AND gm.meta_value = 'inactive');
 "));
 }
 

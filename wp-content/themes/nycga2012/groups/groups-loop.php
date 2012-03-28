@@ -13,7 +13,7 @@
 
 <?php do_action( 'bp_before_groups_loop' ); ?>
 
-<?php if ( bp_has_groups( bp_ajax_querystring( 'groups' ) ) ) : ?>
+<?php if ( bp_has_groups( bp_ajax_querystring( 'groups' )."&per_page=40") ) : ?>
 
 	<div id="pag-top" class="pagination">
 
@@ -31,25 +31,26 @@
 
 	<?php do_action( 'bp_before_directory_groups_list' ); ?>
 
-	<ul id="groups-list" class="item-list clearFix" role="main">
+	<ul id="groups-list" class="item-list clearfix" role="main">
+
 
 	<?php while ( bp_groups() ) : bp_the_group(); ?>
 
-		<li class="group grid_4 gridbox shadow tipTipActuator">
-			<div class="padded">
+		<li class="group grid_4 clearfix gridbox shadow tipTipActuator">
+			<div class="padded clearfix">
 				<div class="item-avatar">
 					<a href="<?php bp_group_permalink(); ?>"><?php bp_group_avatar( 'type=thumb&width=42&height=42' ); ?></a>
 				</div>
 				<div class="item">
 					<h5 class="item-title"><a href="<?php bp_group_permalink(); ?>"><?php bp_group_name(); ?></a></h5>
-					<div class="item-meta"><span class="activity"><?php printf( __( 'active %s', 'buddypress' ), bp_get_group_last_active() ); ?></span></div>
 					<div class="item-desc tipTipContent"><?php bp_group_description_excerpt(); ?></div>
 					<?php do_action( 'bp_directory_groups_item' ); ?>
 				</div>
 				<div class="action">
 					<?php do_action( 'bp_directory_groups_actions' ); ?>
 					<div class="meta">
-						<?php bp_group_type(); ?> / <?php bp_group_member_count(); ?>
+						<div class="small group-count"><?php bp_group_member_count(); ?></div>
+						<div class="small last-active"><?php printf( __( 'Active %s', 'buddypress' ), bp_get_group_last_active() ); ?></div>
 					</div>
 				</div>
 			</div>
@@ -78,4 +79,12 @@
 
 <?php endif; ?>
 
+<!--
+	Move this to funtions.php
+	function bbg_print_script() { echo '<script>foo();</script>'; } add_action( 'bp_after_groups_loop', 'bbg_print_script' );
+-->
+
+<script type="text/javascript">
+nycga.ui.addToolTips('#groups-list');
+</script>
 <?php do_action( 'bp_after_groups_loop' ); ?>

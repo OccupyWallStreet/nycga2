@@ -287,4 +287,3 @@ function nycga_modify_group_membership_by_username() {
 		</script>
 	";
 }
-

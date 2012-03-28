@@ -148,6 +148,11 @@ class BpfbBinder {
 	 */
 	function ajax_preview_link () {
 		$url = $_POST['data'];
+		$scheme = parse_url($url, PHP_URL_SCHEME);
+		if (!$scheme || !preg_match('/^https?$/', $scheme)) {
+			$url = "http://{$url}";
+		}
+
 		$warning = __('There has been an error processing your request', 'bpfb');
 		$response = $url ? __('Processing...', 'bpfb') : $warning;
 		$images = array();

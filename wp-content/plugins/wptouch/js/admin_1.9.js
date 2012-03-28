@@ -1,8 +1,9 @@
 /*
  * WPtouch 1.9.x -The WPtouch Admin Javascript File
  * Last Updated: August 7th, 2010
- */
+ */ 
 var wptouchSpinnerCount = 1;
+var wpQuery = jQuery;
 
 function wptouchSpinnerDone() {
 	wptouchSpinnerCount = wptouchSpinnerCount - 1;
@@ -12,7 +13,6 @@ function wptouchSpinnerDone() {
 }
 
 jQuery( document ).ready( function() {
-
 	setTimeout(function() { jQuery('#wptouchupdated').fadeIn(250); }, 750);
 	setTimeout(function() { jQuery( '#wptouchupdated' ).fadeOut(200); }, 2750);
 
@@ -43,15 +43,36 @@ jQuery( document ).ready( function() {
 		'dataType': 'html'
 	});
 	
-jQuery(function(){
-	var tabindex = 1;
-	jQuery('input,select').each(function() {
-		if (this.type != "hidden") {
-			var $input = jQuery(this);
-			$input.attr("tabindex", tabindex);
-			tabindex++;
+	jQuery(function(){
+		var tabindex = 1;
+		jQuery('input,select').each(function() {
+			if (this.type != "hidden") {
+				var $input = jQuery(this);
+				$input.attr("tabindex", tabindex);
+				tabindex++;
+			}
+		});
+	});
+	
+	wpQuery( document ).ready( function() {
+		if ( wpQuery( '#advertising-options' ).length ) {
+			wptouchHandleAdvertising();
+			
+			wpQuery( '#ad_service' ).change( function() { wptouchHandleAdvertising() } );
 		}
 	});
 });
 
-});
+function wptouchHandleAdvertising() {
+	var selectValue = wpQuery( '#ad_service' ).attr( 'value' );
+	if ( selectValue == 'none' ) {
+		wpQuery( '#google-adsense' ).hide();
+		wpQuery( '#appstores' ).hide();
+	} else if ( selectValue == 'adsense' ) {
+		wpQuery( '#appstores' ).hide();
+		wpQuery( '#google-adsense' ).fadeIn( 250 );
+	} else if ( selectValue == 'appstores' ) {
+		wpQuery( '#google-adsense' ).hide();
+		wpQuery( '#appstores' ).fadeIn( 250 );
+	}
+}

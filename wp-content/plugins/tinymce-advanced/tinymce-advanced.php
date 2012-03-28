@@ -3,7 +3,7 @@
 Plugin Name: TinyMCE Advanced
 Plugin URI: http://www.laptoptips.ca/projects/tinymce-advanced/
 Description: Enables advanced features and plugins in TinyMCE, the visual editor in WordPress.
-Version: 3.4.2.1
+Version: 3.4.5
 Author: Andrew Ozz
 Author URI: http://www.laptoptips.ca/
 
@@ -223,57 +223,28 @@ if ( ! function_exists('tadv_htmledit') ) {
 
 if ( ! function_exists('tmce_replace') ) {
 	function tmce_replace() {
-		global $merged_filters;
 		$tadv_options = get_option('tadv_options', array());
 		$tadv_plugins = get_option('tadv_plugins', array());
-
-		if ( ! array_key_exists('tiny_mce_before_init', $merged_filters) ) // we are not on a page that has the visual editor included with wp_tiny_mce()
-			return;
 
 		if ( isset($tadv_options['no_autop']) && $tadv_options['no_autop'] == 1 ) { ?>
 
 <script type="text/javascript">
-//<![CDATA[
-jQuery('body').bind('afterPreWpautop', function(e, o){
-	o.data = o.unfiltered
-		.replace(/caption\]\[caption/g, 'caption] [caption')
-		.replace(/<object[\s\S]+?<\/object>/g, function(a) {
-			return a.replace(/[\r\n]+/g, ' ');
-        });
-
-}).bind('afterWpautop', function(e, o){
-	o.data = o.unfiltered;
-});
-//]]>
+if ( typeof(jQuery) != 'undefined' ) {
+  jQuery('body').bind('afterPreWpautop', function(e, o){
+    o.data = o.unfiltered
+    .replace(/caption\]\[caption/g, 'caption] [caption')
+    .replace(/<object[\s\S]+?<\/object>/g, function(a) {
+      return a.replace(/[\r\n]+/g, ' ');
+    });
+  }).bind('afterWpautop', function(e, o){
+    o.data = o.unfiltered;
+  });
+}
 </script>
 <?php
 		}
-
-		if ( in_array('advlist', $tadv_plugins) ) {
-			$lang = ( '' == get_locale() ) ? 'en' : strtolower( substr(get_locale(), 0, 2) );
-?>
-
-<script type="text/javascript">
-//<![CDATA[
-tinyMCE.addI18n({<?php echo $lang; ?>:{
-advlist:{
-types:"Types",
-def:"Default",
-lower_alpha:"a b c",
-lower_greek:"\u03b1 \u03b2 \u03b3",
-lower_roman:"i ii iii",
-upper_alpha:"A B C",
-upper_roman:"I II III",
-circle:"\u26aa",
-disc:"\u26ab",
-square:"\u25a0"
-}}});
-//]]>
-</script>
-<?php
-		}	
 	}
-	add_action( 'admin_print_footer_scripts', 'tmce_replace', 50 );
+	add_action( 'after_wp_tiny_mce', 'tmce_replace' );
 }
 
 
@@ -322,6 +293,7 @@ if ( ! function_exists('tadv_page') ) {
 		if ( !defined('TADV_ADMIN_PAGE') )
 			define('TADV_ADMIN_PAGE', true);
 
+		tadv_paths();
 		include_once( TADV_PATH . 'tadv_admin.php');
 	}
 }

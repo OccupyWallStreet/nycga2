@@ -4,7 +4,7 @@ Plugin Name: Really simple Facebook Twitter share buttons
 Plugin URI: http://www.whiletrue.it
 Description: Puts Facebook, Twitter, LinkedIn and other share buttons of your choice above or below your posts.
 Author: WhileTrue
-Version: 2.0
+Version: 2.2
 Author URI: http://www.whiletrue.it
 */
 
@@ -46,24 +46,24 @@ function really_simple_share_init() {
 	// GET ARRAY OF STORED VALUES
 	$option = really_simple_share_get_options_stored();
 
-	if ($option['active_buttons']['facebook']==true) {
-		wp_enqueue_script('really_simple_share_facebook', 'http://static.ak.fbcdn.net/connect.php/js/FB.Share');
+	if ($option['active_buttons']['facebook']) {
+		wp_enqueue_script('really_simple_share_facebook', 'http://static.ak.fbcdn.net/connect.php/js/FB.Share', array(), false, $option['scripts_at_bottom']);
 	}
-	if ($option['active_buttons']['linkedin']==true) {
-		wp_enqueue_script('really_simple_share_linkedin', 'http://platform.linkedin.com/in.js');
+	if ($option['active_buttons']['linkedin']) {
+		wp_enqueue_script('really_simple_share_linkedin', 'http://platform.linkedin.com/in.js', array(), false, $option['scripts_at_bottom']);
 	}
 	
-	if ($option['active_buttons']['buzz']==true) {
-		wp_enqueue_script('really_simple_share_buzz', 'http://www.google.com/buzz/api/button.js');
+	if ($option['active_buttons']['buzz']) {
+		wp_enqueue_script('really_simple_share_buzz', 'http://www.google.com/buzz/api/button.js', array(), false, $option['scripts_at_bottom']);
 	}
-	if ($option['active_buttons']['google1']==true) {
-		wp_enqueue_script('really_simple_share_google1', 'http://apis.google.com/js/plusone.js');
+	if ($option['active_buttons']['google1']) {
+		wp_enqueue_script('really_simple_share_google1', 'http://apis.google.com/js/plusone.js', array(), false, $option['scripts_at_bottom']);
 	}
-	if ($option['active_buttons']['flattr']==true) {
-		wp_enqueue_script('really_simple_share_flattr', 'http://api.flattr.com/js/0.6/load.js?mode=auto&#038;ver=0.6');
+	if ($option['active_buttons']['flattr']) {
+		wp_enqueue_script('really_simple_share_flattr', 'http://api.flattr.com/js/0.6/load.js?mode=auto&#038;ver=0.6', array(), false, $option['scripts_at_bottom']);
 	}
-	if ($option['active_buttons']['twitter']==true) {
-		wp_enqueue_script('really_simple_share_twitter', 'http://platform.twitter.com/widgets.js');
+	if ($option['active_buttons']['twitter']) {
+		wp_enqueue_script('really_simple_share_twitter', 'http://platform.twitter.com/widgets.js', array(), false, $option['scripts_at_bottom']);
 	}
 }    
 
@@ -173,10 +173,19 @@ function really_simple_share ($content, $filter, $link='', $title='', $author=''
 		$author = get_the_author_meta('nickname');
 	}
 	
+
+	// PREPEND ABOVE TEXT
+	if ($option['prepend_above']!='') {
+		$out .= '<div style="height:33px;" class="really_simple_share_prepend_above robots-nocontent snap_nopreview">'.stripslashes($option['prepend_above']).'</div>';
+	}
+
 	$height = ($option['layout']=='button') ? 33 : 66;
+	$out .= '<div style="height:'.$height.'px;" class="really_simple_share robots-nocontent snap_nopreview">';
 
-	$out = '<div style="height:'.$height.'px;" class="really_simple_share robots-nocontent snap_nopreview">';
-
+	// PREPEND INLINE TEXT
+	if ($option['prepend_inline']!='') {
+		$out .= '<div class="really_simple_share_prepend_inline">'.stripslashes($option['prepend_inline']).'</div>';
+	}
 
 	foreach (explode(',',$option['sort']) as $name) {
 		if (!$option['active_buttons'][$name]) {
@@ -296,10 +305,11 @@ function really_simple_share ($content, $filter, $link='', $title='', $author=''
 		else if ($name == 'twitter') {
 			$option_layout = ($option['layout']=='button') ? 'horizontal' : 'vertical';
 			$data_count = ($option['twitter_count']) ? $option_layout : 'none';
+			$twitter_author = ($option['twitter_author']) ? ' data-related="'.stripslashes($author).':The author of this post" ' : '';
 			$out .= '
 					<a href="http://twitter.com/share" class="twitter-share-button" data-count="'.$data_count.'" 
 						data-text="'.strip_tags($title).stripslashes($option['twitter_text']).'" data-url="'.$link.'" 
-						data-via="'.stripslashes($option['twitter_via']).'" data-related="'.stripslashes($author).':The author of this post"></a> 
+						data-via="'.stripslashes($option['twitter_via']).'" '.$twitter_author.'></a> 
 				';
 		}
 		
@@ -378,8 +388,11 @@ function really_simple_share_options () {
 		$option['sort'] = esc_html($_POST['really_simple_share_sort']);
 		$option['position'] = esc_html($_POST['really_simple_share_position']);
 		$option['layout'] = esc_html($_POST['really_simple_share_layout']);
+		$option['prepend_above']  = esc_html($_POST['really_simple_share_prepend_above']);
+		$option['prepend_inline'] = esc_html($_POST['really_simple_share_prepend_inline']);
 		$option['disable_default_styles'] = (isset($_POST['really_simple_share_disable_default_styles']) and $_POST['really_simple_share_disable_default_styles']=='on') ? true : false;
 		$option['use_shortlink'] = (isset($_POST['really_simple_share_use_shortlink']) and $_POST['really_simple_share_use_shortlink']=='on') ? true : false;
+		$option['scripts_at_bottom'] = (isset($_POST['really_simple_share_scripts_at_bottom']) and $_POST['really_simple_share_scripts_at_bottom']=='on') ? true : false;
 		$option['facebook_like_text'] = ($_POST['really_simple_share_facebook_like_text']=='recommend') ? 'recommend' : 'like';
 		$option['facebook_like_send'] = (isset($_POST['really_simple_share_facebook_like_send']) and $_POST['really_simple_share_facebook_like_send']=='on') ? true : false;
 		$option['email_label'] = esc_html($_POST['really_simple_share_email_label']);
@@ -389,6 +402,7 @@ function really_simple_share_options () {
 		$option['tipy_uid'] = esc_html($_POST['really_simple_share_tipy_uid']);
 		$option['twitter_count'] = (isset($_POST['really_simple_share_twitter_count']) and $_POST['really_simple_share_twitter_count']=='on') ? true : false;
 		$option['twitter_text'] = esc_html($_POST['really_simple_share_twitter_text']);
+		$option['twitter_author'] = (isset($_POST['really_simple_share_twitter_author']) and $_POST['really_simple_share_twitter_author']=='on') ? true : false;
 		$option['twitter_via'] = esc_html($_POST['really_simple_share_twitter_via']);
 		
 		update_option($option_name, $option);
@@ -411,11 +425,13 @@ function really_simple_share_options () {
 	
 	$disable_default_styles = ($option['disable_default_styles']) ? 'checked="checked"' : '';
 	$use_shortlink = ($option['use_shortlink']) ? 'checked="checked"' : '';
+	$scripts_at_bottom = ($option['scripts_at_bottom']) ? 'checked="checked"' : '';
 	$facebook_like_show_send_button = ($option['facebook_like_send']) ? 'checked="checked"' : '';
 	$google1_count = ($option['google1_count']) ? 'checked="checked"' : '';
 	$linkedin_count = ($option['linkedin_count']) ? 'checked="checked"' : '';
 	$twitter_count = ($option['twitter_count']) ? 'checked="checked"' : '';
-
+	$twitter_author = ($option['twitter_author']) ? 'checked="checked"' : '';
+	
 	// SETTINGS FORM
 
 	$out .= '
@@ -495,8 +511,20 @@ function really_simple_share_options () {
 				<option value="box" '.$sel_box.' > '.__('box', 'menu-test' ).'</option>
 				</select>
 			</td></tr>
+			<tr><td>'.__("Prepend text on the above line", 'menu-test' ).':</td>
+			<td><input type="text" name="really_simple_share_prepend_above" value="'.stripslashes($option['prepend_above']).'" size="50" /><br />
+				<span class="description">'.__("Optional text shown above the buttons, e.g. 'If you liked this post, say thanks by sharing it:'", 'menu-test' ).'</span>
+			</td></tr>
+			<tr><td>'.__("Prepend text inline", 'menu-test' ).':</td>
+			<td><input type="text" name="really_simple_share_prepend_inline" value="'.stripslashes($option['prepend_inline']).'" size="25" /><br />
+				<span class="description">'.__("Optional text shown inline before the buttons, e.g. 'Share this:'", 'menu-test' ).'</span>
+			</td></tr>
 			<tr><td>'.__("Disable default styles", 'menu-test' ).':</td>
 			<td><input type="checkbox" name="really_simple_share_disable_default_styles" '.$disable_default_styles.' />
+			</td></tr>
+			<tr><td>'.__("Load scripts at the bottom of the body", 'menu-test' ).':</td>
+			<td><input type="checkbox" name="really_simple_share_scripts_at_bottom" '.$scripts_at_bottom.' />
+				<span class="description">'.__("Checking it should increase the page loading speed. Warning: this requires the theme to have the wp_footer() hook in the appropriate place; if unsure, leave it unchecked", 'menu-test' ).'</span>
 			</td></tr>
 			<tr><td>'.__("Use Wordpress shortlink instead of permalink", 'menu-test' ).':</td>
 			<td><input type="checkbox" name="really_simple_share_use_shortlink" '.$use_shortlink.' />
@@ -558,12 +586,15 @@ function really_simple_share_options () {
 				'Additional text'=>'
 					<input type="text" name="really_simple_share_twitter_text" value="'.stripslashes($option['twitter_text']).'" size="25" /><br />
 					<span class="description">'.__("Optional text added at the end of every tweet, e.g. ' (via @authorofblogentry)'.
-					If you use it, insert an initial space or puntuation mark.", 'menu-test' ).'</span>
+					If you use it, insert an initial space or puntuation mark", 'menu-test' ).'</span>
+				',
+				'Add author to follow list'=>'
+					<input type="checkbox" name="really_simple_share_twitter_author" '.$twitter_author.' />
+					<span class="description">'.__("If checked, the nickname of the author of the post is always added to the follow list.", 'menu-test' ).'</span>
 				',
 				'Via this user'=>'
 					<input type="text" name="really_simple_share_twitter_via" value="'.stripslashes($option['twitter_via']).'" size="25" /><br />
-					<span class="description">'.__("Optional user to follow after tweeting.
-					Author of the post is always added to recommended to follow list.", 'menu-test' ).'</span>
+					<span class="description">'.__("Optional user to follow after tweeting", 'menu-test' ).'</span>
 				',
 				'Show counter'=>'<input type="checkbox" name="really_simple_share_twitter_count" '.$twitter_count.' />'
 			)
@@ -652,18 +683,15 @@ function really_simple_share_get_options_stored () {
 	$option = get_option('really_simple_share');
 	 
 	if(!is_array($option)) {
-		// Versions below 1.2.2 compatibility
-		return really_simple_share_get_options_default();
-	}
-
-	// Versions below 2.0 compatibility
-	if (!isset($option['sort'])) {
+		$option = array();
+	} else if (!isset($option['sort'])) {
+		// Versions below 2.0 compatibility
 		$option['width_buttons']['facebook_like'] = $option['facebook_like_width'];
 		$option['width_buttons']['google1'] = $option['google1_width'];
 		$option['width_buttons']['twitter'] = $option['twitter_width'];
 	}	
 	
-	// MERGE STORED AND DEFAULT OPTIONS
+	// MERGE DEFAULT AND STORED OPTIONS
 	$option = array_merge(really_simple_share_get_options_default(), $option);
 	
 	return $option;
@@ -682,8 +710,11 @@ function really_simple_share_get_options_default ($position='above') {
 	$option['position'] = $position;
 	$option['show_in'] = array('posts'=>true, 'pages'=>true, 'home_page'=>true, 'tags'=>true, 'categories'=>true, 'dates'=>true, 'authors'=>true, 'search'=>true);
 	$option['layout'] = 'button';
+	$option['prepend_above']  = '';
+	$option['prepend_inline'] = '';
 	$option['disable_default_styles'] = false;
 	$option['use_shortlink'] = false;
+	$option['scripts_at_bottom'] = false;
 
 	$option['facebook_like_text'] = 'like';
 	$option['facebook_like_send'] = false;
@@ -694,6 +725,7 @@ function really_simple_share_get_options_default ($position='above') {
 	$option['tipy_uid'] = '';
 	$option['twitter_count'] = true;
 	$option['twitter_text'] = '';
+	$option['twitter_author'] = false;
 	$option['twitter_via'] = '';
 	return $option;
 }

@@ -97,8 +97,8 @@
 				</ul>
 				<br />
 				<ul>
-				<li><ul class="wptouch-make-li-italic">
-		
+					<li>
+						<ul class="wptouch-make-li-italic">		
 							<li><select name="post-cal-thumb">
 									<option <?php if ($wptouch_settings['post-cal-thumb'] == "calendar-icons") echo " selected"; ?> value="calendar-icons"><?php _e( "Calendar Icons", "wptouch" ); ?></option>
 									<option <?php $version = bnc_get_wp_version(); if ($version <= 2.89) : ?>disabled="true"<?php endif; ?> <?php if ($wptouch_settings['post-cal-thumb'] == "post-thumbnails") echo " selected"; ?> value="post-thumbnails"><?php _e( "Post Thumbnails / Featured Images", "wptouch" ); ?></option>
