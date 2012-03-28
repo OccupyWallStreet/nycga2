@@ -74,6 +74,42 @@ Tags: buddypress, three-column, multi-site
 
 /*
 --------------------------------------------------------------
+ Group Page
+--------------------------------------------------------------
+*/
+
+#item-actions { float: right; margin-left:2em; width:30%; }
+
+#group-admins {}
+#group-admins li .avatar,
+#group-mods li .avatar { width:36px; height:36px; }
+#group-admins li,
+#group-mods li { display: inline-block; margin-bottom: 4px; }
+
+#group-mods {}
+#group-mods li {}
+
+#item-header-avatar { float: left; margin-right:2em; }
+
+#item-header-content { margin-left: 205px; }
+#item-header-content #item-meta {}
+#item-header-content #item-meta .gtags-header {}
+#item-header-content #item-meta .gtags-header a {}
+
+/*
+--------------------------------------------------------------
+ Member List
+--------------------------------------------------------------
+*/
+
+#member-list {}
+#member-list li {
+	display: inline-block;
+	text-align: center;
+}
+
+/*
+--------------------------------------------------------------
  Activity
 --------------------------------------------------------------
 */
