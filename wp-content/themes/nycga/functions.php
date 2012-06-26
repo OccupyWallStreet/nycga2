@@ -45,17 +45,17 @@ function my_bp_search_form_type_select() {
 add_filter('bp_search_form_type_select','my_bp_search_form_type_select');
 
 
-function add_script() {
-   if (!is_admin()) {
+//function add_script() {
+   //if (!is_admin()) {
        // comment out the next two lines to load the local copy of jQuery
        	// wp_deregister_script('jquery');
-       	wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js', false, '1.5.2');
-		wp_enqueue_script('jquery');
-		wp_enqueue_script('toggler', get_bloginfo('url') . '/wp-content/js/hide-form/toggler.js');
-		}
-	}
+       	//wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js', false, '1.5.2');
+		//wp_enqueue_script('jquery');
+		//wp_enqueue_script('toggler', get_bloginfo('url') . '/wp-content/js/hide-form/toggler.js');
+		//}
+//	}
 
-add_action('init', 'add_script');
+//add_action('init', 'add_script');
 
 add_action('wp_footer', 'add_search_form_script');
 
@@ -71,9 +71,6 @@ function add_search_form_script() {
 	</script>
 	<?php
 }
-
-
-
 
 register_sidebar(
 	array(
@@ -124,7 +121,40 @@ register_sidebar(
 	array(
 		'name' => 'Bulletin-side2',
 		'id' => 'sidebar-4',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s" style="border:1px solid yellow">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widgettitle">',
+		'after_title' => '</h3>'
+	)
+);
+
+register_sidebar(
+	array(
+		'name' => 'Home-side1',
+		'id' => 'sidebar-home-1',
+		'before_widget' => '<div id="%1$s" class="widget %2$s" style="border:1px solid orange;">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widgettitle">',
+		'after_title' => '</h3>'
+	)
+);
+
+register_sidebar(
+	array(
+		'name' => 'Home-side2',
+		'id' => 'sidebar-home-2',
+		'before_widget' => '<div id="%1$s" class="widget %2$s" style="border:1px solid yellow;">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widgettitle">',
+		'after_title' => '</h3>'
+	)
+);
+
+register_sidebar(
+	array(
+		'name' => 'Home-side3',
+		'id' => 'sidebar-home-3',
+		'before_widget' => '<div id="%1$s" class="widget %2$s" style="border:1px solid red;">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widgettitle">',
 		'after_title' => '</h3>'
@@ -142,10 +172,6 @@ register_sidebar(
 // 		'after_title' => '</h3>'
 // 	)
 // );
-
-
-
-	
 
 
 function change_activity_plus_root_folder() {	
@@ -329,3 +355,43 @@ function nycga_modify_group_membership_by_username() {
 		</script>
 	";
 }
+
+//Enable Shortcodes in Widgets
+add_filter('widget_text', 'do_shortcode');
+
+/* Add Cool Buttons to Activity Stream Items */
+function my_bp_activity_entry_meta() {
+ 
+    if ( bp_get_activity_object_name() == 'blogs' && bp_get_activity_type() == 'new_blog_post' ) {?>
+        <a class="view-post" href="<?php bp_activity_thread_permalink() ?>">View Blog Post</a>
+    <?php }
+ 
+    if ( bp_get_activity_object_name() == 'blogs' && bp_get_activity_type() == 'new_blog_comment' ) {?>
+        <a class="view-post" href="<?php bp_activity_thread_permalink() ?>">View Blog Comment</a>
+    <?php }
+ 
+    if ( bp_get_activity_object_name() == 'activity' && bp_get_activity_type() == 'activity_update' ) {?>
+        <a class="view-post" href="<?php bp_activity_thread_permalink() ?>">View Activity Status</a>
+    <?php }
+ 
+        if ( bp_get_activity_object_name() == 'groups' && bp_get_activity_type() == 'new_forum_topic' ) {?>
+        <a class="view-thread" href="<?php bp_activity_thread_permalink() ?>">View Forum Thread</a>
+    <?php }
+ 
+        if ( bp_get_activity_object_name() == 'groups' && bp_get_activity_type() == 'new_forum_post' ) {?>
+        <a class="view-post" href="<?php bp_activity_thread_permalink() ?>">View Forum Reply</a>
+    <?php }
+ 
+}
+add_action('bp_activity_entry_meta', 'my_bp_activity_entry_meta');
+
+//Enable custom Event Calendar Themes
+function mytheme_styles() {
+	$mytheme_url = apply_filters(
+		'ai1ec_template_root_url',
+		apply_filters( 'ai1ec_template', 'mytheme' )
+	);
+
+	wp_enqueue_style( 'mytheme-style', "$mytheme_url/style.css" );
+}
+add_action( 'wp_print_styles', 'mytheme_styles' );

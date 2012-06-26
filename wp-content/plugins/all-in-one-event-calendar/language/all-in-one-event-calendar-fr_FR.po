@@ -1,0 +1,1438 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: All-in-One Event Calendar Plugin 1.0.9\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/all-in-one-event-calendar\n"
+"POT-Creation-Date: 2011-10-03 16:47:28+00:00\n"
+"PO-Revision-Date: 2011-11-16 14:06+0100\n"
+"Last-Translator: Thierry <tpouzaud@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: app/helper/class-ai1ec-calendar-helper.php:615
+#@ all-in-one-event-calendar
+msgid "« Previous Events"
+msgstr "« Evénements précédents"
+
+#: app/helper/class-ai1ec-calendar-helper.php:622
+#@ all-in-one-event-calendar
+msgid "Next Events »"
+msgstr "Evènement à venir »"
+
+#: app/helper/class-ai1ec-app-helper.php:147
+#@ all-in-one-event-calendar
+msgctxt "Custom post type name"
+msgid "Events"
+msgstr "Evénements"
+
+#: app/helper/class-ai1ec-app-helper.php:148
+#@ all-in-one-event-calendar
+msgctxt "Custom post type name (singular)"
+msgid "Event"
+msgstr "Evénements"
+
+#: app/helper/class-ai1ec-app-helper.php:149
+#@ all-in-one-event-calendar
+msgid "Add New"
+msgstr "Ajouter nouveau"
+
+#: app/helper/class-ai1ec-app-helper.php:150
+#@ all-in-one-event-calendar
+msgid "Add New Event"
+msgstr "Ajouter nouvel événement"
+
+#: app/helper/class-ai1ec-app-helper.php:151
+#@ all-in-one-event-calendar
+msgid "Edit Event"
+msgstr "Editer un événement"
+
+#: app/helper/class-ai1ec-app-helper.php:152
+#@ all-in-one-event-calendar
+msgid "New Event"
+msgstr "Nouvel événement"
+
+#: app/helper/class-ai1ec-app-helper.php:153
+#@ all-in-one-event-calendar
+msgid "View Event"
+msgstr "Voir l'événement"
+
+#: app/helper/class-ai1ec-app-helper.php:154
+#@ all-in-one-event-calendar
+msgid "Search Events"
+msgstr "Chercher des événements"
+
+#: app/helper/class-ai1ec-app-helper.php:155
+#@ all-in-one-event-calendar
+msgid "No Events found"
+msgstr "Aucun événement trouvé"
+
+#: app/helper/class-ai1ec-app-helper.php:156
+#@ all-in-one-event-calendar
+msgid "No Events found in Trash"
+msgstr "Aucun événement trouvé dans la corbeille"
+
+#: app/helper/class-ai1ec-app-helper.php:157
+#@ all-in-one-event-calendar
+msgid "Parent Event"
+msgstr "Evénement parent"
+
+#: app/helper/class-ai1ec-app-helper.php:158
+#: app/view/agenda-widget-form.php:88
+#@ all-in-one-event-calendar
+msgid "Events"
+msgstr "Evénements"
+
+#: app/helper/class-ai1ec-app-helper.php:205
+#@ all-in-one-event-calendar
+msgctxt "Event categories taxonomy"
+msgid "Event Categories"
+msgstr "Catégories d'événement"
+
+#: app/helper/class-ai1ec-app-helper.php:206
+#@ all-in-one-event-calendar
+msgctxt "Event categories taxonomy (singular)"
+msgid "Event Category"
+msgstr "Catégorie d'événement"
+
+#: app/helper/class-ai1ec-app-helper.php:213
+#@ all-in-one-event-calendar
+msgctxt "Event tags taxonomy"
+msgid "Event Tags"
+msgstr "Mots clef d'événement"
+
+#: app/helper/class-ai1ec-app-helper.php:214
+#@ all-in-one-event-calendar
+msgctxt "Event tags taxonomy (singular)"
+msgid "Event Tag"
+msgstr "Mot clef d'événement"
+
+#: app/helper/class-ai1ec-app-helper.php:313
+#, php-format
+#@ all-in-one-event-calendar
+msgid "All Events <span class=\"update-plugins count-%d\" title=\"%d Pending Events\"><span class=\"update-count\">%d</span></span>"
+msgstr "Tous les événements <span class=\"update-plugins count-%d\" title=\"%d Pending Events\"><span class=\"update-count\">%d</span></span>"
+
+#: app/helper/class-ai1ec-app-helper.php:319
+#@ all-in-one-event-calendar
+msgid "All Events"
+msgstr "Tous les événements"
+
+#: app/helper/class-ai1ec-app-helper.php:395
+#@ all-in-one-event-calendar
+msgid "Event Details"
+msgstr "Détail de l'événement"
+
+#: app/helper/class-ai1ec-app-helper.php:428
+#@ all-in-one-event-calendar
+msgid "Post Date"
+msgstr "Date de publication"
+
+#: app/helper/class-ai1ec-app-helper.php:429
+#@ all-in-one-event-calendar
+msgid "Event date/time"
+msgstr "Date/heure de l'événement"
+
+#: app/helper/class-ai1ec-app-helper.php:646
+#, php-format
+#@ all-in-one-event-calendar
+msgid "%sTo set up the plugin: %s 1. Select an option in the <strong>Calendar page</strong> dropdown list. %s 2. Select an option in the <strong>Timezone</strong> dropdown list. %s 3. Click <strong>Update Settings</strong>. %s"
+msgstr "%sPour configurer l'extension: %s 1. Sélectionnez une option dans la liste déroulante de la page <strong>Calendrier</strong> . %s 2. Sélectionnez une option dans la liste déroulante <strong>Fuseau Horaire</strong> . %s 3. Cliquez sur <strong>Mettre à jour</strong>. %s"
+
+#: app/helper/class-ai1ec-app-helper.php:648
+#@ all-in-one-event-calendar
+msgid "To set up the plugin: Select an option in the <strong>Calendar page</strong> dropdown list, the click <strong>Update Settings</strong>."
+msgstr "Pour paramétrer l'extension : sélectionnez une option dans la liste déroulante de la page <strong>Calendrier</strong>, puis cliquez sur <strong>Mettre à jour</strong>."
+
+#: app/helper/class-ai1ec-app-helper.php:650
+#@ all-in-one-event-calendar
+msgid "To set up the plugin: Select an option in the <strong>Timezone</strong> dropdown list, the click <strong>Update Settings</strong>."
+msgstr "Pour paramétrer l'extension: Sélectionnez une option dans la liste déroulante <strong>Fuseau Horaire</strong>, puis cliquez sur <strong>Mettre à jour</strong>."
+
+#: app/helper/class-ai1ec-app-helper.php:654
+#, php-format
+#@ all-in-one-event-calendar
+msgid "The plugin is installed, but has not been configured. <a href=\"%s\">Click here to set it up now »</a>"
+msgstr "L'extension est installée mais non configurée. <a href=\"%s\">Cliquez ici pour la configurer »</a>"
+
+#: app/helper/class-ai1ec-app-helper.php:660
+#@ all-in-one-event-calendar
+msgid "The plugin is installed, but has not been configured. Please log in as a WordPress Administrator to set it up."
+msgstr "L'extension est installée mais non configurée. Connectez vous en tant qu'Administrateur pour la configurer."
+
+#: app/helper/class-ai1ec-events-helper.php:319
+#: app/helper/class-ai1ec-events-helper.php:341
+#@ all-in-one-event-calendar
+msgid "No repeat"
+msgstr "Pas de répétition"
+
+#: app/helper/class-ai1ec-events-helper.php:554
+#: app/helper/class-ai1ec-events-helper.php:573
+#: app/helper/class-ai1ec-events-helper.php:1462
+#: app/helper/class-ai1ec-settings-helper.php:233
+#: app/view/box_time_and_date.php:58
+#@ all-in-one-event-calendar
+msgid "Daily"
+msgstr "Quotidien"
+
+#: app/helper/class-ai1ec-events-helper.php:555
+#: app/helper/class-ai1ec-events-helper.php:574
+#: app/helper/class-ai1ec-events-helper.php:1474
+#: app/view/box_time_and_date.php:59
+#@ all-in-one-event-calendar
+msgid "Weekly"
+msgstr "Hebdomadaire"
+
+#: app/helper/class-ai1ec-events-helper.php:556
+#: app/helper/class-ai1ec-events-helper.php:575
+#: app/helper/class-ai1ec-events-helper.php:1486
+#: app/view/box_time_and_date.php:60
+#@ all-in-one-event-calendar
+msgid "Monthly"
+msgstr "Mensuel"
+
+#: app/helper/class-ai1ec-events-helper.php:557
+#: app/helper/class-ai1ec-events-helper.php:576
+#: app/helper/class-ai1ec-events-helper.php:1498
+#: app/view/box_time_and_date.php:61
+#@ all-in-one-event-calendar
+msgid "Yearly"
+msgstr "Annuel"
+
+#: app/controller/class-ai1ec-events-controller.php:276
+#@ all-in-one-event-calendar
+msgid "times"
+msgstr "fois"
+
+#: app/helper/class-ai1ec-events-helper.php:1275
+#@ all-in-one-event-calendar
+msgid "Never"
+msgstr "jamais"
+
+#: app/helper/class-ai1ec-events-helper.php:1276
+#@ all-in-one-event-calendar
+msgid "After"
+msgstr "Après"
+
+#: app/helper/class-ai1ec-events-helper.php:1277
+#: app/view/box_time_and_date.php:84
+#@ all-in-one-event-calendar
+msgid "On date"
+msgstr "A la date"
+
+#: app/helper/class-ai1ec-settings-helper.php:85
+#@ all-in-one-event-calendar
+msgid "- Auto-Create New Page -"
+msgstr "- Création auto d'une nouvelle page"
+
+#: app/helper/class-ai1ec-settings-helper.php:106
+#, php-format
+#@ all-in-one-event-calendar
+msgid "View \"%s\" »"
+msgstr "Vue \"%s\" »"
+
+#: app/helper/class-ai1ec-settings-helper.php:148
+#: app/view/calendar.php:10
+#: app/view/calendar.php:11
+#: app/view/calendar.php:17
+#@ all-in-one-event-calendar
+msgid "Month"
+msgstr "Mois"
+
+#: app/controller/class-ai1ec-calendar-controller.php:288
+#: app/helper/class-ai1ec-settings-helper.php:151
+#: app/view/calendar.php:18
+#@ all-in-one-event-calendar
+msgid "Agenda"
+msgstr "Agenda"
+
+#: app/helper/class-ai1ec-settings-helper.php:227
+#@ all-in-one-event-calendar
+msgid "Hourly"
+msgstr "Horaire"
+
+#: app/helper/class-ai1ec-settings-helper.php:230
+#@ all-in-one-event-calendar
+msgid "Twice Daily"
+msgstr "2 fois par jour"
+
+#: app/helper/class-ai1ec-settings-helper.php:317
+#@ all-in-one-event-calendar
+msgid "Calendar"
+msgstr "Calendrier"
+
+#: app/view/box_ics_import_settings.php:2
+#@ all-in-one-event-calendar
+msgid "Auto-refresh"
+msgstr "MAJ-Auto"
+
+#: app/view/box_ics_import_settings.php:8
+#: app/view/feed_row.php:3
+#@ all-in-one-event-calendar
+msgid "iCalendar/.ics Feed URL:"
+msgstr "URL iCalendar/.ics Feed :"
+
+#: app/view/box_ics_import_settings.php:12
+#@ all-in-one-event-calendar
+msgid "Event category"
+msgstr "Catégorie"
+
+#: app/view/box_ics_import_settings.php:18
+#: app/view/feed_row.php:15
+#@ all-in-one-event-calendar
+msgid "Tag with"
+msgstr "Indexé avec"
+
+#: app/view/box_ics_import_settings.php:22
+#@ all-in-one-event-calendar
+msgid "+ Add new subscription"
+msgstr "+ Ajouter un contenu"
+
+#: app/view/calendar.php:27
+#@ all-in-one-event-calendar
+msgid "+ Post Your Event"
+msgstr "+ Poster votre événement"
+
+#: app/view/calendar.php:36
+#@ all-in-one-event-calendar
+msgid "Clear Filters"
+msgstr "Ré-initialiser les filtres"
+
+#: app/view/calendar.php:36
+#@ all-in-one-event-calendar
+msgid "✘"
+msgstr "✘"
+
+#: app/view/calendar.php:37
+#@ all-in-one-event-calendar
+msgid "Filter:"
+msgstr "Filtrer"
+
+#: app/view/calendar.php:42
+#@ all-in-one-event-calendar
+msgid "Categories ▾"
+msgstr "Catégorie"
+
+#: app/view/calendar.php:64
+#@ all-in-one-event-calendar
+msgid "Tags ▾"
+msgstr "Mots clefs"
+
+#: app/view/agenda-widget.php:67
+#: app/view/calendar.php:101
+#@ all-in-one-event-calendar
+msgid "Subscribe to this calendar using your favourite calendar program (iCal, Outlook, etc.)"
+msgstr "S'abonner à ce calendrier en utilisant votre logiciel d'agenda favori"
+
+#: app/view/agenda-widget.php:68
+#: app/view/calendar.php:102
+#@ all-in-one-event-calendar
+msgid "✔ Subscribe"
+msgstr "S'abonner"
+
+#: app/view/calendar.php:103
+#@ all-in-one-event-calendar
+msgid "to this filtered calendar"
+msgstr "à cette vue du calendrier"
+
+#: app/view/agenda-widget.php:72
+#: app/view/calendar.php:107
+#@ all-in-one-event-calendar
+msgid "Subscribe to this calendar in your Google Calendar"
+msgstr "S'abonner à ce calendrier dans votre agenda Google"
+
+#: app/view/calendar.php:109
+#@ all-in-one-event-calendar
+msgid "Subscribe in Google Calendar"
+msgstr "S'abonner dans l'agenda Google"
+
+#: app/view/box_the_seed_studio.php:3
+#@ all-in-one-event-calendar
+msgid "The Seed Studio"
+msgstr "Le Seed Studio"
+
+#: app/view/box_the_seed_studio.php:5
+#@ all-in-one-event-calendar
+msgid "The Seed Studio provides web development and support services for clients and web developers."
+msgstr "Le studio Seed propose des développement web et une assistance pour ces clients et développeurs."
+
+#: app/view/box_the_seed_studio.php:11
+#@ all-in-one-event-calendar
+msgid "Follow @the_seed_studio"
+msgstr "S'abonner @the_seed_studio"
+
+#: app/view/box_the_seed_studio.php:16
+#@ all-in-one-event-calendar
+msgid "Get Support<span> from one of our experienced pros</span>"
+msgstr "Obtenez de l'aide<span> de nos professionnels expérimentés</span>"
+
+#: app/view/box_the_seed_studio.php:18
+#@ all-in-one-event-calendar
+msgid "Support"
+msgstr "Assistance"
+
+#: app/view/box_the_seed_studio.php:20
+#@ all-in-one-event-calendar
+msgid "View plugin documentation"
+msgstr "Consulter la documentation de l'extension (anglais)"
+
+#: app/view/box_the_seed_studio.php:23
+#@ all-in-one-event-calendar
+msgid "You can also hire The Seed for support on a contract or per-hour basis for this plugin, for your website or for any of your Internet marketing needs (we can really help!)."
+msgstr "Vous pouvez également contractualiser avec The Seed pour un accompagnement (à l'heure ou autre) de ce plugin, pour votre site web ou pour tout vos besoins de marketing sur Internet (on peut vraiment vous aider !)."
+
+#: app/view/box_the_seed_studio.php:26
+#@ all-in-one-event-calendar
+msgid "Plugin users: The Seed gives support priority to clients. For free support from other WordPress users, visit the plugin's forum."
+msgstr "Utilisateurs de l'extension : The Seed apporte son assistance en priorité à ses clients. Pour une assistance gratuite des autres utilisateurs Wordpress, visitez le forum de l'extension."
+
+#: app/view/box_the_seed_studio.php:29
+#@ all-in-one-event-calendar
+msgid "Vote and Share"
+msgstr "Votez et partagez"
+
+#: app/view/box_the_seed_studio.php:32
+#@ all-in-one-event-calendar
+msgid "This plugin is offered free to the Wordpress Community under the GPL3 license. All we ask is that you:"
+msgstr "Cette extenions est offerte gratuitement à la communauté Wordpress sous license GPL3. Tout ce que nous vous demandons c'est :"
+
+#: app/view/box_the_seed_studio.php:34
+#@ all-in-one-event-calendar
+msgid "<a href=\"http://wordpress.org/extend/plugins/all-in-one-event-calendar/\" target=\"_blank\">Give it a five-star rating on wordpress.org</a> (if you think it deserves it!)"
+msgstr "<a href=\"http://wordpress.org/extend/plugins/all-in-one-event-calendar/\" target=\"_blank\">Donnez nous 5 étoiles sur wordpress.org</a> (si vous pensez que nous le méritons !)"
+
+#: app/view/box_the_seed_studio.php:35
+#@ all-in-one-event-calendar
+msgid "Link to the plugin page on our website"
+msgstr "Disposez un lien vers le site de l'extension sur votre site"
+
+#: app/view/box_the_seed_studio.php:36
+#@ all-in-one-event-calendar
+msgid "Become a Fan on Facebook"
+msgstr "Devenez un Fan sur Facebook"
+
+#: app/view/box_the_seed_studio.php:37
+#@ all-in-one-event-calendar
+msgid "Follow us on Twitter"
+msgstr "Suivez nous sur Twitter"
+
+#: app/view/settings.php:5
+#@ all-in-one-event-calendar
+msgid "All-in-one Event Calendar"
+msgstr "All-in-one Event Calendar"
+
+#: app/view/settings.php:17
+#@ all-in-one-event-calendar
+msgid "Update Settings"
+msgstr "Mettre à jour la configuration"
+
+#: app/view/event-excerpt.php:2
+#: app/view/event-multi.php:4
+#: app/view/event-single.php:5
+#@ all-in-one-event-calendar
+msgid "When:"
+msgstr "Quand:"
+
+#: app/view/event-single.php:8
+#@ all-in-one-event-calendar
+msgid "Back to Calendar »"
+msgstr "Retour au calendrier »"
+
+#: app/view/event-multi.php:14
+#: app/view/event-single.php:15
+#@ all-in-one-event-calendar
+msgid "Repeats:"
+msgstr "Répétitions:"
+
+#: app/view/event-excerpt.php:4
+#: app/view/event-multi.php:20
+#: app/view/event-single.php:20
+#@ all-in-one-event-calendar
+msgid "Where:"
+msgstr "Où:"
+
+#: app/view/event-single.php:27
+#@ all-in-one-event-calendar
+msgid "Add this event to your favourite calendar program (iCal, Outlook, etc.)"
+msgstr "Ajouter cet événement à votre logiciel d'agenda favori"
+
+#: app/view/event-single.php:28
+#@ all-in-one-event-calendar
+msgid "✔ Add to Calendar"
+msgstr "Ajouter au calendrier"
+
+#: app/view/event-single.php:31
+#@ all-in-one-event-calendar
+msgid "Add this event to your Google Calendar"
+msgstr "Ajouter cet événement à votre agenda Google"
+
+#: app/view/event-single.php:33
+#@ all-in-one-event-calendar
+msgid "Add to Google Calendar"
+msgstr "Ajouter à l'agenda Google"
+
+#: app/view/event-multi.php:33
+#: app/view/event-single.php:40
+#@ all-in-one-event-calendar
+msgid "Cost:"
+msgstr "Coût:"
+
+#: app/view/event-multi.php:39
+#: app/view/event-single.php:46
+#@ all-in-one-event-calendar
+msgid "Contact:"
+msgstr "Contact:"
+
+#: app/view/agenda.php:80
+#: app/view/event-multi.php:45
+#: app/view/event-single.php:52
+#@ all-in-one-event-calendar
+msgid "Categories:"
+msgstr "Catégories:"
+
+#: app/view/agenda.php:86
+#: app/view/event-multi.php:51
+#: app/view/event-single.php:59
+#@ all-in-one-event-calendar
+msgid "Tags:"
+msgstr "Mots clefs:"
+
+#: app/view/box_time_and_date.php:2
+#@ all-in-one-event-calendar
+msgid "Event date and time"
+msgstr "Date et heure de l'événement"
+
+#: app/view/box_time_and_date.php:8
+#@ all-in-one-event-calendar
+msgid "All-day event"
+msgstr "Journée entière"
+
+#: app/view/box_time_and_date.php:18
+#@ all-in-one-event-calendar
+msgid "Start date / time"
+msgstr "Date / Heure de début"
+
+#: app/view/box_time_and_date.php:31
+#@ all-in-one-event-calendar
+msgid "End date / time"
+msgstr "Date / heure de fin"
+
+#: app/view/box_time_and_date.php:46
+#@ all-in-one-event-calendar
+msgid "Repeat"
+msgstr "Répétition"
+
+#: app/view/box_time_and_date.php:70
+#@ all-in-one-event-calendar
+msgid "End"
+msgstr "Fin"
+
+#: app/view/box_time_and_date.php:77
+#@ all-in-one-event-calendar
+msgid "Ending after"
+msgstr "Se terminant après"
+
+#: app/view/admin_notices.php:2
+#@ all-in-one-event-calendar
+msgid "All-in-One Event Calendar Notice:"
+msgstr "Préavis All-in-One Event Calendar:"
+
+#: app/view/import.php:6
+#@ all-in-one-event-calendar
+msgid "Successfully imported events:"
+msgstr "L'importation des événements s'est bien passée"
+
+#: app/view/event_categories-color_picker.php:5
+#: app/view/event_categories-color_picker.php:19
+#@ all-in-one-event-calendar
+msgid "Category Color"
+msgstr "Couleur des catégories"
+
+#: app/view/event_categories-color_picker.php:13
+#: app/view/event_categories-color_picker.php:25
+#@ all-in-one-event-calendar
+msgid "Events in this category will be identified by this color"
+msgstr "Les événements de cette catégories seront identifiés de cette couleur"
+
+#: app/view/event-single-footer.php:4
+#, php-format
+#@ default
+msgid "This post was replicated from another site's <a class=\"ai1ec-ics-icon\" href=\"%s\" title=\"iCalendar feed\">calendar feed</a>."
+msgstr "Cet article a été copié depuis un autre site <a class=\"ai1ec-ics-icon\" href=\"%s\" title=\"iCalendar feed\">calendar feed</a>."
+
+#: app/view/event-single-footer.php:8
+#@ all-in-one-event-calendar
+msgid "View original post »"
+msgstr "Voir l'article original » "
+
+#: app/view/box_event_location.php:1
+#@ all-in-one-event-calendar
+msgid "Event location details"
+msgstr "Lieu de l'événement"
+
+#: app/view/box_event_location.php:7
+#@ all-in-one-event-calendar
+msgid "Venue name:"
+msgstr "Nom de la rue"
+
+#: app/view/box_event_location.php:17
+#@ all-in-one-event-calendar
+msgid "Address:"
+msgstr "Adresse:"
+
+#: app/view/box_event_location.php:27
+#@ all-in-one-event-calendar
+msgid "Show Google Map:"
+msgstr "Montrer la carte Google:"
+
+#: app/view/event-multi.php:7
+#@ all-in-one-event-calendar
+msgid "View in Calendar »"
+msgstr "Voir dans le calendrier »"
+
+#: app/view/event-multi.php:24
+#@ all-in-one-event-calendar
+msgid "View Map »"
+msgstr "Voir la carte »"
+
+#: app/view/box_general_settings.php:1
+#@ all-in-one-event-calendar
+msgid "Viewing Events"
+msgstr "Voir les événements"
+
+#: app/view/box_general_settings.php:3
+#@ all-in-one-event-calendar
+msgid "Calendar page:"
+msgstr "Page du calendrier"
+
+#: app/view/box_general_settings.php:7
+#@ all-in-one-event-calendar
+msgid "Default calendar view:"
+msgstr "Vue par défaut :"
+
+#: app/view/box_general_settings.php:12
+#@ all-in-one-event-calendar
+msgid "Timezone:"
+msgstr "Fuseau horaire:"
+
+#: app/view/box_general_settings.php:17
+#@ all-in-one-event-calendar
+msgid "Contain calendar in this DOM element:"
+msgstr "Réserver le calendrier à cette partie du DOM :"
+
+#: app/view/box_general_settings.php:19
+#@ all-in-one-event-calendar
+msgid "Optional. Provide a <a href=\"http://api.jquery.com/category/selectors/\" target=\"_blank\">jQuery selector</a> that evaluates to a single DOM element. Replaces any existing markup found within target. If left empty, calendar is shown in normal page content container."
+msgstr "Optionnel. Offre un <a href=\"http://api.jquery.com/category/selectors/\" target=\"_blank\">selecteur jQuery </a> qui renvoie à un seul élément du DOM. Remplace toute balisage existant trouvé dans la cible. Si laissé vide, le calendrier est affiché dans un cadre contenu dans la page normale."
+
+#: app/view/box_general_settings.php:21
+#@ all-in-one-event-calendar
+msgid "Week starts on"
+msgstr "La semaine commence le"
+
+#: app/view/box_general_settings.php:25
+#@ all-in-one-event-calendar
+msgid "Agenda pages show at most"
+msgstr "La vue Agenda affichera au plus"
+
+#: app/view/box_general_settings.php:26
+#@ all-in-one-event-calendar
+msgid "events"
+msgstr "événements"
+
+#: app/view/box_general_settings.php:37
+#@ all-in-one-event-calendar
+msgid "<strong>Exclude</strong> events from search results"
+msgstr "<strong>Exclure</strong> les événements des résultats de recherche"
+
+#: app/view/box_general_settings.php:43
+#@ all-in-one-event-calendar
+msgid "Show <strong>Post Your Event</strong> button above the calendar to privileged users"
+msgstr "Montrer le bouton <strong>Poster votre événement</strong> au dessus du calendrier pour les utilisateurs autorisés"
+
+#: app/view/box_general_settings.php:49
+#@ all-in-one-event-calendar
+msgid "Hide <strong>Subscribe</strong>/<strong>Add to Calendar</strong> buttons in calendar and single event views"
+msgstr "Cacher les boutons <strong>S'abonner</strong>/<strong>Ajouter au calendrier</strong>dans le calendrier et les vue de détail"
+
+#: app/view/box_general_settings.php:55
+#@ all-in-one-event-calendar
+msgid "Hide <strong>Google Maps</strong> until clicked"
+msgstr "Cacher <strong>Google Maps</strong> avant le clic"
+
+#: app/view/box_general_settings.php:61
+#@ all-in-one-event-calendar
+msgid "Include <strong>event categories</strong> in post category lists"
+msgstr "Inclure les <strong>catégories d'événements </strong> dans la liste des catégories d'articles"
+
+#: app/view/box_general_settings.php:65
+#@ all-in-one-event-calendar
+msgid "Adding/Editing Events"
+msgstr "Ajouter/Editer des événements"
+
+#: app/view/box_general_settings.php:73
+#@ all-in-one-event-calendar
+msgid "Use <strong>24h time</strong> in time pickers"
+msgstr "Utiliser le format <strong>24h</strong> dans les aperçus"
+
+#: app/view/box_general_settings.php:79
+#@ all-in-one-event-calendar
+msgid "Display <strong>Publish</strong> at bottom of Edit Event form"
+msgstr "Monter <strong>Publier</strong> en bas du formulaire d'édition des événements"
+
+#: app/view/agenda-widget-form.php:2
+#@ all-in-one-event-calendar
+msgid "Title:"
+msgstr "Titre:"
+
+#: app/view/agenda-widget-form.php:6
+#@ all-in-one-event-calendar
+msgid "Number of events to show:"
+msgstr "Nombre d'événements à montrer"
+
+#: app/view/agenda-widget-form.php:53
+#@ all-in-one-event-calendar
+msgid "Show <strong>View Calendar</strong> button"
+msgstr "Afficher le bouton <strong>Vue calendrier</strong>"
+
+#: app/view/agenda-widget-form.php:56
+#@ all-in-one-event-calendar
+msgid "Show <strong>Subscribe</strong> buttons"
+msgstr "Montrer les boutons <strong>S'abonner</strong>"
+
+#: app/view/agenda-widget-form.php:59
+#@ all-in-one-event-calendar
+msgid "Hide this widget on calendar page"
+msgstr "Cacher ce Widget sur la page \"Calendrier\""
+
+#: app/view/agenda.php:12
+#: app/view/month.php:4
+#@ all-in-one-event-calendar
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#: app/view/month.php:50
+#@ all-in-one-event-calendar
+msgid "Summary:"
+msgstr "Résumé:"
+
+#: app/view/month.php:53
+#@ all-in-one-event-calendar
+msgid "click anywhere for details"
+msgstr "cliquer n'importe ou pour des détails"
+
+#: app/view/agenda.php:58
+#: app/view/agenda.php:108
+#: app/view/month.php:68
+#@ all-in-one-event-calendar
+msgid "(all-day)"
+msgstr "(journée-complète)"
+
+#: app/view/agenda.php:5
+#@ all-in-one-event-calendar
+msgid "+ Expand All"
+msgstr "+ Tout déplier"
+
+#: app/view/agenda.php:8
+#@ all-in-one-event-calendar
+msgid "− Collapse All"
+msgstr "− Tout replier"
+
+#: app/view/agenda.php:28
+#@ all-in-one-event-calendar
+msgid "There are no upcoming events to display at this time."
+msgstr "Il n'y a pas de nouveaux événements en ce moment"
+
+#: app/view/agenda.php:76
+#@ all-in-one-event-calendar
+msgid "Read more »"
+msgstr "Lire la suite »"
+
+#: app/view/agenda-widget.php:11
+#@ all-in-one-event-calendar
+msgid "There are no upcoming events."
+msgstr "Il n'y a pas de nouveaux événements"
+
+#: app/view/agenda-widget.php:59
+#@ all-in-one-event-calendar
+msgid "View Calendar »"
+msgstr "Voir le calendrier »"
+
+#: app/view/agenda-widget.php:74
+#@ all-in-one-event-calendar
+msgid "Add to Google"
+msgstr "Ajouter à Google"
+
+#: app/view/box_event_contact.php:1
+#@ all-in-one-event-calendar
+msgid "Organizer contact info"
+msgstr "Information planning contact"
+
+#: app/view/box_event_contact.php:7
+#@ all-in-one-event-calendar
+msgid "Contact name:"
+msgstr "Nom du contact:"
+
+#: app/view/box_event_contact.php:17
+#@ all-in-one-event-calendar
+msgid "Phone:"
+msgstr "Téléphone:"
+
+#: app/view/box_event_contact.php:27
+#@ all-in-one-event-calendar
+msgid "E-mail:"
+msgstr "E-mail:"
+
+#: app/view/class-ai1ec-agenda-widget.php:18
+#: app/view/class-ai1ec-agenda-widget.php:39
+#@ all-in-one-event-calendar
+msgid "Upcoming Events"
+msgstr "Nouveaux événements"
+
+#: app/view/class-ai1ec-agenda-widget.php:20
+#@ all-in-one-event-calendar
+msgid "All-in-One Event Calendar: Lists upcoming events in Agenda view"
+msgstr "All-in-One Event Calendar: Lister les nouveaux événements dans la vue Agenda"
+
+#: app/view/box_event_cost.php:1
+#@ all-in-one-event-calendar
+msgid "Event cost"
+msgstr "Coût de l'événement"
+
+#: app/view/box_event_cost.php:7
+#@ all-in-one-event-calendar
+msgid "Cost"
+msgstr "Coût"
+
+#: app/view/event-map.php:2
+#@ all-in-one-event-calendar
+msgid "Click to view map"
+msgstr "Cliquer pour voir la carte"
+
+#: app/view/event-map.php:9
+#@ all-in-one-event-calendar
+msgid "View Full-Size Map »"
+msgstr "Voir la carte en grande taille"
+
+#: app/view/box_eventbrite.php:1
+#@ all-in-one-event-calendar
+msgid "Eventbrite Ticketing"
+msgstr "Billetterie Eventbrite"
+
+#: app/view/box_eventbrite.php:7
+#@ all-in-one-event-calendar
+msgid "Register this event with Eventbrite.com?"
+msgstr "Enregistrer cet événement avec  Eventbrite.com ?"
+
+#: app/view/box_eventbrite.php:12
+#@ all-in-one-event-calendar
+msgid "Yes"
+msgstr "Oui"
+
+#: app/view/box_eventbrite.php:14
+#@ all-in-one-event-calendar
+msgid "No"
+msgstr "Non"
+
+#: app/view/box_eventbrite.php:22
+#@ all-in-one-event-calendar
+msgid "Set up your first ticket"
+msgstr "Configurer votre premier ticket"
+
+#: app/view/box_eventbrite.php:24
+#@ all-in-one-event-calendar
+msgid "To create multiple tickets per event, submit this form, then follow the link to Eventbrite."
+msgstr "Pour créer de multiples tickets par événements, envoyez ce formulaire, puis suivez le lien vers Eventbrite."
+
+#: app/view/box_eventbrite.php:32
+#@ all-in-one-event-calendar
+msgid "Name"
+msgstr "Nom"
+
+#: app/view/box_eventbrite.php:42
+#@ all-in-one-event-calendar
+msgid "Description"
+msgstr "Description"
+
+#: app/view/box_eventbrite.php:53
+#@ all-in-one-event-calendar
+msgid "Type"
+msgstr "Type"
+
+#: app/view/box_eventbrite.php:58
+#@ all-in-one-event-calendar
+msgid "Set Price"
+msgstr "Définir le prix"
+
+#: app/view/box_eventbrite.php:60
+#@ all-in-one-event-calendar
+msgid "Donation Based"
+msgstr "Sur la base de contribution"
+
+#: app/view/box_eventbrite.php:68
+#@ all-in-one-event-calendar
+msgid "The price for this event's first ticket will be taken from the Cost field above."
+msgstr "Le prix de ce premier billet pour cet événement sera baser sur le champ \\\"Coût\\\" ci-dessus."
+
+#: app/view/box_eventbrite.php:75
+#@ all-in-one-event-calendar
+msgid "Quantity"
+msgstr "Quantité"
+
+#: app/view/box_eventbrite.php:85
+#@ all-in-one-event-calendar
+msgid "Include Fee in Price"
+msgstr "Compter les frais dans le prix"
+
+#: app/view/box_eventbrite.php:90
+#@ all-in-one-event-calendar
+msgid "Add Service Fee on top of price"
+msgstr "Ajouter des frais de service en plus du prix"
+
+#: app/view/box_eventbrite.php:92
+#@ all-in-one-event-calendar
+msgid "Include Service fee in price"
+msgstr "Inclure les frais de service dans le prix"
+
+#: app/view/box_eventbrite.php:98
+#@ all-in-one-event-calendar
+msgid "Payment Options"
+msgstr "Options de paiement"
+
+#: app/view/box_eventbrite.php:103
+#@ all-in-one-event-calendar
+msgid "Paypal"
+msgstr "Paypal"
+
+#: app/view/box_eventbrite.php:105
+#@ all-in-one-event-calendar
+msgid "Google Checkout"
+msgstr "Google Checkout"
+
+#: app/view/box_eventbrite.php:107
+#@ all-in-one-event-calendar
+msgid "Check"
+msgstr "Vérification"
+
+#: app/view/box_eventbrite.php:109
+#@ all-in-one-event-calendar
+msgid "Cash"
+msgstr "En liiquide"
+
+#: app/view/box_eventbrite.php:111
+#@ all-in-one-event-calendar
+msgid "Send an Invoice"
+msgstr "Envoyer une facture"
+
+#: app/view/feed_row.php:9
+#@ all-in-one-event-calendar
+msgid "Event category:"
+msgstr "Catégorie d'événement"
+
+#: app/view/feed_row.php:19
+#@ all-in-one-event-calendar
+msgid "× Delete"
+msgstr "Effacer"
+
+#: app/controller/class-ai1ec-events-controller.php:325
+#: app/view/feed_row.php:20
+#@ all-in-one-event-calendar
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: app/controller/class-ai1ec-settings-controller.php:216
+#: app/view/feed_row.php:22
+#, php-format
+#@ all-in-one-event-calendar
+msgid "Flush 1 event"
+msgid_plural "Flush %s events"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/controller/class-ai1ec-events-controller.php:147
+#@ all-in-one-event-calendar
+msgid "This feed is already being imported."
+msgstr "Le flux a déjà été importé"
+
+#: app/controller/class-ai1ec-events-controller.php:148
+#@ all-in-one-event-calendar
+msgid "Please enter a valid iCalendar URL."
+msgstr "SVP entrez une URL iCalendar valide"
+
+#: app/controller/class-ai1ec-events-controller.php:325
+#@ all-in-one-event-calendar
+msgid "Publish"
+msgstr "Publier"
+
+#: app/controller/class-ai1ec-events-controller.php:327
+#@ all-in-one-event-calendar
+msgid "Submit for Review"
+msgstr "Soumettre à révision"
+
+#: app/controller/class-ai1ec-events-controller.php:440
+#, php-format
+#@ all-in-one-event-calendar
+msgid "Event updated. <a href=\"%s\">View event</a>"
+msgstr "Evénement mis à jour. <a href=\"%s\">Voir l'événement</a>"
+
+#: app/controller/class-ai1ec-events-controller.php:441
+#@ all-in-one-event-calendar
+msgid "Custom field updated."
+msgstr "Champ personnalisé mis à jour"
+
+#: app/controller/class-ai1ec-events-controller.php:442
+#@ all-in-one-event-calendar
+msgid "Custom field deleted."
+msgstr "Champ personnalisé effacé"
+
+#: app/controller/class-ai1ec-events-controller.php:443
+#@ all-in-one-event-calendar
+msgid "Event updated."
+msgstr "Evénement mis à jour"
+
+#. translators: %s: date and time of the revision
+#: app/controller/class-ai1ec-events-controller.php:445
+#, php-format
+#@ all-in-one-event-calendar
+msgid "Event restored to revision from %s"
+msgstr "Evénément restauré depuis la révision %s"
+
+#: app/controller/class-ai1ec-events-controller.php:446
+#, php-format
+#@ all-in-one-event-calendar
+msgid "Event published. <a href=\"%s\">View event</a>"
+msgstr "Evénement publié. <a href=\"%s\">Voir l'événement</a>"
+
+#: app/controller/class-ai1ec-events-controller.php:447
+#@ default
+msgid "Event saved."
+msgstr ""
+
+#: app/controller/class-ai1ec-events-controller.php:448
+#, php-format
+#@ all-in-one-event-calendar
+msgid "Event submitted. <a target=\"_blank\" href=\"%s\">Preview event</a>"
+msgstr "Evénément envoyé. <a target=\"_blank\" href=\"%s\">Précédent</a>"
+
+#: app/controller/class-ai1ec-events-controller.php:449
+#, php-format
+#@ all-in-one-event-calendar
+msgid "Event scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview event</a>"
+msgstr "Evénement programmé pour: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Précédent</a>"
+
+#: app/controller/class-ai1ec-events-controller.php:451
+#@ all-in-one-event-calendar
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G:i"
+
+#: app/controller/class-ai1ec-events-controller.php:452
+#, php-format
+#@ all-in-one-event-calendar
+msgid "Event draft updated. <a target=\"_blank\" href=\"%s\">Preview event</a>"
+msgstr "Brouillon mis à jour. <a target=\"_blank\" href=\"%s\">Prévisualiser l'événement</a>"
+
+#: app/controller/class-ai1ec-app-controller.php:354
+#: app/controller/class-ai1ec-app-controller.php:355
+#@ all-in-one-event-calendar
+msgid "Settings"
+msgstr "Options"
+
+#: app/controller/class-ai1ec-settings-controller.php:82
+#@ all-in-one-event-calendar
+msgid "Settings Updated."
+msgstr "Options mises à jour"
+
+#: app/controller/class-ai1ec-settings-controller.php:173
+#, php-format
+#@ all-in-one-event-calendar
+msgid "Flushed %d events"
+msgstr "Nettoyer %d événements"
+
+#: app/controller/class-ai1ec-settings-controller.php:215
+#, php-format
+#@ all-in-one-event-calendar
+msgid "Imported %d events"
+msgstr "Importer %d événements"
+
+#: app/controller/class-ai1ec-settings-controller.php:267
+#@ all-in-one-event-calendar
+msgctxt "meta box"
+msgid "General Settings"
+msgstr "Configuration générale"
+
+#: app/controller/class-ai1ec-settings-controller.php:275
+#@ all-in-one-event-calendar
+msgctxt "meta box"
+msgid "The Seed Studio Support"
+msgstr "Assistance The Seed Studio"
+
+#: app/controller/class-ai1ec-settings-controller.php:282
+#@ all-in-one-event-calendar
+msgctxt "meta box"
+msgid "ICS Import Settings"
+msgstr "Options d'importation ICS"
+
+#: app/controller/class-ai1ec-settings-controller.php:334
+#, php-format
+#@ all-in-one-event-calendar
+msgid "<a href=\"%s\">Settings</a>"
+msgstr "<a href=\"%s\">Options</a>"
+
+#: app/controller/class-ai1ec-settings-controller.php:348
+#, php-format
+#@ all-in-one-event-calendar
+msgid "<a href=\"%s\" target=\"_blank\">Donate</a>"
+msgstr "<a href=\"%s\" target=\"_blank\">Contribuer</a>"
+
+#: app/controller/class-ai1ec-settings-controller.php:349
+#, php-format
+#@ all-in-one-event-calendar
+msgid "<a href=\"%s\" target=\"_blank\">Get Support</a>"
+msgstr "<a href=\"%s\" target=\"_blank\">Aide</a>"
+
+#: app/controller/class-ai1ec-importer-controller.php:91
+#@ all-in-one-event-calendar
+msgid "The Events Calendar → All-in-One Event Calendar"
+msgstr "The Events Calendar → All-in-One Event Calendar"
+
+#: app/controller/class-ai1ec-importer-controller.php:92
+#@ all-in-one-event-calendar
+msgid "Imports events created using The Events Calendar plugin into the All-in-One Event Calendar"
+msgstr "Importer des événements en utilisant l'extension The Events Calendar dans All-in-One Event Calendar"
+
+#: app/model/class-ai1ec-event.php:459
+#@ all-in-one-event-calendar
+msgid " (all-day)"
+msgstr "(journée-entière)"
+
+#: app/helper/class-ai1ec-events-helper.php:320
+#: app/helper/class-ai1ec-events-helper.php:342
+#@ all-in-one-event-calendar
+msgid "Every day"
+msgstr "Tous les jours"
+
+#: app/helper/class-ai1ec-events-helper.php:321
+#: app/helper/class-ai1ec-events-helper.php:343
+#@ all-in-one-event-calendar
+msgid "Every week"
+msgstr "Toutes les semaines"
+
+#: app/helper/class-ai1ec-events-helper.php:322
+#: app/helper/class-ai1ec-events-helper.php:344
+#@ all-in-one-event-calendar
+msgid "Every month"
+msgstr "Tous les mois"
+
+#: app/helper/class-ai1ec-events-helper.php:323
+#: app/helper/class-ai1ec-events-helper.php:345
+#@ all-in-one-event-calendar
+msgid "Every year"
+msgstr "Tous les ans"
+
+#: app/helper/class-ai1ec-events-helper.php:324
+#: app/helper/class-ai1ec-events-helper.php:346
+#@ all-in-one-event-calendar
+msgid "-----------"
+msgstr "-----------"
+
+#: app/helper/class-ai1ec-events-helper.php:325
+#: app/helper/class-ai1ec-events-helper.php:347
+#@ all-in-one-event-calendar
+msgid "Custom..."
+msgstr "Personnalisé..."
+
+#: app/helper/class-ai1ec-events-helper.php:468
+#@ all-in-one-event-calendar
+msgid "first"
+msgstr "premier"
+
+#: app/helper/class-ai1ec-events-helper.php:469
+#@ all-in-one-event-calendar
+msgid "second"
+msgstr "deuxième"
+
+#: app/helper/class-ai1ec-events-helper.php:470
+#@ all-in-one-event-calendar
+msgid "third"
+msgstr "troisième"
+
+#: app/helper/class-ai1ec-events-helper.php:471
+#@ all-in-one-event-calendar
+msgid "fourth"
+msgstr "quatrième"
+
+#: app/helper/class-ai1ec-events-helper.php:472
+#@ all-in-one-event-calendar
+msgid "------"
+msgstr "------"
+
+#: app/helper/class-ai1ec-events-helper.php:473
+#@ all-in-one-event-calendar
+msgid "last"
+msgstr "dernier"
+
+#: app/helper/class-ai1ec-events-helper.php:478
+#@ all-in-one-event-calendar
+msgid "Sunday"
+msgstr "Dimanche"
+
+#: app/helper/class-ai1ec-events-helper.php:479
+#@ all-in-one-event-calendar
+msgid "Monday"
+msgstr "Lundi"
+
+#: app/helper/class-ai1ec-events-helper.php:480
+#@ all-in-one-event-calendar
+msgid "Tuesday"
+msgstr "Mardi"
+
+#: app/helper/class-ai1ec-events-helper.php:481
+#@ all-in-one-event-calendar
+msgid "Wednesday"
+msgstr "Mercredi"
+
+#: app/helper/class-ai1ec-events-helper.php:482
+#@ all-in-one-event-calendar
+msgid "Thursday"
+msgstr "Jeudi"
+
+#: app/helper/class-ai1ec-events-helper.php:483
+#@ all-in-one-event-calendar
+msgid "Friday"
+msgstr "Vendredi"
+
+#: app/helper/class-ai1ec-events-helper.php:484
+#@ all-in-one-event-calendar
+msgid "Saturday"
+msgstr "Samedi"
+
+#: app/helper/class-ai1ec-events-helper.php:485
+#@ all-in-one-event-calendar
+msgid "--------"
+msgstr "--------"
+
+#: app/helper/class-ai1ec-events-helper.php:486
+#@ all-in-one-event-calendar
+msgid "day"
+msgstr "jour"
+
+#: app/helper/class-ai1ec-events-helper.php:487
+#@ all-in-one-event-calendar
+msgid "weekday"
+msgstr "semaine"
+
+#: app/helper/class-ai1ec-events-helper.php:488
+#@ all-in-one-event-calendar
+msgid "weekend day"
+msgstr "weekend"
+
+#: app/helper/class-ai1ec-events-helper.php:598
+#@ all-in-one-event-calendar
+msgid "day(s)"
+msgstr "jour(s)"
+
+#: app/helper/class-ai1ec-events-helper.php:627
+#@ all-in-one-event-calendar
+msgid "week(s)"
+msgstr "semaine(s)"
+
+#: app/helper/class-ai1ec-events-helper.php:679
+#@ all-in-one-event-calendar
+msgid "month(s)"
+msgstr "mois"
+
+#: app/helper/class-ai1ec-events-helper.php:700
+#@ all-in-one-event-calendar
+msgid "year(s)"
+msgstr "année(s)"
+
+#: app/helper/class-ai1ec-events-helper.php:1356
+#: app/helper/class-ai1ec-events-helper.php:1365
+#: app/helper/class-ai1ec-events-helper.php:1373
+#: app/helper/class-ai1ec-events-helper.php:1386
+#: app/helper/class-ai1ec-events-helper.php:1393
+#: app/helper/class-ai1ec-events-helper.php:1399
+#: app/helper/class-ai1ec-events-helper.php:1413
+#: app/helper/class-ai1ec-events-helper.php:1421
+#: app/helper/class-ai1ec-events-helper.php:1428
+#@ default
+msgid "on"
+msgstr ""
+
+#: app/helper/class-ai1ec-events-helper.php:1361
+#: app/helper/class-ai1ec-events-helper.php:1390
+#: app/helper/class-ai1ec-events-helper.php:1418
+#@ all-in-one-event-calendar
+msgid "and"
+msgstr "et"
+
+#: app/helper/class-ai1ec-events-helper.php:1386
+#: app/helper/class-ai1ec-events-helper.php:1393
+#: app/helper/class-ai1ec-events-helper.php:1399
+#@ all-in-one-event-calendar
+msgid "of the month"
+msgstr "dans le mois"
+
+#: app/helper/class-ai1ec-events-helper.php:1465
+#@ all-in-one-event-calendar
+msgid "Every other day"
+msgstr "Tous les autres jours"
+
+#: app/helper/class-ai1ec-events-helper.php:1467
+#, php-format
+#@ all-in-one-event-calendar
+msgid "Every %d days"
+msgstr "Tous les %d jours"
+
+#: app/helper/class-ai1ec-events-helper.php:1477
+#@ all-in-one-event-calendar
+msgid "Every other week"
+msgstr "Toutes les autres semaines"
+
+#: app/helper/class-ai1ec-events-helper.php:1479
+#, php-format
+#@ all-in-one-event-calendar
+msgid "Every %d weeks"
+msgstr "Toutes les %d semaines"
+
+#: app/helper/class-ai1ec-events-helper.php:1489
+#@ all-in-one-event-calendar
+msgid "Every other month"
+msgstr "Tous les autres mois"
+
+#: app/helper/class-ai1ec-events-helper.php:1491
+#, php-format
+#@ all-in-one-event-calendar
+msgid "Every %d months"
+msgstr "Tous les %d mois"
+
+#: app/helper/class-ai1ec-events-helper.php:1501
+#@ all-in-one-event-calendar
+msgid "Every other year"
+msgstr "Toutes les autres années"
+
+#: app/helper/class-ai1ec-events-helper.php:1503
+#, php-format
+#@ all-in-one-event-calendar
+msgid "Every %d years"
+msgstr "Toutes les %d années"
+
+#: app/helper/class-ai1ec-events-helper.php:1523
+#, php-format
+#@ all-in-one-event-calendar
+msgid "until %s"
+msgstr "jusqu'à %s"
+
+#: app/helper/class-ai1ec-events-helper.php:1526
+#, php-format
+#@ all-in-one-event-calendar
+msgid "for %d occurrences"
+msgstr "pour %d occurrences"
+
+#: app/helper/class-ai1ec-events-helper.php:1528
+#@ all-in-one-event-calendar
+msgid "forever"
+msgstr "pour toujours"
+
+#: app/helper/class-ai1ec-settings-helper.php:200
+#@ all-in-one-event-calendar
+msgid "Default (d/m/y)"
+msgstr "Defaut (d/m/y)"
+
+#: app/helper/class-ai1ec-settings-helper.php:203
+#@ all-in-one-event-calendar
+msgid "US (m/d/y)"
+msgstr "US (m/d/y)"
+
+#: app/helper/class-ai1ec-settings-helper.php:206
+#@ all-in-one-event-calendar
+msgid "ISO 8601 (y-m-d)"
+msgstr "ISO 8601 (y-m-d)"
+
+#: app/helper/class-ai1ec-settings-helper.php:209
+#@ all-in-one-event-calendar
+msgid "Dotted (m.d.y)"
+msgstr "Dotted (m.d.y)"
+
+#: app/view/agenda-widget-form.php:14
+#@ all-in-one-event-calendar
+msgid "Events with these <strong>Categories</strong>"
+msgstr "Evénements avec ces <strong>Catégories</strong>"
+
+#: app/view/agenda-widget-form.php:27
+#@ all-in-one-event-calendar
+msgid "<strong>Or</strong> events with these <strong>Tags</strong>"
+msgstr "<strong>Or</strong> événements avec ces <strong>Mots clef</strong>"
+
+#: app/view/agenda-widget-form.php:40
+#@ all-in-one-event-calendar
+msgid "<strong>Or</strong> any of these <strong>Events</strong>"
+msgstr "<strong>Où</strong> l'un de ces <strong>Evénements</strong>"
+
+#: app/view/agenda-widget-form.php:66
+#@ all-in-one-event-calendar
+msgid "Categories"
+msgstr "Catégories"
+
+#: app/view/agenda-widget-form.php:77
+#@ all-in-one-event-calendar
+msgid "Tags"
+msgstr "Mots clef"
+
+#: app/view/box_general_settings.php:31
+#@ all-in-one-event-calendar
+msgid "Keep all events <strong>expanded</strong> in the agenda view"
+msgstr "Conserver tous les événements <strong>visible</strong> dans la vue agenda"
+
+#: app/view/box_general_settings.php:67
+#@ all-in-one-event-calendar
+msgid "Input dates in this format:"
+msgstr "Insérer les dates dans ce format"
+
+#: app/view/box_the_seed_studio.php:41
+#@ all-in-one-event-calendar
+msgid "Latest from the Seed Network"
+msgstr "Dernière nouvelles du réseau Seed"
+
+#: app/view/box_time_and_date.php:92
+#@ all-in-one-event-calendar
+msgid "Apply"
+msgstr "Appliquer"
+
+#: app/view/box_time_and_date.php:93
+#@ all-in-one-event-calendar
+msgid "Cancel"
+msgstr "Effacer"
+
+#: app/view/row_daily.php:3
+#: app/view/row_monthly.php:3
+#: app/view/row_weekly.php:3
+#: app/view/row_yearly.php:3
+#@ all-in-one-event-calendar
+msgid "Every"
+msgstr "Tous les"
+
+#: app/view/row_monthly.php:7
+#@ all-in-one-event-calendar
+msgid "Each"
+msgstr "Chaque"
+
+#: app/view/row_weekly.php:6
+#@ all-in-one-event-calendar
+msgid "On"
+msgstr "Sur"
+
+#: app/view/row_yearly.php:7
+#@ all-in-one-event-calendar
+msgid "In"
+msgstr "Dans"
+

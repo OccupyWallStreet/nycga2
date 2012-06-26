@@ -1,6 +1,6 @@
 <?php do_action( 'bp_before_sidebar' ) ?>
 
-<div id="sidebar-3" role="complementary class="extra-sidebar">
+<div id="sidebar-3" role="complementary" class="extra-sidebar">
 	<div class="padder">
 
 	
