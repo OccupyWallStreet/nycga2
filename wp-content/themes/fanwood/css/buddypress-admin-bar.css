@@ -1,0 +1,30 @@
+/**
+ * BuddyPress Admin Bar
+ ************************************************/
+ 
+body,
+body.wp-admin {
+	padding-top: 32px !important;
+	}
+#wp-admin-bar {
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	}
+	#wp-admin-bar .padder {
+		height: 32px;
+		}
+	#admin-bar-logo { /* This is a link, which is different from div#admin-bar-logo. */
+		line-height: 18px;
+		margin: 0;
+		padding: 7px 8px 5px;
+		}
+		#wp-admin-bar li a {
+			color: #eee;
+			font-size: 11px;
+			line-height: 18px;
+			padding: 7px 15px;
+			}
+		
+#wp-admin-bar ul li ul {
+	border: 0;
+	}

@@ -1,0 +1,303 @@
+// Custom Forms.less - Originally in style.css
+
+// Forms and Inputs
+textarea,input {
+	background-color: @dark-base;
+	border: 1px solid darken(@dark-base, 8);		
+}
+
+textarea {
+	color: fadeout(@pl-text, 30%);
+	background-color: @dark-base;
+	border: 1px solid darken(@dark-base, 8); 
+	font-size:110%;
+	padding: 5px;
+	width: 96%;
+	max-width: 600px;
+	display: block;
+}
+
+input{
+	font-size:1em;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:normal;
+	padding: 5px;
+}
+input:focus,
+textarea:focus {
+	border-color: rgba(82, 168, 236, 0.3);
+	outline: 0;
+	outline: thin dotted \9;
+	.box-shadow(~"inset 0 1px 1px rgba(0, 0, 0, 0.065), 0 0 8px rgba(82, 168, 236, 0.3)");
+	.transition(all ease-in-out 0.15s);
+}
+
+input::-moz-focus-inner { border: 0; } 
+
+input[type="text"]{
+		max-width: 600px;
+}
+
+#page :-moz-placeholder {
+	 color: rgba(128, 128, 128, .5);
+}
+
+// CFORMS
+.cform {
+	
+	input {
+		padding: 5px;
+		font-size: 1.1em;
+	}
+	
+	fieldset{
+		border:none;
+	}
+	
+	input[type="text"].cf_error:focus {
+		border-color: rgba(82, 168, 236, 0.8);
+	}
+	
+	label {
+		display:block;
+		margin:0;
+		text-align:left;
+	}
+
+	legend{display: none;}
+	
+	.contentcontainer  .cform {
+		margin:5px 50px;
+		padding:0px 0;
+	}
+	ol, li {list-style-type: none; margin:0;padding:0;}
+	li {margin-bottom: .7em;}
+	.single {width: 97%;}
+	.area {width: 97%;}
+	.emailreqtxt,.reqtxt{font-style: italic;}
+	.cf_hidden {display: none;}
+
+	.success {
+		padding: 15px; 
+		margin-bottom: .5em; 
+		font-size:1.4em;
+	}
+}
+
+
+/* Contact Forms 7 */ 
+#page div.wpcf7-mail-sent-ok{
+	border: 1px solid @successBorder;
+	background: @successBackground;
+}
+		
+#page span.wpcf7-not-valid-tip{
+	border:1px solid @warningBorder;
+	background: @warningBackground;		
+}
+#page div.wpcf7-validation-errors{
+	border: 1px solid @errorBorder;
+	background: @errorBackground;
+}
+#page div.wpcf7-mail-sent-ok, #page span.wpcf7-not-valid-tip, #page div.wpcf7-validation-errors{
+	text-shadow: 0 1px 0 rgba(255,255,255,.8);
+	text-align: center;
+	.box-shadow (inset 1px 1px 2px rgba(255,255,255,.5));
+}
+
+/* Mailing List Form */
+.mailinglist .cform {
+	ol{width:262px; float: left;}
+	.single{width:97%}
+	.sendbutton{margin:21px 0 0 10px;padding: 3px 0 2px 0;}
+	.linklove a{display: none;}
+}
+
+h2 a > cufon {display:none;}
+
+// Everything below from bootstrap
+// HORIZONTAL & VERTICAL FORMS
+// ---------------------------
+
+// Common properties
+// -----------------
+
+.form-search,
+.form-inline,
+.form-horizontal {
+  input,
+  textarea,
+  select,
+  .help-inline,
+  .uneditable-input,
+  .input-prepend,
+  .input-append {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  // Re-hide hidden elements due to specifity
+  .hide {
+    display: none;
+  }
+}
+.form-search label,
+.form-inline label {
+  display: inline-block;
+}
+// Remove margin for input-prepend/-append
+.form-search .input-append,
+.form-inline .input-append,
+.form-search .input-prepend,
+.form-inline .input-prepend {
+  margin-bottom: 0;
+}
+// Inline checkbox/radio labels (remove padding on left)
+.form-search .radio,
+.form-search .checkbox,
+.form-inline .radio,
+.form-inline .checkbox {
+  padding-left: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+// Remove float and margin, set to inline-block
+.form-search .radio input[type="radio"],
+.form-search .checkbox input[type="checkbox"],
+.form-inline .radio input[type="radio"],
+.form-inline .checkbox input[type="checkbox"] {
+  float: left;
+  margin-left: 0;
+  margin-right: 3px;
+}
+
+
+// Margin to space out fieldsets
+.control-group {
+  margin-bottom: @baseLineHeight / 2;
+}
+
+// Legend collapses margin, so next element is responsible for spacing
+legend + .control-group {
+  margin-top: @baseLineHeight;
+  -webkit-margin-top-collapse: separate;
+}
+
+// Horizontal-specific styles
+// --------------------------
+
+.form-horizontal {
+  // Increase spacing between groups
+  .control-group {
+    margin-bottom: @baseLineHeight;
+    .clearfix();
+  }
+  // Float the labels left
+  .control-label {
+    float: left;
+    width: 140px;
+    padding-top: 5px;
+    text-align: right;
+  }
+  // Move over all input controls and content
+  .controls {
+    margin-left: 160px;
+    /* Super jank IE7 fix to ensure the inputs in .input-append and input-prepend don't inherit the margin of the parent, in this case .controls */
+    *display: inline-block;
+    *margin-left: 0;
+    *padding-left: 20px;
+  }
+  // Remove bottom margin on block level help text since that's accounted for on .control-group
+  .help-block {
+    margin-top: @baseLineHeight / 2;
+    margin-bottom: 0;
+  }
+  // Move over buttons in .form-actions to align with .controls
+  .form-actions {
+    padding-left: 160px;
+  }
+}
+// DISABLED STATE
+// --------------
+
+// Disabled and read-only inputs
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  background-color: @inputDisabledBackground;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
+
+
+
+// FORM FIELD FEEDBACK STATES
+// --------------------------
+
+// Warning
+.control-group.warning {
+  .formFieldState(@warningText, @warningText, @warningBackground);
+}
+// Error
+.control-group.error {
+  .formFieldState(@errorText, @errorText, @errorBackground);
+}
+// Success
+.control-group.success {
+  .formFieldState(@successText, @successText, @successBackground);
+}
+
+// HTML5 invalid states
+// Shares styles with the .control-group.error above
+input:focus:required:invalid,
+textarea:focus:required:invalid,
+select:focus:required:invalid {
+  color: #b94a48;
+  border-color: #ee5f5b;
+  &:focus {
+    border-color: darken(#ee5f5b, 10%);
+    .box-shadow(0 0 6px lighten(#ee5f5b, 20%));
+  }
+}
+
+
+// CHECKBOXES & RADIOS
+// -------------------
+
+// Indent the labels to position radios/checkboxes as hanging
+.radio,
+.checkbox {
+  padding-left: 18px;
+}
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  float: left;
+  margin-left: -18px;
+}
+
+// Move the options list down to align with labels
+.controls > .radio:first-child,
+.controls > .checkbox:first-child {
+  padding-top: 5px; // has to be padding because margin collaspes
+}
+
+// Radios and checkboxes on same line
+// TODO v3: Convert .inline to .control-inline
+.radio.inline,
+.checkbox.inline {
+  display: inline-block;
+  padding-top: 5px;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+.radio.inline + .radio.inline,
+.checkbox.inline + .checkbox.inline {
+  margin-left: 10px; // space out consecutive inline controls
+}

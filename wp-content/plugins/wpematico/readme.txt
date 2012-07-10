@@ -1,10 +1,10 @@
 === WPeMatico ===
 Contributors: etruel
-Donate link: http://www.netmdp.com/wpematico/
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B8V39NWK3NFQU
 Tags: RSS, Post, Posts, Feed, Feeds, RSS to Post, Feed to Post, admin, aggregation, atom, autoblogging, bot, content, syndication, writing
 Requires at least: 3.0
-Tested up to: 3.3
-Stable tag: 0.85Beta
+Tested up to: 3.3.2
+Stable tag: 0.91.1Beta
 
 WPeMatico is for autoblogging, automatically creating posts from the RSS/Atom feeds you choose, which are organized into campaigns. 
 
@@ -26,6 +26,7 @@ Supported features:
 * Feed autodiscovery, which lets you add feeds without even knowing the exact URL. (Thanks Simplepie!)
 * Unix cron and WordPress cron jobs For maximum performance, you can make the RSS fetching process be called by a Unix cron job, or simply let WordPress handle it.
 * Images caching are integrated with Wordpress Media Library and posts attach. upload remote images or link to source. Fully configurable.
+* First image attached to a post marked as Featured Image of the post.
 * Words Rewriting. Regular expressions supported.
 * Words Relinking. Define custom links for words you specify.
 * Words to Category. Define custom words for assign every post to specified categories. Thanks to Juergen Mueller at [Wirtschaft](http://www.wirtschaft.com)
@@ -36,6 +37,7 @@ Supported features:
 * Tested in Wordpress MULTISITE 
 
 * Extra PRO features
+* New option for attempt to get Full Content of source site.
 * Delete last HTML tag option.
 * Words count filters. Count how many words are in content for assign a category or skip the post.
 * Also the content can be converted to text and cutted at wanted amount of words or letters.
@@ -64,6 +66,10 @@ You can either install it automatically from the WordPress admin, or do it manua
 
 == Frequently Asked Questions ==
 
+= I have this plugin installed and activated.  What must I do now ? =
+
+* OK, now you have in woprdpress admin a new area below posts called WPeMatico.  At settings, setup configuration items. At Campaigns you must add one, in there add one or few feeds with options you choose.  You can use a campaign for grouping feeds for a category or another custom topic that you want.
+
 = Where can I ask a question? =
 
 * [Search the page WPeMatico here](http://www.netmdp.com).
@@ -83,6 +89,24 @@ You can either install it automatically from the WordPress admin, or do it manua
 6. Cutting last html predefined tag, and counting words or letters to skip, cut or asign to a category.
 
 == Changelog ==
+
+= 0.91.1Beta =
+* [PRO]
+* Added New Feature: Fetch every 1 Minute. Buyed by Juergen Mueller from [Wirtschaft](http://www.wirtschaft.com)
+* [/PRO]
+* Fix minor but important thing about duplicating posts.
+* Fix minnor layout bugs on Settings.
+
+= 0.90Beta =
+* [PRO]
+* Added New Feature: Attempt to get Full Content.
+* [/PRO]
+* First image attached to a post marked as Featured Image of the post.
+* Added support for Wordpress Custom Post Types
+* Added check Feeds before save campaign.
+* Fix layout thing with schedule options.
+* Updated Frequently Asked Questions.
+* Updated donate link with paypal.
 
 = 0.85Beta =
 * [PRO]
@@ -169,5 +193,6 @@ You can either install it automatically from the WordPress admin, or do it manua
 
 == Upgrade Notice ==
 
-= 0.85 Beta =
-* WP 3.3.1 Ready.
+= 0.91.1Beta PRO =
+* Fix minor but important thing about duplicates post.
+* WP 3.3.2 Ready.

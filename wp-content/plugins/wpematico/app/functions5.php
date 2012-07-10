@@ -34,6 +34,9 @@ $jobvalue['campaign_rewrites']['relink']
 		if (empty($jobsettings['campaign_posttype']) or !is_string($jobsettings['campaign_posttype']))
 			$jobsettings['campaign_posttype']= 'publish';
 
+		if (empty($jobsettings['campaign_customposttype']) or !is_string($jobsettings['campaign_customposttype']))
+			$jobsettings['campaign_customposttype']= 'post';
+
 		if (empty($jobsettings['name']) or !is_string($jobsettings['name']))
 			$jobsettings['name']= __('New');
 

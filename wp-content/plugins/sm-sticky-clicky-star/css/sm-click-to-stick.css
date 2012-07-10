@@ -1,0 +1,10 @@
+a.smClickToStick { width:40px; height:40px; display:block; background:url(../images/star.png) no-repeat -80px 0; }
+a.smClickToStick.isSticky { width:40px; height:40px; display:block; background:url(../images/star.png) no-repeat 0px 0; }
+a.smClickToStick:hover { background:url(../images/star.png) no-repeat -40px 0; }
+
+#smSticky { border-top-color:#dfdfdf!important; border-bottom:none;padding-bottom:0; }
+
+#smSticky a.smClickToStick { width:20px; height:20px; position:relative; top:4px; display:inline-block; background-position:-47px -49px; }
+#smSticky a.smClickToStick.isSticky { background-position:-3px -49px; }
+#smSticky a.smClickToStick:hover { background-position:-25px -49px; }
+

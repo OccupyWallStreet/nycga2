@@ -1,0 +1,372 @@
+/*	wpui-green
+------------------------------------------------------------ */
+
+.wpui-green .ui-tabs {
+	border-radius : 4px;
+	-moz-border-radius : 4px;
+	-webkit-border-radius : 4px;
+	-o-border-radius : 4px;
+	padding: 0px !important;
+}
+
+.wpui-green ul.ui-tabs-nav {
+	border-radius          : 6px 6px 0 0;
+	-moz-border-radius     : 6px 6px 0 0;
+	-webkit-border-radius  : 6px 6px 0 0;
+	-o-border-radius       : 6px 6px 0 0;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.wpui-green .ui-tabs-panel {
+	border-radius : 0 0 4px 4px;
+	-moz-border-radius : 0 0 4px 4px;
+	-webkit-border-radius : 0 0 4px 4px;
+	-o-border-radius : 0 0 4px 4px;
+}
+
+.wpui-green .ui-tabs {
+	background : #FFF;
+	border-radius          : 6px;
+	-moz-border-radius     : 6px;
+	-webkit-border-radius  : 6px;
+	-o-border-radius       : 6px;
+	border: 0px;
+	font: 12px Arial, Helvetica , Verdana, sans-serif;
+}
+
+.wpui-green .ui-tabs > .wp-tabs .ui-tabs {
+	box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	-o-box-shadow: none !important;
+}
+
+.wpui-green .ui-tabs-panel {
+	background: #FFF;
+	border: 1px solid #DADADA;
+}
+
+.wpui-green ul.ui-tabs-nav {
+	border: 1px solid #3B592A;
+	background: #559D26;
+	background: -moz-linear-gradient(top ,#79B254, #559D26);
+	background: -webkit-gradient(linear, left top, left bottom , from(#79B254), to(#559D26));
+	background: -webkit-linear-gradient(top , #79B254, #559D26);
+	background: -o-linear-gradient(top , #79B254, #559D26);
+/*	border-top: 1px solid #9DE66D;
+	border-left: 1px solid #5FB02B;
+	border-right: 1px solid #5FB02B;*/	
+	padding-top: 6px;
+	-moz-box-shadow    : 0 1px 0 #9DE66D inset;
+	-webkit-box-shadow : 0 1px 0 #9DE66D inset;
+	-o-box-shadow      : 0 1px 0 #9DE66D inset;
+	box-shadow         : 0 1px 0 #9DE66D inset;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.wpui-green ul.ui-tabs-nav li {
+	background : none;
+	border : none !important;
+}
+
+.wpui-green ul.ui-tabs-nav li a {
+	color: #FFF;
+	background: none;
+	text-shadow: 0 1px 0 #20559A;
+	border-radius          : 6px;
+	-moz-border-radius     : 6px;
+	-webkit-border-radius  : 6px;
+	-o-border-radius       : 6px;
+	border-top: none;
+	line-height: 18px;
+	opacity: 0.8;
+}
+
+.wpui-green ul.ui-tabs-nav li.ui-state-active {
+	background: #FFF;
+	bottom: -2px;
+	border: 1px solid #20559A;
+	border-bottom: 0px;
+	box-shadow         : 0 -1px 1px #66BD2E;
+	-moz-box-shadow    : 0 -1px 1px #66BD2E;
+	-webkit-box-shadow : 0 -1px 1px #66BD2E;
+	-o-box-shadow      : 0 -1px 1px #66BD2E;
+}
+
+.wpui-green ul.ui-tabs-nav li.ui-state-active a {
+	color: #000;
+	border-top: 1px solid #FFF;
+	text-shadow: none;
+}
+
+
+.wpui-green .ui-button {
+	background: #559D26;
+	background: -moz-linear-gradient(top, #79B254, #559D26);
+	background: -webkit-gradient(linear, left top, left bottom, from(#79B254), to(#559D26));
+	background: -webkit-linear-gradient(top, #79B254, #559D26);
+	background: -o-linear-gradient(top, #79B254, #559D26);
+	text-shadow: 0 -1px 0 #444;
+	color: #FFF;
+	border-radius          : 4px;
+	-moz-border-radius     : 4px;
+	-webkit-border-radius  : 4px;
+	-webkit-border-radius  : 4px;
+	font: bold 12px/20px Arial, Helvetica , Verdana, sans-serif;
+	padding: 2px 10px;
+	border : 1px solid #284A12;
+	-moz-box-shadow    : 0 1px 0 #9DE66D inset;
+	-webkit-box-shadow : 0 1px 0 #9DE66D inset;
+	-o-box-shadow      : 0 1px 0 #9DE66D inset;
+	box-shadow         : 0 1px 0 #9DE66D inset;
+	text-decoration: none;
+}
+
+
+.wpui-green .wp-tab-content a.ui-button {
+	float: right;
+	margin: 20px 0;
+	text-decoration: none !important;
+}
+
+
+
+.wpui-green .ui-tabs-panel .tab-top-nav a,
+.wpui-green .ui-tabs-panel .tab-bottom-nav a {
+	background: #559D26;
+	background: -moz-linear-gradient(top, #79B254, #559D26);
+	background: -webkit-gradient(linear, left top, left bottom, from(#79B254), to(#559D26));
+	background: -webkit-linear-gradient(top, #79B254, #559D26);
+	background: -o-linear-gradient(top, #79B254, #559D26);
+	text-shadow: 0 -1px 0 #444;
+	color: #FFF;
+	border-radius          : 4px;
+	-moz-border-radius     : 4px;
+	-webkit-border-radius  : 4px;
+	-webkit-border-radius  : 4px;
+	font: bold 12px/20px Arial, Helvetica , Verdana, sans-serif;
+	padding: 2px 10px;
+	border : 1px solid #284A12;
+	-moz-box-shadow    : 0 1px 0 #9DE66D inset;
+	-webkit-box-shadow : 0 1px 0 #9DE66D inset;
+	-o-box-shadow      : 0 1px 0 #9DE66D inset;
+	box-shadow         : 0 1px 0 #9DE66D inset;
+}
+
+
+.wp-tabs {
+	position:relative;
+}
+
+
+/* Tabs at bottom */
+
+.wpui-green ul.ui-tabs-nav.ul-bottom {
+	border-top: 1px solid #3B592A;
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-bottom: 10px;
+	border-radius          : 0 0 5px 5px;
+	-moz-border-radius     : 0 0 5px 5px;
+	-webkit-border-radius  : 0 0 5px 5px;
+	-o-border-radius       : 0 0 5px 5px;
+	background: #559D26;
+	background: -moz-linear-gradient(top ,#79B254, #559D26);
+	background: -webkit-gradient(linear, left top, left bottom , from(#79B254), to(#559D26));
+   background: -webkit-linear-gradient(top , #79B254, #559D26);
+   background: -o-linear-gradient(top , #79B254, #559D26);
+}
+
+.wpui-green ul.ui-tabs-nav.ul-bottom li {
+	vertical-align:top;
+	border-radius          : 0 0 5px 5px;
+	-moz-border-radius     : 0 0 5px 5px;
+	-webkit-border-radius  : 0 0 5px 5px;
+	-o-border-radius       : 0 0 5px 5px;
+	top:0px;	
+}
+
+.wpui-green div.ui-tabs-panel.bottom-tabs {
+	border-radius          : 5px 5px 0 0 !important;
+	-moz-border-radius     : 5px 5px 0 0 !important;
+	-webkit-border-radius  : 5px 5px 0 0 !important;
+	-o-border-radius       : 5px 5px 0 0 !important;
+	border-bottom: 0px;
+}
+
+.wpui-green div.ui-tabs.bottom-tabs {
+	border-top: 0px;
+}
+
+.wpui-green ul.ui-tabs-nav.ul-bottom li.ui-state-active {
+	background: #FFF;
+	border-top: 0px;
+	bottom: 0;
+	top:	-1px;
+	height: 16px;
+	box-shadow         : none;
+	-moz-box-shadow    : none;
+	-webkit-box-shadow : none;
+	-o-box-shadow      : none;
+}
+
+.wpui-green ul.ui-tabs-nav.ul-bottom li.ui-state-active a {
+	border-top: 0px;
+}
+
+
+/*
+ *	wpui Light accordion styles.
+ */
+
+
+.wpui-green .ui-collapsible-header,
+.wpui-green .ui-accordion h3.ui-accordion-header {
+	border-radius          : 3px;
+	-moz-border-radius     : 3px;
+	-webkit-border-radius  : 3px;
+	-webkit-border-radius  : 3px;
+	font: bold 14px 'Segoe UI', 'Lucida Grande', 'Arial', sans-serif;
+	background: #559D26;
+	background: -moz-linear-gradient(top ,#79B254, #559D26);
+	background: -webkit-gradient(linear, left top, left bottom , from(#79B254), to(#559D26));
+	background: -webkit-linear-gradient(top , #79B254, #559D26);
+	background: -o-linear-gradient(top , #79B254, #559D26);
+	padding: 4px 10px;
+	color: #FFF !important;
+	border: 1px solid #437D1F;
+	text-shadow: 0 -1px 0 #2F5715;
+}
+
+.wpui-green h3.ui-collapsible-header:hover,
+.wpui-green .ui-accordion h3.ui-accordion-header:hover {
+	color: #FFF;
+	text-shadow: 0 -1px 0 #2F5715;
+}
+
+.wpui-green h3.ui-collapsible-header.ui-state-active,
+.wpui-green .ui-accordion h3.ui-accordion-header.ui-state-active {
+	text-shadow: 0 1px 0 #2F5715;
+	border-radius          : 3px 3px 0 0;
+	-moz-border-radius     : 3px 3px 0 0;
+	-webkit-border-radius  : 3px 3px 0 0;
+	-webkit-border-radius  : 3px 3px 0 0;
+	border-bottom: 0px;
+}
+
+.wpui-green .ui-accordion .ui-accordion-content {
+	color: #666;
+	background: white;
+	padding: 10px;
+	border: 1px solid #DDD;
+	
+}
+.wpui-green .ui-collapsible-content {
+	color: #666;
+	background: white;
+	background: -moz-linear-gradient(top ,#B3E6DC, #FFF 15%);
+	background: -webkit-gradient(linear, left top, left bottom , from(#B3E6DC), color-stop(0.15, #FFF));
+	background: -webkit-linear-gradient(top , #B3E6DC, #FFF 15%);
+	background: -o-linear-gradient(top , #B3E6DC, #FFF 15%);
+}
+
+
+.wpui-green.ui-dialog {
+	-moz-border-radius     : 6px;
+	-webkit-border-radius  : 6px;
+	-o-border-radius       : 6px;
+	border-radius          : 6px;
+	font-family: 'Lucida Grande', 'Arial', sans-serif;
+	color: #282828;
+	background: white;
+	
+}
+
+.wpui-green .ui-dialog-titlebar {
+	font-weight: bold;
+	background: #559D26;
+	padding: 6px 10px;
+	background: -moz-linear-gradient(top ,#79B254, #559D26);
+	background: -webkit-gradient(linear, left top, left bottom , from(#79B254), to(#559D26));
+	background: -webkit-linear-gradient(top , #79B254, #559D26);
+	background: -o-linear-gradient(top , #79B254, #559D26);
+	color: #FFF !important;
+	border: 1px solid #437D1F;
+	text-shadow: 0 -1px 0 #2F5715;
+	-moz-border-radius     : 6px 6px 0 0;
+	-webkit-border-radius  : 6px 6px 0 0;
+	-o-border-radius       : 6px 6px 0 0;
+	border-radius          : 6px 6px 0 0;
+	border-bottom: 1px solid #000;
+	box-shadow: 0 1px 0 #EEE inset, 0 1px 0 #EEE;
+}
+
+.wpui-green .ui-dialog-content {
+	padding: 10px;
+	overflow:hidden;
+	
+}
+
+.wpui-green .ui-dialog-titlebar-close {
+	background: url("../images/close-light.png") no-repeat scroll 0 0 transparent;
+	position: absolute;
+	right: 5px;
+	top : 5px;
+	width: 18px;
+	height : 18px;
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid transparent;
+	opacity: 0.6;
+	text-indent : -99999em;
+	
+}
+
+
+.wpui-green .ui-dialog-titlebar-close:hover {
+	background: url("../images/close-light.png") no-repeat scroll 0 0 transparent;
+	width: 18px;
+	height : 18px;
+	border: 1px solid transparent;
+	top: 5px;
+	right: 5px;
+	opacity: 1;
+}
+
+
+
+.wpui-green.wpui-button {
+	background: #559D26;
+	background: -moz-linear-gradient(top, #79B254, #559D26);
+	background: -webkit-gradient(linear, left top, left bottom, from(#79B254), to(#559D26));
+	background: -webkit-linear-gradient(top, #79B254, #559D26);
+	background: -o-linear-gradient(top, #79B254, #559D26);
+	text-shadow: 0 -1px 0 #444;
+	color: #FFF;
+	font-weight : bold;
+	border : 1px solid #284A12;
+	-moz-box-shadow    : 0 1px 0 #9DE66D inset;
+	-webkit-box-shadow : 0 1px 0 #9DE66D inset;
+	-o-box-shadow      : 0 1px 0 #9DE66D inset;
+	box-shadow         : 0 1px 0 #9DE66D inset;
+	-moz-border-radius     : 3px;
+	-webkit-border-radius  : 3px;
+	-o-border-radius       : 3px;
+	border-radius          : 3px;
+}
+
+.wpui-green.wpui-button:hover {
+	background: -moz-linear-gradient(top , #82BF5A,  #559D26);
+	background: -webkit-gradient(linear, left top, left bottom, from(#82BF5A), to(#559D26));
+	background: -webkit-linear-gradient(top , #82BF5A, #559D26);
+	background: -o-linear-gradient(top , #82BF5A, #559D26);
+
+}
+.wpui-green.wpui-button:active {
+	-moz-box-shadow    : 0 2px 7px rgba( 0, 0, 0, 0.3) inset;
+	-webkit-box-shadow : 0 2px 7px rgba( 0, 0, 0, 0.3) inset;
+	-o-box-shadow      : 0 2px 7px rgba( 0, 0, 0, 0.3) inset;
+	box-shadow         : 0 2px 7px rgba( 0, 0, 0, 0.3) inset;
+}

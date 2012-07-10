@@ -376,7 +376,12 @@ function bp_core_activation_notice() {
 	 */
 
 	// Get current theme info
-	$ct = current_theme_info();
+	// Backward-compatibility with WP < 3.4 will be removed in a future release
+	if ( function_exists( 'wp_get_theme' ) ) {
+		$ct = wp_get_theme();
+	} else {
+		$ct = current_theme_info();
+	}
 
 	// The best way to remove this notice is to add a "buddypress" tag to
 	// your active theme's CSS header.
@@ -552,11 +557,14 @@ add_action( 'bp_actions', 'bp_core_setup_message', 5 );
 function bp_core_render_message() {
 	global $bp;
 
-	if ( isset( $bp->template_message ) && $bp->template_message ) :
-		$type = ( 'success' == $bp->template_message_type ) ? 'updated' : 'error'; ?>
+	if ( !empty( $bp->template_message ) ) :
+		$type    = ( 'success' == $bp->template_message_type ) ? 'updated' : 'error';
+		$content = apply_filters( 'bp_core_render_message_content', $bp->template_message, $type ); ?>
 
 		<div id="message" class="<?php echo $type; ?>">
-			<p><?php echo stripslashes( esc_attr( $bp->template_message ) ); ?></p>
+
+			<?php echo $content; ?>
+
 		</div>
 
 	<?php

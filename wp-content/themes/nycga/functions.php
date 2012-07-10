@@ -74,8 +74,8 @@ function add_search_form_script() {
 
 register_sidebar(
 	array(
-		'name' => 'Hero-login',
-		'id' => 'blurb_login',
+		'name' => 'Announcement',
+		'id' => 'announcement',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widgettitle">',
@@ -83,16 +83,16 @@ register_sidebar(
 	)
 );
 
-register_sidebar(
-	array(
-		'name' => 'Hero-no-login',
-		'id' => 'blurb',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widgettitle">',
-		'after_title' => '</h3>'
-	)
-);
+//register_sidebar(
+//	array(
+//		'name' => 'Hero-no-login',
+//		'id' => 'blurb',
+//		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+//		'after_widget' => '</div>',
+//		'before_title' => '<h3 class="widgettitle">',
+//		'after_title' => '</h3>'
+//	)
+//);
 
 register_sidebar(
 	array(
@@ -121,7 +121,7 @@ register_sidebar(
 	array(
 		'name' => 'Bulletin-side2',
 		'id' => 'sidebar-4',
-		'before_widget' => '<div id="%1$s" class="widget %2$s" style="border:1px solid yellow">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widgettitle">',
 		'after_title' => '</h3>'
@@ -132,7 +132,7 @@ register_sidebar(
 	array(
 		'name' => 'Home-side1',
 		'id' => 'sidebar-home-1',
-		'before_widget' => '<div id="%1$s" class="widget %2$s" style="border:1px solid orange;">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widgettitle">',
 		'after_title' => '</h3>'
@@ -143,7 +143,7 @@ register_sidebar(
 	array(
 		'name' => 'Home-side2',
 		'id' => 'sidebar-home-2',
-		'before_widget' => '<div id="%1$s" class="widget %2$s" style="border:1px solid yellow;">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widgettitle">',
 		'after_title' => '</h3>'
@@ -154,7 +154,18 @@ register_sidebar(
 	array(
 		'name' => 'Home-side3',
 		'id' => 'sidebar-home-3',
-		'before_widget' => '<div id="%1$s" class="widget %2$s" style="border:1px solid red;">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widgettitle">',
+		'after_title' => '</h3>'
+	)
+);
+
+register_sidebar(
+	array(
+		'name' => 'Global Footer',
+		'id' => 'global-footer',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widgettitle">',
 		'after_title' => '</h3>'
@@ -385,13 +396,26 @@ function my_bp_activity_entry_meta() {
 }
 add_action('bp_activity_entry_meta', 'my_bp_activity_entry_meta');
 
-//Enable custom Event Calendar Themes
-function mytheme_styles() {
-	$mytheme_url = apply_filters(
-		'ai1ec_template_root_url',
-		apply_filters( 'ai1ec_template', 'mytheme' )
-	);
+//Register announcement post type
+register_post_type('announcements', array(	'label' => 'Announcements','description' => 'Announcements that appear in the announcement bar.','public' => true,'show_ui' => true,'show_in_menu' => false,'capability_type' => 'post','hierarchical' => false,'rewrite' => array('slug' => ''),'query_var' => true,'supports' => array('title','editor','excerpt','custom-fields','author','page-attributes',),'labels' => array (
+  'name' => 'Announcements',
+  'singular_name' => 'Announcement',
+  'menu_name' => 'Announcements',
+  'add_new' => 'Add New',
+  'add_new_item' => 'Add New Announcement',
+  'edit' => 'Edit',
+  'edit_item' => 'Edit Announcement',
+  'new_item' => 'New Announcement',
+  'view' => 'View Announcement',
+  'view_item' => 'View Announcement',
+  'search_items' => 'Search Announcements',
+  'not_found' => 'No Announcements Found',
+  'not_found_in_trash' => 'No Announcements Found in Trash',
+  'parent' => 'Parent Announcement',
+),) );
 
-	wp_enqueue_style( 'mytheme-style', "$mytheme_url/style.css" );
-}
-add_action( 'wp_print_styles', 'mytheme_styles' );
+//Remove paragraph tags from excerpt
+remove_filter('the_excerpt', 'wpautop');
+
+//Enable short codes in widgets
+add_filter('widget_text', 'do_shortcode');

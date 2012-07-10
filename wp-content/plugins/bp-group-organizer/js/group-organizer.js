@@ -31,8 +31,6 @@ var wpNavMenu;
 
 			this.attachMenuEditListeners();
 
-			this.setupInputWithDefaultTitle();
-
 			this.attachUnsavedChangesListener();
 
 			if( api.menuList.length ) // If no menu, we're in the + tab.
@@ -413,34 +411,6 @@ var wpNavMenu;
 						return that.eventOnClickCancelLink(e.target);
 					}
 				}
-			});
-		},
-
-		/**
-		 * An interface for managing default values for input elements
-		 * that is both JS and accessibility-friendly.
-		 *
-		 * Input elements that add the class 'input-with-default-title'
-		 * will have their values set to the provided HTML title when empty.
-		 */
-		setupInputWithDefaultTitle : function() {
-			var name = 'input-with-default-title';
-
-			$('.' + name).each( function(){
-				var $t = $(this), title = $t.attr('title'), val = $t.val();
-				$t.data( name, title );
-
-				if( '' == val ) $t.val( title );
-				else if ( title == val ) return;
-				else $t.removeClass( name );
-			}).focus( function(){
-				var $t = $(this);
-				if( $t.val() == $t.data(name) )
-					$t.val('').removeClass( name );
-			}).blur( function(){
-				var $t = $(this);
-				if( '' == $t.val() )
-					$t.addClass( name ).val( $t.data(name) );
 			});
 		},
 

@@ -1,0 +1,159 @@
+/*
+ * jQuery FlexSlider v1.8
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+
+/* PL STYLES */ 
+
+.flexwrap, .fslider{
+	position: relative;
+}
+
+
+/* Browser Resets */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {width: 100%; margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slides {display: block;}
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+
+/* FlexSlider Default Theme
+*********************************/
+.fslider{
+	background: rgba(255,255,255,.4); 
+	box-shadow: 0 1px 4px rgba(0,0,0,.4);
+	-webkit-border-radius: 5px; -moz-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px;
+	padding: 5px;
+}
+.flexslider { position: relative;  zoom: 1;}
+.flexslider .slides {zoom: 1;}
+.flexslider .slides > li {position: relative;}
+/* Suggested container for "Slide" animation setups. Can replace this with your own, if you wish */
+.flex-container {zoom: 1; position: relative;}
+
+/* Caption style */
+/* IE rgba() hack */
+.flex-caption {background:none; -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000); zoom: 1;}
+.flex-caption {
+	text-align: left;
+	max-width: 42%; 
+	padding: 13px 2%; 
+	margin: 0; 
+	position: absolute; 
+	right: 0; 
+	bottom: 0; 
+	background: rgba(0,0,0,.4); 
+	color: #fff; 
+	text-shadow: 0 -1px 0 rgba(0,0,0,.6); 
+	box-shadow: 1px 1px 0 rgba(255,255,255, .1), -1px -1px 0 rgba(255,255,255, .1);
+	font-size: 15px; 
+	line-height: 1.5em;
+}
+
+/* Direction Nav */
+.flex-direction-nav { height: 0; }
+.flex-direction-nav li a{
+	margin-top: -42px; /* 16 (half height of control nav) + 26 (half of height) */
+}
+.no-control-nav .flex-direction-nav li a{
+	margin-top: -26px;
+}
+.flex-direction-nav li a {
+	width: 52px; 
+	height: 52px; 
+	display: block; 
+	position: absolute; 
+	top: 50%; 
+	cursor: pointer; 
+	text-indent: -999em;
+	background: #000;
+	background: rgba(50,50,50,.5); 
+	background:url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png),-moz-linear-gradient(top,rgba(0,0,0,.35) 0%,rgba(0,0,0,.5) 100%); 
+	background:url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png), -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,.35)),color-stop(100%,rgba(0,0,0,.5))); 
+	background: url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png), -webkit-linear-gradient(top,rgba(0,0,0,.35) 0%,rgba(0,0,0,.5) 100%); 
+	background:url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png),-o-linear-gradient(top,rgba(0,0,0,.35) 0%,rgba(0,0,0,.5) 100%); 
+	background: url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png), -ms-linear-gradient(top,rgba(0,0,0,.35) 0%,rgba(0,0,0,.5) 100%); 
+	background:url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png), linear-gradient(top,rgba(0,0,0,.35) 0%,rgba(0,0,0,.5) 100%);
+}
+	.flex-direction-nav li a:hover{
+		background-image:url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png),-moz-linear-gradient(top,rgba(0,0,0,.25) 0%,rgba(0,0,0,.4) 100%); 
+		background-image: url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png), -webkit-linear-gradient(top,rgba(0,0,0,.25) 0%,rgba(0,0,0,.4) 100%); 
+		background-image:url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png),-o-linear-gradient(top,rgba(0,0,0,.25) 0%,rgba(0,0,0,.4) 100%); 
+		background-image: url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png), -ms-linear-gradient(top,rgba(0,0,0,.25) 0%,rgba(0,0,0,.4) 100%); 
+		background-image:url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png), linear-gradient(top,rgba(0,0,0,.25) 0%,rgba(0,0,0,.4) 100%);
+		
+	}
+	.flex-direction-nav li a:active{
+		background-image:url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png),-moz-linear-gradient(top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.6) 100%); 
+		background-image: url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png), -webkit-linear-gradient(top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.6) 100%); 
+		background-image:url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png),-o-linear-gradient(top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.6) 100%); 
+		background-image: url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png), -ms-linear-gradient(top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.6) 100%); 
+		background-image:url(@{plSectionsRoot}/quickslider/images/bg_direction_nav.png), linear-gradient(top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.6) 100%);
+	}
+
+.flex-direction-nav li .next {background-position: -52px 0; right: 15px;}
+.flex-direction-nav li .prev {left: 15px;}
+.flex-direction-nav li .disabled {opacity: .3; filter:alpha(opacity=30); cursor: default;}
+
+.section-quickslider .content-pad{
+	padding-bottom: 0; 
+	
+}
+.section-quickslider .wrap-no-control-nav{
+	padding-bottom: 10px;
+}
+/* Control Nav */
+.flex-control-nav {width: 100%; padding-top: 15px; text-align: center;}
+.flex-control-nav li {margin: 0 0 0 5px; display: inline-block; zoom: 1; *display: inline;}
+.flex-control-nav li:first-child {margin: 0;}
+.flex-control-nav li a {
+	width: 13px; 
+	height: 13px; 
+	display: block; 
+	background:#ddd;
+	
+	background:rgba(200,200,200,.5);
+	background-image: -webkit-linear-gradient(top,rgba(230,230,230,.7) 0%,rgba(255,255,255,.8) 100%); 
+	box-shadow: inset 1px 1px 0 rgba(50,50,50,.4), inset -1px -1px rgba(200,200,200,.8);
+	.border-radius(6px);
+	cursor: pointer; 
+	text-indent: -999em;
+}
+.flex-control-nav li a:hover {
+	width: 13px; 
+	height: 13px;
+	cursor: pointer;
+}
+
+.flex-control-nav li a.active {
+	background-image: -webkit-linear-gradient(top,rgba(180,180,180,.7) 0%,rgba(110,110,110,.8) 100%); 
+	box-shadow: inset 0 0 2px rgba(0,0,0,1), inset 1px 1px 0 rgba(255,255,255,.7);
+	background-position: 0 -26px; 
+	cursor: default;
+}

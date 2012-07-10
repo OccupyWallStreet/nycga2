@@ -9,11 +9,7 @@ Template Name: Center Widget Page
 
 	<div id="content">
 		<div class="padder">
-        
-        <?php if( is_front_page() ) {
-		dynamic_content_gallery();
-		} ?>
-        
+       
       <!-- MK - add a widget area to the page-->
         <?php dynamic_sidebar( 'centerwidget-page' ); ?>
         
@@ -29,6 +25,7 @@ Template Name: Center Widget Page
 	</div><!-- #content -->
 
 
-<?php locate_template( array( 'sidebar.php' ), true ) ?>
+	<?php get_sidebar() ?>
+
 
 <?php get_footer(); ?>

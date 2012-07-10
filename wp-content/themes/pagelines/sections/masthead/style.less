@@ -1,0 +1,156 @@
+/* Jumbotrons
+-------------------------------------------------- */
+.masthead {
+  
+    position: relative;
+    margin-bottom: @baseLineHeight * 3;
+	
+	.inner{
+		padding-top: @baseLineHeight * 2;
+	}
+	
+	&.with-splash{
+		.inner{
+			padding-top: @baseLineHeight;
+		}
+	}
+	
+	h1,
+	p {
+	  text-align: center;
+	}
+
+	.masthead-title {
+		margin-bottom: 9px;
+		font-size: 81px;
+		letter-spacing: -1px;
+		line-height: 1;
+		margin-bottom: 18px;
+	}
+
+	.masthead-tag {
+		margin: 0;
+		margin-bottom: 18px;
+		margin-left: 5%;
+		margin-right: 5%;
+		font-size: 30px;
+		line-height: 36px;
+		font-family: @plAltFont;
+		font-weight: 300;
+		strong{
+			font-weight: 500;
+		}
+	}
+
+	.btn-large {
+	  font-size: 20px;
+	  font-weight: normal;
+	  padding: 14px 24px;
+	  margin-right: 10px;
+	  .border-radius(6px);
+	}
+
+	.btn-large small {
+	  font-size: 14px;
+	}
+	
+	.splash {
+		padding-top: @baseLineHeight / 2;
+		img {
+			display:block;
+			margin:0 auto;
+		}
+	}
+}
+
+
+.subhead {
+  
+    padding-bottom: 0;
+    margin-bottom: 9px;
+	
+	h1 {
+  		font-size: 54px;
+	}
+}
+
+.mastlinks {
+    margin: 36px 0;
+}
+
+.quick-links {
+	
+	min-height: 30px;
+    margin: 0;
+    padding: 5px 20px;
+    list-style: none;
+    text-align: center;
+    overflow: hidden;
+
+	&:first-child {
+	  min-height: 0;
+	}
+	li {
+	  display: inline;
+	  margin: 0 8px;
+	}
+}
+
+
+
+/* Responsive
+ ************************/
+
+@media screen and (max-width: 980px){
+	.masthead .masthead-title {
+		font-size: 72px;
+	}
+}
+@media screen and (max-width: 768px){
+
+	.masthead {
+		
+		.inner{
+			padding-top: @baseLineheight;
+		}
+		
+		.masthead-title {
+			font-size: 54px;
+		}
+		
+		.masthead-tag{
+			margin-right: 0;
+			margin-left: 0;
+		}
+		.btn {
+			margin-bottom: 10px;
+		}
+	}
+
+}
+@media screen and (max-width:480px) {
+	.masthead {
+		
+		.inner{
+			padding-top: 10px;
+		}
+		.masthead-title {
+			font-size: 45px;
+			margin-right: 0;
+		}
+		
+		.masthead-tag{
+			margin-right: 0;
+			margin-left: 0;
+			font-size: 18px;
+			line-height: 24px;
+		}
+		.btn {
+			display: block;
+			font-size: 18px;
+			padding: 10px 14px;
+			margin: 0 auto 10px;
+		}
+	} 
+
+}

@@ -23,8 +23,7 @@ function bp_groups_admin_bar_version_check() {
 			break;
 		case 3.3 :
 		case 3.4 :
-		default  :
-			remove_action( 'admin_bar_menu', 'wp_admin_bar_edit_menu',  80  );
+		default  :	
 			add_action( 'admin_bar_menu', 'bp_groups_group_admin_menu', 400 );
 			break;		
 	}
@@ -50,7 +49,7 @@ function bp_groups_group_admin_menu() {
 	if ( !is_super_admin() && !bp_group_is_admin() )
 		return false;
 
-	if ( '3.2' == bp_get_major_wp_version() ) {
+	if ( 3.2 == bp_get_major_wp_version() ) {
 
 		// Group avatar
 		$avatar = bp_core_fetch_avatar( array(
@@ -72,7 +71,7 @@ function bp_groups_group_admin_menu() {
 			'href'  => bp_get_group_permalink( $bp->groups->current_group )
 		) );
 
-	} elseif ( '3.3' == bp_get_major_wp_version() ) {
+	} elseif ( 3.3 <= bp_get_major_wp_version() ) {
 		
 		// Unique ID for the 'My Account' menu
 		$bp->group_admin_menu_id = 'group-admin';

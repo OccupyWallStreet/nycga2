@@ -1,0 +1,38 @@
+blockquote {
+	
+	padding: 0 0 0 15px;
+	margin: 0 0 18px;
+    
+    p     {color: fadeout(@pl-text, 40%);}
+	small {color: fadeout(@pl-text, 70%);display: block;line-height: 18px;}
+	small:before {content: '\2014 \00A0';}
+    q:before,q:after,&:before,&:after {content: ""}
+	&:last-child{margin-bottom: 0}
+
+}
+
+blockquote.pull-left {
+	float:left;
+	margin:@baseLineHeight @baseLineHeight @baseLineHeight 0;
+	border-left:5px solid darken(@dark-base, 10);
+}
+
+blockquote.pull-right {
+	 float: right;
+	 padding: 0 15px 0 0;
+	 border-left: 0;
+	 margin:@baseLineHeight 0 @baseLineHeight @baseLineHeight;
+	 border-right:5px solid darken(@dark-base, 10);
+
+	.pull-right p,
+	.pull-right small {
+	  text-align: right;
+	}
+}
+
+.comment blockquote{ 
+	background-color: lighten(@dark-base, 1.6);
+	border: none;
+	padding-right: 10px;
+}
+.comment blockquote blockquote{margin-bottom:0;}

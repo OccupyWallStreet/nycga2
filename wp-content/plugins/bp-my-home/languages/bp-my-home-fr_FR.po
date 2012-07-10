@@ -1,0 +1,400 @@
+# Translation of the WordPress plugin bp-my-home by imath (twitter.com/imath).
+# Copyright (C) 2010 imath (twitter.com/imath)
+# This file is distributed under the same license as bp-my-home package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bp-my-home 0.1\n"
+"Report-Msgid-Bugs-To: http://imath.owni.fr\n"
+"POT-Creation-Date: 2010-07-05 15:10+0000\n"
+"PO-Revision-Date: 2011-09-11 13:31+0100\n"
+"Last-Translator: imath <i-math@club.fr>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. #-#-#-#-#  bp-my-home.pot (bp-my-home 1.2)  #-#-#-#-#
+#: bp-my-home.php:107
+msgid "BPMH Manager"
+msgstr "Réglages BPMH"
+
+#: bp-my-home-admin.php:65
+#: bp-my-home-admin.php:85
+msgid "Widget installed !"
+msgstr "Widget installé !"
+
+#: bp-my-home-admin.php:70
+msgid "Oops, error while unzipping!"
+msgstr "Oops, une erreur est survenue lors du désarchivage"
+
+#: bp-my-home-admin.php:76
+#: bp-my-home-admin.php:90
+msgid "Oops, error while uploading!"
+msgstr "Oops, une erreur est survenue lors du transfert de fichier"
+
+#: bp-my-home-admin.php:106
+msgid "Options saved !"
+msgstr "Options mises à jour!"
+
+#: bp-my-home-admin.php:134
+msgid "Please make sure folders bpmh-widgets and bpmh-widgets-temp exist in folder /wp-content/uploads"
+msgstr "Merci de vérifier que les dossiers bpmh-widgets et bpmh-widgets-temp sont biens présents dans le répertoire /wp-content/uploads"
+
+#: bp-my-home-admin.php:162
+msgid "BP My Home Widgets Administration"
+msgstr "BP My Home : administration des widgets"
+
+#: bp-my-home-admin.php:166
+#: bp-my-home-admin.php:172
+msgid "Widget Name"
+msgstr "Nom du Widget"
+
+#: bp-my-home-admin.php:167
+#: bp-my-home-admin.php:173
+msgid "Widget Description"
+msgstr "Description du Widget"
+
+#: bp-my-home-admin.php:190
+msgid "Deactivate this widget"
+msgstr "Désactiver ce widget"
+
+#: bp-my-home-admin.php:191
+#: bp-my-home-admin.php:203
+msgid "By"
+msgstr "Par"
+
+#: bp-my-home-admin.php:191
+#: bp-my-home-admin.php:203
+msgid "Go to Author website"
+msgstr "Aller sur le site de l'auteur"
+
+#: bp-my-home-admin.php:191
+#: bp-my-home-admin.php:203
+msgid "Go to Widget website"
+msgstr "Aller sur le site du widget"
+
+#: bp-my-home-admin.php:202
+msgid "Activate this widget"
+msgstr "Activer ce widget"
+
+#: bp-my-home-admin.php:208
+msgid "There is a new version of"
+msgstr "Il y a une nouvelle version du widget"
+
+#: bp-my-home-admin.php:208
+msgid "upgrade it"
+msgstr "Mettre à jour"
+
+#: bp-my-home-admin.php:220
+msgid "This Widget was activated before the plugin upgrade, please make sure to install it so that users can still use it."
+msgstr "Ce widget était activé avant la mise à jour du plugin, merci de veiller à le réinstaller afin que votre membre puisse toujours l'utiliser"
+
+#: bp-my-home-admin.php:227
+#: bp-my-home-admin.php:238
+msgid "Install this widget"
+msgstr "Installer ce widget"
+
+#: bp-my-home-admin.php:233
+msgid "Upload a widget (zip archive)"
+msgstr "Transférer un widget (au format zip)"
+
+#: bp-my-home-admin.php:236
+msgid "Zip Archive of the widget"
+msgstr "Archive Zip contenant le widget"
+
+#: bp-my-home-admin.php:242
+msgid "Add to Rss and Bookmarks widget options"
+msgstr "Options pour l'automatisation d'ajout de favoris ou de flux aux widgets"
+
+#: bp-my-home-admin.php:247
+msgid "Enable Add to My Bookmarks widget link"
+msgstr "Afficher le lien pour la mise en favoris"
+
+#: bp-my-home-admin.php:249
+#: bp-my-home-admin.php:257
+#: bp-my-home-admin.php:266
+msgid "Yes"
+msgstr "Oui"
+
+#: bp-my-home-admin.php:250
+#: bp-my-home-admin.php:258
+#: bp-my-home-admin.php:267
+msgid "No"
+msgstr "Non"
+
+#: bp-my-home-admin.php:252
+msgid "In the single.php or the page.php template of your post or page, a link will automatically be added above your content"
+msgstr "Dans les templates single.php et page.php, un lien sera automatiquement ajouté au dessus du contenu de votre article ou page"
+
+#: bp-my-home-admin.php:255
+msgid "Do you want to use a tag in your single or page template instead ?"
+msgstr "Voulez vous plutôt utiliser un tag dans vos templates page et single"
+
+#: bp-my-home-admin.php:260
+msgid "You will have to add this tag to your theme&rsquo;s single and page template files :"
+msgstr "Vous devrez ajouter ce tag aux template single et page de votre thème actif :"
+
+#: bp-my-home-admin.php:264
+msgid "Enable Add to My Feeds widget link"
+msgstr "Afficher le lien pour l'ajout de flux RSS"
+
+#: bp-my-home-admin.php:269
+msgid "You will have to had this tag<b>*</b> to your theme&rsquo;s template files :"
+msgstr "Vous devrez ajouter ce tag<b>*</b> aux fichiers template de votre thème actif :"
+
+#: bp-my-home-admin.php:271
+msgid "Using this tag in category.php, archive.php, search.php, single.php, index.php does not require more parameters. If you want to use it elsewhere or use a custom url feed (such as a feedburner one), you can add these parameters"
+msgstr "L&rsquo;utilisation de ce tag dans les templates category.php, archive.php, search.php, single.php, index.php ne nécessite pas de paramètres additionnels. Si vous souhaitez l&rsquo;utiliser à d&rsquo;autres endroits ou utiliser une url de flux particulier (exemple : une url feedburner), vous pouvez employer ces paramètres additionnels"
+
+#: bp-my-home-admin.php:271
+msgid "the title of your feed"
+msgstr "Le titre de votre flux"
+
+#: bp-my-home-admin.php:271
+msgid "the url of your feed"
+msgstr "l&rsquo;adresse de votre flux"
+
+#: bp-my-home-admin.php:271
+msgid "Example"
+msgstr "Exemple"
+
+#: bp-my-home-admin.php:274
+msgid "Update these options"
+msgstr "Sauvegarder ces options"
+
+#: bp-my-home-widget-activate.php:13
+#: bp-my-home-widget-activate.php:26
+msgid "Widget activated !"
+msgstr "Widget activé !"
+
+#: bp-my-home-widget-activate.php:18
+#: bp-my-home-widget-activate.php:31
+#: bp-my-home-widget-deactivate.php:23
+#: bp-my-home-widget-deactivate.php:35
+#: bp-my-home-core.php:287
+#: bp-my-home-auto-bkmk.php:121
+#: bp-my-home-auto-rss.php:157
+msgid "Oops, something went wrong !"
+msgstr "Oops, une erreur s'est produite !"
+
+#: bp-my-home-widget-deactivate.php:18
+#: bp-my-home-widget-deactivate.php:30
+msgid "Widget deactivated !"
+msgstr "Widget désactivé !"
+
+#: bp-my-home-core.php:12
+#: bp-my-home-class.php:23
+msgid "My Home"
+msgstr "Mon Accueil"
+
+#: bp-my-home-core.php:24
+#: bp-my-home-class.php:36
+msgid "My Widgets"
+msgstr "Mes Widgets"
+
+#: bp-my-home-core.php:32
+#: bp-my-home-class.php:45
+msgid "My Settings"
+msgstr "Mes Réglages"
+
+#: bp-my-home-core.php:188
+#: bp-my-home-core.php:431
+msgid "Admin forgot to activate at least 1 widget, if i were you i would contact him to make him move !"
+msgstr "L'Administrateur de ce site doit activer au moins 1 widget pour que cet espace soit disponible. Si j'étais vous, je le contacterais pour le bouger !"
+
+#: bp-my-home-core.php:192
+msgid "You did choose to display no widget.."
+msgstr "Vous avez choisi de ne pas afficher de widgets.."
+
+#: bp-my-home-core.php:193
+#: bp-my-home-core.php:198
+msgid "What about adding some ?"
+msgstr "Et si vous en ajoutiez un ?"
+
+#: bp-my-home-core.php:197
+msgid "The widgets you chose have been deactivated by Admin"
+msgstr "Les Widgets que vous aviez choisis ont été désactivés par l'Admin"
+
+#: bp-my-home-core.php:307
+msgid "Custom settings saved."
+msgstr "Réglages sauvegardés"
+
+#: bp-my-home-core.php:308
+msgid "Homepage settings saved but.. widgets settings failed."
+msgstr "Réglage Accueil sauvegardé mais.. Ceux des widgets : non."
+
+#: bp-my-home-core.php:309
+msgid "Widgets settings saved but.. Homepage settings failed."
+msgstr "Réglages Widgets sauvegardé mais.. Celui de l'accueil : non."
+
+#: bp-my-home-core.php:310
+msgid "Homepage and Widgets settings failed."
+msgstr "Le réglage de l'Accueil et ceux des widgets ont échoué."
+
+#: bp-my-home-core.php:388
+msgid "Make 'My Home' as my homepage for this website"
+msgstr "Faire de 'Mon Accueil' la page d'accueil de ce site."
+
+#: bp-my-home-core.php:393
+msgid "'My Widgets' settings"
+msgstr "Choix des Widgets"
+
+#: bp-my-home-core.php:426
+msgid "Save these settings"
+msgstr "Sauvegarder ces réglages"
+
+#: bp-my-home-auto-bkmk.php:54
+#: bp-my-home-auto-bkmk.php:79
+msgid "Bookmark Added"
+msgstr "Favori ajouté"
+
+#: bp-my-home-auto-bkmk.php:81
+msgid "Add to My Bookmarks widget"
+msgstr "Ajouter au widget Mes Favoris"
+
+#: bp-my-home-auto-rss.php:72
+#: bp-my-home-auto-rss.php:125
+msgid "Feed Added"
+msgstr "Flux ajouté"
+
+#: bp-my-home-auto-rss.php:114
+msgid "Results for "
+msgstr "Résultats pour "
+
+#: bp-my-home-auto-rss.php:125
+#: bp-my-home-auto-rss.php:130
+#: bp-my-home-auto-rss.php:136
+msgid "Subscribe"
+msgstr "S&rsquo;abonner"
+
+#: bp-my-home-auto-rss.php:130
+msgid "Add to My Feeds widget"
+msgstr "Ajouter au widget Mes Flux"
+
+#~ msgid "Insall Now"
+#~ msgstr "Installer maintenant"
+
+#~ msgid "My feeds!"
+#~ msgstr "Mes Flux RSS !"
+
+#~ msgid "Configure"
+#~ msgstr "Configurer"
+
+#~ msgid "Go to:"
+#~ msgstr "Aller à:"
+
+#~ msgid "all"
+#~ msgstr "tous"
+
+#~ msgid ""
+#~ "To add a feed, click on the <b>Configure</b> link at the top right of "
+#~ "this box header"
+#~ msgstr ""
+#~ "Pour ajouter un flux RSS, cliquer sur le lien <b>Configurer</b> sur la "
+#~ "droite de la barre de titre de ce widget"
+
+#~ msgid "Alias"
+#~ msgstr "Alias"
+
+#~ msgid "Action"
+#~ msgstr "Action"
+
+#~ msgid "Open in new Window"
+#~ msgstr "Ouvrir dans une nouvelle fenêtre"
+
+#~ msgid "Delete"
+#~ msgstr "Supprimer"
+
+#~ msgid "No feeds, add one ;)"
+#~ msgstr "Pas de flux, ajoutez en un ;)"
+
+#~ msgid "Feed Alias"
+#~ msgstr "Alias du Flux"
+
+#~ msgid "Feed url"
+#~ msgstr "Url du Flux"
+
+#~ msgid "Add feed"
+#~ msgstr "Ajouter le Flux"
+
+#~ msgid "Back to Feeds"
+#~ msgstr "Retour aux Flux"
+
+#~ msgid "My Bookmarks!"
+#~ msgstr "Mes Favoris!"
+
+#~ msgid ""
+#~ "To add a bookmark, click on the <b>Configure</b> link at the top right of "
+#~ "this box header"
+#~ msgstr ""
+#~ "Pour ajouter un favori, cliquer sur le lien <b>Configurer</b> de la barre "
+#~ "de titre de ce widget"
+
+#~ msgid "No bookmark, add one ;)"
+#~ msgstr "Pas de favori, ajoutez en un ;)"
+
+#~ msgid "Bookmark Alias"
+#~ msgstr "Alias du Favori"
+
+#~ msgid "Bookmark url"
+#~ msgstr "Url du Favori"
+
+#~ msgid "Add Bookmark"
+#~ msgstr "Ajouter un Favori"
+
+#~ msgid "Back to Bookmarks"
+#~ msgstr "Retour aux Favoris"
+
+#~ msgid "My Example Widget!"
+#~ msgstr "Mon Widget Exemple"
+
+#~ msgid "Click to edit..."
+#~ msgstr "Ajouter une note..."
+
+#~ msgid "My NotePad !"
+#~ msgstr "Mon bloc-notes !"
+
+#~ msgid "My latest Comments!"
+#~ msgstr "Mes derniers commentaires"
+
+#~ msgid "Choose the blog"
+#~ msgstr "Choix du blog"
+
+#~ msgid "On :"
+#~ msgstr "A propos de :"
+
+#~ msgid "Go to :"
+#~ msgstr "Aller à :"
+
+#~ msgid "Show/hide comment content"
+#~ msgstr "Afficher/Masquer le contenu du commentaire"
+
+#~ msgid "preview the comment"
+#~ msgstr "aperçu du commentaire"
+
+#~ msgid "Comments Count"
+#~ msgstr "Nombre de commentaires"
+
+#~ msgid "Follow Up"
+#~ msgstr "Suivi"
+
+#~ msgid "Published"
+#~ msgstr "Publié"
+
+#~ msgid "Awaiting moderation"
+#~ msgstr "En attente de modération"
+
+#~ msgid "No comments on this blog so far ;)"
+#~ msgstr "Pas de commentaires sur ce blog jusqu'à présent ;)"
+
+#~ msgid ""
+#~ "No bookmark, add one, by clicking on the configuration link (<i>in the "
+#~ "header of the box</i>)"
+#~ msgstr ""
+#~ "Pas de favori, ajoutez en un en cliquant sur le lien Configurer "
+#~ "(<i>depuis la barre de titre de cette fenêtre</i>)"
+
+#~ msgid "Meanwhile : this is a link to my website ;)"
+#~ msgstr "En attendant : faites un tour sur mon site ;)"

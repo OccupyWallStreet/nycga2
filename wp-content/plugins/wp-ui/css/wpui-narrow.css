@@ -1,0 +1,65 @@
+/**	
+	WP UI Narrow - use with sidebars and narrow areas.
+**/
+
+.wpui-narrow .ui-tabs {
+	padding : 0px !important;
+	border:  0px;
+	margin-left : -1em !important;
+	margin-right : -2em !important;
+/*	border : 1px solid #DEDEDE;*/
+}
+
+.wpui-narrow ul.ui-tabs-nav {
+	font-size : 10px;
+	padding : 0.5em;
+	background : none;
+	border : 0px;
+	z-index : 1001;
+	position : relative;
+	bottom : -1px;
+	
+}
+
+.wpui-narrow ul.ui-tabs-nav li {
+	padding : 0.2em;
+	background : none;
+	position : relative;
+	bottom : -1px;
+}
+
+
+.wpui-narrow ul.ui-tabs-nav li.ui-tabs-selected {
+	padding : 0.2em;
+	background : #F4F2F4 !important;
+	-moz-border-radius     : 2px 2px 0 0;
+	-webkit-border-radius  : 2px 2px 0 0;
+	-o-border-radius       : 2px 2px 0 0;
+	border-radius          : 2px 2px 0 0;
+	-moz-box-shadow    : 0 1px 0 #FFF inset;
+	-webkit-box-shadow : 0 1px 0 #FFF inset;
+	-o-box-shadow      : 0 1px 0 #FFF inset;
+	box-shadow         : 0 1px 0 #FFF inset;
+}
+
+
+
+
+.wpui-narrow ul.ui-tabs-nav li a {
+	padding : 0.2em;
+	color : #666;
+	text-shadow : 0 1px 0 #FFF;
+}
+
+
+
+.wpui-narrow .ui-tabs-panel {
+	padding : 5px;
+	background : #F4F2F4;
+	border : 1px solid #DEDEDE;
+	-moz-box-shadow    : 1px 1px 0 #FFF inset, -1px -1px 0 #FFF inset;
+	-webkit-box-shadow : 1px 1px 0 #FFF inset, -1px -1px 0 #FFF inset;
+	-o-box-shadow      : 1px 1px 0 #FFF inset, -1px -1px 0 #FFF inset;
+	box-shadow         : 1px 1px 0 #FFF inset, -1px -1px 0 #FFF inset;
+	
+}

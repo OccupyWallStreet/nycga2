@@ -1,0 +1,369 @@
+# Copyright (C) 2010 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/bp-template-pack\n"
+"POT-Creation-Date: 2011-09-21 02:31:51+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: bpt-functions.php:71
+msgid "My Favorites"
+msgstr ""
+
+#: bpt-functions.php:72
+msgid "Accepted"
+msgstr ""
+
+#: bpt-functions.php:73
+msgid "Rejected"
+msgstr ""
+
+#: bpt-functions.php:74
+msgid "Show all comments for this thread"
+msgstr ""
+
+#: bpt-functions.php:75
+msgid "Show all"
+msgstr ""
+
+#: bpt-functions.php:76
+msgid "comments"
+msgstr ""
+
+#: bpt-functions.php:77
+msgid "Close"
+msgstr ""
+
+#: bpt-functions.php:85
+msgid "View"
+msgstr ""
+
+#: bpt-functions.php:92
+msgid ""
+"%s is a unique identifier for %s that you can type into any message on this "
+"site. %s will be sent a notification and a link to your message any time you "
+"use it."
+msgstr ""
+
+#: bpt-functions.php:194
+msgid "Activity Stream"
+msgstr ""
+
+#: bpt-admin.php:29
+msgid "BP Compatibility"
+msgstr ""
+
+#: bpt-admin.php:52
+msgid ""
+"Hey you! You're using an older version of WordPress.  Please upgrade to "
+"<strong>WordPress 3.2</strong>, otherwise the javascript bundled with "
+"BuddyPress will cease to work with your WordPress theme."
+msgstr ""
+
+#: bpt-admin.php:64
+msgid ""
+"You have activated the BuddyPress Template Pack, but you haven't completed "
+"the setup process. Visit the <a href=\"%s\">BP Compatibility</a> page to "
+"wrap up."
+msgstr ""
+
+#: bpt-admin.php:117
+msgid "Making Your Theme BuddyPress Compatible"
+msgstr ""
+
+#: bpt-admin.php:119
+msgid ""
+"Adding support for BuddyPress to your existing WordPress theme is a "
+"straightforward process. Follow the setup instructions on this page."
+msgstr ""
+
+#: bpt-admin.php:124
+msgid "Step One: Moving template files automatically"
+msgstr ""
+
+#: bpt-admin.php:126
+msgid ""
+"BuddyPress needs some extra template files in order to display its pages "
+"correctly. This plugin will attempt to automatically move the necessary "
+"files into your current theme."
+msgstr ""
+
+#: bpt-admin.php:128
+msgid "Click the button below to start the process."
+msgstr ""
+
+#: bpt-admin.php:130
+msgid "Move Template Files"
+msgstr ""
+
+#: bpt-admin.php:138
+msgid "Step Two: Moving templates manually"
+msgstr ""
+
+#: bpt-admin.php:140
+msgid ""
+"<strong>Moving templates failed.</strong> There was an error when trying to "
+"move the templates automatically. This probably means that we don't have the "
+"correct permissions. That's all right - it just means you'll have to move "
+"the template files manually."
+msgstr ""
+
+#: bpt-admin.php:142
+msgid ""
+"You will need to connect to your WordPress files using FTP. When you are "
+"connected browse to the following directory:"
+msgstr ""
+
+#: bpt-admin.php:146
+msgid ""
+"In this directory you will find six folders (/activity/, /blogs/, /forums/, /"
+"groups/, /members/, /registration/). If you want to use all of the features "
+"of BuddyPress then you must move these six directories to the following "
+"folder:"
+msgstr ""
+
+#: bpt-admin.php:150
+msgid ""
+"If you decide that you don't want to use a feature of BuddyPress, then you "
+"can actually ignore the template folders for these features. For example, if "
+"you don't want to use the groups and forums features, you can simply avoid "
+"copying the /groups/ and /forums/ template folders to your active theme. (If "
+"you're not sure what to do, just copy all six folders over to your theme "
+"directory.)"
+msgstr ""
+
+#: bpt-admin.php:152
+msgid ""
+"Once you have correctly copied the folders into your active theme, please "
+"use the button below to move onto step three."
+msgstr ""
+
+#: bpt-admin.php:154
+msgid "I've finished moving template folders"
+msgstr ""
+
+#: bpt-admin.php:158
+msgid "Templates moved successfully!"
+msgstr ""
+
+#: bpt-admin.php:160
+msgid ""
+"Great news! BuddyPress templates are now in the correct position in your "
+"theme, which means that we can skip Step Two: Moving Templates Manually, and "
+"move directly to Step Three. Cool!"
+msgstr ""
+
+#: bpt-admin.php:162
+msgid "Continue to Step Three"
+msgstr ""
+
+#: bpt-admin.php:168
+msgid "Step Three: Tweaking your layout"
+msgstr ""
+
+#: bpt-admin.php:170
+msgid ""
+"Now that the template files are in the correct location, <a href=\"%s\" "
+"target=\"_blank\">check out your site</a>. (You can come back to the current "
+"page at any time, by visiting Dashboard > Appearance > BP Compatibility.) "
+"You should see a BuddyPress admin bar at the top of the page. Try visiting "
+"some of the links in the \"My Account\" menu. If everything has gone right "
+"up to this point, you should be able to see your BuddyPress content."
+msgstr ""
+
+#: bpt-admin.php:172
+msgid ""
+"If you find that the pages are not quite aligned correctly, or the content "
+"is overlapping the sidebar, you may need to tweak the template HTML. Please "
+"follow the \"fixing alignment\" instructions below. If the content in your "
+"pages is aligned to your satisfaction, then you can skip to the \"Finishing "
+"Up\" section at the bottom of this page."
+msgstr ""
+
+#: bpt-admin.php:174
+msgid "Fixing Alignment"
+msgstr ""
+
+#: bpt-admin.php:176
+msgid "By default BuddyPress templates use this HTML structure:"
+msgstr ""
+
+#: bpt-admin.php:195
+msgid ""
+"If BuddyPress pages are not aligned correctly, then you may need to modify "
+"some of the templates to match your theme's HTML structure. The best way to "
+"do this is to access your theme's files, via FTP, at:"
+msgstr ""
+
+#: bpt-admin.php:199
+msgid ""
+"Open up the <code>page.php</code> file (if this does not exist, use "
+"<code>index.php</code>). Make note of the HTML template structure of the "
+"file, specifically the <code>&lt;div&gt;</code> tags that surround the "
+"content and sidebar."
+msgstr ""
+
+#: bpt-admin.php:201
+msgid ""
+"You will need to change the HTML structure in the BuddyPress templates that "
+"you copied into your theme to match the structure in your <code>page.php</"
+"code> or <code>index.php</code> file."
+msgstr ""
+
+#: bpt-admin.php:204
+msgid "There are two methods for making the necessary template changes."
+msgstr ""
+
+#: bpt-admin.php:208
+msgid ""
+"The first method is to locate tho following templates (leave out any folders "
+"that you didn't copy over in Step Two):"
+msgstr ""
+
+#: bpt-admin.php:211
+msgid ""
+"The files that you need to edit are as follows (leave out any folders you "
+"have not copied over in step two):"
+msgstr ""
+
+#: bpt-admin.php:237
+msgid ""
+"Alternatively, you may find it easier to make copies of your theme's "
+"<code>header.php</code>, <code>sidebar.php</code> and <code>footer.php</"
+"code> and rename them to <code>header-buddypress.php</code>, <code>sidebar-"
+"buddypress.php</code>, and <code>footer-buddypress.php</code>."
+msgstr ""
+
+#: bpt-admin.php:239
+msgid ""
+"Then you can alter the structure of these new template files (<code>header-"
+"buddypress.php</code>, <code>sidebar-buddypress.php</code>, and <code>footer-"
+"buddypress.php</code>) to resemble your theme's <code>page.php</code> (or "
+"<code>index.php</code>)."
+msgstr ""
+
+#: bpt-admin.php:244
+msgid ""
+"Once you are done matching up the HTML structure of your theme in these "
+"template files, please take another look through your site. You should find "
+"that BuddyPress pages now fit inside the content structure of your theme."
+msgstr ""
+
+#: bpt-admin.php:246
+msgid "Finishing Up"
+msgstr ""
+
+#: bpt-admin.php:248
+msgid ""
+"You're now all done with the conversion process. Your WordPress theme will "
+"now happily provide BuddyPress compatibility support. Once you hit the "
+"finish button you will be presented with a new permanent theme options page, "
+"which will allow you to tweak some settings."
+msgstr ""
+
+#: bpt-admin.php:250
+msgid "Finish"
+msgstr ""
+
+#: bpt-admin.php:262
+msgid "BuddyPress Theme Compatibility"
+msgstr ""
+
+#: bpt-admin.php:266
+msgid ""
+"Congratulations, you have completed the BuddyPress theme compatibility setup "
+"procedure!"
+msgstr ""
+
+#: bpt-admin.php:272
+msgid "Disable BP Template Pack CSS"
+msgstr ""
+
+#: bpt-admin.php:274
+msgid ""
+"The BuddyPress template pack comes with basic wireframe CSS styles that will "
+"format the layout of BuddyPress pages. You can extend upon these styles in "
+"your theme's CSS file, or simply turn them off and build your own styles."
+msgstr ""
+
+#: bpt-admin.php:277
+msgid "Disable BP Template Pack JS / AJAX"
+msgstr ""
+
+#: bpt-admin.php:278
+msgid ""
+"The BuddyPress template pack will automatically integrate the BuddyPress "
+"default theme javascript and AJAX functionality into your theme. You can "
+"switch this off, however the experience will be somewhat degraded."
+msgstr ""
+
+#: bpt-admin.php:281
+msgid "Save Settings"
+msgstr ""
+
+#: bpt-admin.php:289
+msgid ""
+"<strong>NOTE:</strong> To remove the \"BuddyPress is ready\" message you "
+"will need to add a \"buddypress\" tag to your theme. You can do this by "
+"editing the <code>style.css</code> file of your active theme and adding the "
+"tag to the \"Tags:\" line in the comment header."
+msgstr ""
+
+#: bpt-admin.php:292
+msgid "Navigation Links"
+msgstr ""
+
+#: bpt-admin.php:294
+msgid ""
+"You may want to add new navigation tabs or links to your theme to link to "
+"BuddyPress directory pages. The default set of links are:"
+msgstr ""
+
+#: bpt-admin.php:297
+msgid "Activity"
+msgstr ""
+
+#: bpt-admin.php:300
+msgid "Members"
+msgstr ""
+
+#: bpt-admin.php:303
+msgid "Groups"
+msgstr ""
+
+#: bpt-admin.php:307
+msgid "Forums"
+msgstr ""
+
+#: bpt-admin.php:310
+msgid "Register"
+msgstr ""
+
+#: bpt-admin.php:310
+msgid "(registration must be enabled)"
+msgstr ""
+
+#: bpt-admin.php:313
+msgid "Blogs"
+msgstr ""
+
+#: bpt-admin.php:317
+msgid "Reset Setup"
+msgstr ""
+
+#: bpt-admin.php:318
+msgid ""
+"If you would like to run through the setup process again please use the "
+"reset button (you will start at step three if you haven't removed the "
+"template files):"
+msgstr ""
+
+#: bpt-admin.php:319
+msgid "Reset"
+msgstr ""

@@ -1,0 +1,265 @@
+/*
+   objects.css
+   PageLines Objects - CSS Framework
+   
+   Created by Andrew Powers on 2011-05-30.
+   Copyright 2011 PageLines. All rights reserved.
+*/
+
+
+		
+/* 
+ * @ Lists
+ **********************************************************************/
+
+	/* @ Inline List - Horizontal non-floated navigation/menu  */
+	ul.inline-list { list-style-type: none; }
+	ul.inline-list li { display: inline ; padding: 0px 3px; }
+
+	/* @ Tabbed List - Horizontal floated list, tab and navigation effects */
+	ul.tabbed-list {
+		list-style-type: none; 
+		margin:0;
+		width: 100%; /* clear IE 7 */
+	}
+	ul.tabbed-list li, ul.tabbed-list lh {margin: 0; padding: 0; float: left;}
+	ul.tabbed-list li a, ul.tabbed-list lh a{display: block; }
+
+/* 
+ * @ Media / Image Format
+ **********************************************************************/
+	.media { overflow:hidden;overflow: visible; zoom: 1; }
+	.media .bd {display:table-cell; vertical-align: top; width: 10000px; *display:block; *width:auto; zoom:1;}
+	.media .bd > :first-child{margin-top:0;}
+	.media .bd > :last-child{margin-bottom:0;}
+	.media .img{float:left;margin-right: 15px;}
+	.media .img img, .img img{display: block;  max-width: 100%; height: auto; width: auto\9; /* ie8 */}
+	.media .img.rtimg{float:right; margin-left: 15px;}
+
+/*
+ *  @ PageLines Proto CSS Grid 
+ ***********************************/
+
+	.pprow { width: 100%; margin: 0 auto; }
+	.pp2, .pp3, .pp4, .pp5, .pp6 {margin: 0; padding:0; margin-right: 4%; float: left; border: none;}
+	.pp3{margin-right: 3%;}
+	.pp4, .pp5, .pp6{margin-right: 2%;}
+	.pprow.debug .pp2, .pprow.debug .pp3, .pprow.debug .pp4, .pprow.debug .pp5, .pprow.debug .pp6{outline: 1px solid blue;}
+	.pp1 { width: 100%; float: left;}
+	.pp2 { width: 48%; }
+	.pp3 { width: 31.333333333%; }
+	.pp4 { width: 23.5%; }
+	.pp5 { width: 18.4%; }
+	.pp6 { width: 15%; }
+	.pplast { margin-right: 0; }
+	
+	.ppfull .pp2, .ppfull .pp3, .ppfull .pp4, .ppfull .pp5, .ppfull .pp6{
+		margin-right: 0;
+	}
+	.ppfull .pp2{ width: 50% }
+	.ppfull .pp3{ width: 33.3333333% }
+	.ppfull .pp4{ width: 25% }
+	.ppfull .pp5{ width: 20% }
+	.ppfull .pp6{ width: 16.66666667% }
+	
+	
+
+	@media screen and (max-width:650px) { 	
+		.responsive #site .pp2, .responsive #site .pp3{ 
+	       	width: 100%;
+			margin-right: 0;
+	    }
+			
+		.responsive #site .pprand{
+			width: 100% !important;
+			float: none;
+		}
+			.responsive #site .pprand-pad{
+				padding: 15px !important;
+			}
+	}
+	@media screen and (max-width:700px) { 	
+		.responsive #site .pp4, #site .pp5, #site .pp6, #site .pp4{ 
+	       	width: 100%;
+			margin-right: 0;
+	    }
+	}
+	
+	.pp2, .pp3, .pp4, .pp5, .pp6 {
+	 	transition:all .2s linear; 
+	    -o-transition:all .2s linear; 
+	    -moz-transition:all .2s linear; 
+	    -webkit-transition:all .2s linear;
+	}
+	
+/* @ Banner */
+	.banner_pad{
+		padding: 2em;
+		text-align: center;
+	}
+		.banner_title.wicon{
+			display: inline;
+			padding: 0 23px;
+			background-position: 0 4px;
+			background-repeat: no-repeat;
+		}
+	
+	
+/* @ Border Tricks */
+	body .ntb{border-top: none}
+	body .nbb{border-bottom: none}
+
+	.r4{
+		-moz-border-radius: 4px;
+		-khtml-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		border-radius: 4px;
+	}
+	
+
+	
+	/* @ Clearfixing */
+		.fix:after{content:".";display:block;height:0;clear:both;visibility:hidden;} .fix{display:inline-block;} * html .fix{height:1%;} .fix{display:block;}
+		.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;} .clearfix{display:inline-block;} * html .clearfix{height:1%;} .clearfix{display:block;}
+	
+/* @ Buttons */
+.blink-wrap{
+	padding:0;
+	float:left;
+	margin: 2px 10px 2px 0;
+	font-family: helvetica, arial, sans-serif;
+}
+body #page .blink-wrap	.blink{
+	
+	display: block;
+	text-decoration: none;
+	margin:0;
+	font-size: 11px;
+	line-height: 11px;
+	color:#444;
+	text-shadow: #fff 0 1px 0;
+	background: #ddd url(../images/blink-sprite-grey.png) 0 0 repeat-x;
+	border: 1px solid #999;
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	cursor: pointer;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+	.blink-pad{display: block; padding: 5px 12px;height: 11px;
+		border: 1px solid transparent;
+		border-top: 1px solid #f7f7f7;
+		border-left: 1px solid #f7f7f7;}
+	
+	body #page .blink-wrap .blink:hover{
+		background: #82a2ca url(../images/blink-sprite-grey.png) 0 -35px repeat-x;
+		border: 1px solid #aaa;
+		border-top: 1px solid #fff;
+		border-left: 1px solid #fff;
+		
+	}
+	body #page .blink-wrap .blink:active{background: #82a2ca url(../images/blink-sprite-grey.png) 0 -70px repeat-x;border: 1px solid #666;color: #fff; text-shadow: #000 0 -1px 0}
+	body #page .blink-wrap .blink:active .blink-pad{border: 1px solid transparent;}
+	
+	.bl-align-right{float:right; margin: 2px 0 2px 5px;}
+
+/* Tag Button */ 
+.btag, .boxtags a{
+	font-family: helvetica, arial, sans-serif;
+	text-shadow: #315f9b 0 -1px 0;
+	background: #6aaef5;
+	color: #ffffff;
+	border: 1px solid #3585f0;
+	font-size: 10px;
+	display: inline-block;
+	margin: 1px 5px;
+	padding: 3px 5px;
+	text-align: left;
+	line-height: 100%;
+	font-weight: bold;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	vertical-align:top;
+	text-decoration: none;
+}
+	a.btag:hover, .boxtags a:hover{ background: #3585f0; color: #fff; }
+
+.btag.grey, .boxtags a{
+	text-shadow: #fff 0 1px 0;
+	background: #ddd;
+	color: #999;
+	border: 1px solid #ccc;
+	border-bottom: 1px solid #bbb;
+	border-right: 1px solid #bbb;
+}
+	a.btag.grey:hover, .boxtags a:hover{ background: #ccc; color: #000; }
+	
+	.btag.grdnt{
+		box-shadow: inset 1px 1px 0 rgba(255,255,255,.5), 1px 1px 0 rgba(255,255,255,.5);
+		border:1px solid #ccc;
+		border-right: 1px solid #b1b1b1;
+		border-bottom: 1px solid #b1b1b1;
+		text-shadow: 0 1px 0 rgba(255,255,255, .7);
+		color:#AAA;
+		background:#ddd;
+		background:-moz-linear-gradient(top, #eee 0%, #ccc 100%); 
+		background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#eee),color-stop(100%,#ccc)); 
+		background:-webkit-linear-gradient(top,#eee 0%,#ccc 100%); 
+		background:-o-linear-gradient(top,#eee 0%,#ccc 100%); 
+		background:-ms-linear-gradient(top,#eee 0%,#ccc 100%); 
+		background:linear-gradient(top,#eee 0%,#ccc 100%);
+	}
+	
+/* @ Grid */ 
+.media_overview{ margin-bottom: 12px; }
+	.grid-img-frame{
+		max-width: 100%;
+	}
+	.grid-img-pad{
+		width: 100%;
+		float:left; 
+	}
+.vignette{position: relative;}
+
+	.grid-title{
+		margin: .7em 0;
+	}
+	.grid-title-pad{
+		position: relative;
+		padding: 7px 0;
+	}
+		.gtitle{
+			float:left;
+		}
+		.title-link{
+			position: absolute;
+			bottom: 7px;
+			right:4px;
+			font-size: 11px;
+			font-family: 'calibri','lucida grande', helvetica, arial;
+			font-weight: bold;
+			color:#888;
+			padding: 3px 7px 4px;
+			line-height: 1em;
+		}
+.hovercard {
+	position: absolute; 
+	bottom: 20px; 
+	background: rgba(0,0,0, .6);
+	text-shadow: none;
+	color:#fff;
+	line-height: 1.6em;
+	padding: 5px 8px;
+	display: none;
+	text-align: left;
+	font-size: 1.4em;
+	bottom: 15px;
+}
+
+/* Misc */
+#supersized-loader { position:absolute; top:50%; left:50%; z-index:10; width:60px; height:60px; margin:-30px 0 0 -30px; text-indent:-999em; background-color:#111; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px;}
+
+#supersized { position:fixed; left:0; top:0; overflow:hidden; z-index:-999; height:100%; width:100%; }
+#supersized img{ height:auto; width:auto; position:relative; outline:none; border:none; -ms-interpolation-mode:bicubic; image-rendering: optimizeQuality; }

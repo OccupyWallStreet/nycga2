@@ -1,0 +1,62 @@
+# Translation of the WordPress plugin   by .
+# Copyright (C) 2010
+# This file is distributed under the same license as the  package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Exclude Pages in italiano\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/exclude-pages\n"
+"POT-Creation-Date: 2010-06-16 17:15+0000\n"
+"PO-Revision-Date: 2010-06-17 17:55+0100\n"
+"Last-Translator: Gianni Diurno (aka gidibao) <gidibao[at]gmail[dot]com>\n"
+"Language-Team: Gianni Diurno | gidibao.net <gidibao[at]gmail[dot]com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+#: exclude_pages.php:198
+msgid "Comma separated list of post and page IDs to exclude when returning pages from the get_pages function."
+msgstr "Separa con una virgola la lista delle ID (articoli e pagine) in modo tale che vengano escluse dalla funzione get_pages."
+
+#: exclude_pages.php:227
+msgid "Include this page in lists of pages"
+msgstr "Includi questa pagina nella lista delle pagine"
+
+#: exclude_pages.php:231
+#, php-format
+msgid "N.B. An ancestor of this page is excluded, so this page is too (<a href=\"%1$s\" title=\"%2$s\">edit ancestor</a>)."
+msgstr "N.B. La pagina madre é stata esclusa, così come questa (<a href=\"%1$s\" title=\"%2$s\">modifica</a>)."
+
+#: exclude_pages.php:231
+msgid "edit the excluded ancestor"
+msgstr "modifica la pagina madre esclusa"
+
+#: exclude_pages.php:239
+#, php-format
+msgid "N.B. This page can still appear in explicitly created <a href=\"%1$s\">menus</a> (<a id=\"ep_toggle_more\" href=\"#ep_explain_more\">explain more</a>)"
+msgstr "N.B. Questa pagina potrebbe ancora apparire in quei <a href=\"%1$s\">menu</a> espressamente creati  (<a id=\"ep_toggle_more\" href=\"#ep_explain_more\">ulteriori informazioni</a>)"
+
+#: exclude_pages.php:242
+msgid "N.B. This page can still appear in explicitly created menus (<a id=\"ep_toggle_more\" href=\"#ep_explain_more\">explain more</a>)"
+msgstr "N.B. Questa pagina potrebbe ancora apparire in quei menu espressamente creati (<a id=\"ep_toggle_more\" href=\"#ep_explain_more\">ulteriori informazioni</a>)"
+
+#: exclude_pages.php:246
+#, php-format
+msgid "WordPress provides a simple function for you to maintain your site <a href=\"%1$s\">menus</a>. If you create a menu which includes this page, the checkbox above will not have any effect on the visibility of that menu item."
+msgstr "WordPress fornisce una semplice funzione per il mantenemento dei <a href=\"%1$s\">menu</a> del tuo sito. Nel caso in cui avesi creato un menu menu nel quale fosse stata inclusa questa pagina, la casella di selezione qui sopra non avrà alcun effetto sulla visibilità di quel dato termine presente nel menu."
+
+#: exclude_pages.php:249
+msgid "WordPress provides a simple function for you to maintain the site menus, which your site administrator is using. If a menu includes this page, the checkbox above will not have any effect on the visibility of that menu item."
+msgstr "WordPress fornisce una semplice funzione per il mantenemento dei menu del tuo sito. Nel caso in cui avesi creato un menu menu nel quale fosse stata inclusa questa pagina, la casella di selezione qui sopra non avrà alcun effetto sulla visibilità di quel dato termine presente nel menu."
+
+#: exclude_pages.php:251
+msgid "If you think you no longer need the Exclude Pages plugin you should talk to your WordPress administrator about disabling it."
+msgstr "Qualora decidessi di non utilizzare più Exclude Pages, sarà sufficiente disattivare il plugin."
+
+#: exclude_pages.php:349
+msgid "Exclude Pages"
+msgstr "Escludi pagine"
+

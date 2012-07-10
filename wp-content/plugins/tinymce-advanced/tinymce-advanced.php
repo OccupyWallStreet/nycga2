@@ -3,7 +3,7 @@
 Plugin Name: TinyMCE Advanced
 Plugin URI: http://www.laptoptips.ca/projects/tinymce-advanced/
 Description: Enables advanced features and plugins in TinyMCE, the visual editor in WordPress.
-Version: 3.4.5.1
+Version: 3.4.9
 Author: Andrew Ozz
 Author URI: http://www.laptoptips.ca/
 

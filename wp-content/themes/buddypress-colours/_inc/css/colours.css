@@ -1,0 +1,575 @@
+body {
+background: #eaeaea url( ../images/background.gif ) top left repeat-x;
+font-size: 12px;
+font-family: Arial, Tahoma, Verdana, sans-serif;
+line-height: 170%;
+color: #555;
+}
+
+a {
+color: #1fb3dd;
+}
+a:hover, a:active {
+color: #888;
+}
+a:focus {
+outline: 1px dotted #ccc;
+}
+
+hr {
+background-color: #E7E7E7;
+}
+
+img.avatar {
+border: 2px solid #eee;
+}
+
+/* > Header
+-------------------------------------------------------------- */
+#header {
+color: #fff;
+background: url( ../images/default_header.jpg);
+}
+	
+#header #search-bar input[type=text] {
+border: 1px inset #888;
+}
+
+#header h1 a {
+color: #fff;
+}
+
+ul#nav li a {
+color: #fff;
+background: url( ../images/60pc_black.png );
+}
+			
+ul#nav li.selected a, ul#nav li.current_page_item a {
+background: #f5f5f5;
+color: #555;
+}
+			
+ul#nav a:focus {
+outline: none;
+}
+
+/* > Container
+-------------------------------------------------------------- */
+div#container {
+border-right: 1px solid #e0e0e0;
+border-bottom: 1px solid #e0e0e0;
+background: #fff;
+}
+
+/* > Sidebar
+-------------------------------------------------------------- */
+div#sidebar {
+border-left: 1px solid #e4e4e4;
+background: url( ../images/sidebar_back.gif ) top left repeat-x;
+}
+
+div#sidebar h3.widgettitle {
+background: #eaeaea;
+}
+
+div#sidebar div.item-options {
+background: #f8f8f8;
+}
+
+/* > Content
+-------------------------------------------------------------- */
+div#content .padder {
+border-right: 1px solid #e4e4e4;
+}
+
+/* > Item Headers (Profiles, Groups)
+-------------------------------------------------------------- */
+div#item-header h2 a {
+color: #777;
+}
+
+div#item-header h2 span.highlight {
+font-size: 16px;
+}
+	
+div#item-header h2 span.highlight span {
+background: #a1dcfa;
+color: #fff;
+}
+
+div#item-header div#item-meta {
+color: #aaa;
+}
+
+/* > Item Lists (Activity, Friend, Group lists)
+-------------------------------------------------------------- */
+ul.item-list li {
+border-bottom: 1px solid #eaeaea;
+}
+
+ul.item-list li div.item-title span {
+color: #999;
+}
+
+ul.item-list li div.item-desc {
+color: #888;
+}
+
+ul.item-list li div.meta {
+color: #888;
+}
+
+
+/* > Item Tabs
+-------------------------------------------------------------- */
+div.item-list-tabs {
+background: #eaeaea;
+}
+			
+div.item-list-tabs ul li span {
+color: #aaa;
+}
+
+div.item-list-tabs ul li.selected a,
+div.item-list-tabs ul li.current a {
+background-color: #fff;
+color: #555;
+}
+			
+ul li.loading a {
+background-image: url( ../images/ajax-loader.gif );
+background-position: 92% 50%;
+background-repeat: no-repeat;
+}
+
+div.item-list-tabs#subnav {
+background: #fff;
+border-bottom: 1px solid #eaeaea;
+}
+
+div.item-list-tabs ul li.feed a {
+background: url( ../images/rss.png ) center left no-repeat;
+}
+
+/* > Item Body
+-------------------------------------------------------------- */
+span.activity, div#message p {
+background: #FFF9DB;
+border-bottom: 1px solid #FFE8C4;
+border-right: 1px solid #FFE8C4;
+color: #ffa200;
+}
+
+
+/* > Pagination
+-------------------------------------------------------------- */
+div.pagination {
+border-bottom: 1px solid #eaeaea;
+color: #888;
+}
+	
+div.pagination#user-pag, .friends div.pagination,
+.mygroups div.pagination, .myblogs div.pagination, noscript div.pagination {
+background: #f8f8f8;
+}
+
+/* > Error / Success Messages
+-------------------------------------------------------------- */
+div#message.error p {
+background: #e41717;
+color: #fff;
+border-color: #a71a1a;
+}
+
+div#message.updated p {
+background: #dffcd9;
+color: #1a9b00;
+border-color: #c4e9bd;
+}
+
+form.standard-form#signup_form div div.error {
+color: #fff;
+background: #e41717;
+}
+
+/* > Buttons
+-------------------------------------------------------------- */
+a.button, input[type=submit], input[type=button],
+ul.button-nav li a, div.generic-button a {
+background: url( ../images/white-grad.png ) top left repeat-x;
+border: 1px solid #ddd;
+color: #888;
+}
+	
+a.button:hover, a.button:focus, input[type=submit]:hover, input[type=button]:hover,
+ul.button-nav li a:hover, ul.button-nav li.current a,
+div.generic-button a:hover {
+border-color: #aaa;
+color: #555;
+}
+
+/* Buttons that are disabled */
+div.pending a, a.disabled {
+border-color: #eee;
+color: #bbb;
+}
+	
+div.pending a:hover, a.disabled:hover {
+border-color: #eee;
+color: #bbb;
+}
+
+/* > AJAX Loaders
+-------------------------------------------------------------- */
+.ajax-loader {
+background: url( ../images/ajax-loader.gif ) center left no-repeat !important;
+}
+
+a.loading {
+background-image: url( ../images/ajax-loader.gif ) !important;
+background-position: 95% 50% !important;
+background-repeat: no-repeat !important;
+}
+
+/* > Input Forms
+-------------------------------------------------------------- */
+form.standard-form textarea, form.standard-form input[type=text],
+form.standard-form select, form.standard-form input[type=password],
+.dir-search input[type=text] {
+border: 1px inset #ccc;
+color: #888;
+}
+		
+form.standard-form div.checkbox label,
+form.standard-form div.radio label {
+color: #888;
+}
+
+form.standard-form p.description {
+color: #888;
+}
+
+form.standard-form input:focus, form.standard-form textarea:focus, form.standard-form select:focus {
+background: #fafafa;
+color: #555;
+}
+
+div#invite-list {
+background: #f5f5f5;
+border: 1px solid #e4e4e4;
+}
+
+
+/* > Data Tables
+-------------------------------------------------------------- */
+table tr td.label {
+border-right: 1px solid #eaeaea;
+}
+
+table tr td.thread-info p.thread-excerpt {
+color: #888;
+}
+
+table tr.alt {
+background: #f4f4f4;
+}
+
+table.forum tr:first-child {
+background: #fafafa;
+}
+
+table.forum tr.sticky td {
+background: #FFF9DB;
+border-top: 1px solid #FFE8C4;
+border-bottom: 1px solid #FFE8C4;
+}
+
+table.forum tr.closed td.td-title {
+background-image: url( ../images/closed.png );
+background-position: 15px 50%;
+background-repeat: no-repeat;
+}
+
+table.forum td p.topic-text {
+color: #888;
+}
+
+table.forum td.td-freshness {
+color: #888;
+}
+
+/* > Activity Stream Posting
+-------------------------------------------------------------- */
+form#whats-new-form {
+border-bottom: 1px solid #f0f0f0;
+}
+
+form#whats-new-form h5 {
+color: #888;
+}
+
+form#whats-new-form #whats-new-textarea {
+border: 1px inset #ccc;
+background: #fff;
+}
+
+form#whats-new-form textarea {
+color: #555;
+}
+
+/* > Activity Stream Listing
+-------------------------------------------------------------- */
+.activity-list li .activity-inreplyto {
+color: #888;
+background: url( ../images/replyto_arrow.gif ) 7px 0 no-repeat;
+}
+	
+body.activity-permalink .activity-list li .activity-content {
+background: #fff;
+border-bottom: 1px solid #ddd;
+border-right: 1px solid #ddd;
+}
+
+body.activity-permalink .activity-list li .activity-header > p {
+background: url( ../images/activity_arrow.gif ) top left no-repeat;
+}
+
+.activity-list .activity-content .activity-header,
+.activity-list .activity-content .comment-header {
+color: #888;
+}
+
+.activity-list .activity-header a:first-child, span.highlight {
+background: #EBF7FF;
+border-bottom: 1px solid #a1dcfa;
+border-right: 1px solid #a1dcfa;
+color: #059AE7;
+}
+		
+.activity-list .activity-header a:first-child:hover {
+background: #059AE7 !important;
+color: #fff !important;
+}
+
+.activity-list .activity-content span.time-since {
+color: #bbb;
+}
+
+.activity-list .activity-content span.activity-header-meta a {
+color: #aaa;
+}
+
+.activity-list .activity-content .activity-inner,
+.activity-list .activity-content blockquote {
+overflow: hidden;
+}
+
+.activity-list .activity-content img.thumbnail {
+border: 2px solid #eee;
+}
+
+.activity-list li.load-more {
+background: #f0f0f0 !important;
+border-right: 1px solid #ddd;
+border-bottom: 1px solid #ddd;
+}
+	
+.activity-list li.load-more a {
+color: #555;
+}
+
+/* > Activity Stream Comments
+-------------------------------------------------------------- */
+.activity-list div.activity-meta a {
+background: #f4f4f4;
+border-bottom: 1px solid #ddd;
+border-right: 1px solid #ddd;
+color: #999;
+}
+	
+.activity-list div.activity-meta a.acomment-reply {
+background: #FFF9DB;
+border-bottom: 1px solid #FFE8C4;
+border-right: 1px solid #FFE8C4;
+color: #ffa200;
+}
+
+div.activity-meta a:focus {
+outline: none;
+}
+	
+div.activity-meta a:hover {
+background: #aaa;
+color: #fff;
+border-color: #aaa;
+}
+		
+div.activity-meta a.acomment-reply:hover {
+background: #f7740a;
+color: #fff;
+border-color: #f7740a;
+}
+
+div.activity-comments > ul {
+background: #f5f5f5;
+}
+
+div.activity-comments ul li {
+border-top: 2px solid #fff;
+}
+
+div.activity-comments div.acomment-meta {
+color: #888;
+}
+
+div.activity-comments form.ac-form {
+background: #eee;
+border-bottom: 1px solid #ddd;
+border-right: 1px solid #ddd;
+}
+
+div.activity-comments form.loading {
+background-image: url( ../images/ajax-loader.gif );
+background-position: 2% 95%;
+background-repeat: no-repeat;
+}
+
+div.activity-comments form .ac-textarea {
+border: 1px inset #ccc;
+background: #fff;
+}
+
+div.activity-comments form textarea {
+color: #555;
+}
+
+div.ac-reply-avatar img {
+border: 2px solid #fff !important;
+}
+
+div.activity-comments form div.ac-reply-content {
+color: #888;
+}
+
+/* > Private Message Threads
+-------------------------------------------------------------- */
+table#message-threads tr.unread td {
+background: #FFF9DB;
+border-top: 1px solid #FFE8C4;
+border-bottom: 1px solid #FFE8C4;
+}
+
+table#message-threads tr.unread td span.activity {
+background: #fff;
+}
+
+li span.unread-count, tr.unread span.unread-count {
+background: #dd0000;
+color: #fff;
+font-weight: bold;
+}
+
+div.item-list-tabs ul li a span.unread-count {
+color: #fff;
+}
+
+div.messages-options-nav {
+background: #eee;
+}
+
+div#message-thread div.alt {
+background: #f4f4f4;
+}
+
+/* > Group Forum Topics
+-------------------------------------------------------------- */
+ul#topic-post-list li.alt {
+background: #f4f4f4;
+}
+
+ul#topic-post-list li div.poster-meta {
+color: #888;
+}
+
+div.admin-links {
+color: #888;
+}
+
+/* > WordPress Blog Styles
+-------------------------------------------------------------- */
+div.post h2.pagetitle a, div.post h2.posttitle a {
+color: #666;
+}
+
+.navigation, .paged-navigation, .comment-navigation {
+font-family: georgia, times, serif;
+font-style: italic;
+}
+
+div.post pre, div.post code p {
+background: #f4f4f4;
+}
+
+div.post code {
+font-family: "Monaco", courier, sans-serif;
+}
+	
+div.post blockquote {
+font-style: italic;
+font-family: georgia, times, serif;
+}
+
+div.post table {
+border: 1px solid #eee;
+}
+	
+div.post table th {
+border-top: 1px solid #eee;
+}
+		
+div.post table td {
+border-top: 1px solid #eee;
+}
+
+div.post div.author-box, div.comment-avatar-box {
+background: #f0f0f0;
+font-family: georgia, times, serif;
+font-style: italic;
+}
+	
+div.post div.author-box img, div.comment-avatar-box img {
+border: 4px solid #fff;
+}
+
+div.post p.date, div.post p.postmetadata, div.comment-meta, div.comment-options {
+color: #888;
+font-family: Georgia, times, serif;
+border-bottom: 1px solid #e4e4e4;
+border-top: 1px solid #e4e4e4;
+}
+
+div.post .wp-caption {
+border: 1px solid #ddd;
+background-color: #f3f3f3;
+}
+
+/* > WordPress Blog Comment Styles
+-------------------------------------------------------------- */
+#comments h3, #trackbacks h3, #respond h3 {
+color: #555;
+}
+
+#comments span.title, #trackbacks span.title {
+color: #aaa;
+}
+
+/* > Footer
+-------------------------------------------------------------- */
+#footer {
+color: #bbb;
+text-shadow: #fafafa 1px 1px 0;
+}
+	
+#footer a {
+color: #bbb;
+}

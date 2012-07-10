@@ -81,9 +81,16 @@ $cfg=get_option('wpematico');
 					<input class="checkbox" value="1" type="checkbox" disabled /> <?PHP _e('Enable <b><i>Word count Filters</i></b> feature','wpematico'); ?><br />
 					<div id="hlpw2c" style="padding-left:20px;"><?PHP _e('If you need this feature in every campaign, you can activate here.  ONLY AVAILABLE AT PRO VERSION.','wpematico'); ?><br /> 
 					<?PHP _e('This is for cut, exclude or include posts according to the letters o words <b>counted</b> at content.','wpematico'); ?>
+					</div><br /> 
 					<input class="checkbox" value="1" type="checkbox" disabled /> <?PHP _e('Enable <b><i>Custom Title</i></b> feature','wpematico'); ?><br />
 					<div id="hlpw2c" style="padding-left:20px;"><?PHP _e('If you want a custom title for posts of a campaign, you can activate here.  ONLY AVAILABLE AT PRO VERSION.','wpematico'); ?><br /> 					
 					</div><br /> 
+					<input class="checkbox" value="1" type="checkbox" disabled /> <?PHP _e('Enable Special <b><i>1 Minute fetch</i></b> feature','wpematico'); ?><br />
+					<div id="hlpw2c" style="padding-left:20px;"><?PHP _e('If you want to see the option for fetch RSS posts just every 1 minute at every campaign, you can activate here.    Only recommended for short posts and really fast servers.  ONLY AVAILABLE AT PRO VERSION.','wpematico'); ?><br /> 					
+					</div><br /> 
+					<input class="checkbox" value="1" type="checkbox" disabled /> <?PHP _e('Enable attempt to <b><i>Get Full Content</i></b> feature','wpematico'); ?><br />
+					<div id="hlpw2c" style="padding-left:20px;"><?PHP _e('If you want to attempt to obtain full items content of a campaign, you can activate here.  Not recommended if you will not use this.  ONLY AVAILABLE AT PRO VERSION.','wpematico'); ?><br />
+					</div>					
 				</div>
 			</div>
 		

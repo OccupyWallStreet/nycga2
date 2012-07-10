@@ -1,0 +1,40 @@
+/* @ Banners */
+
+#banners {
+
+	.banner-area {
+		margin: @baseLineHeight 0;
+		&:first-child{
+			margin-top: 0;
+		}
+	}
+
+	.banner-media {text-align: center;}
+
+	.banner_right .banner-media, .banner_left .banner-text{ float: right; }
+	.banner_left .banner-media, .banner_right .banner-text{ float: left; }
+
+	.banner-text{
+		position:relative;
+		// (conflicting with lb remove for now) z-index:9;
+	}
+	.banner-text-pad {
+		padding: 10px 30px;
+	}
+	
+	.banner-title {
+		margin-bottom: @baseLineHeight/2;
+	}
+	
+	.banner-content{
+		font-size: 1.2em;
+		line-height: 1.6em;
+		p:first-child{
+			margin-top: 0;
+		}
+		p:last-child{
+			margin-bottom: 0;
+		}
+	}
+
+}

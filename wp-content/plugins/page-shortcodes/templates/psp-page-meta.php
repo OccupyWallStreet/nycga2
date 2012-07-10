@@ -1,0 +1,1 @@
+<?php if ( isset($pspPageMeta) ) { ?><div class="page-shortcodes-meta"><?php echo $pspPageMeta; ?></div><?php } ?>

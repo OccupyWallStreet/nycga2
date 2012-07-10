@@ -2,20 +2,13 @@
 Contributors: Mvied
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N9NFVADLVUR7A
 Tags: security, encryption, ssl, shared ssl, private ssl, public ssl, private ssl, http, https
-Requires at least: 2.7.0
-Tested up to: 3.3
-Stable tag: 2.0.3
+Requires at least: 3.0
+Tested up to: 3.4
+Stable tag: 3.0.4
 
 WordPress HTTPS is intended to be an all-in-one solution to using SSL on WordPress sites.
 
 == Description ==
-<ul>
- <li>Supports Shared and Private SSL.</li>
- <li>Helps reduce or completely fix partially encrypted / mixed content errors.</li>
- <li>Force SSL on a per-page basis.</li>
- <li>Force SSL in admin panel.</li>
-</ul>
-
 If you're having partially encrypted/mixed content errors or other problems, please read the <a href="http://wordpress.org/extend/plugins/wordpress-https/faq/">FAQ</a>. If you're still having trouble, please <a href="http://wordpress.org/tags/wordpress-https#postform">start a support topic</a> and I will do my best to assist you.
 
 == Installation ==
@@ -23,18 +16,18 @@ If you're having partially encrypted/mixed content errors or other problems, ple
 1. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Frequently Asked Questions ==
-= How do I make my whole website secure? =
-To make your entire website secure, you simply need to change your home url and site url to use HTTPS instead of HTTP. Please read <a href="http://codex.wordpress.org/Changing_The_Site_URL" target="_blank">how to change the site url</a>.
-
-= How do I make only certain pages secure? =
-In the Publish box on the add/edit post screen, a checkbox for 'Force SSL' has been added to make this process easy. See Screenshots if you're having a hard time finding it.
-
-= I changed my SSL Host and now I can't get into my admin panel! =
-Go to your wp-config.php file and add this line. Hit any page on your site, and then remove it.
+= I can't get into my admin panel after updating. How do I fix it? =
+Go to /wp-content/plugins/wordpress-https/wordpress-https.php and uncomment (remove the two forward slashes before) the line below, or go to your wp-config.php file and add this line. Hit any page on your site, and then remove it or comment it out again.
 `define('WPHTTPS_RESET', true);`
 
+= How do I make my whole website secure? =
+To make your entire website secure, you simply need to change your site url to use HTTPS instead of HTTP. Please read <a href="http://codex.wordpress.org/Changing_The_Site_URL" target="_blank">how to change the site url</a>.
+
+= How do I make only certain pages secure? =
+The plugin adds a meta box to the add/edit post screen entitled HTTPS. In that meta box, a checkbox for 'Secure Post' has been added to make this process easy. See Screenshots if you're having a hard time finding it.
+
 = I'm getting 404 errors on all of my pages. Why? =
-If you're using a public/shared SSL, try disabling your custom permalink structure. Some public/shared SSL's have issues with WordPress' permalinks because of the way they are configured.
+If you're using a public/shared SSL, try disabling your custom permalink structure. Some public/shared SSL's have issues with WordPress' permalinks because of the way they are configured. If you continue to recieve 404 errors, there is no way to use WordPress with that particular public/shared SSL with WordPress.
 
 = How do I fix partially encrypted/mixed content errors? =
 To identify what is causing your page(s) to be insecure, please follow the instructions below.
@@ -50,13 +43,12 @@ Most insecure content warnings can generally be resolved by changing absolute re
 <ul>
  <li>Elements loaded via JavaScript that are hard-coded to HTTP. Usually this can be fixed by altering the JavaScript calling these elements.</li>
  <li>External elements that can not be delivered over HTTPS. These elements will have to be removed from the page, or hosted locally so that they can be loaded over HTTPS.</li>
- <li>YouTube videos - YouTube does not allow videos to be streamed over HTTPS. YouTube videos will have to be removed from secure pages.</li>
+ <li>YouTube videos - YouTube allows videos to use HTTPS. <a href="http://support.google.com/youtube/bin/answer.py?hl=en&answer=171780&expand=UseHTTPS">How to embed a YouTube video</a>.</li>
  <li>Google Maps - Loading Google maps over HTTPS requires a Google Maps API Premiere account. (<a href="http://code.google.com/apis/maps/faq.html#ssl" target="_blank">source</a>)</li>
 </ul>
 
 = Is there a hook or filter to force pages to be secure? =
-
-Yes! Here is an example of how to use the 'force_ssl' hook to force a page to be secure.
+Yes! Here is an example of how to use the 'force_ssl' filter to force a page to be secure.
 `function custom_force_ssl( $force_ssl, $post_id ) {
 	if ( $post_id == 5 ) {
 		return true
@@ -66,14 +58,54 @@ Yes! Here is an example of how to use the 'force_ssl' hook to force a page to be
 
 add_filter('force_ssl' , 'custom_force_ssl', 10, 2);`
 
+You can also use this filter to filter pages based on their URL. Let's say you have an E-commerce site and all of your E-commerce URL's contain 'store'.
+`function store_force_ssl( $force_ssl, $post_id ) {
+	if ( strpos($_SERVER['REQUEST_URI'], 'store') !== false ) {
+		$force_ssl = true;
+	}
+	return $force_ssl;
+}
+
+add_filter('force_ssl', 'store_force_ssl', 10, 2);`
+
 == Screenshots ==
 1. WordPress HTTPS Settings screen
 2. Force SSL checkbox added to add/edit posts screen
 
+== To Do ==
+* qTranslate Support
+* SSL Domain Mapping
+
 == Changelog ==
+= 3.0.4 =
+* Fixed multiple bugs for sites using SSL for the entire site.
+* Bug Fix - plugin should no longer try to load hidden files as modules.
+= 3.0.3 =
+* Any element on an HTTP page that is set to HTTPS should be auto-corrected.
+* Added support for domain mapper plugin.
+* Bug Fix - SSL Host should now always end in a trailing slash.
+* Bug Fix - Fixed bug in cookie logic that prevented some users from logging in.
+* Bug Fix - Fixed bug in redirects that would cause login issues and 404 errors.
+= 3.0.2 =
+* Added setting to change where HTTPS settings appear in the admin panel.
+* Bug Fix - Plugin should no longer interefere with editing posts and using images from the Media Library.
+* Bug Fix - Fixed major bug that occurred when site was installed in the base directory.
+* Bug Fix - File uploader should no longer produce an HTTP Error.
+* Bug Fix - Fixed performance issue that caused the login page to load for a long period of time.
+* Bug Fix - Proxy check should no longer interfere with RSS Feeds, HTML Validators, etc.
+* Bug Fix - Force SSL and SSL Front Page should no longer conflict.
+* Bug Fix - If Force SSL Exclusively is enabled and Secure Front Page is not (or the front page is not secured), links to the front page will be set to HTTP.
+= 3.0.1 =
+* Bug Fix - Fixed major issue when upgrading from previous version of WordPress HTTPS.
+* Bug Fix - Added is_ssl method back to main plugin class to avoid errors with Gravity Forms.
+* Bug Fix - Archive widget links should now appear correctly.
+= 3.0 =
+* The plugin has been completely re-written.
+* Redirect loops should no longer be an issue.
+* Bugs are likely to occur.
 = 2.0.4 =
 * Bug Fix - Users using Shared SSL should no longer have broken URL's and redirects.
-* Bug Fix - Pages should correctly be identified as HTTPS if PHP returns an IP address for HTTP_HOST in $_SERVER.
+* Bug Fix - Pages should correctly be identified as HTTPS if PHP returns an IP address for SERVER_ADDR in $_SERVER.
 * Bug Fix - Users using the default permalink structure should now have URL's being properly changed to/from HTTPS.
 = 2.0.3 =
 * Force SSL Admin will always be enabled when FORCE_SSL_ADMIN is true in wp-config.php.

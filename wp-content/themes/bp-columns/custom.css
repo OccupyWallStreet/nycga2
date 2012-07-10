@@ -1,0 +1,60 @@
+body {
+	width: 1000px;
+}
+
+#sidebar{
+border-left-width:0px !important;
+}
+
+#leftSidebar {
+	width: 182px;
+	float: left;
+	padding: 10px 5px 20px 20px;
+	margin-top: 1px;
+	overflow: hidden;
+	border-right: 1px solid #e4e4e4;
+}
+
+#leftSidebar .widget {
+	margin-bottom: 20px;
+}
+
+#leftSidebar h3.widgettitle {
+	background: #eaeaea;
+	padding: 5px 15px;
+	font-size: 12px;
+	clear: left;
+	margin: 10px -4px 10px -20px;
+}
+
+#wp-admin-bar div.padder {
+	width: 1000px !important;
+}
+
+#content div.padder.three {
+	float: left;
+	width: 526px;
+	border-left: 1px solid #e4e4e4;
+	margin-right: 226px;
+	border-right: 1px solid #e4e4e4;
+	-moz-border-radius-topleft: 0px;
+	-webkit-border-top-left-radius: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	margin-left: -1px;
+}
+
+div#item-buttons a {
+	font-size: 12px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+div#item-header div.generic-button{
+	margin-right: 4px;
+}
+div.post div.post-content, div.comment-content {
+	margin-left: 0px;
+}
+div.post .entry{
+clear: both;
+}

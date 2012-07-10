@@ -112,8 +112,11 @@ function bp_core_screen_signup() {
 
 		// Add any errors to the action for the field in the template for display.
 		if ( !empty( $bp->signup->errors ) ) {
-			foreach ( (array)$bp->signup->errors as $fieldname => $error_message )
-				add_action( 'bp_' . $fieldname . '_errors', create_function( '', 'echo apply_filters(\'bp_members_signup_error_message\', "<div class=\"error\">' . $error_message . '</div>" );' ) );
+			foreach ( (array) $bp->signup->errors as $fieldname => $error_message ) {
+				// addslashes() and stripslashes() to avoid create_function()
+				// syntax errors when the $error_message contains quotes
+				add_action( 'bp_' . $fieldname . '_errors', create_function( '', 'echo apply_filters(\'bp_members_signup_error_message\', "<div class=\"error\">" . stripslashes( \'' . addslashes( $error_message ) . '\' ) . "</div>" );' ) );
+			}
 		} else {
 			$bp->signup->step = 'save-details';
 
@@ -150,11 +153,16 @@ function bp_core_screen_signup() {
 
 				// Finally, sign up the user and/or blog
 				if ( isset( $_POST['signup_with_blog'] ) && is_multisite() )
-					bp_core_signup_blog( $blog_details['domain'], $blog_details['path'], $blog_details['blog_title'], $_POST['signup_username'], $_POST['signup_email'], $usermeta );
+					$wp_user_id = bp_core_signup_blog( $blog_details['domain'], $blog_details['path'], $blog_details['blog_title'], $_POST['signup_username'], $_POST['signup_email'], $usermeta );
 				else
-					bp_core_signup_user( $_POST['signup_username'], $_POST['signup_password'], $_POST['signup_email'], $usermeta );
+					$wp_user_id = bp_core_signup_user( $_POST['signup_username'], $_POST['signup_password'], $_POST['signup_email'], $usermeta );
 
-				$bp->signup->step = 'completed-confirmation';
+				if ( is_wp_error( $wp_user_id ) ) {                                   
+					$bp->signup->step = 'request-details';
+					bp_core_add_message( strip_tags( $wp_user_id->get_error_message() ), 'error' );
+				} else {
+					$bp->signup->step = 'completed-confirmation';
+				} 
 			}
 
 			do_action( 'bp_complete_signup' );
@@ -304,6 +312,9 @@ function bp_core_validate_user_signup( $user_name, $user_email ) {
 	$errors = new WP_Error();
 	$user_email = sanitize_email( $user_email );
 
+	// Apply any user_login filters added by BP or other plugins before validating 
+ 	$user_name = apply_filters( 'pre_user_login', $user_name ); 
+
 	if ( empty( $user_name ) )
 		$errors->add( 'user_name', __( 'Please enter a username', 'buddypress' ) );
 
@@ -390,7 +401,7 @@ function bp_core_signup_user( $user_login, $user_password, $user_email, $usermet
 			'user_email' => $user_email
 		) );
 
-		if ( empty( $user_id ) ) {
+		if ( is_wp_error( $user_id ) || empty( $user_id ) ) {
 			$errors->add( 'registerfail', sprintf( __('<strong>ERROR</strong>: Couldn&#8217;t register you... please contact the <a href="mailto:%s">webmaster</a> !', 'buddypress' ), get_option( 'admin_email' ) ) );
 			return $errors;
 		}
@@ -604,6 +615,9 @@ add_filter( 'authenticate', 'bp_core_signup_disable_inactive', 30, 2 );
 function bp_core_wpsignup_redirect() {
 	$action = !empty( $_GET['action'] ) ? $_GET['action'] : '';
 
+	if ( is_admin() || is_network_admin() )
+		return;
+	
 	// Not at the WP core signup page and action is not register
 	if ( false === strpos( $_SERVER['SCRIPT_NAME'], 'wp-signup.php' ) && ( 'register' != $action ) )
 		return;

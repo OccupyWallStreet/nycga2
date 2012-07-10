@@ -1,0 +1,439 @@
+/*	wpui-alma
+------------------------------------------------------------ */
+.wpui-alma .wpui-alma .ui-tabs {
+	padding: 0px !important;
+}
+
+.wpui-alma ul.ui-tabs-nav {
+	background: #FAFAFA;
+}
+.wpui-alma .ui-tabs-panel {
+	background: #FAFAFA;
+}
+
+.wpui-alma .ui-tabs {
+	padding:0px;
+	border: 0px !important;
+	background: none !important;
+	-moz-box-shadow    : none !important;
+	-webkit-box-shadow : none !important;
+	-o-box-shadow      : none !important;
+	box-shadow         : none !important;
+}
+
+.wpui-alma .ui-tabs .ui-tabs-panel .wp-tab-content > .wp-tabs .ui-tabs {
+	box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	-o-box-shadow: none !important;
+}
+
+.wpui-alma .ui-tabs-panel {
+	background: #FAFAFA;
+	background: -moz-linear-gradient(top , #FAFAFA, #EEEEEE);
+	background: -webkit-gradient(linear, left top, left bottom , from(#FAFAFA), to(#EEEEEE));
+	background: -webkit-linear-gradient(top , #FAFAFA, #EEEEEE);
+	background: -o-linear-gradient(top , #FAFAFA, #EEEEEE);
+	margin: 20px 10px 10px 10px;
+	color: #666;
+	border-bottom: 0px;
+	font-family: 'Lucida Grande', 'Arial', sans-serif;
+	border-radius          : 5px;
+	-moz-border-radius     : 5px;
+	-webkit-border-radius  : 5px;
+	-o-border-radius       : 5px;
+	-moz-box-shadow    : 0 2px 6px rgba( 0, 0, 0, 0.4 );
+	-webkit-box-shadow : 0 2px 6px rgba( 0, 0, 0, 0.4 );
+	-o-box-shadow      : 0 2px 6px rgba( 0, 0, 0, 0.4 );
+	box-shadow         : 0 2px 6px rgba( 0, 0, 0, 0.4 );
+	border: 3px solid #FFF;
+}
+
+.wpui-alma .ui-tabs-vertical .ui-tabs-panel {
+	margin: 0 10px 10px;
+}
+
+
+.wpui-alma ul.ui-tabs-nav {
+	background: none;
+
+	padding:0;
+	padding: 10px;
+	margin: 0 auto;
+	text-align:center;
+	border-bottom : 0px;
+/*	background: cyan;*/
+}
+
+
+.wpui-alma ul.ui-tabs-nav li {
+	background: #5D5D5D;
+	background: url( "../images/gradients/alma-grad.png") 0 50% repeat-x;
+    background: -moz-linear-gradient(top , #8A8A8A, #707070 50%, #5E5E5E 51%, #777777);
+    background: -webkit-gradient(linear, left top , left bottom , from(#8A8A8A), color-stop(0.5, #707070 ), color-stop(0.51, #5E5E5E), to(#777777));
+    background: -webkit-linear-gradient(top , #8A8A8A, #707070 50%, #5E5E5E 51%, #777777);
+    background: -o-linear-gradient(top ,#8A8A8A, #707070 50%, #5E5E5E 51%, #777777);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#8A8A8A', endColorStr='#555555');
+	margin-right: 0px;
+	border: 1px solid #7A7A7A;
+	font: 12px 'Lucida Grande',  'Arial', 'Helvetica', sans-serif;
+	border-left: 1px groove #626262;
+	border-right: 1px solid #888888;
+	border-bottom : 2px solid #626262;
+	-moz-box-shadow    : 0 1px 0 #AAA inset;
+	-webkit-box-shadow : 0 1px 0 #AAA inset;
+	-o-box-shadow      : 0 1px 0 #AAA inset;
+	box-shadow         : 0 1px 0 #AAA inset;
+	-moz-border-radius     : 0px !important;
+	-webkit-border-radius  : 0px !important;
+	-o-border-radius       : 0px !important;
+	border-radius          : 0px !important;
+	padding : 0.4em 1em;
+}
+
+
+.wpui-alma ul.ui-tabs-nav li:hover {
+	background: url( "../images/gradients/alma-grad-hover.png") 0 50% repeat-x;
+    background: -moz-linear-gradient(top , #555555, #474747 50%, #393939 51%, #545454);
+    background: -webkit-gradient(linear, left top , left bottom , from(#555555), color-stop(0.5, #474747 ), color-stop(0.51, #393939), to(#545454));
+    background: -webkit-linear-gradient(top , #555555, #474747 50%, #393939 51%, #545454);
+    background: -o-linear-gradient(top ,#555555, #474747 50%, #393939 51%, #545454);
+	box-shadow: 0 1px 6px #777 inset;
+	border-left: 1px solid transparent;
+
+}
+
+.wpui-alma ul.ui-tabs-nav li:hover a {
+/*	border-right: 1px solid #FF0; */
+/*	border-left: 1px solid transparent;*/
+}
+
+
+.wpui-alma ul.ui-tabs-nav li:active {
+	-moz-box-shadow    : 0 1px 6px #222 inset;
+	-webkit-box-shadow : 0 1px 6px #222 inset;
+	-o-box-shadow      : 0 1px 6px #222 inset;
+	box-shadow         : 0 1px 6px #222 inset;
+	border-left: 1px solid #777;
+
+}
+.wpui-alma ul.ui-tabs-nav li a {
+	color: #FDFDFD;
+	text-shadow: 0 -1px 0 #444444;
+
+/*	border-left: 1px solid #888888;*/
+	
+}
+
+.wpui-alma ul.ui-tabs-nav li.ui-state-active {
+	background: #333;
+    background: -moz-linear-gradient(top , #333333, #454545);
+    background: -webkit-gradient(linear, left top , left bottom , from(#333333), to(#454545));
+    background: -webkit-linear-gradient(top , #333333, #454545);
+    background: -o-linear-gradient(top ,#333333, #454545);
+	-moz-box-shadow    : inset 0 0px 10px #000;
+	-webkit-box-shadow : inset 0 0px 10px #000;
+	-o-box-shadow      : inset 0 0px 10px #000;
+	box-shadow         : inset 0 0px 10px #000;
+	border-bottom: 2px solid #323232;
+	border-right: 1px !important;
+	-moz-border-radius     : 0px !important;
+	-webkit-border-radius  : 0px !important;
+	-o-border-radius       : 0px !important;
+	border-radius          : 0px !important;
+}
+
+.wpui-alma ul.ui-tabs-nav li.ui-state-active > a {
+	border-left: 1px solid transparent;
+	color: #EEE;
+	text-shadow: 0 1px 0 #000 !important;
+}
+
+
+.wpui-alma .ui-tabs-vertical ul.ui-tabs-nav li {
+	-moz-border-radius     : 3px !important;
+	-webkit-border-radius  : 3px !important;
+	-o-border-radius       : 3px !important;
+	border-radius          : 3px !important;
+}
+
+.wpui-alma .ui-tabs-panel h3.wp-tab-title {
+/*	display: block !important;*/
+	text-align: center;
+	color: #444 !important;
+	font: bold 16px 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif;
+}
+
+.wpui-alma ul.ui-tabs-nav li.first-li {
+	-moz-border-radius     : 4px 0 0 4px !important;
+	-webkit-border-radius  : 4px 0 0 4px !important;
+	-o-border-radius       : 4px 0 0 4px !important;
+	border-radius          : 4px 0 0 4px !important;
+	border-left: 1px solid #626262;
+}
+
+.wpui-alma ul.ui-tabs-nav li.first-li a {
+	border-left: 1px solid transparent;
+}
+
+.wpui-alma ul.ui-tabs-nav li.last-li {
+	-moz-border-radius     : 0 4px 4px 0 !important;
+	-webkit-border-radius  : 0 4px 4px 0 !important;
+	-o-border-radius       : 0 4px 4px 0 !important;
+	border-radius          : 0 4px 4px 0 !important;
+	border-right: 1px solid #7A7A7A;
+}
+
+
+
+.wpui-alma .ui-button {
+	background: -moz-linear-gradient( top, #FAFAFA, #DDDDDD);
+	background: -webkit-gradient(top, from(#FAFAFA), to(#DDDDDD));
+	background: -webkit-linear-gradient( top, #FAFAFA, #DDDDDD);
+	background: -o-linear-gradient( top, #FAFAFA, #DDDDDD);	
+	text-shadow: 0 1px 0 #E0E0E0;
+	color: #777;
+	padding: 4px 12px;
+	border: 1px solid #F2F2F2;
+	border-radius          : 12px;
+	-moz-border-radius     : 12px;
+	-webkit-border-radius  : 12px;
+	-o-border-radius       : 12px;
+	font-size: 12px;
+}
+
+
+.wpui-alma .wp-tab-content a.ui-button {
+	float: right;
+	margin: 20px 0;
+	text-decoration: none !important;
+}
+
+
+
+.wpui-alma .ui-tabs-panel .tab-top-nav a,
+.wpui-alma .ui-tabs-panel .tab-bottom-nav a {
+	background: -moz-linear-gradient( top, #FAFAFA, #DDDDDD);
+	background: -webkit-gradient(top, from(#FAFAFA), to(#DDDDDD));
+	background: -webkit-linear-gradient( top, #FAFAFA, #DDDDDD);
+	background: -o-linear-gradient( top, #FAFAFA, #DDDDDD);	
+	text-shadow: 0 1px 0 #E0E0E0;
+	color: #777;
+	padding: 4px 12px;
+	border: 1px solid #F2F2F2;
+	border-radius          : 12px;
+	-moz-border-radius     : 12px;
+	-webkit-border-radius  : 12px;
+	-o-border-radius       : 12px;
+	box-shadow         : 0 1px 3px #CDCDCD;
+	-moz-box-shadow    : 0 1px 3px #CDCDCD;
+	-webkit-box-shadow : 0 1px 3px #CDCDCD;
+	-o-box-shadow      : 0 1px 3px #CDCDCD;
+	font-size: 12px;
+}
+.wpui-alma .ui-tabs-panel .tab-top-nav a:hover,
+.wpui-alma .ui-tabs-panel .tab-bottom-nav a:hover {
+	background: -moz-linear-gradient( top, #FAFAFA, #E3E3E3);
+	background: -webkit-gradient(top, from(#FAFAFA), to(#E3E3E3));
+	background: -webkit-linear-gradient( top, #FAFAFA, #E3E3E3);
+	background: -o-linear-gradient( top, #FAFAFA, #E3E3E3);
+}
+
+.wpui-alma .ui-tabs-panel .tab-top-nav a:active,
+.wpui-alma .ui-tabs-panel .tab-bottom-nav a:active {
+	border: 1px solid #FFF;
+}
+
+.wpui-alma .wp-tabs {
+	position:relative;
+}
+
+
+
+
+
+
+.wpui-alma h3.ui-collapsible-header,
+.wpui-alma .ui-accordion h3.ui-accordion-header {
+	font: bold 14px 'Segoe UI', 'Lucida Grande', 'Arial', sans-serif;
+	background: #5D5D5D;
+	background: url( "../images/gradients/alma-grad.png") 0 50% repeat-x;
+    background: -moz-linear-gradient(top , #8A8A8A, #707070 50%, #5E5E5E 51%, #777777);
+    background: -webkit-gradient(linear, left top , left bottom , from(#8A8A8A), color-stop(0.5, #707070 ), color-stop(0.51, #5E5E5E), to(#777777));
+    background: -webkit-linear-gradient(top , #8A8A8A, #707070 50%, #5E5E5E 51%, #777777);
+    background: -o-linear-gradient(top ,#8A8A8A, #707070 50%, #5E5E5E 51%, #777777);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#8A8A8A', endColorStr='#555555');
+	padding: 4px 10px;
+	color: #E5E5E5 !important;
+	border: 1px solid #A2A2A2;
+	text-shadow: 0 -1px 0 #444;
+	border-radius          : 4px;
+	-moz-border-radius     : 4px;
+	-webkit-border-radius  : 4px;
+	-o-border-radius       : 4px;
+	border: 1px solid #626262;
+}
+
+.wpui-alma h3.ui-collapsible-header:hover,
+.wpui-alma .ui-accordion h3.ui-accordion-header:hover {
+	background: url( "../images/gradients/alma-grad-hover.png") 0 50% repeat-x;
+    background: -moz-linear-gradient(top , #555555, #474747 50%, #393939 51%, #545454);
+    background: -webkit-gradient(linear, left top , left bottom , from(#555555), color-stop(0.5, #474747 ), color-stop(0.51, #393939), to(#545454));
+    background: -webkit-linear-gradient(top , #555555, #474747 50%, #393939 51%, #545454);
+    background: -o-linear-gradient(top ,#555555, #474747 50%, #393939 51%, #545454);
+}
+
+
+.wpui-alma h3.ui-collapsible-header.ui-state-active,
+.wpui-alma .ui-accordion h3.ui-accordion-header.ui-state-active {
+	background: #5D5D5D;
+	background: url( "../images/gradients/alma-grad-hover.png") 0 50% repeat-x;
+    background: -moz-linear-gradient(top , #8A8A8A, #707070 50%, #5E5E5E 51%, #777777);
+    background: -webkit-gradient(linear, left top , left bottom , from(#8A8A8A), color-stop(0.5, #707070 ), color-stop(0.51, #5E5E5E), to(#777777));
+    background: -webkit-linear-gradient(top , #8A8A8A, #707070 50%, #5E5E5E 51%, #777777);
+    background: -o-linear-gradient(top ,#8A8A8A, #707070 50%, #5E5E5E 51%, #777777);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#8A8A8A', endColorStr='#555555');
+	border: 1px solid #000;
+	border-bottom: 0px;
+	border-radius          : 4px 4px 0 0;
+	-moz-border-radius     : 4px 4px 0 0;
+	-webkit-border-radius  : 4px 4px 0 0;
+	-o-border-radius       : 4px 4px 0 0;
+	border-bottom: 1px solid #444;
+
+}
+
+.wpui-alma .ui-accordion .ui-accordion-content {
+	color: #444;
+	background: #F2F2F2;
+	padding: 10px;
+	border: 1px solid #7A7A7A;
+}
+
+.wpui-alma .ui-collapsible-content {
+	background: transparent;
+    background: -moz-linear-gradient(top , #DDDDDD, #FFFFFF 20%);
+    background: -webkit-linear-gradient(top , #DDDDDD, #FFFFFF 20%);
+    background: -o-linear-gradient(top , #DDDDDD, #FFFFFF 20%);
+}
+
+
+
+
+
+
+
+.wpui-alma.ui-dialog {
+	-moz-border-radius     : 8px;
+	-webkit-border-radius  : 8px;
+	-o-border-radius       : 8px;
+	border-radius          : 8px;
+	font-family: 'Lucida Grande', 'Arial', sans-serif;
+	color: #FFF;
+	text-shadow : 0 1px 1px #000;
+	background : rgba(38, 38, 38, 0.89);
+	border: #000;
+}
+
+.wpui-alma .ui-dialog-titlebar {
+	font-weight: bold;
+	color: #FFF;
+	text-shadow: 0 1px #000;
+	padding: 2px 10px;
+	-moz-border-radius     : 8px 8px 0 0;
+	-webkit-border-radius  : 8px 8px 0 0;
+	-o-border-radius       : 8px 8px 0 0;
+	border-radius          : 8px 8px 0 0;
+/*	background: -webkit-linear-gradient(top, rgba(102, 102, 102, 0.2), rgba(119, 119, 119, 0.2) 42%, rgba(85, 85, 85, 0.2) 43%, rgba(119, 119, 119, 0.2));*/
+}
+
+.wpui-alma .ui-dialog-content {
+	padding: 10px;
+	overflow:hidden;
+	color: #FFF;
+	text-shadow: 0 1px #000;
+}
+
+
+.wpui-alma span.ui-dialog-title {
+	float: none;
+	text-align: center;
+	width: 100%;
+	display : block;
+	padding-left: 10px;
+	font-family : "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif !important;
+	font-weight: normal;
+	font-size: 13px;
+}
+
+
+
+.wpui-alma .ui-dialog-titlebar-close {
+	background: url("../images/close-light.png") no-repeat scroll 0 0 transparent;
+	position: absolute;
+	left: 5px;
+	top : 3px;
+	width: 18px;
+	height : 18px;
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid transparent;
+	opacity: 0.3;
+	text-indent : -99999em;
+
+}
+
+.wpui-alma .ui-dialog-titlebar-close:hover {
+	background: url("../images/close-light.png") no-repeat scroll 0 0 transparent;
+	width: 18px;
+	height : 18px;
+	border: 1px solid transparent;
+	top: 3px;
+	right: 5px;
+	opacity: 0.6;
+}
+
+
+
+
+.wpui-alma.wpui-button {
+	background: -moz-linear-gradient( top, #FAFAFA, #DDDDDD);
+	background: -webkit-gradient(top, from(#FAFAFA), to(#DDDDDD));
+	background: -webkit-linear-gradient( top, #FAFAFA, #DDDDDD);
+	background: -o-linear-gradient( top, #FAFAFA, #DDDDDD);	
+	text-shadow: 0 1px 0 #FFF;
+	color: #888;
+	padding: 4px 12px;
+	border: 1px solid #AAA;
+	font-weight : bold;
+	-moz-border-radius     : 4px;
+	-webkit-border-radius  : 4px;
+	-o-border-radius       : 4px;
+	border-radius          : 4px;
+	box-shadow : 0 1px 0 #FFF inset, 0 1px 0 #DDD inset;
+	-moz-transition : all 0.2s ease-in;
+	-webkit-transition : all 0.2s ease-in;
+	-o-transition : all 0.2s ease-in;
+	-ms-transition : all 0.2s ease-in;
+	transition : all 0.2s ease-in;
+}
+
+.wpui-alma.wpui-button:hover {
+	color : #444;
+	background: -moz-linear-gradient( top, #F4F2F4, #DEDEDE);
+	background: -webkit-gradient(top, from(#FAFAFA), to(#DDDDDD));
+	background: -webkit-linear-gradient( top, #FAFAFA, #DDDDDD);
+	background: -o-linear-gradient( top, #FAFAFA, #DDDDDD);
+}
+
+
+.wpui-alma.wpui-button:active {
+	-moz-box-shadow    : 0 2px 7px rgba( 0, 0, 0, 0.4) inset;
+	-webkit-box-shadow : 0 2px 7px rgba( 0, 0, 0, 0.4) inset;
+	-o-box-shadow      : 0 2px 7px rgba( 0, 0, 0, 0.4) inset;
+	box-shadow         : 0 2px 7px rgba( 0, 0, 0, 0.4) inset;
+
+}
+
+
+

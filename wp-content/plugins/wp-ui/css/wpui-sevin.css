@@ -1,0 +1,399 @@
+/*
+ *	wpui-sevin
+ */
+.wpui-sevin .ui-tabs {
+	border-radius : 4px;
+	-moz-border-radius : 4px;
+	-webkit-border-radius : 4px;
+	-o-border-radius : 4px;
+}
+
+.wpui-sevin .ui-tabs {
+	background: #E1E1E1;
+	background: -moz-linear-gradient(135deg, rgba(180, 180, 180, 0.4), rgba(170, 170, 171, 0.5), rgba(240, 240, 240, 0.4), rgba(220, 220, 220, 0.5), rgba(255, 255, 255, 0.7 ), rgba(200, 200, 200, 0.7), rgba(235, 235, 235, 0.4), rgba(180, 180, 180 , 1), rgba(255, 255, 255, 0.5)) fixed;
+	background: -webkit-gradient(linear, left top, right bottom, from(rgba(180, 180, 180, 0.7)), color-stop(25%, rgba(255, 255, 255, 0.9)), color-stop(35%, rgba(190, 190, 190, 0.4)), color-stop(75%, rgba(190, 190, 190, 0.5)), color-stop(95%, rgba(255, 255, 255, 0.9)), to(rgba(180, 180, 180, 0.5))) fixed;
+	background: -webkit-linear-gradient(135deg, rgba(180, 180, 180, 0.7), rgba(170, 170, 171, 0.5), rgba(240, 240, 240, 0.4), rgba(220, 220, 220, 0.5), rgba(255, 255, 255, 0.7 ), rgba(200, 200, 200, 0.7), rgba(235, 235, 235, 0.4), rgba(180, 180, 180 , 1), rgba(255, 255, 255, 0.5)) fixed;
+	background: -o-linear-gradient(135deg, rgba(180, 180, 180, 0.7), rgba(170, 170, 171, 0.5), rgba(240, 240, 240, 0.4), rgba(220, 220, 220, 0.5), rgba(255, 255, 255, 0.7 ), rgba(200, 200, 200, 0.7), rgba(235, 235, 235, 0.4), rgba(180, 180, 180 , 1), rgba(255, 255, 255, 0.5)) fixed;		
+	border: 1px solid #777;
+	border-top: 2px groove #E2E6EF;
+}
+
+.wpui-sevin .ui-tabs .ui-tabs-panel .wp-tab-content > .wp-tabs .ui-tabs {
+	box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	-o-box-shadow: none !important;
+	border: 1px solid #666;
+}
+
+.wpui-sevin .ui-tabs-panel {
+   	background: #D1DDED;
+	background: -moz-linear-gradient(top , #E7EDF6, #CFDBEC);
+	background: -webkit-gradient(linear, left top, left bottom , from(#E7EDF6), to(#CFDBEC));
+	background: -webkit-linear-gradient(top , #E7EDF6, #CFDBEC);
+	background: -o-linear-gradient(top , #E7EDF6, #CFDBEC);
+    text-shadow: 0 1px 0 #FFFFFF;
+	color: #222;
+	text-shadow: 0 1px 0 #EDEDED;
+	border: 1px solid #858585;
+	border-top: 1px solid #535353;
+}
+
+.wpui-sevin ul.ui-tabs-nav {
+	background: none;
+	padding-top: 20px;
+/*	margin:0 auto;
+	text-align:center;*/
+}
+
+
+.wpui-sevin .ui-tabs-vertical ul.ui-tabs-nav {
+	border-bottom: 0px;
+}
+
+
+.wpui-sevin ul.ui-tabs-nav li {
+	background: #C9D0DE;
+    background: -moz-linear-gradient(top , #DCEFF1, #C9D0DE);
+    background: -webkit-gradient(linear, left top, left bottom , from(#DCEFF1), to(#C9D0DE));
+    background: -webkit-linear-gradient(top , #DCEFF1, #C9D0DE);
+    background: -o-linear-gradient(top , #DCEFF1, #C9D0DE);
+	border-radius          : 2px 2px 0 0;
+	-moz-border-radius     : 2px 2px 0 0;
+	-webkit-border-radius  : 2px 2px 0 0;
+	-webkit-border-radius  : 2px 2px 0 0;
+	border:1px solid #757575;
+	border-bottom: 0px;
+	border-left: 1px solid #666;
+	bottom: 0px;
+	margin-right:0px;
+
+}
+
+.wpui-sevin .ui-tabs-vertical ul.ui-tabs-nav li {
+	border: 1px solid #666;
+}
+
+.wpui-sevin ul.ui-tabs-nav li a {
+	color: #000;
+	text-shadow: 0 1px 0 #FFF;
+	bottom: 0px;
+/*	border-left: 1px solid #FFF;*/
+	padding : 0.4em 1em;
+}
+
+.wpui-sevin ul.ui-tabs-nav li.ui-state-active {
+	background: #D1DDED;
+	background: -moz-linear-gradient(top, #FCFDFE, #E7EDF6);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FCFDFE), to(#E7EDF6));
+	background: -webkit-linear-gradient(top, #FCFDFE, #E7EDF6);
+	background: -o-linear-gradient(top, #FCFDFE, #E7EDF6);
+	border: 1px solid #838383;
+	border-bottom: 0px !important;
+	bottom: -2px;
+}
+
+
+.wpui-sevin .ui-tabs-vertical ul.ui-tabs-nav li {
+	border: 1px solid #838383;
+}
+
+.wpui-sevin .ui-tabs-vertical ul.ui-tabs-nav li.ui-state-active {
+	border-bottom: 1px solid #838383 !important;
+	bottom: 0;
+}
+
+
+.wpui-sevin ul.ui-tabs-nav li.ui-state-active a {
+	border-top: 1px solid #FFF;
+
+}
+
+.wpui-sevin .ui-tabs .ui-tabs-panel .wp-tab-content > .wp-tabs .ui-tabs ul li.ui-state-active {
+	bottom: -2px;
+}
+
+
+
+
+.wpui-sevin .ui-button {
+	background: -moz-linear-gradient(top, #E0E6F0, #CDD7E5 48%, #C3CDDC 49%, #D1DDEC);
+	background: -webkit-gradient(linear, left top, left bottom, from(#E0E6F0), color-stop(48%, #CDD7E5), color-stop(49%, #C3CDDC), to(#D1DDEC));
+	background: -webkit-linear-gradient(top, #E0E6F0, #CDD7E5 48%, #C3CDDC 49%, #D1DDEC);
+	background: -o-linear-gradient(top, #E0E6F0, #CDD7E5 48%, #C3CDDC 49%, #D1DDEC);
+	border: 2px groove #DEDEDE;
+	text-shadow: 0 1px 0 #FFF;
+	color: #000;
+	padding: 4px 10px;
+}
+
+
+.wpui-sevin .wp-tab-content a.ui-button {
+	float: right;
+	margin: 20px 0;
+	text-decoration: none !important;
+}
+
+
+.wpui-sevin .ui-tabs-panel .tab-top-nav a,
+.wpui-sevin .ui-tabs-panel .tab-bottom-nav a {
+	background: -moz-linear-gradient(top, #E0E6F0, #CDD7E5 48%, #C3CDDC 49%, #D1DDEC);
+	background: -webkit-gradient(linear, left top, left bottom, from(#E0E6F0), color-stop(48%, #CDD7E5), color-stop(49%, #C3CDDC), to(#D1DDEC));
+	background: -webkit-linear-gradient(top, #E0E6F0, #CDD7E5 48%, #C3CDDC 49%, #D1DDEC);
+	background: -o-linear-gradient(top, #E0E6F0, #CDD7E5 48%, #C3CDDC 49%, #D1DDEC);
+	border: 2px groove #DEDEDE;
+	text-shadow: 0 1px 0 #FFF;
+	color: #000;
+}
+
+.wpui-sevin.wp-tabs {
+	position:relative;
+}
+
+
+
+
+
+/*	wpui Redmond accordion 
+============================================================================= */
+
+
+.wpui-sevin h3.ui-collapsible-header,
+.wpui-sevin .ui-accordion h3.ui-accordion-header {
+	background: -moz-linear-gradient(top, #E0E6F0, #CDD7E5 48%, #C3CDDC 49%, #D1DDEC);
+	background: -webkit-gradient(linear, left top, left bottom, from(#E0E6F0), color-stop(48%, #CDD7E5), color-stop(49%, #C3CDDC), to(#D1DDEC));
+	background: -webkit-linear-gradient(top, #E0E6F0, #CDD7E5 48%, #C3CDDC 49%, #D1DDEC);
+	background: -o-linear-gradient(top, #E0E6F0, #CDD7E5 48%, #C3CDDC 49%, #D1DDEC);
+	border: 1px solid #727272;
+	text-shadow: 0 1px 0 #FFF;
+	color: #222;
+	box-shadow: 0 1px 2px #AAA;
+	-moz-box-shadow: 0 1px 2px #AAA;
+	-webkit-box-shadow: 0 1px 2px #AAA;
+	-o-box-shadow: 0 1px 2px #AAA;
+	padding : 5px 10px;
+	font: bold 14px 'Segoe UI', 'Lucida Grande', 'Arial', sans-serif;
+}
+
+.wpui-sevin h3.ui-collapsible-header:hover,
+.wpui-sevin .ui-accordion h3.ui-accordion-header:hover {
+	background: -moz-linear-gradient(top, #FAFDFE, #D9F0FC 48%, #BCE5FC 49%, #A7D9F5);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FAFDFE), color-stop(48%, #D9F0FC), color-stop(49%, #BCE5FC), to(#A7D9F5));
+	background: -webkit-linear-gradient(top, #FAFDFE, #D9F0FC 48%, #BCE5FC 49%, #A7D9F5);
+	background: -o-linear-gradient(top, #FAFDFE, #D9F0FC 48%, #BCE5FC 49%, #A7D9F5);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#FAFDFE', endColorStr='#A7D9F5');
+}
+
+.wpui-sevin h3.ui-collapsible-header.ui-state-active,
+.wpui-sevin .ui-accordion h3.ui-accordion-header.ui-state-active {
+	border-bottom:0px;
+	opacity:0.8;
+}
+
+.wpui-sevin .ui-collapsible-content,
+.wpui-sevin .ui-accordion .ui-accordion-content {
+	background: white;
+	color: #282828;
+	border: 1px solid #AAA;
+	box-shadow: 0 1px 2px #AAA;
+	-moz-box-shadow: 0 1px 2px #AAA;
+	-webkit-box-shadow: 0 1px 2px #AAA;
+	-o-box-shadow: 0 1px 2px #AAA;
+	
+}
+
+
+
+/* Tabs at bottom */
+
+.wpui-sevin ul.ui-tabs-nav.ul-bottom {
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-bottom: 10px;
+	border-bottom: 0px;
+}
+
+.wpui-sevin ul.ui-tabs-nav.ul-bottom li {
+	vertical-align:top;
+    background: -moz-linear-gradient(top , #F2F2F2, #C2C2C2);
+    background: -webkit-gradient(linear, left top, left bottom , from(#F2F2F2), to(#C2C2C2));
+    background: -webkit-linear-gradient(top , #F2F2F2, #C2C2C2);
+    background: -o-linear-gradient(top , #F2F2F2, #C2C2C2);
+	border-bottom: 1px solid #959595 !important;
+	border-top: 0px !important;
+	top:0px;
+}
+
+
+.wpui-sevin ul.ui-tabs-nav.ul-bottom li.ui-state-active {
+	border: 1px solid #888 !important;
+	background: #CFDBEC;
+    background: -moz-linear-gradient(top , #CFDBEC, #BACCDC);
+    background: -webkit-gradient(linear, left top, left bottom , from(#CFDBEC), to(#BACCDC));
+    background: -webkit-linear-gradient(top , #CFDBEC, #BACCDC);
+    background: -o-linear-gradient(top , #CFDBEC, #BACCDC);	
+	border-top: 0px !important;
+	bottom: 0;
+	top:	-1px;
+	height: 19px;
+	box-shadow         : 0px 2px 2px #AAA;
+	-moz-box-shadow    : 0px 2px 2px #AAA;
+	-webkit-box-shadow : 0px 2px 2px #AAA;
+	-o-box-shadow      : 0px 2px 2px #AAA;
+}
+
+.wpui-sevin ul.ui-tabs-nav.ul-bottom li a ,
+.wpui-sevin ul.ui-tabs-nav.ul-bottom li.ui-state-active a {
+	background: none;
+	border-top: 0px !important;
+	border-left: 0px !important;
+}
+
+
+
+.wpui-sevin.ui-dialog {
+	-moz-border-radius     : 8px;
+	-webkit-border-radius  : 8px;
+	-o-border-radius       : 8px;
+	border-radius          : 8px;
+	font-family: 'Lucida Grande', 'Arial', sans-serif;
+	background: #E1E1E1;
+	background: rgba( 245, 245 ,245 , 0.7);
+	background: -moz-linear-gradient(top , rgba( 255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.80) 36%, rgba(255, 255, 255, 0) 38%), -moz-linear-gradient(135deg, rgba(180, 180, 180, 0.4), rgba(170, 170, 171, 0.5), rgba(240, 240, 240, 0.4), rgba(220, 220, 220, 0.5), rgba(255, 255, 255, 0.7 ), rgba(200, 200, 200, 0.7), rgba(235, 235, 235, 0.4), rgba(180, 180, 180 , 1), rgba(255, 255, 255, 0.5)) fixed;
+	
+	background: -webkit-gradient( linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop( 0.35, rgba( 255, 255, 255, 0 )), color-stop( 0.45, rgba( 255, 255, 255, 0) ) , color-stop( 0.46,  rgba(255, 0, 0, 0) )), -webkit-gradient(linear, left top, right bottom, from(rgba(180, 180, 180, 0.7)), color-stop(25%, rgba(255, 255, 255, 0.9)), color-stop(35%, rgba(190, 190, 190, 0.4)), color-stop(75%, rgba(190, 190, 190, 0.5)), color-stop(95%, rgba(255, 255, 255, 0.9)), to(rgba(180, 180, 180, 0.5))) fixed;
+	
+	background: -webkit-linear-gradient(top , rgba( 255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.8) 35%, rgba(255, 255, 255, 0) 36%), -webkit-linear-gradient(135deg, rgba(180, 180, 180, 0.7), rgba(170, 170, 171, 0.5), rgba(240, 240, 240, 0.4), rgba(220, 220, 220, 0.5), rgba(255, 255, 255, 0.7 ), rgba(200, 200, 200, 0.7), rgba(235, 235, 235, 0.4), rgba(180, 180, 180 , 1), rgba(255, 255, 255, 0.5)) fixed;
+	
+	background: -o-linear-gradient(top , rgba( 255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.8) 35%, rgba(255, 255, 255, 0) 36%),-o-linear-gradient(135deg, rgba(180, 180, 180, 0.7), rgba(170, 170, 171, 0.5), rgba(240, 240, 240, 0.4), rgba(220, 220, 220, 0.5), rgba(255, 255, 255, 0.7 ), rgba(200, 200, 200, 0.7), rgba(235, 235, 235, 0.4), rgba(180, 180, 180 , 1), rgba(255, 255, 255, 0.5)) fixed;
+	
+	color: #DDD;
+/*	border: 1px solid #888;*/
+/*	text-shadow: 0 1px 0 #000;*/
+	padding: 5px;
+}
+
+.wpui-sevin .ui-dialog-titlebar {
+	font-weight: bold;
+	color: #000;
+	text-shadow:	0 1px 1px #FFF;
+	padding: 4px 10px;
+	-moz-border-radius     : 10px 10px 0 0;
+	-webkit-border-radius  : 10px 10px 0 0;
+	-o-border-radius       : 10px 10px 0 0;
+	border-radius          : 10px 10px 0 0;
+	position: static;
+}
+
+.wpui-sevin .ui-dialog-content {
+	padding: 10px;
+	overflow:hidden;
+	background: #FFF;
+	color: #222;
+	border: 1px solid #888;
+}
+
+.wpui-sevin .ui-dialog-titlebar-close {
+	background:#BE493D;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr="#EAB2AE", endColorStr="#BE493D");
+    background: -moz-linear-gradient(top , #E3B3B0, #CA817C 42%, #CA483E 43%, #D38574);
+	background: -webkit-gradient(linear, left top, left bottom, from(#E3B3B0), color-stop(0.42, #CA817C), color-stop( 0.42, #CA483E), to(#D38574));
+    background: -webkit-linear-gradient(top , #E3B3B0, #CA817C 42%, #CA483E 43%, #D38574);
+
+	background: -o-linear-gradient(top , #E3B3B0, #CA817C 42%, #CA483E 43%, #D38574);
+    border: 1px solid #884F48;
+    box-shadow: 0 1px 0 #FCFCFC inset, 1px 0 0 #EEEEEE inset, -1px -1px 0 #EEEEEE inset, 0 0 1px #FFF;
+	border-top: 0px;
+	-moz-border-radius     : 0 0 3px 3px;
+	-webkit-border-radius  : 0 0 3px 3px;
+	-o-border-radius       : 0 0 3px 3px;
+	border-radius          : 0 0 3px 3px;
+    height: 18px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 7px !important;
+    text-align: center;
+    text-indent: -99999em;
+    top: 0px !important;
+    width: 47px;
+	-moz-transition: box-shadow 0.3s ease-out;
+	-webkit-transition: box-shadow 0.3s ease-out;
+	-o-transition: box-shadow 0.3s ease-out;
+
+}
+
+.wpui-sevin .ui-dialog-titlebar-close span {
+    background: url("../images/close-widget-aero-1.png") no-repeat scroll 0 0 transparent !important;
+    display: block !important;
+    height: 18px;
+    margin: 1px auto;
+    width: 18px;
+}
+
+
+.wpui-sevin .ui-dialog-titlebar-close:hover {
+	width: 47px;
+	height : 18px;
+	border: 1px solid #884F48;
+	border-top: 0px;
+	top: -1px;
+	right: 7px;
+	-moz-box-shadow    :  0 1px 0 #FCFCFC inset, 1px 0 0 #EEEEEE inset, -1px -1px 0 #EEEEEE inset, -1px 2px 5px rgba( 255, 0, 0, 0.7);
+	-webkit-box-shadow :  0 1px 0 #FCFCFC inset, 1px 0 0 #EEEEEE inset, -1px -1px 0 #EEEEEE inset, -1px 2px 5px rgba( 255, 0, 0, 0.7);
+	-o-box-shadow      :  0 1px 0 #FCFCFC inset, 1px 0 0 #EEEEEE inset, -1px -1px 0 #EEEEEE inset, -1px 2px 5px rgba( 255, 0, 0, 0.7);
+	box-shadow         : 0 1px 0 #FCFCFC inset, 1px 0 0 #EEEEEE inset, -1px -1px 0 #EEEEEE inset, -1px 2px 5px rgba( 255, 0, 0, 0.7);
+	-moz-transition: box-shadow 0.3s ease-in;
+	-webkit-transition: box-shadow 0.3s ease-in;
+	-o-transition: box-shadow 0.3s ease-in;
+}
+
+.wpui-sevin .ui-dialog-titlebar-close:focus {
+    background: -moz-linear-gradient(top , #CEA994, #9F644E 42%, #6E0F0D 43%, #551D0D);	
+}
+
+
+.wpui-sevin.wpui-button {
+	background: #D5D5D5;
+	background: -moz-linear-gradient(top, #F2F2F2, #EEE 48%, #DDDDDD 49%, #CFCFCF);
+	background: -webkit-gradient(linear, left top, left bottom, from(#F2F2F2), color-stop(48%, #EEE), color-stop(49%, #DDDDDD), to(#CFCFCF));
+	background: -webkit-linear-gradient(top, #F2F2F2, #EEE 48%, #DDDDDD 49%, #CFCFCF);
+	background: -o-linear-gradient(top, #F2F2F2, #EEE 48%, #DDDDDD 49%, #CFCFCF);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#F2F2F2', endColorStr='#C2C2C2');
+	border: 1px groove #AAA;
+	text-shadow: 0 1px 0 #FFF;
+	color: #000;
+	-moz-border-radius     : 3px;
+	-webkit-border-radius  : 3px;
+	-o-border-radius       : 3px;
+	border-radius          : 3px;
+	font-weight : bold;
+}
+
+.wpui-sevin.wpui-button:hover {
+	border: 1px groove #3C7FB1;
+	background: -moz-linear-gradient(top, #FAFDFE, #D9F0FC 48%, #BCE5FC 49%, #A7D9F5);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FAFDFE), color-stop(48%, #D9F0FC), color-stop(49%, #BCE5FC), to(#A7D9F5));
+	background: -webkit-linear-gradient(top, #FAFDFE, #D9F0FC 48%, #BCE5FC 49%, #A7D9F5);
+	background: -o-linear-gradient(top, #FAFDFE, #D9F0FC 48%, #BCE5FC 49%, #A7D9F5);
+	-moz-box-shadow: 0 -4px 2px #7ACCFF inset;
+	-webkit-box-shadow: 0 -4px 2px #7ACCFF inset;
+	-o-box-shadow: 0 -4px 2px #7ACCFF inset;
+	box-shadow: 0 -4px 2px #7ACCFF inset;
+}
+
+
+.wpui-sevin.wpui-button:active {
+	background: -moz-linear-gradient(top, #FAFDFE, #D9F0FC 48%, #BCE5FC 49%, #A7D9F5);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FAFDFE), color-stop(48%, #D9F0FC), color-stop(49%, #BCE5FC), to(#A7D9F5));
+	background: -webkit-linear-gradient(top, #FAFDFE, #D9F0FC 48%, #BCE5FC 49%, #A7D9F5);
+	background: -o-linear-gradient(top, #FAFDFE, #D9F0FC 48%, #BCE5FC 49%, #A7D9F5);
+	-moz-box-shadow    : 0 2px 7px rgba( 0, 0, 31, 0.4) inset;
+	-webkit-box-shadow : 0 2px 7px rgba( 0, 0, 31, 0.4) inset;
+	-o-box-shadow      : 0 2px 7px rgba( 0, 0, 31, 0.4) inset;
+	box-shadow         : 0 2px 7px rgba( 0, 0, 31, 0.4) inset;
+
+}
+
+
+

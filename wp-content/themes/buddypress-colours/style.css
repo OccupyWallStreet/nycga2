@@ -1,0 +1,24 @@
+/*
+
+Theme Name: BuddyPress Colours
+Theme Date: 13/05/2010
+Version: 1
+Theme URI: http://buddydress.com/
+Description: Child theme for the Default BuddyPress 1.2 theme with just the colours in a stylesheet
+Author: Buddydress
+Author URI: http://www.buddydress.com/
+
+Tags: buddypress, two-columns
+
+Template: bp-default
+
+*/
+
+/* Inherit the default theme styles */
+@import url( ../../plugins/buddypress/bp-themes/bp-default/_inc/css/default.css );
+
+/* Inherit the default theme adminbar styles */
+@import url( ../../plugins/buddypress/bp-themes/bp-default/_inc/css/adminbar.css );
+
+/* Colour Styles */
+@import url( _inc/css/colours.css );

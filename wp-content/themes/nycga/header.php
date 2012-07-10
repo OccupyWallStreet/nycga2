@@ -4,18 +4,18 @@
 	<head profile="http://gmpg.org/xfn/11">
 		<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ) ?>; charset=<?php bloginfo( 'charset' ) ?>" />
 		<title><?php wp_title( '|', true, 'right' ); bloginfo( 'name' ); ?></title>
-		<meta name="description" content="The official website for the New York General Assembly and the Occupy Wall Street Movement." />
+		<meta name="description" content="<?php bloginfo('description'); ?>" />
 		<?php do_action( 'bp_head' ) ?>
 
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ) ?>" />
-
+		
 		<?php
 			if ( is_singular() && bp_is_blog_page() && get_option( 'thread_comments' ) )
 				wp_enqueue_script( 'comment-reply' );
 
 			wp_head();
 		?>
-		
+		<?php remove_filter('the_excerpt', 'wpautop'); ?>
 	</head>
 
 	<body <?php body_class() ?> id="bp-default">
@@ -47,11 +47,11 @@
 			
 			<div id="header">
 			
-				<div class="padder">
 					<div id="header-link"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"></a></div>
+					<h2 id="description" role="tagline"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>">#OccupyWallStreet</a></h2>
 					<h1 id="logo" role="banner"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"><?php bp_site_name(); ?></a></h1>
+					<h3 id="description" role="description"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"><?php bloginfo('description'); ?></a></h3>
 						
-				</div><!-- .padder -->
 			
 
 			<div id="navigation" role="navigation">
@@ -62,32 +62,13 @@
 
 		</div><!-- #header -->
 		</div> <!-- header-section -->
+				
+		<!-- BEGIN: announcement bar -->
 
-		<?php if( is_user_logged_in() && is_dynamic_sidebar( 'Hero-login' ) ){ 
-		do_action( 'bp_before_sidebar' ); ?>
-        
-    <!-- NO LOGIN -->
+		<?php locate_template( array( 'announcement.php' ), true ) ?>
 
-		<div id="hero-login" role="complementary" class="hero">
-		
-			<?php dynamic_sidebar( 'Hero-login' ) ?>
-		</div><!-- #sidebar -->
+		<!-- //END: announcement bar -->
 
-		<?php do_action( 'bp_after_sidebar' );
-		} ?>
-
-		<?php if( ! is_user_logged_in() && is_dynamic_sidebar( 'Hero-no-login' ) ){ 
-		do_action( 'bp_before_sidebar' ); ?>
-        
-    <!-- LOGIN -->
-
-		<div id="hero-no-login" role="complementary" class="hero">
-		
-			<?php dynamic_sidebar( 'Hero-no-login' ) ?>
-		</div><!-- #sidebar -->
-
-		<?php do_action( 'bp_after_sidebar' );
-		} ?>
         
 		<?php do_action( 'bp_after_header' ) ?>
 		<?php do_action( 'bp_before_container' ) ?>

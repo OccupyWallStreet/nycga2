@@ -1,0 +1,502 @@
+.wp-tabs,
+.wp-accordion,
+.wp-spoiler {
+	font-size: 12px;
+	font-family: inherit !important;
+}
+
+.ui-accordion-header,
+.ui-collapsible-header {
+	margin-bottom: 0px !important;
+	font-size: 12px;
+	padding: 5px !important;
+	padding-left: 30px !important;
+}
+
+.ui-collapsible-header {
+	margin-bottom: 10px;
+	padding-left: 10px !important;
+	font-size: 12px !important;
+}
+
+.ui-collapsible-content .ui-collapsible-wrapper {
+	padding: 10px;
+	font-size: 12px;
+}
+
+.ui-collapsible-header span.ui-icon {
+	display : inline-block;
+	/* For IE < 8 */
+	*text-indent : 0;
+	*font-size : 0;
+}
+
+div.tab-top-nav,
+div.tab-bottom-nav {
+	clear: both;
+	overflow: hidden;
+}
+
+.jqui-styles a.next-tab {
+	padding: 4px 25px 4px 10px !important;
+	float : right;
+	position: relative;
+	display: inline-block;
+}
+
+.jqui-styles a.prev-tab {
+	padding: 4px 10px 4px 25px !important;
+	position: relative;
+	display : inline-block;
+}
+
+
+a.next-tab span.ui-icon {
+	position: absolute;
+	right : 5px;
+	top: 5px;
+}
+
+a.prev-tab span.ui-icon {
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+
+
+.jqui-styles ul.ui-tabs-nav {
+	margin-bottom: 0px !important;
+}
+
+
+
+/* Fix for the custom styles */
+
+
+.wpui-styles .ui-tabs-nav {
+	border: 0px;
+	margin-bottom: 0px !important;
+	position: relative;
+	bottom: -1px;
+	border-top:0px !important;
+}
+
+.wpui-styles ul.ui-tabs-nav li {
+	padding: 0px !important;
+	height: 30px !important;
+	opacity: 0.7;
+	margin-bottom:0px !important;
+}
+
+.wpui-styles ul.ui-tabs-nav li.ui-state-active {
+	padding: 10px 0;
+/*	padding-top: 0px !important;*/
+/*	height: 28px !important;*/
+	opacity: 1;
+	height : 31px !important;
+/*	top:0px;
+	bottom: -1px;*/
+}
+
+.wpui-styles ul.ui-tabs-nav li a {
+	padding: 10px 0;
+}
+
+div.tab-top-nav {
+	margin: 0 0 20px 0;
+}
+div.tab-bottom-nav {
+	margin: 10px 0 0 0;
+}
+
+
+.wpui-styles a.next-tab,
+.wpui-styles a.prev-tab {
+	padding : 3px 10px !important;
+	text-decoration : none;
+	-moz-border-radius     : 3px !important;
+	-webkit-border-radius  : 3px !important;
+	-o-border-radius       : 3px !important;
+	border-radius          : 3px !important;
+}
+
+.wpui-styles a.next-tab:hover,
+.wpui-styles a.prev-tab:hover {
+	font-weight: normal;
+}
+
+.wpui-styles a.prev-tab {
+	float: left;
+}
+
+.wpui-styles a.next-tab {
+	float: right;
+}
+
+.wpui-alma ul.ui-tabs-nav li {
+	text-align: center !important;
+}
+
+.wpui-alma ul.ui-tabs-nav li {
+	-moz-border-radius     : 0px !important;
+	-webkit-border-radius  : 0px !important;
+	-o-border-radius       : 0px !important;
+	border-radius          : 0px !important;
+	text-align: center !important;
+}
+
+.wpui-alma ul.ui-tabs-nav .first-li {
+	-moz-border-radius     : 4px 0 0 4px !important;
+	-webkit-border-radius  : 4px 0 0 4px !important;
+	-o-border-radius       : 4px 0 0 4px !important;
+	border-radius          : 4px 0 0 4px !important;
+}
+
+.wpui-alma ul.ui-tabs-nav .last-li {
+	-moz-border-radius     : 0 4px 4px 0 !important;
+	-webkit-border-radius  : 0 4px 4px 0 !important;
+	-o-border-radius       : 0 4px 4px 0 !important;
+	border-radius          : 0 4px 4px 0 !important;
+}
+
+.wpui-dark ul.ui-tabs-nav li {
+	border-color: #222 !important;
+}
+
+.wpui-quark ul.ui-tabs-nav li {
+	border: 0px !important;
+}
+
+.wpui-alma ul.ui-tabs-nav {
+	text-align: center !important;
+}
+
+.wpui-alma ul.ui-tabs-nav li {
+	opacity: 1 !important;
+	float: none !important;
+	display : inline-block;
+}
+
+.wpui-alma ul.ui-tabs-nav li.ui-state-active {
+	height: 30px !important;
+}
+
+.wpui-alma ul.ui-tabs-nav li a {
+    padding: 7px 25px !important;
+}
+
+.wpui-safle ul.ui-tabs-nav li {
+	opacity: 1 !important;
+	float: none !important;
+	display : inline-block;
+	padding: 4px 8px !important;
+}
+
+.wpui-redmond ul.ui-tabs-nav li {
+	opacity : 1 !important;
+}
+
+
+
+/*
+ *
+ */
+
+.wp-ui-styles.ui-dialog {
+	background: none;
+	color: none;
+	border: none;
+	text-shadow: none;
+	padding: 0;
+	margin: 0;
+}
+
+.wp-ui-styles .ui-dialog-titlebar {
+	background: none;
+	border: none;
+	color: none;
+	padding: 8px 10px;
+	margin:0;
+	float: none;
+	text-shadow: none;
+	position: relative;
+	cursor : move;
+	
+}
+
+.wp-ui-styles .ui-dialog-titlebar-close {
+	margin: 0px;
+	position : absolute;
+	top:0px;
+	right: 0px;
+	border: 0px;
+	text-indent : -99999em;
+	
+}
+
+.wp-ui-styles .ui-dialog-titlebar-close,
+.wp-ui-styles .ui-dialog-titlebar-close:hover {
+	margin: 0px;
+	position : absolute;
+	top:0px;
+	right: 0px;
+	border: 0px;
+}
+
+.wp-ui-styles .ui-dialog-titlebar-close span {
+	display : none !important;
+	height: 0px;
+	width: 0px;
+}
+
+
+
+/*
+ *	Dialogs dark
+ */
+
+/*
+
+
+
+.wpui-dark.ui-dialog {
+	-moz-border-radius     : 8px;
+	-webkit-border-radius  : 8px;
+	-o-border-radius       : 8px;
+	border-radius          : 8px;
+	font-family: 'Lucida Grande', 'Arial', sans-serif;
+	background: #AAA;
+	background: -moz-linear-gradient(top , #444,  #222);
+	background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#222));
+	background: -webkit-linear-gradient(top , #444, #222);
+	background: -o-linear-gradient(top , #444, #222);
+	color: #DDD;
+	border: 1px solid #000;
+	text-shadow: 0 1px 0 #000;	
+	-moz-box-shadow    : 1px 1px 0 #FFF inset, -1px -1px 0 #FFF inset, 0 3px 10px #000;
+	-webkit-box-shadow : 0 3px 10px #000;
+	-o-box-shadow      : 0 3px 10px #000;
+	box-shadow         : 0 3px 10px #000;
+}
+
+.wpui-dark .ui-dialog-titlebar {
+	font-weight: bold;
+	color: #FFF;
+	text-shadow:	0 1px 1px #000;
+	padding: 6px 10px;
+	-moz-border-radius     : 10px 10px 0 0;
+	-webkit-border-radius  : 10px 10px 0 0;
+	-o-border-radius       : 10px 10px 0 0;
+	border-radius          : 10px 10px 0 0;
+	border-bottom: 1px solid #000;
+	box-shadow: 0 1px 0 #999 inset, 0 1px 0 #666;
+}
+
+.wpui-dark .ui-dialog-content {
+	padding: 10px;
+	overflow:hidden;
+	
+}
+
+.wpui-dark .ui-dialog-titlebar-close {
+	background: url("../images/close-light.png") no-repeat scroll 0 0 transparent;
+	position: absolute;
+	right: 5px;
+	top : 5px;
+	width: 18px;
+	height : 18px;
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid transparent;
+	opacity: 0.6;
+	text-indent : -99999em;
+	
+}
+
+
+.wpui-dark .ui-dialog-titlebar-close:hover {
+	background: url("../images/close-light.png") no-repeat scroll 0 0 transparent;
+	width: 18px;
+	height : 18px;
+	border: 1px solid transparent;
+	top: 5px;
+	right: 5px;
+	opacity: 1;
+}
+
+*/
+
+
+.jqui-options-noise {
+/*	background: url('images/pattern-gray.png') #C6FFB0;*/
+	background: url('../images/pattern-gray.png') #45B5CC;
+}
+
+
+.wpui-no-background .ui-tabs,
+.wpui-no-background .ui-widget-content {
+	background : none !important;
+	-moz-box-shadow    : none !important;
+	-webkit-box-shadow : none !important;
+	-o-box-shadow      : none !important;
+	box-shadow         : none !important;
+	border : 0px !important;
+}
+
+.wpui-no-background .ui-tabs-panel {
+	background : none !important;
+	color : #444 !important;
+	text-shadow : inherit !important;
+	border : 0px;
+	-moz-box-shadow    : none !important;
+	-webkit-box-shadow : none !important;
+	-o-box-shadow      : none !important;
+	box-shadow         : none !important;
+}
+
+.wpui-no-background .ui-tabs h1,
+.wpui-no-background .ui-tabs h2,
+.wpui-no-background .ui-tabs h3,
+.wpui-no-background .ui-tabs h4,
+.wpui-no-background .ui-tabs h5,
+.wpui-no-background .ui-tabs h6 {
+	color : #444 !important;
+	text-shadow : inherit !important;
+}
+
+.wpui-no-background .ui-tabs .ui-tabs-panel a {
+	color: inherit !important;
+}
+
+
+.wpui-no-background .ui-tabs-nav {
+	padding : 10px !important;
+	margin : 0 auto;
+	text-align : center;
+}
+
+.wpui-no-background .ui-tabs-nav li {
+/*	-moz-border-radius     : 4px;
+	-webkit-border-radius  : 4px;
+	-o-border-radius       : 4px;
+	border-radius          : 4px;*/
+	border-bottom : 1px solid !important;
+	text-align : center;
+	margin : 0 5px;
+	font-weight : bold;
+}
+.wpui-no-background.wpui-alma .ui-tabs-nav li {
+	margin : 0px;
+}
+
+
+
+
+/*
+ *	Alternate framework.
+ */
+
+.ktabs.ui-tabs {
+	font-size : 12px;
+	overflow : hidden;
+}
+
+
+.ktabs ul.ul-vertical {
+	list-style : none;
+
+}
+
+.ktabs ul.ul-vertical {
+	width : 150px;
+/*	height : 100%;*/
+
+}
+
+.ktabs ul li {
+	display : inline-block;
+	vertical-align : bottom;
+	
+}
+
+.ktabs ul li img,
+.ktabs li:hover img,
+.ktabs li img:hover,
+.ktabs li img:active {
+	border : 0px !important;
+	background : none !important;
+	vertical-align : middle;
+}
+
+
+
+
+.ktabs ul.ul-vertical li {
+	float : left;
+	width : 100%;
+}
+
+.ktabs ul.ul-vertical li a {
+	width : 98%;
+}
+
+
+.ktabs .panels {
+	float : left;
+	overflow : hidden;
+	width : 100%;
+}
+
+.ktabs .panel {
+	float : left;
+	padding : 1em;
+	border : 0px solid transparent;
+}
+
+.ktabs .panel-navigation {
+	font-size : 12px !important;
+	background : rgba( 255, 255, 255, 0.2 );
+	background: -moz-linear-gradient(bottom , rgba( 0, 0, 0, 0.1 ),  rgba( 255, 255, 255, 0 ));
+	background: -webkit-gradient(linear, left bottom, left top, from(rgba( 0, 0, 0, 0.1 )), to(rgba( 255, 255, 255, 0 )));
+	background: -webkit-linear-gradient(bottom , rgba( 0, 0, 0, 0.1 ), rgba( 255, 255, 255, 0 ));
+	background: -o-linear-gradient(bottom , rgba( 0, 0, 0, 0.1 ), rgba( 255, 255, 255, 0 ));
+	background: -ms-linear-gradient(bottom , rgba( 0, 0, 0, 0.1 ), rgba( 255, 255, 255, 0 ));
+	background: linear-gradient(bottom , rgba( 0, 0, 0, 0.1 ), rgba( 255, 255, 255, 0 ));
+	-moz-transition : all 0.3s ease-in-out;
+	-webkit-transition : all 0.3s ease-in-out;
+	-o-transition : all 0.3s ease-in-out;
+	-ms-transition : all 0.3s ease-in-out;
+	transition : all 0.3s ease-in-out;
+	width : 99%;
+	padding : 4px;
+	opacity : 0.4;
+	
+}
+
+
+.ktabs.mode-vertical .panel-navigation {
+	width : 150px;
+	margin : 4px;
+	position : absolute;
+	bottom : -50px;
+	left : 0;
+}
+
+
+.ktabs.mode-vertical:hover > .panel-navigation  {
+	bottom : 0;
+}
+
+.panel-navigation:hover {
+	opacity : 1;
+}
+
+.ktabs .panel-navigation a {
+	float : left;
+
+}
+
+.ktabs .panel-navigation a.wpui-nav-next {
+	float : right;
+}
+

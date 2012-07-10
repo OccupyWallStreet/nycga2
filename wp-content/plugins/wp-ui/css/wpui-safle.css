@@ -1,0 +1,284 @@
+/*	wpui-safle
+------------------------------------------------------------ */
+.wpui-safle .ui-tabs {
+	border: 0px !important;
+}
+
+.wpui-safle .ui-tabs {
+	background: #080808;
+	border-radius          : 8px 8px 0 0;
+	-moz-border-radius     : 8px 8px 0 0;
+	-webkit-border-radius  : 8px 8px 0 0;
+	-o-border-radius       : 8px 8px 0 0;
+	
+}
+
+.wpui-safle .ui-tabs .ui-tabs-panel .wp-tab-content > .wp-tabs .ui-tabs {
+	box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	-o-box-shadow: none !important;
+}
+
+.wpui-safle .ui-tabs-panel {
+	background: #F7F7F7;
+	color: #444;
+	border-bottom: 0px;
+	font-family: 'Arial', sans-serif;
+}
+
+.wpui-safle ul.ui-tabs-nav {
+	background: #030B1F;
+	border-radius          :  8px 8px 0 0;
+	-moz-border-radius     :  8px 8px 0 0;
+	-webkit-border-radius  :  8px 8px 0 0;
+	-o-border-radius       :  8px 8px 0 0;
+	border-bottom: 0px;
+	margin: 0 auto;
+	text-align:center;
+	padding: 0 !important;
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+}
+
+.wpui-safle ul.ui-tabs-nav li {
+	background: none;
+	border: none;
+
+	margin-right: 3px;
+}
+
+.wpui-safle ul.ui-tabs-nav li a {
+	color: #737880;
+	text-shadow: none !important;
+	
+}
+
+.wpui-safle ul.ui-tabs-nav li.ui-state-active {
+	background: none;
+	border: none !important;
+	background: -moz-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	background: -webkit-gradient(top, from(#31364C), to(#304760), color-stop(0.48, #31364C), color-stop(0.49, #272B3E));
+	background: -webkit-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	background: -o-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	border-radius          :  5px !important;
+	-moz-border-radius     :  5px !important;
+	-webkit-border-radius  :  5px !important;
+	-o-border-radius       :  5px !important;
+	border: 1px solid #2E9AE8 !important;
+
+}
+
+.wpui-safle ul.ui-tabs-nav li.ui-state-active a {
+	text-shadow: none !important;
+	color: #E5E2E5;
+}
+
+
+
+.wpui-safle .ui-button {
+	background: #030B1F;
+	text-shadow: 0 -1px 0 #000;
+	color: #737880;
+	padding: 4px 7px;
+}
+
+
+
+.wpui-safle .ui-button:hover {
+	background: #030B1F;
+	background: -moz-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	background: -webkit-gradient(top, from(#31364C), to(#304760), color-stop(0.48, #31364C), color-stop(0.49, #272B3E));
+	background: -webkit-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	background: -o-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	text-shadow: 0 -1px 0 #000;
+	color: #737880;
+}
+
+
+
+.wpui-safle .wp-tab-content a.ui-button {
+	float: right;
+	margin: 20px 0;
+	text-decoration: none !important;
+}
+
+
+
+.wpui-safle .ui-tabs-panel .tab-top-nav a,
+.wpui-safle .ui-tabs-panel .tab-bottom-nav a {
+	background: #030B1F;
+	text-shadow: 0 -1px 0 #000;
+	color: #737880;
+	padding: 4px 7px;
+	
+}
+.wpui-safle .ui-tabs-panel .tab-top-nav a:hover,
+.wpui-safle .ui-tabs-panel .tab-bottom-nav a:hover {
+	background: #030B1F;
+	background: -moz-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	background: -webkit-gradient(top, from(#31364C), to(#304760), color-stop(0.48, #31364C), color-stop(0.49, #272B3E));
+	background: -webkit-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	background: -o-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	text-shadow: 0 -1px 0 #000;
+	color: #737880;
+}
+
+.wpui-safle .wp-tabs {
+	position:relative;
+}
+
+
+.wpui-safle .ui-collapsible-header,
+.wpui-safle .ui-accordion h3.ui-accordion-header {
+	font: bold 14px 'Segoe UI', 'Lucida Grande', 'Arial', sans-serif;
+	background: #030B1F;
+	padding: 4px 10px;
+	color: #737880 !important;
+	border: 1px solid #A2A2A2;
+	text-shadow: none;
+	border-radius          :  0px !important;
+	-moz-border-radius     :  0px !important;
+	-webkit-border-radius  :  0px !important;
+	-o-border-radius       :  0px !important;
+	box-shadow         : 0 1px 4px #999;
+	-moz-box-shadow    : 0 1px 4px #999;
+	-webkit-box-shadow : 0 1px 4px #999;
+	-o-box-shadow : 0 1px 4px #999;
+	border: 1px solid #000603;
+}
+
+.wpui-safle .ui-collapsible-header:hover,
+.wpui-safle .ui-accordion h3.ui-accordion-header:hover {
+	color: #E5E2E5 !important;
+	text-shadow: none;
+	border: 1px solid #2E9AE8;
+}
+
+.wpui-safle h3.ui-collapsible-header.ui-state-active,
+.wpui-safle .ui-accordion h3.ui-accordion-header.ui-state-active {
+	background: -moz-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	background: -webkit-gradient(top, from(#31364C), to(#304760), color-stop(0.48, #31364C), color-stop(0.49, #272B3E));
+	background: -webkit-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	background: -o-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	color: #E5E2E5 !important;
+	border: 1px solid #000;
+	border-bottom: 0px;
+
+}
+
+.wpui-safle .ui-collapsible-content,
+.wpui-safle .ui-accordion .ui-accordion-content {
+	color: #444;
+	background: #F2F2F2;
+	border: 1px solid #000613;
+	box-shadow         : 0 1px 4px #999;
+	-moz-box-shadow    : 0 1px 4px #999;
+	-webkit-box-shadow : 0 1px 4px #999;
+	-o-box-shadow : 0 1px 4px #999;
+}
+
+
+
+
+.wpui-safle.ui-dialog {
+	-moz-border-radius     : 8px;
+	-webkit-border-radius  : 8px;
+	-o-border-radius       : 8px;
+	border-radius          : 8px;
+	font-family: 'Lucida Grande', 'Arial', sans-serif;
+	background: #030B1F;
+	color: #DDD;
+	padding: 5px;
+}
+
+.wpui-safle .ui-dialog-titlebar {
+	font-weight: bold;
+	color: #FFF;
+	text-shadow:	0 1px 1px #000;
+	padding: 3px 10px 6px;
+	-moz-border-radius     : 8px 8px 0 0;
+	-webkit-border-radius  : 8px 8px 0 0;
+	-o-border-radius       : 8px 8px 0 0;
+	border-radius          : 8px 8px 0 0;
+	border-bottom: 1px solid #000;
+}
+
+.wpui-safle .ui-dialog-content {
+	padding: 10px;
+	overflow:hidden;
+	-moz-border-radius     : 0 0 8px 8px;
+	-webkit-border-radius  : 0 0 8px 8px;
+	-o-border-radius       : 0 0 8px 8px;
+	border-radius          : 0 0 8px 8px;
+	background: white;
+	color: #131313;
+}
+
+.wpui-safle .ui-dialog-titlebar-close {
+	background: url("../images/close-light.png") no-repeat scroll 0 0 transparent;
+	position: absolute;
+	right: 5px;
+	top : 5px;
+	width: 18px;
+	height : 18px;
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid transparent;
+	opacity: 0.4;
+	text-indent : -99999em;
+	
+}
+
+
+.wpui-safle .ui-dialog-titlebar-close:hover {
+	background: url("../images/close-light.png") no-repeat scroll 0 0 transparent;
+	width: 18px;
+	height : 18px;
+	border: 1px solid transparent;
+	top: 5px;
+	right: 5px;
+	opacity: 0.6;
+}
+
+
+
+
+
+.wpui-safle.wpui-button {
+	background: #030B1F;
+	text-shadow: 0 -1px 0 #000;
+	color: #737880;
+	border : 1px solid #1E2634;
+	-moz-border-radius     : 3px;
+	-webkit-border-radius  : 3px;
+	-o-border-radius       : 3px;
+	border-radius          : 3px;
+	-moz-transition : all 0.2s ease-in;
+	-webkit-transition : all 0.2s ease-in;
+	-o-transition : all 0.2s ease-in;
+	-ms-transition : all 0.2s ease-in;
+	transition : all 0.2s ease-in;
+}
+
+.wpui-safle.wpui-button:hover {
+	color : #FFF;
+	background: #030B1F;
+	text-shadow : 0 1px 0 #030B1F;
+	background: -moz-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	background: -webkit-gradient(top, from(#31364C), to(#304760), color-stop(0.48, #31364C), color-stop(0.49, #272B3E));
+	background: -webkit-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+	background: -o-linear-gradient( top, #31364C 0%, #31364C 48%, #272B3E 49%, #304760);
+}
+
+
+.wpui-safle.wpui-button:active {
+	-moz-box-shadow    : 0 2px 7px rgba( 0, 0, 0, 0.4) inset;
+	-webkit-box-shadow : 0 2px 7px rgba( 0, 0, 0, 0.4) inset;
+	-o-box-shadow      : 0 2px 7px rgba( 0, 0, 0, 0.4) inset;
+	box-shadow         : 0 2px 7px rgba( 0, 0, 0, 0.4) inset;
+	border: 1px solid #2E9AE8 !important;
+	
+}
+
+

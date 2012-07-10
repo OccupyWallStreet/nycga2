@@ -1,0 +1,137 @@
+/*
+Theme Name: BuddyPress Widget Theme
+Theme URI: http://buddypress.org
+Description: Widgetized home page for default BuddyPress theme.
+Version: 1.5
+Author: modemlooper
+Author URI: http://twitter.com/modemlooper
+Template: bp-default
+Tags: buddypress, three-columns
+*/
+
+/* Inherit the default theme styles */
+
+@import url( ../../plugins/buddypress/bp-themes/bp-default/_inc/css/default.css );
+
+/* Inherit the default theme adminbar styles */
+
+@import url( ../../plugins/buddypress/bp-themes/bp-default/_inc/css/adminbar.css );
+
+/* Wide Thin Thin */
+
+#first-section {
+	margin-right: 560px;
+}
+
+body.home #content {
+	padding-bottom: 20px;
+}
+
+#second-section {
+	float: right;
+	width: 260px;
+	margin-right: 20px;
+}
+
+#third-section {
+	float: right;
+	width: 260px;
+}
+
+/*Thin Wide Thin */
+
+
+.widget {
+	margin-bottom: 20px;
+}
+
+h3.widgettitle {
+	background: rgb(234, 234, 234);
+	font-size: 12px;
+	color: #444444;
+	padding: 5px 15px;
+	margin-top: 0;
+	min-height: 19px;
+}
+
+.padderHome {
+	margin: 20px;
+}
+
+#col-wrap {
+	position: relative;
+	clear: both;
+	float: left;
+	width: 100%;
+	overflow: hidden;
+}
+
+.widget .avatar-block {
+	min-height: 50px;
+}
+
+.post-content img {
+	max-width: 550px;
+}
+
+.new_forum_post .activity-inner img {
+	width: 150px;
+	height: 150px;
+}
+
+/* column container */
+	.colmask {
+		position:relative;		/* This fixes the IE7 overflow hidden bug and stops the layout jumping out of place */
+	    clear:both;
+	    float:left;
+        width:100%;				/* width of whole page */
+		overflow:hidden;		/* This chops off any overhanging divs */
+	}
+	/* holy grail 3 column settings */
+	.holygrail {
+	    
+	}
+    .holygrail .colmid {
+        float:left;
+        width: 200%;
+        margin-left: -200px; 	/* Width of right column */
+        position:relative;
+        right:100%;
+        background:#fff;    	/* Centre column background colour */
+    }
+    .holygrail .colleft {
+        float:left;
+        width:100%;
+        margin-left:-50%;
+        position:relative;
+        left: 450px;         	/* Left column width + right column width */
+        
+    }
+    .holygrail .col1wrap {
+        float:left;
+	    width:50%;
+	    position:relative;
+	    right:200px;        	/* Width of left column */
+	    padding-bottom:1em; 	/* Centre column bottom padding. Leave it out if it's zero */
+	}
+	.holygrail .col1 {     	/* Centre column side padding:
+                            	Left padding = left column width + centre column left padding width
+                            	Right padding = right column width + centre column right padding width */
+        position:relative;
+	    left:200%;
+	    overflow:hidden;
+	margin: 0 315px 0 215px;
+}
+    .holygrail .col2 {
+        float:left;
+        float:right;        	/* Width of left column content (left column width minus left and right padding) */
+        position:relative;
+	width: 250px;
+}
+    .holygrail .col3 {
+        float:left;
+        float:right;			/* This overrides the float:left above */
+        width: 250px;  	/* Width of right column right-hand padding + left column left and right padding */
+        position:relative;
+        left:50%;
+    }

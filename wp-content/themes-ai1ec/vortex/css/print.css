@@ -1,0 +1,106 @@
+body {
+  background: white;
+  color: black;
+  margin: 0;
+}
+#header,
+#navigation,
+#comments,
+#sidebar,
+#subcontent,
+#footer {
+  display: none;
+}
+#wpadminbar,
+footer {
+  display: none;
+}
+#page > header {
+  display: none;
+}
+#content {
+  margin-top: -60px !important;
+}
+*,
+.ai1ec-agenda-view .ai1ec-date {
+  background: white !important;
+  color: black !important;
+}
+.thenly {
+  /* Agenda event description */
+
+  /* Hide the buttons */
+
+}
+.thenly table.ai1ec-calendar-toolbar {
+  display: none;
+}
+.thenly .ai1ec-agenda-view .ai1ec-event.ai1ec-expanded {
+  box-shadow: none;
+  border: 2px solid gray !important;
+  background: none !important;
+}
+.thenly .ai1ec-agenda-view h3.ai1ec-date-title {
+  border: 2px solid gray !important;
+}
+.thenly ol.ai1ec-agenda-view h3.ai1ec-date-title {
+  margin-top: 0.5em !important;
+  border-radius: 0;
+}
+.thenly h3.ai1ec-date-title {
+  width: 5em;
+  color: black;
+}
+.thenly h3.ai1ec-date-title .ai1ec-month {
+  display: inline;
+  float: right;
+  color: black;
+}
+.thenly h3.ai1ec-date-title .ai1ec-day {
+  padding: 0 !important;
+  font-size: 1em !important;
+  color: black;
+}
+.thenly h3.ai1ec-date-title .ai1ec-weekday {
+  display: inline;
+  float: left;
+  color: black;
+}
+.thenly div.ai1ec-event-click,
+.thenly div.ai1ec-categories {
+  display: none;
+}
+.thenly div.ai1ec-event-summary,
+.thenly div.ai1ec-event-summary div.ai1ec-event-click,
+.thenly div.ai1ec-event-description {
+  display: block !important;
+}
+.thenly ol.ai1ec-agenda-view div.ai1ec-event-summary div.ai1ec-event-title {
+  display: inline;
+}
+.thenly ol.ai1ec-agenda-view div.ai1ec-event-summary div.ai1ec-event-time {
+  display: inline;
+}
+.thenly a.ai1ec-button {
+  display: none;
+}
+.thenly ol.ai1ec-agenda-view div.ai1ec-event-description {
+  padding: 0 !important;
+}
+.thenly ol.ai1ec-agenda-view div.ai1ec-event-overlay {
+  display: none;
+}
+.thenly .entry-meta {
+  display: none;
+}
+.thenly #ai1ec-today,
+.thenly #ai1ec-expand-all,
+.thenly #ai1ec-collapse-all,
+.thenly #ai1ec-prev-page,
+.thenly #ai1ec-next-page {
+  display: none;
+}
+.thenly .ai1ec-subscribe,
+.thenly .ai1ec-subscribe-google {
+  display: none;
+}

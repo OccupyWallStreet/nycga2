@@ -1,0 +1,358 @@
+/*
+PageLines Framework RTL Style
+Description: Starter creating RTL support for Platform.  Note, we don't speak or write in RTL languages so there will be issues. You can use this as a starter and override in a child theme.
+*/
+
+/**
+ * PageLines Framework RTL Style
+ *
+ * Base file creating RTL support for Platform.
+ * Please note, we don't speak or write in RTL languages so there may be issues.
+ * You can use this as a starter and override in a child theme.
+ *
+ * If you have improvements or modifications to this stylesheet, please submit
+ * them to hello@pagelines.com
+ *
+ * @package     PageLines Framework
+ * @since       1.0
+ *
+ * Special Thanks to Sourena from Alefba.us. He created this file and
+ * specializes in RTL language support.
+ * @author      Sourena
+ * @link        http://alefba.us/
+ * @version     1.0.0
+ *
+ * @internal    last revised February 25, 2012
+ * @version     2.1.1
+ * Remove `px` from zero values as not necessary; fix comment list missing `px`
+ *
+ * @todo Fix graphics - 'arrow-ffffff.png', 'shadow.png', and 'more-left.png'
+ */
+
+body { 
+	font-smooth: always;
+	direction:rtl;	
+	unicode-bidi: embed;
+}
+
+.post-thumb {float:right;}
+
+div#item-header div#item-header-avatar {
+	float:right;
+	margin-right:0;
+	margin-left:15px;
+}
+
+.fpost .post-title h2 { font-size: 1.5em; line-height: 1.6em; }
+	
+.fpost .metabar { text-transform: none; }
+
+	
+.fpost .post-title h2 a:hover { text-decoration: none; }	
+	
+.hentry a:hover { text-decoration: none; }
+
+#branding .content-pad { padding: 25px 0 25px 0; }
+
+#primary-nav { background-color: transparent; }
+
+/* BuddyPress Thing*/
+#item-actions { display:none;}
+
+ul.activity-list li img.avatar { float: right; }
+
+ul.activity-list li div.activity-content { margin-left:0;	margin-right:75px; }
+
+body #primary-nav ul.sf-menu li { float:right; }
+
+.font-sub, #primary-nav li a, .metabar, .subtext, .subhead, .widget-title, .post-comments, .reply a, .editpage, .site-description, .wp-pagenavi, .fcontent .flink, .post-edit-link, #wp-calendar caption, #wp-calendar thead th, #callout .callout_copy, #breadcrumb, .ticker-wrap, h5.sidebartitle, #highlight .highlight-subhead, .soapbox-links a, .fancybox, .standard-form .admin-links, #featurenav a, #feature-footer span.playpause {
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+a.blink, a.soapbox_link, #feature_slider .fcontent a.post-edit-link, .button, input[type="submit"], input[type="button"], .submit {
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.widget-title {
+  letter-spacing:0;
+  padding-left:8px;
+  padding-right:0;
+  text-align: right;
+  text-transform:none;
+}
+
+h1.pagetitle {
+	font-size: 1.5em;
+	line-height: 1.5em;
+}
+
+ul.item-list div.item-avatar { clear: right; }
+
+.inline_thumbs .fboxgraphic {
+	float:right;
+	padding-right:0;
+	padding-left:15px;
+}
+
+#featurenav {
+  float:right;
+}
+
+.searchform input.submit {
+	right:185px;
+}
+
+.searchform .searchfield {
+	padding: 0 7px 0 30px;
+}
+
+.fcontent .ftitle {
+	font-size:2.2em;
+	letter-spacing:0;
+}
+
+.fcontent .ftitle small {
+	font-size:16px;
+	letter-spacing:0;
+	line-height:25px;
+	margin-bottom: 10px;
+}
+
+#featurenav a span.nav_thumb, #featurenav a span.nav_thumb span.nav_overlay {
+	float:right;
+	margin-right: 0;
+	margin-left: 10px;
+}
+
+.fheading {
+	text-align: left;
+}
+
+#feature_slider .text-bottom .fcontent .fheading {
+	float:right;
+	padding:0 0 0 10px;
+	width:33%;
+}
+
+#feature_slider .text-bottom .fcontent .ftext {
+	float:right;
+	padding:3px 20px;
+	width:50%;
+}
+
+#feature_slider .text-bottom .fcontent .flink {
+	bottom: 10px;
+	left: 10px;
+	right: auto;
+	position: absolute;
+}
+
+#feature_slider .fcontent a.flink, #feature_slider .fcontent a.post-edit-link {
+	letter-spacing:0;
+	left: 10px;
+	right: auto;
+	position: absolute;
+}
+
+#feature_slider .fcontent a.flink, #feature_slider .fcontent a.post-edit-link {
+left:30px;
+}
+
+#feature_slider .text-bottom .fcontent .flink {
+left:30px;
+}
+
+#feature-footer span.playpause {
+    float: left;
+    margin-left: 0;
+}
+
+.one-sidebar-left #column-main .mcolumn-pad, .one-sidebar-left #container #content, .two-sidebar-left #column-main .mcolumn-pad, .two-sidebar-left #container #content {
+  margin-left:15px;
+  margin-right:0;
+}
+
+form#whats-new-form #whats-new-avatar {
+  float:right;
+}
+
+form#whats-new-form h5 {
+  clear:none;
+  margin-right:76px;
+  margin-left:0;
+	vertical-align: top;
+	line-height: 1.4;
+	font-size: 1.1em;
+	padding-bottom: 5px;
+}
+
+form#whats-new-form #whats-new-content {
+  margin-right:54px;
+  padding-right:22px;
+  margin-left:0;
+  padding-left:0;
+}
+
+ul.item-list div.item-avatar {
+  float:right;
+}
+
+#item-header-content h2 {
+	line-height: 1.4;
+}
+
+#header .icons {
+position:relative;
+float:left;
+margin-top:20px;
+}
+
+#header #primary-nav ul {
+float:right;
+}
+
+#header .searchform {
+float:left;
+}
+
+form#whats-new-form #whats-new-submit {
+  float:left;
+}
+
+#members-list li .action .friendship-button:nth-child(2n) {display:none;}
+
+
+#respond h3 {
+	background-position:right;
+	padding-right:25px;
+}
+
+#highlight .highlight-subhead {
+	font-size: 1.2em;
+	letter-spacing:0;
+	text-transform: none;
+}
+
+#callout .callout_copy {
+font-size:1.1em;
+letter-spacing:0;
+text-transform: none;
+}
+
+.form-allowed-tags code {
+	direction: ltr;
+	text-align: left;
+}
+
+.clip .clip-thumb a {
+float:right;
+margin-left:10px;
+margin-right:0;
+}
+
+#callout .content-pad{	padding:30px 0 30px 17px;}
+
+#callout .callout_text{	
+float: right;
+}
+		#callout .callout_text-pad{
+padding: 0 0 0 10px;
+}
+		#callout .callout_copy{
+text-transform: none;
+letter-spacing:0;
+}
+
+#callout .callout_image {float: left;}
+
+#footer .widget-title {
+    font-size: 1.1em;
+   }
+   
+/* SubNav Area */
+#subnav_row {
+display: block;
+font-size: 1.1em;
+}
+
+#subnav_row ul li{float: right;}
+
+#subnav_row li a{
+padding: 8px 15px 0 20px;
+}
+
+.subleft {
+	padding: 0 0 0 10px;
+	float: right;
+	text-align: right;
+}
+
+/* BLOG COMMENTS */
+
+.commentlist { margin:10px 18px 10px 0; padding-right:55px; }
+
+.commentlist img.avatar {
+	float: right;
+	margin:0 -60px 5px 5px;
+	position:relative;
+}
+
+
+.icons a {
+	float:left;
+	margin-right:7px;
+	margin-left:0;
+	text-align:left;
+}
+
+#profile-details-section {
+	margin-top: 30px;
+}
+
+.dcol-pad {
+	text-align: right;
+}
+
+#wp-admin-bar ul li ul ul {
+	margin:-25px 175px 0 184px;
+}
+
+.sf-menu li:hover ul, .sf-menu li.sfHover ul {
+    right: 0;
+}
+.sf-menu > li:hover > ul li ul, .sf-menu > li.sfHover > ul li ul {
+    right: 15em;
+}
+#primary-nav ul li {
+    text-align: right !important;
+}
+span.sf-sub-indicator {
+    left: 0.75em !important;
+    right: auto !important;
+}
+#primary-nav ul.sf-menu a.sf-with-ul {
+    padding-left: 2.25em !important;
+    padding-right: 15px !important;
+}
+#primary-nav ul.sf-menu ul a > span.sf-sub-indicator {
+    background: url("images/arrows-ffffff.png") no-repeat scroll -10px 1px transparent !important;
+}
+#primary-nav ul.sf-shadow ul {
+    background: url("images/shadow.png") no-repeat scroll left bottom transparent !important;
+    padding: 0 0 7px 6px !important;
+}
+
+
+#feature_slider .fcontent a span.featurelink {
+	background: url("./images/more-left.png") no-repeat scroll left center transparent;
+	border: medium none;
+	color: #FFFFFF;
+	padding-left: 9px;
+	padding-right: 0;
+}
+div#invite-list {
+    overflow: auto;
+    height: auto;
+}

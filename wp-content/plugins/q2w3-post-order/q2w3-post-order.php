@@ -4,7 +4,7 @@ Plugin Name: Q2W3 Post Order
 Plugin URI: http://www.q2w3.ru/q2w3-post-order-wordpress-plugin/
 Description: With Q2W3 Post Order you can can change natural order of posts. Supported custom taxonomies and custom post type archive pages. Requires WP 3.1 or higher. 
 Author: Max Bond, AndreSC
-Version: 1.2.2
+Version: 1.2.3
 Author URI: http://www.q2w3.ru/
 */
 
@@ -852,7 +852,7 @@ class q2w3_post_order {
 			
 			$c_query = substr_replace($c_query, $left_join,  $c_into, 0);
 		
-			$c_into = strpos($c_query, $wpdb->posts.'.post_date DESC');
+			$c_into = strpos($c_query, 'ORDER BY') + 9; // $wpdb->posts.'.post_date DESC' // Compatibility with ClassiPress
 		
 			$c_query = substr_replace($c_query, $inject_sql_order, $c_into, 0);
 		

@@ -1,57 +1,52 @@
+<?php
+/*
+Template Name: Widgetized Page
+*/
+?>
+
 
 <?php get_header() ?>
+
 	<div id="content">
 		<div class="padder">
-			<h3 class="pagetitle"><?php wp_title(); ?></h3>
-
-		<?php do_action( 'bp_before_blog_home' ) ?>
-
-		<?php do_action( 'template_notices' ) ?>
-
-		<div class="page" id="blog-latest" role="main">
-
-				<!-- BEGIN: left sidebar -->
-				<div class="left-sidebar">
-					<?php locate_template( array( 'sidebar-home-1.php' ), true ) ?>
-				</div>
-				<!-- //END: left sidebar -->
+	
+			<!-- BEGIN: content columns -->
+			<div class="content-columns">
 			
-				<!-- BEGIN: main content column -->
-				<div class="main-content-column">
+				<!-- BEGIN: sticky note -->
 				
-					
-					<?php query_posts(array('post__in'=>get_option('sticky_posts'))); ?>
 
+				<!-- //END: sticky note -->
 				
+				<!-- BEGIN: left content column -->
+				<div class="left-content">
+				<?php locate_template( array( 'sidebar-home-1.php' ), true ) ?>
+				</div><!-- //END: left content column -->
+				
+				<!-- BEGIN: right content column -->
+				<div class="right-content">
+				
+					<?php locate_template( array( 'sidebar-home-2.php' ), true ) ?>
+					
+					<div class="recent-posts">
+					<h3 class="widgettitle">Recent Posts</h3>
+					<?php query_posts( array( 'post__not_in' => get_option( 'sticky_posts' ), 'caller_get_posts' => 1, 'orderby' => ID, 'showposts' => 5  ) ); ?>
 					<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+					
+					<h4><?php the_title(); ?></h4>
 					<div <?php post_class(); ?>>
 						<?php the_excerpt(); ?>
 					</div>
 					<?php endwhile; endif; ?>
-
-					<?php locate_template( array( 'sidebar-home-2.php' ), true ) ?>
-				
-					<div>
-					<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
-						<div <?php post_class(); ?>>
-							<?php the_excerpt(); ?>
-						</div>
-					<?php endwhile; endif; ?>
 					</div>
-				
-					<!-- BEGIN: sidebar -->
-					<?php locate_template( array( 'sidebar-home-3.php' ), true ) ?>
 					
-				</div>
-				<!-- //END: main content column -->
-
-		</div>
-
-		<?php do_action( 'bp_after_blog_home' ) ?>
-
+				</div><!-- //END: right content column -->
+			</div><!-- //END: content columns -->
+			
 		</div><!-- .padder -->
 	</div><!-- #content -->
-
+	
 	<?php get_sidebar() ?>
+	
+<?php get_footer(); ?>
 
-<?php get_footer() ?>

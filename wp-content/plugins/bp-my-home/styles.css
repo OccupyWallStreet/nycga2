@@ -1,0 +1,112 @@
+.column{
+	width:49%;
+	margin-right:.5%;
+	min-height:300px;
+	background:#fff;
+	float:left;
+}
+.column .dragbox{
+	margin:5px 2px  20px;
+	background:#fff;
+	position:relative;
+	border:1px solid #ddd;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+.column .dragbox h2{
+	margin:0;
+	font-size:12px;
+	padding:5px;
+	background:#f0f0f0;
+	color:#000;
+	border-bottom:1px solid #eee;
+	font-family:Verdana;
+	cursor:move;
+}
+.dragbox-content{
+	background:#fff;
+	min-height:100px; margin:5px;
+	font-family:'Lucida Grande', Verdana; font-size:0.8em; line-height:1.5em;
+}
+.column  .placeholder{
+	background: #f0f0f0;
+	border:1px dashed #ddd;
+}
+.dragbox .handle_div{
+	float:right;
+	width:20px;
+	border-left:solid 1px #fff;
+	height:100%;
+}
+.handle_div h2.collapse{
+	background:#f0f0f0 url('images/collapse.png') no-repeat top right;
+}
+.dragbox h2 .configure{
+	font-size:11px; font-weight:normal;
+	margin-right:30px; float:right;
+}
+.dragbox .bpmh_submit_secondary{
+	text-decoration:none;
+	font-size:10px;
+	border:1px solid #555;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	background:none;
+	background-color:#fff;
+	color:#555;
+}
+.dragbox .bpmh_submit{
+	text-decoration:none;
+	font-size:10px;
+	border:1px solid #555;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	background:none;
+	background-color:#ddd;
+	color:#555;
+}
+.dragbox input[type=text]{
+	width:300px;
+	border:1px solid #555;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+.dragbox table th{
+	line-height:50%;
+}
+.dragbox table tr{
+	border-bottom:inset 1px #f0f0f0;
+}
+.dragbox #feed_selector{
+	display:inline-block;
+	float:right;
+	margin-right:5px;
+}
+div.widget_settings{
+	float:left;
+	height:150px;
+	overflow:hidden;
+	margin:5px;
+	border:1px solid #555;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	background-color:#eee;
+	width:150px;
+}
+div.widget_settings table{
+	padding:10px;
+}
+div.widget_settings table td.bpmh-thumb{
+	vertical-align:middle;
+	text-align:center;
+}
+div#bkmks_container div#content ul{
+	margin-top:5px;
+	margin-left:10px;
+	margin-right:10px;
+	list-style-image: url(images/star.gif);
+}
+div#bkmks_container div#content ul li{
+	margin-left:15px;
+	font-size:14px;
+}

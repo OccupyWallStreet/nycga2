@@ -1,0 +1,38 @@
+// ACCORDION
+// ---------
+
+// Parent container
+.accordion {
+  margin-bottom: @baseLineHeight;
+}
+
+// Group == heading + body
+.accordion-group {
+  background:darken(@pl-base,2);
+  margin-bottom: 2px;
+  border: 1px solid darken(@pl-base, 6); 
+  .border-radius(4px);
+}
+.accordion-heading {
+  background:darken(@pl-base,5);
+  border-bottom: 0;
+
+   &:hover {
+    .border-radius(4px);
+	   background: @dark-base;
+	}
+   a:hover {
+		text-decoration:none;
+	}
+
+}
+.accordion-heading .accordion-toggle {
+  display: block;
+  padding: 8px 15px;
+}
+
+// Inner needs the styles because you can't animate properly with any styles on the element
+.accordion-inner {
+  padding: 9px 15px;
+  border-top: 1px solid darken(@pl-base, 6);
+}
