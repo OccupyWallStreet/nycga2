@@ -55,7 +55,19 @@ add_filter('bp_search_form_type_select','my_bp_search_form_type_select');
 		//}
 //	}
 
+
 //add_action('init', 'add_script');
+
+function my_scripts_method() {
+    wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
+    wp_enqueue_script( 'jquery' );
+    wp_register_script( 'jquery.cycle', '/wp-content/js/jquery.cycle.all.js');
+    wp_enqueue_script( 'jquery.cycle' );
+
+}    
+ 
+add_action('wp_enqueue_scripts', 'my_scripts_method');
 
 add_action('wp_footer', 'add_search_form_script');
 

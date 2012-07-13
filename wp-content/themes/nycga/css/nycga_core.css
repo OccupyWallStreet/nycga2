@@ -418,7 +418,7 @@ div#featured_slider ul#slider
 }
 
 div#announcement.announcement div#featured_slider {
-	margin: 0;
+	/* margin: 0; */
 	border: none;
 	background-color: transparent;
 
@@ -453,15 +453,17 @@ div#featured_slider ul#slider li p {
 
 div#featured_slider ul#slider li h2,
 div#featured_slider ul#slider li p {
-	display: inline;
+	/* display: inline; */
 }
 
 div#featured_slider ul#slider li  p:before {
 	/* content: " - "; */
 }
 
-div#featured_slider ul#slider li h2 {
+div#featured_slider ul#slider li h2,
+div#announcement div#featured_slider ul#slide li h2 {
 		font-size: 20px;
+		margin-bottom: 0;
 }
 
 div#featured_slider ul#slider li h2 a {
@@ -469,19 +471,41 @@ div#featured_slider ul#slider li h2 a {
 	color: #333;
 }
 
-div#featured_slider div.feat_prev,
-div#featured_slider div.feat_next {
-	top: 0;
+#featured_slider .feat_prev,
+#featured_slider .feat_next {
+	background: transparent url(http://preview.wp-themix.org/wp-content/plugins/wp-featured-content-slider/images/sprite.png) bottom right no-repeat;
+	height: 16px;
+	width: 17px;
+	float: right;
+	margin-right: 10px;
+	cursor: pointer;
+	bottom: 30px;
 	left: auto;
 }
-div#featured_slider div.feat_prev {
-	right:40px;
+
+#featured_slider .feat_prev {
+	background-position: 0 0;	
+	right: 50px;
 }
-div#featured_slider div.feat_next {
-	right:20px;
+
+#featured_slider .feat_prev:hover {
+	background-position: 0 -16px;
+}
+
+#featured_slider .feat_next {
+	background-position: -17px 0;
+	right: 20px;
+}
+
+#featured_slider .feat_next:hover {
+	background-position: -18px -16px;
 }
 
 div.copy_wrap {
+	display: none;
+}
+
+div#announcement.announcement div#featured_slider ul#slider li div.really_simple_share {
 	display: none;
 }
 
@@ -1709,4 +1733,19 @@ body.home-page span.st_twitter_vcount,
 body.home-page span.st_email_vcount,
 body.home-page span.st_sharethis_vcount {
 	display:none !important;
+}
+
+/* Post Styles */
+
+div.post-content {
+	margin-left: 0;
+}
+
+div.post-content p.date,
+div.post-content p.postmetadatat {
+	padding-left: 5px;
+}
+
+div.post-content p.date img.avatar {
+	padding-right: 5px;
 }

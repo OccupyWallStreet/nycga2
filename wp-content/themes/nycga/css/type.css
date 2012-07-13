@@ -58,7 +58,9 @@
 
 }
 
-body{
+body,
+div.post-content p.date,
+div.post-content p.postmetadata {
 	/* bodycopy this will likely change soon to something OS */
 	font-family: Helvetica, arial, sans-serif;
 	font-size: 12px;
