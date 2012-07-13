@@ -2,8 +2,8 @@
 Contributors: azaozz
 Donate link: 
 Tags: wysiwyg, formatting, tinymce, write, editor
-Requires at least: 3.3
-Tested up to: 3.3
+Requires at least: 3.4
+Tested up to: 3.4
 Stable tag: 3.4.5.1
 
 Enables the advanced features of TinyMCE, the WordPress WYSIWYG editor. 
@@ -33,6 +33,9 @@ Best is to install directly from WordPress. If manual installation is required, 
 
 
 == Changelog ==
+
+= 3.4.9 =
+Updated for WordPress 3.4 and TinyMCE 3.4.9.
 
 = 3.4.5.1 =
 Fixed a bug preventing TinyMCE from importing CSS classes from editor-style.css.

@@ -18,7 +18,10 @@ page_header(lang('SQL command'), $error);
 
 if (!$error && $_POST) {
 	$fp = false;
-	$query = stripslashes($_POST["query"]);
+	// Remove Magic Quotes form WP
+	$_POST = AdminerForWP::array_map_recursive( 'stripslashes_deep', $_POST );
+	$query = $_POST["query"];
+	
 	if ($_POST["webfile"]) {
 		$fp = @fopen((file_exists("adminer.sql") ? "adminer.sql"
 			: (file_exists("adminer.sql.gz") ? "compress.zlib://adminer.sql.gz"
@@ -164,8 +167,10 @@ if (!$error && $_POST) {
 
 <form action="" method="post" enctype="multipart/form-data" id="form">
 <p><?php
+$_GET = AdminerForWP::array_map_recursive( 'stripslashes_deep', $_GET );
 $q = $_GET["sql"]; // overwrite $q from if ($_POST) to save memory
 if ($_POST) {
+	$_POST = AdminerForWP::array_map_recursive( 'stripslashes_deep', $_POST );
 	$q = $_POST["query"];
 } elseif ($_GET["history"] == "all") {
 	$q = $history;

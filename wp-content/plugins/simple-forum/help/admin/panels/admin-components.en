@@ -1,0 +1,554 @@
+--- Manage Components ---
+$LastChangedDate: 2009-03-08 14:15:31 +0000 (Sun, 08 Mar 2009) $
+$Rev: 1539 $
+
+[smiley-options]
+
+<strong>Smiley Options</strong><br /><br />
+There are three sets of 'smileys' available for use within the forum should you allow their use.<br />
+<ul>
+<li><b>Custom Smileys:</b> These are smiley images that you, as the Admin upload for use and make available.</li>
+<li><b>TinyMCE Smileys:</b> This set is limited and available through the smiley icon on the TinyMCE editor toolbar. You can not add to this set.</li>
+<li><b>WordPress Smileys:</b> A limited set supplied with WordPress available only by typing in their code.</li>
+</ul><br />
+If you choose to allow the use of Smileys they should be turned on here and the preferred set selected. If 'custom smileys' are selected, they will appear in
+a bar underneath the post editing window where users can select and include them in their posts.
+[end]
+
+[smiley-upload]
+
+<strong>Smiley Uploads</strong><br /><br />
+If you have selected 'Custom Smileys', you can upload new images to the set delivered with the plugin. You will need to designate a name for the Smiley
+and the keyboard 'code' used to invoke it.
+[end]
+
+[custom-smileys]
+
+<strong>Custom Smileys</strong><br /><br />
+This shows the current contents of the 'forum-smileys' folder where custom smileys are stored. Apart, of course, from the actual image file,
+smileys require an identifying name and a code. Codes are most usually entered prefixed and suffixed with a colon - for example :smile:.<br /><br />
+If you wish to remove one then click on the remove button at the end of the row. This will remove the entry and the image from the Smileys folder.
+[end]
+
+[private-messaging]
+
+<strong>Private Messaging</strong><br /><br />
+Before any members can use the Private Messaging System - regardless of their permissions - it must first be enabled, or turned on.
+Once active, only those in user groups with a permission set allowing the use of private messaging will be able to access the system.<br /><br />
+<strong>Email Notifications</strong><br />
+If you are allowing the use of Private Messaging you may enable sending of notification to be sent to members when a message
+arrives in their inbox. This is a global setting.  If enabled, users may choose to enable or disable emails for themselves in their profile.<br /><br />
+<strong>Maximum Inbox Size</strong><br />
+Maximum Inbox size is based on the number of messages stored, regardless of their individual size. If you set this option to zero no limitation is imposed on the size of members inboxes.
+However, you may also set a maximum limit. In reality the maximum limit imposed is spread over both a members
+Inbox and Sentbox. When the limit is reached (adding both boxes together), the member will still be allowed to receive Private Messages
+but will no longer be allowed to send any until they have removed some old messages to below their maximum limit.
+[end]
+
+[pm-addressing]
+
+<strong>Private Messaging Addressing Options</strong><br /><br />
+In this admin panel, you can set some options for how users can address PMs.<br /><br />
+You can limit the number of PM recipients a user may send a PM to. If you dont want to limit, enter 0.<br /><br />
+You can also allow or disallow the use of the CC (carbon copy) and BCC (blind carbon copy) selectors for PM addressees.<br /><br />
+You can also optionally only allow sending of PMs from one member to another member via the SEND PM link in a post.  If this option is selected, users will not be able to assign addresses from within the compose PM panel.  Users will not be able to PM membes from their buddy list either.  The PM system becomes a person to person communication system using the SEND PM link in posts.
+[end]
+
+[pm-removal]
+
+<strong>Private Messags Auto Removal</strong><br /><br />
+In this admin panel, you can set it up such that PMs in user's inbox and outbox will automatically be removed after a period of time.  When you enable the auto removal option, the period of time is specified in days in the input box. A warning message will be displayed to users in their inbox so they are aware of the auto removal.
+[end]
+
+[image-uploads]
+
+<strong>Image Uploads</strong><br /><br />
+Allowing members to upload images to your server is defined in a members User Group Permissions. if you are allowing uploading it is
+necessary for you to create a folder where images will be uploaded to. This MUST be created under the standard
+'wp-content' folder. When this folder has been created and the necessary permissions on the folder set, enter the name of the folder in this option.
+Only the folder name is required.<br /><br />
+Please note that image uploading is ONLY available through the TinyMCE Rich Text Editor and the php GD graphics library is required.
+[end]
+
+[topic-status-sets]
+
+<strong>Topic Status Sets</strong><br /><br />
+A 'Topic Status Set' is an optional list of flags - or 'states' that a topic can go through. For example, if your forum is used
+as a support tool, a new topic could be flagged as, for example, 'New Issue'. The first response could change the state to 'Unresolved' and
+when the problem is dealt with, 'Resolved'.<br /><br />
+These sets of flags are user-definable and you can define as many as you need. Topic Status Sets are assigned to forums in the 'Manage Forums'
+admin panel by selecting the set to assign.
+[end]
+
+[post-editing]
+
+<strong>Post Editing</strong><br /><br />
+By default Simple:Press uses the TinyMCE Rich Text Editor for post entry. This is the same Rich Text Editor that is
+available for post and page creation within WordPress.<br /><br />
+If preferred, one of the 'QuickTags' editor can be invoked which uses standard HTML syntax, or a plain textarea box can be used.<br /><br />
+Please note that when the TinyMCE editor is set as the default, individual members can opt to use the
+Quicktags editor via a setting in their user profile if they are granted the permission to do so.<br /><br />
+<b>Rejecting Embedded Formatting</b><br />
+Some users may paste content into the editing window that has been copied from a source with embedded formatting such as MS Word or
+even from their browser display. This can add a large amount of unwanted and unseen data to a post and will usually force a unique display
+when the post is shown.<br />
+You can set an option here to reject any such post and force the user to paste their content into one of the toolbar filters (MS Word or Text)
+that automatically removes the embedded formatting. This is strongly recommended when  using the Rich Text Editor.
+[end]
+
+[editor-language]
+
+<strong>Editor Language</strong><br /><br />
+Thus setting allows you to select the language file to be used by the TinyMCE Rich Text Editor. Please note this setting has NO effect
+on any other part of the forum. It is also important to note that not all languages are available for TinyMCE. Availability is, however,
+checked with every major release of Simple:Press,. it is also possible to add your own language files should it become available.<br />
+This panel can also turn on support for right to left languages.
+[end]
+
+[editor-styles]
+<strong>Editor Styles</strong><br /><br />
+The three editors all come with their own stylesheet which can be customised. Stylesheets are stored in the <b>/styles/editors</b> folders
+under the appropriate editor name.<br /><br />
+It is recommended that if you wish to customise the styles you create a copy of existing stylesheets and customise those to your requirements.
+Then on this panel enter the name of the replacement stylesheet which will then be used instead of the default.
+In this way, your changes will not be overwritten with a version update.
+[end]
+
+[editor-relative]
+<strong>Relative URL's</strong><br /><br />
+When using the TinyMCE editor, you can choose to have internal URL's (links) saved as 'relative' or as 'absolute'.
+[end]
+
+[remove-editor-buttons]
+
+<strong>Removing Buttons from the Rich Text Editor (TinyMCE) Toolbar</strong><br /><br />
+To remove unwanted buttons (and separators) from the TinyMCE toolbar, simply click on the button to remove and respond to the
+confirmation dialog. When you have removed those not wanted, click on the Update button. Note that you can restore the defaults
+at any time and start again.<br /><br />
+Select buttons for removal carefully. Note that the 'Emotions' button (smileys) will be automatically removed if you have chosen
+WordPress or Custom Smileys (see Smileys tab). Note also that removing the 'Paste Text' and 'Paste Word' buttons will also disable
+the option to reject embedded formatting in posts (see the Global Tab of Forum Options) regardless of how that option is set.<br /><br />
+if you need to remolve toolbar buttons due to available width then it is possible to add them back to the second toolbar also on this panel.
+[end]
+
+[reorder-editor-buttons]
+
+<strong>Re-Ordering Buttons on the Rich Text Editor (TinyMCE) Toolbar</strong><br /><br />
+To re-order the buttons, simply click on the button to move and drag it to it's new home in the toolbar. When you have finished re-ordering
+click on the update button to save. Restoring the defaults also restores the default order.<br />
+Please note that the 'standard' buttons are separate from the 'plugin' buttons which always appear on the end of the toolbar.
+[end]
+
+[second-toolbar]
+
+<strong>Using the Second Toolbar</strong><br /><br />
+Simple:Press provides only a subset of available buttons/functions of the TinyMCE editor. If you wish to add other functions then
+you can add them to the second toolbar which will only appear if used. It is <b>very important</b>, if you use the second toolbar, to make
+sure you enter the details correctly. Buttons <b>MUST</b> be separated by commas. Button names <b>MUST</b> be typed as shown from the list below. You
+can also use the upright bar character ( | ) as a separator.
+<br /><br />
+This first list consists of the names of buttons/functions available on the default first toolbar. If you need to remove them from
+the first toolbar then it is possible to add them to the second:
+<ul>
+<li>bold</li>
+<li>italic</li>
+<li>underline</li>
+<li>bullist</li>
+<li>numlist</li>
+<li>blockquote</li>
+<li>outdent</li>
+<li>indent</li>
+<li>link</li>
+<li>unlink</li>
+<li>undo</li>
+<li>redo</li>
+<li>forecolor</li>
+<li>charmap</li>
+<li>image</li>
+</ul>
+<br />
+The second list contains all of the other button/functions that are available for the editor and compatible with Simple:Press:
+<ul>
+<li>strikethrough</li>
+<li>justifyleft</li>
+<li>justifycenter</li>
+<li>justifyright</li>
+<li>justifyfull</li>
+<li>cut</li>
+<li>copy</li>
+<li>paste</li>
+<li>cleanup</li>
+<li>help</li>
+<li>hr</li>
+<li>removeformat</li>
+<li>fontselect</li>
+<li>fontsizeselect</li>
+<li>styleselect</li>
+<li>sub</li>
+<li>sup</li>
+<li>backcolor</li>
+<li>backcolorpicker</li>
+<li>visualaid</li>
+<li>anchor</li>
+</ul>
+<br />
+An example of how to enter extra buttons on the second toolbar - including a separator would be:
+<br /><br />
+justifyleft,justifyright,|,sub,sup
+[end]
+
+[user-login]
+
+<strong>Show Login/Logout Links</strong><br />
+This option enables you to hide the login button from the forum pages.
+This is most useful if your site already displays these items elsewhere, such as on a sidebar.<br /><br />
+<b>Use In Line Login Form</b><br />
+The quickest login form drops down from the login bar at the top of the forum. However, if you have skinned your login forms or use a
+custom login plugin, you may prefer to turn this off and force the built in forms.<br /><br />
+<b>Skin Login Forms</b><br />
+The forum will remove the 'WordPress' badge replacing with a generic forum image if this option is turned on.
+[end]
+
+[user-registration]
+
+<strong>Show Regsitration Links</strong><br />
+This option enables you to hide the registration button from the forum pages.
+This is most useful if your site already displays these items elsewhere, such as on a sidebar.<br /><br />
+<strong>Spam Detection</strong><br />
+Simple:Press can use the effective 'math question' query to prevent spam posts being made automatically.
+This option is set up in the User Group Permissions. However, the same tool can also be used on the user registration form
+to help counter bogus registrations which are a general nuisance. Please note that if this feature is invoked it applies to both
+Simple:Press's registration form and the standard WordPress form.
+[end]
+
+[login-display]
+
+<strong>Login Strip Display</strong><br />
+You can optionally show the current members avatar beside their name and last visited date.
+[end]
+
+[login-registration-urls]
+
+<strong>Login and Registration URLs</strong><br />
+These are the URLs that will be used by the forum to handle Login/Logout, New User Registration and Lost Password.<br />
+Some users prefer a different redirect or do not wish to return to the forum after one of these actions and can alter the URLs
+to suit their own requirements.
+[end]
+
+[registration-policy]
+
+<strong>Registration/Site Policy</strong><br />
+Optionally display site and registration policy text before the registation form appears. This can include an optional
+check box to enforce acceptance before registration is allowed.<br /><br />
+You may also have Simple:Press create a link to this policy document in the Version Strip at the bottom of the forum display.<br /><br />
+The Registration Policy can be entered in the text area provided. Alternatively, it can be created in a text document stored
+in your Forum Policies folder location. Simply enter the document's file name. The file must be a plain text file. HTML formatting can be used.
+[end]
+
+[privacy-policy]
+
+<strong>Privacy Policy</strong><br />
+Optionally display a link to your Privacy Policy document in the Version Strip at the bottom of the forum display.<br /><br />
+The Privacy Policy can be entered in the text area provided. Alternatively, it can be created in a text document stored
+in your Forum Policies folder location. Simply enter the document's file name. The file must be a plain text file. HTML formatting
+can be used.
+[end]
+
+[no-login]
+<strong>No Login</strong><br /><br />
+Before forum Logon/Logout and Registration buttons and icons become visible, your WordPress site must be set up to allow
+people to register. Check the WP admin page under Settings -> General in WP2.5) and look for the
+'Membership' check box. This option turns on user registrations and enables to forum to allow logins from registered members.
+[end]
+
+[forum-ranks]
+
+<strong>Forum Ranks</strong><br /><br />
+This feature allows you to assign different 'ranks' to members depending on how many posts they have made.  A member's rank will be displayed along with each of their posts in the member's data box'.  In addition, when a member reaches a defined forum rank, it is possible to auto assign this member to a User Group.  This auto assignment makes it possible to grant additional permissions to users upon reaching specific plateaus based on number of posts. <br /><br />
+If using auto usergroup membership based on forum ranks, care must be taken with regards to the Users are Limited to Single User Group Membership option setting (forum - options - members tab) and what happens with existing user group memberships.  <br /><br />
+To create forum ranks, enter the name and the number of posts up to which it applies. Optionally, you may select a currently defined User Group in the drop down list to assign members to when the forum rank is obtained.<br /><br />
+If you use all the available fields simply save the options panel and another blank field will appear. There is no limit to the number of rankings you can define.<br /><br />
+The final ranking should have a very high post count or if a user exceeds the final specified post count, there will be no ranking for the user to be assinged to and instead the user will get a default forum ranking of 'Member'.<br /><br />
+It is also possible to associate a graphical badge with each forum rank.  Images are uploaded for use as forum badges via the badge uploader in the Custom Forum Badge fieldset below (see the help in that fieldset).  Once the badge images have been uploaded, the badge can be associated with a forum rank by typing its name (including the file extension, but no path) in the badge input column.  This badge will now be displayed in the topic view along with the username and avatar.<br /><br />
+Please note that any special rank assigned to a user overrides the forum rank (based on number of posts)
+[end]
+
+[custom-icon]
+
+<strong>Custom Icons</strong><br /><br />
+There is an allowance for up to three custom icons to be placed on the Login Bar (to the left of the Login/Logout icon).
+These can be used to set links to items outside of the forum such as, for example, an FAQ, Help, Contact or T & C Page.<br /><br />
+<strong>Display Text</strong<br />
+Enter here the text that displays within the link. If your icon is of a type that incorporates the text then leave this field empty.<br /><br />
+<strong>Target URL</strong><br />
+Enter the full URL needed for the target page of the link.<br /><br />
+<strong>Custom Icon</strong><br />
+Enter here the name of the icon that you wish to be displayed. Custom icons MUST be placed in a folder called 'custom' beneath the folder that contains the icon set
+you are using for your forum display. The Default icon set has this folder already defined and a small group of example icons. Note that only the full file name of the
+custom icon should be entered. The system will look for it in the appropriate 'custom' folder.
+[end]
+
+[editor-message]
+
+<strong>Custom Message Above Editor</strong><br /><br />
+Any text you enter here will be displayed immediately above the text editor for either, or both, a new Topic or new Post.
+This might, for example, be an instruction to the user to include certain details in their post, notes on formatting or
+a brief reminder about content policy.
+[end]
+
+[editor-intro]
+<strong>Custom In-Line Editor Message</strong><br /><br />
+You may optionally display a custom message inside the editor window as the first text of a new topic post. This could be
+used, for example, to request special information from the user such as which browser do they use - possibly important information
+if your forum is used for support purposes.
+[end]
+
+[seo-plugin-integration]
+
+<strong>SEO Settings</strong><br /><br />
+With these options, you can control the configuraton of the browser title on Simple:Press pages.  You can also control the use of meta description and keywords on forum pages.<br /><br />
+If you would like the topic title (if on a topic page) included in the page/browser title, select the checkbox.  If you would like the forum title (if on a forum page) included in the page/browser title, select the checkbox.  In addition, please enter the separator text that you would like to use between the page/browser title components. If you do not select any of the topic or forum titles to be included, nothing will be added to the page/browser title.
+[end]
+
+[seo-sitemap]
+<strong>Auto Build Sitemap</strong><br /><br />
+If you are using the Google XML Sitemap plugin by Arne Brachhold, you can have SPF add its forums and topics into the sitemap.  You have three options for how to get the SPF data into the sitemap.<br /><br />
+<strong>Dont Auto Generate</strong> - Use this option if you are using an external cron job or other method (including manual) for triggering the Google XML Sitemap plugin to rebuild the sitemap.<br /><br />
+<strong>Generate on Every New Topic</strong> - Use this option if you SPF to force a sitemap rebuild on every new topic. This can be cpu intensive if you have a lot of WP posts and or SPF Topics.<br /><br />
+<strong>Generate Sitemap Daily</strong> - Use this option if you want SPF to trigger a sitemap rebuild once per day.<br /><br />
+[end]
+
+[meta-tags]
+
+<strong>Custom Meta Tags</strong><br /><br />
+With these options, you can control the setting of custom meta tags for description and keywords on forum pages.<br /><br />
+You can enter a custom meta description and those choose whether that description is used on all forum pages or just the group view forum page.  In addition, you then can optionally have the forum description used on forum pages and topic pages or have topic titles used on topic pages.<br /><br />
+You can enter a custom list of keywords (comma separated) to be used on forum pages.  If tags are in use on a topic page, you can instead elect to to have the meta keywords be set to the topic tags.
+[end]
+
+[special-ranks]
+
+<strong>Special Forum Ranks</strong><br /><br />
+The special forum ranks feature allows you to assign a rank or title to a user or group of users just based upon who they are.  The ranks are not based upon the number of posts but just what you title you want to give an individual or group of individuals.<br /><br />
+You can create as many special forum ranks as you want and you may assign as many or as few users to get the special rank that you want.  The Admin and Moderator ranks can be thought of as a special forum rank though you control who gets that rank by identifying them as an Admin or Moderator.  The special forum ranks have priority when display a rank  for a user, followed by the special admin and moderator ranks and finally followed by the normal forum ranks that are based on the number of posts.<br /><br />
+To create a special rank, type the desired rank title into the input form at the bottom of the special ranks and click on the update forum ranks button.  After the special forum rank is created, you may then control the list of users that are assigned to that forum rank or remove the special forum rank if it is no longer needed.<br /><br />
+It is also possible to associate a graphical badge with each special rank.  Images are uploaded for use as forum badges via the badge uploader in the Custom Forum Badge fieldset below (see the help in that fieldset).  Once the badge images have been uploaded, the badge can be associated with a special rank by typing its name (including the file extension, but no path) in the badge input column.  This special rank badge will now be displayed in the topic view along with the username and avatar.<br /><br />
+Please note that uses should only be assigned a single special rank.  If they end up with multiple special ranks, only the first special rank found when displaying them will be displayed.  Any additional special ranks will be ignored.
+[end]
+
+[upload-settings]
+
+<b>Allocate Each Member a Private Folder</b><br /><br />
+By turning this option on, each member who is granted any uploading permissions will have their own 'private' folder defined that will be created
+within the upload folder specified in the location configuration of the forum. The benefit of this is that each member will not be able to list
+files uploaded by other members.<br /><br />
+<b>Maximum Size of Thumbnails</b><br /><br />
+Set the maximum size for thumbnails in the upload browser - will be applied to either the width or height whichever is the longer.<br /><br />
+<b>How Many Thumbnails to a Page</b><br /><br />
+This refers to how many items will appear in the upload browser per 'page'.
+[end]
+
+[prohibited-files]
+Use this list to hold the file types that are disallowed from being uploaded. It is important to include any files that may contain program code.
+<br /><br />
+Separate file extensions with a comma.
+[end]
+
+[image-files]
+Use this list to define the allowed image file types. Any not on this list will be disallowed.
+<br /><br />
+Separate file extensions with a comma.
+[end]
+
+[media-files]
+Use this list to define the allowed media file types. Any not on this list will be disallowed.
+<br /><br />
+Separate file extensions with a comma.
+[end]
+
+[other-files]
+Use this list to define the allowed 'other' file types. Any not on this list will be disallowed.
+<br /><br />
+Separate file extensions with a comma.
+[end]
+
+[badges-upload]
+
+<strong>Badges Uploads</strong><br /><br />
+If you have wish to use badges with your forum or special ranks, you can upload the badge images here. Click on the browse button, navigate to the badges you wish to upload and then click upload.  Once uploaded, the badge will be displayed next to the filename.  The location that badges are uploaded to is determined on the admin configuration panel.
+[end]
+
+[rank-badges]
+
+<strong>Custom Badges</strong><br /><br />
+This shows the current contents of the forum badges upload folder where badges are stored. If you wish to remove one then click on the remove icon in the far right column.  The badge image will be removed from your server and any forum or special ranks that used the badge will no longer display.
+[end]
+
+[custom-icons]
+
+<strong>Custom Icons</strong><br /><br />
+This shows the current contents of the custom icons upload folder where icons are stored. If you wish to remove one then click on the remove icon in the far right column.  The custom icon will be removed from your server and any group, forum or custom icon slot that used the custom icon will no longer display.
+[end]
+
+[icons-upload]
+
+<strong>Custom Icon Uploads</strong><br /><br />
+If you have wish to use custom icons with your group, forum or custom icon slots, you can upload the custom icons here. Click on the browse button, navigate to the custom icon you wish to upload and then click upload.  Once uploaded, the custom icon will be displayed next to the filename.  The location that custom icons are uploaded to is determined on the admin configuration panel.
+[end]
+
+[sneak-peek]
+
+<strong>Sneak Peek Message</strong><br /><br />
+If you are using the 'Can view forum and topic lists only' permission for guests or users, they will only be able to see the Group View (list of groups and forums) and Forum View (list of topics in a forum) and not any actual Posts.  This message is a customizable message that can be displayed to these guests and/or users when they try to view a Post.  If that permission is not being used, this message will never appear.
+[end]
+
+[adminv-view]
+
+<strong>View Admin Posts Message</strong><br /><br />
+Only users or guests with the 'Can view admin posts' permission will be able to posts by SPF Admins.  Others, without this permission, will instead be shown the View Admin Posts message.  This message is a customizable message that can be displayed to these guests and/or users when they try to view a Admin Post.  This can be useful for membership sites (perhaps paid support) were you want users to see what is being asked but not be able to see the Admin answers.
+[end]
+
+[rpx-login]
+
+<strong>RPX Web Services Support</strong><br /><br />
+Using the <a href="https://rpxnow.com/">RPX Web Services</a> you can allow users to use third party sites such as Twitter, Facebook, Google, Yahoo, OpenID, etc login credentials to access your site.  To utilize these services, you must have an <a href="https://rpxnow.com/">RPX Web Services Account</a>.  This account is free and will allow your users to access your site utilizing existing credentials.  To utilize the service, after creating an RPX account, please enter the RPX API key to begin utilizaing their service.
+[end]
+
+[announce-template-tag]
+
+<strong>Announce Template Tag</strong><br /><br />
+The 'Announce template tag is a special tag that can be used outside of the forum (i.e., in a sidebar). It is capable of using remote calls
+to update itself without requiring a page refresh. The tag displays the most recent posts, showing the current user those they have not yet read.
+As well as the tag code being placed in your blog theme, it must also be enabled here.<br /><br />
+<strong>Display as Unordered List</strong><br />
+By default, the tag content displays in a small HTML table. By checking this option it displays as an HTML unordered list<br /><br />
+<strong>Tag Display Heading</strong><br />
+Defines the main heading that will appear above the 'announce' list. You can use any appropriate HTML tags for styling.<br /><br />
+<strong>Text format of Tag Post Link</strong><br />
+You may determine the layout and content of each post entry in the 'announce' tag list. You may use any appropriate HTML tags for styling
+and the following placeholders are available which must be used exactly as shown:<ul>
+	<li>%FORUMNAME% - The full name of the forum</li>
+	<li>%TOPICNAME% - The full name of the topic</li>
+	<li>%POSTER% - The name of the author of the post being linked to</li>
+	<li>%DATETIME% - The date and time the post was made</li>
+</ul><br /><br />
+Note that by default a small icon is displayed beside each post entry (in table view). These can show whether the post has been
+read or not by the current user. The icons are contained in the forum skin you are using.
+[end]
+
+[announce-auto-refresh]
+
+<strong>Announce Auto Refresh</strong><br /><br />
+It is possible to have the 'Announce' tag auto refresh itself which means new posts will appear in the list as they are created.
+It is recommended to only use this feature if really required as it does require the system to make a regular call to the server and the database.
+The time between refreshes can also be set. Be cautious with this. If it is set too frequently (i.e., 15 seconds) a slow or busy server my be unable to handle the
+request before the next one arrives! It is best to set the refresh for a longer period, especially on a busy server.
+[end]
+
+[post-linking]
+
+<strong>Post Linking</strong><br /><br />
+Post Linking allows you the option to automatically create a new topic with the content of a blog post. The opposite of
+this is also available - creating a blog post from a new forum topic. Permissions to allow this can be turned on in the
+User Group Permission Sets. To create such links, users must have the relevant forum permissions and the capability to create
+WP posts or pages.<br /><br />
+<b>Auto-Create</b><br />
+With Auto-Creation turned on the blog linking form that displays in the WP new post/page panel will be automatically checked and, if left checked, will
+create a new topic in the default forum.  This option can be overridden on the blog link form.<br /><br />
+<b>Default Forum</b><br />
+The forum selected will be used as the default target for auto-created linked topics. A different forum can be selected at the blog Post
+creation time.<br /><br />
+<b>Post Types</b><br />
+Select the types of content you wish to place the blog linking form in when editing. The standardf types are 'Post' and 'Page' but others may
+be added via themnes or plugins using the Custom Post Type API.<br /><br />
+<b>Post Edit Updating.</b><br />
+Leaving this option checked will ensure that should the post be edited and updated then change will be reflected in the forum topic. This works both ways.
+This option can be overridden on the blog link form.<br /><br />
+<b>Content Type</b><br />
+As an option to Post Linking, you can decide to only create an excerpt of the blog post in the new forum topic. if you wish
+to do this, check the option and enter the word count you wish the excerpt to be truncated to.<br /><br />
+[end]
+
+[link-text-display]
+
+<strong>Link Display Text</strong><br /><br />
+if you are using Post Linking, you can determine the link text that displays both in the blog post and
+the forum topic post. These link back to each other.<br />
+You can let Simple:Press create the forum topic link (on the blog post) automatically. A template tag - sf_blog_linked_tag() - is
+also available as an alternative. You can also choose to display the link at the top or bottom (default) of the blog post.<br />
+Finally, you can select to only show the link in sngle page view.<br /><br />
+For the <b>blog post link</b>, various data items can be inserted by using the supplied placeholders. These are:
+<ul>
+<li>%ICON% - the forum skins blog link icon</li>
+<li>%FORUMNAME% - the name of the forum containing the linked topic</li>
+<li>%TOPICNAME% - the name of the topic itself</li>
+<li>%POSTCOUNT% - the number of topic posts that have been made</li>
+<li>%LINKSTART% - Starting position of the actual link. If not used the link will start at the beginning of the text</li>
+<li>%LINKEND% - Ending position of the actual link. If not used the link will stop at the end of the text</li>
+</ul>
+<br /><br />
+For the <b>forum topic link</b>, an icon and link positioning can be inserted by using the supplied placeholders. These are:
+<ul>
+<li>%ICON% - the forum skins blog link icon</li>
+<li>%BLOGTITLE% - the title of the blog post</li>
+<li>%LINKSTART% - Starting position of the actual link. If not used the link will start at the beginning of the text</li>
+<li>%LINKEND% - Ending position of the actual link. If not used the link will stop at the end of the text</li>
+</ul>
+[end]
+
+[show-as-comments]
+
+<strong>Show Topic Posts as Comments</strong><br /><br />
+By turning on this option, you will be able to display the posts from a linked topic as comments on the linked blog post.
+In order to use this feature, you will neeed to be able to look at and potentially edit your wp theme's comments template file
+(normally comments.php).<br /><br />
+If your theme comments template uses the older, pre WP 2.7 '<b>comment loop</b>', the topic posts will be appended to the end of the
+WP post comments. Or if you wish to completely replace the WP comments with the SPF linked topic posts, you can remove the comment
+entry form from your comment template and only the SPF linked topic posts will be shown.<br /><br />
+If your theme comment templates uses the newer WP 2.7+ <b>wp_list_comments()</b> function, you may need to edit the argument list.<br /><br />
+<b>Using Display Mixed in Standard Comment Block</b><br />
+If your comments template does not pass any arguments to the <b>wp_list_comments()</b> function or has a 'type=all' or 'type=comment'
+argument, the SPF linked topic posts will show up as comments interspersed with the WP comments, sorted by date. <br />Topic Posts will be
+sent to the WP function with a type of 'comment'.<br /><br />
+<b>Using Display in Separate Comment Block</b><br />
+If your comments template does pass an argument of 'type=xxxx', this allows separtion of the comments by type.  So you will likely see an
+argument of 'type=comment' plus potentially additional calls with different types.  If this is the case, you have a couple of options.
+You can add another comment section (duplicate) styled much like your section with 'type=comment', but instead this time, pass an argument
+of 'type=forum'.  This will give you the WP comments in a section, followed by the SPF linked topic posts.  Or if you want to
+completely replace the WP comments with the SPF linked topic posts, you can simply change the 'type=comment' argument to 'type=forum'
+and remove the comment entry form and only the SPF linked topic posts will be shown.<br />
+It should be noted then when a type of 'forum' is chosen, wp_list_comments() will <b>NOT display avatars</b>. This is a limitation of WordPress
+not a limitation of SPF.<br /><br />
+<b>Hide Duplicates</b><br />
+If you are showing topic posts as comments AND creating topic posts from comments without deleting the original then two copies of these
+will be displayed in the blog post comment list - the original blog comment AND the replicated topic post. In these circumstances you
+will probably want to hide the duplicate topic posts created automatically from blog comments. The Hide Duplicates option will do this.
+<br /><br />
+<b>Please Note:</b> Using forum linked topic posts as comments does NOT support the WP threading option.
+[end]
+
+[posts-from-comments]
+
+<strong>Create Topic Posts from Comments</strong><br /><br />
+<b>Before using these options in public it is recommended they be tested on your site as other plugins that operate on post and comment creation
+can effect the results.</b><br /><br />
+<b>Create New Topic Posts from Blog Post Comments</b><br />
+Once enabled, a new topic post will automatically be created in the linked topic with the comment content. This will occur when the comment
+is approved or at the time the comment is made if the comment needs no approval.<br /><br />
+<b>Delete Original Comment Upon Topic Post Creation</b><br />
+If enabled, the original comment will be deleted at the time the topic post is created. Use this with care as once the comment is removed
+it can not be restored. This option is intended for those that wish the forum to completely replace their commenting system.<br />
+There is no harm in leaving the original comment records other than database storage.<br /><br />
+<b>Update Topic Post on Comment Edit or Delete</b><br />
+If enabled, this option will update topic posts when the original comment is edited.
+[end]
+
+[mobile-browser]
+<strong>Mobile Browser Agents</strong><br /><br />
+Simple:Press currently does not have full mobile support, however, many mobile agents do work well with Simple:Press except for the usage of the tinymce browser.  So, current mobile device support consists of forcing a plain textarea for the provided list of mobile browser agents.  You can add or remove mobile browser agents as desired.
+[end]
+
+[mobile-touch]
+<strong>Mobile Browser Touch Agents</strong><br /><br />
+Simple:Press currently does not have full mobile support, however, many mobile touch agents do work well with Simple:Press except for the usage of the tinymce browser.  So, current mobile device support consists of forcing a plain textarea for the provided list of mobile browser touch agents.  You can add or remove mobile browser touch agents as desired.
+[end]

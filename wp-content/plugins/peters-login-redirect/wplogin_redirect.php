@@ -4,8 +4,9 @@ Plugin Name: Peter's Login Redirect
 Plugin URI: http://www.theblog.ca/wplogin-redirect
 Description: Redirect users to different locations after logging in. Define a set of rules for specific users, user with specific roles, users with specific capabilities, and a blanket rule for all other users. This is all managed in Settings > Login/logout redirects.
 Author: Peter
-Version: 2.5.2
+Version: 2.5.3
 Change Log:
+2012-06-15  2.5.3: Bug fix: Fallback redirect rule wouldn't update properly if logout URL was blank on MySQL installs with strict mode enabled (thanks kvandekrol!)
 2012-02-06  2.5.2: Bug fix: Fallback redirect rule updates were broken for non-English installs.
 2012-01-17  2.5.1: Bug fix: Redirect after registration back-end code was missed in 2.5.0, and thus that feature wasn't actually working.
 2012-01-15  2.5.0: Added redirect after registration option. Also made plugin settings editable in the WordPress admin panel.
@@ -49,7 +50,7 @@ global $rul_db_addresses;
 global $rul_version;
 // Name of the database table that will hold group information and moderator rules
 $rul_db_addresses = $wpdb->prefix . 'login_redirects';
-$rul_version = '2.5.2';
+$rul_version = '2.5.3';
 
 // A global variable that we will add to on the fly when $rul_local_only is set to equal 1
 $rul_allowed_hosts = array();
@@ -1371,11 +1372,19 @@ if (is_admin()) {
         // Turn version into an integer for comparisons
         $current_version = intval( str_replace( '.', '', get_option( 'rul_version' ) ) );
 
+        if( $current_version < 253 )
+        {
+            // Allow NULL values for non-essential fields
+            $wpdb->query( "ALTER TABLE '$rul_db_addresses' CHANGE `rul_value` `rul_value` varchar(255) NULL default NULL" );
+            $wpdb->query( "ALTER TABLE '$rul_db_addresses' CHANGE `rul_url` `rul_url` LONGTEXT NULL default NULL" );
+            $wpdb->query( "ALTER TABLE '$rul_db_addresses' CHANGE `rul_url_logout` `rul_url_logout` LONGTEXT NULL default NULL" );
+        }
+
         if( $current_version < 250 )
         {
             // Insert the "on-register" redirect entry
             
-            $wpdb->query( 'ALTER TABLE `' . $rul_db_addresses . "` CHANGE `rul_type` `rul_type` ENUM( 'user', 'role', 'level', 'all', 'register' ) NOT NULL" );
+            $wpdb->query( "ALTER TABLE '$rul_db_addresses' CHANGE `rul_type` `rul_type` ENUM( 'user', 'role', 'level', 'all', 'register' ) NOT NULL" );
             $wpdb->insert( $rul_db_addresses,
                 array( 'rul_type' => 'register' )
             );
@@ -1383,7 +1392,7 @@ if (is_admin()) {
 
         if( $current_version < 220 )
         {
-            $wpdb->query( 'ALTER TABLE `' . $rul_db_addresses . '` ADD `rul_url_logout` LONGTEXT NOT NULL AFTER `rul_url`' );
+            $wpdb->query( "ALTER TABLE '$rul_db_addresses' ADD `rul_url_logout` LONGTEXT NOT NULL default '' AFTER `rul_url`" );
         }
         
         if( $current_version != intval( str_replace( '.', '', $rul_version ) ) )
@@ -1398,16 +1407,16 @@ if (is_admin()) {
         global $wpdb, $rul_db_addresses, $rul_version;
         
         // Add the table to hold group information and moderator rules
-        if( $rul_db_addresses != $wpdb->get_var('SHOW TABLES LIKE \'' . $rul_db_addresses . '\'') )
+        if( $rul_db_addresses != $wpdb->get_var("SHOW TABLES LIKE '$rul_db_addresses'") )
         {
-            $sql = 'CREATE TABLE ' . $rul_db_addresses . ' (
-            `rul_type` enum(\'user\',\'role\',\'level\',\'all\',\'register\') NOT NULL,
-            `rul_value` varchar(255) NOT NULL default \'\',
-            `rul_url` LONGTEXT NOT NULL,
-            `rul_url_logout` LONGTEXT NOT NULL,
-            `rul_order` int(2) NOT NULL default \'0\',
+            $sql = "CREATE TABLE $rul_db_addresses (
+            `rul_type` enum('user','role','level','all','register') NOT NULL,
+            `rul_value` varchar(255) NULL default NULL,
+            `rul_url` LONGTEXT NULL default NULL,
+            `rul_url_logout` LONGTEXT NULL default NULL,
+            `rul_order` int(2) NOT NULL default '0',
             UNIQUE KEY `rul_type` (`rul_type`,`rul_value`)
-            )';
+            )";
 
             $wpdb->query($sql);
             

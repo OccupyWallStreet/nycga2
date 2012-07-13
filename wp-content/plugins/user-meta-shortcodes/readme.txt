@@ -1,10 +1,10 @@
-=== User meta shortcodes ===
+=== Plugin Name ===
 Contributors: rvencu
 Tags: user, user-meta, shortcode, meta, custom, field
 Requires at least: 2.7
-Tested up to: 3.2.1
-Stable tag: 0.2.1
-Use user meta as shortcode in post content without edit your theme files.
+Tested up to: 3.3.1
+Stable tag: 0.2.4
+Use user meta as shortcode in post content without editing your theme files.
 
 == Description ==
 
@@ -18,7 +18,14 @@ USAGE:use [userinfo field="fieldname"]some content[/userinfo] or [authorinfo f
 == Screenshots ==
 
 not applicable
-== Changelog ==
+== Changelog ==
+
+0.2.3 - replaced Ctrl+M carriage return with regular \r character in another attempt to fix invalid header errors with Linux hosts. Also fixed a buf for author info shortcode where the author info was displayed for logged in users only
+
+0.2.3 - second attempt to fix invalid header error. it seems this problem appears only with certain hosting types
+0.2.2 - invalid header error fixed (hopefully)
+
+0.2.1 - trying to fix invalid header error
 0.2 - shortcodes accept content now. In addition, conditional display of content by comparing the profile field with a value. Content is only displayed if the values are identical.0.1 - initial version
 
 == Frequently Asked Questions ==

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=6BKDC
 Tags: buddypress, group, groups, edit, organize, move, drag and drop
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 
 Easily create, edit, and delete BuddyPress groups - with drag and drop simplicity
 
@@ -40,6 +40,12 @@ No questions yet.
 
 == Changelog ==
 
+= 1.0.4 =
+* Added: Group avatars displayed in the organizer
+* Changed: remove a bunch of legacy nav menu code; may improve speed for sites with lots of groups
+* Changed: trimmed JS load a little more
+* Fixed: slashes would multiply in group name and description when saving - thanks, zanzaboonda
+
 = 1.0.3 =
 * Added: Organizer handle changes to indicate when a group is Private or Hidden
 * Changed: no longer Network-only
@@ -61,6 +67,9 @@ No questions yet.
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.4 =
+Bug fix for groups with quotes in name or description
 
 = 1.0.3 =
 Bug fixes and group status indicator

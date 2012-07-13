@@ -1,0 +1,111 @@
+/* ========================= */
+/* ! BuddyPress Shortcodes   */
+/* ========================= */
+.my_member,
+.my_group,
+.my_groups,
+.my_members,
+.my_friends,
+.user_groups,
+.my_messages,
+.my_notifications,
+.my_blogs,
+.my_blog_posts, 
+.my_forum { margin-bottom: 20px }
+.my_member-ul,
+.my_members-ul,
+.my_group-ul,
+.my_groups-ul,
+.my_friends-ul,
+.user_groups-ul,
+.my_messages-ul,
+.my_notifications-ul,
+.my_blogs-ul,
+.my_blog_posts-ul,
+.my_forum-ul {
+    list-style: none!important;
+    margin: 0px!important;
+    border-bottom: 1px solid #F1F1F1;
+}
+.my_member-ul li,
+.my_members-ul li,
+.my_group-ul li,
+.my_groups-ul li,
+.my_friends-ul li,
+.user_groups-ul li,
+.my_messages-ul li,
+.my_notifications-ul li,
+.my_blogs-ul li,
+.my_blog_posts-ul li,
+.my_forum-ul li {
+    margin-left: 0px;
+    clear: both;
+    list-style: none outside none;
+    border-bottom: 1px dashed #F4F4F4;
+}
+.my_member .bc_avatar,
+.my_group .bc_avatar,
+.my_groups .bc_avatar,
+.my_members .bc_avatar,
+.my_friends .bc_avatar,
+.user_groups .bc_avatar,
+.my_messages .bc_avatar,
+.my_notifications .bc_avatar,
+.my_blogs .bc_avatar,
+.my_blog_posts .bc_avatar, 
+.my_forum .bc_avatar {
+    float: left;
+    padding: 10px 10px 0 10px;
+}
+.my_messages .bc_avatar img,
+.my_notifications .bc_avatar img { margin-bottom: 5px }
+.my_member .user-infos,
+.my_group .group-infos,
+.my_groups .group-infos,
+.my_members .user-infos,
+.my_friends .user-infos,
+.user_groups .group-infos,
+.my_blogs .blog-infos,
+.my_blog_posts .post-infos,
+.my_forum .forum-infos {
+    margin-left: 70px;
+    padding: 5px;
+}
+.my_messages .message-infos,
+.my_notifications .notification-infos {
+    margin-left: 40px;
+    padding: 5px;
+}
+.my_member .user-infos h4 a,
+.my_group .group-infos h4 a,
+.my_groups .group-infos h4 a,
+.my_members .user-infos h4 a,
+.my_friends .user-infos h4 a,
+.user_groups .group-infos h4 a,
+.my_blogs .blog-infos h4 a,
+.my_blog_posts .post-infos a,
+.my_forum .forum-infos a { color: #555 }
+.my_member .user-infos p,
+.my_group .group-infos p,
+.my_messages .message-infos p,
+.my_notifications .notification-infos p,
+.my_blogs .blog-infos p,
+.my_blog_posts .post-infos p,
+.my_forum .forum-infos p { margin-bottom: 5px!important }
+.my_notifications .notification-infos p.bc_notifications { padding-top: 20px }
+.my_member .user-infos .xprofile_thead {
+    display: block;
+    font-weight: bold;
+}
+.my_member .user-infos .xprofile_content { /* some style */:  }
+.my_groups .featured,
+.my_members .featured,
+.my_blogs .featured {
+    margin: 5px;
+    border: inset 1px #e1e1e1;
+    background: #FFF;
+}
+.my_groups h3 { text-align: center }
+.bc_subject,
+.bc_from { display: block }
+.my_restrict_message { display: block;border:solid 1px #E1CA82;border-radius:3px;padding: 10px 15px;background-color: #FFEAA6; width:80%; margin:1em auto }

@@ -1,0 +1,55 @@
+--- Manage Toolbox ---
+$LastChangedDate: 2009-02-15 18:26:42 +0000 (Sun, 15 Feb 2009) $
+$Rev: 1401 $
+
+[check-for-updates]
+
+<strong>Check for Updates</strong><br /><br />
+You can check for an update to Simple:Press at any time by clicking here. This will tell you if you are using the very latest version.<br /><br />
+You can also turn automatic checks for updates. If 'on' this will display a message at the top of ther admin pages when an update to Simple:Press
+is available.
+[end]
+
+[uninstall]
+
+<strong>Un-install</strong><br /><br />
+If at any time you wish to entirely remove Simple:Press from your site, deactivating the plugin will stop it working but will NOT remove the data.
+To completely un-install Simple:Press, including the removal of all data tables and option records, check the un-install box and THEN deactivate the plugin.
+[end]
+
+[exclude-check-box]
+
+If you have checkboxes or radio buttons outside of the forum display - in  a sidebar for example - they may inherit the forums special
+checkbox graphic. If you prefer them not to then please enter the <b>name</b> of each control to be excluded. These <b>MUST</b> be in a comma delimited list.
+[end]
+
+[modify-build-number]
+
+<strong>Modify Build Number</strong><br /><br />
+<b>WARNING - Change this only if you know what you are doing!</b><br /><br />
+This option update allows admins to change the current Simple:Press build number.  <b>WARNING - Change this only if you know what you
+are doing!  Changing the build number should only be done in rare cases when there were issues during an upgrade or installation.</b><br /><br />
+By manually changing the build number AND checking the Force Upgrade box, you can force the upgrade/install procedure to run once again.
+Normally, you should only change this when recommended by the Simple:Press team in the support forum.
+[end]
+
+[select-topic-filter-date]
+
+<strong>Step 1: Select Topic Filter Date</strong><br /><br />
+Use the calendar control icon to select a date up to which you wish to review old topics that may now be redundant and which can
+safely be deleted from your forums. If you do not change this date, the current date will be used.
+[end]
+
+[select-group-forum-to-prune]
+
+<strong>Step 2: Select Forums To Review</strong><br /><br />
+From this list, use the checkboxes to select the forums whose topics you wish to review. By default, all are checked. <br /><br />
+When you have entered the date and made you forum selections, click on the <strong>Filter Topics</strong> button at the bottom.
+[end]
+
+[select-topics-to-prune]
+
+<strong>Step 3: Select Topics to Prune</strong><br /><br />
+Select the topics you wish to remove and click on the  <strong>Prune Topics</strong> button.<br /><br />
+Please remember, once removed these topics and all of their posts are deleted. They can not be re-instated.
+[end]

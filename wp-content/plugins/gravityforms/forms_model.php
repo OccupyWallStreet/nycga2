@@ -168,10 +168,10 @@ class RGFormsModel{
                 WHERE is_read=0 AND status='active'
                 GROUP BY form_id";
 
-        //getting number of unread leads for all forms
+        //getting number of unread and total leads for all forms
         $unread_results = $wpdb->get_results($sql, ARRAY_A);
 
-        $sql = "SELECT l.form_id, max(l.date_created) as last_lead_date
+        $sql = "SELECT l.form_id, max(l.date_created) as last_lead_date, count(l.id) as total_leads
                 FROM $lead_table_name l
                 WHERE status='active'
                 GROUP BY form_id";
@@ -200,6 +200,7 @@ class RGFormsModel{
                 foreach($lead_date_results as $lead_date_result){
                     if($lead_date_result["form_id"] == $forms[$i]["id"]){
                         $forms[$i]["last_lead_date"] = $lead_date_result["last_lead_date"];
+                        $forms[$i]["total_leads"] = $lead_date_result["total_leads"];
                         break;
                     }
                 }
@@ -323,7 +324,7 @@ class RGFormsModel{
         $lead = self::get_lead($lead_id);
 
         //marking entry as "spam" or "not spam" with Akismet if the plugin is installed
-        if($update_akismet && GFCommon::has_akismet() && $property_name == "status" && in_array($property_value, array("active", "spam"))){
+        if($update_akismet && GFCommon::akismet_enabled($lead["form_id"]) && $property_name == "status" && in_array($property_value, array("active", "spam"))){
 
             $current_status = $lead["status"];
             if($current_status == "spam" && $property_value == "active"){
@@ -362,10 +363,10 @@ class RGFormsModel{
         global $wpdb;
         $lead_table = self::get_lead_table_name();
 
-        $payment_date = strtotime($lead["payment_date"]) ? "'{$lead["payment_date"]}'" : "NULL";
-        $payment_amount = !empty($lead["payment_amount"]) ? $lead["payment_amount"] : "NULL";
-        $transaction_type = !empty($lead["transaction_type"]) ? $lead["transaction_type"] : "NULL";
-        $status = !empty($lead["status"]) ? $lead["status"] : "active";
+        $payment_date = strtotime(rgar($lead,"payment_date")) ? "'{$lead["payment_date"]}'" : "NULL";
+        $payment_amount = !rgblank(rgar($lead, "payment_amount")) ? rgar($lead, "payment_amount") : "NULL";
+        $transaction_type = !rgempty("transaction_type", $lead) ? $lead["transaction_type"] : "NULL";
+        $status = !rgempty("status", $lead) ? $lead["status"] : "active";
 
         $sql = $wpdb->prepare("UPDATE $lead_table SET
                                     form_id=%d,
@@ -383,8 +384,8 @@ class RGFormsModel{
                                     is_fulfilled=%d,
                                     transaction_type={$transaction_type},
                                     status='{$status}'
-                                WHERE id=%d",   $lead["form_id"], $lead["post_id"], $lead["is_starred"], $lead["is_read"], $lead["ip"], $lead["source_url"], $lead["user_agent"],
-                                                $lead["currency"], $lead["payment_status"], $lead["transaction_id"], $lead["is_fulfilled"], $lead["id"]);
+                               WHERE id=%d",   rgar($lead,"form_id"), rgar($lead,"post_id"), rgar($lead,"is_starred"), rgar($lead,"is_read"), rgar($lead,"ip"), rgar($lead,"source_url"), rgar($lead,"user_agent"),
+                                                rgar($lead,"currency"), rgar($lead,"payment_status"), rgar($lead,"transaction_id"), rgar($lead,"is_fulfilled"), rgar($lead,"id"));
         $wpdb->query($sql);
     }
 
@@ -579,13 +580,13 @@ class RGFormsModel{
         $lead_detail_table = self::get_lead_details_table_name();
 
         //Deleting file
-        $sql = $wpdb->prepare("SELECT value FROM $lead_detail_table WHERE lead_id=%d AND field_number BETWEEN %f AND %f", $lead_id, $field_id - 0.001, $field_id + 0.001);
+        $sql = $wpdb->prepare("SELECT value FROM $lead_detail_table WHERE lead_id=%d AND field_number BETWEEN %s AND %s", $lead_id, doubleval($field_id) - 0.001, doubleval($field_id) + 0.001);
         $file_path = $wpdb->get_var($sql);
 
         self::delete_physical_file($file_path);
 
         //Delete from lead details
-        $sql = $wpdb->prepare("DELETE FROM $lead_detail_table WHERE lead_id=%d AND field_number BETWEEN %f AND %f", $lead_id, $field_id - 0.001, $field_id + 0.001);
+        $sql = $wpdb->prepare("DELETE FROM $lead_detail_table WHERE lead_id=%d AND field_number BETWEEN %s AND %s", $lead_id, doubleval($field_id) - 0.001, doubleval($field_id) + 0.001);
         $wpdb->query($sql);
     }
 
@@ -821,6 +822,9 @@ class RGFormsModel{
         $original_post_id = rgget("post_id", $lead);
 
         $total_field = null;
+        $calculation_fields = array();
+        $recalculate_total = false;
+
         foreach($form["fields"] as $field){
 
             //Ignore fields that are marked as display only
@@ -839,10 +843,20 @@ class RGFormsModel{
                 continue;
             }
 
+            // process calculation fields after all fields have been saved
+            if(GFCommon::has_field_calculation($field)) {
+                $calculation_fields[] = $field;
+                continue;
+            }
+
             //only save fields that are not hidden (except on entry screen)
             if(RG_CURRENT_VIEW == "entry" || !RGFormsModel::is_field_hidden($form, $field, array()) ){
 
+                if($field['type'] == 'post_category')
+                    $field = GFCommon::add_categories_as_choices($field, '');
+
                 if(isset($field["inputs"]) && is_array($field["inputs"])){
+
                     foreach($field["inputs"] as $input)
                         self::save_input($form, $field, $lead, $current_fields, $input["id"]);
                 }
@@ -852,9 +866,157 @@ class RGFormsModel{
             }
         }
 
+        if(!empty($calculation_fields)) {
+            foreach($calculation_fields as $calculation_field) {
+
+                if(isset($calculation_field["inputs"]) && is_array($calculation_field["inputs"])){
+                    foreach($calculation_field["inputs"] as $input) {
+                        self::save_input($form, $calculation_field, $lead, $current_fields, $input["id"]);
+                    }
+                }
+                else{
+                    self::save_input($form, $calculation_field, $lead, $current_fields, $calculation_field["id"]);
+                }
+
+            }
+            self::refresh_product_cache($form, $lead = RGFormsModel::get_lead($lead['id']));
+        }
+
         //saving total field as the last field of the form.
-        if($total_field){
+        if($total_field) {
             self::save_input($form, $total_field, $lead, $current_fields, $total_field["id"]);
+        }
+
+    }
+
+    public static function create_lead($form) {
+        global $current_user;
+
+        $calculation_fields = array();
+
+        $lead = array();
+        $lead['id'] = null;
+        $lead['post_id'] = null;
+        $lead['date_created'] = null;
+        $lead['form_id'] = $form['id'];
+        $lead['ip'] = self::get_ip();
+        $lead['source_url'] = self::get_current_page_url();
+        $lead['user_agent'] = strlen($_SERVER['HTTP_USER_AGENT']) > 250 ? substr($_SERVER['HTTP_USER_AGENT'], 0, 250) : $_SERVER['HTTP_USER_AGENT'];
+        $lead['currency'] = GFCommon::get_currency();
+        $lead['created_by'] = $current_user && $current_user->ID ? $current_user->ID : 'NULL';
+
+        foreach($form['fields'] as $field) {
+
+            // ignore fields that are marked as display only
+            if(rgget('displayOnly', $field) && $field['type'] != 'password'){
+                continue;
+            }
+
+            // process total field after all fields have been saved
+            if($field['type'] == 'total'){
+                $total_field = $field;
+                continue;
+            }
+
+            // process calculation fields after all fields have been saved
+            if(GFCommon::has_field_calculation($field)) {
+                $calculation_fields[] = $field;
+                continue;
+            }
+
+            // only save fields that are not hidden
+            if(!RGFormsModel::is_field_hidden($form, $field, array()) ){
+
+                if($field['type'] == 'post_category')
+                    $field = GFCommon::add_categories_as_choices($field, '');
+
+                if(isset($field['inputs']) && is_array($field['inputs'])){
+                    foreach($field['inputs'] as $input) {
+                        $lead[(string)$input['id']] = self::get_prepared_input_value($form, $field, $lead, $input["id"]);
+                    }
+                }
+                else {
+                    $lead[$field['id']] = self::get_prepared_input_value($form, $field, $lead, $field["id"]);
+                }
+            }
+        }
+
+        if(!empty($calculation_fields)) {
+            foreach($calculation_fields as $field) {
+                if(isset($field["inputs"]) && is_array($field["inputs"])){
+                    foreach($field["inputs"] as $input) {
+                        $lead[(string)$input['id']] = self::get_prepared_input_value($form, $field, $lead, $input["id"]);
+                    }
+                }
+                else{
+                    $lead[$field['id']] = self::get_prepared_input_value($form, $field, $lead, $field["id"]);
+                }
+            }
+            self::refresh_product_cache($form, $lead);
+        }
+
+        // saving total field as the last field of the form.
+        if(isset($total_field)) {
+            $lead[$total_field['id']] = self::get_prepared_input_value($form, $total_field, $lead, $total_field["id"]);
+        }
+
+        return $lead;
+    }
+
+    public static function get_prepared_input_value($form, $field, $lead, $input_id) {
+
+        $input_name = "input_" . str_replace('.', '_', $input_id);
+        $value = rgpost($input_name);
+
+        if(empty($value) && rgar($field, "adminOnly") && !IS_ADMIN){
+            $value = self::get_default_value($field, $input_id);
+        }
+
+        switch(self::get_input_type($field)) {
+
+        case "post_image":
+            $file_info = self::get_temp_filename($form['id'], $input_name);
+            $file_path = self::get_file_upload_path($form['id'], $file_info["uploaded_filename"]);
+            $url = $file_path['url'];
+
+            $image_title = isset($_POST["{$input_name}_1"]) ? strip_tags($_POST["{$input_name}_1"]) : "";
+            $image_caption = isset($_POST["{$input_name}_4"]) ? strip_tags($_POST["{$input_name}_4"]) : "";
+            $image_description = isset($_POST["{$input_name}_7"]) ? strip_tags($_POST["{$input_name}_7"]) : "";
+
+            $value = !empty($url) ? $url . "|:|" . $image_title . "|:|" . $image_caption . "|:|" . $image_description : "";
+            break;
+
+        case "fileupload" :
+            $file_info = self::get_temp_filename($form['id'], $input_name);
+            $file_path = self::get_file_upload_path($form['id'], $file_info["uploaded_filename"]);
+            $value = $file_path['url'];
+            break;
+
+        default:
+
+            // processing values so that they are in the correct format for each input type
+            $value = self::prepare_value($form, $field, $value, $input_name, rgar($lead, 'id'), $lead);
+
+        }
+
+        return apply_filters("gform_save_field_value", $value, $lead, $field, $form);
+    }
+
+    public static function refresh_product_cache($form, $lead, $use_choice_text = false, $use_admin_label = false) {
+
+        $cache_options = array(
+            array(false, false),
+            array(false, true),
+            array(true, false),
+            array(true, true)
+            );
+
+        foreach($cache_options as $cache_option) {
+            list($use_choice_text, $use_admin_label) = $cache_option;
+            if( gform_get_meta( rgar($lead,'id'), "gform_product_info_{$use_choice_text}_{$use_admin_label}") ) {
+                gform_delete_meta(rgar($lead,'id'), "gform_product_info_{$use_choice_text}_{$use_admin_label}");
+                GFCommon::get_product_fields($form, $lead, $use_choice_text, $use_admin_label);
+            }
         }
 
     }
@@ -916,23 +1078,89 @@ class RGFormsModel{
         return null;
     }
 
-    public static function is_value_match($field_value, $target_value){
+    public static function is_value_match($field_value, $target_value, $operation="is", $source_field=null){
+        if($source_field && $source_field["type"] == "post_category"){
+            $field_value = GFCommon::prepare_post_category_value($field_value, $source_field, "conditional_logic");
+        }
+
         if(is_array($field_value)){
             foreach($field_value as $val){
-                if(GFCommon::get_selection_value($val) == $target_value)
+                if(self::matches_operation(GFCommon::get_selection_value($val), $target_value, $operation))
                     return true;
             }
         }
-        else if(GFCommon::get_selection_value($field_value) == $target_value){
+        else if(self::matches_operation(GFCommon::get_selection_value($field_value), $target_value, $operation)){
             return true;
         }
 
         return false;
     }
 
+    private static function try_convert_float($text){
+        global $wp_locale;
+        $number_format = $wp_locale->number_format['decimal_point'] == "," ? "decimal_comma" : "decimal_dot";
+
+        if(GFCommon::is_numeric($text, $number_format))
+            return GFCommon::clean_number($text, $number_format);
+
+        return $text;
+    }
+
+    public static function matches_operation($val1, $val2, $operation){
+
+        $val1 = !empty($val1) ? strtolower($val1) : "";
+        $val2 = !empty($val2) ? strtolower($val2) : "";
+
+        switch($operation){
+            case "is" :
+                return $val1 == $val2;
+            break;
+
+            case "isnot" :
+                return $val1 != $val2;
+            break;
+
+            case "greater_than":
+            case ">" :
+                $val1 = self::try_convert_float($val1);
+                $val2 = self::try_convert_float($val2);
+
+                return $val1 > $val2;
+            break;
+
+            case "less_than":
+            case "<" :
+                $val1 = self::try_convert_float($val1);
+                $val2 = self::try_convert_float($val2);
+
+                return $val1 < $val2;
+            break;
+
+            case "contains" :
+                return !empty($val2) && strpos($val1, $val2) !== false;
+            break;
+
+            case "starts_with" :
+                return !empty($val2) && strpos($val1, $val2) === 0;
+            break;
+
+            case "ends_with" :
+                $start = strlen($val1) - strlen($val2);
+                if($start < 0)
+                    return false;
+
+                $tail = substr($val1, $start);
+                return $val2 == $tail;
+            break;
+        }
+
+
+        return false;
+    }
+
     private static function get_field_display($form, $field, $field_values, $lead=null){
 
-        $logic = RGForms::get("conditionalLogic", $field);
+        $logic = rgar($field, "conditionalLogic");
 
         //if this field does not have any conditional logic associated with it, it won't be hidden
         if(empty($logic))
@@ -942,9 +1170,10 @@ class RGFormsModel{
         foreach($logic["rules"] as $rule){
             $source_field = RGFormsModel::get_field($form, $rule["fieldId"]);
             $field_value = empty($lead) ? self::get_field_value($source_field, $field_values) : self::get_lead_field_value($lead, $source_field);
-            $is_value_match = self::is_value_match($field_value, $rule["value"]);
 
-            if( ($rule["operator"] == "is" && $is_value_match ) || ($rule["operator"] == "isnot" && !$is_value_match) )
+            $is_value_match = self::is_value_match($field_value, $rule["value"], $rule["operator"], $source_field);
+
+            if($is_value_match)
                 $match_count++;
         }
 
@@ -982,6 +1211,10 @@ class RGFormsModel{
     }
 
     public static function get_field_value($field, $field_values = array(), $get_from_post=true){
+
+        if($field['type'] == 'post_category')
+            $field = GFCommon::add_categories_as_choices($field, '');
+
         $value = array();
         switch(RGFormsModel::get_input_type($field)){
             case "post_image" :
@@ -990,7 +1223,10 @@ class RGFormsModel{
                 $value[$field["id"] . ".7"] = self::get_input_value($field, "input_" . $field["id"] . "_7", $get_from_post);
             break;
             case "checkbox" :
-                $parameter_values = explode(",", self::get_parameter_value($field["inputName"], $field_values, $field));
+                $parameter_values = self::get_parameter_value($field["inputName"], $field_values, $field);
+                if(!empty($parameter_values) && !is_array($parameter_values)){
+                    $parameter_values = explode(",", $parameter_values);
+                }
 
                 if(!is_array($field["inputs"]))
                     return "";
@@ -1001,12 +1237,14 @@ class RGFormsModel{
                         $value[strval($input["id"])] = rgpost("input_" . str_replace('.', '_', strval($input["id"])));
                     }
                     else{
-                        foreach($parameter_values as $item){
-                            $item = trim($item);
-                            if(self::choice_value_match($field, $field["choices"][$choice_index], $item))
-                            {
-                                $value[$input["id"] . ""] = $item;
-                                break;
+                        if(is_array($parameter_values)){
+                            foreach($parameter_values as $item){
+                                $item = trim($item);
+                                if(self::choice_value_match($field, $field["choices"][$choice_index], $item))
+                                {
+                                    $value[$input["id"] . ""] = $item;
+                                    break;
+                                }
                             }
                         }
                     }
@@ -1042,12 +1280,10 @@ class RGFormsModel{
         }
         else if(rgar($field, "allowsPrepopulate")){
             return self::get_parameter_value($custom_name, $field_values, $field);
-
-
         }
     }
 
-    private static function get_parameter_value($name, $field_values, $field){
+    public static function get_parameter_value($name, $field_values, $field){
         $value = stripslashes(rgget($name));
         if(empty($value))
             $value = rgget($name, $field_values);
@@ -1071,7 +1307,7 @@ class RGFormsModel{
         return apply_filters("gform_field_value_$name", $value);
     }
 
-    private static function get_default_value($field, $input_id){
+    public static function get_default_value($field, $input_id){
         if(!is_array(rgar($field,"choices"))){
             if(is_array(rgar($field, "inputs"))){
                 $input = RGFormsModel::get_input($field, $input_id);
@@ -1122,7 +1358,7 @@ class RGFormsModel{
         return $value;
     }
 
-    private static function get_post_fields($form, $lead){
+    private static function get_post_fields($form, $lead) {
 
         $post_data = array();
         $post_data["post_custom_fields"] = array();
@@ -1131,6 +1367,9 @@ class RGFormsModel{
         $images = array();
 
         foreach($form["fields"] as $field){
+
+            if($field['type'] == 'post_category')
+                $field = GFCommon::add_categories_as_choices($field, '');
 
             $value = self::get_post_field_value($field, $lead);
 
@@ -1162,9 +1401,10 @@ class RGFormsModel{
                 break;
 
                 case "post_category" :
-                    list($cat_name, $cat_id) = rgexplode(":", $value, 2);
-                    //$category = get_term_by( 'name', $value, 'category' );
-                    array_push($categories, $cat_id);
+                    foreach(explode(',', $value) as $cat_string) {
+                        list($cat_name, $cat_id) = rgexplode(":", $cat_string, 2);
+                        array_push($categories, $cat_id);
+                    }
                 break;
 
                 case "post_image" :
@@ -1179,13 +1419,12 @@ class RGFormsModel{
             }
         }
 
-        $post_data["post_status"] = $form["postStatus"];
-        $post_data["post_category"] = !empty($categories) ? $categories : array($form["postCategory"]);
+        $post_data["post_status"] = rgar($form, "postStatus");
+        $post_data["post_category"] = !empty($categories) ? $categories : array(rgar($form, 'postCategory'));
         $post_data["images"] = $images;
 
         //setting current user as author depending on settings
-        global $current_user;
-        $post_data["post_author"] = $form["useCurrentUserAsAuthor"] && !empty($current_user->ID) ? $current_user->ID : $form["postAuthor"];
+        $post_data["post_author"] = $form["useCurrentUserAsAuthor"] && !empty($lead["created_by"]) ? $lead["created_by"] : $form["postAuthor"];
 
         return $post_data;
     }
@@ -1234,21 +1473,47 @@ class RGFormsModel{
         return $title;
     }
 
-    private static function prepare_value($form, $field, $value, $input_name, $lead_id){
+    public static function prepare_date($date_format, $value){
+        $format = empty($date_format) ? "mdy" : $date_format;
+        $date_info = GFCommon::parse_date($value, $format);
+        if(!empty($date_info))
+            $value = sprintf("%s-%02d-%02d", $date_info["year"], $date_info["month"], $date_info["day"]);
+        else
+            $value = "";
+
+        return $value;
+    }
+
+    /**
+    * Prepare the value before saving it to the lead.
+    *
+    * @param mixed $form
+    * @param mixed $field
+    * @param mixed $value
+    * @param mixed $input_name
+    * @param mixed $lead_id the current lead ID, used for fields that are processed after other fields have been saved (ie Total, Calculations)
+    * @param mixed $lead passed by the RGFormsModel::create_lead() method, lead ID is not available for leads created by this function
+    */
+    public static function prepare_value($form, $field, $value, $input_name, $lead_id, $lead = array()){
         $form_id = $form["id"];
 
         $input_type = self::get_input_type($field);
         switch($input_type)
         {
             case "total" :
-                $lead = RGFormsModel::get_lead($lead_id);
+                $lead = empty($lead) ? RGFormsModel::get_lead($lead_id) : $lead;
                 $value = GFCommon::get_order_total($form, $lead);
             break;
 
-            case "post_category" :
-                $cat = get_category($value);
-
-                $value = !empty($cat) ? $cat->name . ":" . $value : "";
+            case "calculation" :
+                // ignore submitted value and recalculate price in backend
+                list(,,$input_id) = rgexplode("_", $input_name, 3);
+                if($input_id == 2) {
+                    require_once(GFCommon::get_base_path() . '/currency.php');
+                    $currency = new RGCurrency(GFCommon::get_currency());
+                    $lead = empty($lead) ? RGFormsModel::get_lead($lead_id) : $lead;
+                    $value = $currency->to_money(GFCommon::calculate($field, $form, $lead));
+                }
             break;
 
             case "phone" :
@@ -1280,12 +1545,7 @@ class RGFormsModel{
             break;
 
             case "date" :
-                $format = empty($field["dateFormat"]) ? "mdy" : $field["dateFormat"];
-                $date_info = GFCommon::parse_date($value, $format);
-                if(!empty($date_info))
-                    $value = sprintf("%d-%02d-%02d", $date_info["year"], $date_info["month"], $date_info["day"]);
-                else
-                    $value = "";
+                $value = self::prepare_date($field["dateFormat"], $value);
 
             break;
 
@@ -1303,7 +1563,8 @@ class RGFormsModel{
             break;
 
             case "number" :
-                $value = GFCommon::clean_number($value, rgar($field, "numberFormat"));
+                $lead = empty($lead) ? RGFormsModel::get_lead($lead_id) : $lead;
+                $value = GFCommon::has_field_calculation($field) ? GFCommon::round_number(GFCommon::calculate($field, $form, $lead), rgar($field, "calculationRounding")) : GFCommon::clean_number($value, rgar($field, "numberFormat"));
             break;
 
             case "website" :
@@ -1323,11 +1584,11 @@ class RGFormsModel{
             case "radio" :
                 if(rgar($field, 'enableOtherChoice') && $value == 'gf_other_choice')
                     $value = rgpost("input_{$field['id']}_other");
-            break;
+                break;
 
             case "multiselect" :
                 $value = empty($value) ? "" : implode(",", $value);
-            break;
+                break;
 
             case "creditcard" :
                 //saving last 4 digits of credit card
@@ -1360,6 +1621,22 @@ class RGFormsModel{
                     $value = strip_tags($value, $allowable_tags);
 
             break;
+        }
+
+        // special format for Post Category fields
+        if($field['type'] == 'post_category') {
+
+            $full_values = array();
+
+            if(!is_array($value))
+                $value = explode(',', $value);
+
+            foreach($value as $cat_id) {
+                $cat = get_term($cat_id, 'category');
+                $full_values[] = !is_wp_error($cat) && is_object($cat) ? $cat->name . ":" . $cat_id : "";
+            }
+
+            $value = implode(',', $full_values);
         }
 
         //do not save price fields with blank price
@@ -1472,6 +1749,12 @@ class RGFormsModel{
             if($val == $choice["value"])
                 return true;
         }
+        // add support for prepopulating multiselects @alex
+        else if(RGFormsModel::get_input_type($field) == 'multiselect') {
+            $values = explode(',', $value);
+            if(in_array($choice['value'], $values))
+                return true;
+        }
         return false;
     }
 
@@ -1545,7 +1828,7 @@ class RGFormsModel{
         }
 
         //adding custom fields
-        foreach($post_data["post_custom_fields"] as $meta_name => $meta_value){
+        foreach($post_data["post_custom_fields"] as $meta_name => $meta_value) {
             if(!is_array($meta_value))
                 $meta_value = array($meta_value);
 
@@ -1560,6 +1843,9 @@ class RGFormsModel{
 
                     //replacing all other variables
                     $value = GFCommon::replace_variables($value, $form, $lead, false, false, false);
+
+                    // replace conditional shortcodes
+                    $value = do_shortcode($value);
                 }
                 switch(RGFormsModel::get_input_type($custom_field)){
                     case "list" :
@@ -1630,6 +1916,9 @@ class RGFormsModel{
                 //replacing all other variables
                 $post_title = GFCommon::replace_variables($post_title, $form, $lead, false, false, false);
 
+                // replace conditional shortcodes
+                $post_title = do_shortcode($post_title);
+
                 //updating post
                 $post->post_title = $post_title;
 
@@ -1640,14 +1929,16 @@ class RGFormsModel{
         }
 
         //adding post format
-        if(current_theme_supports('post-formats') && $form['postFormat']) {
+        if(current_theme_supports('post-formats') && rgar($form, 'postFormat')) {
 
             $formats = get_theme_support('post-formats');
+            $post_format = rgar($form, 'postFormat');
+
             if(is_array($formats)) {
                 $formats = $formats[0];
-                if(in_array( $form['postFormat'], $formats)) {
-                    set_post_format($post_id, $form['postFormat']);
-                } else if('0' == $form['postFormat']) {
+                if(in_array( $post_format, $formats)) {
+                    set_post_format($post_id, $post_format);
+                } else if('0' == $post_format) {
                     set_post_format($post_id, false);
                 }
             }
@@ -1764,7 +2055,7 @@ class RGFormsModel{
         return $id;
     }
 
-    private static function save_input($form, $field, &$lead, $current_fields, $input_id){
+    public static function save_input($form, $field, &$lead, $current_fields, $input_id){
         global $wpdb;
 
         $lead_detail_table = self::get_lead_details_table_name();
@@ -1835,15 +2126,15 @@ class RGFormsModel{
         }
         else{
             //Deleting details for this field
-            $sql = $wpdb->prepare("DELETE FROM $lead_detail_table WHERE lead_id=%d AND field_number BETWEEN %f AND %f ", $lead["id"], $input_id - 0.001, $input_id + 0.001);
+            $sql = $wpdb->prepare("DELETE FROM $lead_detail_table WHERE lead_id=%d AND field_number BETWEEN %s AND %s ", $lead["id"], doubleval($input_id) - 0.001, doubleval($input_id) + 0.001);
             $wpdb->query($sql);
 
             //Deleting long field if there is one
             $sql = $wpdb->prepare("DELETE FROM $lead_detail_long_table
                                     WHERE lead_detail_id IN(
-                                        SELECT id FROM $lead_detail_table WHERE lead_id=%d AND field_number BETWEEN %f AND %f
+                                        SELECT id FROM $lead_detail_table WHERE lead_id=%d AND field_number BETWEEN %s AND %s
                                     )",
-                                    $lead["id"], $input_id - 0,001, $input_id + 0.001);
+                                    $lead["id"], doubleval($input_id) - 0.001, doubleval($input_id) + 0.001);
             $wpdb->query($sql);
         }
     }
@@ -1893,6 +2184,15 @@ class RGFormsModel{
             return null;
 
         return $dir["basedir"] . "/gravity_forms/";
+    }
+
+    public static function get_upload_url_root(){
+        $dir = wp_upload_dir();
+
+        if($dir["error"])
+            return null;
+
+        return $dir["baseurl"] . "/gravity_forms/";
     }
 
     public static function get_upload_path($form_id){
@@ -1946,7 +2246,7 @@ class RGFormsModel{
         //Add the original filename to our target path.
         //Result is "uploads/filename.extension"
         $file_info = pathinfo($file_name);
-        $extension = $file_info["extension"];
+        $extension = rgar($file_info, 'extension');
         $file_name = basename($file_info["basename"], "." . $extension);
 
         $file_name = sanitize_file_name($file_name);
@@ -2004,6 +2304,12 @@ class RGFormsModel{
             case "time" :
                 $value = sprintf("%d:%02d %s", $value[0], $value[1], $value[2]);
             break;
+            case "date" :
+                $value = self::prepare_date(rgar($field, "dateFormat"), $value);
+            break;
+            case "number" :
+                $value = GFCommon::clean_number($value, rgar($field, 'numberFormat'));
+            break;
          }
 
 
@@ -2025,7 +2331,7 @@ class RGFormsModel{
             }
         }
         else{
-            $inner_sql = $wpdb->prepare($inner_sql_template, $field["id"], $form_id, $form_id, $field["id"] - 0.001, $field["id"] + 0.001, $value);
+            $inner_sql = $wpdb->prepare($inner_sql_template, $field["id"], $form_id, $form_id, doubleval($field["id"]) - 0.001, doubleval($field["id"]) + 0.001, $value);
         }
 
         $sql .= $inner_sql . "
@@ -2075,7 +2381,17 @@ class RGFormsModel{
             foreach($lead_field_keys as $input_id){
                 if(is_numeric($input_id) && absint($input_id) == absint($field["id"])){
                     $val = $lead[$input_id];
-                    $value[$input_id] = strlen($val) >= $max_length ? self::get_field_value_long($lead["id"], $input_id) : $val;
+                    if(strlen($val) >= ($max_length-10)) {
+                        if(empty($form))
+                            $form = RGFormsModel::get_form_meta($lead["form_id"]);
+
+                        $long_choice = self::get_field_value_long($lead, $input_id, $form);
+                    }
+                    else{
+                        $long_choice = $val;
+                    }
+
+                     $value[$input_id] = !empty($long_choice) ? $long_choice : $val;
                 }
             }
         }
@@ -2083,8 +2399,12 @@ class RGFormsModel{
             $val = rgget($field["id"], $lead);
 
             //To save a database call to get long text, only getting long text if regular field is "somewhat" large (i.e. max - 50)
-            if(strlen($val) >= ($max_length - 50))
-                $long_text = self::get_field_value_long($lead["id"], $field["id"]);
+            if(strlen($val) >= ($max_length - 50)){
+                if(empty($form))
+                    $form = RGFormsModel::get_form_meta($lead["form_id"]);
+
+                $long_text = self::get_field_value_long($lead, $field["id"], $form);
+            }
 
             $value = !empty($long_text) ? $long_text : $val;
         }
@@ -2095,16 +2415,25 @@ class RGFormsModel{
         return $value;
     }
 
-    public static function get_field_value_long($lead_id, $field_number){
+    public static function get_field_value_long($lead, $field_number, $form, $apply_filter=true){
         global $wpdb;
         $detail_table_name = self::get_lead_details_table_name();
         $long_table_name = self::get_lead_details_long_table_name();
 
         $sql = $wpdb->prepare(" SELECT l.value FROM $detail_table_name d
                                 INNER JOIN $long_table_name l ON l.lead_detail_id = d.id
-                                WHERE lead_id=%d AND field_number BETWEEN %f AND %f", $lead_id, $field_number - 0.001, $field_number + 0.001);
+                                WHERE lead_id=%d AND field_number BETWEEN %s AND %s", $lead["id"], doubleval($field_number) - 0.001, doubleval($field_number) + 0.001);
 
-         return $wpdb->get_var($sql);
+         $val = $wpdb->get_var($sql);
+
+         //running aform_get_input_value when needed
+         if($apply_filter){
+            $field = RGFormsModel::get_field($form, $field_number);
+            $input_id = (string)$field_number == (string)$field["id"] ? "" : $field_number;
+            $val = apply_filters("gform_get_input_value", $val, $lead, $field, $input_id);
+         }
+
+         return $val;
     }
 
     public static function get_leads($form_id, $sort_field_number=0, $sort_direction='DESC', $search='', $offset=0, $page_size=30, $star=null, $read=null, $is_numeric_sort = false, $start_date=null, $end_date=null, $status='active'){
@@ -2124,7 +2453,9 @@ class RGFormsModel{
         //getting results
         $results = $wpdb->get_results($sql);
 
-        return self::build_lead_array($results);
+        $leads = self::build_lead_array($results);
+
+        return $leads;
     }
 
     private static function sort_by_custom_field_query($form_id, $sort_field_number=0, $sort_direction='DESC', $search='', $offset=0, $page_size=30, $star=null, $read=null, $is_numeric_sort = false, $status='active'){
@@ -2137,20 +2468,19 @@ class RGFormsModel{
 
         $orderby = $is_numeric_sort ? "ORDER BY query, (value+0) $sort_direction" : "ORDER BY query, value $sort_direction";
 
-        //$search = empty($search) ? "" : "WHERE d.value LIKE '%$search%' ";
         $search_term = "%$search%";
         $search_filter = empty($search) ? "" : $wpdb->prepare("WHERE d.value LIKE %s", $search_term);
 
         //starred clause
-        $where = empty($search) ? "WHERE" : "AND";
+        $where = empty($search_filter) ? "WHERE" : "AND";
         $search_filter .= $star !== null && $status == 'active' ? $wpdb->prepare("$where is_starred=%d AND status='active' ", $star) : "";
 
         //read clause
-        $where = empty($search) ? "WHERE" : "AND";
+        $where = empty($search_filter) ? "WHERE" : "AND";
         $search_filter .= $read !== null && $status == 'active' ? $wpdb->prepare("$where is_read=%d AND status='active' ", $read) : "";
 
         //status clause
-        $where = empty($search) ? "WHERE" : "AND";
+        $where = empty($search_filter) ? "WHERE" : "AND";
         $search_filter .= $wpdb->prepare("$where status=%s ", $status);
 
         $field_number_min = $sort_field_number - 0.001;
@@ -2248,6 +2578,7 @@ class RGFormsModel{
             $lead = array("id" => $results[0]->id, "form_id" => $results[0]->form_id, "date_created" => $results[0]->date_created, "is_starred" => intval($results[0]->is_starred), "is_read" => intval($results[0]->is_read), "ip" => $results[0]->ip, "source_url" => $results[0]->source_url, "post_id" => $results[0]->post_id, "currency" => $results[0]->currency, "payment_status" => $results[0]->payment_status, "payment_date" => $results[0]->payment_date, "transaction_id" => $results[0]->transaction_id, "payment_amount" => $results[0]->payment_amount, "is_fulfilled" => $results[0]->is_fulfilled, "created_by" => $results[0]->created_by, "transaction_type" => $results[0]->transaction_type, "user_agent" => $results[0]->user_agent, "status" => $results[0]->status);
         }
 
+        $form = RGFormsModel::get_form_meta($form_id);
         $prev_lead_id=0;
         foreach($results as $result){
             if($prev_lead_id <> $result->id && $prev_lead_id > 0){
@@ -2257,8 +2588,9 @@ class RGFormsModel{
 
             $field_value = $result->value;
             //using long values if specified
-            if($use_long_values && strlen($field_value) >= GFORMS_MAX_FIELD_LENGTH){
-                $long_text = RGFormsModel::get_field_value_long($lead["id"], $result->field_number);
+            if($use_long_values && strlen($field_value) >= (GFORMS_MAX_FIELD_LENGTH-10)){
+                $field = RGFormsModel::get_field($form, $result->field_number);
+                $long_text = RGFormsModel::get_field_value_long($lead, $result->field_number, $form, false);
                 $field_value = !empty($long_text) ? $long_text : $field_value;
             }
 
@@ -2270,7 +2602,6 @@ class RGFormsModel{
             array_push($leads, $lead);
 
         //running entry through gform_get_field_value filter
-        $form = RGFormsModel::get_form_meta($form_id);
         foreach($leads as &$lead){
             foreach($form["fields"] as $field){
                 if(isset($field["inputs"]) && is_array($field["inputs"])){
@@ -2300,7 +2631,7 @@ class RGFormsModel{
         }
     }
 
-    public static function get_lead_count($form_id, $search, $star=null, $read=null, $start_date=null, $end_date=null){
+    public static function get_lead_count($form_id, $search, $star=null, $read=null, $start_date=null, $end_date=null, $status=null){
         global $wpdb;
 
         if(!is_numeric($form_id))
@@ -2313,6 +2644,7 @@ class RGFormsModel{
         $read_filter = $read !== null ? $wpdb->prepare("AND is_read=%d ", $read) : "";
         $start_date_filter = empty($start_date) ? "" : " AND datediff(date_created, '$start_date') >=0";
         $end_date_filter = empty($end_date) ? "" : " AND datediff(date_created, '$end_date') <=0";
+        $status_filter = $status !== null ? $wpdb->prepare(" AND status='%s' ", $status) : "";
 
         $search_term = "%$search%";
         $search_filter = empty($search) ? "" : $wpdb->prepare("AND value LIKE %s", $search_term);
@@ -2326,6 +2658,7 @@ class RGFormsModel{
                 $read_filter
                 $start_date_filter
                 $end_date_filter
+                $status_filter
                 $search_filter";
 
         return $wpdb->get_var($sql);
@@ -2479,6 +2812,7 @@ class RGFormsModel{
 
 global $_gform_lead_meta;
 $_gform_lead_meta = array();
+
 //functions to handle lead meta
 function gform_get_meta($entry_id, $meta_key){
     global $wpdb, $_gform_lead_meta;

@@ -15,4 +15,5 @@ sourceforge url
 set FALSE to var jushRoot 
 
 Filter of $query for Magic Quotes
-$query = $_POST["query"]; --> $query = stripslashes($_POST["query"]);
+$query = $_POST["query"]; --> $_POST = AdminerForWP::array_map_recursive( 'stripslashes_deep', $_POST );
+maybe also $_GET

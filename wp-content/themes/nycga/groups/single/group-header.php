@@ -46,13 +46,8 @@ do_action( 'bp_before_group_header' );
 	<?php do_action( 'bp_before_group_header_meta' ); ?>
 
 	<div id="item-meta">
-		<div id="desc-container">
-		<div id="top-group-desc-excerpt">
-		<?php bp_group_description_excerpt(); ?>
-		</div>
-		<div id="top-group-desc">
+		<div id="group-desc">
 				<?php bp_group_description(); ?>
-		</div>
 		</div>
 		<div id="item-buttons">
 

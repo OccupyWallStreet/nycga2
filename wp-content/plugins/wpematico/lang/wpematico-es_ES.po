@@ -1,0 +1,991 @@
+# Copyright (C) 2010 WPeMatico
+# This file is distributed under the same license as the WPeMatico package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WPeMatico 0.91.1Beta\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wpematico\n"
+"POT-Creation-Date: 2011-10-18 12:03:35+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2012-04-12 22:31-0300\n"
+"Last-Translator: Esteban <esteban@netmdp.com>\n"
+"Language-Team: NetMdP <esteban@netmdp.com>\n"
+"Plural-Forms: s, es\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: ARGENTINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: app/options-settings.php:10
+msgid "WPeMatico Settings"
+msgstr "Opciones de WPeMatico"
+
+#: app/options-settings.php:22
+#: app/options-settings.php:89
+#: app/options-edit-job.php:46
+msgid "Save Changes"
+msgstr "Guardar cambios"
+
+#: app/options-settings.php:29
+msgid "Send Mail"
+msgstr "Enviar correo electrónico"
+
+#: app/options-settings.php:31
+msgid "Sender Email:"
+msgstr "Remitente (De):"
+
+#: app/options-settings.php:32
+msgid "Sender Name:"
+msgstr "Nombre:"
+
+#: app/options-settings.php:33
+msgid "Send mail method:"
+msgstr "Método de envío:"
+
+#: app/options-settings.php:36
+msgid "PHP: mail()"
+msgstr "PHP: mail()"
+
+#: app/options-settings.php:37
+msgid "Sendmail"
+msgstr "Sendmail"
+
+#: app/options-settings.php:38
+msgid "SMTP"
+msgstr "SMTP"
+
+#: app/options-settings.php:41
+msgid "Sendmail Path:"
+msgstr "Sendmail Path:"
+
+#: app/options-settings.php:43
+msgid "SMTP Hostname:"
+msgstr "SMTP Hostname:"
+
+#: app/options-settings.php:44
+msgid "SMTP Secure Connection:"
+msgstr "SMTP Conexión Segura:"
+
+#: app/options-settings.php:46
+msgid "none"
+msgstr "ninguno"
+
+#: app/options-settings.php:50
+msgid "SMTP Username:"
+msgstr "SMTP nombre de usuario:"
+
+#: app/options-settings.php:51
+msgid "SMTP Password:"
+msgstr "SMTP Contraseña:"
+
+#: app/options-settings.php:57
+msgid "Images"
+msgstr "Imágenes"
+
+#: app/options-settings.php:59
+msgid "Cache Images."
+msgstr "Caché imágenes"
+
+#: app/options-settings.php:60
+#: app/options-edit-job.php:267
+msgid "Image Caching"
+msgstr "Image Caching"
+
+#: app/options-settings.php:60
+msgid "When image caching is on, a copy of every image found in content of every feed (only in &lt;img&gt; tags) is downloaded to the Wordpress UPLOADS Dir."
+msgstr "Cuando está activado cache imágenes, una copia de cada imagen encontrada (solo dentro de etiquetas &lt;img&gt; ) en el contenido es descargada y subida a la carpeta UPLOADS de Wordpress.  "
+
+#: app/options-settings.php:61
+#: app/options-edit-job.php:268
+msgid "If not enabled all images will linked to the image owner's server, but also make your website faster for your visitors."
+msgstr "Si no está activado, todas las imágenes cargarán desde la ubicación original del feed, pero también su sitio cargará más rápido para sus visitantes."
+
+#: app/options-settings.php:62
+msgid "Caching all images"
+msgstr "Caché para todas las imágenes:"
+
+#: app/options-settings.php:62
+msgid "This featured in the general Settings section, will be overridden for the campaign-specific options."
+msgstr "Esta característica en la sección de Ajustes Generales, será sobreescrita por las opciones específicas de la campaña."
+
+#: app/options-settings.php:64
+msgid "Attach Images to posts."
+msgstr "Adjuntar imágenes a las entradas."
+
+#: app/options-settings.php:65
+msgid "Image Attaching"
+msgstr "Adjuntando Imágenes"
+
+#: app/options-settings.php:65
+msgid "By default when image caching is on (and everything is working fine), a copy of every image found is added to Wordpress Media."
+msgstr "Por defecto cuando caché imágenes está activado (y todo anda bien), cada imagen es agregada a Wordpress Multimedia."
+
+#: app/options-settings.php:66
+msgid "If enabled Image Attaching all images will be attached to the owner post in WP media library; but if you see that the job process is too slowly you can deactivate this here."
+msgstr "Si activa Adjuntar Imágenes, todas las imágenes se adjuntarán al post de origen en la libreria multimedia de Wordpress; pero si ve que hace demasiado lento el proceso puede desactivar esto aquí."
+
+#: app/options-settings.php:72
+msgid "Enable Features"
+msgstr "Activar Características"
+
+#: app/options-settings.php:74
+msgid "Enable <b><i>Words to Categories</i></b> feature"
+msgstr "Activar Característica <b><i>Palabras a Categorías</i></b>"
+
+#: app/options-settings.php:75
+msgid "If you need this feature in every campaign, you can activate here.  Not recommended if you will not use this."
+msgstr "Si necesita esta característica en cada campaña, puede activarla aquí.  No recomendado si no la usará."
+
+#: app/options-settings.php:80
+msgid "Disable WP-Cron"
+msgstr "Disactivar WP-Cron"
+
+#: app/options-settings.php:82
+msgid "Use Cron job of Hoster and disable WP_Cron"
+msgstr "Usar el cron del hosting y desactivar WP_Cron"
+
+#: app/options-settings.php:83
+msgid "You must set up a cron job that calls:"
+msgstr "Debe configurar un \"cron job\" que llame:"
+
+#: app/options-settings.php:85
+msgid "or URL:"
+msgstr "o URL:"
+
+#: app/options-edit-job.php:12
+msgid "WPeMatico Campaign Settings"
+msgstr "WPeMatico Opciones de Campaña"
+
+#: app/options-edit-job.php:32
+msgid "Type of post to create"
+msgstr "Tipo de entrada a crear"
+
+#: app/options-edit-job.php:34
+msgid "Publish post as"
+msgstr "Publicar entrada como"
+
+#: app/options-edit-job.php:36
+msgid "Published"
+msgstr "Publicada"
+
+#: app/options-edit-job.php:37
+msgid "Private"
+msgstr "Privada"
+
+#: app/options-edit-job.php:38
+msgid "Draft"
+msgstr "Borrador"
+
+#: app/options-edit-job.php:43
+#: app/list-tables.php:113
+msgid ""
+"You are about to delete this Campaign. \n"
+"  'Cancel' to stop, 'OK' to delete."
+msgstr ""
+"Estás a punto de borrar esta Campaña. \n"
+"  'Aceptar' para borrar, 'Cancelar' para salir. "
+
+#: app/options-edit-job.php:43
+#: app/list-tables.php:51
+#: app/list-tables.php:113
+msgid "Delete"
+msgstr "Borrar"
+
+#: app/options-edit-job.php:53
+msgid "Campaign Schedule"
+msgstr "Programar Campaña"
+
+#: app/options-edit-job.php:55
+msgid "Activate scheduling"
+msgstr "Activar automático"
+
+#: app/options-edit-job.php:58
+msgid "Minutes: "
+msgstr "Minutos:"
+
+#: app/options-edit-job.php:66
+#: app/options-edit-job.php:83
+#: app/options-edit-job.php:100
+#: app/options-edit-job.php:118
+#: app/options-edit-job.php:142
+msgid "Any (*)"
+msgstr "Cualquiera (*)"
+
+#: app/options-edit-job.php:75
+msgid "Hours:"
+msgstr "Horas:"
+
+#: app/options-edit-job.php:92
+msgid "Days:"
+msgstr "Días:"
+
+#: app/options-edit-job.php:110
+msgid "Months:"
+msgstr "Meses:"
+
+#: app/options-edit-job.php:119
+msgid "January"
+msgstr "enero"
+
+#: app/options-edit-job.php:120
+msgid "February"
+msgstr "febrero"
+
+#: app/options-edit-job.php:121
+msgid "March"
+msgstr "marzo"
+
+#: app/options-edit-job.php:122
+msgid "April"
+msgstr "abril"
+
+#: app/options-edit-job.php:123
+msgid "May"
+msgstr "mayo"
+
+#: app/options-edit-job.php:124
+msgid "June"
+msgstr "junio"
+
+#: app/options-edit-job.php:125
+msgid "July"
+msgstr "julio"
+
+#: app/options-edit-job.php:126
+msgid "Augest"
+msgstr ""
+
+#: app/options-edit-job.php:127
+msgid "September"
+msgstr "septiembre"
+
+#: app/options-edit-job.php:128
+msgid "October"
+msgstr "octubre"
+
+#: app/options-edit-job.php:129
+msgid "November"
+msgstr "noviembre"
+
+#: app/options-edit-job.php:130
+msgid "December"
+msgstr "diciembre"
+
+#: app/options-edit-job.php:134
+msgid "Weekday:"
+msgstr "Día de semana:"
+
+#: app/options-edit-job.php:143
+msgid "Sunday"
+msgstr "Domingo"
+
+#: app/options-edit-job.php:144
+msgid "Monday"
+msgstr "Lunes"
+
+#: app/options-edit-job.php:145
+msgid "Tuesday"
+msgstr "Martes"
+
+#: app/options-edit-job.php:146
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#: app/options-edit-job.php:147
+msgid "Thursday"
+msgstr "Jueves"
+
+#: app/options-edit-job.php:148
+msgid "Friday"
+msgstr "Viernes"
+
+#: app/options-edit-job.php:149
+msgid "Saturday"
+msgstr "Sábado"
+
+#: app/options-edit-job.php:154
+msgid "Working as <a href=\"http://wikipedia.org/wiki/Cron\" target=\"_blank\">Cron</a> job schedule:"
+msgstr ""
+
+#: app/options-edit-job.php:155
+msgid "Next runtime:"
+msgstr "Proxima ejecución:"
+
+#: app/options-edit-job.php:161
+msgid "Campaign Categories"
+msgstr "Categorías de la campaña"
+
+#: app/options-edit-job.php:168
+msgid "Quick add"
+msgstr "Agregar rápido"
+
+#: app/options-edit-job.php:174
+msgid "Send log"
+msgstr "Enviar Informe"
+
+#: app/options-edit-job.php:176
+msgid "E-Mail-Adress:"
+msgstr "Correo Electrónico:"
+
+#: app/options-edit-job.php:178
+msgid "Send only E-Mail on errors."
+msgstr "Enviar E-Mail sólo si hay errores."
+
+#: app/options-edit-job.php:190
+msgid "Enter Campaign name here"
+msgstr "Introduce el nombre de la campaña aquí."
+
+#: app/options-edit-job.php:198
+msgid "Feeds"
+msgstr "Canales RSS"
+
+#: app/options-edit-job.php:200
+msgid "Please fill in at least one feed. If you're not sure about the exact feed url, just type in the domain name, and the feed will be autodetected."
+msgstr ""
+
+#: app/options-edit-job.php:205
+#: app/options-edit-job.php:211
+msgid "Feed URL:"
+msgstr "Feed URL:"
+
+#: app/options-edit-job.php:206
+#: app/options-edit-job.php:344
+msgid "Delete ?"
+msgstr "Borrar ?"
+
+#: app/options-edit-job.php:217
+#: app/options-edit-job.php:397
+#: app/options-edit-job.php:460
+msgid "Add more"
+msgstr "Agregar mas"
+
+#: app/options-edit-job.php:218
+msgid "Check all feeds"
+msgstr "Chequear todas las fuentes"
+
+#: app/options-edit-job.php:218
+msgid "Checking"
+msgstr "<i>Comprobando...</i>"
+
+#: app/options-edit-job.php:229
+msgid "Campaign Options"
+msgstr "Opciones de Campaña"
+
+#: app/options-edit-job.php:232
+msgid "Max items to create on each fetch:"
+msgstr "Cantidad máxima de ítems a crear por proceso:"
+
+#: app/options-edit-job.php:234
+msgid "Set it to 0 for unlimited. If set to a X value, only the last X items will be selected, ignoring the older ones."
+msgstr ""
+
+#: app/options-edit-job.php:236
+#: app/functions.php:80
+msgid "Author:"
+msgstr "Autor:"
+
+#: app/options-edit-job.php:238
+msgid "The created posts will be assigned to this author."
+msgstr ""
+
+#: app/options-edit-job.php:240
+msgid "Post title links to source?"
+msgstr ""
+
+#: app/options-edit-job.php:244
+msgid "Discussion options:"
+msgstr "Opciones de Comentarios:"
+
+#: app/options-edit-job.php:251
+msgid "Allow pings?"
+msgstr "Permitir pings?"
+
+#: app/options-edit-job.php:261
+msgid "Images Options"
+msgstr "Opciones de Imágenes"
+
+#: app/options-edit-job.php:265
+msgid "Enable Cache Images for this campaign?"
+msgstr ""
+
+#: app/options-edit-job.php:266
+#: app/options-edit-job.php:289
+#: app/options-edit-job.php:297
+#: app/options-edit-job.php:333
+#: app/options-edit-job.php:412
+msgid "Help"
+msgstr "Ayuda"
+
+#: app/options-edit-job.php:267
+msgid "When image caching is on, a copy of every image found (only in &lt;img&gt; tags) is downloaded to the specified directory, by default in Wordpress UPLOADS Dir (Highly recommended)."
+msgstr ""
+
+#: app/options-edit-job.php:269
+#: app/options-edit-job.php:277
+msgid "Note"
+msgstr "Nota"
+
+#: app/options-edit-job.php:269
+msgid "If this featured is disabled the general Settings options for images caching is taken. Enabling this feature here will be overridden only for this campaign the general Settings options for images caching."
+msgstr ""
+
+#: app/options-edit-job.php:272
+msgid "Cancel Cache Images for this campaign?"
+msgstr ""
+
+#: app/options-edit-job.php:276
+msgid "No link to source images"
+msgstr "No enlazar imágenes a la fuente"
+
+#: app/options-edit-job.php:277
+msgid "If selected and image upload get error, then delete the \"src\" attribute of the &lt;img&gt;. <br />If disable cache images, enabling this for delete \"src\" attribute of all &lt;img&gt; in the post."
+msgstr ""
+
+#: app/options-edit-job.php:286
+msgid "Post template"
+msgstr "Plantilla de entrada"
+
+#: app/options-edit-job.php:288
+msgid "Want to manage or add extra content to every post?"
+msgstr ""
+
+#: app/options-edit-job.php:295
+msgid "Enable Post Template"
+msgstr "Activar Plantilla de Entrada"
+
+#: app/options-edit-job.php:330
+msgid "Word to Category option"
+msgstr "Opción Palabra a Categoría"
+
+#: app/options-edit-job.php:332
+msgid "Want to assign a category because a word is in content?"
+msgstr ""
+
+#: app/options-edit-job.php:346
+msgid "Text:"
+msgstr "Texto:"
+
+#: app/options-edit-job.php:347
+#: app/options-edit-job.php:365
+#: app/options-edit-job.php:383
+#: app/options-edit-job.php:428
+#: app/options-edit-job.php:445
+#: app/options-edit-job.php:460
+msgid "RegEx"
+msgstr "Expresión Regular"
+
+#: app/options-edit-job.php:348
+#: app/options-edit-job.php:366
+msgid "Case sensitive"
+msgstr "Sensible a mayúsculas"
+
+#: app/options-edit-job.php:351
+#: app/options-edit-job.php:369
+#: app/options-edit-job.php:387
+msgid "To Category:"
+msgstr "A Categoría:"
+
+#: app/options-edit-job.php:356
+#: app/options-edit-job.php:373
+#: app/options-edit-job.php:391
+msgid "Select category"
+msgstr "Elegir categoría"
+
+#: app/options-edit-job.php:363
+#: app/options-edit-job.php:381
+msgid "Word:"
+msgstr "Palabra:"
+
+#: app/options-edit-job.php:384
+msgid "Case Sensitive"
+msgstr "Sensible a Mayúsculas"
+
+#: app/options-edit-job.php:409
+msgid "Rewrite option"
+msgstr "Opción Reemplazar"
+
+#: app/options-edit-job.php:411
+msgid "Want to transform a word into another? Or link a specific word to some website?"
+msgstr ""
+
+#: app/options-edit-job.php:425
+#: app/options-edit-job.php:442
+#: app/options-edit-job.php:460
+msgid "Origin:"
+msgstr "Origen:"
+
+#: app/options-edit-job.php:430
+#: app/options-edit-job.php:447
+#: app/options-edit-job.php:460
+msgid "Rewrite to:"
+msgstr "Reemplazar a:"
+
+#: app/options-edit-job.php:434
+#: app/options-edit-job.php:451
+#: app/options-edit-job.php:460
+msgid "ReLink to:"
+msgstr "Enlazar a:"
+
+#: app/options-save.php:37
+msgid "Copy of"
+msgstr "Copia de"
+
+#: app/options-save.php:81
+msgid "Settings saved"
+msgstr "Opciones Guardadas"
+
+#: app/options-save.php:84
+msgid "Settings NOT saved:  Something wrong happened."
+msgstr "Ajustes no guardado.  Algo anduvo mal."
+
+#: app/options-save.php:85
+#: app/options-save.php:174
+#: app/options-save.php:206
+#: app/options-save.php:213
+#: app/options-save.php:259
+msgid "Go Back"
+msgstr "Volver atrás"
+
+#: app/options-save.php:173
+msgid "There's an error with the supplied RegEx expression in word: %s"
+msgstr ""
+
+#: app/options-save.php:205
+msgid "Campaign '%1' NOT saved: At least one feed URL must be filled."
+msgstr ""
+
+#: app/options-save.php:212
+msgid "Feed <strong>%s</strong> could not be parsed.<br />(SimplePie said: %s)"
+msgstr ""
+
+#: app/options-save.php:258
+msgid "There's an error with the supplied RegEx expression in origin: %s"
+msgstr ""
+
+#: app/options-save.php:286
+msgid "Campaign '%1' changes saved."
+msgstr "Campaña '%1' cambios guardados."
+
+#: app/options-save.php:286
+msgid "Campaigns overview."
+msgstr "Resumen de campañas."
+
+#: app/list-tables.php:27
+msgid "No rights"
+msgstr "Derechos insuficientes"
+
+#: app/list-tables.php:46
+msgid "No Campaigns."
+msgstr "No hay Campañas."
+
+#: app/list-tables.php:52
+#: app/list-tables.php:114
+msgid "Reset"
+msgstr "Reiniciar"
+
+#: app/list-tables.php:60
+msgid "ID"
+msgstr "ID"
+
+#: app/list-tables.php:61
+msgid "Campaign Name"
+msgstr "Nombre de Campaña"
+
+#: app/list-tables.php:62
+msgid "Post type"
+msgstr "Tipo de entrada"
+
+#: app/list-tables.php:63
+msgid "Posts"
+msgstr "Entradas"
+
+#: app/list-tables.php:64
+msgid "Next Run"
+msgstr "Próxima"
+
+#: app/list-tables.php:65
+msgid "Last Run"
+msgstr "Ultimo"
+
+#: app/list-tables.php:107
+msgid "Edit:"
+msgstr "Editar:"
+
+#: app/list-tables.php:110
+msgid "Edit"
+msgstr "Editar"
+
+#: app/list-tables.php:111
+msgid "Deactivate"
+msgstr "Desactivar"
+
+#: app/list-tables.php:111
+msgid "Activate"
+msgstr "Activar"
+
+#: app/list-tables.php:112
+msgid "Copy"
+msgstr "Copiar"
+
+#: app/list-tables.php:114
+msgid ""
+"You are about to reset the posts count of this Campaign. \n"
+"  'Cancel' to stop, 'OK' to delete."
+msgstr ""
+
+#: app/list-tables.php:115
+msgid "Run Now"
+msgstr "Ejecutar"
+
+#: app/list-tables.php:117
+msgid "Clear"
+msgstr "Limpiar"
+
+#: app/list-tables.php:144
+#: app/functions.php:329
+msgid "Running since:"
+msgstr "Ejecutándose desde:"
+
+#: app/list-tables.php:144
+#: app/list-tables.php:160
+#: app/functions.php:329
+msgid "sec."
+msgstr "seg."
+
+#: app/list-tables.php:148
+msgid "Inactive"
+msgstr "Inactivo"
+
+#: app/list-tables.php:151
+msgid "<a href=\"http://wikipedia.org/wiki/Cron\" target=\"_blank\">Cron</a>:"
+msgstr "<a href=\"http://wikipedia.org/wiki/Cron\" target=\"_blank\">Cron</a>:"
+
+#: app/list-tables.php:160
+msgid "Runtime:"
+msgstr "Tiempo de ejecución:"
+
+#: app/list-tables.php:162
+#: app/functions.php:338
+msgid "None"
+msgstr "Ninguna"
+
+#. #-#-#-#-#  plugin.pot (WPeMatico 0.82Beta)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: app/functions.php:9
+#: app/functions.php:34
+#: app/functions.php:48
+#: app/functions.php:189
+msgid "WPeMatico"
+msgstr "WPeMatico"
+
+#: app/functions.php:10
+#: app/functions.php:129
+msgid "Campaigns"
+msgstr "Campañas"
+
+#: app/functions.php:11
+msgid "Add New Campaign"
+msgstr "Agregar nueva campaña"
+
+#: app/functions.php:11
+#: app/functions.php:34
+#: app/functions.php:48
+msgid "Add New"
+msgstr "Añadir nuevo"
+
+#: app/functions.php:12
+#: app/functions.php:130
+#: app/functions.php:172
+msgid "Settings"
+msgstr "Ajustes"
+
+#: app/functions.php:72
+#: app/functions.php:181
+msgid "Support"
+msgstr "Soporte"
+
+#: app/functions.php:73
+#: app/functions.php:180
+msgid "FAQ"
+msgstr "FAQ"
+
+#: app/functions.php:74
+msgid "Plugin Homepage"
+msgstr "Página del plugin  &#187;"
+
+#: app/functions.php:75
+msgid "Plugin Home on WordPress.org"
+msgstr "Página de plugins de WordPress.org &#187;"
+
+#: app/functions.php:76
+#: app/functions.php:182
+msgid "Donate"
+msgstr "Donar"
+
+#: app/functions.php:79
+msgid "Version:"
+msgstr "Versión:"
+
+#: app/functions.php:172
+msgid "Go to Settings Page"
+msgstr "Ir a la página de Ajustes"
+
+#: app/functions.php:294
+msgid "Processed Campaigns:"
+msgstr "Campañas Procesadas:"
+
+#: app/functions.php:302
+#: app/functions.php:326
+msgid "Edit Campaign"
+msgstr "Editar Campaña"
+
+#: app/functions.php:307
+#: app/functions.php:309
+#: app/wpematico_dojob.php:515
+msgid "Processed Posts: %1s"
+msgstr "Entradas procesadas: %1s"
+
+#: app/functions.php:312
+#: app/functions.php:314
+#: app/wpematico_dojob.php:490
+#: app/wpematico_dojob.php:515
+msgid "Job done in %1s sec."
+msgstr "Trabajo hecho en %1 seg."
+
+#: app/functions.php:323
+msgid "Scheduled Campaigns:"
+msgstr "Campañas programadas:"
+
+#: app/functions.php:487
+msgid "- WordPress 2.8 or heiger needed!"
+msgstr "- Necesita WordPress 3.0 o superior!"
+
+#: app/functions.php:491
+msgid "- PHP 5.2.0 or higher needed!"
+msgstr "- Necesita PHP 5.2.0 o superior!"
+
+#: app/functions.php:498
+msgid "- Please Check Scheduling time for Campaign:"
+msgstr ""
+
+#: app/functions.php:501
+msgid "- WP-Cron don't working please check it!"
+msgstr ""
+
+#: app/functions.php:638
+msgid "The feed %s has been parsed successfully."
+msgstr "El canal RSS %s ha sido procesado exitosamente."
+
+#: app/functions.php:639
+msgid "The feed %s cannot be parsed. Simplepie said: %s"
+msgstr ""
+
+#: app/functions5.php:38
+msgid "New"
+msgstr "Nuevo"
+
+#: app/compatibility/list-table.php:173
+msgid "No items found."
+msgstr "No se ha encontrado nada."
+
+#: app/compatibility/list-table.php:210
+msgid "Bulk Actions"
+msgstr "Acciones en lote"
+
+#: app/compatibility/list-table.php:215
+msgid "Apply"
+msgstr "Aplicar"
+
+#: app/compatibility/list-table.php:242
+msgid "Show all dates"
+msgstr "Mostrar todas las fechas"
+
+#: app/compatibility/list-table.php:270
+msgid "List View"
+msgstr "Ver lista"
+
+#: app/compatibility/list-table.php:271
+msgid "Excerpt View"
+msgstr "Ver extracto"
+
+#: app/compatibility/list-table.php:297
+msgid "%s pending"
+msgstr "%s pendientes"
+
+#. translators: comment count link
+#: app/compatibility/list-table.php:305
+msgctxt "comment count"
+msgid "0"
+msgstr "0"
+
+#. translators: comment count link
+#: app/compatibility/list-table.php:306
+msgctxt "comment count"
+msgid "1"
+msgstr "1"
+
+#. translators: comment count link: % will be substituted by comment count
+#: app/compatibility/list-table.php:307
+msgctxt "comment count"
+msgid "%"
+msgstr "%"
+
+#: app/compatibility/list-table.php:348
+#: app/compatibility/list-table.php:648
+msgid "1 item"
+msgid_plural "%s items"
+msgstr[0] "1 elemento"
+
+#: app/compatibility/list-table.php:358
+msgid "Go to the first page"
+msgstr "Ir a la primera página"
+
+#: app/compatibility/list-table.php:365
+msgid "Go to the previous page"
+msgstr "Ir a la página anterior"
+
+#: app/compatibility/list-table.php:371
+msgid "Current page"
+msgstr "Página actual"
+
+#: app/compatibility/list-table.php:377
+msgctxt "paging"
+msgid "%s of %s"
+msgstr "%s de %s"
+
+#: app/compatibility/list-table.php:381
+msgid "Go to the next page"
+msgstr "Ir a la página siguiente"
+
+#: app/compatibility/list-table.php:388
+msgid "Go to the last page"
+msgstr "Ir a la última página"
+
+#: app/wpematico_dojob.php:26
+msgid "[WARNING]"
+msgstr "[WARNING]"
+
+#: app/wpematico_dojob.php:31
+msgid "[ERROR]"
+msgstr "[ERROR]"
+
+#: app/wpematico_dojob.php:35
+msgid "[DEPRECATED]"
+msgstr "[DEPRECATED]"
+
+#: app/wpematico_dojob.php:38
+msgid "[STRICT NOTICE]"
+msgstr "[STRICT NOTICE]"
+
+#: app/wpematico_dojob.php:41
+msgid "[RECOVERABLE ERROR]"
+msgstr "[RECOVERABLE ERROR]"
+
+#: app/wpematico_dojob.php:102
+msgid "PHP Safe Mode is on!!! Max exec time is %1$d sec."
+msgstr ""
+
+#: app/wpematico_dojob.php:106
+msgid "Memory limit set to %1$s ,because can not use PHP: memory_get_usage() function to dynamically increase the Memory!"
+msgstr ""
+
+#: app/wpematico_dojob.php:131
+msgid "Processing feed %1s."
+msgstr "Procesando feed %1s."
+
+#: app/wpematico_dojob.php:147
+msgid "Filtering duplicated posts."
+msgstr "Filtrando entradas duplicadas."
+
+#: app/wpematico_dojob.php:155
+msgid "Campaign fetch limit reached at %1s."
+msgstr ""
+
+#: app/wpematico_dojob.php:168
+msgid "%s posts added"
+msgstr "%s entradas añadidas"
+
+#: app/wpematico_dojob.php:185
+msgid "Checking duplicated title '%1s'"
+msgstr ""
+
+#: app/wpematico_dojob.php:185
+msgid "Yes"
+msgstr "Sí"
+
+#: app/wpematico_dojob.php:185
+msgid "No"
+msgstr "No"
+
+#: app/wpematico_dojob.php:199
+msgid "Processing item %1s"
+msgstr "Procesando item %1s"
+
+#: app/wpematico_dojob.php:214
+msgid "Processing Words to Category %1s"
+msgstr ""
+
+#: app/wpematico_dojob.php:229
+msgid "Found!: word %1s to Cat_id %2s"
+msgstr "Encontrada: Palabra %1s a Cat_id %2s"
+
+#: app/wpematico_dojob.php:232
+msgid "Not found word %1s"
+msgstr "Palabra %1s no encontrada"
+
+#: app/wpematico_dojob.php:257
+msgid "Attaching images."
+msgstr "Adjuntando im{agenes."
+
+#: app/wpematico_dojob.php:266
+msgid "Processing item pingbacks"
+msgstr "Procesando pingbacks"
+
+#: app/wpematico_dojob.php:286
+msgid "Attaching file:"
+msgstr "Adjuntando archivo:"
+
+#: app/wpematico_dojob.php:288
+msgid "Sorry, your attach could not be inserted. Something wrong happened."
+msgstr "Disculpa, no se pudo insertar el adjunto. Algo ha ocurrido."
+
+#: app/wpematico_dojob.php:349
+msgid "Uploading images."
+msgstr "Subiendo imágenes."
+
+#: app/wpematico_dojob.php:503
+msgid "Campaign Name:"
+msgstr "Nombre de Campaña:"
+
+#: app/wpematico_dojob.php:505
+msgid "Errors:"
+msgstr "Errores:"
+
+#: app/wpematico_dojob.php:507
+msgid "Warnings:"
+msgstr "Warnings:"
+
+#: app/wpematico_dojob.php:512
+msgid "WPeMatico Log from"
+msgstr "WPeMatico Log desde"
+
+#: app/wpematico_dojob.php:516
+msgid "Show detailed Log"
+msgstr "Mostrar información detallada"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.netmdp.com/wpematico/"
+msgstr "http://www.netmdp.com/wpematico/"
+
+#. Description of the plugin/theme
+msgid "Enables administrators to create posts automatically from RSS/Atom feeds.  If you like it, please rate it."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Esteban Truelsegaard"
+msgstr "Esteban Truelsegaard"
+
+#. Author URI of the plugin/theme
+msgid "http://www.netmdp.com"
+msgstr "http://www.netmdp.com"
+

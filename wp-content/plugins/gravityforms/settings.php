@@ -69,6 +69,8 @@ class GFSettings{
             RGFormsModel::save_key($_POST["gforms_key"]);
             update_option("rg_gforms_disable_css", $_POST["gforms_disable_css"]);
             update_option("rg_gforms_enable_html5", $_POST["gforms_enable_html5"]);
+            update_option("gform_enable_noconflict", $_POST["gform_enable_noconflict"]);
+            update_option("rg_gforms_enable_akismet", $_POST["gforms_enable_akismet"]);
             update_option("rg_gforms_captcha_public_key", $_POST["gforms_captcha_public_key"]);
             update_option("rg_gforms_captcha_private_key", $_POST["gforms_captcha_private_key"]);
 
@@ -160,6 +162,27 @@ class GFSettings{
                         <?php _e("Set this to No if you would like to disable the plugin from outputting HTML5 form fields.", "gravityforms"); ?>
                     </td>
                 </tr>
+
+                <tr valign="top">
+                     <th scope="row"><label for="gform_enable_noconflict"><?php _e("No-Conflict Mode", "gravityforms"); ?></label>  <?php gform_tooltip("settings_noconflict") ?></th>
+                    <td>
+                        <input type="radio" name="gform_enable_noconflict" value="1" <?php echo get_option('gform_enable_noconflict') == 1 ? "checked='checked'" : "" ?> id="gform_enable_noconflict"/> <?php _e("On", "gravityforms"); ?>&nbsp;&nbsp;
+                        <input type="radio" name="gform_enable_noconflict" value="0" <?php echo get_option('gform_enable_noconflict') == 1 ? "" : "checked='checked'" ?> id="gform_disable_noconflict"/> <?php _e("Off", "gravityforms"); ?><br />
+                        <?php _e("Set this to On to prevent extraneous scripts and styles from being printed on Gravity Forms admin pages, reducing conflicts with other plugins and themes.", "gravityforms"); ?>
+                    </td>
+                </tr>
+
+                <?php if(GFCommon::has_akismet()){ ?>
+                <tr valign="top">
+                     <th scope="row"><label for="gforms_enable_akismet"><?php _e("Akismet Integration", "gravityforms"); ?></label>  <?php gform_tooltip("settings_akismet") ?></th>
+                    <td>
+                        <input type="radio" name="gforms_enable_akismet" value="1" <?php echo get_option('rg_gforms_enable_akismet') == 1 ? "checked='checked'" : "" ?> id="gforms_enable_akismet"/> <?php _e("Yes", "gravityforms"); ?>&nbsp;&nbsp;
+                        <input type="radio" name="gforms_enable_akismet" value="0" <?php echo get_option('rg_gforms_enable_akismet') == 1 ? "" : "checked='checked'" ?> /> <?php _e("No", "gravityforms"); ?><br />
+                        <?php _e("Protect your form entries from spam using Akismet.", "gravityforms"); ?>
+                    </td>
+                </tr>
+                <?php } ?>
+
                 <tr valign="top">
                     <th scope="row"><label for="gforms_currency"><?php _e("Currency", "gravityforms"); ?></label>  <?php gform_tooltip("settings_currency") ?></th>
                     <td>
@@ -291,7 +314,7 @@ class GFSettings{
                     </td>
                     <td>
                         <?php
-                            if(version_compare(get_bloginfo("version"), '2.8.0', '>')){
+                            if(version_compare(get_bloginfo("version"), '3.0', '>')){
                                 ?>
                                 <img src="<?php echo GFCommon::get_base_url() ?>/images/tick.png"/>
                                 <?php
@@ -299,7 +322,7 @@ class GFSettings{
                             else{
                                 ?>
                                 <img src="<?php echo GFCommon::get_base_url() ?>/images/cross.png"/>
-                                <span class="installation_item_message"><?php _e("Gravity Forms requires WordPress 2.8 or above.", "gravityforms"); ?></span>
+                                <span class="installation_item_message"><?php printf(__("Gravity Forms requires WordPress v%s or greater. You must upgrade WordPress in order to use this version of Gravity Forms.", "gravityforms"), GF_MIN_WP_VERSION); ?></span>
                                 <?php
                             }
                         ?>
@@ -346,7 +369,7 @@ class GFSettings{
     }
 
     public static function upgrade_license(){
-        check_ajax_referer('gf_upgrade_license','gf_upgrade_license');
+        //check_ajax_referer('gf_upgrade_license','gf_upgrade_license');
 
         $key = GFCommon::get_key();
         $body = "key=$key";

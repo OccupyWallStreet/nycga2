@@ -8,6 +8,9 @@ if (!window.console || !console.firebug) {
 
 var startPos=1;
 
+// Do not make tags on page load. call Make Tags once the user changes any settings.
+var makeTagsEnabled = false;
+
 function st_log() {
 	_gaq.push(['_trackEvent', 'WordPressPlugin', 'ConfigOptionsUpdated']);
 	_gaq.push(['_trackEvent', 'WordPressPlugin', "Type_" + $("#st_current_type").val()]);
@@ -43,7 +46,7 @@ jQuery(document).ready(function() {
 		scroll:1,
 		visible:1,
 		start:startPos,
-		wrap:"circular",
+		wrap:"both",
 		itemFirstInCallback: {
 		  onAfterAnimation: carDoneCB
 		},
@@ -67,6 +70,8 @@ jQuery(document).ready(function() {
 			$('#st_fblike').attr('checked','checked');
 		} else if (svc[i]=="plusone"){
 			$('#st_plusone').attr('checked','checked');
+		} else if (svc[i]=="pinterest"){
+			$('#st_pinterest').attr('checked','checked');
 		}
 	}
 	
@@ -118,6 +123,32 @@ jQuery(document).ready(function() {
 		clearTimeout(stpkeytimeout);
 		stpkeytimeout=setTimeout(function(){makeTags();},500);
 	})
+	
+	$('#st_pinterest').bind('click', function(){
+		if ($('#st_pinterest').attr('checked')) {
+			if ($('#st_services').val().indexOf("pinterest")==-1) {
+				$('#st_services').val($('#st_services').val()+",pinterest");
+			}
+		}
+		else {
+			var pos=$('#st_services').val().indexOf("pinterest");
+			if (pos!=-1) {
+				var str=$('#st_services').val();
+				if (pos==0)
+					$('#st_services').val(str.substr(pos+10));
+				else
+					$('#st_services').val(str.substr(0,pos-1)+str.substr(pos+9));
+			}
+		}
+		clearTimeout(stpkeytimeout);
+		stpkeytimeout=setTimeout(function(){makeTags();},500);
+	})
+	
+	
+	$(".registerLink").live('click',function() {
+		createOverlay();
+	});
+	
 });
 
 var stkeytimeout=null;
@@ -145,12 +176,15 @@ function makeTags(){
 		$('#st_tags').val(tags);
 		return true;
 	}
-	if(type=="chicklet" || type=="chicklet2" || type=="classic"){
+	if(type=="chicklet" || type=="classic"){
 		type="";
 	}
 	for(var i=0;i<svc.length;i++){
 		if(svc[i].length>2){
-			tags+="<span class='st_"+svc[i]+type+"' st_title='<?php the_title(); ?>' st_url='<?php the_permalink(); ?>' "+dt+"></span>";
+			if(type =="chicklet2")
+				tags+="<span class='st_"+svc[i]+"' st_title='<?php the_title(); ?>' st_url='<?php the_permalink(); ?>'></span>";
+			else
+				tags+="<span class='st_"+svc[i]+type+"' st_title='<?php the_title(); ?>' st_url='<?php the_permalink(); ?>' displayText='"+svc[i]+"'></span>";
 		}
 	}
 	$('#st_tags').val(tags);
@@ -186,7 +220,10 @@ function carDoneCB(a,elem){
 			$('#curr_type').html("classic");$("#st_current_type").val("classic");
 			$('#currentType').html("<span class='type_name'>Classic</span>");
 	}	
+	if(makeTagsEnabled == true) {
 	makeTags();	
+}
+	makeTagsEnabled = true;
 }
 
 $(".versionItem").click(function() {
@@ -194,4 +231,20 @@ $(".versionItem").click(function() {
 	$(this).addClass("versionSelect");	
 });
 
+var container = null;
+function createOverlay () {
+		container = $('<div id="registratorCodeModal" class="registratorCodeModal"></div><div class="registratorModalWindowContainer"><div id="registratorModalWindow"></div></div>');
+		$("body").append(container);
 
+		var div = container.find("#registratorModalWindow");
+		var html = "<div class='registratorContainer'>";
+		html += "<div onclick=javascript:container.remove(); class='registratorCloser'></div>";
+		html += "<iframe height='341px' width='551px' src='http://sharethis.com/external-login' />";
+		div.append(html);
+}
+
+$(document).keydown(function(e) {
+		if (e.keyCode == 27 && container!=null) { 
+			container.remove(); 
+		}
+});

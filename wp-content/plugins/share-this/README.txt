@@ -1,12 +1,12 @@
 === ShareThis: Share, Email, Tweet, Like, +1 Made Simple ===
-Tags:share, share this, sharethis, addthis, addtoany, share this, bookmark facebook, like, send,google plus, +1, sharing
+Tags:share, share this, sharethis, addthis, addtoany, share this, bookmark facebook, like, send,google plus, +1, sharing, pinterest
 
 Contributors:ShareThis
 Requires at least: 1.5
-Tested up to: 3.0.1
+Tested up to: 3.4
 Stable tag: trunk
 
-The ShareThis plugin seamlessly enables users to share your content through Email,Facebook,Twitter, Google +1, Like, Send and many more.
+The ShareThis plugin seamlessly enables users to share your content through Email,Facebook,Twitter, Google +1, Like, Send, Pinterest and many more.
 
 == Description ==
 
@@ -17,7 +17,7 @@ Used on over 1,000,000 sites, the ShareThis plugin allows users to share your co
 Now with simultaneous sharing to Facebook, Twitter, Email and more: you can broadcast your message more easily and widely than ever before.
 
 New Features:
-- Added Facebook Like and Google +1 options
+- Added Pinterest Support
 
 To get more information about the ShareThis plugin for WordPress, visit: http://help.sharethis.com/integration/wordpress
 

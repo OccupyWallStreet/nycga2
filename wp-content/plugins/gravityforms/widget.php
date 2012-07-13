@@ -73,7 +73,7 @@ class GFWidget extends WP_Widget {
                     $forms = RGFormsModel::get_forms(1, "title");
                     foreach ($forms as $form) {
                         $selected = '';
-                        if ($form->id == $instance['form_id'])
+                        if ($form->id == rgar($instance, 'form_id'))
                             $selected = ' selected="selected"';
                         echo '<option value="'.$form->id.'" '.$selected.'>'.$form->title.'</option>';
                     }
@@ -81,17 +81,17 @@ class GFWidget extends WP_Widget {
             </select>
         </p>
         <p>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'showtitle' ); ?>" id="<?php echo $this->get_field_id( 'showtitle' ); ?>" <?php checked($instance['showtitle']); ?> value="1" /> <label for="<?php echo $this->get_field_id( 'showtitle' ); ?>"><?php _e("Display form title", "gravityforms"); ?></label><br/>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'showdescription' ); ?>" id="<?php echo $this->get_field_id( 'showdescription' ); ?>" <?php checked($instance['showdescription']); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'showdescription' ); ?>"><?php _e("Display form description", "gravityforms"); ?></label><br/>
+            <input type="checkbox" name="<?php echo $this->get_field_name( 'showtitle' ); ?>" id="<?php echo $this->get_field_id( 'showtitle' ); ?>" <?php checked(rgar($instance, 'showtitle')); ?> value="1" /> <label for="<?php echo $this->get_field_id( 'showtitle' ); ?>"><?php _e("Display form title", "gravityforms"); ?></label><br/>
+            <input type="checkbox" name="<?php echo $this->get_field_name( 'showdescription' ); ?>" id="<?php echo $this->get_field_id( 'showdescription' ); ?>" <?php checked(rgar($instance, 'showdescription')); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'showdescription' ); ?>"><?php _e("Display form description", "gravityforms"); ?></label><br/>
         </p>
         <p>
             <a href="javascript: var obj = jQuery('.gf_widget_advanced'); if(!obj.is(':visible')) {var a = obj.show('slow');} else {var a = obj.hide('slow');}"><?php _e("advanced options", "gravityforms"); ?></a>
         </p>
         <p class="gf_widget_advanced" style="display:none;">
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'ajax' ); ?>" id="<?php echo $this->get_field_id( 'ajax' ); ?>" <?php checked($instance['ajax']); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'ajax' ); ?>"><?php _e("Enable AJAX", "gravityforms"); ?></label><br/>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'disable_scripts' ); ?>" id="<?php echo $this->get_field_id( 'disable_scripts' ); ?>" <?php checked($instance['disable_scripts']); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'disable_scripts' ); ?>"><?php _e("Disable script output", "gravityforms"); ?></label><br/>
+            <input type="checkbox" name="<?php echo $this->get_field_name( 'ajax' ); ?>" id="<?php echo $this->get_field_id( 'ajax' ); ?>" <?php checked(rgar($instance, 'ajax')); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'ajax' ); ?>"><?php _e("Enable AJAX", "gravityforms"); ?></label><br/>
+            <input type="checkbox" name="<?php echo $this->get_field_name( 'disable_scripts' ); ?>" id="<?php echo $this->get_field_id( 'disable_scripts' ); ?>" <?php checked(rgar($instance, 'disable_scripts')); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'disable_scripts' ); ?>"><?php _e("Disable script output", "gravityforms"); ?></label><br/>
             <label for="<?php echo $this->get_field_id( 'tabindex' ); ?>"><?php _e("Tab Index Start", "gravityforms"); ?>: </label>
-            <input id="<?php echo $this->get_field_id( 'tabindex' ); ?>" name="<?php echo $this->get_field_name( 'tabindex' ); ?>" value="<?php echo $instance['tabindex']; ?>" style="width:15%;" /><br/>
+            <input id="<?php echo $this->get_field_id( 'tabindex' ); ?>" name="<?php echo $this->get_field_name( 'tabindex' ); ?>" value="<?php echo rgar($instance, 'tabindex'); ?>" style="width:15%;" /><br/>
             <small><?php _e("If you have other forms on the page (i.e. Comments Form), specify a higher tabindex start value so that your Gravity Form does not end up with the same tabindices as your other forms. To disable the tabindex, enter 0 (zero).", "gravityforms"); ?></small>
         </p>
 

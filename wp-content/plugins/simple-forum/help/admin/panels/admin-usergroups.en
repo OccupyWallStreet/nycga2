@@ -1,0 +1,39 @@
+--- Manage User Groups ---
+$LastChangedDate: 2009-02-15 16:15:10 +0000 (Sun, 15 Feb 2009) $
+$Rev: 1398 $
+
+[create-new-user-group]
+
+<strong>Create New User Group</strong><br /><br />
+This admin panel is used to create a new User Group. When created, this User Group will not have any members and will not have any permissions for your Forums. You will need to add members via this admin page and then add the User Group to your Forums with a Permission set via the Manage Forums admin page.
+<br /><br />
+Enter a User Group name and description and check the moderation box if this user group should be considered moderators. This considered moderators box is used to display moderators for the forums. User Group Permissions are still controlled via the Permission Sets. Please remember that the Guests, Members and Moderators are pre-defined User Groups that cannot be modified or deleted.
+[end]
+
+[edit-user-group]
+
+<strong>Edit User Group</strong><br /><br />
+This admin panel is used to edit an existing User Group name, description or treat as moderators flag. User Group membership cannot be changed from this panel, but are instead changed from the Add, Move or Delete buttons. Please remember that the Guests, Members and Moderators are pre-defined User Groups that cannot be modified or deleted.
+[end]
+
+[delete-user-group]
+
+<strong>Delete User Group</strong><br /><br />
+This admin panel is used to delete an existing User Group. Use with caution as all memberships in the User Group will also be deleted. If the members of this User Group are not in another User Group, they will lose access to the Forums. Please remember that the Guests, Members and Moderators are pre-defined User Groups that cannot be modified or deleted.
+[end]
+
+[add-members]
+
+<strong>Add Members To User Group</strong><br /><br />
+This admin panel is used to add Forum Users to a User Group. Forum Users may belong to any number of User Groups. A list of registered Forum Users not already in this User Group is displayed. You may select any number of Users to add by clicking individually on their names. If you want to select more than one User, you must hold down the control key while selecting the Users. When finished selecting the desired Users, hit the Add Members button.<br /><br />
+When User Group memberships are added, care must be taken with regard to the Users are Limited to Single User Group Membershp option setting (forum - options - member tab).  If not set, the new memberhsip will be added to the existing memberships for the user.  If the option is set, any existing memberships will be removed.
+[end]
+
+[move-delete-members]
+
+<strong>Move or Delete Members From User Group</strong><br /><br />
+This admin panel is used to delete Users from a User Group. You may also choose to move the User to another User Group when removing the User from this User Group. If you delete a User from this User Group, if they are not members of another User Group, they will lose access to your Forums.
+<br /><br />
+Members of the current User Group are listed in the panel. Select as many Users as you want to delete/move. To select more than one User, you must hold down the control key while selecting the Users. If you wish to delete the User(s), leave the Select User Group pull-down in its default state and select Move/Delete Members. If you wish to move the User(s) to another User Group, select the new User Group in the pull-down and then select Move/Delete Members.<br /><br />
+When User Group memberships are moved, care must be taken with regard to the Users are Limited to Single User Group Membershp option setting (forum - options - member tab).  If not set, the new memberhsip will be added to the existing memberships for the user.  If the option is set, any existing memberships will be removed.
+[end]

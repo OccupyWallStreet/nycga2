@@ -4,10 +4,10 @@
 admin.css
 Gravity Forms Administration Form Styles
 http: //www.gravityforms.com
-updated: November 2, 2011 1:06 AM
+updated: March 23, 2012 3:50 PM
 
 Gravity Forms is a Rocketgenius project
-copyright 2011 Rocketgenius Inc.
+copyright 2012 Rocketgenius Inc.
 http: //www.rocketgenius.com
 this may not be re-distrubited without the
 express written permission of the author.
@@ -767,12 +767,10 @@ div#wpbody {
 	text-align: left
 }
 #floatMenu {
-	position: absolute;
 	width: 280px;
-	top: 112px;
 	z-index: 99;
 	background-color: #FFF;
-	padding-bottom:20px
+	padding-bottom: 20px
 }
 .button-title-link div.add-buttons-title {
 	background-image: url(../images/expand_title.png);
@@ -1167,8 +1165,17 @@ ul#form_autoresponder_container li label {
 	height: 80px
 }
 
-/* bulk add panel ------------------------------------------------------*/
+.gform_merge_tags{
+    width: 200px;
+}
+.gform_editor_merge_tags{
+    width: 190px;
+}
+.gform_content_template_merge_tags{
+    width: 165px;
+}
 
+/* bulk add panel ------------------------------------------------------*/
 .panel-instructions {
 	border-bottom: 1px solid #DFDFDF;
 	color: #555;
@@ -1199,7 +1206,7 @@ ul#form_autoresponder_container li label {
 	text-decoration: none
 }
 .bulk-left-panel ul li a.bulk-choice:hover {
-	background-color: #dadada
+	background-color: #DADADA
 }
 .bulk-left-panel ul li.choice_section_header {
 	background-color: #DFEFFF;
@@ -1217,14 +1224,14 @@ a.bulk-choice:first-child {
 }
 .bulk-arrow-mid {
 	float: left;
-	width: 45px;
+	width: 40px;
 	height: 330px;
 	background-image: url(../images/arrow-right.jpg);
-	background-position: 50% 50%;
+	background-position: 100% 50%;
 	background-repeat: no-repeat
 }
 textarea#gfield_bulk_add_input {
-	width: 330px;
+	width: 320px;
 	height: 330px;
 	float: right;
 	padding: 6px
@@ -1242,7 +1249,7 @@ div.panel-buttons {
 	*display: inline
 }
 div.panel-custom {
-	margin-left:65px;
+	margin-left: 65px;
 	display: -moz-inline-stack;
 	display: inline-block;
 	zoom: 1;
@@ -1254,12 +1261,9 @@ div#bulk_custom_message {
 
 /* after update form panel ------------------------------------------------------*/
 
-#after_update_dialog {}
 .updated_base {
 	background-color: #FFFFE0;
 	border-color: #E6DB55
-}
-.updated_base {
 	border-width: 1px;
 	border-style: solid;
 	padding: 0 0.6em;
@@ -1280,11 +1284,18 @@ div#bulk_custom_message {
 table.form-table td .updated_base {
 	font-size: 13px
 }
+#gform_no_product_field_message{
+    background-color: #FFEBE8;
+    border-color: #CC0000;
+    border-width: 1px;
+    border-style: solid;
+    padding: 0.6em 0.6em;
+    margin: 10px 15px 10px 0;
+}
+
 .error_base {
 	background-color: #FFEBE8;
-	border-color: #CC0000
-}
-.error_base {
+	border-color: #CC0000;
 	border-width: 1px;
 	border-style: solid;
 	padding: 0 0.6em;
@@ -1582,7 +1593,7 @@ a.button-primary.gfbutton {
 }
 .menu.collapsible ol.field_type li input.button:hover {
 	color: #D54E21;
-	border-color: #8f8f8f;
+	border-color: #8F8F8F;
 	-webkit-border-radius: 16px !important;
 	-moz-border-radius: 16px !important;
 	border-radius: 16px !important
@@ -2083,7 +2094,8 @@ div#add_fields div#floatMenu ul#sidebarmenu1.menu li.add_field_button_container 
 div#wpbody-content div.wrap div#after_update_dialog.updated_base.gform_editor_status,
 div.gform_editor_status {
 	max-width: 480px !important;
-	padding: 10px
+	padding: 10px;
+	border: 1px solid #E6DB55 !important
 }
 
 /* new update and delete button positions for 1.6 ----------------------------------------------------*/
@@ -2218,7 +2230,7 @@ input.headercb {
 	margin-top: -3px
 }
 .gfield_rule_select,.gfield_routing_select {
-	width: 150px
+	width: 138px
 }
 .validation_message {
 	color: #790000 !important;
@@ -2367,7 +2379,6 @@ div.gform_card_icon {
 	background-position: -180px -256px
 }
 
-
 /* credit card fields ------------------------------------------------------*/
 
 .ginput_complex .ginput_cardinfo_left,
@@ -2424,7 +2435,7 @@ div.gform_card_icon {
 	*display: inline
 }
 div.gfield_creditcard_warning_message {
-	display:none !important
+	display: none !important
 }
 #gform_fields li.credit_card_setting.field_setting ul li {
 	padding: 2px 0 4px 0
@@ -2447,7 +2458,7 @@ div.wrap.gf_browser_safari div#add_fields div#floatMenu ul#sidebarmenu1.menu li.
 	padding-bottom: 6px
 }
 div.wrap.gf_browser_safari .ginput_complex .ginput_cardinfo_right span.ginput_card_security_code_icon {
-	top: -2px;
+	top: -2px
 }
 
 /* Firefox specific styles ----------------------------------------------------*/
@@ -2456,7 +2467,7 @@ div.wrap.gf_browser_gecko div.new-form-option a {
 	padding:16px 16px 14px 16px
 }
 div.wrap.gf_browser_gecko .ginput_complex .ginput_cardinfo_right span.ginput_card_security_code_icon {
-	top: -4px;
+	top: -4px
 }
 
 /* IE specific styles ----------------------------------------------------*/
@@ -2480,7 +2491,7 @@ div.wrap.gf_browser_ie .gfield_checkbox li input {
 	height: 300px
 }
 textarea#gfield_bulk_add_input {
-	width: 330px;
+	width: 320px;
 	height: 290px
 }
 #TB_ajaxContent {
@@ -2500,4 +2511,187 @@ div.wrap.gf_browser_ie .menu.collapsible ol.field_type li {
 div.wrap.gf_browser_ie.gf_browser_ie8 .menu.collapsible ol.field_type li input.button,
 div.wrap.gf_browser_ie.gf_browser_ie9 .menu.collapsible ol.field_type li input.button {
 	width: 80% !important
+}
+.wp-media-buttons {
+	padding: 0px !important;
+	line-height: 3px !important
+}
+.wp-media-buttons select {
+	padding: 1px !important;
+	font-size: 10px !important;
+	line-height: 2.2em
+}
+
+/* notification paging added in version 1.6.3 ----------------------------- */
+
+#notifications_advanced_settings label {
+	line-height: 18px
+}
+
+
+div.gf_entry_wrap {
+	position: relative;
+}
+div.gf_toolset_dropdown_menu {
+	position: absolute;
+	top: 10px;
+	right: 0
+}
+
+
+
+div.gf_toolset_dropdown_menu ul li.gf_toolset_dropdown_toplevel a.gf_toolset_dropdown_toplevel_link {
+	display: block;
+	width: 40px;
+	height: 24px;
+	overflow: hidden;
+	padding: 0;
+	text-indent: -9000px;
+	text-decoration: none;
+	background-color: #EFEFEF;
+	margin: 0;
+	border: 1px solid #DFDFDF;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-image: url(../images/gf_entry_paging_sprite.jpg);
+	background-repeat: no-repeat;
+	background-position: -144px 0
+}
+
+
+div.gf_entry_detail_pagination {
+	position: absolute;
+	top: 10px;
+	right: 0
+}
+div.gf_entry_detail_pagination ul li
+div.gf_entry_detail_pagination ul li {
+	padding: 0 !important;
+	margin-bottom: 0 !important
+}
+div.gf_entry_detail_pagination ul li {
+	line-height: 24px;
+	height: 26px;
+	overflow: hidden;
+	display: -moz-inline-stack;
+	display: inline-block;
+	zoom: 1;
+	*display: inline
+}
+
+div.gf_entry_detail_pagination ul li.gf_entry_count span {
+	display: block;
+	width: auto !important;
+	line-height: 25px;
+	padding: 0 5px 0 0
+}
+div.gf_entry_detail_pagination ul li.gf_entry_count span strong {
+	color: #D24E29
+}
+div.gf_entry_detail_pagination ul li.gf_entry_pagination a {
+	display: block;
+	width: 24px;
+	height: 24px;
+	overflow: hidden;
+	padding: 0;
+	text-indent: -9000px;
+	text-decoration: none;
+	background-color: #EFEFEF;
+	margin: 0;
+	border: 1px solid #DFDFDF;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-image: url(../images/gf_entry_paging_sprite.jpg);
+	background-repeat: no-repeat
+}
+
+/* entry paging - previous button */
+
+a.gf_entry_prev_link.gf_entry_pagination_link.gf_entry_pagination_link_inactive {
+	background-position: -24px 0
+}
+a.gf_entry_prev_link.gf_entry_pagination_link.gf_entry_pagination_link_active {
+	background-position: 0 0
+}
+a.gf_entry_prev_link.gf_entry_pagination_link.gf_entry_pagination_link_active:hover,
+a.gf_entry_prev_link.gf_entry_pagination_link.gf_entry_pagination_link_active:focus {
+	background-position: -48px 0
+}
+
+/* entry paging - next button */
+
+a.gf_entry_next_link.gf_entry_pagination_link.gf_entry_pagination_link_active {
+	background-position: -72px 0
+}
+a.gf_entry_next_link.gf_entry_pagination_link.gf_entry_pagination_link_inactive {
+	background-position: -96px 0
+}
+
+a.gf_entry_next_link.gf_entry_pagination_link.gf_entry_pagination_link_active:hover,
+a.gf_entry_next_link.gf_entry_pagination_link.gf_entry_pagination_link_active:focus {
+	background-position: -120px 0
+}
+
+/* notification wysiwyg styles */
+
+html body.wp-admin div#wpwrap div#wpcontent div#wpbody div#wpbody-content form#entry_form div.wrap div#poststuff.metabox-holder div#submitdiv.stuffbox div.inside div#submitcomment.submitbox div#minor-publishingx div#form_notification_admin_container ul#form_notification_container li div div#wp-form_notification_message-wrap.wp-editor-wrap {
+	margin-top: 20px !important
+}
+html body.wp-admin div#wpwrap #wp-form_notification_message-media-buttons.hide-if-no-js.wp-media-buttons {
+	position: absolute;
+    	top: -2px;
+    	left: 0;
+    	width: 290px !important;
+	padding: 3px 4px 3px 6px !important;
+	background-color: #E9E9E9;
+	border-left: 1px solid #CCCCCC;
+	border-top: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+html body.rtl.wp-admin div#wpwrap #wp-form_notification_message-media-buttons.hide-if-no-js.wp-media-buttons {
+    	left: auto !important;
+    	right: 0
+}
+html body.wp-admin div#wp-form_notification_message-editor-tools.wp-editor-tools {
+	position: relative
+}
+html body.wp-admin div#wpwrap div#form_notification_admin_container ul#form_notification_container li div div#wp-form_notification_message-wrap.wp-editor-wrap div#wp-form_notification_message-editor-tools.wp-editor-tools div#wp-form_notification_message-media-buttons.hide-if-no-js a#form_notification_message-add_media {
+	background-color:#fff;
+	background-image: url(../images/gf_media_button_bg.jpg);
+	background-repeat: repeat-x;
+	background-position: bottom;
+	padding:3px 6px 2px 5px !important;
+	border: 1px solid #C3C3C3;
+	border-bottom: 2px solid #CCCCCC;
+	color: #464646;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-family: arial,sans-serif;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 18px;
+	display: -moz-inline-stack;
+	display: inline-block;
+	zoom: 1;
+	*display: inline
+}
+html body.wp-admin div#wpwrap div#form_notification_admin_container ul#form_notification_container li div div#wp-form_notification_message-wrap.wp-editor-wrap div#wp-form_notification_message-editor-tools.wp-editor-tools div#wp-form_notification_message-media-buttons.hide-if-no-js a#form_notification_message-add_media img {
+	display: none !important
+}
+html body.wp-admin div#wpwrap div#form_notification_admin_container ul#form_notification_container li div div#wp-form_notification_message-wrap.wp-editor-wrap div#wp-form_notification_message-editor-tools.wp-editor-tools div#wp-form_notification_message-media-buttons.hide-if-no-js select#form_notification_message_variable_select {
+	position: relative;
+	top: 0;
+	font-family: arial,sans-serif;
+	font-weight: normal;
+	font-size: 12px !important;
+	line-height: 18px
 }

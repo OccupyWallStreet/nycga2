@@ -1,0 +1,28 @@
+--- Manage Permission Sets ---
+$LastChangedDate: 2009-01-01 17:21:37 +0000 (Thu, 01 Jan 2009) $
+$Rev: 1094 $
+
+[create-new-permission-set]
+
+<strong>Create New Permission Set</strong><br /><br />
+This admin panel is used to create a new Permission Set. 
+Permission Sets are a collection of rules that dictate various accesses to Forum functions and capabilities. 
+When creating a new Permission Set, you need to provide a Permission Set name and description. 
+Then, for each listed action, select whether that action will be allowed or denied for this Set. 
+A Permission Set by itself does not allow or deny access to Forum functions. 
+A Permission Set needs to be applied to a User Group and a Forum for the access control to become effective. 
+Permission Sets can be used on as many different User Group and Forum combinations as desired.<br /><br />
+Note that some capabilities will <strong>never</strong> be applied to Guests (non-registered users) regardless of their setting.
+[end]
+
+[edit-master-permission-set]
+
+<strong>Editing A Permission Set</strong><br /><br />
+Permission Sets may be edited at any time to alter the capabilities and forum access of the User Group/Forums to which they are applied.
+[end]
+
+[delete-master-permission-set]
+
+<strong>Deleting A Permission Set</strong><br /><br />
+When removing a Permission Set please note that this removes it's controls for any Forums to which it may be associated. This action can not be reversed.
+[end]

@@ -40,7 +40,7 @@ input.bpfb_primary_button, input.bpfb_primary_button:hover {
 	overflow: hidden;
 }
 
-.qq-upload-button {
+.bpfb_controls_container .qq-upload-button {
 	background: #5fb3c9;
 	color: #fff;
 	padding: 3px;
@@ -58,4 +58,9 @@ input.bpfb_primary_button, input.bpfb_primary_button:hover {
 	width: 400px;
 	float: left;
 	margin-left: 10px;
+}
+
+#bpfb-too_many_photos {
+	font-weight: bold;
+	font-style: italic;
 }

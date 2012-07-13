@@ -1,0 +1,88 @@
+div#authorplugins-wrap {
+	margin-top: -20px;
+	margin-right: -13px; /* 20 (div.authorplugins margin-right) - 7 (#rightnow margin-right) */
+}
+
+div#authorplugins {
+	width: 100%;
+}
+
+div.authorplugins-holder {	
+	margin-top: 20px;
+	width: 50%;
+	float: left;
+}
+
+div.authorplugins-holder.full {
+	width: 100%;
+}
+
+#authorplugins div.authorplugins-content ul {
+	list-style: none;
+	padding: 0;
+	margin-bottom: 10px !important;
+}
+
+#authorplugins_secondary div.authorplugins-content ul li {
+	display: block;
+	width: 232px;
+	padding-bottom: 0px;
+	margin: 0;
+	float: left;
+	font-size: 95%;
+}
+
+#authorplugins_secondary div.authorplugins-content {
+	margin: 10px 0px;
+	padding: 0;
+}
+
+#authorplugins_secondary div.authorplugins-content ul li .post {
+	display: block;
+	font-family: Georgia,"Times New Roman",Times,serif;
+	font-size: 14px;
+	line-height: 1.2em;
+	height: 20px;
+	overflow: hidden;
+	font-style: italic;
+}
+
+#authorplugins_secondary div.authorplugins-content ul li a {
+	display: block;
+	height: 100%;
+	overflow:hidden;
+	margin: 5px 10px 5px 0;
+	text-decoration: none;
+	padding: .5em;
+	border: solid 1px #efefef;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(150, 150, 150, 0.3);
+	box-shadow: 0px 0px 5px 0px rgba(150, 150, 150, 0.3);
+	background: #fefefe;
+}
+
+#authorplugins_secondary div.authorplugins-content ul li a cite {
+	display: block;
+	color: #aaa;
+	font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
+}
+
+#authorplugins_secondary div.authorplugins-content ul li a cite em {
+	color: #900;
+}
+
+div.authorplugins-content {
+	padding: 10px 15px;
+}
+
+div.authorplugins-content ul, div.authorplugins-content ol, div.authorplugins-content dl {
+	margin: 0;
+	text-indent: 0;
+	padding-left: 15px;
+}
+div.authorplugins-content li {
+	margin: .5em 0 1em;
+}
+
+div.authorplugins-content blockquote {
+	margin: -1em 0;
+}

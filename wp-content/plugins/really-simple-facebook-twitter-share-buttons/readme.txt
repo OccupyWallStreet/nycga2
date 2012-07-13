@@ -3,8 +3,8 @@ Contributors: whiletrue
 Donate link: http://www.whiletrue.it/
 Tags: facebook, twitter, facebook share, twitter share, facebook share button, twitter share button, linkedin, google +1, +1, pinterest, google buzz, buzz, digg, flattr, stumbleupon, hyves, links, post, page, mail, email, reddit, tipy, shortcode
 Requires at least: 2.9+
-Tested up to: 3.3.1
-Stable tag: 2.4.1
+Tested up to: 3.4.1
+Stable tag: 2.5.2
 
 Puts Facebook, Twitter, LinkedIn, Google "+1", Pinterest and other share buttons of your choice above or below your posts.
 
@@ -19,18 +19,17 @@ Please be careful when selecting the `Show buttons in these pages` options : it 
 
 If you want to place the active buttons only in selected posts, use the [really_simple_share] shortcode.
 
-If you want to hide the share buttons inside selected posts, set the "really_simple_share_disable" custom field with value "yes".
+If you want to hide the share buttons inside selected posts, set a "really_simple_share_disable" custom field with value "yes".
 
 For more informations: http://www.whiletrue.it/en/projects/wordpress/22-really-simple-facebook-twitter-share-buttons-per-wordpress.html
 
-*New* in version 2.4:
+*New* in version 2.5:
 
-* Facebook share button counter customization
-* New option to disable buttons on excerpts
-* CSS Style improvements, removed redundant spaces, Button default width fixed
-* Fixes for Pinterest and Google+ buttons
+* Buffer button (basic support: no twitter user mention, no image support)
+* CSS Style improvements
+* Optional related Twitter usernames (comma separated) added to the follow list
 
-*New* in version 2.0 - 2.3:
+*New* in version 2.0 - 2.4:
 
 * Pinterest button (basic support: only shows if there is some media, links to the thumbnail or to the first media attachment)
 * Language basic support for some buttons
@@ -41,6 +40,8 @@ For more informations: http://www.whiletrue.it/en/projects/wordpress/22-really-s
 * Arbitrary spacing for every button
 * Wordpress link customization (default permalink and shortlink available)
 * Email button label
+* Facebook share button counter customization
+* New option to disable buttons on excerpts
 
 Do you like this plugin? Give a chance to our other works:
 
@@ -51,10 +52,7 @@ Do you like this plugin? Give a chance to our other works:
 * [Tilted Twitter Cloud Widget](http://www.whiletrue.it/en/projects/wordpress/26-tilted-twitter-cloud-widget-per-wordpress.html "Tilted Twitter Cloud Widget")
 
 == Installation ==
-1. Upload the `really-simple-facebook-twitter-share-buttons` directory into the `/wp-content/plugins/` directory
-2. Set your favourite values in the `Settings->Really simple share` menu in Wordpress
-3. Activate the plugin through the `Plugins` menu in WordPress
-4. Enjoy!
+Best is to install directly from WordPress. If manual installation is required, please make sure to put all of the plugin files in a folder named `really-simple-facebook-twitter-share-buttons` (not two nested folders) in the plugin directory, then activate the plugin through the `Plugins` menu in WordPress.
 
 == Frequently Asked Questions ==
 
@@ -91,6 +89,30 @@ We'll see!
 2. Options available in the Settings menu 
 
 == Changelog ==
+
+= 2.5.2 =
+* Changed: Possibility to set a custom title in the publish function, leaving the default link (thanks Arvid Janson)
+* Changed: Facebook Send button code update and style cleaning
+* Fixed: Little php code cleaning
+
+= 2.5.1 =
+* Added: Optional related Twitter usernames (comma separated) added to the follow list
+
+= 2.5.0 =
+* Added: Buffer button
+* Fixed: Style cleaning for the prepend_above box
+* Changed: Pinterest button is shown if some image is found in the post content, even if it's not a thumbnail or an attachment
+
+= 2.4.4 =
+* Fixed: Google+ and Pinterest buttons broken in previous updates
+
+= 2.4.3 =
+* Changed: Little code cleaning
+* Fixed: The option to disable buttons on excerpts now correctly disables only the plugin  
+* Fixed: Facebook Like box height
+
+= 2.4.2 =
+* Fixed: Pinterest button broken in 2.4 and 2.4.1 while recognizing images in posts 
 
 = 2.4.1 =
 * Changed: Little code redundancy cleaning
@@ -269,8 +291,8 @@ Initial release
 
 == Upgrade Notice ==
 
-= 2.4.1 =
-Users having version 2.4 should upgrade due to a bugfix on the Google+ and Pinterest buttons 
+= 2.4.4 =
+Users having versions from 2.4 to 2.4.3 should upgrade due to a bugfix on the Google+ and Pinterest buttons 
 
 = 1.7.3 =
 Users having version from 1.6.3 to 1.7.2 should upgrade due to a bugfix on the Flattr button 

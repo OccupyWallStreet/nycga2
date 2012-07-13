@@ -15,6 +15,14 @@
 #current-theme-info h4 {
 	margin-top: 6px;
 }
+/* screenshots in WP3.4+ are larger */
+#current-theme.current-theme-3point4plus img {
+	float: none;
+	margin-left: 0;
+}
+#current-theme.current-theme-3point4plus #current-theme-info {
+	margin-left: 0;
+}
 span.indent {
 	width: 170px;
 	display: inline-block;

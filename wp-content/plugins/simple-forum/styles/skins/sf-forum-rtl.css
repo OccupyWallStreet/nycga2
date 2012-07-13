@@ -1,0 +1,36 @@
+/* =============================================================
+Simple:Press
+RTL CSS Overrides
+$LastChangedDate: 2010-02-12 03:32:35 +0000 (Fri, 12 Feb 2010) $
+$Rev: 3477 $
+============================================================= */
+
+
+#sforum, #sforum div, #sforum p, #sforum h1, #sforum h2, #sforum h3, #sforum h4, #sforum small, #sforum span, #sforum a, #sforum a:link, #sforum a:active, #sforum a:visited, #sforum a:hover, #sforum img { direction: rtl; text-align: right !important; }
+.sfalignright { float: left !important; }
+.sfalignleft { float: right !important; }
+#sforum .sficon .sfrednumber, #sforum .sficon .sfbluenumber, #sforum .sficon .sfrednumberzero, #sforum .sficon .sfbluenumberzero, #sforum .sficon #sfunread, #sforum .sficon #sfmod { text-align: center !important; }
+#sforum .sfloginstrip { text-align: right !important; }
+#sforum .sfloginstrip .sflogincell, #sforum .sfloginstrip .sfbuttoncell { float: left !important; text-align: left !important; }
+#sforum .sfsearchblock { float: right !important; padding-left: 8px !important; }
+#sforum .sfmessagestrip select.sfquicklinks { float: left !important; }
+#sforum .sfmessagestrip.sfbreadcrumbs .treespace { margin-left: 0; margin-right: 20px !important; }
+#sforum .sfmessagestrip.sfbreadcrumbs .sficon {float: right; }
+#sforum .sfheading .sfadditemcell, #sforum .sffooter .sfadditemcell, #sforum .sfheading .sfadditemcell a, #sforum .sffooter .sfadditemcell a { padding: 0 0 0 5px !important; text-align: left !important; }
+#sforum .sfforumtable .sfrowstatus { float: left !important; }
+#sforum .sfforumtable .sfuserdetails p, #sforum .sfforumtable .sfuserdetailswide p { text-align: center !important; }
+#sforum .sfposttable .sfuserinfoside p { text-align: center !important; }
+#sforum .sfposttable .sfuserinfoside .sfuseravatar, #sforum .sfposttable .sfuserinfoside .sfuserrank, #sforum .sfposttable .sfuserinfoabove .sfuseravatar, #sforum .sfposttable .sfuserinfoabove .sfuserrank { text-align: center !important; padding: 0 5px !important; }
+#sforum .sftoplink { float: left !important; padding: 0 8px 0 0 !important; margin: 0 0 0 -5px !important; }
+.sfpostNumberOnPage { float:left !important; }
+#sforum .sfposttable .sfsignaturestrip p, #sforum .sfposttable .sfsignaturestrip img { text-align: center !important; padding: 2px 10px 2px 0 !important; }
+#sforum #sfversion { text-align: center !important; }
+.sfpopuptable { text-align: right !important; }
+#sforum .sfprofileblock, .sfprofilemaintable, .sfprofilemaintable td, #sfprofileheadtable td, .sfprofiletable td {  direction: rtl !important; text-align: right !important; }
+
+label.list { float:left !important; }
+label.inline { float: left !important; margin: 0 0px 0 10px !important; }
+label.sfradio { padding: 4px 10px 4px 5px !important; }
+input.hiddenCheckbox { left: 10000px !important; }
+label.prettyCheckbox span.holderWrap { float: left !important; margin-left: 15px !important; }
+label.prettyCheckbox span.holder { left: 0 !important; }

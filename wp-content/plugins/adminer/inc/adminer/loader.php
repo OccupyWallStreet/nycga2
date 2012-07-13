@@ -1,7 +1,9 @@
 <?php
+// the path to wp-load.php
+require_once '../../config.php';
+
 // search and include wp-load.php
-// require_once('../../../../../wp-load.php');
-function get_wp_root ( $directory ) {
+function get_wp_root( $directory ) {
 	global $wp_root;
 	
 	foreach( glob( $directory . "/*" ) as $f ) {
@@ -24,10 +26,14 @@ function get_wp_root ( $directory ) {
 } // end function to find wp-load.php
 
 if ( ! function_exists('add_action') ) {
-
-	get_wp_root ( dirname( dirname(__FILE__) ) );
-	if ( $wp_root ) {
-		include_once $wp_root . '/wp-load.php';
+	
+	get_wp_root( dirname( dirname(__FILE__) ) );
+	if ( ! empty( $wp_siteurl ) ) {
+		define( 'WP_USE_THEMES', FALSE );
+		include_once ( $wp_siteurl . '/wp-load.php' );
+	} else if ( $wp_root ) {
+		define( 'WP_USE_THEMES', FALSE );
+		include_once ( $wp_root . '/wp-load.php' );
 	} else {
 		die( 'Cheatin&#8217; uh?');
 		exit;

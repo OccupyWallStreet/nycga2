@@ -3,7 +3,7 @@
 Plugin Name: BuddyPress Activity Plus
 Plugin URI: http://premium.wpmudev.org/project/media-embeds-for-buddypress-activity
 Description: A Facebook-style media sharing improvement for the activity box.
-Version: 1.3.1
+Version: 1.4.1
 Author: Ve Bailovity (Incsub), designed by Brett Sirianni (The Edge)
 Author URI: http://premium.wpmudev.org
 WDP ID: 232
@@ -26,23 +26,24 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 
 define ('BPFB_PLUGIN_SELF_DIRNAME', basename(dirname(__FILE__)), true);
+define ('BPFB_PROTOCOL', (@$_SERVER["HTTPS"] == 'on' ? 'https://' : 'http://'), true);
 
 
 //Setup proper paths/URLs and load text domains
 if (is_multisite() && defined('WPMU_PLUGIN_URL') && defined('WPMU_PLUGIN_DIR') && file_exists(WPMU_PLUGIN_DIR . '/' . basename(__FILE__))) {
 	define ('BPFB_PLUGIN_LOCATION', 'mu-plugins', true);
 	define ('BPFB_PLUGIN_BASE_DIR', WPMU_PLUGIN_DIR, true);
-	define ('BPFB_PLUGIN_URL', WPMU_PLUGIN_URL, true);
+	define ('BPFB_PLUGIN_URL', str_replace('http://', BPFB_PROTOCOL, WPMU_PLUGIN_URL), true);
 	$textdomain_handler = 'load_muplugin_textdomain';
 } else if (defined('WP_PLUGIN_URL') && defined('WP_PLUGIN_DIR') && file_exists(WP_PLUGIN_DIR . '/' . BPFB_PLUGIN_SELF_DIRNAME . '/' . basename(__FILE__))) {
 	define ('BPFB_PLUGIN_LOCATION', 'subfolder-plugins', true);
 	define ('BPFB_PLUGIN_BASE_DIR', WP_PLUGIN_DIR . '/' . BPFB_PLUGIN_SELF_DIRNAME, true);
-	define ('BPFB_PLUGIN_URL', WP_PLUGIN_URL . '/' . BPFB_PLUGIN_SELF_DIRNAME, true);
+	define ('BPFB_PLUGIN_URL', str_replace('http://', BPFB_PROTOCOL, WP_PLUGIN_URL) . '/' . BPFB_PLUGIN_SELF_DIRNAME, true);
 	$textdomain_handler = 'load_plugin_textdomain';
 } else if (defined('WP_PLUGIN_URL') && defined('WP_PLUGIN_DIR') && file_exists(WP_PLUGIN_DIR . '/' . basename(__FILE__))) {
 	define ('BPFB_PLUGIN_LOCATION', 'plugins', true);
 	define ('BPFB_PLUGIN_BASE_DIR', WP_PLUGIN_DIR, true);
-	define ('BPFB_PLUGIN_URL', WP_PLUGIN_URL, true);
+	define ('BPFB_PLUGIN_URL', str_replace('http://', BPFB_PROTOCOL, WP_PLUGIN_URL), true);
 	$textdomain_handler = 'load_plugin_textdomain';
 } else {
 	// No textdomain is loaded because we can't determine the plugin location.
@@ -54,6 +55,9 @@ $textdomain_handler('bpfb', false, BPFB_PLUGIN_SELF_DIRNAME . '/languages/');
 // Override oEmbed width in wp-config.php
 if (!defined('BPFB_OEMBED_WIDTH')) define('BPFB_OEMBED_WIDTH', 450, true);
 
+// Override image limit in wp-config.php
+if (!defined('BPFB_IMAGE_LIMIT')) define('BPFB_IMAGE_LIMIT', 5, true);
+
 
 $wp_upload_dir = wp_upload_dir();
 define('BPFB_TEMP_IMAGE_DIR', $wp_upload_dir['basedir'] . '/bpfb/tmp/', true);
@@ -64,7 +68,7 @@ define('BPFB_BASE_IMAGE_URL', $wp_upload_dir['baseurl'] . '/bpfb/', true);
 
 // Hook up the installation routine and check if we're really, really set to go
 require_once BPFB_PLUGIN_BASE_DIR . '/lib/class_bpfb_installer.php';
-register_activation_hook(__FILE__, array(BpfbInstaller, 'install'));
+register_activation_hook(__FILE__, array('BpfbInstaller', 'install'));
 BpfbInstaller::check();
 
 
@@ -73,12 +77,12 @@ BpfbInstaller::check();
  * BuddyPress is NOT multisite compatible.
  */
 function bpfb_get_image_url ($blog_id) {
-	if (!defined('BP_ENABLE_MULTIBLOG') || !BP_ENABLE_MULTIBLOG) return BPFB_BASE_IMAGE_URL;
-	if (!$blog_id) return BPFB_BASE_IMAGE_URL;
+	if (!defined('BP_ENABLE_MULTIBLOG') || !BP_ENABLE_MULTIBLOG) return str_replace('http://', BPFB_PROTOCOL, BPFB_BASE_IMAGE_URL);
+	if (!$blog_id) return str_replace('http://', BPFB_PROTOCOL, BPFB_BASE_IMAGE_URL);
 	switch_to_blog($blog_id);
 	$wp_upload_dir = wp_upload_dir();
 	restore_current_blog();
-	return $wp_upload_dir['baseurl'] . '/bpfb/';
+	return str_replace('http://', BPFB_PROTOCOL, $wp_upload_dir['baseurl']) . '/bpfb/';
 }
 function bpfb_get_image_dir ($blog_id) {
 	if (!defined('BP_ENABLE_MULTIBLOG') || !BP_ENABLE_MULTIBLOG) return BPFB_BASE_IMAGE_DIR;
