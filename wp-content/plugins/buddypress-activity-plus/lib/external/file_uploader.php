@@ -141,6 +141,7 @@ class qqFileUploader {
                 $filename .= rand(10, 99);
             }
         }
+        $filename = sanitize_file_name($filename);
 
         if ($this->file->save($uploadDirectory . $filename . '.' . $ext)){
             return array('success'=>true, 'file'=> $filename . '.' . $ext);

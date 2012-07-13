@@ -21,7 +21,6 @@ function __() {}
  */
 function _x() {}
 
-
 /**
  * @ignore
  */
@@ -51,6 +50,11 @@ function is_lighttpd_before_150() {}
  * @ignore
  */
 function add_action() {}
+
+/**
+ * @ignore
+ */
+function did_action() {}
 
 /**
  * @ignore

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/bp-group-organizer\n"
-"POT-Creation-Date: 2012-01-26 22:55:53+00:00\n"
+"POT-Creation-Date: 2012-03-24 19:46:01+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,167 +12,167 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: index.php:24 index.php:257 index.php:279
-msgid "Group Organizer"
-msgstr ""
-
-#: index.php:63
-msgctxt "search results"
-msgid "No results found."
-msgstr ""
-
-#: index.php:64
-msgid ""
-"You are about to permanently delete this group. \n"
-" 'Cancel' to stop, 'OK' to delete."
-msgstr ""
-
-#: index.php:65
-msgid "Group was deleted successfully."
-msgstr ""
-
-#: index.php:66
-msgid "Group could not be deleted."
-msgstr ""
-
-#: index.php:67
-msgid "The changes you made will be lost if you navigate away from this page."
-msgstr ""
-
-#: index.php:88
-msgid "Cheatin&#8217; uh?"
-msgstr ""
-
-#: index.php:114
-msgid ""
-"The group slug you specified was unavailable or invalid. This group was "
-"created with the slug: <code>%s</code>."
-msgstr ""
-
-#: index.php:121
-msgid "Group was not successfully created."
-msgstr ""
-
-#: index.php:123
-msgid "Group was created successfully."
-msgstr ""
-
-#: index.php:282 index.php:313
-msgid "Save Groups"
-msgstr ""
-
-#: index.php:302
-msgid "You don't yet have any groups."
-msgstr ""
-
-#: index.php:332
-msgid "Not authorized to delete groups."
-msgstr ""
-
-#: index.php:339
-msgid "Group delete failed."
-msgstr ""
-
-#. translators: %s: title of private group
-#: includes/group-organizer.php:66
-msgid "%s (Private)"
-msgstr ""
-
-#. translators: %s: title of hidden group
-#: includes/group-organizer.php:70
-msgid "%s (Hidden)"
-msgstr ""
-
-#: includes/group-organizer.php:84 includes/group-organizer.php:86
-msgid "Edit Group"
-msgstr ""
-
-#: includes/group-organizer.php:94 includes/group-meta-boxes.php:10
-msgid "Group Name"
-msgstr ""
-
-#: includes/group-organizer.php:100 includes/group-meta-boxes.php:14
-msgid "Group Slug"
-msgstr ""
-
-#: includes/group-organizer.php:106 includes/group-meta-boxes.php:18
-msgid "Group Description"
-msgstr ""
-
-#: includes/group-organizer.php:108
-msgid "Enter a brief description for this group."
-msgstr ""
-
-#: includes/group-organizer.php:114 includes/group-meta-boxes.php:33
-msgid "Enable discussion forum"
-msgstr ""
-
-#: includes/group-organizer.php:121 includes/group-meta-boxes.php:24
-msgid "Privacy Options"
-msgstr ""
-
-#: includes/group-organizer.php:133 includes/group-meta-boxes.php:46
-msgid "Parent Group"
-msgstr ""
-
-#: includes/group-organizer.php:135 includes/group-meta-boxes.php:49
-msgid "Site Root"
-msgstr ""
-
-#: includes/group-organizer.php:149
-msgid "Original: %s"
-msgstr ""
-
-#: includes/group-organizer.php:162
-msgid "Delete Group"
-msgstr ""
-
-#: includes/group-organizer.php:163
-msgid "Cancel"
-msgstr ""
-
-#: includes/group-organizer.php:292
-msgid "Add groups using the box to the left, or arrange groups below."
-msgstr ""
-
-#: includes/group-organizer.php:296
-msgid "No groups were found."
-msgstr ""
-
-#: includes/group-organizer.php:306
-msgid "The Walker class named <strong>%s</strong> does not exist."
-msgstr ""
-
-#: includes/group-meta-boxes.php:8
+#: includes/group-meta-boxes.php:9
 msgid "Core Group Options"
 msgstr ""
 
-#: includes/group-meta-boxes.php:22
+#: includes/group-meta-boxes.php:11 includes/group-organizer.php:95
+msgid "Group Name"
+msgstr ""
+
+#: includes/group-meta-boxes.php:14 includes/group-organizer.php:101
+msgid "Group Slug"
+msgstr ""
+
+#: includes/group-meta-boxes.php:18 includes/group-organizer.php:107
+msgid "Group Description"
+msgstr ""
+
+#: includes/group-meta-boxes.php:23
 msgid "Advanced Group Options"
 msgstr ""
 
-#: includes/group-meta-boxes.php:38
+#: includes/group-meta-boxes.php:25 includes/group-organizer.php:122
+msgid "Privacy Options"
+msgstr ""
+
+#: includes/group-meta-boxes.php:34 includes/group-organizer.php:115
+msgid "Enable discussion forum"
+msgstr ""
+
+#: includes/group-meta-boxes.php:39
 msgid "Group Creator"
 msgstr ""
 
-#: includes/group-meta-boxes.php:43
+#: includes/group-meta-boxes.php:44
 msgid "Group Hierarchy Options"
 msgstr ""
 
-#: includes/group-meta-boxes.php:56
+#: includes/group-meta-boxes.php:47 includes/group-organizer.php:134
+msgid "Parent Group"
+msgstr ""
+
+#: includes/group-meta-boxes.php:50 includes/group-organizer.php:136
+msgid "Site Root"
+msgstr ""
+
+#: includes/group-meta-boxes.php:57
 msgid ""
 "Your version of BuddyPress Group Hierarchy is too old to use with the "
 "organizer. Please upgrade to version <code>1.2.1</code> or higher."
 msgstr ""
 
-#: includes/group-meta-boxes.php:61
+#: includes/group-meta-boxes.php:62
 msgid "Create a group to add to your site."
 msgstr ""
 
-#: includes/group-meta-boxes.php:64
+#: includes/group-meta-boxes.php:65
 msgid "Add"
 msgstr ""
 
 #: includes/group-meta-boxes.php:70
 msgid "Create a Group"
+msgstr ""
+
+#. translators: %s: title of private group
+#: includes/group-organizer.php:67
+msgid "%s (Private)"
+msgstr ""
+
+#. translators: %s: title of hidden group
+#: includes/group-organizer.php:71
+msgid "%s (Hidden)"
+msgstr ""
+
+#: includes/group-organizer.php:85 includes/group-organizer.php:87
+msgid "Edit Group"
+msgstr ""
+
+#: includes/group-organizer.php:109
+msgid "Enter a brief description for this group."
+msgstr ""
+
+#: includes/group-organizer.php:149
+msgid "Link: %s"
+msgstr ""
+
+#: includes/group-organizer.php:161
+msgid "Delete Group"
+msgstr ""
+
+#: includes/group-organizer.php:162
+msgid "Cancel"
+msgstr ""
+
+#: includes/group-organizer.php:203
+msgid "Add groups using the box to the left, or arrange groups below."
+msgstr ""
+
+#: includes/group-organizer.php:207
+msgid "No groups were found."
+msgstr ""
+
+#: includes/group-organizer.php:217
+msgid "The Walker class named <strong>%s</strong> does not exist."
+msgstr ""
+
+#: index.php:26 index.php:220 index.php:242
+msgid "Group Organizer"
+msgstr ""
+
+#: index.php:65
+msgctxt "search results"
+msgid "No results found."
+msgstr ""
+
+#: index.php:66
+msgid ""
+"You are about to permanently delete this group. \n"
+" 'Cancel' to stop, 'OK' to delete."
+msgstr ""
+
+#: index.php:67
+msgid "Group was deleted successfully."
+msgstr ""
+
+#: index.php:68
+msgid "Group could not be deleted."
+msgstr ""
+
+#: index.php:69
+msgid "The changes you made will be lost if you navigate away from this page."
+msgstr ""
+
+#: index.php:90
+msgid "Cheatin&#8217; uh?"
+msgstr ""
+
+#: index.php:118
+msgid ""
+"The group slug you specified was unavailable or invalid. This group was "
+"created with the slug: <code>%s</code>."
+msgstr ""
+
+#: index.php:125
+msgid "Group was not successfully created."
+msgstr ""
+
+#: index.php:127
+msgid "Group was created successfully."
+msgstr ""
+
+#: index.php:245 index.php:273
+msgid "Save Groups"
+msgstr ""
+
+#: index.php:264
+msgid "You don't yet have any groups."
+msgstr ""
+
+#: index.php:291
+msgid "Not authorized to delete groups."
+msgstr ""
+
+#: index.php:298
+msgid "Group delete failed."
 msgstr ""

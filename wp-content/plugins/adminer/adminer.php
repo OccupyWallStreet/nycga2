@@ -6,16 +6,16 @@
 
 /*
 Plugin Name: Adminer
-Plugin URI: http://bueltge.de/adminer-fuer-wordpress/1014/
+Plugin URI:  http://bueltge.de/adminer-fuer-wordpress/1014/
 Text Domain: adminer
 Domain Path: /languages
 Description: <a href="http://www.adminer.org/en/">Adminer</a> (formerly phpMinAdmin) is a full-featured MySQL management tool written in PHP. This plugin include this tool in WordPress for a fast management of your database.
-Author: Frank B&uuml;ltge
-Version: 1.2.0
-Author URI: http://bueltge.de/
-Donate URI: http://bueltge.de/wunschliste/
-License: Apache License
-Last change: 12.11.2011
+Author:      Frank B&uuml;ltge
+Version:     1.2.1
+Author URI:  http://bueltge.de/
+Donate URI:  http://bueltge.de/wunschliste/
+License:     Apache License
+Last change: 06/12/2012
 */ 
 
 /**
@@ -83,7 +83,8 @@ if ( ! class_exists('AdminerForWP' ) ) {
 			if ( ! is_admin() )
 				return FALSE;
 			
-			add_action( 'init',       array( &$this, 'register_styles' ) );
+			self::strip_slashes();
+			add_action( 'init',	   array( &$this, 'register_styles' ) );
 			add_action( 'admin_init', array( &$this, 'text_domain' ) );
 			if ( is_multisite() )
 				add_action( 'network_admin_menu', array( &$this, 'on_network_admin_menu' ) );
@@ -156,11 +157,11 @@ if ( ! class_exists('AdminerForWP' ) ) {
 			
 			if ( is_super_admin() ) {
 				$wp_admin_bar -> add_menu( array(
-				'parent'    => 'network-admin',
+				'parent'	=> 'network-admin',
 				'secondary' => FALSE,
-				'id'        => 'network-adminer',
-				'title'     => __( 'Adminer', FB_ADM_TEXTDOMAIN ),
-				'href'      => network_admin_url( 'settings.php?page=adminer/adminer.php' ),
+				'id'		=> 'network-adminer',
+				'title'	 => __( 'Adminer', FB_ADM_TEXTDOMAIN ),
+				'href'	  => network_admin_url( 'settings.php?page=adminer/adminer.php' ),
 				) );
 			}
 		}
@@ -275,7 +276,7 @@ if ( ! class_exists('AdminerForWP' ) ) {
 		 * @access public
 		 * @since  1.1.0
 		 * @param  $value string, default = 'TextDomain'
-		 *         Name, PluginURI, Version, Description, Author, AuthorURI, TextDomain, DomainPath, Network, Title
+		 *		 Name, PluginURI, Version, Description, Author, AuthorURI, TextDomain, DomainPath, Network, Title
 		 * @return string
 		 */
 		private static function get_plugin_data ( $value = 'TextDomain' ) {
@@ -289,7 +290,45 @@ if ( ! class_exists('AdminerForWP' ) ) {
 			return $plugin_value;
 		}
 		
-	}
+		/**
+		 * Filter globals for magic quotes
+		 */
+		static function strip_slashes() {
+			
+			if ( get_magic_quotes_gpc() ) {
+				$_REQUEST = self::array_map_recursive( 'stripslashes', $_REQUEST );
+				$_GET     = self::array_map_recursive( 'stripslashes', $_GET );
+				$_POST    = self::array_map_recursive( 'stripslashes', $_POST );
+				$_COOKIE  = self::array_map_recursive( 'stripslashes', $_COOKIE );
+			}
+			
+			return;
+		}
+		
+		/**
+		 * Deeper array_map()
+		 *
+		 * @param string $callback Callback function to map
+		 * @param array $array Array to map
+		 * @source http://www.sitepoint.com/blogs/2005/03/02/magic-quotes-headaches/
+		 * @return array
+		 */
+		static function array_map_recursive( $callback, $array ) {
+			$r = array(); 
+	
+			if ( is_array($array) ) {
+				
+				foreach ( $array as $k => $v ) {
+					$r[$k] = is_scalar($v)
+						? $callback($v)
+						: AdminerForWP::array_map_recursive($callback, $v);
+				}
+			} 
+			
+			return $r;
+		}
+		
+	} // end class
 	
 	
 	function AdminerForWP_start() {

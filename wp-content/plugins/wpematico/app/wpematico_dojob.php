@@ -73,6 +73,7 @@ class wpematico_dojob {
 	private $feeds=array();
 	private $posts=0;
 	private $lasthash=array();
+	private $currenthash=array();
 
 	public function __construct($jobid) {
 		global $wpdb,$wpematico_dojob_message, $jobwarnings, $joberrors;
@@ -140,31 +141,33 @@ class wpematico_dojob {
     $prime = true;
     
     foreach($simplepie->get_items() as $item) {
+
 		if($prime){
-			$this->lasthash[$feed] = md5($item->get_permalink()); //Siempre guardo el PRIMERO leido por feed  (es el ultimo item)
-			$this->titlecounter = $campaign['campaign_ctnextnumber'];  //tomo el contador en el primero para que no lo reinicie cada item
+			$this->lasthash[$feed] = md5($item->get_permalink()); //Siempre guardo el PRIMERO leido por feed  (es el ultimo item, mas nuevo)
+
 			$prime=false;
 		}
 
-		$dupi = ($this->job[$feed]['lasthash'] == $this->lasthash[$feed]); // chequeo a la primer coincidencia ya vuelve  
+		$this->currenthash[$feed] = md5($item->get_permalink()); // el hash del item actual del feed feed  
+		$dupi = ($this->job[$feed]['lasthash'] == $this->currenthash[$feed]); // chequeo a la primer coincidencia ya vuelve  
 		if ($dupi) {
-			trigger_error(sprintf(__('Found duplicated hash \'%1s\'','wpematico'),$item->get_permalink()).': '.$this->lasthash[$feed] ,E_USER_NOTICE);
+			trigger_error(sprintf(__('Found duplicated hash \'%1s\'','wpematico'),$item->get_permalink()).': '.$this->currenthash[$feed] ,E_USER_NOTICE);
 			trigger_error(__('Filtering duplicated posts.','wpematico'),E_USER_NOTICE);
 			break;   
 		}		
 
-      if($this->isDuplicate($campaign, $feed, $item)) {
+		if($this->isDuplicate($campaign, $feed, $item)) {
 			trigger_error(__('Filtering duplicated posts.','wpematico'),E_USER_NOTICE);
 			break;
-      }
+		}
       
-      $count++;
-      array_unshift($items, $item);
+		$count++;
+		array_unshift($items, $item);
       
-      if($count == $campaign['campaign_max']) {
+		if($count == $campaign['campaign_max']) {
 			trigger_error(sprintf(__('Campaign fetch limit reached at %1s.','wpematico'),$campaign['campaign_max']),E_USER_NOTICE);
-        break;
-      }
+			break;
+		}
     }
     
     // Processes post stack
@@ -262,7 +265,7 @@ class wpematico_dojob {
 
 		 // Create post
 		$postid = $this->insertPost($title, $wpdb->escape($content), $date, $categories, $campaign['campaign_posttype'], $campaign['campaign_author'], 
-					$campaign['campaign_allowpings'], $campaign['campaign_commentstatus'], $meta);
+					$campaign['campaign_allowpings'], $campaign['campaign_commentstatus'], $meta, $campaign['campaign_customposttype']);
 		
 		// Attaching images uploaded to created post in media library 
 		
@@ -272,8 +275,14 @@ class wpematico_dojob {
 				$urls = $images[2];  
 				if(sizeof($urls)) { // Si hay alguna imagen en el content
 					trigger_error(__('Attaching images.','wpematico'),E_USER_NOTICE);
+					$custom_imagecount = 0;
 					foreach($urls as $imagen_src) {
-						$this->insertfileasattach($imagen_src,$postid);
+						$attachid = $this->insertfileasattach($imagen_src,$postid);
+						if($custom_imagecount == 0) {
+							trigger_error(__('Featured Image Into Post.','wpematico'),E_USER_NOTICE);
+							$this->insertPostMeta($postid, '_thumbnail_id', $attachid);
+							$custom_imagecount++;
+						}
 					}
 				}
 			}
@@ -307,6 +316,8 @@ class wpematico_dojob {
 		require_once(ABSPATH . "wp-admin" . '/includes/image.php');
 		$attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
 		wp_update_attachment_metadata( $attach_id,  $attach_data );
+		
+		return $attach_id;
 	}
   
  /**
@@ -469,14 +480,16 @@ class wpematico_dojob {
    * @param   array     $meta             Meta key / values
    * @return  integer   Created post id
    */
-  function insertPost($title, $content, $timestamp = null, $category = null, $status = 'draft', $authorid = null, $allowpings = true, $comment_status = 'open', $meta = array()) {
-    $date = ($timestamp) ? gmdate('Y-m-d H:i:s', $timestamp + (get_option('gmt_offset') * 3600)) : null;
+  function insertPost($title, $content, $timestamp = null, $category = null, $status = 'draft', $authorid = null, $allowpings = true, $comment_status = 'open', $meta = array(),		 $post_type= 'post')   {
+  
+	$date = ($timestamp) ? gmdate('Y-m-d H:i:s', $timestamp + (get_option('gmt_offset') * 3600)) : null;
     $postid = wp_insert_post(array(
     	'post_title' 	            => $title,
   		'post_content'  	        => $content,
   		'post_content_filtered'  	=> $content,
   		'post_category'           => $category,
   		'post_status' 	          => $status,
+  		'post_type' 	          => $post_type,
   		'post_author'             => $authorid,
   		'post_date'               => $date,
   		'comment_status'          => $comment_status,

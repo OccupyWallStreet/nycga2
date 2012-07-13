@@ -3,7 +3,7 @@ Contributors: pkthree
 Donate link: http://www.theblog.ca
 Tags: login, logout, redirect, admin, administration, dashboard, users, authentication
 Requires at least: 2.7
-Tested up to: 3.3
+Tested up to: 3.4
 Stable tag: trunk
 
 Redirect users to different locations after logging in and logging out.
@@ -28,6 +28,7 @@ This plugin also includes a function `rul_register` that acts the same as the `w
 * cs\_CZ translation by Petr Mašek
 * de\_DE translation by Lara of http://www.u-center.nl
 * es\_ES translation by Closemarketing of http://www.closemarketing.es
+* lt\_LT translation by Vincent G of http://www.host1free.com
 
 == Installation ==
 
@@ -174,7 +175,15 @@ add_filter( 'rul_replace_variable', 'customRULVariableMonth', 10, 3 );`
 
 Be sure to rawurlencode the returned variable if necessary.
 
+= Custom "My Portal" link =
+
+A common need is to display the "redirect" link for a user in the site navigation or sidebar.
+Look at the function rul_register() in the plugin file for inspiration; it makes use of the redirect_to_front_page() function to determine the URL and then provides the relevant output code.
+
 == Changelog ==
+
+= 2.5.3 =
+* 2012-06-15: Bug fix: Fallback redirect rule wouldn't update properly if logout URL was blank on MySQL installs with strict mode enabled (thanks kvandekrol!)
 
 = 2.5.2 =
 * 2012-02-06: Bug fix: Fallback redirect rule updates were broken for non-English installs.

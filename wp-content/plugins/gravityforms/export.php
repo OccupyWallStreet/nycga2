@@ -51,7 +51,7 @@ class GFExport{
                     if($inputType != "creditcard")
                         unset($field["creditCards"]);
 
-                    if($field["type"] == $field["inputType"])
+                    if($field["type"] == rgar($field, "inputType"))
                         unset($field["inputType"]);
 
                     if(in_array($inputType, array("checkbox", "radio", "select")) && !rgar($field,"enableChoiceValue")){
@@ -180,9 +180,9 @@ class GFExport{
 
         ?>
         <ul class="subsubsub">
-            <li><a href="?page=gf_export&view=export_entry" class="<?php echo $view=="export_entry" || empty($view) ? 'current' : ''; ?>"><?php _e("Export Entries", "gravityforms"); ?></a> | </li>
-            <li><a href="?page=gf_export&view=export_form" class="<?php echo $view=="export_form" ? 'current' : ''; ?>"><?php _e("Export Forms", "gravityforms"); ?></a> | </li>
-            <li><a href="?page=gf_export&view=import_form" class="<?php echo $view=="import_form" ? 'current' : ''; ?>"><?php _e("Import Forms", "gravityforms"); ?></a></li>
+                <li><a href="?page=gf_export&view=export_entry" class="<?php echo $view=="export_entry" || empty($view) ? 'current' : ''; ?>"><?php _e("Export Entries", "gravityforms"); ?></a> | </li>
+                <li><a href="?page=gf_export&view=export_form" class="<?php echo $view=="export_form" ? 'current' : ''; ?>"><?php _e("Export Forms", "gravityforms"); ?></a> | </li>
+                <li><a href="?page=gf_export&view=import_form" class="<?php echo $view=="import_form" ? 'current' : ''; ?>"><?php _e("Import Forms", "gravityforms"); ?></a></li>
         </ul>
         <br style="clear:both"/>
         <br/>
@@ -329,7 +329,7 @@ class GFExport{
                                     <?php
                                 }
                                 ?>
-                            <ul>
+                            </ul>
                         </td>
                    </tr>
                 </table>
@@ -418,7 +418,7 @@ class GFExport{
                        <th scope="row"><label for="export_fields"><?php _e("Select Fields", "gravityforms"); ?></label> <?php gform_tooltip("export_select_fields") ?></th>
                         <td>
                             <ul id="export_field_list">
-                            <ul>
+                            </ul>
                         </td>
                    </tr>
                   <tr id="export_date_container" valign="top" style="display: none;">
@@ -511,13 +511,17 @@ class GFExport{
         $end_date = $_POST["export_date_end"];
 
         //adding default fields
+        array_push($form["fields"],array("id" => "created_by" , "label" => __("Created By (User Id)", "gravityforms")));
         array_push($form["fields"],array("id" => "id" , "label" => __("Entry Id", "gravityforms")));
         array_push($form["fields"],array("id" => "date_created" , "label" => __("Entry Date", "gravityforms")));
-        array_push($form["fields"],array("id" => "ip" , "label" => __("User IP", "gravityforms")));
         array_push($form["fields"],array("id" => "source_url" , "label" => __("Source Url", "gravityforms")));
-        array_push($form["fields"],array("id" => "payment_status" , "label" => __("Payment Status", "gravityforms")));
-        array_push($form["fields"],array("id" => "payment_date" , "label" => __("Payment Date", "gravityforms")));
         array_push($form["fields"],array("id" => "transaction_id" , "label" => __("Transaction Id", "gravityforms")));
+        array_push($form["fields"],array("id" => "payment_amount" , "label" => __("Payment Amount", "gravityforms")));
+        array_push($form["fields"],array("id" => "payment_date" , "label" => __("Payment Date", "gravityforms")));
+        array_push($form["fields"],array("id" => "payment_status" , "label" => __("Payment Status", "gravityforms")));
+        array_push($form["fields"],array("id" => "post_id" , "label" => __("Post Id", "gravityforms")));
+        array_push($form["fields"],array("id" => "user_agent" , "label" => __("User Agent", "gravityforms")));
+        array_push($form["fields"],array("id" => "ip" , "label" => __("User IP", "gravityforms")));
 
         $entry_count = RGFormsModel::get_lead_count($form_id, "", null, null, $start_date, $end_date);
 
@@ -564,8 +568,9 @@ class GFExport{
 
                         default :
                             $long_text = "";
-                            if(strlen($lead[$field_id]) >= GFORMS_MAX_FIELD_LENGTH)
-                                $long_text = RGFormsModel::get_field_value_long($lead["id"], $field_id);
+                            if(strlen($lead[$field_id]) >= (GFORMS_MAX_FIELD_LENGTH-10)){
+                                $long_text = RGFormsModel::get_field_value_long($lead, $field_id, $form);
+                            }
 
                             $value = !empty($long_text) ? $long_text : $lead[$field_id];
 

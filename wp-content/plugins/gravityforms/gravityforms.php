@@ -3,7 +3,7 @@
 Plugin Name: Gravity Forms
 Plugin URI: http://www.gravityforms.com
 Description: Easily create web forms and manage form entries within the WordPress admin.
-Version: 1.6.2
+Version: 1.6.4.5.4
 Author: Rocketgenius Inc.
 Author URI: http://www.rocketgenius.com
 
@@ -24,6 +24,7 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
+
 
 //------------------------------------------------------------------------------------------------------------------
 //---------- Gravity Forms License Key -----------------------------------------------------------------------------
@@ -53,8 +54,6 @@ $gf_recaptcha_public_key = "";
 //define('GF_RECAPTCHA_PUBLIC_KEY','YOUR_PUBLIC_KEY_GOES_HERE');
 //------------------------------------------------------------------------------------------------------------------
 
-
-
 if(!defined("RG_CURRENT_PAGE"))
     define("RG_CURRENT_PAGE", basename($_SERVER['PHP_SELF']));
 
@@ -62,7 +61,8 @@ if(!defined("IS_ADMIN"))
     define("IS_ADMIN",  is_admin());
 
 define("RG_CURRENT_VIEW", RGForms::get("view"));
-define("GF_SUPPORTED_WP_VERSION", version_compare(get_bloginfo("version"), '3.0', '>='));
+define("GF_MIN_WP_VERSION", '3.2');
+define("GF_SUPPORTED_WP_VERSION", version_compare(get_bloginfo("version"), GF_MIN_WP_VERSION, '>='));
 
 if(!defined("GRAVITY_MANAGER_URL"))
     define("GRAVITY_MANAGER_URL", "http://www.gravityhelp.com/wp-content/plugins/gravitymanager");
@@ -72,41 +72,44 @@ require_once(WP_PLUGIN_DIR . "/" . basename(dirname(__FILE__)) . "/forms_model.p
 require_once(WP_PLUGIN_DIR . "/" . basename(dirname(__FILE__)) . "/widget.php");
 
 
-
 add_action('init',  array('RGForms', 'init'));
 add_action('wp',  array('RGForms', 'maybe_process_form'), 9);
 add_action('wp',  array('RGForms', 'process_exterior_pages'));
 
+add_filter('user_has_cap', array("RGForms", "user_has_cap"), 10, 3);
+
+
+//Hooks for no-conflict functionality
+if(is_admin() && (RGForms::is_gravity_page() || RGForms::is_gravity_ajax_action())){
+    add_action("wp_print_scripts", array("RGForms", "no_conflict_mode_script"), 1000);
+    add_action("admin_print_footer_scripts", array("RGForms", "no_conflict_mode_script"), 9);
+
+    add_action("wp_print_styles", array("RGForms", "no_conflict_mode_style"), 1000);
+    add_action("admin_print_styles", array("RGForms", "no_conflict_mode_style"), 1);
+    add_action("admin_print_footer_scripts", array("RGForms", "no_conflict_mode_style"), 1);
+    add_action("admin_footer", array("RGForms", "no_conflict_mode_style"), 1);
+}
+
 class RGForms{
+
+    public static function has_members_plugin(){
+        return function_exists( 'members_get_capabilities' );
+    }
 
     //Plugin starting point. Will load appropriate files
     public static function init(){
 
         load_plugin_textdomain( 'gravityforms', false, '/gravityforms/languages' );
 
+        add_filter("gform_logging_supported", array("RGForms", "set_logging_supported"));
+
         if(IS_ADMIN){
 
             global $current_user;
 
             //Members plugin integration. Adding Gravity Forms roles to the checkbox list
-            if ( function_exists( 'members_get_capabilities' ) ){
+            if (self::has_members_plugin())
                 add_filter('members_get_capabilities', array("RGForms", "members_get_capabilities"));
-
-                //Removing default GF capability when integrating with Members
-                if(current_user_can("gform_full_access"))
-                    $current_user->remove_cap("gform_full_access");
-
-                //If and administrator does not have any Gravity Form permission, add all of them. (will happen the first time Gravity Forms gets installed)
-                self::initialize_permissions();
-            }
-            else
-            {
-                $gform_full_access = current_user_can("administrator") ? "gform_full_access" : "";
-                $gform_full_access = apply_filters("gform_cap_full_access", $gform_full_access);
-
-                if(!empty($gform_full_access))
-                    $current_user->add_cap($gform_full_access);
-            }
 
             //Loading Gravity Forms if user has access to any functionality
             if(GFCommon::current_user_can_any(GFCommon::all_caps()))
@@ -155,6 +158,8 @@ class RGForms{
                         add_action('wp_ajax_gf_upgrade_license', array('RGForms', 'upgrade_license'));
                         add_action('wp_ajax_gf_delete_custom_choice', array('RGForms', 'delete_custom_choice'));
                         add_action('wp_ajax_gf_save_custom_choice', array('RGForms', 'save_custom_choice'));
+                        add_action('wp_ajax_gf_get_post_categories', array('RGForms', 'get_post_category_values'));
+                        add_action('wp_ajax_gf_get_notification_post_categories', array('RGForms', 'get_notification_post_category_values'));
 
                         //entry list ajax operations
                         add_action('wp_ajax_rg_update_lead_property', array('RGForms', 'update_lead_property'));
@@ -184,17 +189,33 @@ class RGForms{
         else{
             add_action('wp_enqueue_scripts', array('RGForms', 'enqueue_scripts'));
             add_action('wp', array('RGForms', 'ajax_parse_request'), 10);
+
+            // ManageWP premium update filters
+            add_filter( 'mwp_premium_update_notification', array('RGForms', 'premium_update_push') );
+            add_filter( 'mwp_premium_perform_update', array('RGForms', 'premium_update') );
         }
 
         add_shortcode('gravityform', array('RGForms', 'parse_shortcode'));
+        add_shortcode('gravityforms', array('RGForms', 'parse_shortcode'));
+    }
+
+    public static function set_logging_supported($plugins)
+    {
+        $plugins["gravityforms"] = "Gravity Forms Core";
+        return $plugins;
     }
 
     public static function maybe_process_form(){
 
         $form_id = isset($_POST["gform_submit"]) ? $_POST["gform_submit"] : 0;
         if($form_id){
-            require_once(GFCommon::get_base_path() . "/form_display.php");
-            GFFormDisplay::process_form($form_id);
+            $form_info = RGFormsModel::get_form($form_id);
+            $is_valid_form = $form_info && $form_info->is_active;
+
+            if($is_valid_form){
+                require_once(GFCommon::get_base_path() . "/form_display.php");
+                GFFormDisplay::process_form($form_id);
+            }
         }
     }
 
@@ -229,24 +250,6 @@ class RGForms{
         return GFCommon::check_update($update_plugins_option, true);
     }
 
-    //Setup permissions if Members plugin is installed, or give current user full GF permission if not.
-    public static function initialize_permissions(){
-        global $current_user;
-
-        $is_gravity_forms_installation = get_option("rg_form_version") != GFCommon::$version;
-        $is_members_installation = get_option("rg_members_installed");
-        $is_admin_with_no_permissions = current_user_can("administrator") && !GFCommon::current_user_can_any(GFCommon::all_caps());
-
-        //if this is a new gf install or members install and the administrator doesn't have any Gravity Forms permission, add all of them.
-        if( ($is_gravity_forms_installation || $is_members_installation) && $is_admin_with_no_permissions){
-            $role = get_role("administrator");
-            foreach(GFCommon::all_caps() as $cap){
-                $role->add_cap($cap);
-            }
-            update_option("rg_members_installed", true);
-        }
-    }
-
     //Creates or updates database tables. Will only run when version changes
     public static function setup($force_setup = false){
         global $wpdb;
@@ -269,6 +272,9 @@ class RGForms{
             if ( ! empty($wpdb->collate) )
                 $charset_collate .= " COLLATE $wpdb->collate";
 
+            //Fixes issue with dbDelta lower-casing table names, which cause problems on case sensitive DB servers.
+            add_filter( 'dbdelta_create_queries', array("RGForms", "dbdelta_fix_case"));
+
             //------ FORM -----------------------------------------------
             $form_table_name = RGFormsModel::get_form_table_name();
             $sql = "CREATE TABLE " . $form_table_name . " (
@@ -279,6 +285,9 @@ class RGForms{
                   PRIMARY KEY  (id)
                 ) $charset_collate;";
             dbDelta($sql);
+
+            //droping table that was created by mistake in version 1.6.3.2
+            $wpdb->query("DROP TABLE IF EXISTS A" . $form_table_name);
 
             //------ META -----------------------------------------------
             $meta_table_name = RGFormsModel::get_meta_table_name();
@@ -388,6 +397,8 @@ class RGForms{
                 ) $charset_collate;";
             dbDelta($sql);
 
+            remove_filter('dbdelta_create_queries', array("RGForms", "dbdelta_fix_case"));
+
             //fix checkbox value. needed for version 1.0 and below but won't hurt for higher versions
             self::fix_checkbox_value();
 
@@ -439,6 +450,161 @@ class RGForms{
                 update_option("gf_imported_theme_file", $themes);
             }
         }
+    }
+
+    public static function dbdelta_fix_case($cqueries){
+        foreach ($cqueries as $table => $qry) {
+            $table_name = $table;
+            if(preg_match("|CREATE TABLE ([^ ]*)|", $qry, $matches)){
+                $query_table_name = trim($matches[1], '`' );
+
+                //fix table names that are different just by their casing
+                if(strtolower($query_table_name) == $table){
+                    $table_name = $query_table_name;
+                }
+            }
+            $queries[$table_name] = $qry;
+        }
+        return $queries;
+    }
+
+    public static function no_conflict_mode_style(){
+        if(!get_option("gform_enable_noconflict"))
+            return;
+
+        global $wp_styles;
+        $wp_required_styles = array("admin-bar", "colors", "ie", "wp-admin");
+        $gf_required_styles = array(
+            "common" => array(),
+            "gf_edit_forms" => array("thickbox"),
+            "gf_edit_forms_notification" => array("thickbox", "editor-buttons", "wp-jquery-ui-dialog"),
+            "gf_new_form" => array("thickbox"),
+            "gf_entries" => array("thickbox"),
+            "gf_settings" => array(),
+            "gf_export" => array(),
+            "gf_help" => array()
+        );
+
+        self::no_conflict_mode($wp_styles, $wp_required_styles, $gf_required_styles, "styles");
+    }
+
+    public static function no_conflict_mode_script(){
+        if(!get_option("gform_enable_noconflict"))
+            return;
+
+        global $wp_scripts;
+
+        $wp_required_scripts = array("admin-bar", "common", "jquery-color", "utils");
+        $gf_required_scripts = array(
+            "common" => array("qtip-init", "sack"),
+            "gf_edit_forms" => array("thickbox", "jquery-ui-core", "jquery-ui-sortable", "jquery-ui-tabs", "rg_currency", "gforms_gravityforms" ),
+            "gf_edit_forms_notification" => array("editor", "word-count", "quicktags", "wpdialogs-popup", "media-upload", "wplink"),
+            "gf_new_form" => array("thickbox", "jquery-ui-core", "jquery-ui-sortable", "jquery-ui-tabs", "rg_currency", "gforms_gravityforms" ),
+            "gf_entries" => array("thickbox", "gforms_gravityforms"),
+            "gf_settings" => array(),
+            "gf_export" => array(),
+            "gf_help" => array(),
+        );
+
+        self::no_conflict_mode($wp_scripts, $wp_required_scripts, $gf_required_scripts, "scripts");
+    }
+
+    private static function no_conflict_mode(&$wp_objects, $wp_required_objects, $gf_required_objects, $type="scripts"){
+
+        $current_page = trim(strtolower(rgget("page")));
+        if(empty($current_page))
+            $current_page = trim(strtolower(rgget("gf_page")));
+        if(empty($current_page))
+            $current_page = RG_CURRENT_PAGE;
+
+        $view = rgempty("view", $_GET) ? "default" : rgget("view");
+        $page_objects = isset($gf_required_objects[$current_page . "_" . $view]) ? $gf_required_objects[$current_page . "_" . $view] : rgar($gf_required_objects, $current_page);
+
+        //disable no-conflict if $page_objects is false
+        if($page_objects === false)
+            return;
+
+        if(!is_array($page_objects))
+            $page_objects = array();
+
+        //merging wp scripts with gravity forms scripts
+        $required_objects = array_merge($wp_required_objects, $gf_required_objects["common"], $page_objects);
+
+        //allowing addons or other products to change the list of no conflict scripts
+        $required_objects = apply_filters("gform_noconflict_{$type}", $required_objects);
+
+        $queue = array();
+        foreach($wp_objects->queue as $object){
+            if(in_array($object, $required_objects))
+                $queue[] = $object;
+        }
+        $wp_objects->queue = $queue;
+
+        $required_objects = self::add_script_dependencies($wp_objects->registered, $required_objects);
+
+        //unregistering scripts
+        $registered = array();
+        foreach($wp_objects->registered as $script_name => $script_registration){
+            if(in_array($script_name, $required_objects)){
+                $registered[$script_name] = $script_registration;
+            }
+        }
+        $wp_objects->registered = $registered;
+    }
+
+    private static function add_script_dependencies($registered, $scripts){
+
+        //gets all dependent scripts linked to the $scripts array passed
+        do{
+            $dependents = array();
+            foreach($scripts as $script){
+                $deps = isset($registered[$script]) && is_array($registered[$script]->deps) ? $registered[$script]->deps : array();
+                foreach($deps as $dep){
+                    if(!in_array($dep, $scripts) && !in_array($dep, $dependents)){
+                        $dependents[] = $dep;
+                    }
+                }
+            }
+            $scripts = array_merge($scripts, $dependents);
+        }while(!empty($dependents));
+
+        return $scripts;
+    }
+
+    //Integration with ManageWP
+    public static function premium_update_push( $premium_update ){
+
+        if( !function_exists( 'get_plugin_data' ) )
+            include_once( ABSPATH.'wp-admin/includes/plugin.php');
+
+        $update = GFCommon::get_version_info();
+        if( $update["is_valid_key"] == true && version_compare(GFCommon::$version, $update["version"], '<') ){
+            $gforms = get_plugin_data( __FILE__ );
+            $gforms['type'] = 'plugin';
+            $gforms['slug'] = 'gravityforms/gravityforms.php';
+            $gforms['new_version'] = isset($update['version']) ? $update['version'] : false ;
+            $premium_update[] = $gforms;
+        }
+
+        return $premium_update;
+    }
+
+    //Integration with ManageWP
+    public static function premium_update( $premium_update ){
+
+        if( !function_exists( 'get_plugin_data' ) )
+            include_once( ABSPATH.'wp-admin/includes/plugin.php');
+
+        $update = GFCommon::get_version_info();
+        if( $update["is_valid_key"] == true && version_compare(GFCommon::$version, $update["version"], '<') ){
+            $gforms = get_plugin_data( __FILE__ );
+            $gforms['slug'] = 'gravityforms/gravityforms.php'; // If not set by default, always pass theme template
+            $gforms['type'] = 'plugin';
+            $gforms['url'] = isset($update["url"]) ? $update["url"] : false; // OR provide your own callback function for managing the update
+
+            array_push($premium_update, $gforms);
+        }
+        return $premium_update;
     }
 
     private static function drop_index($table, $index){
@@ -499,6 +665,37 @@ class RGForms{
         }
     }
 
+    public static function user_has_cap($all_caps, $cap, $args){
+        $gf_caps = GFCommon::all_caps();
+        $capability = rgar($cap, 0);
+        if($capability != "gform_full_access"){
+            return $all_caps;
+        }
+
+        if(!self::has_members_plugin()){
+            //give full access to administrators if the members plugin is not installed
+            if(current_user_can("administrator") || is_super_admin()){
+                $all_caps["gform_full_access"] = true;
+            }
+        }
+        else if(current_user_can("administrator")|| is_super_admin()){
+
+            //checking if user has any GF permission.
+            $has_gf_cap = false;
+            foreach($gf_caps as $gf_cap){
+                if(rgar($all_caps, $gf_cap))
+                    $has_gf_cap = true;
+            }
+
+            if(!$has_gf_cap){
+                //give full access to administrators if none of the GF permissions are active by the Members plugin
+                $all_caps["gform_full_access"] = true;
+            }
+        }
+
+        return $all_caps;
+    }
+
     //Target of Member plugin filter. Provides the plugin with Gravity Forms lists of capabilities
     public static function members_get_capabilities( $caps ) {
         return array_merge($caps, GFCommon::all_caps());
@@ -518,12 +715,36 @@ class RGForms{
         wp_print_scripts();
     }
 
+    public static function is_gravity_ajax_action(){
+        //Gravity Forms AJAX requests
+        $current_action = self::post("action");
+        $gf_ajax_actions = array('rg_save_form', 'rg_change_input_type', 'rg_add_field', 'rg_duplicate_field',
+                                 'rg_delete_field', 'rg_select_export_form', 'rg_start_export', 'gf_upgrade_license',
+                                 'gf_delete_custom_choice', 'gf_save_custom_choice', 'gf_get_notification_post_categories',
+                                 'rg_update_lead_property', 'delete-gf_entry', 'rg_update_form_active',
+                                 'gf_resend_notifications', 'rg_dismiss_upgrade');
+
+        if(defined("DOING_AJAX") && DOING_AJAX && in_array($current_action, $gf_ajax_actions))
+            return true;
+
+        //not a gravity forms ajax request.
+        return false;
+    }
+
     //Returns true if the current page is one of Gravity Forms pages. Returns false if not
-    private static function is_gravity_page(){
+    public static function is_gravity_page(){
+
+        //Gravity Forms pages
         $current_page = trim(strtolower(self::get("page")));
         $gf_pages = array("gf_edit_forms","gf_new_form","gf_entries","gf_settings","gf_export","gf_help");
 
         return in_array($current_page, $gf_pages);
+    }
+
+    public static function do_menu_page(){
+        $args = array( 'show_ui' => true, '_builtin' => false, 'show_in_menu' => true );
+        $count = (int) count(get_post_types( $args ));
+        return $count > 0;
     }
 
     //Creates "Forms" left nav
@@ -541,7 +762,13 @@ class RGForms{
 
         // Add a top-level left nav
         $update_icon = GFCommon::has_update() ? "<span title='" . esc_attr(__("Update Available", "alien")) . "' class='update-plugins count-1'><span class='update-count'>1</span></span>" : "";
-        add_object_page(__('Forms', "gravityforms"), __("Forms", "gravityforms") . $update_icon , $has_full_access ? "gform_full_access" : $min_cap, $parent_menu["name"] , $parent_menu["callback"], GFCommon::get_base_url() . '/images/gravity-admin-icon.png');
+
+
+        //Getting around a Wordpress bug that prevents menus from displayeing when site has multiple custom post types
+        if( self::do_menu_page() )
+            add_menu_page(__('Forms', "gravityforms"), __("Forms", "gravityforms") . $update_icon , $has_full_access ? "gform_full_access" : $min_cap, $parent_menu["name"] , $parent_menu["callback"], GFCommon::get_base_url() . '/images/gravity-admin-icon.png', 16.9);
+        else
+            add_object_page(__('Forms', "gravityforms"), __("Forms", "gravityforms") . $update_icon , $has_full_access ? "gform_full_access" : $min_cap, $parent_menu["name"] , $parent_menu["callback"], GFCommon::get_base_url() . '/images/gravity-admin-icon.png');
 
         // Adding submenu pages
         add_submenu_page($parent_menu["name"], __("Edit Forms", "gravityforms"), __("Edit Forms", "gravityforms"), $has_full_access ? "gform_full_access" : "gravityforms_edit_forms", "gf_edit_forms", array("RGForms", "forms"));
@@ -559,7 +786,6 @@ class RGForms{
 
         add_submenu_page($parent_menu["name"], __("Import/Export", "gravityforms"), __("Import/Export", "gravityforms"), $has_full_access ? "gform_full_access" : "gravityforms_export_entries", "gf_export", array("RGForms", "export_page"));
 
-        //if(!function_exists("is_multisite") || !is_multisite() || is_super_admin())
         if(current_user_can("install_plugins")){
             add_submenu_page($parent_menu["name"], __("Updates", "gravityforms"), __("Updates", "gravityforms"), $has_full_access ? "gform_full_access" : "gravityforms_view_updates", "gf_update", array("RGForms", "update_page"));
             add_submenu_page($parent_menu["name"], __("Add-Ons", "gravityforms"), __("Add-Ons", "gravityforms"), $has_full_access ? "gform_full_access" : "gravityforms_view_addons", "gf_addons", array("RGForms", "addons_page"));
@@ -608,7 +834,7 @@ class RGForms{
     }
 
     //Parses the [gravityform shortcode and returns the front end form UI
-    public static function parse_shortcode($attributes){
+    public static function parse_shortcode($attributes, $content = null){
         extract(shortcode_atts(array(
              'title' => true,
              'description' => true,
@@ -616,24 +842,41 @@ class RGForms{
              'name' => '',
              'field_values' => "",
              'ajax' => false,
-             'tabindex' => 1
+             'tabindex' => 1,
+             'action' => 'form'
           ), $attributes));
 
-        $title = strtolower($title) == "false" ? false : true;
-        $description = strtolower($description) == "false" ? false : true;
-        $field_values = htmlspecialchars_decode($field_values);
-        $field_values = str_replace("&#038;", "&", $field_values);
+        $shortcode_string = "";
 
-        $ajax = strtolower($ajax) == "true" ? true : false;
+        switch($action) {
+            case 'conditional':
+                $shortcode_string = GFCommon::conditional_shortcode($attributes, $content);
+            break;
 
-        //using name to lookup form if id is not specified
-        if(empty($id))
-            $id = $name;
+            case 'form' :
+                //displaying form
+                $title = strtolower($title) == "false" ? false : true;
+                $description = strtolower($description) == "false" ? false : true;
+                $field_values = htmlspecialchars_decode($field_values);
+                $field_values = str_replace("&#038;", "&", $field_values);
 
-        parse_str($field_values, $field_value_array); //parsing query string like string for field values and placing them into an associative array
-        $field_value_array = stripslashes_deep($field_value_array);
+                $ajax = strtolower($ajax) == "true" ? true : false;
 
-        return self::get_form($id, $title, $description, false, $field_value_array, $ajax, $tabindex);
+                //using name to lookup form if id is not specified
+                if(empty($id))
+                    $id = $name;
+
+                parse_str($field_values, $field_value_array); //parsing query string like string for field values and placing them into an associative array
+                $field_value_array = stripslashes_deep($field_value_array);
+
+                $shortcode_string = self::get_form($id, $title, $description, false, $field_value_array, $ajax, $tabindex);
+
+            break;
+        }
+
+        $shortcode_string = apply_filters("gform_shortcode_{$action}", $shortcode_string, $attributes, $content);
+
+        return $shortcode_string;
     }
 
     //-------------------------------------------------
@@ -655,6 +898,10 @@ class RGForms{
 
     //Action target that adds the "Insert Form" button to the post/page edit screen
     public static function add_form_button($context){
+        $is_post_edit_page = in_array(RG_CURRENT_PAGE, array('post.php', 'page.php', 'page-new.php', 'post-new.php'));
+        if(!$is_post_edit_page)
+            return $context;
+
         $image_btn = GFCommon::get_base_url() . "/images/form-button.png";
         $out = '<a href="#TB_inline?width=480&inlineId=select_gravity_form" class="thickbox" id="add_gform" title="' . __("Add Gravity Form", 'gravityforms') . '"><img src="'.$image_btn.'" alt="' . __("Add Gravity Form", 'gravityform') . '" /></a>';
         return $context . $out;
@@ -791,7 +1038,8 @@ class RGForms{
 
     //Registers the dashboard widget
     public static function dashboard_setup(){
-        wp_add_dashboard_widget('rg_forms_dashboard', 'Gravity Forms',  array('RGForms', 'dashboard'));
+        $dashboard_title = apply_filters("gform_dashboard_title", __("Forms", "gravityforms"));
+        wp_add_dashboard_widget('rg_forms_dashboard', $dashboard_title,  array('RGForms', 'dashboard'));
     }
 
     //Displays the dashboard UI
@@ -800,12 +1048,12 @@ class RGForms{
 
         if(sizeof($forms) > 0){
             ?>
-            <table class="widefat fixed" cellspacing="0" style="border:0px;">
+            <table class="widefat" cellspacing="0" style="border:0px;">
                 <thead>
                     <tr>
-                        <td style="text-align:left; padding:8px 0!important; font-weight:bold;"><i><?php _e("Form Name", "gravityforms") ?></i></td>
-                        <td style="text-align:center; padding:8px 0!important; font-weight:bold;"><i><?php _e("Unread Entries", "gravityforms") ?></i></td>
-                        <td style="text-align:left; padding:8px 0!important; font-weight:bold;"><i><?php _e("Last Entry", "gravityforms") ?></i></td>
+                        <td style="text-align:left; padding:8px 18px!important; font-weight:bold;"><i><?php _e("Title", "gravityforms") ?></i></td>
+                        <td style="text-align:center; padding:8px 18px!important; font-weight:bold;"><i><?php _e("Unread", "gravityforms") ?></i></td>
+                        <td style="text-align:center; padding:8px 18px!important; font-weight:bold;"><i><?php _e("Total", "gravityforms") ?></i></td>
                     </tr>
                 </thead>
 
@@ -813,16 +1061,17 @@ class RGForms{
                     <?php
                     foreach($forms as $form){
                         $date_display = GFCommon::format_date($form["last_lead_date"]);
-
-                        ?>
-                        <tr class='author-self status-inherit' valign="top">
-                            <td class="column-title" style="padding:8px 0;">
-                                <a style="display:inline;white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis; <?php echo  $form["unread_count"] > 0 ? "font-weight:bold;" : "" ?>" href="admin.php?page=gf_entries&view=entries&id=<?php echo absint($form["id"]) ?>" title="<?php echo esc_html($form["title"]) ?> : <?php _e("View All Entries", "gravityforms") ?>"><?php echo esc_html($form["title"]) ?></a>
-                            </td>
-                            <td class="column-date" style="padding:8px 0; text-align:center;"><a style="<?php echo $form["unread_count"] > 0 ? "font-weight:bold;" : "" ?>" href="admin.php?page=gf_entries&view=entries&id=<?php echo absint($form["id"]) ?>" title="<?php _e("View Unread Entries", "gravityforms") ?>"><?php echo absint($form["unread_count"]) ?></a></td>
-                            <td class="column-date" style="padding-top:7px;"><?php echo esc_html($date_display) ?></td>
-                        </tr>
-                        <?php
+                        if(!empty($form["total_leads"])){
+                            ?>
+                            <tr class='author-self status-inherit' valign="top">
+                                <td class="column-title" style="padding:8px 18px;">
+                                    <a style="display:inline; <?php echo  $form["unread_count"] > 0 ? "font-weight:bold;" : "" ?>" href="admin.php?page=gf_entries&view=entries&id=<?php echo absint($form["id"]) ?>" title="<?php echo esc_html($form["title"]) ?> : <?php _e("View All Entries", "gravityforms") ?>"><?php echo esc_html($form["title"]) ?></a>
+                                </td>
+                                <td class="column-date" style="padding:8px 18px; text-align:center;"><a style="<?php echo $form["unread_count"] > 0 ? "font-weight:bold;" : "" ?>" href="admin.php?page=gf_entries&view=entries&filter=unread&id=<?php echo absint($form["id"]) ?>" title="<?php printf(__("Last Entry: %s", "gravityforms"), $date_display); ?>"><?php echo absint($form["unread_count"]) ?></a></td>
+                                <td class="column-date" style="padding:8px 18px; text-align:center;"><a href="admin.php?page=gf_entries&view=entries&id=<?php echo absint($form["id"]) ?>" title="<?php _e("View All Entries", "gravityforms") ?>"><?php echo absint($form["total_leads"]) ?></a></td>
+                            </tr>
+                            <?php
+                        }
                     }
                     ?>
                 </tbody>
@@ -968,7 +1217,7 @@ class RGForms{
         $raw_response = wp_remote_post($request_url, $options);
 
          if ( is_wp_error( $raw_response ) || $raw_response['response']['code'] != 200){
-            echo "<div class='error' style='margin-top:50px; padding:20px;'>" . __("Add-On brower is currently unavailable. Please try again later.", "gravityforms") . "</div>";
+            echo "<div class='error' style='margin-top:50px; padding:20px;'>" . __("Add-On browser is currently unavailable. Please try again later.", "gravityforms") . "</div>";
          }
          else{
             echo GFCommon::get_remote_message();
@@ -1010,25 +1259,25 @@ class RGForms{
         return $nonces;
     }
 
-    public static function install_action_links($links, $plugin){
-        //if($theme != "alien")
-        //    return $links;
-
-        //unset($links["activate"]);
-        unset($links["preview"]);
-        return $links;
-    }
-
     public static function start_export(){
         require_once(GFCommon::get_base_path() . "/export.php");
         GFExport::start_export();
     }
 
+    public static function get_post_category_values(){
+        require_once(GFCommon::get_base_path() . "/form_detail.php");
+        GFFormDetail::get_post_category_values();
+    }
+
+    public static function get_notification_post_category_values(){
+        require_once(GFCommon::get_base_path() . "/notification.php");
+        GFNotification::get_post_category_values();
+    }
+
     public static function all_leads_page(){
 
         //displaying lead detail page if lead id is in the query string
-        $lead_id =  RGForms::get("lid");
-        if(!empty($lead_id))
+        if(rgget('lid') || !rgblank(rgget('pos')))
         {
             require_once(GFCommon::get_base_path() . "/entry_detail.php");
             GFEntryDetail::lead_detail_page();
@@ -1249,13 +1498,17 @@ class RGForms{
         $fields = array();
 
         //Adding default fields
+        array_push($form["fields"],array("id" => "created_by" , "label" => __("Created By (User Id)", "gravityforms")));
         array_push($form["fields"],array("id" => "id" , "label" => __("Entry Id", "gravityforms")));
         array_push($form["fields"],array("id" => "date_created" , "label" => __("Entry Date", "gravityforms")));
-        array_push($form["fields"],array("id" => "ip" , "label" => __("User IP", "gravityforms")));
         array_push($form["fields"],array("id" => "source_url" , "label" => __("Source Url", "gravityforms")));
-        array_push($form["fields"],array("id" => "payment_status" , "label" => __("Payment Status", "gravityforms")));
-        array_push($form["fields"],array("id" => "payment_date" , "label" => __("Payment Date", "gravityforms")));
         array_push($form["fields"],array("id" => "transaction_id" , "label" => __("Transaction Id", "gravityforms")));
+        array_push($form["fields"],array("id" => "payment_amount" , "label" => __("Payment Amount", "gravityforms")));
+        array_push($form["fields"],array("id" => "payment_date" , "label" => __("Payment Date", "gravityforms")));
+        array_push($form["fields"],array("id" => "payment_status" , "label" => __("Payment Status", "gravityforms")));
+        array_push($form["fields"],array("id" => "post_id" , "label" => __("Post Id", "gravityforms")));
+        array_push($form["fields"],array("id" => "user_agent" , "label" => __("User Agent", "gravityforms")));
+        array_push($form["fields"],array("id" => "ip" , "label" => __("User IP", "gravityforms")));
 
         if(is_array($form["fields"])){
             foreach($form["fields"] as $field){
@@ -1306,11 +1559,35 @@ class RGForms{
 
                 return new_query;
             }
+
+            function GF_RemoveQuery(key, query){
+                var new_query = "";
+                if (query == "")
+                {
+                	query = document.location.search.substring(1);
+				}
+                var ary = query.split("&");
+                for (i=0; i < ary.length; i++) {
+                    var key_value = ary[i].split("=");
+
+                    if (key_value[0] != key){
+                        new_query += key_value[0] + "=" + key_value[1] + "&";
+                    }
+                }
+
+                if(new_query.length > 0)
+                    new_query = new_query.substring(0, new_query.length-1);
+
+                return new_query;
+            }
+
             function GF_SwitchForm(id){
                 if(id.length > 0){
                     query = GF_ReplaceQuery("id", id);
-                    query = query.replace("gf_new_form", "gf_edit_forms");
-                    document.location = "?" + query;
+                    //remove paging from querystring when changing forms
+                    new_query = GF_RemoveQuery("paged", query);
+                   	new_query = new_query.replace("gf_new_form", "gf_edit_forms");
+                    document.location = "?" + new_query;
                 }
             }
 
