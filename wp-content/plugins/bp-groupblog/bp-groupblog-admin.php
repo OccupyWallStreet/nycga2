@@ -5,10 +5,10 @@
 function bp_groupblog_blog_defaults( $blog_id ) {
 	global $bp, $wp_rewrite;
 
-	switch_to_blog( $blog_id );
-
 	// only apply defaults to groupblog blogs
 	if ( bp_is_groups_component() ) {
+
+		switch_to_blog( $blog_id );
 
 		// get the site options
 		$options = get_site_option( 'bp_groupblog_blog_defaults_options' );
@@ -46,7 +46,7 @@ function bp_groupblog_blog_defaults( $blog_id ) {
 		}
 		if ( $options['delete_blogroll_links'] == 1 ) {
 		 	wp_delete_link( 1 ); //delete Wordpress.com blogroll link
-    	wp_delete_link( 2 ); //delete Wordpress.org blogroll link
+    		wp_delete_link( 2 ); //delete Wordpress.org blogroll link
 		}
 		if ( $options['redirectblog'] == 2 ) {
 			$blog_page = array(
@@ -71,6 +71,9 @@ function bp_groupblog_blog_defaults( $blog_id ) {
 				update_option('page_on_front', $blog_page_id);
 			}
 		}
+
+		restore_current_blog();
+
 	}
 }
 
@@ -261,10 +264,37 @@ function bp_groupblog_add_admin_menu() {
 	if ( !is_super_admin() )
 		return false;
 
+	// test for BP1.6+ (truncated to allow testing on beta versions)
+	if ( version_compare( substr( BP_VERSION, 0, 3 ), '1.6', '>=' ) ) {
+	
+		// BuddyPress 1.6 moves its admin pages elsewhere, so use Settings menu
+		$location = 'settings.php';
+	
+	} else {
+	
+		// versions prior to 1.6 have a BuddyPress top-level menu
+		$location = 'bp-general-settings';
+	
+	}
+	
 	/* Add the administration tab under the "Site Admin" tab for site administrators */
-	add_submenu_page( 'bp-general-settings', __( 'GroupBlog Setup', 'groupblog' ), '<span class="bp-groupblog-admin-menu-header">' . __( 'GroupBlog Setup', 'groupblog' ) . '&nbsp;&nbsp;&nbsp;</span>', 'manage_options', 'bp_groupblog_management_page', 'bp_groupblog_management_page' );
+	$page = add_submenu_page( 
+	
+		$location, 
+		__( 'GroupBlog Setup', 'groupblog' ), 
+		'<span class="bp-groupblog-admin-menu-header">' . __( 'GroupBlog Setup', 'groupblog' ) . '&nbsp;&nbsp;&nbsp;</span>', 
+		'manage_options', 
+		'bp_groupblog_management_page', 
+		'bp_groupblog_management_page' 
+		
+	);
+
+	// add styles only on bp-groupblog admin page, see:
+	// http://codex.wordpress.org/Function_Reference/wp_enqueue_script#Load_scripts_only_on_plugin_pages
+	add_action( 'admin_print_styles-'.$page, 'bp_groupblog_add_admin_style' );
 
 }
+
 add_action( bp_core_admin_hook(), 'bp_groupblog_add_admin_menu', 10 );
 
 function bp_groupblog_management_page() {
@@ -310,16 +340,37 @@ function bp_groupblog_management_page() {
 
 				<div id='groupblog_default_theme'>
 					<?php
-					$themes = get_themes();
-					$ct = current_theme_info();
 
 					$current_groupblog_theme = '';
 
-					$allowed_themes = get_site_allowed_themes();
+					// get all themes
+					if ( function_exists( 'wp_get_themes' ) ) {
+					
+						// get theme data the WP3.4 way...
+						$themes = wp_get_themes(
+							false,     // only error-free themes
+							'network', // only network-allowed themes
+							0          // use current blog as reference
+						);
+
+						$ct = wp_get_theme();
+						$allowed_themes = WP_Theme::get_allowed_on_network();
+						$blog_allowed_themes = WP_Theme::get_allowed_on_site();
+
+					} else {
+						
+						// pre WP3.4 functions
+						$themes = get_themes();
+
+						$ct = current_theme_info();
+						$allowed_themes = get_site_allowed_themes();
+						$blog_allowed_themes = wpmu_get_blog_allowedthemes();
+
+					}
+
 					if( $allowed_themes == false )
 						$allowed_themes = array();
 
-					$blog_allowed_themes = wpmu_get_blog_allowedthemes();
 					if( is_array( $blog_allowed_themes ) )
 						$allowed_themes = array_merge( $allowed_themes, $blog_allowed_themes );
 
@@ -338,16 +389,26 @@ function bp_groupblog_management_page() {
 					reset( $themes );
 
 					// get the names of the themes & sort them
+					/* 
+					Note: pre-WP3.4 the keys are the theme names. In 3.4, the keys are folder names
+					Fortunately, the magic methods of the object retain backwards compatibility and allow
+					array-style access to work
+					*/
 					$theme_names = array_keys( $themes );
 					natcasesort( $theme_names );
 					?>
 
 					<h3><?php _e( 'Default Theme', 'groupblog' ) ?></h3>
+
 					<div id="select-theme">
-						<?php _e( 'Select the default theme:', 'groupblog' ) ?>
+						<label for="theme"><?php _e( 'Select the default theme for new groupblogs:', 'groupblog' ) ?></label>
 						<select id="theme" name="theme" size="1">
-						<option value="groupblog-themes" style="font-weight: bold"><?php _e( 'GroupBlog Themes:', 'groupblog' ) ?></option>
+
+						<optgroup label="<?php echo esc_attr( __( 'GroupBlog Themes:', 'groupblog' ) ) ?>">
 					 	<?php
+
+					 	$groupblog_themes_options = '';
+
 						foreach ( $theme_names as $theme_name ) {
 
 							if ( in_array( 'groupblog', (array)$themes[$theme_name]['Tags'] ) ) {
@@ -356,17 +417,27 @@ function bp_groupblog_management_page() {
 								$stylesheet = $themes[$theme_name]['Stylesheet'];
 								$title = $themes[$theme_name]['Title'];
 								$selected = "";
-								if( $opt[theme] == $template . "|" . $stylesheet ) {
+								if( $opt['theme'] == $template . "|" . $stylesheet ) {
 									$selected = "selected = 'selected' ";
 									$current_groupblog_theme = $theme_name;
 								}
-								echo('<option value="' . $template . "|" . $stylesheet .  '"' . $selected . '>' . $title . "</option>");
+								$groupblog_themes_options .= '<option value="' . $template . "|" . $stylesheet .  '"' . $selected . '>' . $title . "</option>";
 							}
 						}
+
+						if ( !empty( $groupblog_themes_options ) ) {
+							echo $groupblog_themes_options;
+						} else {
+							echo '<option value="" disabled="disabled">' . __( 'No groupblog-enabled themes available', 'groupblog' ) . '</option>';
+						}
+
 						?>
-						<option value=""></option>
-						<option value="regular-themes" style="font-weight: bold"><?php _e( 'Regular Themes:', 'groupblog' ) ?></option>
+						</optgroup>
+						<optgroup label="<?php echo esc_attr( __( 'Regular Themes:', 'groupblog' ) ) ?>">
 						<?php
+
+						$non_groupblog_themes_options = '';
+
 						foreach ( $theme_names as $theme_name ) {
 
 							if ( !in_array( 'groupblog', (array)$themes[$theme_name]['Tags'] ) ) {
@@ -375,28 +446,43 @@ function bp_groupblog_management_page() {
 								$stylesheet = $themes[$theme_name]['Stylesheet'];
 								$title = $themes[$theme_name]['Title'];
 								$selected = "";
-								if( $opt[theme] == $template . "|" . $stylesheet ) {
+								if( $opt['theme'] == $template . "|" . $stylesheet ) {
 									$selected = "selected = 'selected' ";
 									$current_groupblog_theme = $theme_name;
 								}
-								echo('<option value="' . $template . "|" . $stylesheet .  '"' . $selected . '>' . $title . "</option>");
+								$non_groupblog_themes_options .= '<option value="' . $template . "|" . $stylesheet .  '"' . $selected . '>' . $title . "</option>";
 							}
 						}
+
+						if ( !empty( $non_groupblog_themes_options ) ) {
+							echo $non_groupblog_themes_options;
+						} else {
+							echo '<option value="" disabled="disabled">' . __( 'No regular themes available', 'groupblog' ) . '</option>';
+						}
+
 						?>
+						</optgroup>
+
+						<option value="" <?php selected( $current_groupblog_theme, '' ) ?>><?php _e( '- None selected -', 'groupblog' ) ?></option>
+
 						</select>
 					</div>
 
-					<h3><?php _e( 'Current Theme', 'groupblog' ) ?></h3>
-					<div id="current-theme">
-						<?php if ( isset( $themes[$current_groupblog_theme]['Screenshot'] ) ) : ?>
-							<img src="<?php echo $themes[$current_groupblog_theme]['Theme Root URI'] . '/' . $themes[$current_groupblog_theme]['Stylesheet'] . '/' . $themes[$current_groupblog_theme]['Screenshot']; ?>" alt="<?php _e('Current theme preview'); ?>" />
-						<?php endif; ?>
-						<div class="alt" id="current-theme-info">
-							<h4><?php	/* translators: 1: theme title, 2: theme version, 3: theme author */
-							printf(__('%1$s %2$s by %3$s'), $themes[$current_groupblog_theme]['Title'], $themes[$current_groupblog_theme]['Version'], $themes[$current_groupblog_theme]['Author']) ; ?></h4>
-							<p class="theme-description"><?php /*print_r ($themes[$current_groupblog_theme]);*/echo $themes[$current_groupblog_theme]['Description']; ?></p>
-							</div>
-					</div>
+					<?php if ( !empty( $current_groupblog_theme ) ) : ?>
+
+						<div id="current-theme">
+							<?php if ( isset( $themes[$current_groupblog_theme]['Screenshot'] ) ) : ?>
+								<img src="<?php echo $themes[$current_groupblog_theme]['Theme Root URI'] . '/' . $themes[$current_groupblog_theme]['Stylesheet'] . '/' . $themes[$current_groupblog_theme]['Screenshot']; ?>" alt="<?php _e('Current theme preview'); ?>" />
+							<?php endif; ?>
+
+							<div class="alt" id="current-theme-info">
+								<h4><?php	/* translators: 1: theme title, 2: theme version, 3: theme author */
+								printf(__('%1$s %2$s by %3$s'), $themes[$current_groupblog_theme]['Title'], $themes[$current_groupblog_theme]['Version'], $themes[$current_groupblog_theme]['Author']) ; ?></h4>
+								<p class="theme-description"><?php /*print_r ($themes[$current_groupblog_theme]);*/echo $themes[$current_groupblog_theme]['Description']; ?></p>
+								</div>
+						</div>
+
+					<?php endif ?>
 
 					<div class="clear"></div>
 

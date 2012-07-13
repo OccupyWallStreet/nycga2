@@ -107,6 +107,7 @@ function wpematico_save_job() { //Save Campaign settings
 	}
 
 	$jobs[$jobid]['campaign_posttype']=$_POST['campaign_posttype'];
+	$jobs[$jobid]['campaign_customposttype']=$_POST['campaign_customposttype'];
 	$jobs[$jobid]['name']= esc_html($_POST['name']);
 	$jobs[$jobid]['activated']= $_POST['activated']==1 ? true : false;
 	

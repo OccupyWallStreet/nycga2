@@ -42,17 +42,12 @@
 
 			</div>
 			<!-- /#search-bar-->
-
 			
 			<div id="header">
-			
-				<div class="padder">
-					<div id="header-link"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"></a></div>
-					<h1 id="logo" role="banner"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"><?php bp_site_name(); ?></a></h1>
-						
-				</div><!-- .padder -->
-			
-
+				<div id="header-link"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"></a></div>
+						<h1 id="logo" role="banner"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"><?php bp_site_name(); ?></a></h1>
+						<h2 id="description" role="tagline"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Tagline', 'buddypress' ); ?>"><?php bloginfo('description'); ?></a></h2>
+								
 			<div id="navigation" role="navigation">
 				<?php wp_nav_menu( array( 'container' => false, 'menu_id' => 'nav', 'theme_location' => 'primary', 'fallback_cb' => 'bp_dtheme_main_nav' ) ); ?>
 			</div>

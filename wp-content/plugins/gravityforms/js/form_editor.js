@@ -20,8 +20,32 @@ jQuery(document).ready(function() {
         cancel: '#field_settings',
         start: function(event, ui){gforms_dragging = ui.item[0].id;}
     });
+
+    if(jQuery(document).on){
+    jQuery(document).on('change', '.gfield_rule_value_dropdown', function(){
+            SetRuleValueDropDown(jQuery(this));
+        });
+    }
+    else{
+        jQuery('.gfield_rule_value_dropdown').live('change', function(){
+            SetRuleValueDropDown(jQuery(this));
+        });
+    }
     InitializeForm(form);
 });
+
+function SetRuleValueDropDown(element){
+        //parsing ID to get objectType and ruleIndex
+        var ary = element.attr("id").split('_rule_value_');
+
+        if(ary.length < 2)
+            return;
+
+        var objectType = ary[0];
+        var ruleIndex = ary[1];
+
+        SetRuleProperty(objectType, ruleIndex, "value", element.val());
+}
 
 function CloseStatus(){
     jQuery('.updated_base, .error_base').slideUp();
@@ -179,6 +203,7 @@ function LoadFieldSettings(){
 
     //loads settings
     field = GetSelectedField();
+    var inputType = GetInputType(field);
 
     jQuery("#field_label").val(field.label);
     if(field.type == "html"){
@@ -240,6 +265,29 @@ function LoadFieldSettings(){
 
     jQuery("#field_number_format").val(field.numberFormat ? field.numberFormat : "");
 
+
+
+    // Handle calculation options
+
+    // hide rounding option for calculation product fields
+    if(field.type == 'product' && field.inputType == 'calculation') {
+        field.enableCalculation = true;
+        jQuery('.field_calculation_rounding').hide();
+        jQuery('.field_enable_calculation').hide();
+    } else {
+        jQuery('.field_calculation_rounding').show();
+        jQuery('.field_enable_calculation').show();
+    }
+
+    jQuery('#field_enable_calculation').attr('checked', field.enableCalculation ? true : false);
+    ToggleCalculationOptions(field.enableCalculation, field);
+
+    jQuery('#field_calculation_formula').val(field.calculationFormula);
+    var rounding = gformIsNumber(field.calculationRounding) ? field.calculationRounding : "norounding";
+    jQuery('#field_calculation_rounding').val(rounding);
+
+
+
     jQuery("#option_field_type").val(field.inputType);
     var productFieldType = jQuery("#product_field_type");
     productFieldType.val(field.inputType);
@@ -251,7 +299,7 @@ function LoadFieldSettings(){
     jQuery("#donation_field_type").val(field.inputType);
     jQuery("#quantity_field_type").val(field.inputType);
 
-    if(field["inputType"] == "hiddenproduct" || field["inputType"] == "singleproduct" || field["inputType"] == "singleshipping"){
+    if(field["inputType"] == "hiddenproduct" || field["inputType"] == "singleproduct" || field["inputType"] == "singleshipping" || field["inputType"] == "calculation"){
         var basePrice = field.basePrice == undefined ? "" : field.basePrice;
         jQuery("#field_base_price").val(field.basePrice == undefined ? "" : field.basePrice);
         SetBasePrice(basePrice);
@@ -334,8 +382,6 @@ function LoadFieldSettings(){
 
     ToggleInputMask(true);
     ToggleInputMaskOptions(true);
-
-    var inputType = GetInputType(field);
 
     if(inputType == "creditcard"){
         if(!field.creditCards || field.creditCards.length <= 0)
@@ -426,7 +472,8 @@ function LoadFieldSettings(){
     jQuery(".field_setting").hide();
 
     var allSettings = fieldSettings[field.type];
-    if(field.inputType)
+
+    if(field.inputType && field.type != 'post_category')
         allSettings += "," + fieldSettings[field.inputType];
 
     jQuery(allSettings).show();
@@ -438,6 +485,20 @@ function LoadFieldSettings(){
             break;
         }
     }
+
+    // hide "Display placeholder" option for post category field if input type is not a select
+    if(field.type == 'post_category' && inputType != 'select') {
+        jQuery('.post_category_initial_item_setting').hide();
+        jQuery('#gfield_post_category_initial_item_enabled').prop('checked', false);
+        SetCategoryInitialItem();
+    }
+
+    //hide "Enable calculation" option for quantity fields
+    if(field.type == 'quantity') {
+        jQuery('.calculation_setting').hide();
+    }
+
+    jQuery("#post_category_field_type").val(field.inputType);
 
     jQuery("#field_captcha_type").val(field.captchaType == undefined ? "recaptcha" : field.captchaType);
     jQuery("#field_captcha_size").val(field.simpleCaptchaSize == undefined ? "medium" : field.simpleCaptchaSize);
@@ -471,9 +532,10 @@ function LoadFieldSettings(){
     }
 
 
-    //Display default value setting for simple name field
+    //Display default value setting and size setting for simple name field
     if(field["type"] == "name" && field["nameFormat"] == "simple"){
         jQuery(".default_value_setting").show();
+        jQuery(".size_setting").show();
     }
 
     // if a product or option field, hide "other choice" setting
@@ -481,18 +543,29 @@ function LoadFieldSettings(){
         jQuery(".other_choice_setting").hide();
     }
 
+    // if calc enabled, hide range
+    if(field.enableCalculation) {
+        jQuery('li.range_setting').hide();
+    }
+
+    if(field.type == 'text') {
+        if(field.inputMask) {
+            jQuery(".maxlen_setting").hide();
+        } else {
+            jQuery(".maxlen_setting").show();
+        }
+    }
+
     jQuery(document).trigger('gform_load_field_settings', [field, form]);
 
     jQuery("#field_settings").appendTo(".field_selected");
 
-    //jQuery("#field_settings").tabs("_create");
     jQuery("#field_settings").tabs("select", 0);
 
     ShowSettings("field_settings");
 
     SetProductField(field);
 }
-
 
 function TogglePageBreakSettings(){
     if(HasPageBreak()){
@@ -676,7 +749,6 @@ function TogglePasswordStrength(isInit){
     }
 }
 
-
 function ToggleSchedule(isInit){
     var speed = isInit ? "" : "slow";
 
@@ -708,14 +780,11 @@ function SetCustomFieldTemplate(){
     SetFieldProperty("customFieldTemplateEnabled", enabled );
 }
 
-
 function SetCategoryInitialItem(){
     var enabled = jQuery("#gfield_post_category_initial_item_enabled").is(":checked");
     SetFieldProperty("categoryInitialItem", enabled ? jQuery("#field_post_category_initial_item").val() : null);
     SetFieldProperty("categoryInitialItemEnabled", enabled );
 }
-
-
 
 function PopulateContentTemplate(fieldName){
     if(jQuery("#" + fieldName).val().length == 0){
@@ -776,6 +845,7 @@ function ToggleQueryString(isInit){
     }
 
 }
+
 function ToggleInputName(isInit){
     var speed = isInit ? "" : "slow";
     if(jQuery('#field_prepopulate').is(":checked")){
@@ -849,7 +919,6 @@ function ToggleConditionalLogic(isInit, objectType){
 
 }
 
-
 function ToggleConfirmation(isInit){
 
     var isRedirect = jQuery("#form_confirmation_redirect").is(":checked");
@@ -891,7 +960,6 @@ function ToggleButton(isInit){
 
 }
 
-
 function TogglePageButton(button_name, isInit){
     var isText = jQuery("#" + button_name + "_button_text").is(":checked");
     show_element = isText ? "#" + button_name + "_button_text_container" : "#" + button_name + "_button_image_container"
@@ -921,7 +989,6 @@ function SetPageButton(button_name){
     }
 }
 
-
 function ToggleCustomField(isInit){
 
     var isExisting = jQuery("#field_custom_existing").is(":checked");
@@ -936,14 +1003,22 @@ function ToggleCustomField(isInit){
 }
 
 function ToggleInputMask(isInit){
+
     var speed = isInit ? "" : "slow";
 
     if(jQuery("#field_input_mask").is(":checked")){
         jQuery("#gform_input_mask").show(speed);
+        jQuery(".maxlen_setting").hide();
+
         SetFieldProperty('inputMask', true);
+
+        //setting max length to blank
+        jQuery("#field_maxlen").val("");
+        SetFieldProperty('maxLength', "");
     }
     else{
         jQuery("#gform_input_mask").hide(speed);
+        jQuery(".maxlen_setting").show();
         SetFieldProperty('inputMask', false);
         SetFieldProperty('inputMaskValue', '');
     }
@@ -970,7 +1045,6 @@ function ToggleAutoresponder(){
     else
         jQuery("#form_autoresponder_container").hide("slow");
 }
-
 
 function HasPostField(){
     for(var i=0; i<form.fields.length; i++){
@@ -1016,7 +1090,6 @@ function HasPageBreak(){
     }
     return false;
 }
-
 
 function SetButtonConditionalLogic(isChecked){
     form.button.conditionalLogic = isChecked ? new ConditionalLogic() : null;
@@ -1122,10 +1195,14 @@ function UpdateFormObject(){
             form["pagination"]["style"] = jQuery("#percentage_style").val();
             form["pagination"]["backgroundColor"] = form["pagination"]["style"] == "custom" ? jQuery("#percentage_style_custom_bgcolor").val() : null;
             form["pagination"]["color"] = form["pagination"]["style"] == "custom" ? jQuery("#percentage_style_custom_color").val() : null;
+            form["pagination"]["display_progressbar_on_confirmation"] = jQuery("#percentage_confirmation_display").is(":checked");
+            form["pagination"]["progressbar_completion_text"] = jQuery("#percentage_confirmation_display").is(":checked") ? jQuery("#percentage_confirmation_page_name").val() : null;
         }
         else{
             form["pagination"]["backgroundColor"] = null;
             form["pagination"]["color"] = null;
+            form["pagination"]["display_progressbar_on_confirmation"] = null;
+            form["pagination"]["progressbar_completion_text"] = null;
         }
 
         form["firstPageCssClass"] = jQuery("#first_page_css_class").val();
@@ -1232,7 +1309,6 @@ function StartDeleteField(element){
     DeleteField(fieldId);
 }
 
-
 function EndDeleteField(fieldId){
 
     var product_dependencies = new Array();
@@ -1252,11 +1328,11 @@ function EndDeleteField(fieldId){
                 form.fields[i]["conditionalLogic"] = false;
         }
 
-
         //Getting first product and compiling a list of options and quantities dependent on this field
-        if(form.fields[i]["type"] == "product" && form.fields[i]["id"] != fieldId && first_product != "")
+        if(form.fields[i]["type"] == "product" && form.fields[i]["id"] != fieldId && first_product == "")
             first_product = form.fields[i]["id"];
-        else if(form.fields[i]["productField"] == fieldId)
+
+        if(form.fields[i]["productField"] == fieldId)
             product_dependencies.push(i);
     }
 
@@ -1446,7 +1522,7 @@ function StartChangeCaptchaType(captchaType){
 
 function StartChangeProductType(type){
     field = GetSelectedField();
-    if(type == "singleproduct" || type == "hiddenproduct")
+    if(type == "singleproduct" || type == "hiddenproduct" || field["inputType"] == "calculation" )
         field["enablePrice"] = null;
     else
         field["enablePrice"] = true;
@@ -1472,6 +1548,22 @@ function StartChangeShippingType(type){
     return StartChangeInputType(type, field);
 }
 
+function StartChangePostCategoryType(type){
+
+    if(type == 'dropdown') {
+
+        jQuery('.post_category_initial_item_setting').hide();
+
+    } else {
+
+        jQuery('.post_category_initial_item_setting').show();
+
+    }
+
+    field = GetSelectedField();
+    return StartChangeInputType(type, field);
+}
+
 function EndChangeInputType(fieldId, fieldType, fieldString){
 
     jQuery("#field_" + fieldId).html(fieldString);
@@ -1494,7 +1586,6 @@ function EndChangeInputType(fieldId, fieldType, fieldString){
 
     UpdateDescriptionPlacement();
 }
-
 
 function InitializeFields(){
     //Border on/off logic on mouse over
@@ -1618,6 +1709,17 @@ function TogglePercentageStyle(isInit){
     }
 }
 
+function TogglePercentageConfirmationText(isInit){
+    var speed = isInit ? "" : "slow";
+
+    if(jQuery("#percentage_confirmation_display").is(":checked")){
+        jQuery('.percentage_confirmation_page_name_setting').show(speed);
+    }
+    else{
+        jQuery('.percentage_confirmation_page_name_setting').hide(speed);
+    }
+}
+
 function CustomFieldExists(name){
     if(!name)
         return true;
@@ -1667,15 +1769,24 @@ function GetRuleFields(objectType, ruleIndex, selectedFieldId){
     var str = "<select id='" + objectType + "_rule_field_" + ruleIndex + "' class='gfield_rule_select' onchange='jQuery(\"#" + objectType + "_rule_value_" + ruleIndex + "\").replaceWith(GetRuleValues(\"" + objectType + "\", " + ruleIndex + ", jQuery(this).val())); SetRule(\"" + objectType + "\", " + ruleIndex + "); '>";
     var inputType;
     for(var i=0; i<form.fields.length; i++){
-        inputType = form.fields[i].inputType ? form.fields[i].inputType : form.fields[i].type;
-        if(inputType == "checkbox" || inputType == "radio" || inputType == "select"){
+        if(IsConditionalLogicField(form.fields[i])){
             var selected = form.fields[i].id == selectedFieldId ? "selected='selected'" : "";
             var label = form.fields[i].adminLabel ? form.fields[i].adminLabel : form.fields[i].label
-            str += "<option value='" + form.fields[i].id + "' " + selected + ">" + TruncateRuleText(label) + "</option>";
+            str += "<option value='" + form.fields[i].id + "' " + selected + ">" + label + "</option>";
         }
     }
     str += "</select>";
     return str;
+}
+
+function IsConditionalLogicField(field){
+    inputType = field.inputType ? field.inputType : field.type;
+    var supported_fields = ["checkbox", "radio", "select", "text", "website", "textarea", "email", "hidden", "number", "phone", "multiselect", "post_title",
+                            "post_tags", "post_custom_field", "post_content", "post_excerpt"];
+
+    var index = jQuery.inArray(inputType, supported_fields);
+
+    return index >= 0;
 }
 
 function TruncateRuleText(text){
@@ -1683,13 +1794,13 @@ function TruncateRuleText(text){
         return text;
 
     return text.substr(0, 9) + "..." + text.substr(text.length -8, 9);
+
 }
 
 function GetFirstRuleField(){
     var inputType;
     for(var i=0; i<form.fields.length; i++){
-        inputType = form.fields[i].inputType ? form.fields[i].inputType : form.fields[i].type;
-        if(inputType == "checkbox" || inputType == "radio" || inputType == "select")
+        if(IsConditionalLogicField(form.fields[i]))
             return form.fields[i].id;
     }
 
@@ -1697,7 +1808,6 @@ function GetFirstRuleField(){
 }
 
 function GetRuleValues(objectType, ruleIndex, selectedFieldId, selectedValue){
-    var str = "<select class='gfield_rule_select' id='" + objectType + "_rule_value_" + ruleIndex + "' onchange='SetRuleProperty(\"" + objectType + "\", " + ruleIndex + ", \"value\", jQuery(this).val());'>";
 
     if(selectedFieldId == 0)
         selectedFieldId = GetFirstRuleField();
@@ -1707,26 +1817,79 @@ function GetRuleValues(objectType, ruleIndex, selectedFieldId, selectedValue){
 
     var isAnySelected = false;
     var field = GetFieldById(selectedFieldId);
-    if(field && field.choices){
-        for(var i=0; i<field.choices.length; i++){
-            var choiceValue = typeof field.choices[i].value == "undefined" || field.choices[i].value == null ? field.choices[i].text + '' : field.choices[i].value + '';
-            var isSelected = choiceValue == selectedValue;
-            var selected = isSelected ? "selected='selected'" : "";
-            if(isSelected)
-                isAnySelected = true;
 
-            str += "<option value='" + choiceValue.replace(/'/g, "&#039;") + "' " + selected + ">" + TruncateRuleText(field.choices[i].text) + "</option>";
+    if(!field)
+        return "";
+
+    var str = "";
+
+    if(field["type"] == "post_category" && field["displayAllCategories"]){
+
+        var dropdown_id = objectType + '_rule_value_' + ruleIndex;
+        var dropdown = jQuery('#' + dropdown_id + ".gfield_category_dropdown");
+
+        //don't load category drop down if it already exists (to avoid unecessary ajax requests)
+        if(dropdown.length > 0){
+
+            var options = dropdown.html();
+            options = options.replace("value=\"" + selectedValue + "\"", "value=\"" + selectedValue + "\" selected=\"selected\"");
+            str = "<select id='" + dropdown_id + "' class='gfield_rule_select gfield_rule_value_dropdown gfield_category_dropdown'>" + options + "</select>";
+        }
+        else{
+            //loading categories via AJAX
+            jQuery.post(ajaxurl,{   action:"gf_get_post_categories",
+                                    objectType: objectType,
+                                    ruleIndex: ruleIndex,
+                                    selectedValue: selectedValue},
+                                function(dropdown_string){
+                                    if(dropdown_string){
+                                        jQuery('#gfield_ajax_placeholder_' + ruleIndex).replaceWith(dropdown_string.trim());
+
+                                        SetRuleProperty(objectType, ruleIndex, "value", jQuery("#" + dropdown_id).val());
+                                    }
+                                }
+                        );
+
+            //will be replaced by real drop down during the ajax callback
+            str = "<select id='gfield_ajax_placeholder_" + ruleIndex + "' class='gfield_rule_select'><option>" + gf_vars["loading"] + "</option></select>";
         }
     }
+    else if(field.choices){
+        str = GetRuleValuesDropDown(field.choices, objectType, ruleIndex, selectedValue);
+    }
+    else{
+        selectedValue = selectedValue ? selectedValue.replace(/'/g, "&#039;") : "";
 
-    if(!isAnySelected && selectedValue && selectedValue != "")
-        str += "<option value='" + selectedValue.replace(/'/g, "&#039;") + "' selected='selected'>" + TruncateRuleText(selectedValue) + "</option>";
-
-    str += "</select>";
+        //create a text field for fields that don't have choices (i.e text, textarea, number, email, etc...)
+        str = "<input type='text' placeholder='" + gf_vars["enterValue"] + "' class='gfield_rule_select' id='" + objectType + "_rule_value_" + ruleIndex + "' value='" + selectedValue.replace(/'/g, "&#039;") + "' onchange='SetRuleProperty(\"" + objectType + "\", " + ruleIndex + ", \"value\", jQuery(this).val());' onkeyup='SetRuleProperty(\"" + objectType + "\", " + ruleIndex + ", \"value\", jQuery(this).val());'>";
+    }
 
     return str;
 }
 
+function GetRuleValuesDropDown(choices, objectType, ruleIndex, selectedValue){
+    //create a drop down for fields that have choices (i.e. drop down, radio, checkboxes, etc...)
+    str = "<select class='gfield_rule_select gfield_rule_value_dropdown' id='" + objectType + "_rule_value_" + ruleIndex + "'>";
+
+    var isAnySelected = false;
+    for(var i=0; i<choices.length; i++){
+        var choiceValue = typeof choices[i].value == "undefined" || choices[i].value == null ? choices[i].text + '' : choices[i].value + '';
+        var isSelected = choiceValue == selectedValue;
+        var selected = isSelected ? "selected='selected'" : "";
+        if(isSelected)
+            isAnySelected = true;
+
+        str += "<option value='" + choiceValue.replace(/'/g, "&#039;") + "' " + selected + ">" + choices[i].text + "</option>";
+    }
+
+    if(!isAnySelected && selectedValue && selectedValue != "")
+        str += "<option value='" + selectedValue.replace(/'/g, "&#039;") + "' selected='selected'>" + selectedValue + "</option>";
+
+    str += "</select>";
+
+    return str;
+
+}
 function SetRuleProperty(objectType, ruleIndex, name, value){
     var obj = GetConditionalObject(objectType);
     obj.conditionalLogic.rules[ruleIndex][name] = value;
@@ -2214,6 +2377,9 @@ function SetFeaturedImage() {
 
         SetFieldProperty('postFeaturedImage', true);
     }
+    else{
+        SetFieldProperty('postFeaturedImage', false);
+    }
 }
 
 
@@ -2401,6 +2567,42 @@ function IndexOf(ary, item){
     return -1;
 }
 
+function DefaultValueCallback(){
+    SetFieldDefaultValue(jQuery('#field_default_value').val())
+}
+
+function HtmlContentCallback(){
+    SetFieldProperty('content', jQuery('#field_content').val())
+}
+
+
+
+function ToggleCalculationOptions(isEnabled, field) {
+
+    if(isEnabled) {
+
+        jQuery('#calculation_options').gfSlide('down');
+        if(field.type != 'product')
+            jQuery('li.range_setting').gfSlide('up');
+
+    } else {
+
+        jQuery('#calculation_options').gfSlide('up');
+        if(field.type != 'product')
+            jQuery('li.range_setting').gfSlide('down');
+
+        SetFieldProperty('calculationFormula', '');
+        SetFieldProperty('calculationRounding', '');
+
+    }
+
+    SetFieldProperty('enableCalculation', isEnabled);
+}
+
+function FormulaContentCallback() {
+    SetFieldProperty('calculationFormula', jQuery('#field_calculation_formula').val());
+}
+
 
 //------------------------------------------------------------------------------------------------------------------------
 //Color Picker
@@ -2447,3 +2649,35 @@ function SetColorPickerColor(field_name, color, callback){
     if(callback)
         window[callback](color);
 }
+
+function SetFieldChoices(){
+    var field = GetSelectedField();
+    for(var i=0; i<field.choices.length; i++){
+        SetFieldChoice(i);
+    }
+}
+
+/**
+* Quick jQuery plugin that allows a variable to be passed which determins whether to
+* instantly hide the element or slideUp instead.
+*/
+jQuery.fn.gfSlide = function(direction) {
+
+    var isVisible = jQuery('#field_settings').is(':visible');
+
+    if(direction == 'up') {
+        if(!isVisible) {
+            this.hide();
+        } else {
+            this.slideUp();
+        }
+    } else {
+        if(!isVisible) {
+            this.show();
+        } else {
+            this.slideDown();
+        }
+    }
+
+    return this;
+};

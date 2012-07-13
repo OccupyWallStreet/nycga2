@@ -35,7 +35,7 @@ class Walker_Group_Edit extends Walker_Group  {
 	 * @param object $args
 	 */
 	function start_el(&$output, $item, $depth, $args) {
-		global $_wp_nav_menu_max_depth, $bp;
+		global $_wp_nav_menu_max_depth, $bp, $groups_template;
 		$_wp_nav_menu_max_depth = $depth > $_wp_nav_menu_max_depth ? $depth : $_wp_nav_menu_max_depth;
 
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
@@ -51,15 +51,16 @@ class Walker_Group_Edit extends Walker_Group  {
 			'_wpnonce',
 		);
 
-		$original_title = '';
-
 		$classes = array(
 			'menu-item menu-item-depth-' . $depth,
 			'menu-item-edit-' . ( ( isset( $_GET['edit-menu-item'] ) && $item_id == $_GET['edit-menu-item'] ) ? 'active' : 'inactive'),
 		);
 
-		$title = $item->name;
+		/** Set global $groups_template to current group so we can use BP groups template functions */
+		$groups_template->group = $item;
 
+		$title = $item->name;
+		
 		if ( isset( $item->status ) && 'private' == $item->status ) {
 			$classes[] = 'status-private';
 			/* translators: %s: title of private group */
@@ -78,7 +79,7 @@ class Walker_Group_Edit extends Walker_Group  {
 		<li id="menu-item-<?php echo $item_id; ?>" class="<?php echo implode(' ', $classes ); ?>">
 			<dl class="menu-item-bar">
 				<dt class="menu-item-handle">
-					<span class="item-title"><?php echo esc_html( $title ); ?></span>
+					<span class="item-title"><?php bp_group_avatar_micro() ?> <?php echo esc_html( stripslashes( $title ) ); ?></span>
 					<span class="item-controls">
 						<span class="item-type"><?php echo esc_html( $item->slug ); ?></span>
 						<a class="item-edit" id="edit-<?php echo $item_id; ?>" title="<?php _e('Edit Group', 'bp-group-organizer' ); ?>" href="<?php
@@ -92,7 +93,7 @@ class Walker_Group_Edit extends Walker_Group  {
 				<p class="description description-thin">
 					<label for="group-name-<?php echo $item_id; ?>">
 						<?php _e( 'Group Name', 'bp-group-organizer' ); ?><br />
-						<input type="text" id="group-name-<?php echo $item_id; ?>" class="widefat edit-menu-item-title" name="group[<?php echo $item_id; ?>][name]" value="<?php echo esc_attr( $item->name ); ?>" />
+						<input type="text" id="group-name-<?php echo $item_id; ?>" class="widefat edit-menu-item-title" name="group[<?php echo $item_id; ?>][name]" value="<?php echo esc_attr( stripslashes( $item->name ) ); ?>" />
 					</label>
 				</p>
 				<p class="description description-thin">
@@ -104,7 +105,7 @@ class Walker_Group_Edit extends Walker_Group  {
 				<p class="field-description description description-wide">
 					<label for="group-description-<?php echo $item_id; ?>">
 						<?php _e( 'Group Description', 'bp-group-organizer' ); ?><br />
-						<textarea id="group-description-<?php echo $item_id; ?>" class="widefat edit-menu-item-description" rows="3" cols="20" name="group[<?php echo $item_id; ?>][description]"><?php echo esc_html( $item->description ); // textarea_escaped ?></textarea>
+						<textarea id="group-description-<?php echo $item_id; ?>" class="widefat edit-menu-item-description" rows="3" cols="20" name="group[<?php echo $item_id; ?>][description]"><?php echo esc_textarea( stripslashes( $item->description ) ); // textarea_escaped ?></textarea>
 						<span class="description"><?php _e('Enter a brief description for this group.'); ?></span>
 					</label>
 				</p>
@@ -134,7 +135,7 @@ class Walker_Group_Edit extends Walker_Group  {
 						<select id="group-parent-id-<?php echo $item_id; ?>" class="widefat edit-menu-item-target" name="group[<?php echo $item_id; ?>][parent_id]">
 							<option value="0" <?php selected( $item->parent_id, 0) ?>><?php _e('Site Root','bp_group_hierarchy') ?></option>
 							<?php foreach($all_groups as $group) : ?>
-							<option value="<?php echo $group->id ?>" <?php selected($item->parent_id,$group->id) ?>><?php echo $group->name ?> (<?php echo $group->slug ?>)</option>
+							<option value="<?php echo $group->id ?>" <?php selected($item->parent_id,$group->id) ?>><?php echo esc_html( stripslashes( $group->name ) ) ?> (<?php echo $group->slug ?>)</option>
 							<?php endforeach; ?>
 						</select>
 					</label>
@@ -144,11 +145,9 @@ class Walker_Group_Edit extends Walker_Group  {
 				<?php do_action( 'bp_group_organizer_display_group_options' , $item ); ?>
 				
 				<div class="menu-item-actions description-wide submitbox">
-					<?php if( $original_title !== false ) : ?>
-						<p class="link-to-original">
-							<?php printf( __('Original: %s'), '<a href="' . esc_attr( bp_get_group_permalink( $item ) ) . '">' . esc_html( $item->name ) . '</a>' ); ?>
-						</p>
-					<?php endif; ?>
+					<p class="link-to-original">
+						<?php printf( __( 'Link: %s', 'bp-group-organizer' ), '<a href="' . bp_get_group_permalink() . '">' . esc_html( stripslashes( $item->name ) ) . '</a>' ); ?>
+					</p>
 					<a class="item-delete submitdelete deletion" id="delete-<?php echo $item_id; ?>" href="<?php
 					echo wp_nonce_url(
 						add_query_arg(
@@ -174,94 +173,6 @@ class Walker_Group_Edit extends Walker_Group  {
 		<?php
 		$output .= ob_get_clean();
 	}
-}
-
-/**
- * Register nav menu metaboxes and advanced menu items
- *
- * @since 3.0.0
- **/
-function wp_nav_menu_setup() {
-//	// Register meta boxes
-//	if ( wp_get_nav_menus() )
-//		add_meta_box( 'nav-menu-theme-locations', __( 'Theme Locations' ), 'wp_nav_menu_locations_meta_box' , 'nav-menus', 'side', 'default' );
-//	add_meta_box( 'add-custom-links', __('Custom Links'), 'wp_nav_menu_item_link_meta_box', 'nav-menus', 'side', 'default' );
-//	wp_nav_menu_post_type_meta_boxes();
-//	wp_nav_menu_taxonomy_meta_boxes();
-//
-//	// Register advanced menu items (columns)
-//	add_filter( 'manage_nav-menus_columns', 'wp_nav_menu_manage_columns');
-//
-//	// If first time editing, disable advanced items by default.
-//	if( false === get_user_option( 'managenav-menuscolumnshidden' ) ) {
-//		$user = wp_get_current_user();
-//		update_user_option($user->ID, 'managenav-menuscolumnshidden',
-//			array( 0 => 'link-target', 1 => 'css-classes', 2 => 'xfn', 3 => 'description', ),
-//			true);
-//	}
-}
-
-/**
- * Save posted nav menu item data.
- *
- * @since 3.0.0
- *
- * @param int $menu_id The menu ID for which to save this item. $menu_id of 0 makes a draft, orphaned menu item.
- * @param array $menu_data The unsanitized posted menu item data.
- * @return array The database IDs of the items saved
- */
-function wp_save_nav_menu_items( $menu_id = 0, $menu_data = array() ) {
-	$menu_id = (int) $menu_id;
-	$items_saved = array();
-
-	if ( 0 == $menu_id || is_nav_menu( $menu_id ) ) {
-
-		// Loop through all the menu items' POST values
-		foreach( (array) $menu_data as $_possible_db_id => $_item_object_data ) {
-			if (
-				empty( $_item_object_data['menu-item-object-id'] ) && // checkbox is not checked
-				(
-					! isset( $_item_object_data['menu-item-type'] ) || // and item type either isn't set
-					in_array( $_item_object_data['menu-item-url'], array( 'http://', '' ) ) || // or URL is the default
-					! ( 'custom' == $_item_object_data['menu-item-type'] && ! isset( $_item_object_data['menu-item-db-id'] ) ) ||  // or it's not a custom menu item (but not the custom home page)
-					! empty( $_item_object_data['menu-item-db-id'] ) // or it *is* a custom menu item that already exists
-				)
-			) {
-				continue; // then this potential menu item is not getting added to this menu
-			}
-
-			// if this possible menu item doesn't actually have a menu database ID yet
-			if (
-				empty( $_item_object_data['menu-item-db-id'] ) ||
-				( 0 > $_possible_db_id ) ||
-				$_possible_db_id != $_item_object_data['menu-item-db-id']
-			) {
-				$_actual_db_id = 0;
-			} else {
-				$_actual_db_id = (int) $_item_object_data['menu-item-db-id'];
-			}
-
-			$args = array(
-				'menu-item-db-id' => ( isset( $_item_object_data['menu-item-db-id'] ) ? $_item_object_data['menu-item-db-id'] : '' ),
-				'menu-item-object-id' => ( isset( $_item_object_data['menu-item-object-id'] ) ? $_item_object_data['menu-item-object-id'] : '' ),
-				'menu-item-object' => ( isset( $_item_object_data['menu-item-object'] ) ? $_item_object_data['menu-item-object'] : '' ),
-				'menu-item-parent-id' => ( isset( $_item_object_data['menu-item-parent-id'] ) ? $_item_object_data['menu-item-parent-id'] : '' ),
-				'menu-item-position' => ( isset( $_item_object_data['menu-item-position'] ) ? $_item_object_data['menu-item-position'] : '' ),
-				'menu-item-type' => ( isset( $_item_object_data['menu-item-type'] ) ? $_item_object_data['menu-item-type'] : '' ),
-				'menu-item-title' => ( isset( $_item_object_data['menu-item-title'] ) ? $_item_object_data['menu-item-title'] : '' ),
-				'menu-item-url' => ( isset( $_item_object_data['menu-item-url'] ) ? $_item_object_data['menu-item-url'] : '' ),
-				'menu-item-description' => ( isset( $_item_object_data['menu-item-description'] ) ? $_item_object_data['menu-item-description'] : '' ),
-				'menu-item-attr-title' => ( isset( $_item_object_data['menu-item-attr-title'] ) ? $_item_object_data['menu-item-attr-title'] : '' ),
-				'menu-item-target' => ( isset( $_item_object_data['menu-item-target'] ) ? $_item_object_data['menu-item-target'] : '' ),
-				'menu-item-classes' => ( isset( $_item_object_data['menu-item-classes'] ) ? $_item_object_data['menu-item-classes'] : '' ),
-				'menu-item-xfn' => ( isset( $_item_object_data['menu-item-xfn'] ) ? $_item_object_data['menu-item-xfn'] : '' ),
-			);
-
-			$items_saved[] = wp_update_nav_menu_item( $menu_id, $_actual_db_id, $args );
-
-		}
-	}
-	return $items_saved;
 }
 
 /**

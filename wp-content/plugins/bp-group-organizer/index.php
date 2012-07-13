@@ -3,14 +3,16 @@
 Plugin Name: BP Group Organizer
 Plugin URI: http://www.generalthreat.com/projects/buddypress-group-organizer
 Description: Easily create, edit, and delete BuddyPress groups - with drag and drop simplicity
-Version: 1.0.3
-Revision Date: 01/26/2012
-Requires at least: WP 3.0, BuddyPress 1.2
-Tested up to: WP 3.3.1 , BuddyPress 1.5.3.1
+Version: 1.0.4
+Revision Date: 03/24/2012
+Requires at least: WP 3.1, BuddyPress 1.2
+Tested up to: WP 3.3.1 , BuddyPress 1.5.4
 License: Example: GNU General Public License 2.0 (GPL) http://www.gnu.org/licenses/gpl.html
 Author: David Dean
 Author URI: http://www.generalthreat.com/
 */
+
+include dirname(__FILE__) . '/functions.php';
 
 /** load localization files if present */
 if( file_exists( dirname( __FILE__ ) . '/languages/' . dirname(plugin_basename(__FILE__)) . '-' . get_locale() . '.mo' ) ) {
@@ -71,30 +73,32 @@ function bp_group_organizer_translate_script() {
 function bp_group_organizer_load_styles() {
 
 	// Nav Menu CSS
-	wp_admin_css( 'nav-menu' );
+	// This dropped out in WP 3.3, but is still needed for compat
+	if( floatval( get_bloginfo( 'version' ) ) < 3.3 ) {
+		wp_admin_css( 'nav-menu' );
+	}
+	
+	
 }
 
 function bp_group_organizer_admin_page() {
 	
 	global $wpdb;
+
+	// Permissions Check
+	if ( ! current_user_can('manage_options') )
+		wp_die( __( 'Cheatin&#8217; uh?' ) );
 	
 	// Load all the nav menu interface functions
 	require_once( 'includes/group-meta-boxes.php' );
 	require_once( 'includes/group-organizer-template.php' );
 	require_once( 'includes/group-organizer.php' );
 	
-	// Permissions Check
-	if ( ! current_user_can('manage_options') )
-		wp_die( __( 'Cheatin&#8217; uh?' ) );
-	
 	// Container for any messages displayed to the user
 	$messages = array();
 
 	// Container that stores the name of the active menu
 	$nav_menu_selected_title = '';
-	
-	// The menu id of the current menu being edited
-	$nav_menu_selected_id = isset( $_REQUEST['menu'] ) ? (int) $_REQUEST['menu'] : 0;
 	
 	// Allowed actions: add, update, delete
 	$action = isset( $_REQUEST['action'] ) ? $_REQUEST['action'] : 'edit';
@@ -103,8 +107,8 @@ function bp_group_organizer_admin_page() {
 		case 'add-group':
 			check_admin_referer( 'add-group', 'group-settings-column-nonce' );
 			
-			$group['name']			= $_POST['group_name'];
-			$group['description']	= $_POST['group_desc'];
+			$group['name']			= stripslashes( $_POST['group_name'] );
+			$group['description']	= stripslashes( $_POST['group_desc'] );
 			$group['slug']			= groups_check_slug($_POST['group_slug']);
 			$group['status']		= $_POST['group_status'];
 			$group['enable_forum']	= isset($_POST['group_forum']) ? true : false;
@@ -170,7 +174,7 @@ function bp_group_organizer_admin_page() {
 				// check for group attribute changes
 				$attrs_changed = array();
 				if($group['name'] != $group_reference->name) {
-					$group_reference->name = $group['name'];
+					$group_reference->name = stripslashes( $group['name'] );
 					$attrs_changed[] = 'name';
 				}
 				if($group['slug'] != $group_reference->slug) {
@@ -181,7 +185,7 @@ function bp_group_organizer_admin_page() {
 					}
 				}
 				if($group['description'] != $group_reference->description) {
-					$group_reference->description = $group['description'];
+					$group_reference->description = stripslashes( $group['description'] );
 					$attrs_changed[] = 'description';
 				}
 				if( $group['status'] != $group_reference->status && groups_is_valid_status($group['status']) ) {
@@ -203,54 +207,13 @@ function bp_group_organizer_admin_page() {
 			}
 			break;
 	}
-
-// Get all nav menus
-$nav_menus = wp_get_nav_menus( array('orderby' => 'name') );
-
-// Get recently edited nav menu
-$recently_edited = (int) get_user_option( 'nav_menu_recently_edited' );
-
-// If there was no recently edited menu, and $nav_menu_selected_id is a nav menu, update recently edited menu.
-if ( !$recently_edited && is_nav_menu( $nav_menu_selected_id ) ) {
-	$recently_edited = $nav_menu_selected_id;
-
-// Else if $nav_menu_selected_id is not a menu and not requesting that we create a new menu, but $recently_edited is a menu, grab that one.
-} elseif ( 0 == $nav_menu_selected_id && ! isset( $_REQUEST['menu'] ) && is_nav_menu( $recently_edited ) ) {
-	$nav_menu_selected_id = $recently_edited;
-
-// Else try to grab the first menu from the menus list
-} elseif ( 0 == $nav_menu_selected_id && ! isset( $_REQUEST['menu'] ) && ! empty($nav_menus) ) {
-	$nav_menu_selected_id = $nav_menus[0]->term_id;
-}
-
-// Update the user's setting
-if ( $nav_menu_selected_id != $recently_edited && is_nav_menu( $nav_menu_selected_id ) )
-	update_user_meta( $current_user->ID, 'nav_menu_recently_edited', $nav_menu_selected_id );
-
-// If there's a menu, get its name.
-if ( ! $nav_menu_selected_title && is_nav_menu( $nav_menu_selected_id ) ) {
-	$_menu_object = wp_get_nav_menu_object( $nav_menu_selected_id );
-	$nav_menu_selected_title = ! is_wp_error( $_menu_object ) ? $_menu_object->name : '';
-}
-
-// Generate truncated menu names
-foreach( (array) $nav_menus as $key => $_nav_menu ) {
-	$_nav_menu->truncated_name = trim( wp_html_excerpt( $_nav_menu->name, 40 ) );
-	if ( $_nav_menu->truncated_name != $_nav_menu->name )
-		$_nav_menu->truncated_name .= '&hellip;';
-
-	$nav_menus[$key]->truncated_name = $_nav_menu->truncated_name;
-}
-
-// Ensure the user will be able to scroll horizontally
-// by adding a class for the max menu depth.
-global $_wp_nav_menu_max_depth;
-$_wp_nav_menu_max_depth = 0;
-
-$edit_markup = bp_get_groups_to_edit( );
-
-//wp_nav_menu_setup();
-//wp_initial_nav_menu_meta_boxes();
+	
+	// Ensure the user will be able to scroll horizontally
+	// by adding a class for the max menu depth.
+	global $_wp_nav_menu_max_depth;
+	$_wp_nav_menu_max_depth = 0;
+	
+	$edit_markup = bp_get_groups_to_edit( );
 
 ?>
 <div class="wrap">
@@ -289,7 +252,6 @@ $edit_markup = bp_get_groups_to_edit( );
 						wp_nonce_field( 'update-groups', 'update-groups-nonce' );
 						?>
 						<input type="hidden" name="action" value="update" />
-						<input type="hidden" name="menu" id="menu" value="<?php echo esc_attr( $nav_menu_selected_id ); ?>" />
 					</div><!-- END #nav-menu-header -->
 					<div id="post-body">
 						<div id="post-body-content">
@@ -308,10 +270,7 @@ $edit_markup = bp_get_groups_to_edit( );
 					<div id="nav-menu-footer">
 						<div class="major-publishing-actions">
 						<div class="publishing-action">
-							<?php
-							if ( ! empty( $nav_menu_selected_id ) )
-								submit_button( __( 'Save Groups', 'bp-group-organizer' ), 'button-primary menu-save', 'save_menu', false, array( 'id' => 'save_menu_footer' ) );
-							?>
+							<?php submit_button( __( 'Save Groups', 'bp-group-organizer' ), 'button-primary menu-save', 'save_menu', false, array( 'id' => 'save_menu_footer' ) ); ?>
 						</div>
 						</div>
 					</div><!-- /#nav-menu-footer -->

@@ -69,29 +69,38 @@ function wangguard_queue() {
 				foreach( (array)$authors as $author ) {
 				
 					$caps = maybe_unserialize( $author->caps );
-					if ( isset( $caps['subscriber'] ) || isset( $caps['contributor'] ) ) continue;
+					if ( !isset( $caps['administrator'] ) ) continue;
 					
 					$authors_ids[] = $author->user_id;
 				}
 			}
 			$res = wangguard_report_users($authors_ids);
 			$resArr = explode(",", $res);
-			$reportedAuthors = count($resArr);
+			$reportedAuthors = (count($blogs)==0) ? 0 : count($resArr);
 			
 
 			
 			//report selected users
 			$reportedUsers = 0;
 			$users = (array)$_REQUEST['users'];
+			
 			$res = wangguard_report_users($users);
 			$resArr = explode(",", $res);
-			$reportedUsers = count($resArr);
+			$reportedUsers = (count($users)==0) ? 0 : count($resArr);
 				
-			if ($reportedBlogs)
-				$messages[] = '<div id="message" class="updated fade"><p><strong>'. sprintf(__("%d blog(s) and %d author(s) was reported as Splogger(s) and deleted" , "wangguard") , $reportedBlogs , $reportedAuthors) .'</strong></p></div>';
+			if ($reportedBlogs) {
+				if (wangguard_get_option ("wangguard-delete-users-on-report")=='1')
+					$messages[] = '<div id="message" class="updated fade"><p><strong>'. sprintf(__("%d blog(s) and %d author(s) was reported as Splogger(s) and deleted" , "wangguard") , $reportedBlogs , $reportedAuthors) .'</strong></p></div>';
+				else
+					$messages[] = '<div id="message" class="updated fade"><p><strong>'. sprintf(__("%d blog(s) and %d author(s) was reported as Splogger(s)" , "wangguard") , $reportedBlogs , $reportedAuthors) .'</strong></p></div>';
+			}
 			
-			if ($reportedUsers)
-				$messages[] = '<div id="message" class="updated fade"><p><strong>'. sprintf(__("%d user(s) were reported as Splogger(s) and deleted" , "wangguard") , $reportedUsers) .'</strong></p></div>';
+			if ($reportedUsers) {
+				if (wangguard_get_option ("wangguard-delete-users-on-report")=='1')
+					$messages[] = '<div id="message" class="updated fade"><p><strong>'. sprintf(__("%d user(s) were reported as Splogger(s) and deleted" , "wangguard") , $reportedUsers) .'</strong></p></div>';
+				else
+					$messages[] = '<div id="message" class="updated fade"><p><strong>'. sprintf(__("%d user(s) were reported as Splogger(s)" , "wangguard") , $reportedUsers) .'</strong></p></div>';
+			}
 			break;
 	}
 		

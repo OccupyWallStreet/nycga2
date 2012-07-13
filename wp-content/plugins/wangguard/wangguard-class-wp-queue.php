@@ -36,7 +36,7 @@ class WangGuard_Queue_Table extends WP_List_Table {
 
 		$usersearch = isset( $_REQUEST['s'] ) ? $_REQUEST['s'] : '';
 
-		$users_per_page = $this->get_items_per_page( "users_per_page" );
+		$users_per_page = $this->get_items_per_page( "wangguard_page_wangguard_queue_network_per_page" );
 
 		$paged = $this->get_pagenum();
 
@@ -74,6 +74,10 @@ class WangGuard_Queue_Table extends WP_List_Table {
 		global $wpdb;
 		$url = 'admin.php?page=wangguard_queue';
 		
+		$requestType = "";
+		if (isset($_REQUEST['type']))
+			$requestType = $_REQUEST['type'];
+		
 		$table_name = $wpdb->base_prefix . "wangguardreportqueue";
 		$Count = $wpdb->get_col( $wpdb->prepare("select count(*) as q from $table_name where ID IS NOT NULL"));
 		$total_users = $Count[0];
@@ -81,15 +85,15 @@ class WangGuard_Queue_Table extends WP_List_Table {
 		$Count = $wpdb->get_col( $wpdb->prepare("select count(*) as q from $table_name where blog_id IS NOT NULL"));
 		$total_blogs = $Count[0];
 
-		$class = empty($_REQUEST['type']) ? ' class="current"' : '';
+		$class = empty($requestType) ? ' class="current"' : '';
 		
 		$total = array();
 		$total['all'] = "<a href='$url'$class>" . sprintf( __( 'All Reports <span class="count">(%s)</span>' , $total_users, 'wangguard' ), number_format_i18n( $total_users + $total_blogs ) ) . '</a>';
 		
-		$class = ($_REQUEST['type'] == "u") ? ' class="current"' : '';
+		$class = ($requestType == "u") ? ' class="current"' : '';
 		$total['reporteducount'] = "<a href='" . add_query_arg( 'type', "u", $url ) . "'$class>".sprintf( __( 'Reported users <span class="count">(%s)</span>' , 'wangguard'), number_format_i18n( $total_users ) )."</a>";
 		
-		$class = ($_REQUEST['type'] == "b") ? ' class="current"' : '';
+		$class = ($requestType == "b") ? ' class="current"' : '';
 		$total['reportedbcount'] = "<a href='" . add_query_arg( 'type', "b", $url ) . "'$class>".sprintf( __( 'Reported blogs <span class="count">(%s)</span>' , 'wangguard'), number_format_i18n( $total_blogs ) )."</a>";
 
 		return $total;
@@ -157,22 +161,35 @@ class WangGuard_Queue_Table extends WP_List_Table {
 	
 		$url = admin_url('admin.php?page=wangguard_queue&order='.$_REQUEST['order'].'&orderby='.$_REQUEST['orderby']);
 
-		$row_data->reported_by = sanitize_user_object( $row_data->reported_by, 'display' );
+		$row_data->reported_by->filter = 'display';
 		$authors_div = "";
 		
 		if ( is_a( $row_data, 'WP_User' ) ) {
 			//USER
-			$row_data = sanitize_user_object( $row_data, 'display' );
+			$row_data->filter = 'display';
 			$email = $row_data->user_email;
 			$checkbox = '';
-			$editobj_link = esc_url( add_query_arg( 'wp_http_referer', urlencode( stripslashes( $_SERVER['REQUEST_URI'] ) ), "user-edit.php?user_id=" . $row_data->ID ) );
+
 			
 			// Set up the hover actions for this user
 			$actions = array();
-
-			$report = "<strong><a target=\"_blank\" href=\"$editobj_link\">{$row_data->user_login}</a></strong><br />";
-
 			$actions['unreport'] = "<a href='javascript:void(0)' rel='".$row_data->ID."' class='wangguard-queue-remove-user'>" . __( 'Remove from Queue', 'wangguard' ) . "</a>";
+			
+			if (defined('BP_VERSION')) {
+				$user_editobj_link = esc_url( add_query_arg( 'wp_http_referer', urlencode( stripslashes( $_SERVER['REQUEST_URI'] ) ), "user-edit.php?user_id=" . $row_data->ID ) );
+				$editobj_link = esc_url(  bp_core_get_user_domain($row_data->ID));
+
+				// Set up the hover actions for this user
+				$actions['edituser'] = "<a href='{$user_editobj_link}' target='_blank'>" . __( 'Edit user', 'wangguard' ) . "</a>";
+				$actions['bpprofile'] = "<a href='{$editobj_link}' target='_blank'>" . __( 'BP Profile', 'wangguard' ) . "</a>";
+				$report = "<strong><a target=\"_blank\" href=\"$editobj_link\">{$row_data->user_login}</a></strong><br />";
+			}
+			else {
+				$editobj_link = esc_url( add_query_arg( 'wp_http_referer', urlencode( stripslashes( $_SERVER['REQUEST_URI'] ) ), "user-edit.php?user_id=" . $row_data->ID ) );
+				$report = "<strong><a target=\"_blank\" href=\"$editobj_link\">{$row_data->user_login}</a></strong><br />";
+			}
+
+			
 
 			$report .= $this->row_actions( $actions );
 
@@ -202,7 +219,7 @@ class WangGuard_Queue_Table extends WP_List_Table {
 				
 				$caps = maybe_unserialize( $author->caps );
 
-				if ( isset( $caps['subscriber'] ) || isset( $caps['contributor'] ) ) continue;
+				if ( !isset( $caps['administrator'] ) ) continue;
 				
 				$editauthor_link = esc_url( add_query_arg( 'wp_http_referer', urlencode( stripslashes( $_SERVER['REQUEST_URI'] ) ), "user-edit.php?user_id=" . $author->user_id ) );
 				$authors_links[] = "<a target=\"_blank\" href=\"$editauthor_link\">{$author->user_login}</a>";
@@ -343,6 +360,10 @@ class WangGuard_Queue_Query {
 	function prepare_query() {
 		global $wpdb;
 
+		$requestType = "";
+		if (isset($_REQUEST['type']))
+			$requestType = $_REQUEST['type'];
+		
 		$qv = &$this->query_vars;
 
 		$tableQueue = $wpdb->base_prefix . "wangguardreportqueue";
@@ -350,14 +371,14 @@ class WangGuard_Queue_Query {
 		$this->query_fields_u = "$wpdb->users.ID , $wpdb->users.user_login , 1 as wgtype , $tableQueue.reported_on as wgreported_on , $tableQueue.reported_by_ID as wgreported_by_ID";
 		$this->query_from_u = "FROM $wpdb->users JOIN $tableQueue ON $wpdb->users.ID = $tableQueue.ID";
 		
-		if ($_REQUEST['type']=="b")
+		if ($requestType=="b")
 			$this->query_where_u = "WHERE 1=2";
 		else
 			$this->query_where_u = "WHERE 1=1";
 		
 		$this->query_fields_b = "$wpdb->blogs.blog_id , CONCAT($wpdb->blogs.domain , $wpdb->blogs.path) as path , 0 as wgtype , $tableQueue.reported_on as wgreported_on , $tableQueue.reported_by_ID as wgreported_by_ID";
 		$this->query_from_b = "FROM $wpdb->blogs JOIN $tableQueue ON $wpdb->blogs.blog_id = $tableQueue.blog_id";
-		if ($_REQUEST['type']=="u")
+		if ($requestType=="u")
 			$this->query_where_b = "WHERE 1=2";
 		else
 			$this->query_where_b = "WHERE 1=1";

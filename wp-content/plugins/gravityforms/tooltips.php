@@ -12,7 +12,7 @@ function print_tooltip_scripts(){
     wp_print_styles("gf_tooltip");
 }
 
-function gform_tooltip($name, $css_class="tooltip"){
+function gform_tooltip($name, $css_class="", $return=false){
     $gf_tooltips = array(
         "notification_send_to_email" => "<h6>" . __("Send To Email Address", "gravityforms") . "</h6>" . __("Enter the email address you would like the administrator notification email sent to.", "gravityforms"),
         "notification_autoformat" => "<h6>" . __("Disable Auto-Formatting", "gravityforms") . "</h6>" . __("When enabled, auto-formatting will insert paragraph breaks automatically. Disable auto-formatting when using HTML to create email notification content.", "gravityforms"),
@@ -76,8 +76,11 @@ function gform_tooltip($name, $css_class="tooltip"){
         "form_field_required" => "<h6>" . __("Required Field", "gravityforms") . "</h6>" . __("Select this option to make the form field required.  A required field will prevent the form from being submitted if it is not filled out or selected.", "gravityforms"),
         "form_field_no_duplicate" => "<h6>" . __("No Duplicates", "gravityforms") . "</h6>" . __("Select this option to limit user input to unique values only.  This will require that a value entered in a field does not currently exist in the entry database for that field.", "gravityforms"),
         "form_field_number_range" => "<h6>" . __("Number Range", "gravityforms") . "</h6>" . __("Enter the minimum and maximum values for this form field.  This will require that the value entered by the user must fall within this range.", "gravityforms"),
+        "form_field_enable_calculation" => "<h6>" . __("Enable Calculation", "gravityforms") . "</h6>" . __("Enabling caculations will allow the value of this field to be dynamically calculated based on a mathematical formula.", "gravityforms"),
+        "form_field_calculation_formula" => "<h6>" . __("Formula", "gravityforms") . "</h6>" . __("Specify a mathematical formula. The result of this formula will be dynamically populated as the value for this field.", "gravityforms"),
+        "form_field_calculation_rounding" => "<h6>" . __("Rounding", "gravityforms") . "</h6>" . __("Specify how many decimal places the number should be rounded to.", "gravityforms"),
         "form_field_admin_label" => "<h6>" . __("Admin Label", "gravityforms") . "</h6>" . __("Enter the admin label of the form field.  Entering a value in this field will override the Field Label when displayed in the Gravity Forms administration tool.", "gravityforms"),
-        "form_field_size" => "<h6>" . __("Field Size", "gravityforms") . "</h6>" . __("Select a form field size from the available options.  This will set the width of the field.", "gravityforms"),
+        "form_field_size" => "<h6>" . __("Field Size", "gravityforms") . "</h6>" . __("Select a form field size from the available options. This will set the width of the field.", "gravityforms"),
         "form_field_default_value" => "<h6>" . __("Default Value", "gravityforms") . "</h6>" . __("If you would like to pre-populate the value of a field, enter it here.", "gravityforms"),
         "form_field_validation_message" => "<h6>" . __("Validation Message", "gravityforms") . "</h6>" . __("If you would like to override the default error validation for a field, enter it here.  This message will be displayed if there is an error with this field when the user submits the form.", "gravityforms"),
         "form_field_recaptcha_language" => "<h6>" . __("reCaptcha Language", "gravityforms") . "</h6>" . __("Select the language you would like to use for the reCAPTCHA display from the available options.", "gravityforms"),
@@ -127,22 +130,30 @@ function gform_tooltip($name, $css_class="tooltip"){
         "settings_license_key" => "<h6>" . __("Settings License Key", "gravityforms") . "</h6>" . __("Your Gravity Forms support license key is used to verify your support package, enable automatic updates and receive support.", "gravityforms"),
         "settings_output_css" => "<h6>" . __("Output CSS", "gravityforms") . "</h6>" . __("Select yes or no to enable or disable CSS output.  Setting this to no will disable the standard Gravity Forms CSS from being included in your theme.", "gravityforms"),
         "settings_html5" => "<h6>" . __("Output HTML5", "gravityforms") . "</h6>" . __("Select yes or no to enable or disable HTML5 output. Setting this to no will disable the standard Gravity Forms HTML5 form field output.", "gravityforms"),
+        "settings_noconflict" => "<h6>" . __("No-Conflict Mode", "gravityforms") . "</h6>" . __("Select On or Off to enable or disable no-conflict mode. Setting this to On will prevent extraneous scripts and styles from being printed on Gravity Forms admin pages, reducing conflicts with other plugins and themes.", "gravityforms"),
         "settings_recaptcha_public" => "<h6>" . __("reCaptcha Public Key", "gravityforms") . "</h6>" . __("Enter your reCAPTCHA Public Key, if you do not have a key you can register for one at the provided link.  reCAPTCHA is a free service.", "gravityforms"),
         "settings_recaptcha_private" => "<h6>" . __("reCaptcha Private Key", "gravityforms") . "</h6>" . __("Enter your reCAPTCHA Private Key, if you do not have a key you can register for one at the provided link.  reCAPTCHA is a free service.", "gravityforms"),
         "settings_currency" => "<h6>" . __("Currency", "gravityforms") . "</h6>" . __("Please select the currency for your location.  Currency is used for pricing fields and price calculations.", "gravityforms"),
+        "settings_akismet" => "<h6>" . __("Akismet Integration", "gravityforms") . "</h6>" . __("Protect your form entries from spam using Akismet.", "gravityforms"),
         "entries_conversion" => "<h6>" . __("Entries Conversion", "gravityforms") . "</h6>" . __("Conversion is the percentage of form views that generated an entry. If a form was viewed twice, and one entry was generated, the conversion will be 50%.", "gravityforms"),
         "widget_tabindex" => "<h6>" . __("Tab Index Start Value", "gravityforms") . "</h6>" . __("If you have other forms on the page (i.e. Comments Form), specify a higher tabindex start value so that your Gravity Form does not end up with the same tabindices as your other forms. To disable the tabindex, enter 0 (zero).", "gravityforms"),
         "notification_override_email" => "<h6>" . __("Override Notifications", "gravityforms") . "</h6>" . __("Enter a comma separated list of email addresses you would like to receive the selected notification emails.", "gravityforms"),
+        "form_percentage_confirmation_display" => "<h6>" . __("Progress Bar Confirmation Display", "gravityforms") . "</h6>" . __("Check this box if you would like the progress bar to display with the confirmation text.", "gravityforms"),
+        "percentage_confirmation_page_name" => "<h6>" . __("Progress Bar Completion Text", "gravityforms") . "</h6>" . __("Enter text to display at the top of the progress bar.", "gravityforms"),
 
     );
 
+    $css_class = empty($css_class) ? "tooltip" : $css_class;
     $gf_tooltips = apply_filters("gform_tooltips", $gf_tooltips);
 
+    $tooltip = "";
     if(isset($gf_tooltips[$name])){
-        ?>
-        <a href="#" onclick="return false;" class="<?php echo esc_attr($css_class) . " tooltip_" . $name?> " tooltip="<?php echo esc_attr($gf_tooltips[$name]) ?>">(?)</a>
-        <?php
+        $tooltip ="<a href='#' onclick='return false;' class='" . esc_attr($css_class) . " tooltip_" . $name . "' tooltip='" . esc_attr($gf_tooltips[$name]) . "'>(?)</a>";
     }
+    if($return)
+        return $tooltip;
+    else
+        echo $tooltip;
 }
 
 

@@ -1,0 +1,20 @@
+<?php
+/*
+Simple:Press
+Home for any pluggable function duplicates
+$LastChangedDate: 2010-03-26 16:38:27 -0700 (Fri, 26 Mar 2010) $
+$Rev: 3818 $
+*/
+
+/* 
+	========================================================================================
+	TO START USING PLUGGABLE FUNCTIONS IN YOUR FORUM - RENAME THIS FILE TO sf-pluggable.php 
+	(CHANGE THE EXTENSION FROM .txt TO .php) IT WILL THEN BE INCLUDED WITH THE FORUM CODE
+	=====================================================================================	
+*/
+
+if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { 
+	die('Access Denied'); 
+}
+
+?>

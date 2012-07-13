@@ -1,0 +1,90 @@
+<?php
+/*
+Simple:Press
+Home for any custom user filters
+$LastChangedDate: 2009-01-01 10:21:37 -0700 (Thu, 01 Jan 2009) $
+$Rev: 1094 $
+*/
+
+if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
+	die('Access Denied');
+}
+
+
+/*
+	=====================================================================================
+	TO START USING USER DEFINED, CUSTOM FILTERS IN YOUR FORUM - RENAME THIS FILE TO:
+
+		sf-custom-filters.php
+
+	(CHANGE THE EXTENSION FROM .txt TO .php) IT WILL THEN BE INCLUDED WITH THE FORUM CODE
+	=====================================================================================
+*/
+
+add_filter('sf_create_slug', 'sf_custom_filter_slug', 10, 2);
+add_filter('sf_save_post_content', 'sf_custom_save_post');
+add_filter('sf_show_post_content', 'sf_custom_show_post');
+add_filter('sf_custom_kses', 'sf_add_custom_kses');
+
+#	------------------------------------------------------------------------------------
+#	Custom SLUG Filter
+#	sf_custom_filter_slug()
+#	This filter allows you to add to or change any slug at the time of it's creation.
+#	Parameters:
+#		$slug:	The slug that will be used as the unique identifier
+#		$type:	Passed as 'forum', 'topic', 'pm' or null
+#	------------------------------------------------------------------------------------
+
+function sf_custom_filter_slug($slug, $type)
+{
+	return $slug;
+}
+
+#	------------------------------------------------------------------------------------
+#	Custom POST CONTENT SAVE Filter
+#	sf_custom_save_post()
+#	This filter allows you to add to or change the content of any topic or pm post
+#	prior to be saved into the database.
+#	Parameters:
+#		$postcontent:	The post content after normal flters have been applied
+#	------------------------------------------------------------------------------------
+
+function sf_custom_save_post($postcontent)
+{
+	return $postcontent;
+}
+
+#	------------------------------------------------------------------------------------
+#	Custom POST CONTENT DISPLAY Filter
+#	sf_custom_show_post()
+#	This filter allows you to add to or change the content of any topic or pm post
+#	prior to being displayed.
+#	Parameters:
+#		$postcontent:	The post content after normal flters have been applied
+#	------------------------------------------------------------------------------------
+
+function sf_custom_show_post($postcontent)
+{
+	return $postcontent;
+}
+
+#	------------------------------------------------------------------------------------
+#	Custom ADDITIONAL KSES HTML TAGS AND ATTRIBUTES Filter
+#	sf_add_custom_kses()
+#	This filter allows you to add extra html tags and their attributes
+#	to the default Simple:Press KSES array
+#	Parameters:
+#		$html_tags:	The default Simple:Press KSES array
+#
+#	Tags must be added in the folowing format:
+#
+#		$html_tags['TAG_NAME'] = array('ATTRIBUTE1' => array(), 'ATTRIBUTE2' => array());
+#	Each tag can have as many attributes defined as are needed.
+#	------------------------------------------------------------------------------------
+
+function sf_add_custom_kses($html_tags)
+{
+	return $html_tags;
+}
+
+?>

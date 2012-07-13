@@ -1,0 +1,82 @@
+2.8.1 ######################
+calendar property VERSION always first
+
+2.8.2 ###################### / thanks Alvin and Jorge L P
+function parse on calendar and component level
+updated management of line folding
+
+2.8.3 ######################
+updated using.html, datetime parameter tz
+
+2.8.4 ######################
+updated function sort
+allow sorting on Attendee, Categories, DTSTAMP, Location, Organizer, Priority, Resources, Status, Summary
+
+2.8.5 ######################
+function SelectComponents
+allow select of calendar component properties,
+function argument array( <propertyName> => <propertyValue>)
+propertyName = 'Attendee'/'Categories'/'Location'/'Organizer'/'Priority'/'Resources'/'Status'/'Summary'/'UID'
+propertyValue = (string) propertyValue / (array) ( propertyValue *[, propertyValue] )
+
+2.8.6 ######################
+function getProperty on calendar level
+new arguments: 'DTSTART', 'Attendee', 'Categories', 'Location', 'Organizer', 'Priority', 'Resources', 'Status', 'Summary', 'UID' or 'Recurrence-id-uid'
+Returns unique property values+counts from all calendar components,
+output format: array(*[<uniquePropertyValue> => occurr_cnt])
+
+2.8.7 ######################
+bug in function iCalUtilityFunctions::_duration2date fixed
+
+2.8.8 ######################
+updated functions getProperty and deleteProperty
+management of properties with multiple ocurrence
+
+2.8.9 ###################### / thanks  Jorge L P
+bug in function SelectComponents
+regarding X-CURRENT-*-values
+
+2.8.10 ######################
+bug in function setFreebusy
+if property is empty.. .
+
+2.9.1 ######################
+consecutive calls with UID as argument,
+function (calendar) getComponent
+new argument, array( *[propertyName => propertyValue] )
+
+2.9.2 ######################
+Simple create of timezone (including standard/daylight) component
+New function in iCalUtilityFunctions:createTimezone (, offsetSec2His)
+
+2.9.3 ###################### / thanks Jorge L P
+Management of properties with numeric (integer) content,
+PERCENT-COMPLETE, PRIORITY, REPEAT, SEQUENCE, X-PROP
+uppdate of get- and setfunctions
+
+2.9.4  ###################### / thanks Jorge L P
+update of function parse on calendar level
+
+2.9.5  ######################
+update of function parse on calendar and component level level
+set config when creating new component
+
+2.9.6  ######################
+auto completion of (default) timezone when setting DTEND, DTSTART, DUE, RECURRENCE-ID
+update of setfunctions for DTEND, DTSTART, DUE, RECURRENCE-ID
+update of getConfig and all config setting on calendar and component level
+
+2.9.7  ###################### / thanks Dan
+bug in function selectComponents - sourceforge ID: 3307044
+
+2.9.8  ###################### / thanks Jorge L P
+bug in function createAttendee
+
+2.9.9  ###################### / thanks Jorge L P
+bug in iCalUtilityFunctions:_format_duration, TRIGGER with no duration
+
+2.9.10 ###################### / thanks Andrew
+Bug in iCalUtilityFunctions::_recur2date (, _setRexrule), BYSETPOS
+
+2.9.12 ###################### / thanks Joc
+function returnCalendar, new arguments for utf8 encoding and gzencode

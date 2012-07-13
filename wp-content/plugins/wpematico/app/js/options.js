@@ -18,26 +18,40 @@ jQuery(document).ready( function($) {
 
 
 	$('#checkfeeds').click(function() {
+		$.ajaxSetup({async:false});
+		var feederr = 0;
+		errmsg ="Feed ERROR";
 		$('.feedinput').each(function (el,item) {
-			$('#ruedita').show();
 			feed = $(item).attr('value');
-			$(item).attr('style','Background:#CCC;');
-			var data = {
-				action: "test_feed",
-				url: feed, 
-				'cookie': encodeURIComponent(document.cookie)
-			};
-			$.post(ajaxurl, data, function(str){
-				if(str==0){
-					$(item).attr('style','Background:Red;');
-					alert("Feed error: "+feed );
-				}else{
-					$(item).attr('style','Background:#75EC77;');
-				}
-				$('#ruedita').hide();
-			});		
+			if (feed !== "") {
+				$('#ruedita').show();
+				$(item).attr('style','Background:#CCC;');
+				var data = {
+					action: "test_feed",
+					url: feed, 
+					'cookie': encodeURIComponent(document.cookie)
+				};
+				$.post(ajaxurl, data, function(str){
+					if(str==0){
+						$(item).attr('style','Background:Red;');
+						// alert("Feed error: "+feed );
+						errmsg += "\n"+feed ;
+						feederr = 1;
+					}else{
+						$(item).attr('style','Background:#75EC77;');
+					}
+					$('#ruedita').hide();
+				});
+			}else{
+				alert("Type Feed URLs");
+			}
 		}); 
-		
+		if(feederr == 1){
+			$('#buttonsave').attr('disabled','disabled');
+			alert(errmsg);
+		}else{
+			$('#buttonsave').removeAttr('disabled');
+		}
 	});
 	$('.feedinput').focus(function() {
 		$(this).attr('style','Background:#FFFFFF;');
@@ -66,7 +80,7 @@ jQuery(document).ready( function($) {
 		}
 	});
 	 //css('background-color', 'red');
-	$('.w2cregex').click(function() {
+$('.w2cregex').click(function() {
 		var cases = $(this).parent().children('.w2ccases');
 		//if ( true == $(this).attr('checked')) {
 		if ( true == $(this).is(':checked')) {

@@ -1,0 +1,8028 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Buddyvents 2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-01-17 18:54+0530\n"
+"PO-Revision-Date: 2012-01-17 18:54+0530\n"
+"Last-Translator: Boris Glumpler <boris@shabushabu.eu>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../buddyvents.php:417
+#, php-format
+msgid "Achievements %s (tested version: %s)"
+msgstr ""
+
+#: ../buddyvents.php:423
+#, php-format
+msgid "BP Cubepoints %s (tested version: %s)"
+msgstr ""
+
+#: ../buddyvents.php:429
+#, php-format
+msgid "BP Moderation %s (tested version: %s)"
+msgstr ""
+
+#: ../buddyvents.php:435
+#, php-format
+msgid "BBPress %s (tested version: %s)"
+msgstr ""
+
+#: ../buddyvents.php:465
+#, php-format
+msgid "WordPress %s (last tested version was %s)"
+msgstr ""
+
+#: ../buddyvents.php:469
+#, php-format
+msgid "BuddyPress %s (last tested version was %s)"
+msgstr ""
+
+#: ../buddyvents.php:523
+#, php-format
+msgid "ERROR: Buddyvents needs BuddyPress to be installed. <a href=\"%s\">Download it now</a>!"
+msgstr ""
+
+#: ../buddyvents.php:524
+msgid "ERROR: Buddyvents needs cURL installed to function properly. Please ask your hosting company for support!"
+msgstr ""
+
+#: ../buddyvents.php:525
+#, php-format
+msgid "ERROR: Buddyvents works only under BuddyPress %s or higher. <a href=\"%s\">Upgrade now</a>!"
+msgstr ""
+
+#: ../buddyvents.php:526
+#, php-format
+msgid "ERROR: Buddyvents works only under WordPress %s or higher. <a href=\"%s\">Upgrade now</a>!"
+msgstr ""
+
+#: ../buddyvents.php:527
+#, php-format
+msgid "ERROR: Buddyvents works only under PHP %s or higher. Please ask your hosting company for support!"
+msgstr ""
+
+#: ../buddyvents.php:528
+#, php-format
+msgid "WARNING: Buddyvents has not been tested with the following plugins: %s"
+msgstr ""
+
+#: ../buddyvents.php:529
+msgid "ERROR: An undefined Buddyvents related error has occured. Please refresh this page."
+msgstr ""
+
+#: ../buddyvents.php:530
+msgid "WARNING: The BuddyPress settings component is deactivated. You will lose Buddyvents functionality."
+msgstr ""
+
+#: ../buddyvents.php:531
+msgid "ERROR: BuddyPress is undergoing some maintenance at the moment. Buddyvents will be back shortly!"
+msgstr ""
+
+#: ../buddyvents.php:532
+#, php-format
+msgid "WARNING: Buddyvents has not been tested with the following programmes: %s"
+msgstr ""
+
+#: ../buddyvents.php:624
+msgid "Daily"
+msgstr ""
+
+# @ events
+#: ../buddyvents.php:625
+msgid "Weekly"
+msgstr "Chaque semaine"
+
+# @ events
+#: ../buddyvents.php:626
+#, fuzzy
+msgid "Biweekly"
+msgstr "Chaque semaine"
+
+# @ events
+#: ../buddyvents.php:627
+msgid "Monthly"
+msgstr "Chaque mois"
+
+# @ events
+#: ../buddyvents.php:628
+#: ../admin/bpe-invoices.php:92
+#: ../admin/bpe-invoices.php:137
+#: ../admin/bpe-invoices.php:148
+#: ../admin/bpe-sales.php:98
+#, fuzzy
+msgid "Month"
+msgstr "Chaque mois"
+
+# @ events
+#: ../buddyvents.php:629
+msgid "Yearly"
+msgstr "Chaque année"
+
+#: ../buddyvents.php:655
+msgid "General"
+msgstr ""
+
+#: ../buddyvents.php:661
+msgid "Logo"
+msgstr ""
+
+# @ events
+#: ../buddyvents.php:667
+#, fuzzy
+msgid "Invite"
+msgstr "Invitez vos contacts"
+
+# @ events
+#: ../admin/bpe-admin.php:79
+msgid "Update Available"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-admin.php:81
+#: ../admin/bpe-admin.php:88
+#: ../admin/bpe-categories.php:76
+#: ../admin/bpe-categories.php:85
+#: ../admin/bpe-core.php:42
+msgid "Events"
+msgstr "Évènements"
+
+#: ../admin/bpe-admin.php:84
+msgid "Update Database"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-admin.php:94
+#, fuzzy
+msgid "Events to approve"
+msgstr "Géolocalisation"
+
+# @ events
+#: ../admin/bpe-admin.php:96
+msgid "Approve Events"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-admin.php:96
+#: ../admin/bpe-approve.php:74
+#: ../admin/bpe-approve.php:122
+#: ../admin/bpe-approve.php:146
+#: ../admin/bpe-core.php:59
+msgid "Approve"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-admin.php:99
+#: ../admin/bpe-core.php:66
+msgid "Categories"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-admin.php:102
+#: ../admin/bpe-core.php:73
+#, fuzzy
+msgid "Sales"
+msgstr "début ASC"
+
+# @ events
+#: ../admin/bpe-admin.php:105
+#: ../admin/bpe-core.php:81
+#, fuzzy
+msgid "Invoices"
+msgstr "Invitez vos contacts"
+
+#: ../admin/bpe-admin.php:108
+msgid "API Keys"
+msgstr ""
+
+#: ../admin/bpe-admin.php:111
+#: ../admin/bpe-core.php:97
+msgid "Webhooks"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-admin.php:113
+#: ../admin/bpe-core.php:104
+msgid "Settings"
+msgstr "Paramètres"
+
+# @ events
+#: ../admin/bpe-admin.php:114
+#: ../admin/bpe-core.php:109
+#, fuzzy
+msgid "Services"
+msgstr "Invitez vos contacts"
+
+# @ buddypress
+#: ../admin/bpe-admin.php:115
+#: ../admin/bpe-core.php:112
+#, fuzzy
+msgid "Manual"
+msgstr "Recherche"
+
+# @ events
+#: ../admin/bpe-admin.php:116
+#: ../admin/bpe-core.php:115
+msgid "Readme"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-admin.php:117
+#: ../admin/bpe-core.php:116
+msgid "Changelog"
+msgstr ""
+
+#: ../admin/bpe-admin.php:140
+#, php-format
+msgid "Please give %s the right permissions (777) via your favorite FTP programme."
+msgstr ""
+
+#: ../admin/bpe-admin.php:146
+#, php-format
+msgid "A new version of Buddyvents is available! Please download the latest version <a href=\"http://shabushabu.eu/downloads/?category=16\">here</a>. <a style=\"float:right\" href=\"%s\">Remove</a>"
+msgstr ""
+
+#: ../admin/bpe-admin.php:383
+msgid "Here you can find an overview of all created events. You also have the option to edit existing events by clicking on an event title or create new ones by following the button next to the heading."
+msgstr ""
+
+#: ../admin/bpe-admin.php:384
+msgid "By using the 'Filter events' button you can filter all available events by category, user and group in any given combination."
+msgstr ""
+
+#: ../admin/bpe-admin.php:385
+msgid "Bulk actions let you set events to spam, delete them and un-spam them."
+msgstr ""
+
+#: ../admin/bpe-admin.php:389
+msgid "Here you will only ever see events that require an action from you. You can either approve an event, or decline it."
+msgstr ""
+
+#: ../admin/bpe-admin.php:390
+msgid "Only approved events will show up on the frontend. Declined events will be removed from the database."
+msgstr ""
+
+#: ../admin/bpe-admin.php:391
+msgid "Clicking the title will show the event description."
+msgstr ""
+
+#: ../admin/bpe-admin.php:395
+msgid "Only the category name is required when creating a new category. The slug will be automatically created from the name. You can specify a custom slug, though."
+msgstr ""
+
+#: ../admin/bpe-admin.php:396
+msgid "Clicking an event name will let you edit that category. Categories can be deleted by clicking the red cross next to the name."
+msgstr ""
+
+#: ../admin/bpe-admin.php:397
+msgid "When deleting a category, all events in that category will be associated with the default category."
+msgstr ""
+
+#: ../admin/bpe-admin.php:401
+msgid "This is an overview page of all ticket sales happening on your site. You can filter the sales by user, month, year and status."
+msgstr ""
+
+#: ../admin/bpe-admin.php:402
+msgid "You can also create invoices from this screen. Invoices can only be sent by month. Invoices will be created of all sales currently visible on the screen."
+msgstr ""
+
+#: ../admin/bpe-admin.php:403
+msgid "Invoices can only be created from past months. The button to create invoices will only be visible 5 days after a month has been concluded and only if sales have been filtered by both month and year."
+msgstr ""
+
+#: ../admin/bpe-admin.php:404
+msgid "The graph and the commission overview will reflect any filtered variables."
+msgstr ""
+
+#: ../admin/bpe-admin.php:408
+msgid "Here you can see all created invoices. You can preview, delete and send invoices, either single or in bulk."
+msgstr ""
+
+#: ../admin/bpe-admin.php:409
+msgid "Invoices can be filtered by user, month, status and whether an invoice has been settled yet or not."
+msgstr ""
+
+#: ../admin/bpe-admin.php:413
+msgid "This page gives you an overview over all registered API keys, which user they belong to and what status they have."
+msgstr ""
+
+#: ../admin/bpe-admin.php:414
+msgid "Access for API keys can be either revoked here or granted again, either single or in bulk."
+msgstr ""
+
+#: ../admin/bpe-admin.php:418
+msgid "Webhooks allow users to receive event data in near real-time. Push notifications are sent to each registered URL if event data changes or gets added. This is a powerful feature, but can take up lots of resources if many URLs need to get pinged."
+msgstr ""
+
+#: ../admin/bpe-admin.php:419
+msgid "This page gives you an overview over all registered webhooks, which user they belong to and what status they have."
+msgstr ""
+
+#: ../admin/bpe-admin.php:423
+msgid "All available settings for Buddyvents installation. In the bottom right corner you find a button that resets all options to their default state. Be very careful with this button, as it will not be reversible."
+msgstr ""
+
+#: ../admin/bpe-admin.php:427
+msgid "The current changelog."
+msgstr ""
+
+#: ../admin/bpe-admin.php:431
+msgid "The current readme file."
+msgstr ""
+
+#: ../admin/bpe-admin.php:435
+msgid "The current additional services offered by ShabuShabu Glumpler GbR."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-admin.php:439
+#: ../admin/bpe-admin.php:538
+#, fuzzy
+msgid "Support Forum"
+msgstr "Aide"
+
+# @ events
+#: ../admin/bpe-admin.php:439
+#, fuzzy
+msgid "Documentation"
+msgstr "* Lieu"
+
+# @ events
+#: ../admin/bpe-admin.php:454
+msgid "A new version of Buddyvents is available! Please download the latest version <a href=\"http://shabushabu.eu/downloads/?category=14\">here</a>."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-admin.php:539
+msgid "Donate"
+msgstr "Dons"
+
+# @ events
+#: ../admin/bpe-ajax.php:29
+#, fuzzy
+msgid "The category could not be deleted."
+msgstr "La catégorie ne peut pas être supprimée."
+
+# @ events
+#: ../admin/bpe-ajax.php:39
+#, fuzzy
+msgid "The category has been deleted."
+msgstr "Catégorie supprimée."
+
+# @ events
+#: ../admin/bpe-ajax.php:58
+msgid "Please specify a category name."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-ajax.php:75
+#, fuzzy
+msgid "There was a problem. The category could not be saved. Please try again."
+msgstr "Une erreur est survenue, votre choix n'a pas pu être enregistré. Veuillez réessayer SVP."
+
+# @ events
+#: ../admin/bpe-ajax.php:83
+#, fuzzy
+msgid "Your category was edited successfully."
+msgstr "Votre évènement a été publié avec succès !"
+
+# @ events
+#: ../admin/bpe-ajax.php:89
+#, fuzzy
+msgid "Your category was added successfully."
+msgstr "Votre évènement a été publié avec succès !"
+
+# @ events
+#: ../admin/bpe-ajax.php:93
+#: ../admin/bpe-categories.php:93
+msgid "Edit this category"
+msgstr ""
+
+#: ../admin/bpe-ajax.php:118
+msgid "Message needs to be filled in."
+msgstr ""
+
+#: ../admin/bpe-ajax.php:134
+msgid "Your message has been sent! We will get back to you asap, usually within 12 hours."
+msgstr ""
+
+# @ default
+#: ../admin/bpe-apikeys.php:50
+#: ../admin/bpe-approve.php:53
+#: ../admin/bpe-events.php:190
+#: ../admin/bpe-invoices.php:61
+#: ../admin/bpe-sales.php:65
+msgid "&laquo;"
+msgstr ""
+
+# @ default
+#: ../admin/bpe-apikeys.php:51
+#: ../admin/bpe-approve.php:54
+#: ../admin/bpe-events.php:191
+#: ../admin/bpe-invoices.php:62
+#: ../admin/bpe-sales.php:66
+msgid "&raquo;"
+msgstr ""
+
+# @ default
+#: ../admin/bpe-apikeys.php:56
+#: ../admin/bpe-approve.php:59
+#: ../admin/bpe-events.php:196
+#: ../admin/bpe-invoices.php:67
+#: ../admin/bpe-sales.php:71
+#, php-format
+msgid "Displaying %s&#8211;%s of %s"
+msgstr "Evènement %s&#8211;%s sur %s"
+
+# @ events
+#: ../admin/bpe-apikeys.php:71
+#: ../admin/bpe-apikeys.php:126
+#: ../admin/bpe-approve.php:73
+#: ../admin/bpe-approve.php:145
+#: ../admin/bpe-events.php:261
+#: ../admin/bpe-events.php:333
+#: ../admin/bpe-invoices.php:121
+#: ../admin/bpe-invoices.php:198
+msgid "Bulk Actions"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-apikeys.php:72
+#: ../admin/bpe-apikeys.php:127
+#: ../admin/bpe-approve.php:75
+#: ../admin/bpe-approve.php:123
+#: ../admin/bpe-approve.php:147
+#: ../admin/bpe-events.php:264
+#: ../admin/bpe-events.php:336
+#: ../admin/bpe-invoices.php:125
+#: ../admin/bpe-invoices.php:179
+#: ../admin/bpe-invoices.php:202
+#, fuzzy
+msgid "Delete"
+msgstr "Supprimer cet évènement"
+
+#: ../admin/bpe-apikeys.php:73
+#: ../admin/bpe-apikeys.php:128
+msgid "Revoke Access"
+msgstr ""
+
+#: ../admin/bpe-apikeys.php:74
+#: ../admin/bpe-apikeys.php:129
+msgid "Grant Access"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-apikeys.php:76
+#: ../admin/bpe-apikeys.php:131
+#: ../admin/bpe-approve.php:77
+#: ../admin/bpe-approve.php:149
+#: ../admin/bpe-events.php:268
+#: ../admin/bpe-events.php:338
+#: ../admin/bpe-invoices.php:127
+#: ../admin/bpe-invoices.php:204
+msgid "Apply"
+msgstr "Enregistrer"
+
+# @ events
+#: ../admin/bpe-apikeys.php:85
+#: ../admin/bpe-apikeys.php:94
+#: ../admin/bpe-events.php:232
+#: ../admin/bpe-invoices.php:85
+#: ../admin/bpe-invoices.php:136
+#: ../admin/bpe-invoices.php:147
+#: ../admin/bpe-sales.php:91
+#: ../admin/bpe-sales.php:158
+#: ../admin/bpe-sales.php:169
+msgid "User"
+msgstr ""
+
+#: ../admin/bpe-apikeys.php:86
+#: ../admin/bpe-apikeys.php:95
+msgid "API Key"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-apikeys.php:87
+#: ../admin/bpe-apikeys.php:96
+#: ../admin/bpe-invoices.php:105
+#: ../admin/bpe-invoices.php:140
+#: ../admin/bpe-invoices.php:151
+#: ../admin/bpe-sales.php:114
+#: ../admin/bpe-sales.php:160
+#: ../admin/bpe-sales.php:171
+#, fuzzy
+msgid "Status"
+msgstr "Début"
+
+#: ../admin/bpe-apikeys.php:88
+#: ../admin/bpe-apikeys.php:97
+msgid "API Access"
+msgstr ""
+
+#: ../admin/bpe-apikeys.php:109
+msgid "active"
+msgstr ""
+
+#: ../admin/bpe-apikeys.php:109
+msgid "inactive"
+msgstr ""
+
+#: ../admin/bpe-apikeys.php:110
+msgid "Revoke"
+msgstr ""
+
+#: ../admin/bpe-apikeys.php:110
+msgid "Grant"
+msgstr ""
+
+# @ events
+# @ logs
+#: ../admin/bpe-apikeys.php:117
+#, fuzzy
+msgid "No api keys were found."
+msgstr "Aucun évènement à afficher"
+
+# @ events
+#: ../admin/bpe-approve.php:86
+#: ../admin/bpe-approve.php:97
+#: ../admin/bpe-events.php:277
+#: ../admin/bpe-events.php:289
+#, fuzzy
+msgid "Title"
+msgstr "Titre :"
+
+# @ events
+#: ../admin/bpe-approve.php:87
+#: ../admin/bpe-approve.php:98
+#: ../admin/bpe-events.php:278
+#: ../admin/bpe-events.php:290
+#, fuzzy
+msgid "Creator"
+msgstr "Créer un évènement"
+
+# @ events
+#: ../admin/bpe-approve.php:88
+#: ../admin/bpe-approve.php:99
+#: ../admin/bpe-events.php:239
+#: ../admin/bpe-events.php:279
+#: ../admin/bpe-events.php:291
+msgid "Group"
+msgstr "Groupe"
+
+# @ events
+#: ../admin/bpe-approve.php:89
+#: ../admin/bpe-approve.php:100
+#: ../admin/bpe-events.php:225
+#: ../admin/bpe-events.php:280
+#: ../admin/bpe-events.php:292
+#, fuzzy
+msgid "Category"
+msgstr "Catégorie"
+
+# @ events
+#: ../admin/bpe-approve.php:90
+#: ../admin/bpe-approve.php:101
+msgid "Date created"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-approve.php:91
+#: ../admin/bpe-approve.php:102
+#: ../admin/bpe-invoices.php:141
+#: ../admin/bpe-invoices.php:152
+msgid "Actions"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-approve.php:118
+#: ../admin/bpe-events.php:311
+#, php-format
+msgid "<a href=\"%s\">%s</a>"
+msgstr "<a href=\"%s\">%s</a>"
+
+# @ events
+#: ../admin/bpe-approve.php:118
+#: ../admin/bpe-events.php:311
+msgid "n/a"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-approve.php:136
+msgid "No events to be approved right now."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-categories.php:52
+#: ../admin/bpe-categories.php:74
+#: ../admin/bpe-categories.php:83
+msgid "Name"
+msgstr "Nom"
+
+# @ events
+#: ../admin/bpe-categories.php:53
+msgid "(required)"
+msgstr "(obligatoire)"
+
+# @ events
+#: ../admin/bpe-categories.php:56
+#: ../admin/bpe-categories.php:75
+#: ../admin/bpe-categories.php:84
+msgid "Slug"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-categories.php:57
+msgid "(Can be left empty)"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-categories.php:61
+msgid "Add Category"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-categories.php:62
+msgid "Clear Form"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-categories.php:69
+msgid "Deleting a category moves all associated events to the default category."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-categories.php:93
+msgid "(default)"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-core.php:38
+msgid "Create Event"
+msgstr "Créer un évènement"
+
+# @ events
+#: ../admin/bpe-core.php:40
+msgid "Edit Event"
+msgstr "Modifier l'évènement"
+
+#: ../admin/bpe-core.php:89
+msgid "Api Keys"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-events.php:91
+#, fuzzy
+msgid "Previous Step"
+msgstr "Précédent"
+
+# @ events
+#: ../admin/bpe-events.php:95
+#, fuzzy
+msgid "Next Step"
+msgstr "Suivant"
+
+# @ events
+#: ../admin/bpe-events.php:99
+#, fuzzy
+msgid "Create Event and Continue"
+msgstr "Créer un évènement"
+
+#: ../admin/bpe-events.php:103
+msgid "Finish"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-events.php:130
+#, fuzzy
+msgid "Event Admin User ID"
+msgstr "Image de l'évènement"
+
+# @ events
+#: ../admin/bpe-events.php:132
+#, fuzzy
+msgid "Leave empty to use the current user."
+msgstr "Veuillez laisser vide si vous ne souhaitez pas définir de récurrence."
+
+# @ events
+#: ../admin/bpe-events.php:209
+#: ../admin/bpe-events.php:213
+msgid "Search Events"
+msgstr "Rechercer"
+
+# @ events
+#: ../admin/bpe-events.php:215
+msgid "Clear search"
+msgstr "Effacer la recherche"
+
+# @ events
+#: ../admin/bpe-events.php:245
+msgid "Filter events"
+msgstr "Filtrer"
+
+# @ events
+#: ../admin/bpe-events.php:248
+msgid "Clear filter"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-events.php:250
+#, fuzzy
+msgid "Create event"
+msgstr "Créer un évènement"
+
+# @ events
+#: ../admin/bpe-events.php:262
+#: ../admin/bpe-events.php:334
+msgid "Set as spam"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-events.php:263
+#: ../admin/bpe-events.php:335
+msgid "Not spam"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-events.php:281
+#: ../admin/bpe-events.php:293
+msgid "Attendees"
+msgstr "Participants"
+
+# @ events
+#: ../admin/bpe-events.php:282
+#: ../admin/bpe-events.php:294
+#, fuzzy
+msgid "Start Date"
+msgstr "début ASC"
+
+# @ events
+#: ../admin/bpe-events.php:283
+#: ../admin/bpe-events.php:295
+msgid "Spam"
+msgstr ""
+
+# @ events
+# @ logs
+#: ../admin/bpe-events.php:324
+msgid "No events were found."
+msgstr "Aucun évènement à afficher"
+
+# @ events
+#: ../admin/bpe-functions.php:84
+#, fuzzy, php-format
+msgid "The file %s is not a Javascript file."
+msgstr "Le fichier %s n'a pas pu être téléchargé."
+
+# @ events
+#: ../admin/bpe-functions.php:87
+#, fuzzy, php-format
+msgid "The file %s is not a settings file."
+msgstr "Le fichier %s n'a pas pu être téléchargé."
+
+#: ../admin/bpe-invoices.php:99
+#: ../admin/bpe-invoices.php:139
+#: ../admin/bpe-invoices.php:150
+msgid "Paid"
+msgstr ""
+
+#: ../admin/bpe-invoices.php:100
+msgid "Settled"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-invoices.php:101
+#, fuzzy
+msgid "Not settled"
+msgstr "Participera"
+
+# @ events
+#: ../admin/bpe-invoices.php:106
+#: ../admin/bpe-invoices.php:175
+#, fuzzy
+msgid "Sent"
+msgstr "Évènements"
+
+# @ events
+#: ../admin/bpe-invoices.php:107
+#, fuzzy
+msgid "Not sent"
+msgstr "Participera"
+
+# @ events
+#: ../admin/bpe-invoices.php:110
+#, fuzzy
+msgid "Filter invoices"
+msgstr "Filtrer"
+
+#: ../admin/bpe-invoices.php:122
+#: ../admin/bpe-invoices.php:199
+msgid "Send email"
+msgstr ""
+
+#: ../admin/bpe-invoices.php:123
+#: ../admin/bpe-invoices.php:200
+msgid "Set Paid"
+msgstr ""
+
+#: ../admin/bpe-invoices.php:124
+#: ../admin/bpe-invoices.php:201
+msgid "Set Not Paid"
+msgstr ""
+
+#: ../admin/bpe-invoices.php:138
+#: ../admin/bpe-invoices.php:149
+msgid "Amount"
+msgstr ""
+
+# @ buddypress
+# @ events
+#: ../admin/bpe-invoices.php:174
+msgid "Yes"
+msgstr "Oui"
+
+#: ../admin/bpe-invoices.php:174
+msgid "Not yet"
+msgstr ""
+
+#: ../admin/bpe-invoices.php:175
+msgid "To be sent"
+msgstr ""
+
+#: ../admin/bpe-invoices.php:177
+#: ../admin/bpe-invoices.php:178
+#: ../admin/bpe-invoices.php:179
+msgid "Do you really want to do this?"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-invoices.php:177
+#, fuzzy
+msgid "Send"
+msgstr "Dimanche"
+
+#: ../admin/bpe-invoices.php:178
+msgid "Change Paid Status"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-invoices.php:180
+#, fuzzy
+msgid "Preview"
+msgstr "Précédent"
+
+# @ events
+# @ logs
+#: ../admin/bpe-invoices.php:190
+#, fuzzy
+msgid "No invoices were found."
+msgstr "Aucun évènement à afficher"
+
+# @ events
+#: ../admin/bpe-process.php:36
+#, fuzzy
+msgid "Options have been updated successfully from a settings file."
+msgstr "Vos invitations ont été envoyées avec succès !"
+
+# @ events
+#: ../admin/bpe-process.php:73
+#, fuzzy
+msgid "Options have been reset successfully."
+msgstr "Vos invitations ont été envoyées avec succès !"
+
+# @ events
+#: ../admin/bpe-process.php:146
+#, fuzzy
+msgid "Timezones have been successfully updated."
+msgstr "Catégorie supprimée."
+
+# @ events
+#: ../admin/bpe-process.php:160
+#, fuzzy
+msgid "The avatar has been successfully deleted."
+msgstr "Catégorie supprimée."
+
+# @ events
+#: ../admin/bpe-process.php:174
+#, fuzzy
+msgid "The logo has been successfully deleted."
+msgstr "Catégorie supprimée."
+
+#: ../admin/bpe-process.php:253
+msgid "The default slug cannot be 'Attending', 'Invoices' or 'Create'"
+msgstr ""
+
+#: ../admin/bpe-process.php:296
+msgid "You cannot use the same slug more than once."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-process.php:342
+msgid "The user publishes a new event."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-process.php:343
+#, fuzzy
+msgid "The user deletes an event."
+msgstr "Un évènement a été modifié"
+
+# @ events
+#: ../admin/bpe-process.php:344
+#, fuzzy
+msgid "The user edits an event."
+msgstr "Un évènement a été modifié"
+
+# @ events
+#: ../admin/bpe-process.php:345
+#, fuzzy
+msgid "The user might attend an event."
+msgstr "Vous participerez peut-être à cet évènement."
+
+# @ events
+#: ../admin/bpe-process.php:346
+#, fuzzy
+msgid "The user does not attend an event."
+msgstr "Vous ne participerez pas à cet évènement."
+
+# @ events
+#: ../admin/bpe-process.php:347
+msgid "The user signs up for an event."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-process.php:379
+msgid "Update Successfully"
+msgstr "Mise à jour effectuée"
+
+# @ events
+#: ../admin/bpe-process.php:422
+#, fuzzy
+msgid "There was an error bulk editing your events."
+msgstr "Une erreur est survenue lors de l'enregistrement de votre évènement. Veuillez réessayer SVP."
+
+# @ events
+#: ../admin/bpe-process.php:432
+msgid "Selected events have been set as spam."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-process.php:437
+msgid "Selected events have been set as ham."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-process.php:451
+#: ../admin/bpe-process.php:992
+#, fuzzy
+msgid "Selected events have been deleted."
+msgstr "Votre évènement a été supprimé."
+
+# @ events
+#: ../admin/bpe-process.php:488
+#: ../admin/bpe-process.php:509
+#: ../admin/bpe-process.php:530
+#: ../admin/bpe-process.php:560
+#, fuzzy
+msgid "Only an event admin can change a member role."
+msgstr "Seuls l'administrateur de l'évènement peut supprimer des participants."
+
+# @ events
+#: ../admin/bpe-process.php:497
+#, fuzzy
+msgid "The user has been promoted to admin"
+msgstr "Le membre a été supprimé de cet évènement."
+
+# @ events
+#: ../admin/bpe-process.php:518
+#, fuzzy
+msgid "The user has been promoted to organizer."
+msgstr "Le membre a été supprimé de cet évènement."
+
+# @ events
+#: ../admin/bpe-process.php:539
+#: ../admin/bpe-process.php:569
+#, fuzzy
+msgid "The group admin cannot be removed from this event."
+msgstr "Le membre a été supprimé de cet évènement."
+
+# @ events
+#: ../admin/bpe-process.php:548
+#, fuzzy
+msgid "The user has been demoted to organizer."
+msgstr "Le membre a été supprimé de cet évènement."
+
+# @ events
+#: ../admin/bpe-process.php:578
+#, fuzzy
+msgid "The user has been demoted to attendee."
+msgstr "Le membre a été supprimé de cet évènement."
+
+# @ events
+#: ../admin/bpe-process.php:588
+msgid "You cannot remove yourself from the event."
+msgstr "Vous ne pouvez pas vous supprimer de cet évènement."
+
+# @ events
+#: ../admin/bpe-process.php:596
+#, fuzzy
+msgid "Only an event admin can remove attendees."
+msgstr "Seuls l'administrateur de l'évènement peut supprimer des participants."
+
+# @ events
+#: ../admin/bpe-process.php:605
+msgid "The user has been removed from the event."
+msgstr "Le membre a été supprimé de cet évènement."
+
+# @ events
+#: ../admin/bpe-process.php:637
+#, fuzzy
+msgid "There was an error bulk editing your invoices."
+msgstr "Une erreur est survenue lors de l'enregistrement de votre évènement. Veuillez réessayer SVP."
+
+#: ../admin/bpe-process.php:653
+#: ../admin/bpe-process.php:699
+#, php-format
+msgid ""
+"Hello %s,\n"
+"\n"
+"please find attached the invoice for your ticket sales commission for %s\n"
+"\n"
+"Your %s Team"
+msgstr ""
+
+# @ buddypress
+#: ../admin/bpe-process.php:654
+#: ../admin/bpe-process.php:700
+#, fuzzy, php-format
+msgid "[%s] Invoice for %s"
+msgstr "Recherche"
+
+# @ events
+#: ../admin/bpe-process.php:665
+#, fuzzy, php-format
+msgid "%d invoice has been sent."
+msgid_plural "%d invoices have been sent."
+msgstr[0] "Catégorie supprimée."
+msgstr[1] "Catégorie supprimée."
+
+# @ events
+#: ../admin/bpe-process.php:670
+#, fuzzy
+msgid "Invoices have been deleted."
+msgstr "Catégorie supprimée."
+
+# @ events
+#: ../admin/bpe-process.php:675
+#, fuzzy
+msgid "Invoices have been set to paid."
+msgstr "Catégorie supprimée."
+
+# @ events
+#: ../admin/bpe-process.php:680
+#, fuzzy
+msgid "Invoices have been set to not paid."
+msgstr "Catégorie supprimée."
+
+# @ events
+#: ../admin/bpe-process.php:708
+#, fuzzy
+msgid "The invoice has been sent."
+msgstr "Catégorie supprimée."
+
+# @ events
+#: ../admin/bpe-process.php:720
+#, fuzzy
+msgid "The invoice has been deleted."
+msgstr "Catégorie supprimée."
+
+# @ events
+# @ logs
+#: ../admin/bpe-process.php:766
+#, fuzzy
+msgid "No invoices were created."
+msgstr "Aucun évènement à afficher"
+
+#: ../admin/bpe-process.php:774
+#, php-format
+msgid "Invoice for %s has been created. You can review it here and then send it off."
+msgid_plural "Invoices for %s have been created. You can review them here and then send them off."
+msgstr[0] ""
+msgstr[1] ""
+
+# @ events
+#: ../admin/bpe-process.php:804
+#, fuzzy
+msgid "There was an error bulk editing api access rights."
+msgstr "Une erreur est survenue lors de l'enregistrement de votre évènement. Veuillez réessayer SVP."
+
+# @ events
+#: ../admin/bpe-process.php:812
+#, fuzzy
+msgid "API access has been revoked for the selected keys."
+msgstr "Le membre a été supprimé de cet évènement."
+
+#: ../admin/bpe-process.php:817
+msgid "API access has been granted for the selected keys."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-process.php:827
+#, fuzzy
+msgid "Selected API keys have been deleted."
+msgstr "Votre évènement a été supprimé."
+
+# @ events
+#: ../admin/bpe-process.php:839
+#, fuzzy
+msgid "The API access has been revoked for this key."
+msgstr "Le membre a été supprimé de cet évènement."
+
+# @ events
+#: ../admin/bpe-process.php:849
+#, fuzzy
+msgid "The API access has been granted for this key."
+msgstr "Le membre a été supprimé de cet évènement."
+
+# @ events
+#: ../admin/bpe-process.php:881
+#, fuzzy
+msgid "There was an error bulk editing webhooks."
+msgstr "Une erreur est survenue lors de l'enregistrement de votre évènement. Veuillez réessayer SVP."
+
+# @ events
+#: ../admin/bpe-process.php:891
+#, fuzzy
+msgid "Selected webhooks have been verified."
+msgstr "Votre évènement a bien été modifié."
+
+# @ events
+#: ../admin/bpe-process.php:896
+#, fuzzy
+msgid "Selected webhooks have been unverified."
+msgstr "Votre évènement a bien été modifié."
+
+# @ events
+#: ../admin/bpe-process.php:901
+#, fuzzy
+msgid "Selected webhooks have been deleted."
+msgstr "Votre évènement a été supprimé."
+
+# @ events
+#: ../admin/bpe-process.php:944
+#, fuzzy
+msgid "There was an error bulk approving events."
+msgstr "Une erreur est survenue lors de l'enregistrement de votre évènement. Veuillez réessayer SVP."
+
+# @ events
+#: ../admin/bpe-process.php:976
+#, fuzzy
+msgid "Selected events have been approved."
+msgstr "Votre évènement a été supprimé."
+
+# @ events
+#: ../admin/bpe-process.php:1025
+msgid "The event has been approved."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-process.php:1042
+msgid "The event has been deleted."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-sales.php:107
+#, fuzzy
+msgid "Year"
+msgstr "Chaque année"
+
+#: ../admin/bpe-sales.php:115
+#: ../admin/bpe-sales.php:193
+msgid "Open"
+msgstr ""
+
+#: ../admin/bpe-sales.php:116
+#: ../admin/bpe-sales.php:193
+msgid "Requested"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-sales.php:119
+#, fuzzy
+msgid "Filter sales"
+msgstr "Filtres"
+
+# @ events
+#: ../admin/bpe-sales.php:148
+#, fuzzy
+msgid "Create invoice"
+msgid_plural "Create invoices"
+msgstr[0] "Créer un évènement"
+msgstr[1] "Créer un évènement"
+
+# @ events
+#: ../admin/bpe-sales.php:159
+#: ../admin/bpe-sales.php:170
+#, fuzzy
+msgid "Date"
+msgstr "Dons"
+
+#: ../admin/bpe-sales.php:161
+#: ../admin/bpe-sales.php:172
+msgid "Quantity"
+msgstr ""
+
+#: ../admin/bpe-sales.php:162
+#: ../admin/bpe-sales.php:173
+msgid "Currency"
+msgstr ""
+
+#: ../admin/bpe-sales.php:163
+#: ../admin/bpe-sales.php:174
+msgid "Single Price"
+msgstr ""
+
+#: ../admin/bpe-sales.php:164
+#: ../admin/bpe-sales.php:175
+msgid "Commission"
+msgstr ""
+
+# @ events
+# @ logs
+#: ../admin/bpe-sales.php:206
+#, fuzzy
+msgid "No sales were found."
+msgstr "Aucun évènement à afficher"
+
+# @ buddypress
+#: ../admin/bpe-sales.php:234
+#, fuzzy, php-format
+msgid "for %s"
+msgstr "Recherche"
+
+#: ../admin/bpe-sales.php:235
+msgid "open"
+msgstr ""
+
+#: ../admin/bpe-sales.php:235
+msgid "settled"
+msgstr ""
+
+#: ../admin/bpe-sales.php:238
+#, php-format
+msgid "All-time Commission%s"
+msgstr ""
+
+#: ../admin/bpe-sales.php:240
+#, php-format
+msgid "Total Commission: %s%s"
+msgstr ""
+
+#: ../admin/bpe-sales.php:270
+msgid "No commission."
+msgstr ""
+
+#: ../admin/bpe-sales.php:377
+msgid "January"
+msgstr ""
+
+#: ../admin/bpe-sales.php:378
+msgid "February"
+msgstr ""
+
+# @ buddypress
+#: ../admin/bpe-sales.php:379
+#, fuzzy
+msgid "March"
+msgstr "Recherche"
+
+# @ events
+#: ../admin/bpe-sales.php:380
+#, fuzzy
+msgid "April"
+msgstr "Enregistrer"
+
+# @ events
+#: ../admin/bpe-sales.php:381
+#, fuzzy
+msgid "May"
+msgstr "Lundi"
+
+#: ../admin/bpe-sales.php:382
+msgid "June"
+msgstr ""
+
+#: ../admin/bpe-sales.php:383
+msgid "July"
+msgstr ""
+
+#: ../admin/bpe-sales.php:384
+msgid "August"
+msgstr ""
+
+#: ../admin/bpe-sales.php:385
+msgid "September"
+msgstr ""
+
+# @ dpa
+#: ../admin/bpe-sales.php:386
+#, fuzzy
+msgid "October"
+msgstr "Autre"
+
+#: ../admin/bpe-sales.php:387
+msgid "November"
+msgstr ""
+
+#: ../admin/bpe-sales.php:388
+msgid "December"
+msgstr ""
+
+#: ../admin/bpe-sales.php:404
+msgid "Current Month"
+msgstr ""
+
+#: ../admin/bpe-sales.php:405
+msgid "All-Time"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-services.php:36
+#, fuzzy
+msgid "General Modifications"
+msgstr "Notifications"
+
+#: ../admin/bpe-services.php:37
+msgid "Buddyvents is a versatile plugin and can be modified to do many more things than `just` events. It has been used, for example, to create a locations directory, a reservation engine and as a tool to create trips."
+msgstr ""
+
+#: ../admin/bpe-services.php:38
+msgid "We have made it as easy as possible to extend Buddyvents, but should you have no experience coding, then we are available for custom work."
+msgstr ""
+
+# @ buddypress
+#: ../admin/bpe-services.php:40
+#, fuzzy
+msgid "Ticket Design"
+msgstr "Recherche"
+
+#: ../admin/bpe-services.php:41
+msgid "Version 2.0 includes PayPal integration and PDF tickets. We have kept the current ticket design intentionally bland. Should you require a custom ticket design or have a finished design already, then we can transform your design into a PDF template for use on your site."
+msgstr ""
+
+#: ../admin/bpe-services.php:43
+msgid "Contact Us For a Quote"
+msgstr ""
+
+#: ../admin/bpe-services.php:44
+#, php-format
+msgid "Please do not use the form below for support requests. Use our <a href=\"%s\">forums</a> instead."
+msgstr ""
+
+#: ../admin/bpe-services.php:54
+msgid "Subject"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-services.php:57
+#, fuzzy
+msgid "<span class=\"required\">*</span> Message"
+msgstr "<dt>Groupe lié :</dt><dd><a href=\"%s\">%s</a></dd>"
+
+#: ../admin/bpe-services.php:61
+msgid "Request Quote"
+msgstr ""
+
+#: ../admin/bpe-settings.php:83
+msgid "Toggle Slugs"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:87
+msgid "Only lowercase, a-z,0-9, plus some special characters like - (all slugs get sanitized automatically). Do not use the same slug more than once!"
+msgstr ""
+
+#: ../admin/bpe-settings.php:90
+msgid "Main"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:94
+#: ../admin/bpe-settings.php:860
+msgid "Active"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:98
+#: ../admin/bpe-settings.php:861
+msgid "Archive"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:102
+#: ../admin/bpe-settings.php:862
+msgid "Attending"
+msgstr "Participera"
+
+# @ events
+#: ../admin/bpe-settings.php:108
+#: ../admin/bpe-settings.php:863
+#: ../admin/bpe-shortcodes.php:121
+#, fuzzy
+msgid "Calendar"
+msgstr "Calendrier"
+
+# @ events
+#: ../admin/bpe-settings.php:116
+#: ../admin/bpe-settings.php:864
+msgid "Map"
+msgstr "Carte"
+
+# @ events
+#: ../admin/bpe-settings.php:120
+#: ../admin/bpe-settings.php:867
+#, fuzzy
+msgid "Create"
+msgstr "Créer un évènement"
+
+# @ events
+#: ../admin/bpe-settings.php:130
+#, fuzzy
+msgid "Edit"
+msgstr "Modifier : %s"
+
+# @ events
+#: ../admin/bpe-settings.php:134
+#, fuzzy
+msgid "Attendee"
+msgstr "Participants"
+
+# @ events
+#: ../admin/bpe-settings.php:138
+msgid "Directions"
+msgstr "Itinéraire"
+
+# @ events
+#: ../admin/bpe-settings.php:148
+#: ../admin/bpe-shortcodes.php:171
+#, fuzzy
+msgid "Day"
+msgstr "Lundi"
+
+#: ../admin/bpe-settings.php:152
+msgid "Schedule"
+msgstr ""
+
+#: ../admin/bpe-settings.php:156
+msgid "View"
+msgstr ""
+
+#: ../admin/bpe-settings.php:162
+msgid "List"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:166
+#, fuzzy
+msgid "Grid"
+msgstr "Vendredi"
+
+#: ../admin/bpe-settings.php:170
+msgid "Feed"
+msgstr ""
+
+# @ buddypress
+#: ../admin/bpe-settings.php:174
+#: ../admin/bpe-settings.php:865
+msgid "Search"
+msgstr "Recherche"
+
+#: ../admin/bpe-settings.php:180
+msgid "Results"
+msgstr ""
+
+#: ../admin/bpe-settings.php:184
+msgid "API"
+msgstr ""
+
+#: ../admin/bpe-settings.php:192
+msgid "Documents"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:198
+#, fuzzy
+msgid "Step"
+msgstr "Suivant"
+
+# @ buddypress
+#: ../admin/bpe-settings.php:210
+#, fuzzy
+msgid "Manage"
+msgstr "Recherche"
+
+# @ events
+#: ../admin/bpe-settings.php:216
+#: ../admin/bpe-shortcodes.php:166
+#, fuzzy
+msgid "Timezone"
+msgstr "Calendrier"
+
+# @ events
+#: ../admin/bpe-settings.php:220
+#: ../admin/bpe-shortcodes.php:198
+#, fuzzy
+msgid "Venue"
+msgstr "Calendrier"
+
+#: ../admin/bpe-settings.php:224
+msgid "Tickets"
+msgstr ""
+
+#: ../admin/bpe-settings.php:238
+msgid "Checkout"
+msgstr ""
+
+#: ../admin/bpe-settings.php:242
+#: ../admin/bpe-shortcodes.php:250
+#: ../admin/bpe-shortcodes.php:274
+msgid "Cancel"
+msgstr ""
+
+#: ../admin/bpe-settings.php:246
+msgid "Success"
+msgstr ""
+
+#: ../admin/bpe-settings.php:256
+msgid "Signup"
+msgstr ""
+
+#: ../admin/bpe-settings.php:260
+msgid "Forum"
+msgstr ""
+
+#: ../admin/bpe-settings.php:264
+msgid "Topic"
+msgstr ""
+
+# @ buddypress
+#: ../admin/bpe-settings.php:270
+msgid "Reply"
+msgstr "Répondre"
+
+#: ../admin/bpe-settings.php:274
+msgid "Forum Tag"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:278
+#, fuzzy
+msgid "Newsletter"
+msgstr "Supprimer cet évènement"
+
+# @ events
+#: ../admin/bpe-settings.php:291
+#, fuzzy
+msgid "Disable Warnings"
+msgstr "Désactiver la géolocalisation"
+
+# @ events
+#: ../admin/bpe-settings.php:293
+#, fuzzy
+msgid "Check to disable plugin warnings."
+msgstr "A décocher s'il NE s'agit PAS d'un évènement public."
+
+# @ events
+#: ../admin/bpe-settings.php:297
+#, fuzzy
+msgid "Enable Logo"
+msgstr "Supprimer cet évènement"
+
+# @ events
+#: ../admin/bpe-settings.php:299
+#, fuzzy
+msgid "Check to enable event logos."
+msgstr "A décocher s'il NE s'agit PAS d'un évènement public."
+
+#: ../admin/bpe-settings.php:303
+msgid "Default Logo"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:306
+#, fuzzy
+msgid "Delete Logo"
+msgstr "Supprimer cet évènement"
+
+# @ events
+#: ../admin/bpe-settings.php:307
+#, fuzzy
+msgid "You can upload one image (png,gif or jpg).<br />The image will be cropped to a square.<br />Image needs to be larger than 150x150 px."
+msgstr "Vous pouvez télécharger une image pour votre évènement (png,gif or jpg)."
+
+#: ../admin/bpe-settings.php:311
+msgid "Map Icons"
+msgstr ""
+
+#: ../admin/bpe-settings.php:313
+msgid "Check to use event logos as map icons"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:317
+msgid "Location Field ID"
+msgstr ""
+
+#: ../admin/bpe-settings.php:325
+msgid "Will be ignored, if <a href=\"http://shop.shabushabu.eu/plugins/mapology.html\">Mapology</a> is activated."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:329
+msgid "System"
+msgstr ""
+
+#: ../admin/bpe-settings.php:333
+msgid "Metric"
+msgstr ""
+
+#: ../admin/bpe-settings.php:334
+msgid "Imperial"
+msgstr ""
+
+#: ../admin/bpe-settings.php:339
+msgid "Default View"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:350
+msgid "Reminder Emails"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:354
+msgid "1 day before"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:355
+msgid "12 hours before"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:356
+msgid "11 hours before"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:357
+msgid "10 hours before"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:358
+msgid "9 hours before"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:359
+msgid "8 hours before"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:360
+msgid "7 hours before"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:361
+msgid "6 hours before"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:362
+msgid "5 hours before"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:363
+msgid "4 hours before"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:364
+msgid "3 hours before"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:365
+msgid "2 hours before"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:366
+msgid "1 hour before"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:369
+msgid "Select when reminder emails should be sent out."
+msgstr ""
+
+#: ../admin/bpe-settings.php:374
+msgid "Adding Attendees manually"
+msgstr ""
+
+#: ../admin/bpe-settings.php:376
+msgid "Let event admins manually add users. Will be active automatically if tickets are enabled."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:380
+#, fuzzy
+msgid "Enable Attendees"
+msgstr "Participants"
+
+#: ../admin/bpe-settings.php:382
+msgid "Check to enable event attendees."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:390
+#, fuzzy
+msgid "Enable Forums"
+msgstr "Supprimer cet évènement"
+
+#: ../admin/bpe-settings.php:392
+msgid "Check to enable event forums. BBPress (plugin version) needs to be active."
+msgstr ""
+
+#: ../admin/bpe-settings.php:396
+msgid "Root Events Forum"
+msgstr ""
+
+#: ../admin/bpe-settings.php:401
+msgid "(Event Forum Root)"
+msgstr ""
+
+#: ../admin/bpe-settings.php:406
+msgid "Pick the parent forum for all event forums."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:415
+#, fuzzy
+msgid "Enable Tickets"
+msgstr "Participants"
+
+# @ events
+#: ../admin/bpe-settings.php:417
+#, fuzzy
+msgid "Check to enable event tickets."
+msgstr "A décocher s'il NE s'agit PAS d'un évènement public."
+
+#: ../admin/bpe-settings.php:424
+msgid "Your comisssion (in percent) on any ticket sales. Leave empty or set to 0 to disable."
+msgstr ""
+
+#: ../admin/bpe-settings.php:428
+msgid "Enable PayPal Sandbox"
+msgstr ""
+
+#: ../admin/bpe-settings.php:431
+#, php-format
+msgid "Check to enable PayPal Sandbox testing. You will also have to setup the IPNs in your PayPal account. Use %s as the IPN URL and %s as the return URL."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:435
+#, fuzzy
+msgid "PayPal Email"
+msgstr "* Lieu"
+
+#: ../admin/bpe-settings.php:437
+msgid "Enter your primary PayPal email address."
+msgstr ""
+
+#: ../admin/bpe-settings.php:441
+msgid "Allowed Currencies"
+msgstr ""
+
+#: ../admin/bpe-settings.php:450
+msgid "You can pick and choose which currencies you allow event admins to use."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:454
+#, fuzzy
+msgid "Enable Invoices"
+msgstr "Participants"
+
+# @ events
+#: ../admin/bpe-settings.php:456
+#, fuzzy
+msgid "Check to enable invoices."
+msgstr "A décocher s'il NE s'agit PAS d'un évènement public."
+
+# @ events
+#: ../admin/bpe-settings.php:460
+#, fuzzy
+msgid "Invoice Logo"
+msgstr "Supprimer cet évènement"
+
+# @ events
+#: ../admin/bpe-settings.php:462
+#, fuzzy
+msgid "Delete Invoice Logo"
+msgstr "Supprimer cet évènement"
+
+# @ events
+#: ../admin/bpe-settings.php:463
+#, fuzzy
+msgid "You can upload one image to use as an Invoice logo (png,gif or jpg).<br />The image will not be cropped."
+msgstr "Vous pouvez télécharger une image pour votre évènement (png,gif or jpg)."
+
+#: ../admin/bpe-settings.php:471
+msgid "VAT"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:477
+#, fuzzy
+msgid "Days to settle"
+msgstr "Participera"
+
+#: ../admin/bpe-settings.php:480
+msgid "After how many days you want an invoice to get settled."
+msgstr ""
+
+#: ../admin/bpe-settings.php:484
+msgid "Invoice Message"
+msgstr ""
+
+#: ../admin/bpe-settings.php:487
+msgid "Allowed placeholder: {SETTLE_DATE}. The above option will be determined to get the correct date."
+msgstr ""
+
+#: ../admin/bpe-settings.php:491
+msgid "Invoice Footer 1"
+msgstr ""
+
+#: ../admin/bpe-settings.php:497
+msgid "Invoice Footer 2"
+msgstr ""
+
+#: ../admin/bpe-settings.php:503
+msgid "Invoice Footer 3"
+msgstr ""
+
+#: ../admin/bpe-settings.php:509
+msgid "Invoice Footer 4"
+msgstr ""
+
+#: ../admin/bpe-settings.php:515
+msgid "Test Invoice"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:517
+#, fuzzy
+msgid "Preview PDF"
+msgstr "Précédent"
+
+#: ../admin/bpe-settings.php:518
+#, php-format
+msgid "After all the information has been filled in, click here to create a test invoice. You might also want to fill in your <a href=\"%s\">billing address</a>."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:523
+#, fuzzy
+msgid "Enable Invites"
+msgstr "Participants"
+
+#: ../admin/bpe-settings.php:525
+msgid "Check to enable event invites."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:529
+#, fuzzy
+msgid "Enable iCal Downloads"
+msgstr "Calendrier"
+
+#: ../admin/bpe-settings.php:531
+msgid "Always allow iCal Downloads."
+msgstr ""
+
+#: ../admin/bpe-settings.php:532
+msgid "Allow iCal downloads for logged in users only."
+msgstr ""
+
+#: ../admin/bpe-settings.php:533
+msgid "Only allow event members to download iCal files."
+msgstr ""
+
+#: ../admin/bpe-settings.php:534
+msgid "Disable iCal downloads completely"
+msgstr ""
+
+#: ../admin/bpe-settings.php:538
+msgid "Enable Documents"
+msgstr ""
+
+#: ../admin/bpe-settings.php:540
+msgid "Always show documents."
+msgstr ""
+
+#: ../admin/bpe-settings.php:541
+msgid "Show documents to logged in users only."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:542
+#, fuzzy
+msgid "Show documents only to event members."
+msgstr "Afficher les éventuels participants"
+
+#: ../admin/bpe-settings.php:543
+msgid "Disable documents completely"
+msgstr ""
+
+#: ../admin/bpe-settings.php:547
+msgid "Enable Schedules"
+msgstr ""
+
+#: ../admin/bpe-settings.php:549
+msgid "Always show schedules."
+msgstr ""
+
+#: ../admin/bpe-settings.php:550
+#: ../admin/bpe-settings.php:559
+msgid "Show directions to logged in users only."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:551
+#, fuzzy
+msgid "Show schedules only to event members."
+msgstr "Afficher les évènements passés"
+
+#: ../admin/bpe-settings.php:552
+msgid "Disable schedules completely"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:556
+msgid "Event Directions"
+msgstr ""
+
+#: ../admin/bpe-settings.php:558
+msgid "Always show directions."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:560
+#, fuzzy
+msgid "Show directions only to event members."
+msgstr "Afficher les éventuels participants"
+
+#: ../admin/bpe-settings.php:561
+msgid "Disable directions completely."
+msgstr ""
+
+#: ../admin/bpe-settings.php:566
+msgid "Enable Eventbrite"
+msgstr ""
+
+#: ../admin/bpe-settings.php:568
+msgid "Check to enable publishing new events to Eventbrite."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:572
+#, fuzzy
+msgid "Eventbrite App Key"
+msgstr "Passés"
+
+#: ../admin/bpe-settings.php:575
+msgid "Enter your app key (get it <a href=\"http://www.eventbrite.com/api/key\" target=\"_blank\">here</a>)."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:579
+#, fuzzy
+msgid "Enable Newsletter Services"
+msgstr "Participants"
+
+#: ../admin/bpe-settings.php:581
+msgid "Check to enable newsletter subscription for event members."
+msgstr ""
+
+#: ../admin/bpe-settings.php:582
+msgid "The more services you enable, the more likely it is that there is a service that an event admin can utilze."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:586
+#, fuzzy
+msgid "Enable Mailchimp"
+msgstr "Participants"
+
+# @ events
+#: ../admin/bpe-settings.php:588
+#, fuzzy
+msgid "Check to enable Mailchimp lists."
+msgstr "A décocher s'il NE s'agit PAS d'un évènement public."
+
+#: ../admin/bpe-settings.php:592
+msgid "Enable Campaign Monitor"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:594
+#, fuzzy
+msgid "Check to enable Campaign Monitor lists."
+msgstr "A décocher s'il NE s'agit PAS d'un évènement public."
+
+# @ events
+#: ../admin/bpe-settings.php:598
+#, fuzzy
+msgid "Enable AWeber"
+msgstr "Participants"
+
+# @ events
+#: ../admin/bpe-settings.php:600
+#, fuzzy
+msgid "Check to enable AWeber lists."
+msgstr "A décocher s'il NE s'agit PAS d'un évènement public."
+
+#: ../admin/bpe-settings.php:604
+msgid "Enable Twitter"
+msgstr ""
+
+#: ../admin/bpe-settings.php:606
+msgid "Check to enable publishing new events to Twitter."
+msgstr ""
+
+#: ../admin/bpe-settings.php:610
+msgid "Twitter Consumer Key"
+msgstr ""
+
+#: ../admin/bpe-settings.php:616
+msgid "Twitter Consumer Secret"
+msgstr ""
+
+#: ../admin/bpe-settings.php:620
+msgid "Enter your consumer key and the corresponding consumer secret (get them <a href=\"http://dev.twitter.com/apps\" target=\"_blank\">here</a>)."
+msgstr ""
+
+#: ../admin/bpe-settings.php:621
+msgid "Setting up your app is easy. Enter an application name and a description."
+msgstr ""
+
+#: ../admin/bpe-settings.php:622
+#, php-format
+msgid "Application Type has to be <i>Browser</i>. Use <i>%s</i> for both <i>Application Website</i> and <i>Callback URL</i>"
+msgstr ""
+
+#: ../admin/bpe-settings.php:623
+msgid "Check <i>Read & Write</i> for the Default Access type option, enter the captcha, then fill in the consumer key and secret you receive below!"
+msgstr ""
+
+#: ../admin/bpe-settings.php:628
+msgid "Enable Facebook"
+msgstr ""
+
+#: ../admin/bpe-settings.php:630
+msgid "Check to enable publishing new events to Facebook."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:634
+#, fuzzy
+msgid "Enable Facebook Pages"
+msgstr "Participants"
+
+#: ../admin/bpe-settings.php:636
+msgid "Check to let users post to their Facebook pages. Please note that Facebook restricts API calls for most applications to 10-25 per day per user."
+msgstr ""
+
+#: ../admin/bpe-settings.php:640
+msgid "Facebook App ID"
+msgstr ""
+
+#: ../admin/bpe-settings.php:646
+msgid "Facebook Secret"
+msgstr ""
+
+#: ../admin/bpe-settings.php:650
+msgid "Enter your app id and the corresponding secret (get them <a href=\"http://developers.facebook.com/setup/\" target=\"_blank\">here</a>)."
+msgstr ""
+
+#: ../admin/bpe-settings.php:651
+#, php-format
+msgid "Setting up your app is easy. Enter an application name and an url(use <i>%s</i>)."
+msgstr ""
+
+#: ../admin/bpe-settings.php:652
+msgid "Fill in the captcha on the next page, then fill the App ID and the Secret in above."
+msgstr ""
+
+#: ../admin/bpe-settings.php:657
+msgid "Bit.ly Login"
+msgstr ""
+
+#: ../admin/bpe-settings.php:663
+msgid "Bit.ly API Key"
+msgstr ""
+
+#: ../admin/bpe-settings.php:666
+msgid "Enter your Bit.ly credentials to enable short urls when posting to Twitter or Facebook."
+msgstr ""
+
+#: ../admin/bpe-settings.php:670
+msgid "Enable API"
+msgstr ""
+
+#: ../admin/bpe-settings.php:672
+msgid "Check to enable the Buddyvvents API (Let's other sites show events by querying your database in a safe way)."
+msgstr ""
+
+#: ../admin/bpe-settings.php:676
+msgid "API Hit Restriction"
+msgstr ""
+
+#: ../admin/bpe-settings.php:679
+msgid "Amount of allowed hits per the setting below (API Time Restriction)."
+msgstr ""
+
+#: ../admin/bpe-settings.php:683
+msgid "API Time Restriction"
+msgstr ""
+
+#: ../admin/bpe-settings.php:686
+msgid "Amount of seconds for which hits are allowed per the setting above (API Hit Restriction)."
+msgstr ""
+
+#: ../admin/bpe-settings.php:690
+msgid "Enable Webhooks"
+msgstr ""
+
+#: ../admin/bpe-settings.php:692
+msgid "Check to enable webhooks."
+msgstr ""
+
+#: ../admin/bpe-settings.php:697
+msgid "Geonames Username"
+msgstr ""
+
+#: ../admin/bpe-settings.php:700
+msgid "Enter your Geonames username to enable timezone support and location based archives (get it <a href=\"http://www.geonames.org/login\" target=\"_blank\">here</a>).<br />You will also have to enable access to the Geonames webservice in your Geonames account."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:705
+#, fuzzy
+msgid "Timezones"
+msgstr "Calendrier"
+
+# @ events
+#: ../admin/bpe-settings.php:707
+#, fuzzy
+msgid "Save timezones"
+msgstr "Calendrier"
+
+#: ../admin/bpe-settings.php:708
+msgid "Use this option to get timezones for your existing events."
+msgstr ""
+
+#: ../admin/bpe-settings.php:713
+msgid "Use Fullcalendar"
+msgstr ""
+
+#: ../admin/bpe-settings.php:715
+msgid "Check to enable the jQuery <a href=\"http://arshaw.com/fullcalendar/\">fullcalendar.js</a> script. Enabling this option will remove the old calendar. Use it or tell me why you wouldn't, it's got more features!"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:719
+msgid "Calendar Week Start"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:722
+msgid "Monday"
+msgstr "Lundi"
+
+# @ events
+#: ../admin/bpe-settings.php:723
+msgid "Sunday"
+msgstr "Dimanche"
+
+# @ events
+#: ../admin/bpe-settings.php:728
+msgid "Clock Type"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:731
+msgid "24h"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:732
+msgid "12h"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:737
+#, fuzzy
+msgid "Enable Groups Events"
+msgstr "Derniers évènements de groupes"
+
+# @ events
+#: ../admin/bpe-settings.php:739
+#, fuzzy
+msgid "Check to enable group events."
+msgstr "A décocher s'il NE s'agit PAS d'un évènement public."
+
+# @ events
+#: ../admin/bpe-settings.php:743
+#, fuzzy
+msgid "Group Contact Details"
+msgstr "Contact :"
+
+# @ events
+#: ../admin/bpe-settings.php:745
+msgid "Check to enable group contact details."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:749
+#, fuzzy
+msgid "Require Group Contact Details"
+msgstr "Contact :"
+
+#: ../admin/bpe-settings.php:751
+msgid "Check to make group contact details required."
+msgstr ""
+
+#: ../admin/bpe-settings.php:754
+msgid "Localize Month Names"
+msgstr ""
+
+#: ../admin/bpe-settings.php:756
+msgid "Check to localize month names.<br /><strong>IMPORTANT:</strong> This can cause problems if your site is hosted on a Windows server."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:760
+msgid "Restrict Creation"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:762
+msgid "Check to restrict event creation to group admins."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:768
+msgid "Check to approve all events manually."
+msgstr ""
+
+#: ../admin/bpe-settings.php:772
+msgid "Map Language"
+msgstr ""
+
+#: ../admin/bpe-settings.php:776
+msgid "Arabic"
+msgstr ""
+
+#: ../admin/bpe-settings.php:777
+msgid "Basque"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:778
+#, fuzzy
+msgid "Bulgarian"
+msgstr "Algerie"
+
+#: ../admin/bpe-settings.php:779
+msgid "Bengali"
+msgstr ""
+
+#: ../admin/bpe-settings.php:780
+msgid "Catalan"
+msgstr ""
+
+#: ../admin/bpe-settings.php:781
+msgid "Czech"
+msgstr ""
+
+#: ../admin/bpe-settings.php:782
+msgid "Danish"
+msgstr ""
+
+#: ../admin/bpe-settings.php:783
+msgid "German"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:784
+#, fuzzy
+msgid "Greek"
+msgstr "Créer un évènement"
+
+#: ../admin/bpe-settings.php:785
+msgid "English"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:786
+#, fuzzy
+msgid "English (Australian)"
+msgstr "Australie"
+
+#: ../admin/bpe-settings.php:787
+msgid "English (UK)"
+msgstr ""
+
+#: ../admin/bpe-settings.php:788
+msgid "Spanish"
+msgstr ""
+
+#: ../admin/bpe-settings.php:789
+msgid "Finnish"
+msgstr ""
+
+#: ../admin/bpe-settings.php:790
+msgid "Fillipino"
+msgstr ""
+
+#: ../admin/bpe-settings.php:791
+msgid "French"
+msgstr ""
+
+#: ../admin/bpe-settings.php:792
+msgid "Galician"
+msgstr ""
+
+#: ../admin/bpe-settings.php:793
+msgid "Gujarati"
+msgstr ""
+
+#: ../admin/bpe-settings.php:794
+msgid "Hindi"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:795
+#, fuzzy
+msgid "Croatian"
+msgstr "* Lieu"
+
+#: ../admin/bpe-settings.php:796
+msgid "Hungarian"
+msgstr ""
+
+#: ../admin/bpe-settings.php:797
+msgid "Indonesian"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:798
+#, fuzzy
+msgid "Italian"
+msgstr "Australie"
+
+#: ../admin/bpe-settings.php:799
+msgid "Hebrew"
+msgstr ""
+
+#: ../admin/bpe-settings.php:800
+msgid "Japanese"
+msgstr ""
+
+#: ../admin/bpe-settings.php:801
+msgid "Kannada"
+msgstr ""
+
+#: ../admin/bpe-settings.php:802
+msgid "Korean"
+msgstr ""
+
+#: ../admin/bpe-settings.php:803
+msgid "Lithuanian"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:804
+#, fuzzy
+msgid "Latvian"
+msgstr "* Lieu"
+
+#: ../admin/bpe-settings.php:805
+msgid "Malayalam"
+msgstr ""
+
+#: ../admin/bpe-settings.php:806
+msgid "Marathi"
+msgstr ""
+
+#: ../admin/bpe-settings.php:807
+msgid "Dutch"
+msgstr ""
+
+#: ../admin/bpe-settings.php:808
+msgid "Norwegian"
+msgstr ""
+
+#: ../admin/bpe-settings.php:809
+msgid "Polish"
+msgstr ""
+
+#: ../admin/bpe-settings.php:810
+msgid "Portuguese"
+msgstr ""
+
+#: ../admin/bpe-settings.php:811
+msgid "Portuguese (Brazil)"
+msgstr ""
+
+#: ../admin/bpe-settings.php:812
+msgid "Portuguese (Portugal)"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:813
+#, fuzzy
+msgid "Romanian"
+msgstr "* Lieu"
+
+#: ../admin/bpe-settings.php:814
+msgid "Russian"
+msgstr ""
+
+#: ../admin/bpe-settings.php:815
+msgid "Slovak"
+msgstr ""
+
+#: ../admin/bpe-settings.php:816
+msgid "Slovenian"
+msgstr ""
+
+#: ../admin/bpe-settings.php:817
+msgid "Serbian"
+msgstr ""
+
+#: ../admin/bpe-settings.php:818
+msgid "Swedish"
+msgstr ""
+
+#: ../admin/bpe-settings.php:819
+msgid "Tagalog"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:820
+#, fuzzy
+msgid "Tamil"
+msgstr "Titre :"
+
+#: ../admin/bpe-settings.php:821
+msgid "Telugu"
+msgstr ""
+
+#: ../admin/bpe-settings.php:822
+msgid "Thai"
+msgstr ""
+
+#: ../admin/bpe-settings.php:823
+msgid "Turkish"
+msgstr ""
+
+#: ../admin/bpe-settings.php:824
+msgid "Ukrainian"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:825
+#, fuzzy
+msgid "Vietnamese"
+msgstr "Calendrier"
+
+#: ../admin/bpe-settings.php:826
+msgid "Chinese (Simplified)"
+msgstr ""
+
+#: ../admin/bpe-settings.php:827
+msgid "Chinese (Traditional)"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:832
+msgid "Map Zoom Level"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:838
+msgid "Map Type"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:850
+msgid "Default Map Location"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:858
+msgid "Deactivate Tabs"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:868
+msgid "The default tab cannot be deactivated."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:872
+msgid "Menu Tab Order"
+msgstr ""
+
+#: ../admin/bpe-settings.php:881
+msgid " (does only appear on profile pages - cannot be default tab)"
+msgstr ""
+
+#: ../admin/bpe-settings.php:883
+msgid " (only available if tickets are enabled - cannot be default tab)"
+msgstr ""
+
+#: ../admin/bpe-settings.php:885
+msgid " (only visible on member and group pages - cannot be default tab)"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:890
+msgid "Drag and drop the menu tabs up or down to reorder them. The template files will reflect these changes."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:896
+msgid "Enable Achievements support"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:898
+msgid "Check to enable support for the achievements plugin."
+msgstr ""
+
+#: ../admin/bpe-settings.php:904
+msgid "Enable Cubepoints Integration"
+msgstr ""
+
+#: ../admin/bpe-settings.php:906
+msgid "Check to enable Cubepoints integration."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:910
+#, fuzzy
+msgid "Event Creation Points"
+msgstr "Paramètres"
+
+#: ../admin/bpe-settings.php:913
+msgid "Points given for creating an event."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:917
+#, fuzzy
+msgid "Event Deletion Points"
+msgstr "Paramètres"
+
+# @ events
+#: ../admin/bpe-settings.php:920
+#, fuzzy
+msgid "Points deducted for deleting an event."
+msgstr "Un évènement a été modifié"
+
+# @ events
+#: ../admin/bpe-settings.php:924
+#, fuzzy
+msgid "Attending Event Points"
+msgstr "Agenda"
+
+# @ events
+#: ../admin/bpe-settings.php:927
+#, fuzzy
+msgid "Points given for attending an event."
+msgstr "Vous participerez à cet évènement."
+
+# @ events
+#: ../admin/bpe-settings.php:931
+#, fuzzy
+msgid "Not Attending Event Points"
+msgstr "Agenda"
+
+# @ events
+#: ../admin/bpe-settings.php:934
+#, fuzzy
+msgid "Points deducted for not attending an event."
+msgstr "Vous ne participerez pas à cet évènement."
+
+# @ events
+#: ../admin/bpe-settings.php:938
+#, fuzzy
+msgid "Maybe Attending Event Points"
+msgstr "Agenda"
+
+# @ events
+#: ../admin/bpe-settings.php:941
+#, fuzzy
+msgid "Points given for maybe attending an event."
+msgstr "Vous participerez à cet évènement."
+
+# @ events
+#: ../admin/bpe-settings.php:945
+#, fuzzy
+msgid "Not Attending Event Points (maybe)"
+msgstr "Agenda"
+
+# @ events
+#: ../admin/bpe-settings.php:948
+#, fuzzy
+msgid "Points deducted for not attending an event (maybe)."
+msgstr "Vous ne participerez pas à cet évènement."
+
+# @ events
+#: ../admin/bpe-settings.php:953
+#, fuzzy
+msgid "Import Settings"
+msgstr "Paramètres"
+
+#: ../admin/bpe-settings.php:956
+msgid "Import"
+msgstr ""
+
+#: ../admin/bpe-settings.php:957
+msgid "Only valid JSON settings files can be imported here."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:961
+#, fuzzy
+msgid "Export Settings"
+msgstr "Paramètres"
+
+#: ../admin/bpe-settings.php:963
+msgid "Export"
+msgstr ""
+
+#: ../admin/bpe-settings.php:964
+msgid "Your settings will get exported as a JSON file."
+msgstr ""
+
+# @ default
+#: ../admin/bpe-settings.php:969
+msgid "Update"
+msgstr "Mise à jour"
+
+#: ../admin/bpe-settings.php:970
+msgid ""
+"Do you really want to reset the options?\n"
+"\n"
+"Choose [Cancel] to Stop, [OK] to proceed.\n"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-settings.php:970
+#, fuzzy
+msgid "Reset Options"
+msgstr "Administration"
+
+# @ events
+#: ../admin/bpe-shortcodes.php:36
+#: ../admin/bpe-shortcodes.php:37
+#, fuzzy
+msgid "Add Events &amp; Calendars"
+msgstr "Calendrier"
+
+#: ../admin/bpe-shortcodes.php:117
+msgid "Pick the type of shortcode you want to add:"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-shortcodes.php:127
+#, fuzzy
+msgid "Insert events"
+msgstr "Afficher les nouveaux évènements"
+
+#: ../admin/bpe-shortcodes.php:128
+msgid "All attributes are optional"
+msgstr ""
+
+#: ../admin/bpe-shortcodes.php:131
+msgid "IDs"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-shortcodes.php:133
+#, fuzzy
+msgid "Enter a comma seperated list of event IDs."
+msgstr "Veuillez entrer vos mot-clé en lettres minuscules SVP."
+
+#: ../admin/bpe-shortcodes.php:136
+msgid "User ID"
+msgstr ""
+
+#: ../admin/bpe-shortcodes.php:138
+msgid "Enter a single user ID."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-shortcodes.php:141
+#, fuzzy
+msgid "Group ID"
+msgstr "Groupe"
+
+#: ../admin/bpe-shortcodes.php:143
+msgid "Enter a single group ID."
+msgstr ""
+
+#: ../admin/bpe-shortcodes.php:148
+#: ../admin/bpe-shortcodes.php:158
+#: ../admin/bpe-shortcodes.php:173
+#: ../admin/bpe-shortcodes.php:221
+#: ../admin/bpe-shortcodes.php:226
+msgid "Format: YYYY-MM-DD"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-shortcodes.php:151
+#, fuzzy
+msgid "Start Time"
+msgstr "début ASC"
+
+#: ../admin/bpe-shortcodes.php:153
+#: ../admin/bpe-shortcodes.php:163
+msgid "Format: HH:MM"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-shortcodes.php:156
+#, fuzzy
+msgid "End Date"
+msgstr "fin ASC"
+
+# @ events
+#: ../admin/bpe-shortcodes.php:161
+#, fuzzy
+msgid "End Time"
+msgstr "Widget Évènements"
+
+# @ events
+#: ../admin/bpe-shortcodes.php:168
+#, fuzzy
+msgid "Chose a timezone."
+msgstr "Calendrier"
+
+#: ../admin/bpe-shortcodes.php:178
+msgid "Format: MM-YYYY"
+msgstr ""
+
+#: ../admin/bpe-shortcodes.php:183
+msgid "Format: YYYY"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-shortcodes.php:186
+#, fuzzy
+msgid "Future events only"
+msgstr "Filtrer"
+
+# @ events
+#: ../admin/bpe-shortcodes.php:190
+#, fuzzy
+msgid "Past events only"
+msgstr "Derniers évènements"
+
+# @ events
+#: ../admin/bpe-shortcodes.php:194
+#, fuzzy
+msgid "Location"
+msgstr "* Lieu"
+
+#: ../admin/bpe-shortcodes.php:202
+msgid "Radius"
+msgstr ""
+
+# @ buddypress
+#: ../admin/bpe-shortcodes.php:210
+#, fuzzy
+msgid "Search terms"
+msgstr "Recherche"
+
+#: ../admin/bpe-shortcodes.php:212
+msgid "Comma seperate search terms."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-shortcodes.php:215
+#, fuzzy
+msgid "Events per page"
+msgstr "Géolocalisation"
+
+#: ../admin/bpe-shortcodes.php:219
+msgid "Begin"
+msgstr ""
+
+#: ../admin/bpe-shortcodes.php:224
+msgid "End"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-shortcodes.php:229
+#, fuzzy
+msgid "Max"
+msgstr "Max :"
+
+#: ../admin/bpe-shortcodes.php:233
+msgid "Sort by"
+msgstr ""
+
+#: ../admin/bpe-shortcodes.php:237
+msgid "Meta"
+msgstr ""
+
+#: ../admin/bpe-shortcodes.php:241
+msgid "Meta Key"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-shortcodes.php:245
+#, fuzzy
+msgid "Operator"
+msgstr "Créer un évènement"
+
+# @ events
+#: ../admin/bpe-shortcodes.php:249
+#, fuzzy
+msgid "Insert Events"
+msgstr "Derniers évènements"
+
+# @ events
+#: ../admin/bpe-shortcodes.php:256
+#, fuzzy
+msgid "Insert an event calendar"
+msgstr "Calendrier"
+
+#: ../admin/bpe-shortcodes.php:257
+msgid "Current month will be used if month and year are empty."
+msgstr ""
+
+#: ../admin/bpe-shortcodes.php:260
+msgid "Pick a month"
+msgstr ""
+
+#: ../admin/bpe-shortcodes.php:269
+msgid "Enter a year (YYYY)"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-shortcodes.php:273
+#, fuzzy
+msgid "Insert Calendar"
+msgstr "Calendrier"
+
+# @ events
+#: ../admin/bpe-upgrade.php:38
+#, fuzzy
+msgid "Upgrade"
+msgstr "Mise à jour"
+
+# @ events
+#: ../admin/bpe-upgrade.php:43
+#: ../admin/bpe-upgrade.php:103
+#: ../admin/bpe-upgrade.php:130
+#: ../admin/bpe-upgrade.php:169
+#: ../admin/bpe-upgrade.php:195
+#: ../admin/bpe-upgrade.php:220
+#: ../admin/bpe-upgrade.php:270
+#: ../admin/bpe-upgrade.php:322
+#: ../admin/bpe-upgrade.php:347
+#: ../admin/bpe-upgrade.php:368
+#: ../admin/bpe-upgrade.php:408
+#: ../admin/bpe-upgrade.php:498
+#: ../admin/bpe-upgrade.php:518
+#: ../admin/bpe-upgrade.php:539
+#: ../admin/bpe-upgrade.php:556
+#: ../admin/bpe-upgrade.php:574
+#: ../admin/bpe-upgrade.php:721
+#: ../admin/bpe-upgrade.php:765
+#, php-format
+msgid "Upgrading database structure for DB %s..."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-upgrade.php:94
+#: ../admin/bpe-upgrade.php:121
+#: ../admin/bpe-upgrade.php:160
+#: ../admin/bpe-upgrade.php:186
+#: ../admin/bpe-upgrade.php:211
+#: ../admin/bpe-upgrade.php:261
+#: ../admin/bpe-upgrade.php:313
+#: ../admin/bpe-upgrade.php:338
+#: ../admin/bpe-upgrade.php:359
+#: ../admin/bpe-upgrade.php:399
+#: ../admin/bpe-upgrade.php:489
+#: ../admin/bpe-upgrade.php:509
+#: ../admin/bpe-upgrade.php:530
+#: ../admin/bpe-upgrade.php:547
+#: ../admin/bpe-upgrade.php:565
+#: ../admin/bpe-upgrade.php:712
+#: ../admin/bpe-upgrade.php:756
+#: ../admin/bpe-upgrade.php:788
+msgid "Done! Please refresh this page."
+msgstr ""
+
+# @ events
+#: ../admin/bpe-upgrade.php:796
+msgid "Upgrade failed!"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-upgrade.php:827
+#, php-format
+msgid "Could not add column %s in table %s<br />"
+msgstr ""
+
+#: ../admin/bpe-upgrade.php:850
+#, php-format
+msgid "Could not delete column %s in table %s<br />"
+msgstr ""
+
+#: ../admin/bpe-webhooks.php:72
+#: ../admin/bpe-webhooks.php:127
+msgid "Unverify"
+msgstr ""
+
+#: ../admin/bpe-webhooks.php:73
+#: ../admin/bpe-webhooks.php:128
+#: ../components/api/bpe-api-webhooks.php:257
+msgid "Verify"
+msgstr ""
+
+#: ../admin/bpe-webhooks.php:86
+#: ../admin/bpe-webhooks.php:95
+#: ../components/api/bpe-api-webhooks.php:232
+msgid "URL"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-webhooks.php:87
+#: ../admin/bpe-webhooks.php:96
+#: ../components/api/bpe-api-webhooks.php:231
+#, fuzzy
+msgid "Event"
+msgstr "Évènements"
+
+#: ../admin/bpe-webhooks.php:110
+msgid "verified"
+msgstr ""
+
+#: ../admin/bpe-webhooks.php:110
+msgid "unverified"
+msgstr ""
+
+# @ events
+# @ logs
+#: ../admin/bpe-webhooks.php:117
+#, fuzzy
+msgid "No webhooks were found."
+msgstr "Aucun évènement à afficher"
+
+# @ buddypress
+#: ../admin/bpe-widgets.php:44
+#, fuzzy, php-format
+msgid "Ticket Sales %s"
+msgstr "Recherche"
+
+# @ events
+#: ../admin/bpe-widgets.php:47
+#, fuzzy
+msgid "Unpaid Invoices"
+msgstr "Participants"
+
+# @ events
+#: ../admin/bpe-widgets.php:53
+#, fuzzy
+msgid "Events to Approve"
+msgstr "Géolocalisation"
+
+# @ events
+#: ../admin/bpe-widgets.php:57
+msgid "Latest Events"
+msgstr "Derniers évènements"
+
+# @ events
+#: ../admin/bpe-widgets.php:82
+#, fuzzy
+msgid "Invoices Overview"
+msgstr "Passés"
+
+# @ events
+# @ logs
+#: ../admin/bpe-widgets.php:110
+#, fuzzy
+msgid "No unpaid invoices were found."
+msgstr "Aucun évènement à afficher"
+
+#: ../admin/bpe-widgets.php:229
+#, php-format
+msgid "<p>Totals: %s</p>"
+msgstr ""
+
+# @ events
+#: ../admin/bpe-widgets.php:255
+#, fuzzy
+msgid "Events Overview"
+msgstr "Passés"
+
+# @ events
+#: ../admin/bpe-widgets.php:322
+#, fuzzy, php-format
+msgid "%d Event to approve"
+msgid_plural "%d Events to approve"
+msgstr[0] "Géolocalisation"
+msgstr[1] "Géolocalisation"
+
+# @ dpa
+#: ../components/achievements/bpe-achievements-core.php:30
+msgid "Other"
+msgstr "Autre"
+
+# @ buddypress
+#: ../components/api/bpe-api-class.php:346
+#, php-format
+msgid "%s posted a new event comment:"
+msgstr "%s a commenté un évènement :"
+
+# @ events
+#: ../components/api/bpe-api-core.php:83
+#: ../components/api/bpe-api-functions.php:87
+#, fuzzy
+msgid "Events API"
+msgstr "Passés"
+
+#: ../components/api/bpe-api-functions.php:51
+#, php-format
+msgid "Your API Key: %s"
+msgstr ""
+
+# @ events
+#: ../components/api/bpe-api-functions.php:63
+#, fuzzy
+msgid "You are not allowed to delete this API key."
+msgstr "Vous n'êtes pas autorisé à supprimer cet évènement."
+
+# @ events
+#: ../components/api/bpe-api-functions.php:69
+#, fuzzy
+msgid "API key successfully deleted."
+msgstr "Catégorie supprimée."
+
+#: ../components/api/bpe-api-functions.php:99
+msgid "What is the API?"
+msgstr ""
+
+#: ../components/api/bpe-api-functions.php:100
+#, php-format
+msgid "The API (or <strong>A</strong>pplication <strong>P</strong>rogramming <strong>I</strong>nterface) lets external web sites use the events data here on %s. In order to use and access the API, a key is needed, which you can generate by clicking the button below. Please keep this API key safe and do not share it with others. Access to the API can be revoked without prior notice."
+msgstr ""
+
+#: ../components/api/bpe-api-functions.php:101
+msgid "Please note that only the data has been made available. Any styling, manipulation of the data and presentation needs to be handled externally."
+msgstr ""
+
+#: ../components/api/bpe-api-functions.php:102
+#, php-format
+msgid "You can download an example <a href=\"%s\">client library</a> written in PHP to put events data onto an external web page. Documentation is also included in the download."
+msgstr ""
+
+# @ events
+#: ../components/api/bpe-api-functions.php:109
+#, fuzzy
+msgid "Get API Key"
+msgstr "Passés"
+
+#: ../components/api/bpe-api-functions.php:124
+msgid "Key"
+msgstr ""
+
+#: ../components/api/bpe-api-functions.php:126
+msgid "Hits"
+msgstr ""
+
+# @ events
+#: ../components/api/bpe-api-functions.php:127
+#, fuzzy
+msgid "Action"
+msgstr "* Lieu"
+
+# @ events
+#: ../components/api/bpe-api-webhooks.php:90
+#, fuzzy
+msgid "The webhook has been removed successfully."
+msgstr "La récurrence a bien été supprimée."
+
+# @ events
+#: ../components/api/bpe-api-webhooks.php:93
+#, fuzzy
+msgid "The webhook could not be removed."
+msgstr "La catégorie ne peut pas être supprimée."
+
+# @ events
+#: ../components/api/bpe-api-webhooks.php:109
+#, fuzzy
+msgid "The webhook could not be repinged."
+msgstr "La catégorie ne peut pas être supprimée."
+
+# @ events
+#: ../components/api/bpe-api-webhooks.php:111
+#, fuzzy
+msgid "The webhook has been repinged."
+msgstr "Votre évènement a bien été modifié."
+
+# @ events
+#: ../components/api/bpe-api-webhooks.php:121
+#, fuzzy
+msgid "Your webhooks have been verified."
+msgstr "Votre évènement a bien été modifié."
+
+# @ events
+#: ../components/api/bpe-api-webhooks.php:124
+#, fuzzy
+msgid "Your webhooks could not be verified."
+msgstr "La catégorie ne peut pas être supprimée."
+
+# @ events
+#: ../components/api/bpe-api-webhooks.php:135
+msgid "Please fill in all fields marked by *."
+msgstr "Veuillez renseigner tous les champs obligatoires SVP. Ils sont signalés par une astérisque *."
+
+# @ events
+#: ../components/api/bpe-api-webhooks.php:141
+#, fuzzy
+msgid "Please enter a valid url."
+msgstr "Veuillez entrer un commentaire SVP."
+
+# @ events
+#: ../components/api/bpe-api-webhooks.php:164
+#, fuzzy
+msgid "Your webhook could not be saved."
+msgstr "La catégorie ne peut pas être supprimée."
+
+# @ events
+#: ../components/api/bpe-api-webhooks.php:166
+#, fuzzy
+msgid "Your webhook has been saved."
+msgstr "Votre évènement a bien été enregistré."
+
+#: ../components/api/bpe-api-webhooks.php:203
+msgid "Webhooks let you ping an URL on an external site with information about an event. You can either specify one URL per hook or one URL for all hooks."
+msgstr ""
+
+#: ../components/api/bpe-api-webhooks.php:204
+msgid "Please note that some programming knowledge is necessary to use this feature."
+msgstr ""
+
+# @ events
+#: ../components/api/bpe-api-webhooks.php:206
+#, fuzzy
+msgid "* Event"
+msgstr "* Fin"
+
+#: ../components/api/bpe-api-webhooks.php:208
+msgid "All"
+msgstr ""
+
+#: ../components/api/bpe-api-webhooks.php:214
+msgid "* URL"
+msgstr ""
+
+#: ../components/api/bpe-api-webhooks.php:218
+msgid "Add new webhook"
+msgstr ""
+
+#: ../components/api/bpe-api-webhooks.php:226
+msgid "Manage Your Webhooks"
+msgstr ""
+
+#: ../components/api/bpe-api-webhooks.php:243
+msgid "Remove"
+msgstr ""
+
+#: ../components/api/bpe-api-webhooks.php:246
+msgid "Re-verify"
+msgstr ""
+
+#: ../components/api/bpe-api-webhooks.php:249
+msgid "Verify manually"
+msgstr ""
+
+#: ../components/api/bpe-api-webhooks.php:249
+msgid "Verified"
+msgstr ""
+
+#: ../components/api/bpe-api-webhooks.php:256
+msgid "Enter your verification code..."
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-activity.php:34
+#: ../components/core/bpe-create-edit.php:374
+#, fuzzy
+msgid "Event logo"
+msgstr "Évènements"
+
+# @ events
+#: ../components/core/bpe-activity.php:131
+#, php-format
+msgid "%1$s published the event <a href=\"%2$s\">%3$s</a> starting on %4$s at %5$s"
+msgstr "%1$s a créé l\\'évènement <a href=\"%2$s\">%3$s</a> qui commence le %4$s à %5$s"
+
+# @ events
+#: ../components/core/bpe-activity.php:168
+#, php-format
+msgid "%1$s is attending the event <a href=\"%2$s\">%3$s</a>"
+msgstr "%1$s participera à l\\'évènement <a href=\"%2$s\">%3$s</a>"
+
+# @ events
+#: ../components/core/bpe-activity.php:204
+#, php-format
+msgid "%1$s might attend the event <a href=\"%2$s\">%3$s</a>"
+msgstr "%1$s participera peut-être à l\\'évènement <a href=\"%2$s\">%3$s</a>"
+
+# @ events
+#: ../components/core/bpe-activity.php:242
+#, fuzzy, php-format
+msgid "%1$s posted a new comment on <a href=\"%2$s\">%3$s</a>:"
+msgstr "%1$s a modifié les informations de l\\'évènement <a href=\"%2$s\">%3$s</a>"
+
+# @ events
+#: ../components/core/bpe-activity.php:279
+#, php-format
+msgid "%1$s is no longer attending the event <a href=\"%2$s\">%3$s</a>"
+msgstr "%1$s ne participera pas à l\\'évènement <a href=\"%2$s\">%3$s</a>"
+
+# @ events
+#: ../components/core/bpe-activity.php:322
+#, php-format
+msgid "%1$s has edited the event <a href=\"%2$s\">%3$s</a>"
+msgstr "%1$s a modifié les informations de l\\'évènement <a href=\"%2$s\">%3$s</a>"
+
+# @ events
+#: ../components/core/bpe-activity.php:365
+#, fuzzy, php-format
+msgid "%1$s has uploaded a new event logo for <a href=\"%2$s\">%3$s</a>"
+msgstr "%1$s a modifié les informations de l\\'évènement <a href=\"%2$s\">%3$s</a>"
+
+# @ events
+#: ../components/core/bpe-activity.php:408
+#, fuzzy, php-format
+msgid "%1$s has cancelled the event <a href=\"%2$s\">%3$s</a>"
+msgstr "%1$s a modifié les informations de l\\'évènement <a href=\"%2$s\">%3$s</a>"
+
+# @ events
+#: ../components/core/bpe-activity.php:454
+#: ../components/core/bpe-activity.php:485
+#, fuzzy
+msgid "New event created"
+msgstr "Afficher les nouveaux évènements"
+
+# @ events
+#: ../components/core/bpe-activity.php:455
+#: ../components/core/bpe-activity.php:486
+#, fuzzy
+msgid "Event updated"
+msgstr "Géolocalisation"
+
+# @ events
+#: ../components/core/bpe-activity.php:456
+#: ../components/core/bpe-activity.php:487
+#, fuzzy
+msgid "Event cancelled"
+msgstr "Calendrier"
+
+# @ events
+#: ../components/core/bpe-activity.php:459
+#: ../components/core/bpe-activity.php:491
+#, fuzzy
+msgid "New event attendee"
+msgstr "Participants"
+
+# @ events
+#: ../components/core/bpe-activity.php:460
+#: ../components/core/bpe-activity.php:492
+#, fuzzy
+msgid "Potential event attendee"
+msgstr "Participants"
+
+# @ events
+#: ../components/core/bpe-activity.php:461
+#: ../components/core/bpe-activity.php:493
+#, fuzzy
+msgid "Removed event attendee"
+msgstr "Participants"
+
+# @ events
+#: ../components/core/bpe-activity.php:464
+#: ../components/core/bpe-activity.php:497
+#, fuzzy
+msgid "New event logo"
+msgstr "Évènements"
+
+# @ events
+#: ../components/core/bpe-activity.php:500
+#, fuzzy
+msgid "Updated event schedule"
+msgstr "Afficher les évènements modifiés"
+
+# @ events
+#: ../components/core/bpe-activity.php:503
+#, fuzzy
+msgid "Updated event document"
+msgstr "Afficher les évènements modifiés"
+
+# @ events
+#: ../components/core/bpe-ajax.php:176
+msgid "Previous month"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-ajax.php:178
+msgid "Next month"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-ajax.php:331
+#, fuzzy
+msgid "The content for this post could not be retrieved."
+msgstr "La catégorie ne peut pas être supprimée."
+
+# @ events
+#: ../components/core/bpe-ajax.php:349
+#: ../components/core/bpe-calendar.php:429
+#, fuzzy, php-format
+msgid "<dt>Venue:</dt><dd><span class=\"location\">%s</span></dd>"
+msgstr "<dt>Groupe lié :</dt><dd><a href=\"%s\">%s</a></dd>"
+
+# @ events
+#: ../components/core/bpe-ajax.php:351
+#: ../components/core/bpe-calendar.php:431
+#, fuzzy, php-format
+msgid "<dt>Start:</dt><dd><span class=\"dtstart\">%s</span> (all day event)</dd>"
+msgstr "<dt>Début :</dt><dd>%s at %s</dd>"
+
+# @ events
+#: ../components/core/bpe-ajax.php:353
+#: ../components/core/bpe-calendar.php:433
+#, fuzzy, php-format
+msgid "<dt>End:</dt><dd><span class=\"dtend\">%s</span> (all day event)</dd>"
+msgstr "<dt>Fin :</dt><dd>%s at %s</dd>"
+
+# @ events
+#: ../components/core/bpe-ajax.php:356
+#: ../components/core/bpe-calendar.php:436
+#, fuzzy, php-format
+msgid "<dt>Start:</dt><dd><span class=\"dtstart\">%s</span> at %s</dd>"
+msgstr "<dt>Début :</dt><dd>%s at %s</dd>"
+
+# @ events
+#: ../components/core/bpe-ajax.php:357
+#: ../components/core/bpe-calendar.php:437
+#, fuzzy, php-format
+msgid "<dt>End:</dt><dd><span class=\"dtend\">%s</span> at %s</dd>"
+msgstr "<dt>Fin :</dt><dd>%s at %s</dd>"
+
+# @ events
+#: ../components/core/bpe-ajax.php:361
+#: ../components/core/bpe-calendar.php:441
+#, fuzzy, php-format
+msgid "<dt>Timezone:</dt><dd><span class=\"timezone\">%s</dd>"
+msgstr "<dt>Groupe lié :</dt><dd><a href=\"%s\">%s</a></dd>"
+
+# @ events
+#: ../components/core/bpe-ajax.php:363
+#: ../components/core/bpe-calendar.php:444
+#, fuzzy, php-format
+msgid "<dt>Category:</dt><dd><span class=\"category\">%s</span></dd>"
+msgstr "<dt>Catégorie :</dt><dd>%s</dd>"
+
+# @ events
+#: ../components/core/bpe-ajax.php:365
+#: ../components/core/bpe-calendar.php:446
+#, fuzzy, php-format
+msgid "<dt>Website:</dt><dd><span class=\"url\">%s</span></dd>"
+msgstr "<dt>Groupe lié :</dt><dd><a href=\"%s\">%s</a></dd>"
+
+# @ events
+#: ../components/core/bpe-ajax.php:368
+#: ../components/core/bpe-calendar.php:450
+#, php-format
+msgid "<dt>Group:</dt><dd><a href=\"%s\">%s</a></dd>"
+msgstr "<dt>Groupe lié :</dt><dd><a href=\"%s\">%s</a></dd>"
+
+# @ events
+#: ../components/core/bpe-calendar.php:143
+#, php-format
+msgid "%d event"
+msgid_plural "%d events"
+msgstr[0] ""
+msgstr[1] ""
+
+# @ events
+#: ../components/core/bpe-calendar.php:247
+msgid "&larr; Previous Month"
+msgstr "&larr; Mois précédent"
+
+# @ events
+#: ../components/core/bpe-calendar.php:248
+msgid "Next Month &rarr;"
+msgstr "Mois suivant &rarr;"
+
+# @ events
+#: ../components/core/bpe-calendar.php:250
+msgid "Go"
+msgstr "Ok"
+
+# @ events
+#: ../components/core/bpe-calendar.php:271
+#: ../components/core/bpe-calendar.php:278
+msgid "Tuesday"
+msgstr "Mardi"
+
+# @ events
+#: ../components/core/bpe-calendar.php:271
+#: ../components/core/bpe-calendar.php:278
+msgid "Wednesday"
+msgstr "Mercredi"
+
+# @ events
+#: ../components/core/bpe-calendar.php:271
+#: ../components/core/bpe-calendar.php:278
+msgid "Thursday"
+msgstr "Jeudi"
+
+# @ events
+#: ../components/core/bpe-calendar.php:271
+#: ../components/core/bpe-calendar.php:278
+msgid "Friday"
+msgstr "Vendredi"
+
+# @ events
+#: ../components/core/bpe-calendar.php:271
+#: ../components/core/bpe-calendar.php:278
+msgid "Saturday"
+msgstr "Samedi"
+
+# @ events
+#: ../components/core/bpe-calendar.php:273
+#: ../components/core/bpe-calendar.php:280
+msgid "S"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-calendar.php:273
+#: ../components/core/bpe-calendar.php:280
+msgid "M"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-calendar.php:273
+#: ../components/core/bpe-calendar.php:280
+msgid "T"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-calendar.php:273
+#: ../components/core/bpe-calendar.php:280
+msgid "W"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-calendar.php:273
+#: ../components/core/bpe-calendar.php:280
+msgid "F"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-calendar.php:339
+msgid " (end)"
+msgstr "(fin)"
+
+# @ events
+#: ../components/core/bpe-calendar.php:339
+#, fuzzy
+msgid " (cont.)"
+msgstr "(suite)"
+
+#: ../components/core/bpe-calendar.php:416
+msgid "Event is not active yet."
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-calendar.php:453
+#, php-format
+msgid "<dt>Address:</dt><dd>%s<br />%s<br />%s<br />%s</dd>"
+msgstr "<dt>Adresse :</dt><dd>%s<br />%s<br />%s<br />%s</dd>"
+
+# @ events
+#: ../components/core/bpe-calendar.php:466
+msgid "Creator:"
+msgstr "Publié par :"
+
+#: ../components/core/bpe-core.php:171
+#, php-format
+msgid "Events <span>%d</span>"
+msgstr ""
+
+#: ../components/core/bpe-core.php:188
+#, php-format
+msgid "Active <span>%d</span>"
+msgstr ""
+
+#: ../components/core/bpe-core.php:202
+#, php-format
+msgid "Archive <span>%d</span>"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-core.php:216
+#, fuzzy, php-format
+msgid "Attending <span>%d</span>"
+msgstr "Participera"
+
+# @ events
+#: ../components/core/bpe-core.php:316
+msgid "Admin Options"
+msgstr "Administration"
+
+# @ events
+#: ../components/core/bpe-core.php:320
+#, fuzzy
+msgid "Delete Event"
+msgstr "Supprimer cet évènement"
+
+# @ events
+#: ../components/core/bpe-create-edit.php:214
+#, fuzzy
+msgid "There was an error saving this step. Please try again."
+msgstr "Une erreur est survenue lors de l'enregistrement de votre commentaire. Veuillez réessayer SVP."
+
+# @ events
+#: ../components/core/bpe-create-edit.php:274
+msgid "Your event has been saved successfully. It will show up in the events list as soon as it has been approved!"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-create-edit.php:285
+#, fuzzy
+msgid "Your event was successfully published!"
+msgstr "Votre évènement a été publié avec succès ! N'oubliez pas d'y inviter vos contacts !"
+
+# @ events
+#: ../components/core/bpe-create-edit.php:333
+#, fuzzy
+msgid "There was an error saving the event logo, please try uploading again."
+msgstr "Une erreur est survenue lors de l'enregistrement de votre commentaire. Veuillez réessayer SVP."
+
+# @ events
+#: ../components/core/bpe-create-edit.php:336
+#, fuzzy
+msgid "The event logo was uploaded successfully!"
+msgstr "Catégorie supprimée."
+
+# @ events
+#: ../components/core/bpe-create-edit.php:423
+#, fuzzy
+msgid "Your logo was deleted successfully!"
+msgstr "Votre évènement a été publié avec succès !"
+
+# @ events
+#: ../components/core/bpe-create-edit.php:425
+#, fuzzy
+msgid "There was a problem deleting the logo, please try again."
+msgstr "Une erreur est survenue lors de l'enregistrement de votre commentaire. Veuillez réessayer SVP."
+
+# @ events
+#: ../components/core/bpe-create-edit.php:452
+#, fuzzy
+msgid "There was a problem cropping the logo, please try uploading it again"
+msgstr "Une erreur est survenue lors de l'enregistrement de votre commentaire. Veuillez réessayer SVP."
+
+# @ events
+#: ../components/core/bpe-create-edit.php:456
+#, fuzzy
+msgid "The new event logo was uploaded successfully!"
+msgstr "Catégorie supprimée."
+
+# @ events
+# @ logs
+#: ../components/core/bpe-create-edit.php:844
+#, fuzzy
+msgid "No members were found."
+msgstr "Aucun évènement à afficher"
+
+#: ../components/core/bpe-debug.php:25
+#, php-format
+msgid "Component: %s"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-debug.php:28
+#, fuzzy, php-format
+msgid "Note: %s"
+msgstr "Page : %s"
+
+# @ events
+#: ../components/core/bpe-debug.php:30
+#, fuzzy, php-format
+msgid "Date: %s"
+msgstr "Page : %s"
+
+#: ../components/core/bpe-deprecated.php:202
+msgid "Get your API key here"
+msgstr ""
+
+#: ../components/core/bpe-feed-class.php:100
+#, php-format
+msgid "<strong>Venue</strong>: %s<br />"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-feed-class.php:103
+#, fuzzy, php-format
+msgid "<strong>Start</strong>: %s (all day event)<br />"
+msgstr "<dt>Début :</dt><dd>%s at %s</dd>"
+
+# @ events
+#: ../components/core/bpe-feed-class.php:105
+#, fuzzy, php-format
+msgid "<strong>End</strong>: %s (all day event)<br />"
+msgstr "<dt>Fin :</dt><dd>%s at %s</dd>"
+
+# @ events
+#: ../components/core/bpe-feed-class.php:108
+#, fuzzy, php-format
+msgid "<strong>Start</strong>: %s at %s<br />"
+msgstr "<dt>Début :</dt><dd>%s at %s</dd>"
+
+# @ events
+#: ../components/core/bpe-feed-class.php:109
+#, fuzzy, php-format
+msgid "<strong>End</strong>: %s at %s<br />"
+msgstr "<dt>Fin :</dt><dd>%s at %s</dd>"
+
+# @ events
+#: ../components/core/bpe-feed-class.php:113
+#, fuzzy, php-format
+msgid "<strong>Timezone</strong>: %s<br />"
+msgstr "<dt>Fin :</dt><dd>%s at %s</dd>"
+
+# @ events
+#: ../components/core/bpe-feed-class.php:116
+#, fuzzy, php-format
+msgid "<strong>Category</strong>: %s<br />"
+msgstr "<dt>Catégorie :</dt><dd>%s</dd>"
+
+# @ events
+#: ../components/core/bpe-feed-class.php:119
+#, fuzzy, php-format
+msgid "<strong>Website</strong>: %s<br />"
+msgstr "<dt>Groupe lié :</dt><dd><a href=\"%s\">%s</a></dd>"
+
+# @ events
+#: ../components/core/bpe-feed-class.php:123
+#, fuzzy, php-format
+msgid "<strong>Group</strong>: <a href=\"%s\">%s</a><br />"
+msgstr "<dt>Groupe lié :</dt><dd><a href=\"%s\">%s</a></dd>"
+
+# @ events
+#: ../components/core/bpe-feed-class.php:126
+#, fuzzy, php-format
+msgid "<p><strong>Description</strong>:<br />%s</p>"
+msgstr "<dt>Groupe lié :</dt><dd><a href=\"%s\">%s</a></dd>"
+
+# @ events
+#: ../components/core/bpe-feeds.php:69
+#, fuzzy
+msgid "Latest Events | Sitewide"
+msgstr "Derniers évènements"
+
+# @ events
+#: ../components/core/bpe-feeds.php:81
+#, fuzzy
+msgid "Latest User Events"
+msgstr "Derniers évènements"
+
+# @ events
+#: ../components/core/bpe-feeds.php:83
+#, fuzzy
+msgid "Latest Category Events"
+msgstr "%s - Derniers évènements"
+
+# @ events
+#: ../components/core/bpe-feeds.php:86
+#, fuzzy
+msgid "Latest Timezone Events"
+msgstr "Derniers évènements"
+
+# @ events
+#: ../components/core/bpe-feeds.php:89
+#, fuzzy
+msgid "Latest Venue Events"
+msgstr "Derniers évènements"
+
+# @ events
+#: ../components/core/bpe-feeds.php:117
+msgid "Latest Sitewide Events"
+msgstr "Derniers évènements"
+
+#: ../components/core/bpe-feeds.php:119
+msgid "Latest Global Feed"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-feeds.php:153
+#: ../components/core/bpe-feeds.php:190
+#: ../components/core/bpe-feeds.php:224
+#: ../components/core/bpe-feeds.php:259
+#, fuzzy, php-format
+msgid "%s | Latest Events"
+msgstr "Derniers évènements"
+
+# @ events
+#: ../components/core/bpe-feeds.php:155
+#, fuzzy, php-format
+msgid "Latest Category Feed - %s"
+msgstr "%s - Derniers évènements"
+
+# @ events
+#: ../components/core/bpe-feeds.php:192
+#, fuzzy, php-format
+msgid "Latest Timezone Feed - %s"
+msgstr "Derniers évènements"
+
+# @ events
+#: ../components/core/bpe-feeds.php:226
+#, fuzzy, php-format
+msgid "Latest Venue Feed - %s"
+msgstr "Derniers évènements"
+
+# @ events
+#: ../components/core/bpe-feeds.php:261
+#, fuzzy, php-format
+msgid "Latest User Feed - %s"
+msgstr "Derniers évènements"
+
+# @ events
+#: ../components/core/bpe-feeds.php:297
+#: ../components/core/bpe-feeds.php:336
+#: ../components/core/bpe-feeds.php:372
+#, fuzzy, php-format
+msgid "%s | %s | Latest Events"
+msgstr "%s - Derniers évènements"
+
+# @ events
+#: ../components/core/bpe-feeds.php:299
+#: ../components/core/bpe-feeds.php:338
+#: ../components/core/bpe-feeds.php:374
+#, fuzzy, php-format
+msgid "Latest User Category Feed - %s"
+msgstr "%s - Derniers évènements"
+
+#: ../components/core/bpe-helpers.php:105
+msgid "Promote to admin"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:108
+msgid "Promote to organizer"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:111
+msgid "Demote to organizer"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:114
+#, fuzzy
+msgid "Demote to attendee"
+msgstr "Participants"
+
+# @ events
+#: ../components/core/bpe-helpers.php:219
+#, fuzzy
+msgid "* Category"
+msgstr "* Catégorie"
+
+#: ../components/core/bpe-helpers.php:490
+#, php-format
+msgid "Monthly Archive for %s %s"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:493
+#, php-format
+msgid "Daily Archive for %s"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:496
+#, php-format
+msgid "Event Category: %s"
+msgstr "Categorie d'évènement: %s"
+
+# @ buddypress
+#: ../components/core/bpe-helpers.php:499
+#, fuzzy, php-format
+msgid "Search for %s"
+msgstr "Recherche"
+
+# @ events
+#: ../components/core/bpe-helpers.php:514
+msgid "Home"
+msgstr "Accueil"
+
+# @ events
+#: ../components/core/bpe-helpers.php:520
+#: ../components/core/bpe-helpers.php:541
+msgid "Active Events"
+msgstr "A venir"
+
+#: ../components/core/bpe-helpers.php:523
+msgid "Transaction completed"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:526
+msgid "Tansaction cancelled"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:529
+msgid "Attending Events"
+msgstr "Agenda"
+
+# @ events
+#: ../components/core/bpe-helpers.php:532
+msgid "Events Map"
+msgstr "Géolocalisation"
+
+# @ events
+#: ../components/core/bpe-helpers.php:535
+msgid "Events Calendar"
+msgstr "Calendrier"
+
+# @ events
+#: ../components/core/bpe-helpers.php:538
+msgid "Events Archive"
+msgstr "Passés"
+
+# @ events
+#: ../components/core/bpe-helpers.php:592
+msgid "Random Event"
+msgstr "Évènement au hasard"
+
+# @ events
+#: ../components/core/bpe-helpers.php:622
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+# @ events
+#: ../components/core/bpe-helpers.php:622
+msgid "Albania"
+msgstr "Albanie"
+
+# @ events
+#: ../components/core/bpe-helpers.php:622
+msgid "Algeria"
+msgstr "Algerie"
+
+# @ events
+#: ../components/core/bpe-helpers.php:622
+msgid "American Samoa"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:622
+msgid "Andorra"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:623
+msgid "Angola"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:623
+msgid "Antigua and Barbuda"
+msgstr "Antigua et Barbuda"
+
+# @ events
+#: ../components/core/bpe-helpers.php:623
+msgid "Argentina"
+msgstr "Argentine"
+
+# @ events
+#: ../components/core/bpe-helpers.php:623
+msgid "Armenia"
+msgstr "Armenie"
+
+# @ events
+#: ../components/core/bpe-helpers.php:623
+msgid "Australia"
+msgstr "Australie"
+
+# @ events
+#: ../components/core/bpe-helpers.php:624
+msgid "Austria"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:624
+msgid "Azerbaijan"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:624
+msgid "Bahamas"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:624
+msgid "Bahrain"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:624
+msgid "Bangladesh"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:625
+msgid "Barbados"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:625
+msgid "Belarus"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:625
+msgid "Belgium"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:625
+msgid "Belize"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:625
+msgid "Benin"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:625
+msgid "Bermuda"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:626
+msgid "Bhutan"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:626
+msgid "Bolivia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:626
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:626
+msgid "Botswana"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:626
+msgid "Brazil"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:627
+msgid "Brunei"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:627
+msgid "Bulgaria"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:627
+msgid "Burkina Faso"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:627
+msgid "Burundi"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:627
+msgid "Cambodia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:628
+msgid "Cameroon"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:628
+msgid "Canada"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:628
+msgid "Cape Verde"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:628
+msgid "Central African Republic"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:628
+msgid "Chad"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:629
+msgid "Chile"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:629
+msgid "China"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:629
+msgid "Colombia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:629
+msgid "Comoros"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:629
+msgid "Congo"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:629
+msgid "Costa Rica"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:630
+msgid "C&ocirc;te d'Ivoire"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:630
+msgid "Croatia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:630
+msgid "Cuba"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:630
+msgid "Cyprus"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:630
+msgid "Czech Republic"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:631
+msgid "Denmark"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:631
+msgid "Djibouti"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:631
+msgid "Dominica"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:631
+msgid "Dominican Republic"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:631
+msgid "East Timor"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:632
+msgid "Ecuador"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:632
+msgid "Egypt"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:632
+msgid "El Salvador"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:632
+msgid "Equatorial Guinea"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:632
+msgid "Eritrea"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:633
+msgid "Estonia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:633
+msgid "Ethiopia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:633
+msgid "Fiji"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:633
+msgid "Finland"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:633
+msgid "France"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:633
+msgid "Gabon"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:634
+msgid "Gambia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:634
+msgid "Georgia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:634
+msgid "Germany"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:634
+msgid "Ghana"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:634
+msgid "Greece"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:634
+msgid "Grenada"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:635
+msgid "Guam"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:635
+msgid "Guatemala"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:635
+msgid "Guinea"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:635
+msgid "Guinea-Bissau"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:635
+msgid "Guyana"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:635
+msgid "Haiti"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:636
+msgid "Honduras"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:636
+msgid "Hong Kong"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:636
+msgid "Hungary"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:636
+msgid "Iceland"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:636
+msgid "India"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:637
+msgid "Indonesia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:637
+msgid "Iran"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:637
+msgid "Iraq"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:637
+msgid "Ireland"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:637
+msgid "Israel"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:637
+msgid "Italy"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:638
+msgid "Jamaica"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:638
+msgid "Japan"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:638
+msgid "Jordan"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:638
+msgid "Kazakhstan"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:638
+msgid "Kenya"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:638
+msgid "Kiribati"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:639
+msgid "North Korea"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:639
+msgid "South Korea"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:639
+msgid "Kuwait"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:639
+msgid "Kyrgyzstan"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:639
+msgid "Laos"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:640
+msgid "Latvia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:640
+msgid "Lebanon"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:640
+msgid "Lesotho"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:640
+msgid "Liberia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:640
+msgid "Libya"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:641
+msgid "Liechtenstein"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:641
+msgid "Lithuania"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:641
+msgid "Luxembourg"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:641
+msgid "Macedonia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:641
+msgid "Madagascar"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:642
+msgid "Malawi"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:642
+msgid "Malaysia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:642
+msgid "Maldives"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:642
+msgid "Mali"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:642
+msgid "Malta"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:643
+msgid "Marshall Islands"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:643
+msgid "Mauritania"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:643
+msgid "Mauritius"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:643
+msgid "Mexico"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:643
+msgid "Micronesia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:644
+msgid "Moldova"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:644
+msgid "Monaco"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:644
+msgid "Mongolia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:644
+msgid "Montenegro"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:644
+msgid "Morocco"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:645
+msgid "Mozambique"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:645
+msgid "Myanmar"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:645
+msgid "Namibia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:645
+msgid "Nauru"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:645
+msgid "Nepal"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:646
+msgid "Netherlands"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:646
+msgid "New Zealand"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:646
+msgid "Nicaragua"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:646
+msgid "Niger"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:646
+msgid "Nigeria"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:647
+msgid "Norway"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:647
+msgid "Northern Mariana Islands"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:647
+msgid "Oman"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:647
+msgid "Pakistan"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:647
+msgid "Palau"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:648
+msgid "Palestine"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:648
+msgid "Panama"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:648
+msgid "Papua New Guinea"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:648
+msgid "Paraguay"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:648
+msgid "Peru"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:649
+msgid "Philippines"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:649
+msgid "Poland"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:649
+msgid "Portugal"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:649
+msgid "Puerto Rico"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:649
+msgid "Qatar"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:650
+msgid "Romania"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:650
+msgid "Russia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:650
+msgid "Rwanda"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:650
+msgid "Saint Kitts and Nevis"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:650
+msgid "Saint Lucia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:651
+msgid "Saint Vincent and the Grenadines"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:651
+msgid "Samoa"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:651
+msgid "San Marino"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:651
+msgid "Sao Tome and Principe"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:652
+msgid "Saudi Arabia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:652
+msgid "Senegal"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:652
+msgid "Serbia and Montenegro"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:652
+msgid "Seychelles"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:653
+msgid "Sierra Leone"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:653
+msgid "Singapore"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:653
+msgid "Slovakia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:653
+msgid "Slovenia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:653
+msgid "Solomon Islands"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:654
+msgid "Somalia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:654
+msgid "South Africa"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:654
+msgid "Spain"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:654
+msgid "Sri Lanka"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:654
+msgid "Sudan"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:655
+msgid "Suriname"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:655
+msgid "Swaziland"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:655
+msgid "Sweden"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:655
+msgid "Switzerland"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:655
+msgid "Syria"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:656
+msgid "Taiwan"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:656
+msgid "Tajikistan"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:656
+msgid "Tanzania"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:656
+msgid "Thailand"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:656
+msgid "Togo"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:657
+msgid "Tonga"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:657
+msgid "Trinidad and Tobago"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:657
+msgid "Tunisia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:657
+msgid "Turkey"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:657
+msgid "Turkmenistan"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:658
+msgid "Tuvalu"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:658
+msgid "Uganda"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:658
+msgid "Ukraine"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:658
+msgid "United Arab Emirates"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:658
+msgid "United Kingdom"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:659
+msgid "United States"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:659
+msgid "Uruguay"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:659
+msgid "Uzbekistan"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:659
+msgid "Vanuatu"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:659
+msgid "Vatican City"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:660
+msgid "Venezuela"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:660
+msgid "Vietnam"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:660
+msgid "Virgin Islands, British"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:660
+msgid "Virgin Islands, U.S."
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:661
+msgid "Yemen"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:661
+msgid "Zambia"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:661
+msgid "Zimbabwe"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:693
+msgid "Euro"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-helpers.php:694
+#, fuzzy
+msgid "Australian Dollar"
+msgstr "Australie"
+
+# @ events
+#: ../components/core/bpe-helpers.php:695
+#, fuzzy
+msgid "Canadian Dollar"
+msgstr "Calendrier"
+
+#: ../components/core/bpe-helpers.php:696
+msgid "Czech Koruna"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:697
+msgid "Danish Krone"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:698
+msgid "Hong Kong Dollar"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:699
+msgid "Hungarian Forint"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:700
+msgid "Israeli New Sheqel"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:701
+msgid "Japanese Yen"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:702
+msgid "Mexican Peso"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:703
+msgid "Norwegian Krone"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:704
+msgid "New Zealand Dollar"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:705
+msgid "Philippine Peso"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:706
+msgid "Polish Zloty"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:707
+msgid "Pound Sterling"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:708
+msgid "Singapore Dollar"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:709
+msgid "Swedish Krona"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:710
+msgid "Swiss Franc"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:711
+msgid "Taiwan New Dollar"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:712
+msgid "Thai Baht"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:713
+msgid "Turkish Lira"
+msgstr ""
+
+#: ../components/core/bpe-helpers.php:714
+msgid "U.S. Dollar"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-ical.php:96
+#, fuzzy
+msgid "Event Reminder"
+msgstr "Rappel d'évènement"
+
+# @ events
+#: ../components/core/bpe-js-css.php:93
+msgid "Event {current} of {total}"
+msgstr "Évènement {current} de {total}"
+
+# @ events
+#: ../components/core/bpe-js-css.php:94
+msgid "Previous"
+msgstr "Précédent"
+
+# @ events
+#: ../components/core/bpe-js-css.php:95
+msgid "Next"
+msgstr "Suivant"
+
+# @ events
+#: ../components/core/bpe-js-css.php:96
+msgid "Close"
+msgstr "Fermer"
+
+# @ events
+#: ../components/core/bpe-js-css.php:103
+#, fuzzy
+msgid "Today"
+msgstr "Lundi"
+
+# @ events
+#: ../components/core/bpe-js-css.php:103
+#, fuzzy
+msgid "Week"
+msgstr "Chaque semaine"
+
+#: ../components/core/bpe-js-css.php:108
+msgid "all-day"
+msgstr ""
+
+#: ../components/core/bpe-js-css.php:115
+msgid "Jan"
+msgstr ""
+
+#: ../components/core/bpe-js-css.php:115
+msgid "Feb"
+msgstr ""
+
+# @ buddypress
+#: ../components/core/bpe-js-css.php:116
+#, fuzzy
+msgid "Mar"
+msgstr "Recherche"
+
+# @ events
+#: ../components/core/bpe-js-css.php:116
+#, fuzzy
+msgid "Apr"
+msgstr "Enregistrer"
+
+#: ../components/core/bpe-js-css.php:116
+msgid "Jun"
+msgstr ""
+
+#: ../components/core/bpe-js-css.php:117
+msgid "Jul"
+msgstr ""
+
+#: ../components/core/bpe-js-css.php:117
+msgid "Aug"
+msgstr ""
+
+#: ../components/core/bpe-js-css.php:118
+msgid "Sep"
+msgstr ""
+
+# @ dpa
+#: ../components/core/bpe-js-css.php:118
+#, fuzzy
+msgid "Oct"
+msgstr "Autre"
+
+# @ buddypress
+# @ events
+#: ../components/core/bpe-js-css.php:118
+#, fuzzy
+msgid "Nov"
+msgstr "Non"
+
+#: ../components/core/bpe-js-css.php:119
+msgid "Dec"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-js-css.php:121
+#, fuzzy
+msgid "Sun"
+msgstr "Dimanche"
+
+# @ events
+#: ../components/core/bpe-js-css.php:122
+#, fuzzy
+msgid "Mon"
+msgstr "Chaque mois"
+
+# @ events
+#: ../components/core/bpe-js-css.php:122
+#, fuzzy
+msgid "Tue"
+msgstr "Mardi"
+
+#: ../components/core/bpe-js-css.php:122
+msgid "Wed"
+msgstr ""
+
+#: ../components/core/bpe-js-css.php:123
+msgid "Thu"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-js-css.php:123
+#, fuzzy
+msgid "Fri"
+msgstr "Vendredi"
+
+# @ events
+#: ../components/core/bpe-js-css.php:123
+#, fuzzy
+msgid "Sat"
+msgstr "Début"
+
+#: ../components/core/bpe-map.php:47
+msgid "Select All"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-menu.php:272
+#, fuzzy
+msgid "Edit General"
+msgstr "Modifier l'évènement"
+
+#: ../components/core/bpe-menu.php:280
+msgid "Edit Schedules"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-menu.php:288
+#, fuzzy
+msgid "Edit Documents"
+msgstr "Modifier l'évènement"
+
+# @ events
+#: ../components/core/bpe-menu.php:296
+#, fuzzy
+msgid "Edit Tickets"
+msgstr "Widget Évènements"
+
+# @ events
+#: ../components/core/bpe-menu.php:304
+#, fuzzy
+msgid "Edit Attendees"
+msgstr "%d Participants"
+
+#: ../components/core/bpe-menu.php:312
+msgid "Upload Logo"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-menu.php:322
+#, fuzzy
+msgid "Edit Forum"
+msgstr "Modifier l'évènement"
+
+# @ events
+#: ../components/core/bpe-menu.php:329
+#, fuzzy
+msgid "Cancel Event"
+msgstr "Créer un évènement"
+
+# @ events
+#: ../components/core/bpe-menu.php:331
+#, fuzzy
+msgid "Are you sure you want to cancel this event? This cannot be undone."
+msgstr "Vous n'êtes pas autorisé à supprimer cet évènement."
+
+# @ events
+#: ../components/core/bpe-menu.php:339
+#, fuzzy
+msgid "Are you sure you want to delete this event? This cannot be undone."
+msgstr "Vous n'êtes pas autorisé à supprimer cet évènement."
+
+# @ events
+#: ../components/core/bpe-notifications.php:26
+#, php-format
+msgid "There are %d new events that meet your criteria."
+msgstr "%d nouveaux évènements devraient vous intéresser."
+
+# @ events
+#: ../components/core/bpe-notifications.php:28
+#, php-format
+msgid "There is %d new event that meets your criteria."
+msgstr "%d nouvel évènement devrait vous intéresser"
+
+# @ events
+#: ../components/core/bpe-notifications.php:30
+#, fuzzy
+msgid "New events"
+msgstr "Afficher les nouveaux évènements"
+
+# @ events
+#: ../components/core/bpe-notifications.php:123
+msgid "New upcoming event!"
+msgstr "Nouvel évènement !"
+
+# @ events
+#: ../components/core/bpe-notifications.php:132
+#, php-format
+msgid ""
+"Hello %s,\n"
+"\n"
+"a new event has beeen published that fits your specified keywords.\n"
+"\n"
+"Name:\n"
+"%s\n"
+"\n"
+"Link:\n"
+"%s\n"
+"\n"
+"Location:\n"
+"%s\n"
+"\n"
+"To disable these notifications or modify your keywords please log in and go to:\n"
+"%s"
+msgstr ""
+"Bonjour %s,\n"
+"\n"
+"Un évènement correspondant à vos critères vient d'être publié.\n"
+"\n"
+"Nom :\n"
+"%s\n"
+"\n"
+"Lien :\n"
+"%s\n"
+"\n"
+"Lieu :\n"
+"%s\n"
+"\n"
+"Pour modifier vos mots-clé ou gérer vos notifications, veuillez vous rendre ici (une fois connecté sur WebCaviste.com) :\n"
+"%s"
+
+# @ events
+#: ../components/core/bpe-notifications.php:156
+msgid "Event reminder!"
+msgstr "Rappel d'évènement"
+
+# @ events
+#: ../components/core/bpe-notifications.php:171
+#, php-format
+msgid ""
+"Hello %s,\n"
+"\n"
+"this email is being sent as a reminder for an event that will start tomorrow.\n"
+"\n"
+"Name:\n"
+"%s\n"
+"\n"
+"Link:\n"
+"%s\n"
+"\n"
+"Location:\n"
+"%s\n"
+"\n"
+"To disable these notifications please log in and go to:\n"
+"%s"
+msgstr ""
+"Bonjour %s,\n"
+"\n"
+"Nous vous rappelons qu'un évènement auquel vous participez est sur le point de commencer.\n"
+"\n"
+"Nom :\n"
+"%s\n"
+"\n"
+"Lien :\n"
+"%s\n"
+"\n"
+"Lieu :\n"
+"%s\n"
+"\n"
+"Pour gérer vos notifications, veuillez vous rendre ici (une fois connecté sur WebCaviste.com) :\n"
+"%s"
+
+# @ events
+#: ../components/core/bpe-notifications.php:255
+#, fuzzy
+msgid "Event Settings"
+msgstr "Paramètres"
+
+# @ events
+#: ../components/core/bpe-notifications.php:271
+msgid "By entering keywords and activating notifications you will be notified of any upcoming events matching your keywords."
+msgstr "En spécifiant des mots-clé et en activant les notifications, vous serez prévenus des nouveaux évènements correspondant à vos critères."
+
+# @ buddypress
+#: ../components/core/bpe-notifications.php:275
+msgid "Changes Saved."
+msgstr "Modification sauvegardées"
+
+# @ events
+#: ../components/core/bpe-notifications.php:287
+msgid "Notifications"
+msgstr "Notifications"
+
+# @ buddypress
+# @ events
+#: ../components/core/bpe-notifications.php:289
+msgid "No"
+msgstr "Non"
+
+# @ events
+#: ../components/core/bpe-notifications.php:295
+msgid "Do you want to get notified by email when an event gets published that matches your keywords?"
+msgstr "Souhaitez-vous être prévenu par email ?"
+
+# @ events
+#: ../components/core/bpe-notifications.php:301
+msgid "Do you want to get notified by screen when an event gets published that matches your keywords?"
+msgstr "Souhaitez-vous être prévenu ... ?"
+
+# @ events
+#: ../components/core/bpe-notifications.php:307
+msgid "Do you want to be reminded of events you signed up for?"
+msgstr "Souhaitez-vous recevoir des rappels par email pour les évènements auxquels vous participez ?"
+
+# @ events
+#: ../components/core/bpe-notifications.php:316
+msgid "* Keywords"
+msgstr "* Mots-clé"
+
+# @ events
+#: ../components/core/bpe-notifications.php:318
+msgid "Enter a space seperated list of lowercase keywords."
+msgstr "Veuillez entrer vos mot-clé en lettres minuscules SVP."
+
+# @ buddypress
+#: ../components/core/bpe-notifications.php:324
+msgid "Save Changes"
+msgstr "Enregistrer"
+
+#: ../components/core/bpe-notifications.php:359
+#, php-format
+msgid ""
+"Hello %s,\n"
+"\n"
+"we are happy to inform you that your event %s has been approved and can now be viewed and managed here:\n"
+"%s\n"
+"\n"
+"Your %s Team"
+msgstr ""
+
+#: ../components/core/bpe-notifications.php:363
+#, php-format
+msgid ""
+"Hello %s,\n"
+"\n"
+"we are sorry to inform you that your event %s has been declined and has therefore been deleted.\n"
+"\n"
+"Your %s Team"
+msgstr ""
+
+# @ buddypress
+#: ../components/core/bpe-notifications.php:367
+#, fuzzy, php-format
+msgid "[%s] Status change for %s"
+msgstr "Recherche"
+
+# @ events
+#: ../components/core/bpe-notifications.php:379
+#, fuzzy
+msgid "New event to approve"
+msgstr "Afficher les nouveaux évènements"
+
+#: ../components/core/bpe-notifications.php:380
+#, php-format
+msgid ""
+"Hello,\n"
+"\n"
+"an event is waiting to be approved.\n"
+"\n"
+"Name:\n"
+"%s\n"
+"\n"
+"Description:\n"
+"%s\n"
+"\n"
+"Location:\n"
+"%s\n"
+"\n"
+"Please follow the link below to deal with this event:\n"
+"%s"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-options.php:26
+msgid "m"
+msgstr "m"
+
+# @ events
+#: ../components/core/bpe-options.php:26
+msgid "km"
+msgstr "km"
+
+# @ events
+#: ../components/core/bpe-options.php:46
+msgid "Within:"
+msgstr "Distance :"
+
+# @ events
+#: ../components/core/bpe-options.php:111
+#, fuzzy
+msgid "Timezone:"
+msgstr "Calendrier"
+
+#: ../components/core/bpe-options.php:167
+msgid "Venue:"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-options.php:207
+msgid "Order By:"
+msgstr "Triés par date de.."
+
+# @ events
+#: ../components/core/bpe-options.php:209
+msgid "End Date ASC"
+msgstr "fin ASC"
+
+# @ events
+#: ../components/core/bpe-options.php:210
+msgid "End Date DESC"
+msgstr "fin DESC"
+
+# @ events
+#: ../components/core/bpe-options.php:211
+msgid "Start Date ASC"
+msgstr "début ASC"
+
+# @ events
+#: ../components/core/bpe-options.php:212
+msgid "Start Date DESC"
+msgstr "début DESC"
+
+# @ events
+#: ../components/core/bpe-options.php:213
+msgid "Creation Date ASC"
+msgstr "publication ASC"
+
+# @ events
+#: ../components/core/bpe-options.php:214
+msgid "Creation Date DESC"
+msgstr "publication DESC"
+
+# @ events
+#: ../components/core/bpe-options.php:262
+#: ../components/core/bpe-widgets.php:198
+msgid "Category:"
+msgstr "Catégorie :"
+
+#: ../components/core/bpe-options.php:296
+msgid "View:"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-options.php:298
+#: ../components/core/bpe-options.php:301
+#, fuzzy, php-format
+msgid "Change to %s style"
+msgstr "Liste"
+
+# @ events
+#: ../components/core/bpe-options.php:322
+#, fuzzy
+msgid "Options"
+msgstr "Administration"
+
+# @ events
+#: ../components/core/bpe-process.php:37
+#, php-format
+msgid "The view has been changed to %s-style"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-process.php:220
+#, fuzzy
+msgid "Your invitations have been sent successfully."
+msgstr "Vos invitations ont été envoyées avec succès !"
+
+# @ events
+#: ../components/core/bpe-process.php:241
+#: ../components/core/bpe-process.php:300
+#: ../components/core/bpe-process.php:367
+#, fuzzy
+msgid "This event is private and you have not been invited."
+msgstr "Cet évènement est clos. Vous ne pouvez plus le modifier."
+
+# @ events
+#: ../components/core/bpe-process.php:247
+#: ../components/core/bpe-process.php:293
+#: ../components/core/bpe-process.php:360
+msgid "You need to be logged in to join this event."
+msgstr "Vous devez être connecté pour participer à un évènement."
+
+# @ events
+#: ../components/core/bpe-process.php:254
+#: ../components/core/bpe-process.php:307
+#: ../components/core/bpe-process.php:374
+msgid "This event is over and registration is closed."
+msgstr "Cet évènement est complet. Les participations sont donc fermées."
+
+# @ events
+#: ../components/core/bpe-process.php:261
+#: ../components/core/bpe-process.php:388
+msgid "You are attending this event already."
+msgstr "Vous participez déjà à cet évènement."
+
+# @ events
+#: ../components/core/bpe-process.php:269
+#: ../components/core/bpe-process.php:329
+#: ../components/core/bpe-process.php:396
+msgid "There was a problem when saving your choice. Please try again."
+msgstr "Une erreur est survenue, votre choix n'a pas pu être enregistré. Veuillez réessayer SVP."
+
+# @ events
+#: ../components/core/bpe-process.php:275
+msgid "You are attending this event."
+msgstr "Vous participerez à cet évènement."
+
+# @ events
+#: ../components/core/bpe-process.php:314
+#: ../components/core/bpe-process.php:381
+msgid "You are the creator of this event."
+msgstr "Vous êtes l'organisateur de cet évènement."
+
+# @ events
+#: ../components/core/bpe-process.php:321
+msgid "You have to be a member to remove yourself from this event."
+msgstr "Vous devez être inscrit comme participant pour pouvoir vous supprimer de cet évènement."
+
+# @ events
+#: ../components/core/bpe-process.php:338
+msgid "You chose not to attend this event."
+msgstr "Vous ne participerez pas à cet évènement."
+
+# @ events
+#: ../components/core/bpe-process.php:402
+msgid "You might attend this event."
+msgstr "Vous participerez peut-être à cet évènement."
+
+# @ events
+#: ../components/core/bpe-process.php:450
+msgid "Please enter a comment text"
+msgstr "Veuillez entrer un commentaire SVP."
+
+# @ events
+#: ../components/core/bpe-process.php:456
+msgid "Your comment has been added."
+msgstr "Votre évènement a bien été enregistré."
+
+# @ events
+#: ../components/core/bpe-process.php:471
+msgid "Recurrence has been removed successfully!"
+msgstr "La récurrence a bien été supprimée."
+
+#: ../components/core/bpe-process.php:511
+#: ../components/core/bpe-process.php:832
+msgid "The event is too long for the chosen recurrence interval."
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-process.php:537
+#: ../components/core/bpe-process.php:858
+msgid "Please enter a number to limit the attendees."
+msgstr "Veuillez préciser un nombre maximum de participants SVP."
+
+# @ events
+#: ../components/core/bpe-process.php:551
+#: ../components/core/bpe-process.php:872
+#, fuzzy
+msgid "Please enter a valid URL"
+msgstr "Veuillez entrer un commentaire SVP."
+
+# @ events
+#: ../components/core/bpe-process.php:601
+#: ../components/core/bpe-process.php:897
+msgid "The end date needs to be after the start date."
+msgstr "La date de fin ne peut pas être antérieur à la date de début !"
+
+# @ events
+#: ../components/core/bpe-process.php:689
+msgid "Your event could not be edited. Please try again!"
+msgstr "Une erreur est survenue lors de la modification de votre évènement. Veuillez réessayer SVP."
+
+#: ../components/core/bpe-process.php:740
+#, php-format
+msgid ""
+"Hello,\n"
+"\n"
+"the event %s has changed.\n"
+"\n"
+"Please follow the link below to view the changes:\n"
+"%s"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-process.php:752
+msgid "Changes to an event"
+msgstr "Un évènement a été modifié"
+
+# @ events
+#: ../components/core/bpe-process.php:766
+msgid "Your event has been edited!"
+msgstr "Votre évènement a bien été modifié."
+
+# @ events
+#: ../components/core/bpe-process.php:919
+msgid "Please rename your event. Your chosen name is reserved."
+msgstr "Veuillez choisir un autre no pour votre évènement. Celui-ci est déjà pris."
+
+# @ events
+#: ../components/core/bpe-process.php:966
+msgid "Your event could not be published. Please try again!"
+msgstr "Votre évènement n'a pas pu être publié. Veuillez recommencer SVP."
+
+# @ events
+#: ../components/core/bpe-process.php:1074
+#, fuzzy
+msgid "You have been added to an event"
+msgstr "Un évènement a été modifié"
+
+# @ events
+#: ../components/core/bpe-process.php:1084
+#, fuzzy, php-format
+msgid ""
+"Hello %s,\n"
+"\n"
+"you have been added to %s:\n"
+"%s\n"
+"\n"
+"Click the link below if you will not attend this event:\n"
+"%s"
+msgstr ""
+"Bonjour %s,\n"
+"\n"
+"Vous êtes invités à participer à l'évènement %s:\n"
+"%s\n"
+"\n"
+"Vous pouvez y répondre :\n"
+"\n"
+"Oui :\n"
+"%s\n"
+"\n"
+"Non :\n"
+"%s\n"
+"\n"
+"Peut-être :\n"
+"%s"
+
+# @ events
+#: ../components/core/bpe-process.php:1101
+#, fuzzy, php-format
+msgid "%d attendee has been added."
+msgid_plural "%d attendees have been added."
+msgstr[0] "Votre évènement a bien été enregistré."
+msgstr[1] "Votre évènement a bien été enregistré."
+
+# @ events
+#: ../components/core/bpe-process.php:1153
+#: ../components/core/bpe-recurrence.php:180
+msgid "Event Invitation"
+msgstr "Invitations"
+
+# @ events
+#: ../components/core/bpe-process.php:1161
+#: ../components/core/bpe-recurrence.php:188
+#, php-format
+msgid ""
+"Hello %s,\n"
+"\n"
+"you have been invited to attend %s:\n"
+"%s\n"
+"\n"
+"Please make a choice:\n"
+"\n"
+"I will attend:\n"
+"%s\n"
+"\n"
+"I might attend:\n"
+"%s\n"
+"\n"
+"I will not attend:\n"
+"%s"
+msgstr ""
+"Bonjour %s,\n"
+"\n"
+"Vous êtes invités à participer à l'évènement %s:\n"
+"%s\n"
+"\n"
+"Vous pouvez y répondre :\n"
+"\n"
+"Oui :\n"
+"%s\n"
+"\n"
+"Non :\n"
+"%s\n"
+"\n"
+"Peut-être :\n"
+"%s"
+
+# @ events
+#: ../components/core/bpe-process.php:1195
+msgid "You are not allowed to delete this event."
+msgstr "Vous n'êtes pas autorisé à supprimer cet évènement."
+
+# @ events
+#: ../components/core/bpe-process.php:1207
+#, fuzzy
+msgid "Event Deletion"
+msgstr "Paramètres"
+
+#: ../components/core/bpe-process.php:1215
+#, php-format
+msgid ""
+"Hello %s,\n"
+"\n"
+"the event %s that you registered for got deleted.\n"
+"\n"
+"This is a system message, so please respond if you have any questions.\n"
+"\n"
+"Event Link\n"
+"%s"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-process.php:1235
+#, fuzzy, php-format
+msgid "Your event %s has been deleted."
+msgstr "Votre évènement a été supprimé."
+
+# @ events
+#: ../components/core/bpe-process.php:1238
+#, fuzzy, php-format
+msgid "Your event %s could not be deleted. Please try again."
+msgstr "Votre évènement n'a pas pu être supprimé. Veuillez réessayer SVP."
+
+# @ events
+#: ../components/core/bpe-process.php:1254
+#, fuzzy
+msgid "You are not allowed to cancel this event."
+msgstr "Vous n'êtes pas autorisé à supprimer cet évènement."
+
+# @ events
+#: ../components/core/bpe-process.php:1265
+#, fuzzy
+msgid "Event Cancellation"
+msgstr "Invitations"
+
+#: ../components/core/bpe-process.php:1273
+#, php-format
+msgid ""
+"Hello %s,\n"
+"\n"
+"the event %s that you registered for got cancelled.\n"
+"\n"
+"This is a system message, so please respond if you have any questions.\n"
+"\n"
+"Event Link\n"
+"%s"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-process.php:1301
+#, fuzzy, php-format
+msgid "Your event %s has been cancelled."
+msgstr "Votre évènement a été supprimé."
+
+# @ events
+#: ../components/core/bpe-recurrence.php:230
+msgid "This is a recurrent event. Remove the recurrence by clicking the button below:"
+msgstr "Cet évènement est récurrent. Si vous souhaitez supprimer cette récurrence, veuillez cliquer sur ce bouton :"
+
+# @ events
+#: ../components/core/bpe-recurrence.php:232
+msgid "Remove event recurrence"
+msgstr "Supprimer la récurrence"
+
+# @ events
+#: ../components/core/bpe-search.php:38
+#: ../components/core/bpe-search.php:41
+#, fuzzy
+msgid "Search Events..."
+msgstr "Rechercer"
+
+# @ events
+#: ../components/core/bpe-search.php:89
+#, fuzzy
+msgid "location"
+msgstr "* Lieu"
+
+# @ events
+#: ../components/core/bpe-search.php:112
+#, fuzzy
+msgid "Please fill in all fields marked with *"
+msgstr "Veuillez renseigner tous les champs obligatoires SVP. Ils sont signalés par une astérisque *."
+
+# @ events
+#: ../components/core/bpe-upload.php:115
+msgid "The directory to store your images could not be created."
+msgstr "Le répertoire de stockage des images n'a pas été créé."
+
+# @ events
+#: ../components/core/bpe-upload.php:128
+#, php-format
+msgid "The file %s has a forbidden extension."
+msgstr "L'extension du fichier %s n'est pas autorisée."
+
+#: ../components/core/bpe-upload.php:133
+#, php-format
+msgid "The file you uploaded is too big. Please upload a file under %s"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-upload.php:140
+#, php-format
+msgid "The file %s could not be uploaded."
+msgstr "Le fichier %s n'a pas pu être téléchargé."
+
+# @ events
+#: ../components/core/bpe-widgets.php:20
+msgid "Display Buddyvents Events (try saying the last 2 words 10 times in a row really fast :)"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-widgets.php:21
+msgid "Events Widget"
+msgstr "Widget Évènements"
+
+#: ../components/core/bpe-widgets.php:80
+msgid "My"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-widgets.php:82
+#, fuzzy
+msgid "{USER} Events"
+msgstr "Évènements"
+
+# @ events
+#: ../components/core/bpe-widgets.php:96
+msgid "Create &rarr;"
+msgstr "Créer &rarr;"
+
+# @ events
+#: ../components/core/bpe-widgets.php:161
+#: ../components/core/bpe-widgets.php:346
+msgid "Title:"
+msgstr "Titre :"
+
+# @ events
+#: ../components/core/bpe-widgets.php:165
+msgid "Group:"
+msgstr "Groupe :"
+
+#: ../components/core/bpe-widgets.php:168
+msgid "Displayed Group"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-widgets.php:175
+msgid "User:"
+msgstr ""
+
+#: ../components/core/bpe-widgets.php:178
+msgid "Displayed User"
+msgstr ""
+
+#: ../components/core/bpe-widgets.php:185
+msgid "Radius:"
+msgstr ""
+
+#: ../components/core/bpe-widgets.php:187
+msgid "If a numeric value is set, then the 'User' field will be ignored."
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-widgets.php:190
+msgid "Max:"
+msgstr "Max :"
+
+# @ events
+#: ../components/core/bpe-widgets.php:194
+msgid "Comma separated event ids:"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-widgets.php:207
+msgid "Begin:"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-widgets.php:210
+msgid "End:"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-widgets.php:216
+msgid "Show only future events"
+msgstr "Afficher les évènements à venir"
+
+# @ events
+#: ../components/core/bpe-widgets.php:222
+msgid "Show only past events"
+msgstr "Afficher les évènements passés"
+
+# @ events
+#: ../components/core/bpe-widgets.php:226
+msgid "Sort:"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-widgets.php:228
+#, fuzzy
+msgid "By end_date ASC"
+msgstr "Date de fin ASC"
+
+# @ events
+#: ../components/core/bpe-widgets.php:229
+#, fuzzy
+msgid "By end_date DESC"
+msgstr "fin DESC"
+
+# @ events
+#: ../components/core/bpe-widgets.php:230
+#, fuzzy
+msgid "By start_date ASC"
+msgstr "Date de début ASC"
+
+# @ events
+#: ../components/core/bpe-widgets.php:231
+#, fuzzy
+msgid "By start_date DESC"
+msgstr "Date de début DESC"
+
+# @ events
+#: ../components/core/bpe-widgets.php:232
+msgid "By date_created ASC"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-widgets.php:233
+msgid "By date_created DESC"
+msgstr ""
+
+# @ events
+#: ../components/core/bpe-widgets.php:234
+msgid "Random"
+msgstr "Au hazard"
+
+# @ events
+#: ../components/core/bpe-widgets.php:271
+msgid "A calendar of your events"
+msgstr ""
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:357
+#, php-format
+msgid "Page: %s"
+msgstr "Page : %s"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:376
+#, php-format
+msgid "Viewing event %1$s to %2$s (of %3$s events)"
+msgstr "Évènements %1$s à %2$s (sur %3$s évènements)"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:436
+msgid "Event Admin Avatar"
+msgstr "Image de l'évènement"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:857
+#, fuzzy, php-format
+msgid "%d Attendee"
+msgid_plural "%d Attendees"
+msgstr[0] "%d Participant"
+msgstr[1] "%d Participant"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1335
+#, fuzzy
+msgid "miles"
+msgstr "Mobile"
+
+#: ../components/core/templatetags/bpe-events.php:1338
+#, php-format
+msgid "<span class=\"activity\">This event is <strong>%s</strong> away from your location.</span>"
+msgstr ""
+
+#: ../components/core/templatetags/bpe-events.php:1367
+#, php-format
+msgid "%d spot left"
+msgid_plural "%d spots left"
+msgstr[0] ""
+msgstr[1] ""
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1416
+#, fuzzy
+msgid "Private Event"
+msgstr "Créer un évènement"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1422
+#, fuzzy
+msgid "Event is closed"
+msgstr "Calendrier"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1431
+#: ../components/core/templatetags/bpe-events.php:1454
+#, fuzzy
+msgid "Registration is closed"
+msgstr "Cet évènement est complet. Les participations sont donc fermées."
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1443
+msgid "Remove from event"
+msgstr "Supprimer des évènements"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1449
+msgid "Maybe attending"
+msgstr "Participera peut-être"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1733
+#, fuzzy
+msgid "Cancel event"
+msgstr "Créer un évènement"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1796
+#, fuzzy, php-format
+msgid "Attending (%s)"
+msgstr "Participera"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1797
+#, fuzzy, php-format
+msgid "Maybe Attending (%s)"
+msgstr "Participera peut-être"
+
+#: ../components/core/templatetags/bpe-events.php:1800
+#, php-format
+msgid "Organizers (%s)"
+msgstr ""
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1802
+#, fuzzy, php-format
+msgid "Admins (%s)"
+msgstr "Participera"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1824
+#, fuzzy
+msgid "attending"
+msgstr "Participera"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1827
+#, fuzzy
+msgid "might attend"
+msgstr "Participants"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1858
+#: ../components/core/templatetags/bpe-events.php:1888
+#, fuzzy
+msgid "I am attending"
+msgstr "Participera"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1863
+#: ../components/core/templatetags/bpe-events.php:1893
+#, fuzzy
+msgid "I might attend"
+msgstr "Participants"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1871
+#, fuzzy, php-format
+msgid "%s is attending"
+msgstr "Participera"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1876
+#, fuzzy, php-format
+msgid "%s might attend"
+msgstr "Participants"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1935
+msgid "View the next event"
+msgstr "Voir l'évènement suivant"
+
+# @ events
+#: ../components/core/templatetags/bpe-events.php:1964
+msgid "View the previous event"
+msgstr "Voir l'évènement précédent"
+
+# @ events
+#: ../components/documents/bpe-documents-activity.php:48
+#, fuzzy, php-format
+msgid "%1$s has updated the documents for the event <a href=\"%2$s\">%3$s</a>"
+msgstr "%1$s a modifié les informations de l\\'évènement <a href=\"%2$s\">%3$s</a>"
+
+# @ events
+#: ../components/documents/bpe-documents-extension.php:25
+#, fuzzy, php-format
+msgid "Documents: %s"
+msgstr "Modifier l'évènement"
+
+# @ events
+#: ../components/documents/bpe-documents-functions.php:81
+#, fuzzy
+msgid "Documents have been updated."
+msgstr "Votre évènement a bien été modifié."
+
+# @ events
+#: ../components/documents/bpe-documents-functions.php:113
+#, fuzzy
+msgid "* File Name"
+msgstr "* Nom"
+
+# @ events
+#: ../components/documents/bpe-documents-functions.php:116
+#: ../components/documents/bpe-documents-js.php:50
+#, fuzzy
+msgid "File Description"
+msgstr "* Description"
+
+# @ events
+#: ../components/documents/bpe-documents-functions.php:210
+#, fuzzy
+msgid "The directory to store your documents could not be created."
+msgstr "Le répertoire de stockage des images n'a pas été créé."
+
+# @ events
+#: ../components/documents/bpe-documents-functions.php:230
+#, fuzzy, php-format
+msgid "The file %s is larger than 3 MB."
+msgstr "Le fichier %s doit faire 150x150 pixels maximum"
+
+# @ events
+#: ../components/documents/bpe-documents-js.php:49
+#, fuzzy
+msgid "File Name"
+msgstr "* Nom"
+
+# @ events
+#: ../components/documents/templatetags/bpe-documents.php:199
+#, fuzzy, php-format
+msgid "Viewing document %1$s to %2$s (of %3$s documents)"
+msgstr "Évènements %1$s à %2$s (sur %3$s évènements)"
+
+# @ events
+#: ../components/eventbrite/bpe-eventbrite-core.php:38
+#, fuzzy
+msgid "Eventbrite Settings"
+msgstr "Paramètres"
+
+#: ../components/eventbrite/bpe-eventbrite-core.php:40
+msgid "Enter your user key:"
+msgstr ""
+
+#: ../components/eventbrite/bpe-eventbrite-core.php:86
+msgid "Check to publish this event on Eventbrite."
+msgstr ""
+
+# @ events
+#: ../components/facebook/bpe-facebook-core.php:35
+#, fuzzy
+msgid "Facebook Settings"
+msgstr "Paramètres"
+
+#: ../components/facebook/bpe-facebook-core.php:40
+msgid "Authorize yourself to publish your new events automatically to Facebook:"
+msgstr ""
+
+#: ../components/facebook/bpe-facebook-core.php:42
+msgid "Sign in with Facebook"
+msgstr ""
+
+#: ../components/facebook/bpe-facebook-core.php:49
+msgid "Remove authorization to post events to Facebook:"
+msgstr ""
+
+# @ events
+#: ../components/facebook/bpe-facebook-core.php:50
+#, fuzzy
+msgid "Delete Token"
+msgstr "Supprimer cet évènement"
+
+# @ events
+#: ../components/facebook/bpe-facebook-core.php:230
+#, fuzzy
+msgid "Your Facebook credentials were successfully removed."
+msgstr "Votre évènement a été publié avec succès !"
+
+#: ../components/facebook/bpe-facebook-core.php:257
+msgid "Check to publish this event to Facebook."
+msgstr ""
+
+#: ../components/facebook/bpe-facebook-core.php:263
+msgid "Personal stream"
+msgstr ""
+
+#: ../components/facebook/bpe-facebook-core.php:267
+msgid "Choose the streams to publish to. Hold down CTRL to select more than one."
+msgstr ""
+
+# @ events
+#: ../components/facebook/bpe-facebook-core.php:382
+#, fuzzy, php-format
+msgid "New Event: %s at %s, %s"
+msgstr "Fin : %s à %s"
+
+#: ../components/forums/bpe-forums-extension.php:27
+#, php-format
+msgid "%s: Forum"
+msgstr ""
+
+# @ events
+#: ../components/forums/bpe-forums-extension.php:82
+#: ../components/forums/bpe-forums-extension.php:175
+#, fuzzy
+msgid "Check to enable a forum for your event."
+msgstr "A décocher s'il NE s'agit PAS d'un évènement public."
+
+#: ../components/forums/bpe-forums-extension.php:88
+#: ../components/forums/bpe-forums-extension.php:185
+msgid "Forum Name (Maximum Length: 80) *"
+msgstr ""
+
+# @ events
+#: ../components/forums/bpe-forums-extension.php:91
+#: ../components/forums/bpe-forums-extension.php:188
+#, fuzzy
+msgid "Forum Description"
+msgstr "* Description"
+
+#: ../components/forums/bpe-forums-extension.php:94
+#: ../components/forums/bpe-forums-extension.php:191
+msgid "Visibility"
+msgstr ""
+
+#: ../components/forums/bpe-forums-extension.php:96
+#: ../components/forums/bpe-forums-extension.php:193
+msgid "Public"
+msgstr ""
+
+# @ events
+#: ../components/forums/bpe-forums-extension.php:97
+#: ../components/forums/bpe-forums-extension.php:194
+#, fuzzy
+msgid "Private"
+msgstr "Créer un évènement"
+
+#: ../components/forums/bpe-forums-extension.php:98
+#: ../components/forums/bpe-forums-extension.php:195
+msgid "Hidden"
+msgstr ""
+
+#: ../components/forums/bpe-forums-extension.php:134
+#: ../components/forums/bpe-forums-extension.php:240
+msgid "You need to fill in a forum name."
+msgstr ""
+
+#: ../components/forums/bpe-forums-extension.php:179
+msgid "<strong>Attention</strong>: Disabling an existing forum will remove it completely, including all topics and replies. This is not reversible!"
+msgstr ""
+
+# @ events
+#: ../components/forums/bpe-forums-extension.php:262
+#, fuzzy
+msgid "Forum details have been successfully updated."
+msgstr "Catégorie supprimée."
+
+#: ../components/forums/bpe-forums-extension.php:314
+#, php-format
+msgid "Topic Tag: %s"
+msgstr ""
+
+#: ../components/forums/bpe-forums-widget.php:18
+msgid "Displays event forum topic tags on event forum pages only."
+msgstr ""
+
+# @ events
+#: ../components/forums/bpe-forums-widget.php:19
+#, fuzzy
+msgid "Event Forum Tags"
+msgstr "Géolocalisation"
+
+#: ../components/forums/bpe-forums-widget.php:32
+msgid "Topic Tags"
+msgstr ""
+
+# @ events
+#: ../components/groups/bpe-groups-approve.php:70
+#, fuzzy
+msgid "Event has been approved."
+msgstr "Votre évènement a été supprimé."
+
+# @ events
+#: ../components/groups/bpe-groups-approve.php:87
+#, fuzzy
+msgid "Event has been declined."
+msgstr "Votre évènement a été supprimé."
+
+# @ events
+# @ logs
+#: ../components/groups/bpe-groups-approve.php:101
+#, fuzzy
+msgid "No events were selected"
+msgstr "Aucun évènement à afficher"
+
+# @ events
+#: ../components/groups/bpe-groups-approve.php:139
+#, fuzzy, php-format
+msgid "%d event was bulk-edited"
+msgid_plural "%d events were bulk-edited."
+msgstr[0] "Votre évènement a bien été modifié."
+msgstr[1] "Votre évènement a bien été modifié."
+
+# @ events
+#: ../components/groups/bpe-groups-feeds.php:24
+msgid "Latest Group Events"
+msgstr "Derniers évènements de groupes"
+
+# @ events
+#: ../components/groups/bpe-groups-feeds.php:63
+#, fuzzy, php-format
+msgid "Latest Group Feed - %s"
+msgstr "Derniers évènements de groupes"
+
+# @ events
+#: ../components/groups/bpe-groups-feeds.php:101
+#, fuzzy, php-format
+msgid "Latest Group Category Feed - %s"
+msgstr "%s - Derniers évènements"
+
+# @ events
+#: ../components/groups/bpe-groups-feeds.php:140
+#, fuzzy, php-format
+msgid "Latest Group Timezone Feed - %s"
+msgstr "Derniers évènements"
+
+# @ events
+#: ../components/groups/bpe-groups-feeds.php:176
+#, fuzzy, php-format
+msgid "Latest Group Venue Feed - %s"
+msgstr "Derniers évènements de groupes"
+
+#: ../components/groups/bpe-groups-functions.php:74
+msgid "You can attach this event to a group. Your event will have to be approved by a group admin, if you are not the admin or a moderator of the group."
+msgstr ""
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:56
+#, fuzzy
+msgid "Street"
+msgstr "* Rue"
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:56
+#: ../components/groups/bpe-groups-info.php:59
+#: ../components/groups/bpe-groups-info.php:62
+#: ../components/groups/bpe-groups-info.php:65
+#: ../components/groups/bpe-groups-info.php:68
+#: ../components/groups/bpe-groups-info.php:71
+#: ../components/groups/bpe-groups-info.php:74
+#: ../components/groups/bpe-groups-info.php:77
+#, fuzzy
+msgid " (required)"
+msgstr "(obligatoire)"
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:59
+#, fuzzy
+msgid "Postcode"
+msgstr "* Code Postal"
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:62
+#, fuzzy
+msgid "City"
+msgstr "* Ville"
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:65
+#, fuzzy
+msgid "Country"
+msgstr "* Pays"
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:68
+msgid "Telephone"
+msgstr "Téléphone"
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:71
+msgid "Mobile"
+msgstr "Mobile"
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:74
+msgid "Fax"
+msgstr "Fax"
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:77
+msgid "Website"
+msgstr "Site Web"
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:210
+#: ../components/groups/bpe-groups-info.php:258
+msgid "Please fill in all required fields."
+msgstr "Oups.. Veuillez renseigner tous les champs obligatoires SVP."
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:286
+msgid "Contact Details"
+msgstr "Contact :"
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:295
+msgid "Telephone: "
+msgstr "Téléphone :"
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:296
+msgid "Mobile: "
+msgstr "Mobile :"
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:297
+msgid "Fax: "
+msgstr "Fax :"
+
+# @ events
+#: ../components/groups/bpe-groups-info.php:298
+msgid "Website: "
+msgstr "Site Web :"
+
+# @ events
+#: ../components/moderation/bpe-moderation-core.php:80
+msgid "Flag this event as inappropriate"
+msgstr "Signaler un abus au sujet de cet évènement"
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-aweber.php:86
+#, fuzzy
+msgid "Enable an AWeber Newsletter list"
+msgstr "Participants"
+
+#: ../components/newsletter/bpe-newsletter-aweber.php:92
+#, php-format
+msgid "Enter your AWeber application key. Click <a onclick=\"window.open(this.href,'','resizable=yes,location=no,width=750,height=525,status'); return false\" href=\"https://auth.aweber.com/1.0/oauth/authorize_app/%s\">here</a> to get a key."
+msgstr ""
+
+#: ../components/newsletter/bpe-newsletter-aweber.php:93
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:94
+msgid "Then fetch your lists."
+msgstr ""
+
+#: ../components/newsletter/bpe-newsletter-aweber.php:97
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:98
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:98
+msgid "Pick one list, then proceed to the next step."
+msgstr ""
+
+#: ../components/newsletter/bpe-newsletter-aweber.php:99
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:100
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:100
+msgid "Pick one list, then save your settings."
+msgstr ""
+
+#: ../components/newsletter/bpe-newsletter-aweber.php:109
+msgid "Authorization Code"
+msgstr ""
+
+#: ../components/newsletter/bpe-newsletter-aweber.php:115
+#: ../components/newsletter/bpe-newsletter-aweber.php:290
+#: ../components/newsletter/bpe-newsletter-aweber.php:294
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:116
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:285
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:337
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:341
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:116
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:291
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:295
+msgid "List ID"
+msgstr ""
+
+#: ../components/newsletter/bpe-newsletter-aweber.php:118
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:294
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:119
+msgid "Fetch lists"
+msgstr ""
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-aweber.php:180
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:181
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:190
+#, fuzzy
+msgid "Email"
+msgstr "* Lieu"
+
+#: ../components/newsletter/bpe-newsletter-aweber.php:186
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:187
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:196
+msgid "Subscribe"
+msgstr ""
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-aweber.php:209
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:210
+#, fuzzy
+msgid "Please enter all fields (Email and name)."
+msgstr "Veuillez entrer un commentaire SVP."
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-aweber.php:216
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:217
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:227
+#, fuzzy
+msgid "Please enter a valid email address."
+msgstr "Veuillez entrer un commentaire SVP."
+
+#: ../components/newsletter/bpe-newsletter-aweber.php:235
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:249
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:255
+msgid "You have been subscribed! Look out for the confirmation email."
+msgstr ""
+
+#: ../components/newsletter/bpe-newsletter-aweber.php:242
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:227
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:244
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:237
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:250
+msgid "The newsletter service could not be contacted. Subscription failed."
+msgstr ""
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-aweber.php:260
+#, fuzzy
+msgid "You need to enter your authorization code first."
+msgstr "Vous n'êtes pas autorisé à supprimer cet évènement."
+
+#: ../components/newsletter/bpe-newsletter-aweber.php:275
+msgid "Unable to retrieve credentials. AWeber lists cannot be activated."
+msgstr ""
+
+#: ../components/newsletter/bpe-newsletter-aweber.php:289
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:336
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:290
+msgid "Your lists could not be fetched. Enter your list ID manually."
+msgstr ""
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:87
+#, fuzzy
+msgid "Enable a Campaign Monitor Newsletter list"
+msgstr "Participants"
+
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:93
+msgid "Enter your Campaign Monitor API key and fetch clients."
+msgstr ""
+
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:94
+msgid "Click on a client and fetch all lists."
+msgstr ""
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:119
+#, fuzzy
+msgid "Fetch clients"
+msgstr "Rechercer"
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:267
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:273
+#, fuzzy
+msgid "You need to enter your API key first."
+msgstr "Vous n'êtes pas autorisé à supprimer cet évènement."
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:284
+#, fuzzy
+msgid "Your clients could not be fetched. Enter your list ID manually."
+msgstr "Votre évènement n'a pas pu être supprimé. Veuillez réessayer SVP."
+
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:289
+msgid "Client ID"
+msgstr ""
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-cmonitor.php:318
+#, fuzzy
+msgid "You need to enter your API key and pick a client ID."
+msgstr "Vous n'êtes pas autorisé à supprimer cet évènement."
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-extension.php:52
+#: ../components/newsletter/bpe-newsletter-extension.php:89
+#, fuzzy
+msgid "You can only pick one Newsletter service."
+msgstr "Participants"
+
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:87
+msgid "Enable a Mailchimp Newsletter list"
+msgstr ""
+
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:93
+msgid "Enter your Mailchimp API key."
+msgstr ""
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:180
+#, fuzzy
+msgid "First Name"
+msgstr "* Nom"
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:185
+#, fuzzy
+msgid "Last Name"
+msgstr "* Nom"
+
+# @ events
+#: ../components/newsletter/bpe-newsletter-mailchimp.php:220
+#, fuzzy
+msgid "Please enter all fields (Email, first and last name)."
+msgstr "Veuillez entrer un commentaire SVP."
+
+# @ events
+#: ../components/schedules/bpe-schedules-activity.php:48
+#, fuzzy, php-format
+msgid "%1$s has updated the schedule for the event <a href=\"%2$s\">%3$s</a>"
+msgstr "%1$s a modifié les informations de l\\'évènement <a href=\"%2$s\">%3$s</a>"
+
+# @ events
+#: ../components/schedules/bpe-schedules-ajax.php:56
+#, fuzzy
+msgid "* Date"
+msgstr "Dons"
+
+# @ events
+#: ../components/schedules/bpe-schedules-ajax.php:61
+#, fuzzy
+msgid "* Start"
+msgstr "Début"
+
+# @ events
+#: ../components/schedules/bpe-schedules-ajax.php:71
+#: ../components/tickets/bpe-tickets-core.php:467
+msgid "* Description"
+msgstr "* Description"
+
+# @ events
+#: ../components/schedules/bpe-schedules-extension.php:25
+#, fuzzy, php-format
+msgid "Schedule: %s"
+msgstr "Calendrier"
+
+# @ events
+#: ../components/schedules/bpe-schedules-functions.php:65
+#, fuzzy
+msgid "End time has to be after start time."
+msgstr "La date de fin ne peut pas être antérieur à la date de début !"
+
+# @ events
+#: ../components/schedules/bpe-schedules-functions.php:98
+#, fuzzy
+msgid "Schedules have been updated."
+msgstr "Votre évènement a été supprimé."
+
+# @ events
+#: ../components/schedules/templatetags/bpe-schedules.php:200
+#, fuzzy, php-format
+msgid "Viewing schedule %1$s to %2$s (of %3$s schedules)"
+msgstr "Évènements %1$s à %2$s (sur %3$s évènements)"
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:107
+#, fuzzy, php-format
+msgid ""
+"Hello %s,\n"
+"\n"
+"you have been invited to attend %s:\n"
+"%s\n"
+"\n"
+"Please follow the above link to purchase a ticket if you would like to attend."
+msgstr ""
+"Bonjour %s,\n"
+"\n"
+"Vous êtes invités à participer à l'évènement %s:\n"
+"%s\n"
+"\n"
+"Vous pouvez y répondre :\n"
+"\n"
+"Oui :\n"
+"%s\n"
+"\n"
+"Non :\n"
+"%s\n"
+"\n"
+"Peut-être :\n"
+"%s"
+
+#: ../components/tickets/bpe-tickets-core.php:175
+#, php-format
+msgid "Choose your tickets for <i>%s</i>"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-core.php:185
+#, php-format
+msgid "%s %s / ticket"
+msgstr ""
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:187
+#, fuzzy
+msgid "free"
+msgstr "Créer un évènement"
+
+#: ../components/tickets/bpe-tickets-core.php:201
+msgid "ticket(s)"
+msgstr ""
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:209
+#, fuzzy
+msgid "Total"
+msgstr "Titre :"
+
+#: ../components/tickets/bpe-tickets-core.php:213
+msgid "Additional Attendee Information"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-core.php:215
+#, php-format
+msgid "Please enter any additonal attendee information (apart from you) above. If possible, please use the email addresses that were used to register on %s"
+msgstr ""
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:249
+#: ../components/tickets/bpe-tickets-core.php:464
+msgid "* Name"
+msgstr "* Nom"
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:251
+#, fuzzy
+msgid "* Email"
+msgstr "* Lieu"
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:290
+#, fuzzy
+msgid "Please enter a name."
+msgstr "Veuillez entrer un commentaire SVP."
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:297
+#, fuzzy
+msgid "Please enter an email address."
+msgstr "Veuillez entrer un commentaire SVP."
+
+#: ../components/tickets/bpe-tickets-core.php:314
+#, php-format
+msgid "The next sale starts on %s"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-core.php:317
+#, php-format
+msgid "There are no tickets available right now. %s"
+msgstr ""
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:476
+#, fuzzy
+msgid "Price"
+msgstr "Privacité"
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:483
+#, fuzzy
+msgid "Start Sales"
+msgstr "début ASC"
+
+#: ../components/tickets/bpe-tickets-core.php:488
+msgid "End Sales"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-core.php:495
+msgid "Min Tickets"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-core.php:500
+msgid "Max Tickets"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-core.php:552
+msgid "Start date has to be before end date."
+msgstr ""
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:608
+#, fuzzy
+msgid "Tickets have been updated."
+msgstr "Votre évènement a bien été modifié."
+
+#: ../components/tickets/bpe-tickets-core.php:640
+msgid "PayPal Email Address"
+msgstr ""
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:648
+#, fuzzy
+msgid "* Currency"
+msgstr "* Pays"
+
+#: ../components/tickets/bpe-tickets-core.php:654
+msgid "Mandatory if a PayPal address is filled in."
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-core.php:659
+msgid "Billing Address"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-core.php:660
+msgid "All fields marked with * are mandatory if a PayPal address is filled in."
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-core.php:662
+msgid "Company Name"
+msgstr ""
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:666
+msgid "* Street"
+msgstr "* Rue"
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:670
+msgid "* Postcode"
+msgstr "* Code Postal"
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:674
+msgid "* City"
+msgstr "* Ville"
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:678
+msgid "* Country"
+msgstr "* Pays"
+
+#: ../components/tickets/bpe-tickets-core.php:719
+msgid "Please choose a currency."
+msgstr ""
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:725
+#, fuzzy
+msgid "Please fill in all address fields marked with *"
+msgstr "Veuillez renseigner tous les champs obligatoires SVP. Ils sont signalés par une astérisque *."
+
+#: ../components/tickets/bpe-tickets-core.php:811
+#, php-format
+msgid ""
+"You can sign up to %s and have a look around the online presence of this event. Sign up here:\n"
+"%s\n"
+"\n"
+"To be automatically added to the event on sign-up you need to use the following email address:\n"
+"%s\n"
+"\n"
+"If you are already registered with a different email address, log in and enter the above email address on the following page:\n"
+"%s\n"
+"\n"
+"---------\n"
+"\n"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-core.php:819
+#, php-format
+msgid ""
+"Hello %s,\n"
+"\n"
+"please find attached your ticket for %s.\n"
+"\n"
+"---------\n"
+"\n"
+"Single Price:\n"
+"%s %d\n"
+"\n"
+"Event Start:\n"
+"%s\n"
+"\n"
+"Event End:\n"
+"%s\n"
+"\n"
+"Link:\n"
+"%s\n"
+"\n"
+"---------\n"
+"\n"
+"%sYour %s Team"
+msgstr ""
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:831
+#, fuzzy, php-format
+msgid "[%s] Event Tickets"
+msgstr "Participants"
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:896
+#, fuzzy
+msgid "Enter a valid email address."
+msgstr "Veuillez entrer un commentaire SVP."
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:904
+#, fuzzy
+msgid "You are not allowed to sign yourself up for this event."
+msgstr "Vous n'êtes pas autorisé à supprimer cet évènement."
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:910
+#, fuzzy
+msgid "An unidentified error occured. Please try again!"
+msgstr "Une erreur est survenue lors de la modification de votre évènement. Veuillez réessayer SVP."
+
+#: ../components/tickets/bpe-tickets-core.php:969
+msgid "From"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-core.php:972
+msgid "To"
+msgstr ""
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:975
+#: ../components/tickets/bpe-tickets-core.php:978
+#, fuzzy, php-format
+msgid "%s at %s"
+msgstr "Fin : %s à %s"
+
+# @ buddypress
+#: ../components/tickets/bpe-tickets-core.php:983
+#, fuzzy
+msgid "Ticket"
+msgstr "Recherche"
+
+#: ../components/tickets/bpe-tickets-core.php:1005
+msgid "Ticket is valid for 1 person only. Please print this ticket."
+msgstr ""
+
+# @ buddypress
+#: ../components/tickets/bpe-tickets-core.php:1231
+#, fuzzy, php-format
+msgid "%s ticket sale commission for %s on %s"
+msgstr "Recherche"
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:1242
+#, fuzzy, php-format
+msgid "Invoice Nr: %s"
+msgstr "Invitez vos contacts"
+
+# @ events
+#: ../components/tickets/bpe-tickets-core.php:1243
+#, fuzzy
+msgid "Invoice"
+msgstr "Invitez vos contacts"
+
+#: ../components/tickets/bpe-tickets-extension.php:58
+#, php-format
+msgid "<strong>Note:</strong> %s (%s of %s VAT) of all ticket sales will be invoiced to you each month."
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-extension.php:58
+msgid "inclusive"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-extension.php:58
+msgid "exclusive"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-extension.php:62
+#: ../components/tickets/bpe-tickets-extension.php:116
+msgid "Add ticket"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-extension.php:63
+#: ../components/tickets/bpe-tickets-extension.php:117
+msgid "Add a ticket to your event. These will be automatically sorted by price."
+msgstr ""
+
+# @ events
+#: ../components/tickets/bpe-tickets-invoice.php:60
+#, fuzzy
+msgid "Date: "
+msgstr "Page : %s"
+
+#: ../components/tickets/bpe-tickets-invoice.php:63
+msgid "Client No: "
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-invoice.php:66
+msgid "Invoice No: "
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-invoice.php:119
+msgid "Your Invoice"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-invoice.php:123
+msgid "Pos"
+msgstr ""
+
+# @ events
+#: ../components/tickets/bpe-tickets-invoice.php:124
+#, fuzzy
+msgid "Description"
+msgstr "* Description"
+
+#: ../components/tickets/bpe-tickets-invoice.php:125
+msgid "Qty"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-invoice.php:176
+#: ../components/tickets/bpe-tickets-invoice.php:190
+msgid "Total (gross)"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-invoice.php:179
+msgid "Sub-Total (net)"
+msgstr ""
+
+#: ../components/tickets/bpe-tickets-invoice.php:183
+#, php-format
+msgid "VAT %s"
+msgstr ""
+
+# @ events
+#: ../components/tickets/bpe-tickets-invoice.php:241
+#, fuzzy, php-format
+msgid "Page %s/{nb}"
+msgstr "Page : %s"
+
+# @ events
+#: ../components/tickets/bpe-tickets-paypal.php:300
+#, fuzzy
+msgid "You are attending this event on a free ticket."
+msgstr "Vous participez déjà à cet évènement."
+
+#: ../components/tickets/bpe-tickets-paypal.php:363
+#, php-format
+msgid "Payment for invoice %s from %s"
+msgstr ""
+
+# @ buddypress
+#: ../components/tickets/bpe-tickets-pdf.php:60
+#, fuzzy, php-format
+msgid "Ticket for %s"
+msgstr "Recherche"
+
+# @ events
+#: ../components/tickets/bpe-tickets-pdf.php:61
+#, fuzzy
+msgid "Event Ticket"
+msgstr "Widget Évènements"
+
+# @ events
+#: ../components/tickets/templatetags/bpe-invoices.php:247
+#, fuzzy, php-format
+msgid "Viewing invoice %1$s to %2$s (of %3$s invoices)"
+msgstr "Évènements %1$s à %2$s (sur %3$s évènements)"
+
+# @ events
+#: ../components/tickets/templatetags/bpe-sales.php:258
+#, fuzzy, php-format
+msgid "Viewing sale %1$s to %2$s (of %3$s sales)"
+msgstr "Évènements %1$s à %2$s (sur %3$s évènements)"
+
+# @ events
+#: ../components/tickets/templatetags/bpe-tickets.php:250
+#, fuzzy, php-format
+msgid "Viewing ticket %1$s to %2$s (of %3$s tickets)"
+msgstr "Évènements %1$s à %2$s (sur %3$s évènements)"
+
+# @ events
+#: ../components/twitter/bpe-twitter-core.php:42
+#, fuzzy
+msgid "Twitter Settings"
+msgstr "Paramètres"
+
+#: ../components/twitter/bpe-twitter-core.php:47
+msgid "Authorize yourself to publish your new events automatically to Twitter:"
+msgstr ""
+
+#: ../components/twitter/bpe-twitter-core.php:49
+msgid "Sign in with Twitter"
+msgstr ""
+
+#: ../components/twitter/bpe-twitter-core.php:56
+msgid "Remove your current Twitter token if you expirience any problems:"
+msgstr ""
+
+# @ events
+#: ../components/twitter/bpe-twitter-core.php:154
+#, fuzzy
+msgid "There was a problem authenticating your Twitter credentials."
+msgstr "Une erreur est survenue lors de l'enregistrement de votre évènement. Veuillez réessayer SVP."
+
+# @ events
+#: ../components/twitter/bpe-twitter-core.php:159
+#, fuzzy
+msgid "Your Twitter credentials were authenticated successfully."
+msgstr "Votre évènement a été publié avec succès !"
+
+# @ events
+#: ../components/twitter/bpe-twitter-core.php:194
+#, fuzzy
+msgid "Your Twitter credentials were successfully removed."
+msgstr "Votre évènement a été publié avec succès !"
+
+#: ../components/twitter/bpe-twitter-core.php:220
+msgid "Check to publish this event to Twitter."
+msgstr ""
+
+# @ events
+#: ../components/twitter/bpe-twitter-core.php:293
+#, fuzzy, php-format
+msgid "New Event: %s, %s"
+msgstr "Afficher les nouveaux évènements"
+
+# @ events
+#: ../templates/events/group/approve.php:39
+#: ../templates/events/group/approve.php:64
+#, fuzzy
+msgid "Decline"
+msgstr "Supprimer cet évènement"
+
+# @ events
+#: ../templates/events/group/approve.php:96
+#, fuzzy
+msgid "No events to approve."
+msgstr "Afficher les nouveaux évènements"
+
+# @ events
+#: ../templates/events/group/category.php:25
+#, php-format
+msgid "Category: %s"
+msgstr "Catégorie : %s"
+
+# @ events
+#: ../templates/events/group/day.php:25
+#, php-format
+msgid "Day: %s"
+msgstr ""
+
+# @ events
+#: ../templates/events/group/month.php:25
+#, php-format
+msgid "Month: %s %s"
+msgstr ""
+
+# @ events
+# @ buddypress
+#: ../templates/events/group/navigation.php:13
+#: ../templates/events/includes/navigation.php:15
+msgid "RSS"
+msgstr "RSS"
+
+# @ events
+#: ../templates/events/group/timezone.php:25
+#, fuzzy, php-format
+msgid "Timezone: %s"
+msgstr "Calendrier"
+
+# @ events
+#: ../templates/events/group/venue.php:25
+#, fuzzy, php-format
+msgid "Venue: %s"
+msgstr "Calendrier"
+
+# @ events
+#: ../templates/events/includes/event-header.php:25
+#, fuzzy, php-format
+msgid "<dt>Timezone:</dt><dd><span class=\"timezone\">%s</span></dd>"
+msgstr "<dt>Groupe lié :</dt><dd><a href=\"%s\">%s</a></dd>"
+
+# @ events
+#: ../templates/events/includes/single-nav.php:44
+#, fuzzy
+msgid "iCalendar Download"
+msgstr "Calendrier"
+
+# @ events
+#: ../templates/events/includes/widget.php:25
+#, php-format
+msgid "<dt>Venue:</dt><dd>%s</dd>"
+msgstr "<dt>Lieu :</dt><dd>%s</dd>"
+
+# @ events
+#: ../templates/events/includes/widget.php:35
+#, fuzzy, php-format
+msgid "<dt>Category:</dt><dd>%s</dd>"
+msgstr "<dt>Catégorie :</dt><dd>%s</dd>"
+
+#: ../templates/events/member/cancel.php:11
+msgid "Transaction cancelled"
+msgstr ""
+
+#: ../templates/events/member/cancel.php:12
+#, php-format
+msgid "Your invoice payment has been canceled. If this was a mistake, please go back to your <a href=\"%s\">invoice page</a>!"
+msgstr ""
+
+#: ../templates/events/member/cancel.php:13
+#: ../templates/events/member/success.php:14
+msgid "Thank you!"
+msgstr ""
+
+# @ events
+#: ../templates/events/member/invoices.php:37
+#, fuzzy
+msgid "Settle invoice"
+msgstr "Créer un évènement"
+
+#: ../templates/events/member/success.php:12
+msgid "Your payment has been made and the invoice has been settled. An email containing the payment details will be sent to you shortly."
+msgstr ""
+
+#: ../templates/events/member/success.php:13
+msgid "You can log into <a href=\"http://www.paypal.com\">PayPal</a> to see the status of this transaction."
+msgstr ""
+
+# @ events
+#: ../templates/events/single/activity.php:14
+msgid "Event Activity"
+msgstr "Activité de l'évènement"
+
+# @ events
+#: ../templates/events/single/activity.php:30
+msgid "Be the first to comment on this event."
+msgstr "Soyez le premier à commenter cet évènement."
+
+# @ events
+#: ../templates/events/single/activity.php:32
+msgid "Log in to comment on this event."
+msgstr "Veuillez vous connecter pour commenter cet évènement."
+
+# @ events
+#: ../templates/events/single/activity.php:40
+msgid "Add your comment"
+msgstr "Un commentaire ?"
+
+# @ events
+#: ../templates/events/single/activity.php:47
+msgid "Send Comment"
+msgstr "Publier"
+
+#: ../templates/events/single/attendees.php:34
+#, php-format
+msgid "Attendees: <span class=\"summary\">%s</span>"
+msgstr ""
+
+# @ events
+# @ logs
+#: ../templates/events/single/attendees.php:86
+#, fuzzy
+msgid "No attendees found"
+msgstr "Aucun évènement à afficher"
+
+# @ events
+#: ../templates/events/single/directions.php:37
+#, php-format
+msgid "Directions to %s"
+msgstr "Itinéraire vers %s"
+
+# @ events
+#: ../templates/events/single/directions.php:44
+msgid "Mode of transport"
+msgstr "Mode de transport"
+
+# @ events
+#: ../templates/events/single/directions.php:46
+msgid "Driving"
+msgstr "Voiture"
+
+# @ events
+#: ../templates/events/single/directions.php:47
+msgid "Walking"
+msgstr "Pieton"
+
+# @ events
+#: ../templates/events/single/directions.php:48
+msgid "Bicycling"
+msgstr "Vélo"
+
+# @ events
+#: ../templates/events/single/directions.php:51
+msgid "Start"
+msgstr "Début"
+
+# @ events
+#: ../templates/events/single/directions.php:53
+msgid "Leave empty to use your own location. If nothing shows up, then there is no route available for your location."
+msgstr "Si vous avez renseigné votre adresse actuelle dans votre profil, celle-ci est automatiquement prise en compte. Sinon, veuillez indiquer un point de départ. Si rien de s'affiche, c'est qu'il n'y a pas d'itinéraire correspondant à votre demande."
+
+# @ events
+#: ../templates/events/single/directions.php:56
+msgid "Get directions"
+msgstr "Afficher l'tinéraire"
+
+# @ events
+#: ../templates/events/single/directions.php:115
+msgid "This event does not have a location."
+msgstr "Cet évènement n'a pas d'adresse physique."
+
+# @ events
+#: ../templates/events/single/edit.php:34
+#, php-format
+msgid "Edit: %s"
+msgstr "Modifier : %s"
+
+# @ events
+#: ../templates/events/single/edit.php:71
+msgid "This event is closed and cannot be edited anymore."
+msgstr "Cet évènement est clos. Vous ne pouvez plus le modifier."
+
+# @ events
+#: ../templates/events/single/invite.php:34
+#, php-format
+msgid "Invite your friends to %s"
+msgstr "Invitez vos contacts à %s"
+
+# @ events
+#: ../templates/events/single/invite.php:42
+#, fuzzy
+msgid "Start typing a members name"
+msgstr "Entrez les premières lettre de vos contacts"
+
+# @ events
+#: ../templates/events/single/invite.php:53
+msgid "Notify all group members."
+msgstr "Inviter tous les membres du groupe lié."
+
+# @ events
+#: ../templates/events/single/invite.php:57
+msgid "Send Invitations"
+msgstr "Envoyer les invitations"
+
+# @ events
+#: ../templates/events/single/plugins.php:17
+msgid "Events Directory"
+msgstr "Les Évènements"
+
+#: ../templates/events/single/sales.php:19
+msgid "Buyer"
+msgstr ""
+
+# @ events
+#: ../templates/events/single/sales.php:25
+#, fuzzy
+msgid "Sub Total"
+msgstr "Titre :"
+
+# @ events
+#: ../templates/events/single/sales.php:32
+#, fuzzy, php-format
+msgid "Totals (%s)"
+msgstr "Titre :"
+
+# @ events
+#: ../templates/events/single/signup.php:33
+#, fuzzy, php-format
+msgid "Add yourself to <span class=\"summary\">%s</span>"
+msgstr "<dt>Groupe lié :</dt><dd><a href=\"%s\">%s</a></dd>"
+
+# @ events
+#: ../templates/events/single/signup.php:41
+#, fuzzy
+msgid "Note:"
+msgstr "Page : %s"
+
+#: ../templates/events/single/signup.php:42
+#, php-format
+msgid "You can only sign yourself up to this event if you received your tickets on an email address other than the one you used to register on %s."
+msgstr ""
+
+#: ../templates/events/single/signup.php:49
+msgid "Sign Up"
+msgstr ""
+
+# @ events
+#: ../templates/events/single/steps/attendees.php:17
+#, fuzzy
+msgid "Manually Add Attendees"
+msgstr "Participants"
+
+#: ../templates/events/single/steps/attendees.php:26
+msgid "These users will be added automatically and an email notifying them will be sent."
+msgstr ""
+
+# @ events
+#: ../templates/events/single/steps/attendees.php:29
+#, fuzzy
+msgid "Add attendees"
+msgstr "Participants"
+
+# @ events
+#: ../templates/events/single/steps/attendees.php:48
+#, fuzzy
+msgid "Admins"
+msgstr "Administration"
+
+#: ../templates/events/single/steps/attendees.php:57
+msgid "Organizers"
+msgstr ""
+
+# @ events
+#: ../templates/events/single/steps/attendees.php:73
+#, fuzzy
+msgid "Undecided Attendees"
+msgstr "%d Participants"
+
+# @ events
+#: ../templates/events/single/steps/attendees.php:80
+#, fuzzy
+msgid "Not Attending"
+msgstr "Participera"
+
+#: ../templates/events/single/steps/documents.php:14
+msgid "You can upload documents (pdf,doc,txt,docx,xls,pps,ppt or zip).<br />Max upload size for each file is 3MB."
+msgstr ""
+
+# @ events
+#: ../templates/events/single/steps/general.php:17
+msgid "What is your event called?"
+msgstr "Quel est le titre de votre évènement ?"
+
+# @ events
+#: ../templates/events/single/steps/general.php:25
+msgid "Describe your event."
+msgstr "Veuillez décrire votre évènement."
+
+# @ events
+#: ../templates/events/single/steps/general.php:39
+#, fuzzy
+msgid "Enter an URL for this event."
+msgstr "Veuillez vous connecter pour commenter cet évènement."
+
+# @ events
+#: ../templates/events/single/steps/general.php:45
+msgid "* Location"
+msgstr "* Lieu"
+
+# @ events
+#: ../templates/events/single/steps/general.php:47
+msgid "Enter the address where your event will take place."
+msgstr "Veuillez renseigner l'adresse du lieu de votre évènement (N°, voie, code postal, ville)."
+
+# @ events
+#: ../templates/events/single/steps/general.php:49
+#, fuzzy
+msgid "Venue Name"
+msgstr "Calendrier"
+
+#: ../templates/events/single/steps/general.php:51
+msgid "Give your location a name."
+msgstr ""
+
+# @ events
+#: ../templates/events/single/steps/general.php:53
+msgid "Check to disable the map (e.g. for online events)."
+msgstr "Veuillez cocher cette case pour désactiver la géolocalisation (ex: évènement en ligne)."
+
+# @ events
+#: ../templates/events/single/steps/general.php:56
+msgid "Uncheck to remove your manual coordinates and enable Google coordinates lookup."
+msgstr ""
+
+# @ events
+#: ../templates/events/single/steps/general.php:59
+msgid "Manually change coordinates"
+msgstr ""
+
+# @ events
+#: ../templates/events/single/steps/general.php:73
+msgid "* Event Start"
+msgstr "* Début"
+
+# @ events
+#: ../templates/events/single/steps/general.php:79
+msgid "* Event End"
+msgstr "* Fin"
+
+#: ../templates/events/single/steps/general.php:88
+msgid "This event lasts the whole day (if checked, only the start date is required)."
+msgstr ""
+
+# @ events
+#: ../templates/events/single/steps/general.php:94
+#, fuzzy
+msgid "Check if this is a public event."
+msgstr "A décocher s'il NE s'agit PAS d'un évènement public."
+
+#: ../templates/events/single/steps/general.php:101
+msgid "Check to enable RSVP."
+msgstr ""
+
+# @ events
+#: ../templates/events/single/steps/general.php:108
+#, php-format
+msgid "Restrict the number of attendees to %s people."
+msgstr "Limiter le nombre maximum de participants à %s personnes."
+
+# @ events
+#: ../templates/events/single/steps/general.php:108
+msgid "Leave empty to disable."
+msgstr "Veuillez laisser vide si vous ne souhaitez pas fixer de limite."
+
+# @ events
+#: ../templates/events/single/steps/general.php:114
+msgid "Choose your recurrence interval"
+msgstr "Est-ce un évènement récurrent ?"
+
+# @ events
+#: ../templates/events/single/steps/general.php:118
+msgid "Leave empty to disable recurrence or set to empty to remove recurrence."
+msgstr "Veuillez laisser vide si vous ne souhaitez pas définir de récurrence."
+
+#: ../templates/events/single/steps/general.php:128
+msgid "Notify existing attendees of the changes"
+msgstr ""
+
+# @ events
+#: ../templates/events/single/steps/logo.php:13
+#, fuzzy
+msgid "Upload an image to use as a logo for this event."
+msgstr "Vous devez être connecté pour participer à un évènement."
+
+#: ../templates/events/single/steps/logo.php:17
+msgid "Upload Image"
+msgstr ""
+
+#: ../templates/events/single/steps/logo.php:23
+msgid "If you'd like to remove the existing logo but not upload a new one, please use the delete logo button."
+msgstr ""
+
+#: ../templates/events/single/steps/logo.php:39
+msgid "Crop Avatar"
+msgstr ""
+
+#: ../templates/events/single/steps/logo.php:41
+msgid "Logo to crop"
+msgstr ""
+
+#: ../templates/events/single/steps/logo.php:44
+msgid "Logo preview"
+msgstr ""
+
+# @ events
+#: ../templates/events/single/steps/logo.php:47
+#, fuzzy
+msgid "Crop Image"
+msgstr "Image"
+
+#: ../templates/events/single/steps/schedule.php:18
+msgid "Add schedule"
+msgstr ""
+
+#: ../templates/events/single/steps/schedule.php:19
+msgid "Add a schedule to your event. These will be automatically sorted by time and date."
+msgstr ""
+
+#: ../templates/events/top-level/cancel.php:27
+msgid "Your payment has been canceled. If this was a mistake, please check out your tickets again!"
+msgstr ""
+
+# @ buddypress
+#: ../templates/events/top-level/results.php:12
+#, fuzzy, php-format
+msgid "Search for <i>%s</i>"
+msgstr "Recherche"
+
+#: ../templates/events/top-level/search.php:29
+msgid "Enter a location you would like to use as the start point of your search."
+msgstr ""
+
+# @ events
+#: ../templates/events/top-level/search.php:29
+#, fuzzy
+msgid "Leave empty to use your current location."
+msgstr "Veuillez laisser vide si vous ne souhaitez pas définir de récurrence."
+
+# @ buddypress
+#: ../templates/events/top-level/search.php:31
+#, fuzzy
+msgid "* Search Radius"
+msgstr "Recherche"
+
+#: ../templates/events/top-level/search.php:37
+msgid "Enter your search radius."
+msgstr ""
+
+# @ buddypress
+#: ../templates/events/top-level/search.php:39
+#, fuzzy
+msgid "Search Term"
+msgstr "Recherche"
+
+#: ../templates/events/top-level/search.php:41
+msgid "Enter a search term to fine-tune your search."
+msgstr ""
+
+#: ../templates/events/top-level/success.php:27
+msgid "Your payment has been made and the transaction has been completed. An email containing the purchase details will be sent to you shortly."
+msgstr ""
+
+#: ../templates/events/top-level/success.php:28
+msgid "You can log into your account at <a href=\"http://www.paypal.com\">PayPal</a> to see the details of this transaction."
+msgstr ""
+
+# @ events
+#: ../templates/events/top-level/success.php:33
+#, fuzzy
+msgid "Go to event &rarr;"
+msgstr "Mois suivant &rarr;"
+
+# @ events
+#: ../templates/events/top-level/steps/general.php:105
+msgid "Leave empty to disable recurrence."
+msgstr "Veuillez laisser vide si vous ne souhaitez pas définir de récurrence."
+
+#: ../templates/events/top-level/steps/invite.php:15
+msgid "Invitations have been disabled until your event has been approved by a group admin."
+msgstr ""
+
+#: ../templates/events/top-level/steps/logo.php:28
+msgid "To skip the logo upload process, hit the \"Next Step\" button."
+msgstr ""
+
+#: ../templates/events/top-level/steps/logo.php:33
+msgid "Crop Event Logo"
+msgstr ""
+
+# @ events
+#, fuzzy
+#~ msgid "Schedule: <span class=\"summary\">%s</span>"
+#~ msgstr "<dt>Groupe lié :</dt><dd><a href=\"%s\">%s</a></dd>"
+
+# @ events
+#~ msgid "There was a problem saving your comment. Please try again."
+#~ msgstr ""
+#~ "Une erreur est survenue lors de l'enregistrement de votre commentaire. "
+#~ "Veuillez réessayer SVP."
+# @ events
+#, fuzzy
+#~ msgid "Login"
+#~ msgstr "* Lieu"
+
+# @ events
+#, fuzzy
+#~ msgid "Show forums only to event members."
+#~ msgstr "Afficher les éventuels participants"
+
+# @ buddypress
+#~ msgid "Search anything..."
+#~ msgstr "Recherche..."
+# @ events
+#, fuzzy
+#~ msgid "Exact Month"
+#~ msgstr "Chaque mois"
+
+# @ events
+#, fuzzy
+#~ msgid "Events Page"
+#~ msgstr "Géolocalisation"
+
+# @ events
+#~ msgid "Support Forums"
+#~ msgstr "Aide"
+# @ events
+#, fuzzy
+#~ msgid "<span class=\"activity\">%s is attending</span>"
+#~ msgstr "<br /><span class=\"highlight\">%d places restantes</span>"
+
+# @ events
+#, fuzzy
+#~ msgid "<span class=\"activity\">%s might attend</span>"
+#~ msgstr "<br /><span class=\"highlight\">%d places restantes</span>"
+
+# @ events
+#, fuzzy
+#~ msgid "<span class=\"activity\">I am attending</span>"
+#~ msgstr "<br /><span class=\"highlight\">%d places restantes</span>"
+
+# @ events
+#, fuzzy
+#~ msgid "<span class=\"activity\">I might attend</span>"
+#~ msgstr "<br /><span class=\"highlight\">%d places restantes</span>"
+
+# @ events
+#~ msgid "Show New Events"
+#~ msgstr "Afficher les nouveaux évènements"
+# @ events
+#~ msgid "Show Edited Events"
+#~ msgstr "Afficher les évènements modifiés"
+# @ events
+#~ msgid "Show New Event Members"
+#~ msgstr "Afficher les nouveaux participants"
+# @ events
+#~ msgid "Show Removed Event Members"
+#~ msgstr "Afficher les non-participants"
+# @ events
+#, fuzzy
+#~ msgid "Show New Event Logos"
+#~ msgstr "Afficher les nouveaux évènements"
+
+# @ events
+#, fuzzy
+#~ msgid "<span class=\"activity\">%d spots left</span>"
+#~ msgstr "<br /><span class=\"highlight\">%d places restantes</span>"
+
+# @ buddypress
+#, fuzzy
+#~ msgid "Search Slug"
+#~ msgstr "Recherche"
+
+# @ buddypress
+#, fuzzy
+#~ msgid "Step Slug"
+#~ msgstr "Recherche"
+
+# @ buddypress
+#, fuzzy
+#~ msgid "General Slug"
+#~ msgstr "Recherche"
+
+# @ buddypress
+#, fuzzy
+#~ msgid "Timezone Slug"
+#~ msgstr "Recherche"
+
+# @ buddypress
+#, fuzzy
+#~ msgid "Venue Slug"
+#~ msgstr "Recherche"
+
+# @ buddypress
+#, fuzzy
+#~ msgid "Tickets Slug"
+#~ msgstr "Recherche"
+
+# @ events
+#, fuzzy
+#~ msgid "Invoices Slug"
+#~ msgstr "Invitez vos contacts"
+
+# @ buddypress
+#, fuzzy
+#~ msgid "Sales Slug"
+#~ msgstr "Recherche"
+
+# @ buddypress
+#~ msgid "Mark as Favorite"
+#~ msgstr "Favoris"
+# @ buddypress
+#~ msgid "Favorite"
+#~ msgstr "Favoris"
+# @ buddypress
+#~ msgid "Remove Favorite"
+#~ msgstr "Supprimer le Favoris"
+# @ buddypress
+#~ msgid "or press esc to cancel."
+#~ msgstr "ou appuyez sur ESC pour quiter"
+# @ events
+#~ msgid "Events (%d)"
+#~ msgstr "Évènements (%d)"
+# @ events
+#~ msgid "You can attach this event to a group."
+#~ msgstr "Vous pouvez attacher un groupe à cet évènement."
+# @ events
+#, fuzzy
+#~ msgid "<span class=\"activity\">Private Event</span>"
+#~ msgstr "<div class=\"private\">Évènement privé</div>"
+
+# @ events
+#, fuzzy
+#~ msgid "<span class=\"activity\">Event is closed</span>"
+#~ msgstr "<div class=\"private\">Évènement clos</div>"
+
+# @ events
+#, fuzzy
+#~ msgid "<span class=\"activity\">Registration is closed</span>"
+#~ msgstr "<div class=\"private\">Évènement complet</div>"
+
+# @ events
+#~ msgid "Active (%d)"
+#~ msgstr "A venir (%d)"
+# @ events
+#~ msgid "Archive (%d)"
+#~ msgstr "Passés (%d)"
+# @ events
+#, fuzzy
+#~ msgid ""
+#~ "<strong>Start:</strong> <span class=\"dtstart\">%s</span> (all day event)"
+#~ "<br />"
+#~ msgstr "<dt>Début :</dt><dd>%s at %s</dd>"
+
+# @ events
+#, fuzzy
+#~ msgid ""
+#~ "<strong>End:</strong> <span class=\"dtend\">%s</span> (all day event)<br /"
+#~ ">"
+#~ msgstr "<dt>Fin :</dt><dd>%s at %s</dd>"
+
+# @ events
+#, fuzzy
+#~ msgid ""
+#~ "<strong>Start:</strong> <span class=\"dtstart\">%s</span> at %s<br />"
+#~ msgstr "<dt>Début :</dt><dd>%s at %s</dd>"
+
+# @ events
+#, fuzzy
+#~ msgid "<strong>End:</strong> <span class=\"dtend\">%s</span> at %s<br />"
+#~ msgstr "<dt>Fin :</dt><dd>%s at %s</dd>"
+
+# @ events
+#, fuzzy
+#~ msgid "<strong>Timezone:</strong> <span class=\"timezone\">%s</span><br />"
+#~ msgstr "<dt>Fin :</dt><dd>%s at %s</dd>"
+
+# @ events
+#, fuzzy
+#~ msgid "<strong>Category:</strong> <span class=\"category\">%s</span><br />"
+#~ msgstr "<dt>Catégorie :</dt><dd>%s</dd>"
+
+# @ events
+#, fuzzy
+#~ msgid ""
+#~ "<div id=\"map-content\">%s<p style=\"float:left;padding-left:15px;"
+#~ "\"><strong><a href=\"%s\">%s</a></strong><br />%s %s %s<strong>Venue:</"
+#~ "strong> %s %s %s</p><div style=\"padding-left:70px;float;left;clear:both;"
+#~ "\"><strong>Description:</strong> %s</div></div>"
+#~ msgstr ""
+#~ "<div id=\"map-content\"><img src=\"%s\" alt=\"Image\" class=\"avatar\" /"
+#~ "><p style=\"float:left;padding-left:15px;\"><strong><a href=\"%s\">%s</"
+#~ "a></strong><br /><strong>Début :</strong> %s à %s<br /><strong>Fin :</"
+#~ "strong> %s à %s<br /><strong>Lieu :</strong> %s %s</p><div style="
+#~ "\"padding-left:70px;float;left;clear:both;\"><strong>Description :</"
+#~ "strong> %s</div></div>"
+
+# @ events
+#, fuzzy
+#~ msgid "Create PDF"
+#~ msgstr "Créer un évènement"
+
+# @ events
+#~ msgid "Get help for Buddyvents"
+#~ msgstr "Obtenir de l'aide"
+# @ events
+# @ buddypress
+#, fuzzy
+#~ msgid "RUSSIAN"
+#~ msgstr "RSS"
+
+# @ events
+#, fuzzy
+#~ msgid "Viewing member %1$s to %2$s (of %3$s members)"
+#~ msgstr "Évènements %1$s à %2$s (sur %3$s évènements)"
+
+# @ events
+#, fuzzy
+#~ msgid "Member avatar"
+#~ msgstr "Supprimer l'image"
+
+# @ events
+#, fuzzy
+#~ msgid "The file %s has to be larger than %dx%d px."
+#~ msgstr "Le fichier %s doit faire 150x150 pixels maximum"
+
+# @ events
+#~ msgid "Location: %s"
+#~ msgstr "Lieu : %s"
+# @ events
+#~ msgid "Start: %s at %s"
+#~ msgstr "Début : %s à %s"
+# @ events
+#~ msgid "%s - Latest Sitewide Events Feed"
+#~ msgstr "%s - Derniers évènements de tous les sites"
+# @ events
+#, fuzzy
+#~ msgid "%s - Latest Events Timezone Feed"
+#~ msgstr "%s - Derniers évènements"
+
+# @ events
+#, fuzzy
+#~ msgid "%s - Latest Timezone Events Feed"
+#~ msgstr "%s - Derniers évènements de tous les sites"
+
+# @ events
+#, fuzzy
+#~ msgid "%s - Latest Category Events Feed"
+#~ msgstr "%s - Derniers évènements"
+
+# @ events
+#, fuzzy
+#~ msgid "%s - Latest Venue Events Feed"
+#~ msgstr "%s - Derniers évènements de tous les sites"
+
+# @ events
+#~ msgid "Kilometers"
+#~ msgstr "Kilomètres"
+# @ events
+#, fuzzy
+#~ msgid "Miles"
+#~ msgstr "Mobile"
+
+# @ events
+#, fuzzy
+#~ msgid "Keywords"
+#~ msgstr "* Mots-clé"
+
+# @ dpa
+#, fuzzy
+#~ msgid "Other Notes"
+#~ msgstr "Autre"
+
+# @ events
+#, fuzzy
+#~ msgid "The event could not be deleted. Please try again."
+#~ msgstr "Votre évènement n'a pas pu être supprimé. Veuillez réessayer SVP."
+
+# @ events
+#, fuzzy
+#~ msgid "All Day Event"
+#~ msgstr "Publier l'évènement"
+
+# @ events
+#~ msgid "Image"
+#~ msgstr "Image"
+# @ events
+#, fuzzy
+#~ msgid "Limit attendees"
+#~ msgstr "Participants"
+
+# @ events
+#~ msgid "attendees"
+#~ msgstr "participants"
+# @ events
+#, fuzzy
+#~ msgid "Recurrence interval"
+#~ msgstr "Est-ce un évènement récurrent ?"
+
+# @ events
+#, fuzzy
+#~ msgid "No members are attending this event right now."
+#~ msgstr "Vous participerez à cet évènement."
+
+# @ events
+#~ msgid "Existing attendees will be contacted if any changes have been made."
+#~ msgstr "Les participants seront prévenus si vous éffectuez des changements."
+# @ buddypress
+#~ msgid "Sorry, no members were found."
+#~ msgstr "Aucun membre à afficher."
+# @ events
+#, fuzzy
+#~ msgid "Event avatar"
+#~ msgstr "Image de l'évènement"
+
+# @ events
+#~ msgid "Delete Avatar"
+#~ msgstr "Supprimer l'image"
+# @ events
+#~ msgid "Existing Image:"
+#~ msgstr "Image :"
+# @ events
+#~ msgid "<dt>Start:</dt><dd>%s at %s</dd>"
+#~ msgstr "<dt>Début :</dt><dd>%s at %s</dd>"
+# @ events
+#~ msgid "<dt>End:</dt><dd>%s at %s</dd>"
+#~ msgstr "<dt>Fin :</dt><dd>%s at %s</dd>"
+# @ events
+#~ msgid "Delete this event"
+#~ msgstr "Supprimer cet évènement"
+# @ events
+#, fuzzy
+#~ msgid "Invite Friends"
+#~ msgstr "Invitez vos contacts"

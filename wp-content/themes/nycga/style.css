@@ -9,12 +9,13 @@ Tags: buddypress, multi-site
 */
 
 @import url('events.css');
+@import url('css/type.css');
 
 /****** Global Elements *****************************/
 
 body {
 	background:white;
-	font-family:'helvetica neue', 'lucida grande', arial, sans;
+	font-family:'helvetica neue', 'helvetica', arial, sans-serif;
 }
 
 a {
@@ -54,6 +55,37 @@ div#container {
     overflow: hidden;
     position: relative;
     width: 99.2%;
+}
+
+div#header {
+	background-image: none;
+	background-color: white;
+	margin-top: -30px;
+}
+
+div#header h1 {
+	float: none;
+}
+
+div#header h1 a,
+div#header h2 a {
+	color: #000;
+}
+
+div#header h1 a {
+	font-size: 1.5em;
+}
+
+div#header h2 {
+	font-size: 1em;
+	display: block;
+}
+div#header h2 a {
+	font-size: 1.75em;
+}
+
+div#header h1#logo {
+	text-indent: 0;
 }
 
 /********* like and delete buttons *********/
@@ -347,7 +379,8 @@ text-shadow: 1px 1px 0 #EEE;
 		background: -o-linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* Opera 11.10+ */
 		background: -ms-linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* IE10+ */
 		background: linear-gradient(top,  #ffcc00 0%,#ffcc33 100%); /* W3C */
-		margin: 90px 0 0 0; /* IE6-9 */
+		/* margin: 90px 0 0 0; */ /* IE6-9 */
+		margin: 0;
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#ffcc33',GradientType=0 ); /* IE6-9 */
 }
 
@@ -371,7 +404,8 @@ text-shadow: 1px 1px 0 #EEE;
 #nav li a {
 	text-transform: uppercase;
 	font-size: 11px;
-	font-weight:bold;
+	font-family: OSWALD, sans-serif;
+	/* font-weight:bold; */
 	background: #ffcc00; /* Old browsers */
 		background: -moz-linear-gradient(top,  #ffcc00 0%, #ffcc33 100%); /* FF3.6+ */
 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(100%,#ffcc33)); /* Chrome,Safari4+ */
@@ -484,6 +518,11 @@ div.item-list-tabs ul li a, div.item-list-tabs ul li span {
 	display: block;
 	padding: 5px 10px;
 	text-decoration: none;
+}
+
+div#bbpress-forums div.bbp-template-notice {
+	background-color: #efefef;
+	border: 1px solid #ccc;
 }
 
 /*********** Activity Stream ***********/
@@ -1097,18 +1136,19 @@ font-weight:bold;
 
 /************ jQuery Group Description toggler + Solidarity Principles toggler **************/
 
+/*
 #desc-container {
 	position:relative;
 }
+*/
 #top-group-desc {
-	display:none;
+	display:block;
 }
 
 #top-group-desc-excerpt {
-	display:block;
+	display:none;
 }
 #principles-solidarity-text {
-	display:none;
 }
 
 
