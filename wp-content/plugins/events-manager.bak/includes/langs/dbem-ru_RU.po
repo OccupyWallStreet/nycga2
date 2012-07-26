@@ -1,0 +1,4678 @@
+# Copyright (C) 2010 Events Manager
+# This file is distributed under the same license as the Events Manager package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Events Manager 4.0.83\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/events-manager\n"
+"POT-Creation-Date: 2011-06-28 08:06:36+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2011-07-01 \n"
+"Last-Translator: aa <aa@domain.com>\n"
+"Language-Team:  <>\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+
+#: buddypress/bp-em-activity.php:67
+msgid "%s added the event %s"
+msgstr "%s. добавил событием %s."
+
+#: buddypress/bp-em-activity.php:89
+msgid "%s is attending %s."
+msgstr "%s. посещающих %s."
+
+#: buddypress/bp-em-activity.php:91
+msgid "%s will not be attending %s anymore."
+msgstr "%s не будет присутствовать %s. больше."
+
+#: buddypress/bp-em-admin.php:33
+msgid "Events Admin"
+msgstr "События Администратор"
+
+#: buddypress/bp-em-admin.php:36
+msgid "Settings Updated."
+msgstr "Настройки обновления."
+
+#: buddypress/bp-em-admin.php:42
+msgid "Option One"
+msgstr "Вариант один"
+
+#: buddypress/bp-em-admin.php:47
+msgid "Option Two"
+msgstr "Вариант второй"
+
+#: buddypress/bp-em-admin.php:54 buddypress/screens/settings.php:46
+msgid "Save Settings"
+msgstr "Сохранить настройки"
+
+#: buddypress/bp-em-notifications.php:44 buddypress/screens/profile.php:27
+#: buddypress/bp-em-core.php:55 buddypress/bp-em-core.php:117
+#: buddypress/bp-em-core.php:128 events-manager.php:319
+#: em-template-tags.php:74 em-actions.php:107 em-install.php:301
+#: em-install.php:344 em-install.php:381 em-install.php:382 em-install.php:388
+#: em-install.php:408 em-install.php:508 widgets/em-events.php:13
+#: admin/em-options.php:303
+msgid "Events"
+msgstr "События"
+
+#: buddypress/bp-em-notifications.php:45 em-functions.php:436
+#: admin/em-options.php:408
+msgid "Yes"
+msgstr "Да"
+
+#: buddypress/bp-em-notifications.php:46 em-functions.php:437
+#: admin/em-options.php:409
+msgid "No"
+msgstr "Нет"
+
+#: buddypress/bp-em-notifications.php:50
+msgid "Action One"
+msgstr "Действие Один"
+
+#: buddypress/bp-em-notifications.php:56
+msgid "Action Two"
+msgstr "Действие два"
+
+#: buddypress/bp-em-notifications.php:87 buddypress/bp-em-notifications.php:89
+#: buddypress/bp-em-notifications.php:96 buddypress/bp-em-notifications.php:98
+#: buddypress/bp-em-notifications.php:104
+#: buddypress/bp-em-notifications.php:106 em-install.php:456
+msgid "My Bookings"
+msgstr "Мои Заказы"
+
+#: buddypress/bp-em-notifications.php:87
+msgid "You have a pending booking"
+msgstr "Вы в ожидании заказа"
+
+#: buddypress/bp-em-notifications.php:89
+msgid "You have %s pending bookings"
+msgstr "Вы в ожидании заказов %s."
+
+#: buddypress/bp-em-notifications.php:96
+msgid "You have a confirmed booking"
+msgstr "У вас есть подтвержденное бронирование"
+
+#: buddypress/bp-em-notifications.php:98
+msgid "You have %s confirmed bookings"
+msgstr "Вы подтвердили заказ %s."
+
+#: buddypress/bp-em-notifications.php:104
+msgid "A user cancelled a booking"
+msgstr "Пользователь отменил бронирование"
+
+#: buddypress/bp-em-notifications.php:106
+msgid "%s users cancelled bookings."
+msgstr "%s Пользователей с отменил заказ."
+
+#: buddypress/screens/my-bookings.php:32 buddypress/bp-em-core.php:106
+msgid "My Event Bookings"
+msgstr "Мои резервации события"
+
+#: buddypress/screens/profile.php:11
+msgid ""
+"You are currently viewing your public page, this is what other users will "
+"see."
+msgstr ""
+"Вы просматриваете вашу общедоступную страницу, это то, что другие "
+"пользователи будут видеть."
+
+#: buddypress/screens/profile.php:34 buddypress/screens/my-events.php:40
+#: buddypress/bp-em-core.php:86
+msgid "My Events"
+msgstr "Мои события"
+
+#: buddypress/screens/profile.php:47 templates/buddypress/group-events.php:35
+#: templates/buddypress/my-group-events.php:35 em-install.php:463
+msgid "No Events"
+msgstr "Нет событий"
+
+#: buddypress/screens/profile.php:51 buddypress/screens/attending.php:23
+#: buddypress/bp-em-core.php:76
+msgid "Events I'm Attending"
+msgstr "События я Посещение"
+
+#: buddypress/screens/settings.php:26
+msgid "Events Settings Header"
+msgstr "События Настройки заголовков"
+
+#: buddypress/screens/settings.php:30
+msgid "Events Settings"
+msgstr "События Настройки"
+
+#: buddypress/screens/settings.php:38
+msgid "Changes Saved."
+msgstr "Изменения сохранены."
+
+#: buddypress/screens/settings.php:44
+msgid "Do you love clicking checkboxes?"
+msgstr "Вы любите нажав флажки?"
+
+#: buddypress/screens/group-events.php:17
+#: buddypress/screens/my-group-events.php:17
+msgid "Group Events"
+msgstr "Группа событий"
+
+#: buddypress/screens/my-events.php:54 templates/forms/event-editor.php:15
+#: admin/em-event.php:25
+msgid "Edit Event"
+msgstr "Редактировать событие"
+
+#: buddypress/screens/my-events.php:56
+msgid "Add Event"
+msgstr "Добавить событие"
+
+#: buddypress/screens/my-locations.php:47 buddypress/bp-em-core.php:96
+msgid "My Locations"
+msgstr "Мои Места"
+
+#: buddypress/screens/my-locations.php:61
+msgid "Edit Location"
+msgstr "Изменение местонахождения"
+
+#: buddypress/screens/my-locations.php:63
+msgid "Add Location"
+msgstr "Добавить местоположение"
+
+#: buddypress/bp-em-core.php:66
+msgid "My Profile"
+msgstr "Мой профиль"
+
+#: buddypress/bp-em-core.php:149
+msgid "Events (%s)"
+msgstr "События (%s)"
+
+#: buddypress/bp-em-core.php:179 classes/em-event.php:793
+#: templates/forms/event-editor.php:367 events-manager.php:322
+#: admin/em-event.php:573
+msgid "Edit"
+msgstr "Редактировать"
+
+#: buddypress/bp-em-core.php:179 classes/em-event.php:553
+#: classes/em-event.php:793 templates/forms/event-editor.php:6
+#: em-actions.php:107 em-install.php:348 em-install.php:373
+#: admin/em-event.php:14 admin/bookings/em-events.php:101
+#: admin/em-options.php:312
+msgid "Event"
+msgstr "Событие"
+
+#: classes/em-booking.php:96 classes/em-event.php:207
+#: templates/buddypress/my-events.php:41
+#: templates/buddypress/my-events.php:118 admin/bookings/em-events.php:136
+#: admin/em-events.php:66 admin/em-events.php:166
+msgid "Pending"
+msgstr "В ожидании"
+
+#: classes/em-booking.php:97 classes/em-event.php:208 admin/em-events.php:65
+msgid "Approved"
+msgstr "Утвержденный"
+
+#: classes/em-booking.php:98
+msgid "Rejected"
+msgstr "Отклонен"
+
+#: classes/em-booking.php:99 em-actions.php:354
+msgid "Cancelled"
+msgstr "Отменено"
+
+#: classes/em-booking.php:100
+msgid "Awaiting Online Payment"
+msgstr "Ожидающие Оплата онлайн"
+
+#: classes/em-booking.php:101
+msgid "Awaiting Payment"
+msgstr "Ожидают оплаты"
+
+#: classes/em-booking.php:125 classes/em-ticket.php:101
+#: classes/em-ticket-booking.php:67
+msgid "Changes saved"
+msgstr "Изменения сохранены"
+
+#: classes/em-booking.php:130
+msgid "Your booking has been recorded"
+msgstr "Ваш заказ был зарегистрирован"
+
+#: classes/em-booking.php:133 classes/em-booking.php:134
+#: classes/em-booking.php:143 classes/em-booking.php:152
+#: classes/em-booking.php:158 classes/em-tickets-bookings.php:69
+#: classes/em-tickets-bookings.php:70
+msgid "There was a problem saving the booking."
+msgstr "Существовал проблема экономии бронирования."
+
+#: classes/em-booking.php:154 classes/em-booking.php:160
+msgid "You cannot manage this %s."
+msgstr "Вы не можете справиться с этим %s."
+
+#: classes/em-booking.php:154 classes/em-booking.php:160
+#: classes/em-booking.php:370 classes/em-booking.php:372
+#: classes/em-tickets-bookings.php:141 classes/em-bookings.php:106
+msgid "Booking"
+msgstr "Бронирование"
+
+#: classes/em-booking.php:210
+msgid "You are trying to book a non-existent ticket for this event."
+msgstr "Вы пытаетесь книги несуществующих билетов на это мероприятие."
+
+#: classes/em-booking.php:231
+msgid "You must request at least one space to book an event."
+msgstr ""
+"Вы должны запросить по меньшей мере одного пространства в книге события."
+
+#: classes/em-booking.php:370
+msgid "%s deleted"
+msgstr "%s. удален"
+
+#: classes/em-booking.php:372
+msgid "%s could not be deleted"
+msgstr "%s не может быть удален"
+
+#: classes/em-booking.php:416
+msgid "Not approved, spaces full."
+msgstr "Не утверждены, пространства полном объеме."
+
+#: classes/em-booking.php:424
+msgid "Booking %s."
+msgstr "Бронирование %s."
+
+#: classes/em-booking.php:427
+msgid "Mail Sent."
+msgstr "Отправлено почты."
+
+#: classes/em-booking.php:430 classes/em-booking.php:431
+msgid "ERROR : Mail Not Sent."
+msgstr "ОШИБКА: почта не отправляется."
+
+#: classes/em-booking.php:437 classes/em-booking.php:438
+#: classes/em-event.php:535
+msgid "Booking could not be %s."
+msgstr "Заказ не может быть %s."
+
+#: classes/em-booking.php:453
+msgid "Booking note successfully added."
+msgstr "Бронирование отметить успешно добавлен."
+
+#: classes/em-booking.php:538
+msgid ""
+"Confirmation email could not be sent to contact person. Registrant should "
+"have gotten their email (only admin see this warning)."
+msgstr ""
+"Подтверждение электронной почты не может быть отправлен на контактное лицо. "
+"Регистрант должны были получить свою электронную почту (только админ это "
+"предупреждение)."
+
+#: classes/em-booking.php:545
+msgid ""
+"Confirmation email could not be sent to admin. Registrant should have gotten "
+"their email (only admin see this warning)."
+msgstr ""
+"Подтверждение электронной почты не может быть отправлено администратору. "
+"Регистрант должны были получить свою электронную почту (только админ это "
+"предупреждение)."
+
+#: classes/em-tickets-bookings.php:91 classes/em-bookings.php:89
+msgid "Booking cannot be made, not enough spaces available!"
+msgstr "Заказ не может быть, не хватает пространства в продаже!"
+
+#: classes/em-tickets-bookings.php:141 templates/forms/event-editor.php:6
+#: templates/forms/location-editor.php:7 admin/em-event.php:14
+msgid "You do not have the rights to manage this %s."
+msgstr "У вас нет прав на управление этим %s."
+
+#: classes/em-tickets-bookings.php:169 classes/em-tickets.php:130
+msgid "Standard"
+msgstr "Стандарт"
+
+#: classes/em-object.php:731
+msgid "However, the image could not be saved."
+msgstr "Тем не менее, изображение не может быть сохранен."
+
+#: classes/em-object.php:733
+msgid "The image could not be saved"
+msgstr "Изображение не может быть сохранен"
+
+#: classes/em-object.php:737
+msgid "However, the image could not be saved:"
+msgstr "Тем не менее, изображение не может быть сохранено:"
+
+#: classes/em-object.php:754
+msgid "The image file is too big! Maximum size:"
+msgstr "Графический файл слишком большой! Максимальный размер:"
+
+#: classes/em-object.php:759
+msgid "The image is too big! Maximum size allowed:"
+msgstr "Изображение слишком большой! Максимально допустимый размер:"
+
+#: classes/em-object.php:762
+msgid "The image is in a wrong format!"
+msgstr "Изображение находится в неправильном формате!"
+
+#: classes/em-categories.php:206 classes/em-location.php:144
+#: classes/em-location.php:152
+msgid "Could not save the %s details due to a database error."
+msgstr "Невозможно сохранить детали %s из-за ошибки базы данных."
+
+#: classes/em-categories.php:206 admin/em-options.php:377
+#: admin/em-options.php:378
+msgid "category"
+msgstr "категория"
+
+#: classes/em-tickets.php:104
+msgid ""
+"You cannot delete tickets if there are any bookings associated with them. "
+"Please delete these bookings first."
+msgstr ""
+"Вы не можете удалять билеты, если Есть любые заказы, связанные с ними. "
+"Пожалуйста, удалите эти заказы в первую очередь."
+
+#: classes/em-event.php:213
+msgid "WARNING: This is a recurring event."
+msgstr "ПРЕДУПРЕЖДЕНИЕ: Это повторяющееся событие."
+
+#: classes/em-event.php:213
+msgid ""
+"Modifications to this event will cause all recurrences of this event to be "
+"deleted and recreated and previous bookings will be deleted! You can edit "
+"individual recurrences and disassociate them with this recurring event."
+msgstr ""
+"Изменения к этому событию будет вызывать всех рецидивов этого мероприятия, "
+"которое будет удалить и создать заново и предыдущие заказы будут удалены! Вы "
+"можете редактировать отдельные рецидивы и разъединить их с этого "
+"повторяющегося события."
+
+#: classes/em-event.php:215
+msgid "WARNING: This is a recurrence in a set of recurring events."
+msgstr "ПРЕДУПРЕЖДЕНИЕ: Это повторение в набор повторяющихся событий."
+
+#: classes/em-event.php:215
+msgid ""
+"If you update this event data and save, it will become an independent event, "
+"and will not be deleted or modified automatically if you reschedule the "
+"original recurring event details."
+msgstr ""
+"При изменении значения данного события данные и сохранить, он станет "
+"независимым событием, и не будут удалены или изменены автоматически, если вы "
+"перенести оригинальные детали повторяющиеся события."
+
+#: classes/em-event.php:218
+msgid ""
+"WARNING: This is a event belonging to the group \"%s\". Other group admins "
+"can also modify this event."
+msgstr ""
+"ПРЕДУПРЕЖДЕНИЕ: Это событие принадлежащие к группе \"%s\". Другие "
+"администраторы группы также можете изменить это событие."
+
+#: classes/em-event.php:339
+msgid "There was a problem saving the location so event was not saved."
+msgstr "Существовал проблема экономии места таким событием не был сохранен."
+
+#: classes/em-event.php:380 classes/em-event.php:431
+msgid "Something went wrong with creating tickets."
+msgstr "Что-то пошло не так с созданием билетов."
+
+#: classes/em-event.php:392 classes/em-event.php:442
+msgid "Something went wrong with the recurrence update..."
+msgstr "Что-то пошло не так с повторения обновления ..."
+
+#: classes/em-event.php:393 classes/em-event.php:443
+msgid "There was a problem saving the recurring events."
+msgstr "Существовал проблема экономии повторяющихся событий."
+
+#: classes/em-event.php:398
+msgid "New recurrent event inserted!"
+msgstr "Новые повторяющееся вставлен!"
+
+#: classes/em-event.php:402
+msgid "New event successfully inserted!"
+msgstr "Новая дата успешно добавлены!"
+
+#: classes/em-event.php:405 classes/em-event.php:450
+msgid "Could not save the event details due to a database error."
+msgstr "Невозможно сохранить сведения о мероприятии из-за ошибки базы данных."
+
+#: classes/em-event.php:429 classes/em-event.php:454
+msgid "updated"
+msgstr "обновленный"
+
+#: classes/em-event.php:446
+msgid "Recurrence updated!"
+msgstr "Повторение обновлен!"
+
+#: classes/em-event.php:531
+msgid "Event %s."
+msgstr "Событие %s."
+
+#: classes/em-event.php:553
+msgid "%s successfully duplicated."
+msgstr "%s успешно дублированы."
+
+#: classes/em-event.php:557
+msgid "You are not allowed to manage this %s."
+msgstr "Вы не можете справиться с этим %s."
+
+#: classes/em-event.php:557 em-actions.php:93
+msgid "event"
+msgstr "событие"
+
+#: classes/em-event.php:578 classes/em-ticket.php:159
+#: classes/em-ticket-booking.php:102
+msgid "Missing fields: "
+msgstr "Отсутствие поля:"
+
+#: classes/em-event.php:581
+msgid "Since the event is repeated, you must specify an event date."
+msgstr "Так как событие повторяется, необходимо указать дату события."
+
+#: classes/em-event.php:585
+msgid "Events cannot start after they end."
+msgstr "События не может начаться после того конца."
+
+#: classes/em-event.php:588
+msgid ""
+"Dates must have correct formatting. Please use the date picker provided."
+msgstr ""
+"Даты должны иметь правильное форматирование. Пожалуйста, используйте при "
+"условии выбора даты."
+
+#: classes/em-event.php:866 templates/placeholders/bookingform.php:57
+#: templates/placeholders/bookingform.php:86 em-bookings.php:129
+#: em-bookings.php:151
+msgid "N/A"
+msgstr "N / A"
+
+#: classes/em-event.php:876 classes/em-event.php:885
+msgid "Profile"
+msgstr "Профиль"
+
+#: classes/em-event.php:1239 templates/forms/event-editor.php:120
+msgid "Sunday"
+msgstr "Воскресенье"
+
+#: classes/em-event.php:1239 templates/forms/event-editor.php:120
+msgid "Monday"
+msgstr "Понедельник"
+
+#: classes/em-event.php:1239 templates/forms/event-editor.php:120
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: classes/em-event.php:1239 templates/forms/event-editor.php:120
+msgid "Wednesday"
+msgstr "Среда"
+
+#: classes/em-event.php:1239 templates/forms/event-editor.php:120
+msgid "Thursday"
+msgstr "Четверг"
+
+#: classes/em-event.php:1239 templates/forms/event-editor.php:120
+msgid "Friday"
+msgstr "Пятница"
+
+#: classes/em-event.php:1239 templates/forms/event-editor.php:120
+msgid "Saturday"
+msgstr "Суббота"
+
+#: classes/em-event.php:1240
+msgid "the first %s of the month"
+msgstr "первого %s месяцев"
+
+#: classes/em-event.php:1240
+msgid "the second %s of the month"
+msgstr "вторая %s месяцев"
+
+#: classes/em-event.php:1240
+msgid "the third %s of the month"
+msgstr "третий %s месяцев"
+
+#: classes/em-event.php:1240
+msgid "the fourth %s of the month"
+msgstr "четвертый %s месяцев"
+
+#: classes/em-event.php:1240
+msgid "the last %s of the month"
+msgstr "последние %s месяцев"
+
+#: classes/em-event.php:1241
+msgid "From %1$s to %2$s"
+msgstr "С %1$S к %2$s."
+
+#: classes/em-event.php:1243
+msgid "everyday"
+msgstr "повседневный"
+
+#: classes/em-event.php:1245
+msgid "every %s days"
+msgstr "каждый %s. дней"
+
+#: classes/em-event.php:1254
+msgid "every week"
+msgstr "Каждую неделю"
+
+#: classes/em-event.php:1256
+msgid "every %s weeks"
+msgstr "каждый %s. недели"
+
+#: classes/em-event.php:1267
+msgid "every %s months"
+msgstr "каждый %s. месяцев"
+
+#: classes/em-bookings.php:69
+msgid ""
+"Booking successful, pending confirmation (you will also receive an email "
+"once confirmed)."
+msgstr ""
+"Бронирование успешным, при условии подтверждения (вы также получите "
+"электронной почте после подтверждения)."
+
+#: classes/em-bookings.php:71
+msgid "Booking successful."
+msgstr "Бронирование успешным."
+
+#: classes/em-bookings.php:74
+msgid ""
+"However, there were some problems whilst sending confirmation emails to you "
+"and/or the event contact person. You may want to contact them directly and "
+"letting them know of this error."
+msgstr ""
+"Однако, были некоторые проблемы, в то время подтверждения отправки письма на "
+"вас и / или лицо, событие контакта. Вы можете связаться с ними напрямую и "
+"давая им знать, этой ошибки."
+
+#: classes/em-bookings.php:86
+msgid "Booking could not be created"
+msgstr "Заказ не может быть создан"
+
+#: classes/em-bookings.php:106
+msgid "%s created."
+msgstr "%s. создан."
+
+#: classes/em-bookings.php:249 classes/em-bookings.php:255
+msgid "Bookings %s. Mails Sent."
+msgstr "Бронирование %s. Письма, посланные."
+
+#: classes/em-bookings.php:259
+msgid "An error occurred."
+msgstr "Произошла ошибка."
+
+#: classes/em-bookings.php:528
+msgid "Booking details for \"%s\" as of %s"
+msgstr "Бронирование детали для \"% S\" по состоянию на %s."
+
+#: classes/em-ticket.php:51
+msgid "Standard Ticket"
+msgstr "Стандартный билет"
+
+#: classes/em-ticket.php:106
+msgid "Ticket created"
+msgstr "Билет создана"
+
+#: classes/em-ticket.php:109 classes/em-ticket.php:110
+#: classes/em-ticket.php:114 classes/em-ticket.php:115
+msgid "There was a problem saving the ticket."
+msgstr "Существовал проблема экономии билет."
+
+#: classes/em-ticket.php:276
+msgid "You cannot delete a ticket that has a booking on it."
+msgstr "Вы не можете удалять билет, который имеет бронирования на нем."
+
+#: classes/em-ticket-booking.php:72
+msgid "Ticket booking created"
+msgstr "Заказ билетов создана"
+
+#: classes/em-ticket-booking.php:75 classes/em-ticket-booking.php:76
+#: classes/em-ticket-booking.php:80 classes/em-ticket-booking.php:81
+msgid "There was a problem saving the ticket booking."
+msgstr "Существовал проблема экономии бронирование билетов."
+
+#: classes/em-mailer.php:67
+msgid "Please supply a valid email format."
+msgstr "Пожалуйста, укажите правильный формат электронной почты."
+
+#: classes/em-people.php:81
+msgid "User deleted by administrators"
+msgstr "Пользователь удален администраторами"
+
+#: classes/em-person.php:60 templates/buddypress/group-events.php:12
+#: templates/buddypress/my-events.php:73
+#: templates/buddypress/my-locations.php:53
+#: templates/buddypress/my-locations.php:62
+#: templates/buddypress/my-group-events.php:12
+#: templates/forms/tickets-form.php:4
+#: templates/placeholders/bookingform.php:98 admin/em-categories.php:72
+#: admin/em-categories.php:79 admin/em-locations.php:78
+#: admin/em-locations.php:88 admin/em-event.php:291 admin/em-bookings.php:180
+#: admin/em-bookings.php:240 admin/em-people.php:30 admin/em-events.php:121
+msgid "Name"
+msgstr "Имя"
+
+#: classes/em-person.php:61
+msgid "Email"
+msgstr "Email"
+
+#: classes/em-person.php:62 templates/placeholders/bookingform.php:102
+#: admin/em-people.php:72
+msgid "Phone"
+msgstr "Телефон"
+
+#: classes/em-location.php:50
+msgid "The location name"
+msgstr "Название места"
+
+#: classes/em-location.php:50
+msgid "The location address"
+msgstr "Адрес местонахождения"
+
+#: classes/em-location.php:50
+msgid "The location town"
+msgstr "Расположение города"
+
+#: classes/em-location.php:50
+msgid "The country"
+msgstr "Страны"
+
+#: classes/em-location.php:111 classes/em-location.php:113
+#: classes/em-category.php:70
+msgid " is required."
+msgstr "не требуется."
+
+#: classes/em-location.php:142 classes/em-category.php:90
+msgid "%s successfully updated."
+msgstr "%s успешно обновлен."
+
+#: classes/em-location.php:142 classes/em-location.php:150
+#: classes/em-location.php:194 classes/em-location.php:196
+#: templates/buddypress/group-events.php:13
+#: templates/buddypress/my-events.php:75
+#: templates/buddypress/my-group-events.php:13
+#: templates/forms/location-editor.php:41 em-actions.php:169
+#: admin/em-locations.php:178 admin/em-locations.php:211
+#: admin/em-event.php:366 admin/em-bookings.php:135 admin/em-options.php:350
+#: admin/em-events.php:123
+msgid "Location"
+msgstr "Местоположение"
+
+#: classes/em-location.php:144 classes/em-location.php:152
+#: templates/forms/location-editor.php:7 admin/em-options.php:352
+#: admin/em-options.php:353
+msgid "location"
+msgstr "местоположение"
+
+#: classes/em-location.php:150 classes/em-category.php:96
+msgid "%s successfully added."
+msgstr "%s успешно добавлен."
+
+#: classes/em-location.php:157 classes/em-category.php:100
+msgid "You do not have permission to create/edit %s."
+msgstr "У вас нет разрешения на создание / редактирование %s."
+
+#: classes/em-location.php:157 classes/em-location.php:199
+#: events-manager.php:211 events-manager.php:212 events-manager.php:215
+#: events-manager.php:217 events-manager.php:219 admin/em-options.php:344
+#: admin/em-options.php:345 admin/em-options.php:346 admin/em-options.php:347
+#: admin/em-options.php:348
+msgid "locations"
+msgstr "местах"
+
+#: classes/em-location.php:194 em-actions.php:109
+msgid "%s successfully deleted."
+msgstr "%s успешно удалена."
+
+#: classes/em-location.php:196 em-actions.php:112
+msgid "%s could not be deleted."
+msgstr "%s не может быть удален."
+
+#: classes/em-location.php:199
+msgid "You do not have permission to delete %s."
+msgstr "У вас нет разрешения на удаление %s."
+
+#: classes/em-category.php:31
+msgid "The category name"
+msgstr "Имя категории"
+
+#: classes/em-category.php:90 classes/em-category.php:96
+#: templates/buddypress/my-events.php:136 em-actions.php:239
+#: admin/em-categories.php:166 admin/em-event.php:265 admin/em-options.php:375
+msgid "Category"
+msgstr "Категория"
+
+#: classes/em-category.php:100 events-manager.php:209 admin/em-options.php:369
+#: admin/em-options.php:370 admin/em-options.php:371 admin/em-options.php:372
+#: admin/em-options.php:373
+msgid "categories"
+msgstr "Категории"
+
+#: em-template-tags-depreciated.php:146
+msgid "Ach, some problems here:"
+msgstr "Ах, некоторые проблемы здесь:"
+
+#: templates/buddypress/group-events.php:14
+#: templates/buddypress/my-events.php:76
+#: templates/buddypress/my-group-events.php:14
+#: admin/bookings/em-events.php:102 admin/em-events.php:124
+msgid "Date and time"
+msgstr "Дата и время"
+
+#: templates/buddypress/group-events.php:25
+#: templates/buddypress/my-group-events.php:25
+msgid "edit"
+msgstr "редактировать"
+
+#: templates/buddypress/my-events.php:37
+#: templates/buddypress/my-locations.php:25 admin/em-categories.php:58
+#: admin/em-locations.php:42 admin/em-events.php:43
+msgid "Add New"
+msgstr "Добавить"
+
+#: templates/buddypress/my-events.php:39
+msgid "Upcoming"
+msgstr "Предстоящие"
+
+#: templates/buddypress/my-events.php:43 admin/bookings/em-events.php:29
+msgid "Past Events"
+msgstr "Прошедшие события"
+
+#: templates/buddypress/my-events.php:46 templates/buddypress/my-events.php:48
+#: templates/templates/events-search.php:10 admin/em-events.php:70
+#: admin/em-events.php:72
+msgid "Search Events"
+msgstr "Поиск событий"
+
+#: templates/buddypress/my-events.php:63 admin/bookings/em-events.php:91
+#: admin/em-events.php:111
+msgid "no events"
+msgstr "ни одного события"
+
+#: templates/buddypress/my-events.php:115 events-manager.php:325
+#: em-events.php:130 admin/em-events.php:163
+msgid "Bookings"
+msgstr "Бронирование"
+
+#: templates/buddypress/my-events.php:116 admin/em-people.php:48
+#: admin/em-events.php:164
+msgid "Booked"
+msgstr "Заказанный"
+
+#: templates/buddypress/my-events.php:124
+#: templates/buddypress/my-events.php:167
+#: templates/buddypress/my-events.php:169 templates/forms/event-editor.php:369
+#: admin/em-event.php:575 admin/bookings/em-rejected.php:113
+#: admin/bookings/em-pending.php:134 admin/bookings/em-cancelled.php:113
+#: admin/bookings/em-person.php:127 admin/bookings/em-confirmed.php:118
+#: admin/em-events.php:171 admin/em-events.php:203
+msgid "Delete"
+msgstr "Удалять"
+
+#: templates/buddypress/my-events.php:129 admin/em-events.php:178
+msgid "Duplicate this event"
+msgstr "Дублируйте этот случай"
+
+#: templates/buddypress/my-events.php:155
+#: templates/buddypress/my-events.php:166 templates/forms/event-editor.php:13
+#: templates/forms/event-editor.php:174 admin/em-event.php:23
+#: admin/em-event.php:145 admin/em-events.php:202
+msgid "Reschedule"
+msgstr "Перенос"
+
+#: templates/buddypress/my-events.php:162 admin/em-events.php:198
+msgid ""
+"WARNING! You will delete ALL recurrences of this event, including booking "
+"history associated with any event in this recurrence. To keep booking "
+"information, go to the relevant single event and save it to detach it from "
+"this recurrence series."
+msgstr ""
+"ВНИМАНИЕ! Вы удалите ВСЕ рецидивов этого события, в том числе бронирование "
+"истории, связанный с любым событием в этом повторение. Чтобы сохранить "
+"информацию о бронировании, перейдите на соответствующую одно событие и "
+"сохранить его на отделить ее от повторения этой серии."
+
+#: templates/buddypress/my-locations.php:27 em-events.php:130
+#: admin/em-locations.php:52
+msgid "My %s"
+msgstr "Моя %s."
+
+#: templates/buddypress/my-locations.php:27
+#: templates/buddypress/my-locations.php:30 events-manager.php:324
+#: em-actions.php:169 em-install.php:348 em-install.php:349
+#: admin/em-locations.php:41 admin/em-locations.php:52
+#: admin/em-locations.php:55 admin/em-options.php:342 admin/em-options.php:344
+#: admin/em-options.php:345 admin/em-options.php:346 admin/em-options.php:347
+#: admin/em-options.php:348
+msgid "Locations"
+msgstr "Страна"
+
+#: templates/buddypress/my-locations.php:30 admin/em-locations.php:55
+msgid "All %s"
+msgstr "Все %s."
+
+#: templates/buddypress/my-locations.php:37 admin/em-locations.php:62
+#: admin/bookings/em-rejected.php:49 admin/bookings/em-pending.php:64
+#: admin/bookings/em-cancelled.php:49 admin/bookings/em-person.php:51
+#: admin/bookings/em-confirmed.php:50 admin/bookings/em-events.php:57
+#: admin/em-events.php:78
+msgid "Bulk Actions"
+msgstr "Массовые действия"
+
+#: templates/buddypress/my-locations.php:38 admin/em-locations.php:63
+#: admin/bookings/em-events.php:58 admin/em-events.php:79
+msgid "Delete selected"
+msgstr "Удалить выбранные"
+
+#: templates/buddypress/my-locations.php:40 admin/em-locations.php:65
+#: admin/bookings/em-events.php:60 admin/em-events.php:81
+msgid "Apply"
+msgstr "Применять"
+
+#: templates/buddypress/my-locations.php:54
+#: templates/buddypress/my-locations.php:63 admin/em-locations.php:79
+#: admin/em-locations.php:89
+msgid "Address"
+msgstr "Адрес"
+
+#: templates/buddypress/my-locations.php:55
+#: templates/buddypress/my-locations.php:64 admin/em-locations.php:81
+#: admin/em-locations.php:91
+msgid "State"
+msgstr "Состояние"
+
+#: templates/buddypress/my-locations.php:56
+#: templates/buddypress/my-locations.php:65 admin/em-locations.php:82
+#: admin/em-locations.php:92
+msgid "Country"
+msgstr "Страна"
+
+#: templates/buddypress/my-locations.php:85 admin/em-locations.php:113
+msgid "No venues have been inserted yet!"
+msgstr "Нет места были вставлены еще!"
+
+#: templates/templates/my-bookings.php:73
+msgid "Are you sure you want to cancel your booking?"
+msgstr "Вы уверены, что хотите отменить свой заказ?"
+
+#: templates/templates/my-bookings.php:73
+msgid "Cancel"
+msgstr "Отменить"
+
+#: templates/templates/my-bookings.php:85
+msgid "You do not have any bookings."
+msgstr "У вас нет какой-либо заказы."
+
+#: templates/templates/my-bookings.php:95
+msgid "Please <a href=\"%s\">Log In</a> to view your bookings."
+msgstr "Пожалуйста, <a href=\"%s\">Войдите</a> для просмотра заказов."
+
+#: templates/templates/map-global.php:15
+#: templates/placeholders/locationmap.php:15
+msgid "Loading Map...."
+msgstr "Загрузка карты ...."
+
+#: templates/templates/events-search.php:31
+msgid "All Categories"
+msgstr "Все категории"
+
+#: templates/templates/events-search.php:39
+msgid "All Countries"
+msgstr "Все страны"
+
+#: templates/templates/events-search.php:53 em-actions.php:452
+msgid "All Regions"
+msgstr "Все регионы"
+
+#: templates/templates/events-search.php:70 em-actions.php:429
+msgid "All States"
+msgstr "Все государства"
+
+#: templates/templates/events-search.php:88
+#: templates/templates/events-search.php:138 admin/bookings/em-rejected.php:38
+#: admin/bookings/em-rejected.php:40 admin/bookings/em-pending.php:53
+#: admin/bookings/em-pending.php:55 admin/bookings/em-cancelled.php:38
+#: admin/bookings/em-cancelled.php:40 admin/bookings/em-person.php:40
+#: admin/bookings/em-person.php:42 admin/bookings/em-confirmed.php:39
+#: admin/bookings/em-confirmed.php:41
+msgid "Search"
+msgstr "Поиск"
+
+#: templates/templates/events-search.php:94
+#: templates/templates/events-search.php:95
+#: templates/templates/events-search.php:109
+msgid "Loading..."
+msgstr "Загрузка ..."
+
+#: templates/templates/events-search.php:135
+msgid "Searching..."
+msgstr "Идет поиск ..."
+
+#: templates/templates/ical.php:9 widgets/em-calendar.php:13
+msgid "Calendar"
+msgstr "Календарь"
+
+#: templates/forms/event-editor.php:6 templates/forms/location-editor.php:7
+#: admin/em-categories.php:118 admin/em-locations.php:125
+#: admin/em-event.php:14 admin/em-bookings.php:107 admin/em-bookings.php:163
+#: admin/em-bookings.php:213 admin/em-bookings.php:351 admin/em-people.php:9
+msgid "Unauthorized Access"
+msgstr "Несанкционированный доступ"
+
+#: templates/forms/event-editor.php:19 admin/em-event.php:29
+msgid "Insert New Event"
+msgstr "Вставьте новое событие"
+
+#: templates/forms/event-editor.php:57 admin/em-bookings.php:126
+msgid "Event Name"
+msgstr "Имя события"
+
+#: templates/forms/event-editor.php:61 admin/em-event.php:296
+msgid "The event name. Example: Birthday party"
+msgstr "Имя события. Пример: День рождения"
+
+#: templates/forms/event-editor.php:87 admin/em-event.php:206
+msgid ""
+"Select a group you admin to attach this event to it. Note that all other "
+"admins of that group can modify the booking, and you will not be able to "
+"unattach the event without deleting it."
+msgstr ""
+"Выберите группу, которую администратор приложить это событие к нему. "
+"Обратите внимание, что все другие администраторов этой группы может изменить "
+"бронирование, и вы не сможете unattach событие, не удаляя его."
+
+#: templates/forms/event-editor.php:93
+msgid "When"
+msgstr "Когда"
+
+#: templates/forms/event-editor.php:96
+msgid "Starts on "
+msgstr "Начинается на"
+
+#: templates/forms/event-editor.php:99
+msgid "from"
+msgstr "от"
+
+#: templates/forms/event-editor.php:101 templates/forms/ticket-form.php:18
+msgid "to"
+msgstr "к"
+
+#: templates/forms/event-editor.php:103
+msgid "and ends on"
+msgstr "и заканчивается"
+
+#: templates/forms/event-editor.php:109
+msgid ""
+"This event spans every day between the beginning and end date, with start/"
+"end times applying to each day."
+msgstr ""
+"Это событие охватывает каждый день с начала и дата окончания, с начала / "
+"окончания часов движения в каждый день."
+
+#: templates/forms/event-editor.php:112
+msgid ""
+"For a recurring event, a one day event will be created on each recurring "
+"date within this date range."
+msgstr ""
+"Для повторяющееся событие, в один прекрасный день мероприятия будет создан "
+"на каждом повторяющиеся даты в пределах этого диапазона дат."
+
+#: templates/forms/event-editor.php:124
+msgid "This event repeats"
+msgstr "Это событие повторяется"
+
+#: templates/forms/event-editor.php:127 admin/em-event.php:95
+msgid "Daily"
+msgstr "Ежедневно"
+
+#: templates/forms/event-editor.php:127 admin/em-event.php:95
+msgid "Weekly"
+msgstr "Еженедельно"
+
+#: templates/forms/event-editor.php:127 admin/em-event.php:95
+msgid "Monthly"
+msgstr "Ежемесячно"
+
+#: templates/forms/event-editor.php:131
+msgid "every"
+msgstr "каждый"
+
+#: templates/forms/event-editor.php:134 admin/em-event.php:104
+msgid "day"
+msgstr "день"
+
+#: templates/forms/event-editor.php:136 admin/em-event.php:106
+msgid "days"
+msgstr "дней"
+
+#: templates/forms/event-editor.php:138
+msgid "week on"
+msgstr "неделю"
+
+#: templates/forms/event-editor.php:140
+msgid "weeks on"
+msgstr "недель"
+
+#: templates/forms/event-editor.php:142
+msgid "month on the"
+msgstr "месяц"
+
+#: templates/forms/event-editor.php:144
+msgid "months on the"
+msgstr "месяцев"
+
+#: templates/forms/event-editor.php:155 admin/em-event.php:127
+msgid "first"
+msgstr "первый"
+
+#: templates/forms/event-editor.php:155 admin/em-event.php:127
+msgid "second"
+msgstr "второй"
+
+#: templates/forms/event-editor.php:155 admin/em-event.php:127
+msgid "third"
+msgstr "треть"
+
+#: templates/forms/event-editor.php:155 admin/em-event.php:127
+msgid "fourth"
+msgstr "четвертый"
+
+#: templates/forms/event-editor.php:155 admin/em-event.php:127
+msgid "last"
+msgstr "последний"
+
+#: templates/forms/event-editor.php:162
+msgid "of each month"
+msgstr "числа каждого месяца"
+
+#: templates/forms/event-editor.php:167 admin/em-event.php:138
+msgid ""
+"Check if your event happens more than once according to a regular pattern"
+msgstr ""
+"Убедитесь, что ваше событие происходит несколько раз в соответствии с "
+"шаблоном регулярного"
+
+#: templates/forms/event-editor.php:179 admin/em-event.php:150
+msgid "This is't a recurrent event"
+msgstr "Это is&#39;t повторяющееся"
+
+#: templates/forms/event-editor.php:186
+msgid "Where"
+msgstr "Где"
+
+#: templates/forms/event-editor.php:210
+msgid "Choose from one of your locations"
+msgstr "Выберите один из ваших мест"
+
+#: templates/forms/event-editor.php:210
+msgid "or <a href=\"%s\">add a new location</a>"
+msgstr "или <a href=\"%s\">добавить новое место</a>"
+
+#: templates/forms/event-editor.php:214 templates/forms/location-editor.php:85
+#: admin/em-locations.php:262 admin/em-event.php:453
+msgid "Location not found"
+msgstr "Место не найден"
+
+#: templates/forms/event-editor.php:221 templates/forms/location-editor.php:95
+#: admin/em-categories.php:175 admin/em-locations.php:274
+#: admin/em-event.php:464
+msgid "Details"
+msgstr "Детали"
+
+#: templates/forms/event-editor.php:226
+msgid "Details about the event."
+msgstr "Подробности о мероприятии."
+
+#: templates/forms/event-editor.php:226
+msgid "HTML Allowed."
+msgstr "HTML разрешены."
+
+#: templates/forms/event-editor.php:233
+msgid "Category:"
+msgstr "Категория:"
+
+#: templates/forms/event-editor.php:262 admin/em-event.php:635
+msgid "No Value"
+msgstr "Нет значения"
+
+#: templates/forms/event-editor.php:282 admin/em-event.php:492
+msgid "Bookings/Registration"
+msgstr "Бронирование / Регистрация"
+
+#: templates/forms/event-editor.php:286 admin/em-event.php:498
+msgid "Enable registration for this event"
+msgstr "Включить регистрацию этого события"
+
+#: templates/forms/event-editor.php:288 admin/em-event.php:238
+msgid "manage bookings"
+msgstr "управлять заказов"
+
+#: templates/forms/event-editor.php:289 admin/em-event.php:239
+msgid "printable view"
+msgstr "версия для печати зрения"
+
+#: templates/forms/event-editor.php:290 admin/em-event.php:240
+#: admin/em-bookings.php:124
+msgid "export csv"
+msgstr "экспорт CSV"
+
+#: templates/forms/event-editor.php:307 admin/em-event.php:513
+msgid "Tickets"
+msgstr "Билеты"
+
+#: templates/forms/event-editor.php:308 admin/em-event.php:514
+msgid ""
+"You have single or multiple tickets, where certain tickets become availalble "
+"under certain conditions, e.g. early bookings, group discounts, maximum "
+"bookings per ticket, etc."
+msgstr ""
+"У вас есть один или несколько билетов, где определенные билеты стали "
+"availalble при определенных условиях, например, ранние бронирования, "
+"групповые скидки, максимальная заказов на билеты и т.д."
+
+#: templates/forms/event-editor.php:313 admin/em-event.php:519
+msgid "Ticket Name"
+msgstr "Билет Имя"
+
+#: templates/forms/event-editor.php:314 templates/forms/ticket-form.php:9
+#: templates/forms/tickets-form.php:6
+#: templates/placeholders/bookingform.php:40
+#: templates/placeholders/bookingform.php:76 em-bookings.php:115
+#: admin/em-event.php:520 admin/em-bookings.php:182 admin/em-bookings.php:276
+msgid "Price"
+msgstr "Цена"
+
+#: templates/forms/event-editor.php:315 admin/em-event.php:521
+msgid "Min/Max"
+msgstr "Мин / Макс"
+
+#: templates/forms/event-editor.php:316 admin/em-event.php:522
+msgid "Start/End"
+msgstr "Start / End"
+
+#: templates/forms/event-editor.php:317 admin/em-event.php:523
+msgid "Avail. Spaces"
+msgstr "Свободно. Пространства"
+
+#: templates/forms/event-editor.php:318 admin/em-event.php:524
+#: admin/bookings/em-events.php:134
+msgid "Booked Spaces"
+msgstr "Предупреждения Пространства"
+
+#: templates/forms/event-editor.php:325 admin/em-event.php:531
+msgid "Add new ticket"
+msgstr "Добавить новый билет"
+
+#: templates/forms/event-editor.php:338 admin/em-event.php:544
+msgid "Free"
+msgstr "Бесплатно"
+
+#: templates/forms/event-editor.php:371 admin/em-event.php:577
+msgid "View Bookings"
+msgstr "Посмотреть заказ"
+
+#: templates/forms/event-editor.php:403 admin/em-event.php:712
+msgid "Submit Event"
+msgstr "Добавить событие"
+
+#: templates/forms/event-editor.php:415 admin/em-event.php:733
+msgid ""
+"Are you sure you want to reschedule this recurring event? If you do this, "
+"you will lose all booking information and the old recurring events will be "
+"deleted."
+msgstr ""
+"Вы уверены, что хотите, чтобы перенести это повторяющееся событие? Если вы "
+"сделаете это, вы потеряете все бронирования информации и старые "
+"повторяющиеся события будут удалены."
+
+#: templates/forms/event-editor.php:424 admin/em-event.php:743
+msgid ""
+"Are you sure you want to disable bookings? If you do this and save, you will "
+"lose all previous bookings. If you wish to prevent further bookings, reduce "
+"the number of spaces available to the amount of bookings you currently have"
+msgstr ""
+"Вы действительно хотите отключить заказ? Если вы сделаете это и сохранить, "
+"то вы потеряете все предыдущие заказы. Если вы хотите, чтобы предотвратить "
+"дальнейшее заказов, сократить количество мест, имеющихся на сумму заказов у ​​"
+"Вас уже есть"
+
+#: templates/forms/ticket-form.php:11
+#: templates/placeholders/bookingform.php:42
+#: templates/placeholders/bookingform.php:80 em-bookings.php:116
+#: em-bookings.php:144 admin/em-bookings.php:183 admin/em-bookings.php:275
+#: admin/em-people.php:33
+msgid "Spaces"
+msgstr "Пространства"
+
+#: templates/forms/ticket-form.php:12
+msgid "If blank, there's no space limit."
+msgstr "Если пустая, нет никакого пространства предела."
+
+#: templates/forms/ticket-form.php:15
+msgid "Available from"
+msgstr ", Имеющийся в наличии"
+
+#: templates/forms/ticket-form.php:21
+msgid ""
+"Add a start or end date (or both) to impose time constraints on ticket "
+"availability. Leave either blank for no upper/lower limit."
+msgstr ""
+"Добавить начала или даты окончания (или оба) наложить временные ограничения "
+"на билет доступности. Оставить или не пустым для верхнего / нижнего предела."
+
+#: templates/forms/ticket-form.php:24
+msgid "Bookings must order between"
+msgstr "Бронирование должно порядка между"
+
+#: templates/forms/ticket-form.php:26
+msgid "and"
+msgstr "и"
+
+#: templates/forms/ticket-form.php:28
+msgid "spaces."
+msgstr "пространств."
+
+#: templates/forms/ticket-form.php:29
+msgid "Leave either blank for no upper/lower limit."
+msgstr "Оставить или не пустым для верхнего / нижнего предела."
+
+#: templates/forms/ticket-form.php:32 templates/forms/tickets-form.php:5
+#: admin/em-bookings.php:181
+msgid "Description"
+msgstr "Описание"
+
+#: templates/forms/tickets-form.php:2
+msgid "Create a ticket"
+msgstr "Создайте билет"
+
+#: templates/forms/tickets-form.php:8
+msgid "Available ticket spaces"
+msgstr "Доступные пространства билет"
+
+#: templates/forms/tickets-form.php:10
+msgid "Start date of ticket availability"
+msgstr "Дата начала билета наличии"
+
+#: templates/forms/tickets-form.php:11
+msgid "End date of ticket availability"
+msgstr "Дата окончания билета наличии"
+
+#: templates/forms/tickets-form.php:12
+msgid "Minimum tickets required per booking"
+msgstr "Минимальные билетов требуется на бронирование"
+
+#: templates/forms/tickets-form.php:13
+msgid "Maximum tickets required per booking"
+msgstr "Максимальная билетов требуется на бронирование"
+
+#: templates/forms/tickets-form.php:18
+msgid "Add Ticket"
+msgstr "Добавить билетов"
+
+#: templates/forms/location-editor.php:12 admin/em-locations.php:130
+msgid "Add location"
+msgstr "Добавить место"
+
+#: templates/forms/location-editor.php:15 admin/em-locations.php:133
+msgid "Edit location"
+msgstr "Изменить местоположение"
+
+#: templates/forms/location-editor.php:17 admin/em-locations.php:135
+msgid "required"
+msgstr "требуется"
+
+#: templates/forms/location-editor.php:32 admin/em-locations.php:156
+msgid "Location Name"
+msgstr "Название местоположения"
+
+#: templates/forms/location-editor.php:37 admin/em-locations.php:161
+msgid "The name of the location"
+msgstr "Название места"
+
+#: templates/forms/location-editor.php:44 admin/em-locations.php:214
+msgid ""
+"If you're using the Google Maps, the more detail you provide, the more "
+"accurate Google can be at finding your location. If your address isn't being "
+"found, please <a='http://maps.google.com'>try it on maps.google.com</a> by "
+"adding all the fields below seperated by commas."
+msgstr ""
+"Если вы используете Google Maps, тем больше деталей вы предоставите, тем "
+"точнее Google может быть вопроса определения вашего местоположения. Если ваш "
+"адрес не был найден, пожалуйста <a href='http://maps.google.com'> "
+"попробовать его на maps.google.com</a> добавляя все приведенные ниже поля, "
+"разделенные запятыми."
+
+#: templates/forms/location-editor.php:48 admin/em-locations.php:218
+#: admin/em-event.php:403
+msgid "Address:"
+msgstr "Адрес:"
+
+#: templates/forms/location-editor.php:54 admin/em-locations.php:224
+#: admin/em-event.php:409
+msgid "City/Town:"
+msgstr "Город / населенный пункт:"
+
+#: templates/forms/location-editor.php:60 admin/em-locations.php:230
+#: admin/em-event.php:416
+msgid "State/County:"
+msgstr "Область / Район:"
+
+#: templates/forms/location-editor.php:66 admin/em-locations.php:236
+#: admin/em-event.php:423
+msgid "Postcode:"
+msgstr "Индекс:"
+
+#: templates/forms/location-editor.php:72 admin/em-locations.php:249
+#: admin/em-event.php:436
+msgid "Country:"
+msgstr "Страна:"
+
+#: templates/forms/location-editor.php:75 admin/em-locations.php:252
+#: admin/em-event.php:439
+msgid "none selected"
+msgstr "не выбрано"
+
+#: templates/forms/location-editor.php:99 admin/em-locations.php:281
+msgid "Details about the location"
+msgstr "Подробнее о месте"
+
+#: templates/forms/location-editor.php:103 admin/em-locations.php:287
+msgid "Location image"
+msgstr "Место изображение"
+
+#: templates/forms/location-editor.php:109 admin/em-locations.php:293
+msgid "No image uploaded for this location yet"
+msgstr "Нет изображения загружены на этом месте еще"
+
+#: templates/forms/location-editor.php:112 admin/em-categories.php:197
+#: admin/em-locations.php:296 admin/em-event.php:486
+msgid "Upload/change picture"
+msgstr "Добавить / изменить изображение"
+
+#: templates/forms/location-editor.php:115 admin/em-locations.php:304
+msgid "Update location"
+msgstr "Обновление месте"
+
+#: templates/placeholders/locationmap.php:27
+msgid "Map Unavailable"
+msgstr "Карта Недоступные"
+
+#: templates/placeholders/bookingbutton.php:2
+msgid "Book Now"
+msgstr "Забронировать"
+
+#: templates/placeholders/bookingbutton.php:3
+msgid "Booking..."
+msgstr "Бронирование ..."
+
+#: templates/placeholders/bookingbutton.php:4
+msgid "Booking Submitted"
+msgstr "Бронирование Опубликовано"
+
+#: templates/placeholders/bookingbutton.php:5
+msgid "Booking Error. Try again?"
+msgstr "Бронирование Error. Попробуйте еще раз?"
+
+#: templates/placeholders/bookingform.php:15
+msgid ""
+"You are currently attending this event. <a href=\"%s\">Manage my bookings</a>"
+msgstr ""
+"В данный момент вы участие в этом мероприятии. <a href=\"%s\">Управление Мои "
+"заказы</a>"
+
+#: templates/placeholders/bookingform.php:17
+msgid "Online bookings are not available for this event."
+msgstr "Интернет заказы не доступны для этого события."
+
+#: templates/placeholders/bookingform.php:19
+msgid "Bookings are closed for this event."
+msgstr "Бронирование закрыты для этого события."
+
+#: templates/placeholders/bookingform.php:38 em-bookings.php:114
+#: admin/em-bookings.php:274
+msgid "Ticket Type"
+msgstr "Запрос Вид"
+
+#: templates/placeholders/bookingform.php:106 admin/em-people.php:31
+msgid "E-mail"
+msgstr "Электронная почта"
+
+#: templates/placeholders/bookingform.php:112 em-bookings.php:158
+#: admin/em-bookings.php:297 admin/em-people.php:34
+msgid "Comment"
+msgstr "Комментарий"
+
+#: templates/placeholders/bookingform.php:117 em-bookings.php:162
+msgid "Send your booking"
+msgstr "Отправить заказ"
+
+#: templates/placeholders/bookingform.php:124 em-actions.php:408
+msgid "You must log in before you make a booking."
+msgstr "Вы должны войти в систему, прежде чем сделать заказ."
+
+#: templates/placeholders/bookingform.php:130
+msgid "Log in if you already have an account with us."
+msgstr "Войти, если у вас уже есть аккаунт в нашей системе."
+
+#: templates/placeholders/bookingform.php:132
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: templates/placeholders/bookingform.php:136
+msgid "Password"
+msgstr "Пароль"
+
+#: templates/placeholders/bookingform.php:140
+msgid "Log In"
+msgstr "Войдите"
+
+#: templates/placeholders/bookingform.php:141
+msgid "Remember Me"
+msgstr "Запомнить"
+
+#: templates/placeholders/bookingform.php:156
+msgid "Sign Up"
+msgstr "Регистрация"
+
+#: templates/placeholders/bookingform.php:160
+msgid "Password Lost and Found"
+msgstr "Пароль Утраченный и обретенный"
+
+#: templates/placeholders/bookingform.php:160
+msgid "Lost your password?"
+msgstr "Забыли пароль?"
+
+#: templates/placeholders/bookingform.php:166 em-bookings.php:169
+msgid "No more tickets available at this time."
+msgstr "Нет больше билетов на данный момент."
+
+#: templates/placeholders/bookingform.php:183
+msgid "Please wait while the booking is being submitted."
+msgstr "Подождите, пока бронирования представляется."
+
+#: em-bookings.php:74 admin/em-options.php:484
+msgid "Booking cancelled"
+msgstr "Бронирование отменен"
+
+#: em-bookings.php:77 em-actions.php:366
+msgid "You must log in to cancel your booking."
+msgstr "Вы должны войти в систему, чтобы отменить свой заказ."
+
+#: em-bookings.php:97
+msgid "Book now!"
+msgstr "Забронировать сейчас!"
+
+#: em-bookings.php:171
+msgid ""
+"You must <a href=\"%s\">register</a> or <a href=\"%s\">log in</a> in order "
+"to create and manage your bookings."
+msgstr ""
+"Вы должны <a href=\"%s\">зарегистрироваться</a> или <a href=\"%s\">войти</a> "
+"для того, чтобы создавать и управлять своими заказов."
+
+#: em-bookings.php:219 em-bookings.php:233
+msgid "Cancel your booking"
+msgstr "Отмена заказа"
+
+#: em-functions.php:9
+msgid ""
+"<p>Hey, <strong>%s</strong>, welcome to <strong>Events Manager</strong>! We "
+"hope you like it around here.</p> \r\n"
+"\t\t<p>Now it's time to insert events lists through  <a href='%s' "
+"title='Widgets page'>widgets</a>, <a href='%s' title='Template tags "
+"documentation'>template tags</a> or <a href='%s' title='Shortcodes "
+"documentation'>shortcodes</a>.</p>\r\n"
+"\t\t<p>By the way, have you taken a look at the <a href='%s' title='Change "
+"settings'>Settings page</a>? That's where you customize the way events and "
+"locations are displayed.</p>\r\n"
+"\t\t<p>What? Tired of seeing this advice? I hear you, <a href='%s' "
+"title='Don't show this advice again'>click here</a> and you won't see this "
+"again!</p>"
+msgstr ""
+"<p>Hey, <strong>%s</strong>, Добро пожаловать <strong>События менеджер</"
+"strong>! Мы надеемся, что Вам нравится это где-то здесь.</p> \r\n"
+"\t\t<p>Теперь пришло время для вставки событий списки через <a href='%s' "
+"title='Widgets page'>widgets</a>, <a href='%s' title='Template tags "
+"documentation'>template tags</a> или <a href='%s' title='Shortcodes "
+"documentation'>shortcodes</a>.</p>\r\n"
+"\t\t<p>Кстати, вы рассмотрели <a href='%s' title='Change settings'>Настройки "
+"страницы</a>? Вот где вам настроить способ событий и отображения регионов.</"
+"p>\r\n"
+"\t\t<p>Что? Надоело видеть этот совет? Слышу, <a href='%s' title='Don't show "
+"this advice again'>нажмите здесь</a> и вы не будете видеть это снова!</p>"
+
+#: em-functions.php:139 admin/bookings/em-events.php:14 admin/em-events.php:48
+msgid "All events"
+msgstr "Все события"
+
+#: em-functions.php:140 admin/bookings/em-events.php:15 admin/em-events.php:49
+msgid "Future events"
+msgstr "Будущие события"
+
+#: em-functions.php:141 admin/bookings/em-events.php:13 admin/em-events.php:47
+msgid "Past events"
+msgstr "Прошедшие события"
+
+#: em-functions.php:142
+msgid "Today's events"
+msgstr "Сегодняшние события"
+
+#: em-functions.php:143
+msgid "Tomorrow's events"
+msgstr "Завтрашние события"
+
+#: em-functions.php:144
+msgid "Events this month"
+msgstr "События в этом месяце"
+
+#: em-functions.php:145
+msgid "Events next month"
+msgstr "События в следующем месяце"
+
+#: em-functions.php:146
+msgid "Events within 2 months"
+msgstr "События в течение 2 месяцев"
+
+#: em-functions.php:147
+msgid "Events within 3 months"
+msgstr "События в течение 3 месяцев"
+
+#: em-functions.php:148
+msgid "Events within 6 months"
+msgstr "События в течение 6 месяцев"
+
+#: em-functions.php:149
+msgid "Events within 12 months"
+msgstr "События в течение 12 месяцев"
+
+#: em-functions.php:181
+msgid "Trying to perform an illegal action."
+msgstr "Попытка выполнять незаконные действия."
+
+#: em-functions.php:252
+msgid "<strong>ERROR</strong>: Please enter a username."
+msgstr "<strong>ОШИБКА:</strong> Пожалуйста, введите имя пользователя."
+
+#: em-functions.php:254
+msgid ""
+"<strong>ERROR</strong>: This username is invalid because it uses illegal "
+"characters. Please enter a valid username."
+msgstr ""
+"<strong>ОШИБКА:</strong> Имя пользователя является недействительным, "
+"поскольку он использует недопустимые символы. Пожалуйста, введите имя "
+"пользователя."
+
+#: em-functions.php:257
+msgid ""
+"<strong>ERROR</strong>: This username is already registered, please choose "
+"another one."
+msgstr ""
+"<strong>Ошибка:</strong> Это имя пользователя уже зарегистрировались, "
+"пожалуйста, выбрать другой."
+
+#: em-functions.php:262
+msgid "<strong>ERROR</strong>: Please type your e-mail address."
+msgstr ""
+"<strong>ОШИБКА:</strong> Пожалуйста, введите свой ​​адрес электронной почты."
+
+#: em-functions.php:264
+msgid "<strong>ERROR</strong>: The email address isn&#8217;t correct."
+msgstr "<strong>ОШИБКА:</strong> адрес электронной почты не правильный."
+
+#: em-functions.php:267
+msgid ""
+"<strong>ERROR</strong>: This email is already registered, please choose "
+"another one."
+msgstr ""
+"<strong>ОШИБКА:</strong> Этот адрес уже зарегистрировались, пожалуйста, "
+"выбрать другой."
+
+#: em-functions.php:285
+msgid ""
+"<strong>ERROR</strong>: Couldn&#8217;t register you... please contact the <a "
+"href=\"mailto:%s\">webmaster</a> !"
+msgstr ""
+"<strong>ОШИБКА:</strong> Не удалось зарегистрировать Вас ... пожалуйста, "
+"свяжитесь с <a href=\"mailto:%s\">веб-мастеров</a> !"
+
+#: em-functions.php:320
+msgid "New user registration on your blog %s:"
+msgstr "Регистрация нового пользователя в свой блог %s:"
+
+#: em-functions.php:321
+msgid "Username: %s"
+msgstr "Имя пользователя:%s."
+
+#: em-functions.php:322
+msgid "E-mail: %s"
+msgstr "Адрес электронной почты:%s."
+
+#: em-functions.php:323
+msgid "[%s] New User Registration"
+msgstr "[%s.] Регистрация нового пользователя"
+
+#: em-functions.php:334
+msgid "[%s] Your username and password"
+msgstr "[%s.] Ваше имя пользователя и пароль"
+
+#: events-manager.php:208
+msgid "You do not have permission to publish %s"
+msgstr "У вас нет разрешения на публикацию %s."
+
+#: events-manager.php:208 events-manager.php:210 events-manager.php:214
+#: events-manager.php:216 events-manager.php:221 admin/em-options.php:355
+#: admin/em-options.php:356
+msgid "events"
+msgstr "События"
+
+#: events-manager.php:209 events-manager.php:217 events-manager.php:220
+#: events-manager.php:221
+msgid "You do not have permission to edit %s"
+msgstr "У вас нет прав на выполнение %s."
+
+#: events-manager.php:210 events-manager.php:211
+msgid "You do not have permission to delete others %s"
+msgstr "У вас нет разрешения на удаление другими %s."
+
+#: events-manager.php:212 events-manager.php:214
+msgid "You do not have permission to edit others %s"
+msgstr "У вас нет прав на выполнение других %s."
+
+#: events-manager.php:213
+msgid "You do not have permission to manage others %s"
+msgstr "У вас нет разрешения на управление другими %s."
+
+#: events-manager.php:213 events-manager.php:218
+msgid "bookings"
+msgstr "заказов"
+
+#: events-manager.php:215 events-manager.php:216
+msgid "You do not have permission to delete %s"
+msgstr "У вас нет разрешения на удаление %s."
+
+#: events-manager.php:218
+msgid "You do not have permission to manage %s"
+msgstr "У вас нет разрешения на управление %s."
+
+#: events-manager.php:219
+msgid "You cannot to view others %s"
+msgstr "Вы не можете просматривать другие %s."
+
+#: events-manager.php:220
+msgid "recurrences"
+msgstr "рецидивов"
+
+#: events-manager.php:323
+msgid "Add new"
+msgstr "Добавить"
+
+#: events-manager.php:326
+msgid "Event Categories"
+msgstr "Событие Категории"
+
+#: events-manager.php:326 em-install.php:373 em-install.php:375
+#: admin/em-categories.php:57 admin/em-options.php:367
+#: admin/em-options.php:369 admin/em-options.php:370 admin/em-options.php:371
+#: admin/em-options.php:372 admin/em-options.php:373
+msgid "Categories"
+msgstr "Категории"
+
+#: events-manager.php:327
+msgid "Events Manager Settings"
+msgstr "Настройки События менеджер"
+
+#: events-manager.php:327 events-manager.php:473
+msgid "Settings"
+msgstr "Настройки"
+
+#: events-manager.php:328 admin/em-help.php:10
+msgid "Getting Help for Events Manager"
+msgstr "Получение справки для событий менеджера"
+
+#: events-manager.php:328
+msgid "Help"
+msgstr "Помощь"
+
+#: events-manager.php:456
+msgid "Add an event"
+msgstr "Добавить событие"
+
+#: em-debug.php:18 em-install.php:368
+msgid "<li>No events in this location</li>"
+msgstr "<li> Нет событий в этом месте </li>"
+
+#: em-debug.php:44
+msgid ""
+"You are in Events Manager debug mode. To turn debug mode off, go to the <a "
+"href=\"%s\">settings</a> page."
+msgstr ""
+"Вы находитесь в режиме отладки События Manager. Чтобы включить режим отладки "
+"выключен, перейдите в <a href=\"%s\">настройки</a> страницы."
+
+#: em-actions.php:31
+msgid "No ticket id provided"
+msgstr "Нет билета идентификатор при условии,"
+
+#: em-actions.php:93
+msgid "You are now viewing the duplicated %s."
+msgstr "Сейчас вы читаете дублируется %s."
+
+#: em-actions.php:170 em-actions.php:240
+msgid "%s successfully deleted"
+msgstr "%s успешно удален"
+
+#: em-actions.php:239
+msgid "EM_Categories"
+msgstr "EM_Categories"
+
+#: em-actions.php:286
+msgid ""
+"A new user account has been created for you. Please check your email for "
+"access details."
+msgstr ""
+"Новую учетную запись пользователя была создана для вас. Пожалуйста, "
+"проверьте свою электронную почту для доступа деталей."
+
+#: em-actions.php:293
+msgid ""
+"This email already exists in our system, please log in to register to "
+"proceed with your booking."
+msgstr ""
+"Это сообщение уже существует в нашей системе, пожалуйста, войдите, чтобы "
+"зарегистрироваться для продолжения бронирования."
+
+#: em-actions.php:298
+msgid ""
+"There was a problem creating a user account, please contact a website "
+"administrator."
+msgstr ""
+"Существовал проблемы при создании учетной записи пользователя, пожалуйста, "
+"свяжитесь с администратором сайта."
+
+#: em-actions.php:303
+msgid "You must log in or register to make a booking."
+msgstr "Вы должны войти в систему или зарегистрируйтесь, чтобы сделать заказ."
+
+#: em-actions.php:343
+msgid "You already have booked a seat at this event."
+msgstr "Вы уже забронировали место на этом событии."
+
+#: em-actions.php:354
+msgid "Booking %s"
+msgstr "Бронирование %s."
+
+#: em-install.php:225
+msgid "Uncategorized"
+msgstr "Без рубрики"
+
+#: em-install.php:280
+msgid ""
+"#_BOOKINGNAME (#_BOOKINGEMAIL) will attend #_NAME on #F #j, #Y. He wants to "
+"reserve #_BOOKINGSPACES spaces.<br/> Now there are #_BOOKEDSPACES spaces "
+"reserved, #_AVAILABLESPACES are still available.<br/>Yours faithfully,<br/"
+">Events Manager - http://wp-events-plugin.com"
+msgstr ""
+"#_BOOKINGNAME (#_BOOKINGEMAIL) Будет присутствовать на #_NAME #F #у, #Y. Он "
+"хочет, чтобы зарезервировать #_BOOKINGSPACES пространств. <br/> Сейчас Есть "
+"#_BOOKEDSPACES мест, зарезервированных, #_AVAILABLESPACES по-прежнему "
+"доступны. <br/> С уважением, <br/> События Manager - http://wp-events-plugin."
+"com"
+
+#: em-install.php:280 em-install.php:281 em-install.php:282 em-install.php:283
+#: em-install.php:284 em-install.php:285
+msgid ""
+"<br/><br/>-------------------------------<br/>Powered by Events Manager - "
+"http://wp-events-plugin.com"
+msgstr ""
+"<br/><br/> ------------------------------- <br/> Работает на события Manager "
+"- http://wp-events-plugin.com"
+
+#: em-install.php:281
+msgid ""
+"#_BOOKINGNAME (#_BOOKINGEMAIL) cancelled his booking at #_NAME on #F #j, #Y. "
+"He wanted to reserve #_BOOKINGSPACES spaces.<br/> Now there are "
+"#_BOOKEDSPACES spaces reserved, #_AVAILABLESPACES are still available.<br/"
+">Yours faithfully,<br/>Events Manager - http://wp-events-plugin.com"
+msgstr ""
+"#_BOOKINGNAME (#_BOOKINGEMAIL) Отменил свой заказ на #_NAME на #F #у, #Y. Он "
+"хотел, чтобы зарезервировать #_BOOKINGSPACES пространств. <br/> Сейчас Есть "
+"#_BOOKEDSPACES мест, зарезервированных, #_AVAILABLESPACES по-прежнему "
+"доступны. <br/> С уважением, <br/> События Manager - http://wp-events-plugin."
+"com"
+
+#: em-install.php:282
+msgid ""
+"Dear #_BOOKINGNAME, <br/>you have successfully reserved #_BOOKINGSPACES "
+"space/spaces for #_NAME.<br/>Yours faithfully,<br/>#_CONTACTNAME"
+msgstr ""
+"Уважаемые #_BOOKINGNAME, <br/> Вы успешно защищены #_BOOKINGSPACES "
+"пространства / пространство для #_NAME. <br/> С уважением, <br/> "
+"#_CONTACTNAME"
+
+#: em-install.php:283
+msgid ""
+"Dear #_BOOKINGNAME, <br/>You have requested #_BOOKINGSPACES space/spaces for "
+"#_NAME.<br/>Your booking is currently pending approval by our "
+"administrators. Once approved you will receive an automatic confirmation.<br/"
+">Yours faithfully,<br/>#_CONTACTNAME"
+msgstr ""
+"Уважаемые #_BOOKINGNAME, <br/> Вы запросили #_BOOKINGSPACES пространства / "
+"пространство для #_NAME. <br/> Ваш заказ в настоящее время находится на "
+"утверждении наших администраторов. После утверждения вы получите "
+"автоматическое подтверждение. <br/> С уважением, <br/> #_CONTACTNAME"
+
+#: em-install.php:284
+msgid ""
+"Dear #_BOOKINGNAME, <br/>Your requested booking for #_BOOKINGSPACES spaces "
+"at #_NAME on #F #j, #Y has been rejected.<br/>Yours faithfully,<br/"
+">#_CONTACTNAME"
+msgstr ""
+"Уважаемые #_BOOKINGNAME, <br/> Ваш просил бронирование #_BOOKINGSPACES "
+"пространства на #_NAME на # F # у, # Y было отвергнуто. <br/> С уважением, "
+"<br/> #_CONTACTNAME"
+
+#: em-install.php:285
+msgid ""
+"Dear #_BOOKINGNAME, <br/>Your requested booking for #_BOOKINGSPACES spaces "
+"at #_NAME on #F #j, #Y has been cancelled.<br/>Yours faithfully,<br/"
+">#_CONTACTNAME"
+msgstr ""
+"Уважаемые #_BOOKINGNAME, <br/> Ваш просил бронирование #_BOOKINGSPACES "
+"пространства на #_NAME на #F #у, #Y был отменен. <br/> С уважением, <br/> "
+"#_CONTACTNAME"
+
+#: em-install.php:344 em-install.php:349 em-install.php:375
+msgid "No %s"
+msgstr "Нет %s"
+
+#: em-install.php:434
+msgid "New booking"
+msgstr "Новый заказ"
+
+#: em-install.php:436 em-install.php:444
+msgid "Booking Cancelled"
+msgstr "Бронирование Отменено"
+
+#: em-install.php:438
+msgid "Booking Pending"
+msgstr "Бронирование ожидании"
+
+#: em-install.php:440
+msgid "Booking Rejected"
+msgstr "Бронирование Отклонен"
+
+#: em-install.php:442
+msgid "Booking Confirmed"
+msgstr "Подтверждение брони"
+
+#: em-install.php:447
+msgid "Powered by"
+msgstr "Работает на"
+
+#: em-install.php:448
+msgid "Bookings - #_NAME"
+msgstr "Бронирование - #_NAME"
+
+#: widgets/em-locations.php:13
+msgid "Event Locations"
+msgstr "Событие проведения"
+
+#: widgets/em-locations.php:19
+msgid "Display a list of event locations on Events Manager."
+msgstr "Показать список мест на событие менеджер событий."
+
+#: widgets/em-locations.php:44
+msgid "No locations"
+msgstr "Нет места"
+
+#: widgets/em-locations.php:67 widgets/em-calendar.php:58
+#: widgets/em-events.php:76
+msgid "Title"
+msgstr "Название"
+
+#: widgets/em-locations.php:71
+msgid "Show number of locations"
+msgstr "Показать число мест"
+
+#: widgets/em-locations.php:75
+msgid "Scope of the locations"
+msgstr "Сфера местах"
+
+#: widgets/em-locations.php:85
+msgid "Order of the locations"
+msgstr "Орден местах"
+
+#: widgets/em-locations.php:87
+msgid "Ascendant"
+msgstr "Восходящий"
+
+#: widgets/em-locations.php:88
+msgid "Descendant"
+msgstr "Потомок"
+
+#: widgets/em-locations.php:92 widgets/em-events.php:128
+msgid "List item format"
+msgstr "Формат элемента списка"
+
+#: widgets/em-calendar.php:16
+msgid "Display your events in a calendar widget."
+msgstr "Отображение ваших событий в календаре виджет."
+
+#: widgets/em-calendar.php:17
+msgid "Events Calendar"
+msgstr "Календарь событий"
+
+#: widgets/em-calendar.php:62
+msgid "Show Long Events?"
+msgstr "Показать Длинные события?"
+
+#: widgets/em-events.php:21 widgets/em-events.php:52 widgets/em-events.php:137
+msgid "all events"
+msgstr "все события"
+
+#: widgets/em-events.php:23
+msgid "Display a list of events on Events Manager."
+msgstr "Показать список событий, на Менеджер событий."
+
+#: widgets/em-events.php:49
+msgid "No events"
+msgstr "Нет событий"
+
+#: widgets/em-events.php:80
+msgid "Number of events"
+msgstr "Количество событий"
+
+#: widgets/em-events.php:84
+msgid "Scope"
+msgstr "Сфера"
+
+#: widgets/em-events.php:94
+msgid "Order By"
+msgstr "Сортировать по"
+
+#: widgets/em-events.php:98
+msgid "start date, start time, event name"
+msgstr "дата начала, время начала, название события"
+
+#: widgets/em-events.php:99
+msgid "name, start date, start time"
+msgstr "имя, дата начала, время начала"
+
+#: widgets/em-events.php:100
+msgid "name, end date, end time"
+msgstr "имя, дата окончания, время окончания"
+
+#: widgets/em-events.php:101
+msgid "end date, end time, event name"
+msgstr "дата окончания, время окончания, название события"
+
+#: widgets/em-events.php:112
+msgid "Order"
+msgstr "Порядок"
+
+#: widgets/em-events.php:116 admin/em-options.php:255
+msgid "Ascending"
+msgstr "Восходящий"
+
+#: widgets/em-events.php:117 admin/em-options.php:256
+msgid "Descending"
+msgstr "Нисходящий"
+
+#: widgets/em-events.php:132
+msgid "Show all events link at bottom?"
+msgstr "Показать все события ссылка есть внизу?"
+
+#: widgets/em-events.php:136
+msgid "All events link text?"
+msgstr "Все текстовые события ссылку?"
+
+#: admin/em-categories.php:21
+msgid "The category has been added."
+msgstr "Категория была добавлена."
+
+#: admin/em-categories.php:23
+msgid "The category has been updated."
+msgstr "Категории был обновлен."
+
+#: admin/em-categories.php:39
+msgid "Categories Deleted"
+msgstr "Категории Удаленные"
+
+#: admin/em-categories.php:71 admin/em-categories.php:78
+msgid "ID"
+msgstr "ID"
+
+#: admin/em-categories.php:102
+msgid "No categories have been inserted yet!"
+msgstr "Нет категорий были вставлены еще!"
+
+#: admin/em-categories.php:128
+msgid "Edit category"
+msgstr "Изменить категорию"
+
+#: admin/em-categories.php:145
+msgid "Category name"
+msgstr "Название категории"
+
+#: admin/em-categories.php:149
+msgid "The name of the category"
+msgstr "Название категории"
+
+#: admin/em-categories.php:150 admin/em-locations.php:162
+#: admin/em-event.php:297
+msgid "View Slug"
+msgstr "Посмотреть Slug"
+
+#: admin/em-categories.php:157 admin/em-locations.php:169
+#: admin/em-event.php:304
+msgid "Hide Slug"
+msgstr "Скрыть Slug"
+
+#: admin/em-categories.php:166 admin/em-locations.php:178
+msgid "%s Slug"
+msgstr "% S. Slug"
+
+#: admin/em-categories.php:168 admin/em-locations.php:180
+#: admin/em-event.php:315
+msgid ""
+"The event slug. If the event slug already exists, a random number will be "
+"appended to the end."
+msgstr ""
+"Событие пули. Если событие пули уже существует, случайное число будет "
+"добавлено к концу."
+
+#: admin/em-categories.php:182
+msgid "Details about the category"
+msgstr "Подробнее о категории"
+
+#: admin/em-categories.php:188
+msgid "Category image"
+msgstr "Категория изображение"
+
+#: admin/em-categories.php:194
+msgid "No image uploaded for this category yet"
+msgstr "Нет изображения загружены для этой категории еще"
+
+#: admin/em-categories.php:202
+msgid "Update category"
+msgstr "Обновление категории"
+
+#: admin/em-locations.php:80 admin/em-locations.php:90
+msgid "Town"
+msgstr "Город"
+
+#: admin/em-locations.php:125
+msgid "You do not have the rights to manage this location."
+msgstr "У вас нет прав на управление этом месте."
+
+#: admin/em-locations.php:187
+msgid "Location Owner"
+msgstr "Место Владелец"
+
+#: admin/em-locations.php:192 admin/em-event.php:165
+msgid "Select..."
+msgstr "Выберите ..."
+
+#: admin/em-locations.php:201 admin/em-event.php:356
+msgid "Coordinates"
+msgstr "Координаты"
+
+#: admin/em-locations.php:242 admin/em-event.php:429
+msgid "Region:"
+msgstr "Регион:"
+
+#: admin/em-event.php:56
+msgid "Mon"
+msgstr "Понедельник"
+
+#: admin/em-event.php:56
+msgid "Tue"
+msgstr "Вт"
+
+#: admin/em-event.php:56
+msgid "Wed"
+msgstr "Женить"
+
+#: admin/em-event.php:56
+msgid "Thu"
+msgstr "Чт"
+
+#: admin/em-event.php:56
+msgid "Fri"
+msgstr "Пятница"
+
+#: admin/em-event.php:56
+msgid "Sat"
+msgstr "Суббота"
+
+#: admin/em-event.php:56
+msgid "Sun"
+msgstr "Солнце"
+
+#: admin/em-event.php:81
+msgid "Recurrence"
+msgstr "Рецидив"
+
+#: admin/em-event.php:88
+msgid "Repeated event"
+msgstr "Повторные события"
+
+#: admin/em-event.php:101 admin/em-event.php:124
+msgid "Every"
+msgstr "Каждый"
+
+#: admin/em-event.php:108
+msgid "week"
+msgstr "неделя"
+
+#: admin/em-event.php:110
+msgid "weeks"
+msgstr "недель"
+
+#: admin/em-event.php:112
+msgid "month"
+msgstr "месяц"
+
+#: admin/em-event.php:114
+msgid "months"
+msgstr "месяцев"
+
+#: admin/em-event.php:161
+msgid "Event Owner/Contact Person"
+msgstr "Событие Владелец / Контактное лицо"
+
+#: admin/em-event.php:192
+msgid "Group Ownership"
+msgstr "Группа собственности"
+
+#: admin/em-event.php:218
+msgid "Bookings Stats"
+msgstr "Заказы Статистика"
+
+#: admin/em-event.php:229
+msgid "Available Spaces"
+msgstr "Доступные Пространства"
+
+#: admin/em-event.php:230
+msgid "Confirmed Spaces"
+msgstr "Подтвержденные Пространства"
+
+#: admin/em-event.php:231
+msgid "Pending Spaces"
+msgstr "До Пространства"
+
+#: admin/em-event.php:249
+msgid "No responses yet!"
+msgstr "Нет ответов все же!"
+
+#: admin/em-event.php:276
+msgid "No categories available, <a href=\"%s\">create one here first</a>"
+msgstr "Нет доступных категорий, <a href=\"%s\">создать здесь первый</a>"
+
+#: admin/em-event.php:313
+msgid "Event Slug"
+msgstr "Событие Slug"
+
+#: admin/em-event.php:320
+msgid "Event date"
+msgstr "Дата события"
+
+#: admin/em-event.php:321
+msgid "Recurrence dates"
+msgstr "Повторение даты"
+
+#: admin/em-event.php:330
+msgid "The event date."
+msgstr "Дата события."
+
+#: admin/em-event.php:333
+msgid ""
+"When not reoccurring, this event spans between the beginning and end date."
+msgstr ""
+"Когда не повторяющиеся, это событие охватывает период с начала и дата "
+"окончания."
+
+#: admin/em-event.php:338
+msgid "The recurrence beginning and end date."
+msgstr "Начало рецидивов и дату окончания."
+
+#: admin/em-event.php:344
+msgid "Event time"
+msgstr "Время события"
+
+#: admin/em-event.php:351
+msgid "The time of the event beginning and end"
+msgstr "Время начала и конца события"
+
+#: admin/em-event.php:373
+msgid "Location:"
+msgstr "Расположение:"
+
+#: admin/em-event.php:389
+msgid ""
+"The name of the location where the event takes place. You can use the name "
+"of a venue, a square, etc"
+msgstr ""
+"Название места, где происходит событие. Вы можете использовать имя места, "
+"площади, и т.д."
+
+#: admin/em-event.php:394
+msgid "Name:"
+msgstr "Имя:"
+
+#: admin/em-event.php:398
+msgid ""
+"Create a location or start typing to search a previously created location."
+msgstr "Создать место или начать печатать искать ранее созданные месте."
+
+#: admin/em-event.php:399
+msgid "You cannot edit saved locations here."
+msgstr "Вы не можете редактировать сохраненные местоположения здесь."
+
+#: admin/em-event.php:399
+msgid "Reset this form to create a location."
+msgstr "Сброс эту форму, чтобы создать место."
+
+#: admin/em-event.php:444
+msgid ""
+"Filling this in first will allow you to quickly find previously filled "
+"states and regions for the country."
+msgstr ""
+"Заполнение этого в первую позволит вам быстро найти ранее заполненных "
+"состояний и регионов страны."
+
+#: admin/em-event.php:471
+msgid "Details about the event"
+msgstr "Подробнее о событии"
+
+#: admin/em-event.php:477
+msgid "Event image"
+msgstr "Событие изображение"
+
+#: admin/em-event.php:483
+msgid "No image uploaded for this event yet"
+msgstr "Нет изображения загружены к этому событию еще"
+
+#: admin/em-event.php:609
+msgid "Attributes"
+msgstr "Атрибуты"
+
+#: admin/em-event.php:654
+msgid ""
+"You don't have any custom attributes defined in any of your Events Manager "
+"template settings. Please add them the <a href='%s'>settings page</a>"
+msgstr ""
+"У вас нет какой-либо пользовательские атрибуты, определенные в любой из "
+"ваших События настройки менеджера шаблонов. Пожалуйста, добавьте их <a "
+"href='%s'>параметры страницы</a>"
+
+#: admin/em-event.php:661
+msgid "Depreciated Attributes"
+msgstr "Остаточная Атрибуты"
+
+#: admin/em-event.php:662
+msgid ""
+"If you see any attributes under here, that means they're not used in Events "
+"Manager anymore. To add them, you need to add the custom attribute again to "
+"a formatting option in the settings page. To remove any of these depreciated "
+"attributes, give it a blank value and save."
+msgstr ""
+"Если вы видите, любые атрибуты при этом, что означает, что они не "
+"используются в диспетчере событий больше. Чтобы добавить их, необходимо "
+"добавить пользовательский атрибут снова параметр форматирования на странице "
+"настроек. Чтобы удалить любой из этих атрибутов обесценились, дать ему "
+"пустое значение и сохранить."
+
+#: admin/em-event.php:693
+msgid ""
+"In order to use attributes, you must define some in your templates, "
+"otherwise they'll never show. Go to Events > Settings to add attribute "
+"placeholders."
+msgstr ""
+"Для того чтобы использовать атрибуты, вы должны определить некоторые в "
+"шаблонах, в противном случае они никогда не покажу. К События> Настройки, "
+"чтобы добавить атрибут заполнителей."
+
+#: admin/em-event.php:708
+msgid ""
+"WARNING! You are about to re-create all your recurrent events including "
+"erasing your old booking data! Are you sure you want to do this?"
+msgstr ""
+"ВНИМАНИЕ! Вы собираетесь воссоздать все ваши повторяющиеся события, включая "
+"удаление старых данных бронирования! Вы уверены, что хотите это сделать?"
+
+#: admin/em-bookings.php:85
+msgid "Event Bookings Dashboard"
+msgstr "Панель событий бронирование"
+
+#: admin/em-bookings.php:89 admin/em-bookings.php:140
+#: admin/em-bookings.php:191
+msgid "Pending Bookings"
+msgstr "До бронирование"
+
+#: admin/em-bookings.php:92
+msgid "Events With Bookings Enabled"
+msgstr "События С Бронирование Включено"
+
+#: admin/em-bookings.php:107 admin/em-bookings.php:213
+#: admin/em-bookings.php:351 admin/em-people.php:9
+msgid "You do not have the rights to manage this event."
+msgstr "У вас нет прав на управление этим событием."
+
+#: admin/em-bookings.php:119
+msgid "Manage %s Bookings"
+msgstr "Управление бронирование %s."
+
+#: admin/em-bookings.php:120 admin/em-bookings.php:174
+msgid "View/Edit Event"
+msgstr "Просмотр / редактирование событий"
+
+#: admin/em-bookings.php:127
+msgid "Spaces confirmed"
+msgstr "Пространства подтвердили"
+
+#: admin/em-bookings.php:129
+msgid "Date"
+msgstr "Дата"
+
+#: admin/em-bookings.php:143 admin/em-bookings.php:194
+msgid "Confirmed Bookings"
+msgstr "Подтверждение бронирования"
+
+#: admin/em-bookings.php:145 admin/em-bookings.php:196
+msgid "Rejected Bookings"
+msgstr "Отклонен бронирование"
+
+#: admin/em-bookings.php:147 admin/em-bookings.php:198
+msgid "Cancelled Bookings"
+msgstr "Отменено бронирование"
+
+#: admin/em-bookings.php:163
+msgid "You do not have the rights to manage this ticket."
+msgstr "У вас нет прав на управление этим билетом."
+
+#: admin/em-bookings.php:173
+msgid "Ticket for %s"
+msgstr "Билет на %s."
+
+#: admin/em-bookings.php:175
+msgid "View Event Bookings"
+msgstr "Просмотр событий бронирование"
+
+#: admin/em-bookings.php:184
+msgid "Min"
+msgstr "Мин"
+
+#: admin/em-bookings.php:185
+msgid "Max"
+msgstr "Макс"
+
+#: admin/em-bookings.php:186
+msgid "Start"
+msgstr "Начало"
+
+#: admin/em-bookings.php:187
+msgid "End"
+msgstr "Конец"
+
+#: admin/em-bookings.php:223
+msgid "Edit Booking"
+msgstr "Редактировать заказ"
+
+#: admin/em-bookings.php:231
+msgid "Event Details"
+msgstr "Событие Подробнее"
+
+#: admin/em-bookings.php:242
+msgid "Date/Time"
+msgstr "Дата / время"
+
+#: admin/em-bookings.php:254 admin/em-bookings.php:373
+msgid "Personal Details"
+msgstr "Персональные данные"
+
+#: admin/em-bookings.php:262
+msgid "Booking Details"
+msgstr "Детали заказа"
+
+#: admin/em-bookings.php:270
+msgid "Status"
+msgstr "Статус"
+
+#: admin/em-bookings.php:290
+msgid "Totals"
+msgstr "Итоги"
+
+#: admin/em-bookings.php:307
+msgid "Booking Notes"
+msgstr "Бронирование Notes"
+
+#: admin/em-bookings.php:310
+msgid ""
+"You can add private notes below for internal reference that only event "
+"managers will see."
+msgstr ""
+"Вы можете добавить частные примечания ниже для внутренней ссылки, что только "
+"менеджеры событие увидят."
+
+#: admin/em-bookings.php:315
+msgid "wrote"
+msgstr "написал"
+
+#: admin/em-bookings.php:361
+msgid "Manage Person's Booking"
+msgstr "Управление Бронирование Лица"
+
+#: admin/em-bookings.php:363
+msgid "Edit User"
+msgstr "Редактировать пользователя"
+
+#: admin/em-bookings.php:384
+msgid "Past And Present Bookings"
+msgstr "Прошлое и настоящее бронирование"
+
+#: admin/bookings/em-rejected.php:52 admin/bookings/em-rejected.php:111
+#: admin/bookings/em-pending.php:67 admin/bookings/em-pending.php:132
+#: admin/bookings/em-cancelled.php:52 admin/bookings/em-person.php:54
+#: admin/bookings/em-person.php:115 admin/bookings/em-confirmed.php:53
+#: admin/em-events.php:173
+msgid "Approve"
+msgstr "Одобрять"
+
+#: admin/bookings/em-rejected.php:55 admin/bookings/em-pending.php:70
+#: admin/bookings/em-cancelled.php:55 admin/bookings/em-person.php:57
+#: admin/bookings/em-confirmed.php:56
+msgid "Decline"
+msgstr "Снижение"
+
+#: admin/bookings/em-rejected.php:112 admin/bookings/em-pending.php:135
+#: admin/bookings/em-cancelled.php:112 admin/bookings/em-person.php:126
+#: admin/bookings/em-confirmed.php:119
+msgid "Edit/View"
+msgstr "Редактировать / Посмотреть"
+
+#: admin/bookings/em-rejected.php:125
+msgid "No rejected bookings."
+msgstr "Нет отклонены заказы."
+
+#: admin/bookings/em-pending.php:133 admin/bookings/em-person.php:124
+#: admin/bookings/em-confirmed.php:116
+msgid "Reject"
+msgstr "Отвергать"
+
+#: admin/bookings/em-pending.php:147
+msgid "No pending bookings."
+msgstr "Нет отложенных заказов."
+
+#: admin/bookings/em-cancelled.php:111 admin/bookings/em-person.php:121
+msgid "Restore"
+msgstr "Восстановление"
+
+#: admin/bookings/em-cancelled.php:125
+msgid "No cancelled bookings."
+msgstr "Не отменили заказы."
+
+#: admin/bookings/em-person.php:118 admin/bookings/em-confirmed.php:114
+msgid "Unapprove"
+msgstr "Unapprove"
+
+#: admin/bookings/em-person.php:139 admin/bookings/em-confirmed.php:131
+msgid "No confirmed bookings."
+msgstr "Не подтвердил бронирование."
+
+#: admin/bookings/em-events.php:32
+msgid "All Events"
+msgstr "Все события"
+
+#: admin/bookings/em-events.php:35
+msgid "Future Events"
+msgstr "Будущие события"
+
+#: admin/bookings/em-events.php:51 admin/em-events.php:63
+msgid "Total"
+msgstr "Общий"
+
+#: admin/bookings/em-events.php:72 admin/em-events.php:92
+msgid "Filter"
+msgstr "Фильтр"
+
+#: admin/em-help.php:15
+msgid "Placeholders for customizing event pages"
+msgstr "Заполнители для настройки событий страницы"
+
+#: admin/em-help.php:16
+msgid ""
+"In the <a href='%s'>settings page</a>, you'll find various textboxes where "
+"you can edit how event information looks, such as for event and location "
+"lists. Using the placeholders below, you can choose what information should "
+"be displayed."
+msgstr ""
+"В <a href='%s'>настройках страницы</a> , вы сможете найти различные "
+"текстовые поля, где вы можете редактировать информацию о событиях как "
+"выглядит, например, для события и места списков. Использование заполнителей "
+"ниже, вы можете выбрать, какая информация должна отображаться."
+
+#: admin/em-help.php:17 admin/em-options.php:58
+msgid "Event Related Placeholders"
+msgstr "Event Подобные заполнителей"
+
+#: admin/em-help.php:19 admin/em-options.php:61
+msgid "Category Related Placeholders"
+msgstr "Категория Связанные заполнителей"
+
+#: admin/em-help.php:21 admin/em-options.php:59
+msgid "Location Related Placeholders"
+msgstr "Место Связанные заполнителей"
+
+#: admin/em-help.php:23 admin/em-options.php:60
+msgid "Booking Related Placeholders"
+msgstr "Бронирование Связанные заполнителей"
+
+#: admin/em-people.php:27
+msgid "Bookings data"
+msgstr "Бронирование данных"
+
+#: admin/em-people.php:32
+msgid "Phone number"
+msgstr "Телефон"
+
+#: admin/em-people.php:53
+msgid "Available"
+msgstr "Доступный"
+
+#. #-#-#-#-#  plugin.pot (Events Manager 4.0.83)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/em-people.php:72
+msgid "Events Manager"
+msgstr "События менеджер"
+
+#: admin/em-admin.php:20
+msgid ""
+"<p>Hey, <strong>%s</strong>, welcome to <strong>Events Manager</strong>! We "
+"hope you like it around here.</p> \r\n"
+"\t\t\t<p>Now it's time to insert events lists through  <a href='%s' "
+"title='Widgets page'>widgets</a>, <a href='%s' title='Template tags "
+"documentation'>template tags</a> or <a href='%s' title='Shortcodes "
+"documentation'>shortcodes</a>.</p>\r\n"
+"\t\t\t<p>By the way, have you taken a look at the <a href='%s' title='Change "
+"settings'>Settings page</a>? That's where you customize the way events and "
+"locations are displayed.</p>\r\n"
+"\t\t\t<p>What? Tired of seeing this advice? I hear you, <a href='%s' "
+"title='Don't show this advice again'>click here</a> and you won't see this "
+"again!</p>"
+msgstr ""
+"<p>Hey, <strong>%s</strong>, Добро пожаловать <strong>Events Manager</"
+"strong>! Мы надеемся, что Вам нравится это где-то здесь.</p> \r\n"
+"\t\t\t<p>Теперь пришло время для вставки событий списки через  <a href='%s' "
+"title='Widgets page'>widgets</a>, <a href='%s' title='Template tags "
+"documentation'>template tags</a> или <a href='%s' title='Shortcodes "
+"documentation'>shortcodes</a>.</p>\r\n"
+"\t\t\t<p>Кстати, вы рассмотрели<a href='%s' title='Change "
+"settings'>Настройки страницы</a>? Вот где вам настроить способ событий и "
+"отображения регионов.</p>\r\n"
+"\t\t\t<p>What? Tired of seeing this advice? I hear you, <a href='%s' "
+"title='Don't show this advice again'>нажмите здесь </a> and you won't see "
+"this again!</p>"
+
+#: admin/em-admin.php:57
+msgid ""
+"<strong>Events Manager has some new features!</strong><ul><li>Bookings can "
+"now be approved before they count towards your event's space allocations.</"
+"li><li>Events now have owners, and you can restrict users so they can only "
+"manage events/locations/categories they create.<br/><br/>These new "
+"permissions are enabled by default, but since you upgraded it has been "
+"disabled to maintain the previous plugin behaviour. You can re-enable it "
+"from the <a href=\"%s\">settings page</a>. <a href=\"%s\">Dismiss</a>"
+msgstr ""
+"<strong>События менеджер имеет ряд новых возможностей!</strong> <ul><li> "
+"Заказы могут теперь быть утвержден, прежде чем они засчитываются в "
+"пространство вашего мероприятия ассигнований. </li><li> События теперь есть "
+"владельцы, и вы можете ограничить пользователей, чтобы они могли управлять "
+"только события / места / Категории которые они создают. <br/><br/> Эти новые "
+"разрешения включены по умолчанию, но так как вы обновили она была отключена, "
+"чтобы сохранить прежнее поведение плагина. Вы можете снова включить его от "
+"<a href=\"%s\">параметров страницы</a> . <a href=\"%s\">Dismiss</a>"
+
+#: admin/em-admin.php:70
+msgid ""
+"Uh Oh! For some reason wordpress could not create an events page for you (or "
+"you just deleted it). Not to worry though, all you have to do is create an "
+"empty page, name it whatever you want, and select it as your events page in "
+"your <a href=\"%s\">settings page</a>. Sorry for the extra step! If you know "
+"what you are doing, you may have done this on purpose, if so <a href=\"%s"
+"\">ignore this message</a>"
+msgstr ""
+"Uh Oh! Почему WordPress не удалось создать событий страницы для вас (или вы "
+"только что удалили его). Не волнуйтесь, все что вам нужно сделать, это "
+"создать пустую страницу, назовите ее как хотите, и выбрать его в качестве "
+"страницу события в вашей <a href=\"%s\">странице настроек</a> . Извините за "
+"один шаг! Если вы знаете, что вы делаете, вы, возможно, сделали это "
+"специально, если да, то <a href=\"%s\">проигнорировать это сообщение</a>"
+
+#: admin/em-admin.php:82
+msgid ""
+"A <strong>LOT</strong> has changed since Events Manager 3. We recommend you "
+"take a look at the <a href=\"%s\">settings page</a> for new features and "
+"upgrade instructions, and you may particualarly be interested in modifying "
+"permissions. <a href=\"%s\">Dismiss</a>"
+msgstr ""
+"<strong>Многое</strong> изменилось с События Manager 3. Мы рекомендуем вам "
+"посмотреть на <a href=\"%s\">странице настроек</a> для новых функций и "
+"инструкции по обновлению, и вы можете particualarly быть заинтересованы в "
+"изменении прав доступа. <a href=\"%s\">Dismiss</a>"
+
+#: admin/em-admin.php:94
+msgid ""
+"If you upgraded from 3.x to the RC2 and the update did not go so well, <a "
+"href=\"%s\">try reimporting old settings</a>. Warning! Re-importing will "
+"rename all event slugs, re-import your old category settings from events, "
+"and recreate all tickets, so changes to these areas will be lost. <a href=\"%"
+"s\">Dismiss</a>"
+msgstr ""
+"При обновлении от 3.x до RC2 и обновления не пошли так хорошо, <a href=\"%s"
+"\">попробуйте reimporting старые настройки</a> . Внимание! Re-импортеров "
+"будет переименовать все события слизняков, реимпорт старых настроек "
+"категории от событий, и воссоздать все билеты, поэтому изменения в этих "
+"областях, будут потеряны. <a href=\"%s\">Dismiss</a>"
+
+#: admin/em-admin.php:118
+msgid ""
+"This page corresponds to <strong>Events Manager</strong> events page. Its "
+"content will be overriden by Events Manager, although if you include the "
+"word CONTENTS (exactly in capitals) and surround it with other text, only "
+"CONTENTS will be overwritten. If you want to change the way your events "
+"look, go to the <a href='%s'>settings</a> page. "
+msgstr ""
+"Эта страница соответствует <strong>События</strong> странице "
+"<strong>Диспетчер</strong> событий. Его содержание будет переопределен путем "
+"менеджер событий, хотя, если вы включите слово СОДЕРЖАНИЕ (именно в "
+"столицах) и окружают его с другим текстом, только они будут перезаписаны. "
+"Если вы хотите, чтобы изменить способ вашего события выглядят, перейдите в "
+"<a href='%s'>настройки</a> страницы."
+
+#: admin/em-admin.php:145
+msgid "Displaying %s&#8211;%s of %s"
+msgstr "Отображение% с-% х%s."
+
+#: admin/em-options.php:42
+msgid "Changes saved."
+msgstr "Изменения сохранены."
+
+#: admin/em-options.php:62
+msgid "This accepts %s and %s placeholders."
+msgstr "Это принимает% с и %s. заполнителей."
+
+#: admin/em-options.php:63 admin/em-options.php:64
+msgid "This accepts %s placeholders."
+msgstr "Это принимает заполнителей% ы."
+
+#: admin/em-options.php:65
+msgid "This accepts %s, %s and %s placeholders."
+msgstr "Это принимает% S,%  с и %s. заполнителей."
+
+#: admin/em-options.php:67 admin/em-options.php:626
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: admin/em-options.php:67
+msgid "All"
+msgstr "Все"
+
+#: admin/em-options.php:69
+msgid "Only Network Admins see this"
+msgstr "Только администраторы сети увидеть это"
+
+#: admin/em-options.php:73
+msgid "Collapse All"
+msgstr "Свернуть все"
+
+#: admin/em-options.php:74
+msgid "Expand All"
+msgstr "Развернуть все"
+
+#: admin/em-options.php:102
+msgid "Event Manager Options"
+msgstr "Параметры Event Manager"
+
+#: admin/em-options.php:152 admin/em-options.php:168 admin/em-options.php:210
+#: admin/em-options.php:300 admin/em-options.php:323 admin/em-options.php:339
+#: admin/em-options.php:364 admin/em-options.php:386 admin/em-options.php:401
+#: admin/em-options.php:422 admin/em-options.php:444 admin/em-options.php:496
+#: admin/em-options.php:515 admin/em-options.php:529 admin/em-options.php:593
+msgid "Click to toggle"
+msgstr "Нажмите для переключения"
+
+#: admin/em-options.php:152
+msgid "Multi Site Options"
+msgstr "Многопользовательская параметры сайта"
+
+#: admin/em-options.php:156
+msgid "Enable global tables mode?"
+msgstr "Включить режим глобальной таблицы?"
+
+#: admin/em-options.php:156
+msgid ""
+"Setting this to yes will make all events save in the main site event tables "
+"(EM must also be activated). This allows you to share events across "
+"different blogs, such as showing events in your network whilst allowing "
+"users to display and manage their events within their own blog. Bear in mind "
+"that activating this will mean old events created on the sub-blogs will not "
+"be accessible anymore, and if you switch back they will be but new events "
+"created during global events mode will only remain on the main site."
+msgstr ""
+"Установка этого да сделает все события сохранить в основные таблицы событие "
+"сайта (EM также должна быть активирована). Это позволяет вам делиться "
+"событиями в различных блогах, например, показ событий в вашей сети, позволяя "
+"при этом пользователям отображать и управлять своими событиями в их "
+"собственном блоге. Имейте в виду, что активация это будет означать, старых "
+"событий создается на суб-блоги не будут доступны больше, и если вы "
+"переключитесь обратно они будут, но новые события, созданные в режиме "
+"глобального события только останется на основной сайт."
+
+#: admin/em-options.php:157
+msgid "Display global events on main blog?"
+msgstr "Показать глобальные события на главной блога?"
+
+#: admin/em-options.php:157
+msgid ""
+"Displays events from all sites on the network by default. You can still "
+"restrict events by blog using shortcodes and template tags coupled with the "
+"<code>blog</code> attribute. Requires global tables to be turned on."
+msgstr ""
+"Отображает события со всех сайтов в сети по умолчанию. Вы все еще ​​можете "
+"ограничить событий блог, используя короткие и теги шаблонов в сочетании с "
+"<code>blog</code> атрибут. Необходим глобальный таблиц, которые будут "
+"включены."
+
+#: admin/em-options.php:158
+msgid "Link sub-site events directly to sub-site?"
+msgstr "Ссылка суб-сайте события, непосредственно к югу от сайта?"
+
+#: admin/em-options.php:158
+msgid ""
+"When displaying global events on the main site you have the option of users "
+"viewing the event details on the main site or being directed to the sub-site."
+msgstr ""
+"При отображении глобальные события на главном сайте Вы имеете возможность "
+"пользователям при просмотре сведений о событиях на главном сайте или "
+"направляется на суб-сайта."
+
+#: admin/em-options.php:168
+msgid "General options"
+msgstr "Общие параметры"
+
+#: admin/em-options.php:172
+msgid "Use dropdown for locations?"
+msgstr "Используйте выпадающий список для мест?"
+
+#: admin/em-options.php:172
+msgid ""
+"Select yes to select location from a drow-down menu; location selection will "
+"be faster, but you will lose the ability to insert locations with events"
+msgstr ""
+"Выберите Да, чтобы выбрать местоположение, из дроу-меню, выбор места будет "
+"быстрее, но вы потеряете возможность вставки местах с событиями"
+
+#: admin/em-options.php:173
+msgid "Use recurrence?"
+msgstr "Используйте повторение?"
+
+#: admin/em-options.php:173
+msgid "Select yes to enable the recurrence features feature"
+msgstr "Выберите Да, чтобы включить функцию повторения функций"
+
+#: admin/em-options.php:174
+msgid "Enable bookings?"
+msgstr "Включить заказ?"
+
+#: admin/em-options.php:174
+msgid "Select yes to allow bookings and tickets for events."
+msgstr "Выберите Да для разрешения бронирование и билетов на мероприятия."
+
+#: admin/em-options.php:175
+msgid "Use categories?"
+msgstr "Используйте категории?"
+
+#: admin/em-options.php:175
+msgid "Select yes to enable the category features"
+msgstr "Выберите Да для включения функции категории"
+
+#: admin/em-options.php:176
+msgid "Use event attributes?"
+msgstr "Использование атрибутов события?"
+
+#: admin/em-options.php:176
+msgid "Select yes to enable the attributes feature"
+msgstr "Выберите Да для включения атрибутов функция"
+
+#: admin/em-options.php:180
+msgid "no default category"
+msgstr "по умолчанию нет категории"
+
+#: admin/em-options.php:185
+msgid "Default Category"
+msgstr "По умолчанию категории"
+
+#: admin/em-options.php:185
+msgid ""
+"This option allows you to select the default category when adding an event."
+msgstr ""
+"Эта опция позволяет Вам выбрать категорию по умолчанию при добавлении "
+"события."
+
+#: admin/em-options.php:185 admin/em-options.php:194
+msgid "(not applicable with event ownership on presently, coming soon!)"
+msgstr ""
+"(Не относится с событием собственности на настоящее время, в ближайшее "
+"время!)"
+
+#: admin/em-options.php:189
+msgid "no default location"
+msgstr "не по умолчанию"
+
+#: admin/em-options.php:194
+msgid "Default Location"
+msgstr "Расположение по умолчанию"
+
+#: admin/em-options.php:194
+msgid ""
+"This option allows you to select the default location when adding an event."
+msgstr ""
+"Эта опция позволяет вам выбрать папку по умолчанию при добавлении события."
+
+#: admin/em-options.php:197
+msgid "Default Location Country"
+msgstr "Страна расположение по умолчанию"
+
+#: admin/em-options.php:197
+msgid "no default country"
+msgstr "по умолчанию не страна"
+
+#: admin/em-options.php:197
+msgid ""
+"If you select a default country, that will be pre-selected when creating a "
+"new location."
+msgstr ""
+"При выборе страны по умолчанию, которые будут предварительно выбраны при "
+"создании нового местоположения."
+
+#: admin/em-options.php:199
+msgid "Event Attributes"
+msgstr "Атрибуты событий"
+
+#: admin/em-options.php:199
+msgid ""
+"You can also add event attributes here, one per line in this format "
+"<code>#_ATT{key}</code>. They will not appear on event pages unless you "
+"insert them into another template below, but you may want to store extra "
+"information about an event for other uses. <a href='%s'>More information on "
+"placeholders.</a>"
+msgstr ""
+"Вы также можете добавить событие атрибуты здесь, по одному на строку в этом "
+"формате <code>#_ATT{key}</code> . Они не будут появляться на страницах "
+"событие, если вы не вставлять их в другой шаблон ниже, но вы можете хранить "
+"дополнительную информацию о событии для других целей. <a href='%s'>Более "
+"подробную информацию о заполнителей.</a>"
+
+#: admin/em-options.php:201
+msgid "Show some love?"
+msgstr "Показать некоторые любят?"
+
+#: admin/em-options.php:201
+msgid ""
+"Hundreds of free hours have gone into making this free plugin, show your "
+"support and add a small link to the plugin website at the bottom of your "
+"event pages."
+msgstr ""
+"Сотни свободных часов были направлены на что делает этот бесплатный плагин, "
+"показать вашу поддержку и добавить небольшую ссылку на сайт плагина в нижней "
+"части страницы события."
+
+#: admin/em-options.php:210 admin/em-options.php:224
+msgid "Events page"
+msgstr "События страницу"
+
+#: admin/em-options.php:219
+msgid "[No Events Page]"
+msgstr "[Нет События страница]"
+
+#: admin/em-options.php:224
+msgid "This option allows you to select which page to use as an events page"
+msgstr ""
+"Эта опция позволяет вам выбрать, какие страницы для использования в качестве "
+"события страницы"
+
+#: admin/em-options.php:227
+msgid "Show events page in lists?"
+msgstr "Показать события страницы в списках?"
+
+#: admin/em-options.php:227
+msgid ""
+"Check this option if you want the events page to appear together with other "
+"pages in pages lists."
+msgstr ""
+"Включите эту опцию, если вы хотите событий страницы появляются вместе с "
+"другими страницами в страницах списков."
+
+#: admin/em-options.php:228
+msgid "Display calendar in events page?"
+msgstr "Показать на странице календаря событий?"
+
+#: admin/em-options.php:228
+msgid ""
+"This options allows to display the calendar in the events page, instead of "
+"the default list. It is recommended not to display both the calendar widget "
+"and a calendar page."
+msgstr ""
+"Эта опция позволяет отображать календарь на странице события, а не список по "
+"умолчанию. Рекомендуется, чтобы не отображать как виджет календаря и "
+"календаря страницы."
+
+#: admin/em-options.php:228
+msgid ""
+"If you would like to show events that span over more than one day, see the "
+"Calendar section on this page."
+msgstr ""
+"Если вы хотите, чтобы показать события, которые охватывают более чем за один "
+"день, см. раздел Календарь на этой странице."
+
+#: admin/em-options.php:229
+msgid "Disable title rewriting?"
+msgstr "Отключить название переписывания?"
+
+#: admin/em-options.php:229
+msgid ""
+"Some wordpress themes don't follow best practices when generating navigation "
+"menus, and so the automatic title rewriting feature may cause problems, if "
+"your menus aren't working correctly on the event pages, try setting this to "
+"'Yes', and provide an appropriate HTML title format below."
+msgstr ""
+"Некоторые WordPress темы не следовать рекомендациям при создании "
+"навигационных меню, и так автоматического переписывания название функции "
+"может вызвать проблемы, если ваше меню не работает должным образом на "
+"события страницы, попробуйте установить это «да», а также обеспечить "
+"надлежащий HTML заголовок ниже формат."
+
+#: admin/em-options.php:230
+msgid "Event Manager titles"
+msgstr "Названия Event Manager"
+
+#: admin/em-options.php:230
+msgid ""
+"This only setting only matters if you selected 'Yes' to above. You will "
+"notice the events page titles aren't being rewritten, and you have a new "
+"title underneath the default page name. This is where you control the HTML "
+"of this title. Make sure you keep the #_PAGETITLE placeholder here, as "
+"that's what is rewritten by events manager. To control what's rewritten in "
+"this title, see settings further down for page titles."
+msgstr ""
+"Это только установка только те вопросы, если вы выбрали «Да» на выше. Вы "
+"заметите, названия событий странице не переписываются, а у вас под новым "
+"названием имя страницы по умолчанию. Это где вы управляете HTML этого "
+"титула. Убедитесь, что вы держите # _PAGETITLE заполнителя здесь, как именно "
+"это переписанный менеджера событий. Чтобы контролировать то, что переписано "
+"в этом названии, см. настройки дальше вниз для названий страниц."
+
+#: admin/em-options.php:231
+msgid "Event List Limits"
+msgstr "Ограничения Список событий"
+
+#: admin/em-options.php:231
+msgid "This will control how many events are shown on one list by default."
+msgstr ""
+"Это позволит контролировать то, как много событий показаны на одном списке "
+"по умолчанию."
+
+#: admin/em-options.php:232
+msgid "Are current events past events?"
+msgstr "Являются ли нынешние события прошлых конференций?"
+
+#: admin/em-options.php:232
+msgid ""
+"By default, events that are have an end date later than today will be "
+"included in searches, set this to yes to consider events that started "
+"'yesterday' as past."
+msgstr ""
+"По умолчанию, события, которые имеют конечную дату позднее сегодняшнего дня, "
+"будут включены в поиск, установить это да рассмотреть события, которые "
+"начались \"вчера\", как прошлое."
+
+#: admin/em-options.php:233
+msgid "Show events search?"
+msgstr "Показать события поиска?"
+
+#: admin/em-options.php:233
+msgid ""
+"If set to yes, a search form will appear just above your list of events."
+msgstr ""
+"Если установлено значение Да, поисковая форма появится чуть выше списка "
+"событий."
+
+#: admin/em-options.php:236
+msgid "Default event list ordering"
+msgstr "По умолчанию список событий заказа"
+
+#: admin/em-options.php:241
+msgid "Order by start date, start time, then event name"
+msgstr "Сортировка по дате начала, время начала, то имя события"
+
+#: admin/em-options.php:242
+msgid "Order by name, start date, then start time"
+msgstr "Сортировка по имени, даты начала, то время начала"
+
+#: admin/em-options.php:243
+msgid "Order by name, end date, then end time"
+msgstr "По названию, дате окончания, то время окончания"
+
+#: admin/em-options.php:244
+msgid "Order by end date, end time, then event name"
+msgstr "Сортировать по дате окончания, время окончания, то имя события"
+
+#: admin/em-options.php:258
+msgid "All Ascending"
+msgstr "Все по возрастанию"
+
+#: admin/em-options.php:261
+msgid "All Descending"
+msgstr "Все по убыванию"
+
+#: admin/em-options.php:275
+msgid ""
+"When Events Manager displays lists of events the default behaviour is "
+"ordering by start date in ascending order. To change this, modify the values "
+"above."
+msgstr ""
+"Когда менеджер событий показывает список событий по умолчанию является "
+"упорядочение по дате начала в порядке возрастания. Чтобы это изменить, "
+"изменить значения выше."
+
+#: admin/em-options.php:279
+msgid "Event list scope"
+msgstr "Объем Список событий"
+
+#: admin/em-options.php:289
+msgid ""
+"Only show events starting within a certain time limit on the events page. "
+"Default is future events with no end time limit."
+msgstr ""
+"Показывать только мероприятия, начиная в течение определенного срока на "
+"странице событий. По умолчанию будущие события без ограничения времени конца."
+
+#: admin/em-options.php:300
+msgid "Events format"
+msgstr "События формате"
+
+#: admin/em-options.php:303 admin/em-options.php:342 admin/em-options.php:367
+msgid "%s Page"
+msgstr "%s. страницу"
+
+#: admin/em-options.php:305
+msgid "Events page title"
+msgstr "События заголовок страницы"
+
+#: admin/em-options.php:305
+msgid "The title on the multiple events page."
+msgstr "Титул на несколько событий страницы."
+
+#: admin/em-options.php:306
+msgid "Default event list format header"
+msgstr "По умолчанию список событий формат заголовка"
+
+#: admin/em-options.php:306
+msgid ""
+"This content will appear just above your code for the default event list "
+"format. Default is blank"
+msgstr ""
+"Этот контент будет появляться чуть выше код формате списка событий по "
+"умолчанию. По умолчанию пуст"
+
+#: admin/em-options.php:307
+msgid "Default event list format"
+msgstr "По умолчанию список событий формате"
+
+#: admin/em-options.php:307
+msgid "The format of any events in a list."
+msgstr "Формат любого события в список."
+
+#: admin/em-options.php:308
+msgid "Default event list format footer"
+msgstr "По умолчанию список событий формат колонтитула"
+
+#: admin/em-options.php:308
+msgid ""
+"This content will appear just below your code for the default event list "
+"format. Default is blank"
+msgstr ""
+"Этот контент будет появляться чуть ниже код для формат списка событий по "
+"умолчанию. По умолчанию пуст"
+
+#: admin/em-options.php:309
+msgid "No events message"
+msgstr "Нет событий сообщение"
+
+#: admin/em-options.php:309
+msgid "The message displayed when no events are available."
+msgstr "Сообщение, отображаемое, когда события не доступны."
+
+#: admin/em-options.php:310
+msgid "List events by date title"
+msgstr "Список событий по дате заголовкам"
+
+#: admin/em-options.php:310
+msgid ""
+"If viewing a page for events on a specific date, this is the title that "
+"would show up. To insert date values, use <a href=\"http://www.php.net/"
+"manual/en/function.date.php\">PHP time format characters</a>  with a "
+"<code>#</code> symbol before them, i.e. <code>#m</code>, <code>#M</code>, "
+"<code>#j</code>, etc.<br/>"
+msgstr ""
+"Если просмотр страницы для событий на определенную дату, это название, "
+"которое появляется. Для вставки значений дат, использование <a href=\"http://"
+"www.php.net/manual/en/function.date.php\">PHP символов формат времени</a> с "
+"<code>#</code> символа перед ними, то есть <code>#m</code> , <code>#M</"
+"code> , <code>#j</code> и т.д. <br/>"
+
+#: admin/em-options.php:312 admin/em-options.php:350 admin/em-options.php:375
+msgid "Single %s Page"
+msgstr "Одноместный %s. страницу"
+
+#: admin/em-options.php:314
+msgid "Single event page title format"
+msgstr "Одноместный событие заголовок страницы формата"
+
+#: admin/em-options.php:314
+msgid "The format of a single event page title."
+msgstr "Формат одного титульного листа события."
+
+#: admin/em-options.php:315
+msgid "Default single event format"
+msgstr "По умолчанию единый формат события"
+
+#: admin/em-options.php:315
+msgid "The format of a single event page."
+msgstr "Формат одной странице события."
+
+#: admin/em-options.php:323
+msgid "Calendar format"
+msgstr "Календарь формата"
+
+#: admin/em-options.php:327
+msgid "Small calendar title"
+msgstr "Малый название календаря"
+
+#: admin/em-options.php:327
+msgid ""
+"The format of the title, corresponding to the text that appears when "
+"hovering on an eventful calendar day."
+msgstr ""
+"Формат название, соответствующее текст, который появляется при наведении на "
+"календарный день богат событиями."
+
+#: admin/em-options.php:328
+msgid "Small calendar title separator"
+msgstr "Малый сепаратор название календаря"
+
+#: admin/em-options.php:328
+msgid ""
+"The separator appearing on the above title when more than one events are "
+"taking place on the same day."
+msgstr ""
+"Сепаратор, появляющиеся на выше титул, когда более одного события происходят "
+"в тот же день."
+
+#: admin/em-options.php:329
+msgid "Full calendar events format"
+msgstr "Полный календарь событий формате"
+
+#: admin/em-options.php:329
+msgid ""
+"The format of each event when displayed in the full calendar. Remember to "
+"include <code>li</code> tags before and after the event."
+msgstr ""
+"Формат каждого события при отображении в полный календарь. Не забудьте "
+"включить <code>li</code> теги до и после события."
+
+#: admin/em-options.php:330
+msgid "Show long events on calendar pages?"
+msgstr "Показать длительные события в календаре страницы?"
+
+#: admin/em-options.php:330
+msgid ""
+"If you are showing a calendar on the events page (see Events format section "
+"on this page), you have the option of showing events that span over days on "
+"each day it occurs."
+msgstr ""
+"Если вы показываете календарь событий страницы (см. раздел События формате "
+"на этой странице), у вас есть возможность показать события, которые "
+"охватывают более дней на каждый день это происходит."
+
+#: admin/em-options.php:331
+msgid "Show list on day with single event?"
+msgstr "Показать список в день с одного события?"
+
+#: admin/em-options.php:331
+msgid ""
+"By default, if a calendar day only has one event, it display a single event "
+"when clicking on the link of that calendar date. If you select Yes here, you "
+"will get always see a list of events."
+msgstr ""
+"По умолчанию, если календарный день имеет только одно событие, это "
+"отображение одного события при нажатии на ссылку, что календарная дата. Если "
+"вы выберете Да вот, вы получите всегда видеть список событий."
+
+#: admin/em-options.php:339
+msgid "Locations format"
+msgstr "Формат проведения"
+
+#: admin/em-options.php:344 admin/em-options.php:369
+msgid "%s page title"
+msgstr "Страницы% с названием"
+
+#: admin/em-options.php:344 admin/em-options.php:369
+msgid "The title on the multiple %s page."
+msgstr "Название на странице несколько% ы."
+
+#: admin/em-options.php:345 admin/em-options.php:370
+msgid "%s list header format"
+msgstr "Список заголовков% с форматом"
+
+#: admin/em-options.php:345 admin/em-options.php:370
+msgid ""
+"This content will appear just above your code for the %s list format below. "
+"Default is blank"
+msgstr ""
+"Этот контент будет появляться чуть выше код для списка формат%s. ниже. По "
+"умолчанию пуст"
+
+#: admin/em-options.php:346 admin/em-options.php:371
+msgid "%s list item format"
+msgstr "Элемент списка% с форматом"
+
+#: admin/em-options.php:346 admin/em-options.php:371
+msgid "The format of a single %s in a list."
+msgstr "Формат одной% с в списке."
+
+#: admin/em-options.php:347 admin/em-options.php:372
+msgid "%s list footer format"
+msgstr "Список подвал% с форматом"
+
+#: admin/em-options.php:347 admin/em-options.php:372
+msgid ""
+"This content will appear just below your code for the %s list format above. "
+"Default is blank"
+msgstr ""
+"Этот контент будет появляться чуть ниже код для списка формат%s. выше. По "
+"умолчанию пуст"
+
+#: admin/em-options.php:348 admin/em-options.php:356 admin/em-options.php:373
+msgid "No %s message"
+msgstr "Нет% ы сообщение"
+
+#: admin/em-options.php:348 admin/em-options.php:373
+msgid "The message displayed when no %s are available."
+msgstr "Сообщение, отображаемое, когда нет% имеются."
+
+#: admin/em-options.php:352 admin/em-options.php:377
+msgid "Single %s title format"
+msgstr "Название Одноместный% с форматом"
+
+#: admin/em-options.php:352
+msgid "The format of a single location page title."
+msgstr "Формат одного титульного листа месте."
+
+#: admin/em-options.php:353 admin/em-options.php:378
+msgid "Single %s page format"
+msgstr "Одноместный страницу%s. формате"
+
+#: admin/em-options.php:353
+msgid "The format of a single location page."
+msgstr "Формат одной странице месте."
+
+#: admin/em-options.php:354
+msgid "Default location balloon format"
+msgstr "Расположение по умолчанию формат воздушный шар"
+
+#: admin/em-options.php:354
+msgid ""
+"The format of of the text appearing in the baloon describing the location a "
+"single location map."
+msgstr ""
+"Формат из текста, содержащегося в шаре, описывающие расположение одной карте "
+"местоположение."
+
+#: admin/em-options.php:355
+msgid "Default %s list format"
+msgstr "По умолчанию %s. формате списка"
+
+#: admin/em-options.php:355
+msgid ""
+"The format of the events the list inserted in the location page through the "
+"<code>#_NEXTEVENTS</code>, <code>#_PASTEVENTS</code> and <code>#_ALLEVENTS</"
+"code> element."
+msgstr ""
+"Формат события список вставляется в месте страницы через <code>#_NEXTEVENTS</"
+"code> , <code>#_PASTEVENTS</code> и <code>#_ALLEVENTS</code> элемента."
+
+#: admin/em-options.php:356
+msgid ""
+"The message to be displayed in the list generated by <code>#_NEXTEVENTS</"
+"code>, <code>#_PASTEVENTS</code> and <code>#_ALLEVENTS</code> when no events "
+"are available."
+msgstr ""
+"Сообщение, которое будет отображаться в списке порожденных "
+"<code>#_NEXTEVENTS</code> , <code>#_PASTEVENTS</code> и <code>#_ALLEVENTS</"
+"code> , когда события не доступны."
+
+#: admin/em-options.php:364
+msgid "Categories format"
+msgstr "Категории формате"
+
+#: admin/em-options.php:377
+msgid "The format of a single category page title."
+msgstr "Формат одного титульного листа категории."
+
+#: admin/em-options.php:378
+msgid "The format of a single category page."
+msgstr "Формат одной странице категории."
+
+#: admin/em-options.php:386
+msgid "RSS feed format"
+msgstr "RSS кормить формате"
+
+#: admin/em-options.php:390
+msgid "RSS main title"
+msgstr "RSS основное название"
+
+#: admin/em-options.php:390
+msgid "The main title of your RSS events feed."
+msgstr "Основного названия вашего фида RSS событий."
+
+#: admin/em-options.php:391
+msgid "RSS main description"
+msgstr "RSS основных описание"
+
+#: admin/em-options.php:391
+msgid "The main description of your RSS events feed."
+msgstr "Основной описание вашего RSS-канал событий."
+
+#: admin/em-options.php:392
+msgid "RSS title format"
+msgstr "RSS название формата"
+
+#: admin/em-options.php:392
+msgid "The format of the title of each item in the events RSS feed."
+msgstr "Формат названия каждого пункта в корм события RSS."
+
+#: admin/em-options.php:393
+msgid "RSS description format"
+msgstr "RSS описание формата"
+
+#: admin/em-options.php:393
+msgid "The format of the description of each item in the events RSS feed."
+msgstr "Формат описания каждого элемента в корм события RSS."
+
+#: admin/em-options.php:401
+msgid "Maps and geotagging"
+msgstr "Карты и геотегов"
+
+#: admin/em-options.php:406
+msgid "Enable Google Maps integration?"
+msgstr "Включить Google Maps интеграции?"
+
+#: admin/em-options.php:410
+msgid "Check this option to enable Goggle Map integration."
+msgstr "Проверьте эту опцию для включения интеграции Goggle Map."
+
+#: admin/em-options.php:414
+msgid "Map text format"
+msgstr "Карта текстовом формате"
+
+#: admin/em-options.php:414
+msgid "The text format inside the map balloons."
+msgstr "Формат текста внутри карты воздушных шаров."
+
+#: admin/em-options.php:422
+msgid "Booking and Ticketing Options"
+msgstr "Бронирование и продажа билетов параметры"
+
+#: admin/em-options.php:426
+msgid "Approval Required?"
+msgstr "Требуется разрешение?"
+
+#: admin/em-options.php:426
+msgid ""
+"Bookings will not be confirmed until the event administrator approves it."
+msgstr ""
+"Бронирование не будет подтверждено, пока событие администратор одобрит его."
+
+#: admin/em-options.php:427
+msgid "Currency"
+msgstr "Валюта"
+
+#: admin/em-options.php:427
+msgid "Choose your currency for displaying event pricing."
+msgstr "Выберите валюту для отображения событий ценообразования."
+
+#: admin/em-options.php:428
+msgid "Single ticket mode?"
+msgstr "Одиночный режим билет?"
+
+#: admin/em-options.php:428
+msgid ""
+"In single ticket mode, users can only create one ticket per booking (and "
+"will not see options to add more tickets)."
+msgstr ""
+"В режиме с одним билетом, пользователи могут создать только один билет за "
+"бронирование (и не увидите параметры, чтобы добавить больше билетов)."
+
+#: admin/em-options.php:429
+msgid "Show ticket table in single ticket mode?"
+msgstr "Показать билет таблицу в режиме одного билета?"
+
+#: admin/em-options.php:429
+msgid ""
+"If you prefer a ticket table like with multiple tickets, even for single "
+"ticket events, enable this."
+msgstr ""
+"Если вы предпочитаете билет стол, как с несколькими билеты, даже на "
+"единичные события билет, эту опцию."
+
+#: admin/em-options.php:430
+msgid "Show unavailable tickets?"
+msgstr "Показать недоступны билеты?"
+
+#: admin/em-options.php:430
+msgid "You can choose whether or not to show unavailable tickets to visitors."
+msgstr ""
+"Вы можете выбрать, показывать или не показывать билеты недоступными для "
+"посетителей."
+
+#: admin/em-options.php:431
+msgid "Reserved unconfirmed spaces?"
+msgstr "Зарезервировано неподтвержденным пространства?"
+
+#: admin/em-options.php:431
+msgid ""
+"By default, event spaces become unavailable once there are enough CONFIRMED "
+"bookings. To reserve spaces even if unnapproved, choose yes."
+msgstr ""
+"По умолчанию событие пространства становятся недоступными раз Есть "
+"достаточно ПОДТВЕРЖДЕНО заказов. Для резервирования пространства, даже если "
+"unnapproved, выберите да."
+
+#: admin/em-options.php:432
+msgid "Show multiple tickets if logged out?"
+msgstr "Показывать несколько билетов, если выйти из?"
+
+#: admin/em-options.php:432
+msgid ""
+"If logged out, a user will be asked to register in order to book. However, "
+"we can show available tickets if you have more than one ticket."
+msgstr ""
+"Если вышел из системы, пользователю будет предложено зарегистрироваться для "
+"того, чтобы книги. Тем не менее, мы можем показать, доступные билеты, если у "
+"вас есть больше, чем один билет."
+
+#: admin/em-options.php:433
+msgid "Allow overbooking when approving?"
+msgstr "Разрешить рейсе при утверждении?"
+
+#: admin/em-options.php:433
+msgid ""
+"If you get a lot of pending bookings and you decide to allow more bookings "
+"than spaces allow, setting this to yes will allow you to override the event "
+"space limit when manually approving."
+msgstr ""
+"Если вы получаете много отложенных заказов, и вы решите, чтобы больше "
+"заказов, чем пространства позволяют установка этого в да позволит вам "
+"изменить лимит пространства событий при ручном утверждения."
+
+#: admin/em-options.php:434
+msgid "Allow guest bookings?"
+msgstr "Разрешить гостевой заказ?"
+
+#: admin/em-options.php:434
+msgid ""
+"If enabled, guest visitors can supply an email address and a user account "
+"will automatically be created for them along with their booking. They will "
+"be also be able to log back in with that newly created account."
+msgstr ""
+"Если включено, гостевой посетители могут поставлять адрес электронной почты "
+"и учетной записи пользователя будет автоматически создан для них, а также "
+"бронирование. Они будут также иметь возможность снова войти в систему с этой "
+"вновь созданной учетной записи."
+
+#: admin/em-options.php:435
+msgid "Display login form?"
+msgstr "Показать Войти форме?"
+
+#: admin/em-options.php:435
+msgid ""
+"Choose whether or not to display a login form in the booking form area to "
+"remind your members to log in before booking."
+msgstr ""
+"Выберите, следует ли отображать форму Войти в области формы бронирования "
+"напомнить членам войти в систему бронирования."
+
+#: admin/em-options.php:444
+msgid "Booking Email Templates"
+msgstr "Бронирование Email Шаблоны"
+
+#: admin/em-options.php:448
+msgid "Default contact person"
+msgstr "Человек Телефонная книга по умолчанию"
+
+#: admin/em-options.php:448
+msgid ""
+"Select the default contact person. This user will be employed whenever a "
+"contact person is not explicitly specified for an event"
+msgstr ""
+"Выберите человека, контактов по умолчанию. Этот пользователь будет "
+"использоваться всякий раз, когда контактное лицо явно не задана для события"
+
+#: admin/em-options.php:449
+msgid "Email events admin?"
+msgstr "Email событий администратора?"
+
+#: admin/em-options.php:449
+msgid ""
+"If you would like every event booking confirmation email sent to an "
+"administrator write their email here (leave blank to not send an email)."
+msgstr ""
+"Если вы хотите каждый подтверждение бронирования событием сообщения, "
+"отправленные на администратора написать свою электронную почту здесь "
+"(оставьте пустым, чтобы не отправлять по электронной почте)."
+
+#: admin/em-options.php:450
+msgid "Email contact person?"
+msgstr "Email контактного лица?"
+
+#: admin/em-options.php:450
+msgid ""
+"Check this option if you want the event contact to receive an email when "
+"someone books places. An email will be sent when a booking is first made "
+"(regardless if confirmed or pending)"
+msgstr ""
+"Включите эту опцию, если вы хотите событие контакт получать электронную "
+"почту, когда кто-то книги местах. Письмо будет отправлено, когда "
+"бронирование впервые (независимо от того, подтверждены или на рассмотрении)"
+
+#: admin/em-options.php:451
+msgid "Disable new registration email?"
+msgstr "Отключить регистрацию новых сообщений электронной почты?"
+
+#: admin/em-options.php:451
+msgid ""
+"Check this option if you want to prevent the wordpress registration email "
+"from going out when a user anonymously books an event."
+msgstr ""
+"Включите эту опцию, если вы не хотите, чтобы электронная почта WordPress "
+"регистрации от выхода, когда пользователь анонимно книг событие."
+
+#: admin/em-options.php:453
+msgid "Contact person booking confirmed"
+msgstr "Бронирование Контактное лицо подтвердило"
+
+#: admin/em-options.php:454
+msgid ""
+"An email will be sent to the event contact when a booking is first made."
+msgstr "Письмо будет отправлено в случае контакта при бронирование впервые."
+
+#: admin/em-options.php:456
+msgid "Contact person email subject"
+msgstr "Контакт человека предметом электронной почте"
+
+#: admin/em-options.php:457
+msgid "Contact person email"
+msgstr "Контактное лицо электронной почте"
+
+#: admin/em-options.php:459
+msgid "Contact person booking cancelled"
+msgstr "Контактное лицо заказ отменен"
+
+#: admin/em-options.php:460
+msgid ""
+"An email will be sent to the event contact if someone cancels their booking."
+msgstr ""
+"Письмо будет отправлено на мероприятие обращаться, если кто-то отменяет их "
+"бронирования."
+
+#: admin/em-options.php:462
+msgid "Contact person cancellation subject"
+msgstr "Контакт предмет отмены человек"
+
+#: admin/em-options.php:463
+msgid "Contact person cancellation email"
+msgstr "Контактный адрес электронной человек отмены"
+
+#: admin/em-options.php:465
+msgid "Confirmed booking email"
+msgstr "Подтверждение бронирования электронной почте"
+
+#: admin/em-options.php:466
+msgid ""
+"This is sent when a person's booking is confirmed. This will be sent "
+"automatically if approvals are required and the booking is approved. If "
+"approvals are disabled, this is sent out when a user first submits their "
+"booking."
+msgstr ""
+"Такое уведомление направляется при бронировании человека подтверждается. Это "
+"будет отправлено автоматически, если согласований требуется, и бронирование "
+"не будет одобрен. Если утверждение будет отключено, посылается, когда "
+"пользователь в первый раз представляет свои бронирования."
+
+#: admin/em-options.php:468
+msgid "Booking confirmed email subject"
+msgstr "Подтверждение брони тему сообщения"
+
+#: admin/em-options.php:469
+msgid "Booking confirmed email"
+msgstr "Бронирование подтверждается электронной почте"
+
+#: admin/em-options.php:471
+msgid "Pending booking email"
+msgstr "В ожидании заказа электронной почте"
+
+#: admin/em-options.php:472
+msgid ""
+"This will be sent to the person when they first submit their booking. Not "
+"relevant if bookings don't require approval."
+msgstr ""
+"Это будет отправлен на человека, когда они впервые представляют свои "
+"бронирования. Не имеет значения, если заказ не требует одобрения."
+
+#: admin/em-options.php:474
+msgid "Booking pending email subject"
+msgstr "Бронирование в ожидании тему сообщения"
+
+#: admin/em-options.php:475
+msgid "Booking pending email"
+msgstr "Бронирование до электронной почты"
+
+#: admin/em-options.php:477
+msgid "Rejected booking email"
+msgstr "Отклонен бронирование электронной почте"
+
+#: admin/em-options.php:478
+msgid ""
+"This will be sent automatically when a booking is rejected. Not relevant if "
+"bookings don't require approval."
+msgstr ""
+"Он будет отправлен автоматически при бронировании отвергается. Не имеет "
+"значения, если заказ не требует одобрения."
+
+#: admin/em-options.php:480
+msgid "Booking rejected email subject"
+msgstr "Бронирование отклонил тему сообщения"
+
+#: admin/em-options.php:480
+msgid ""
+"The subject of the email sent to the person making a booking that is "
+"awaiting administrator approval. Not relevant if bookings don't require "
+"approval."
+msgstr ""
+"Предметом сообщения, отправленные на лицо, бронирование, что ожидает "
+"подтверждения администратора. Не имеет значения, если заказ не требует "
+"одобрения."
+
+#: admin/em-options.php:481
+msgid "Booking rejected email"
+msgstr "Бронирование отклонил электронной почте"
+
+#: admin/em-options.php:481
+msgid ""
+"The body of the email which will be sent to the person if the booking is "
+"rejected. Not relevant if bookings don't require approval."
+msgstr ""
+"Тело письма, которое будет отправлено на человека, если заказ будет "
+"отклонено. Не имеет значения, если заказ не требует одобрения."
+
+#: admin/em-options.php:485
+msgid "This will be sent when a user cancels their booking."
+msgstr "Он будет отправлен, когда пользователь отменяет их бронирования."
+
+#: admin/em-options.php:487
+msgid "Booking cancelled email subject"
+msgstr "Бронирование отменено тему сообщения"
+
+#: admin/em-options.php:488
+msgid "Booking cancelled email"
+msgstr "Бронирование отменено электронной почте"
+
+#: admin/em-options.php:496
+msgid "Email Settings"
+msgstr "Настройки электронной почты"
+
+#: admin/em-options.php:500
+msgid "Notification sender name"
+msgstr "Уведомление имя отправителя"
+
+#: admin/em-options.php:500
+msgid "Insert the display name of the notification sender."
+msgstr "Вставьте отображаемое имя уведомления отправителю."
+
+#: admin/em-options.php:501
+msgid "Notification sender address"
+msgstr "Уведомление адрес отправителя"
+
+#: admin/em-options.php:501
+msgid "Insert the address of the notification sender."
+msgstr "Вставить адрес уведомления отправителю."
+
+#: admin/em-options.php:502
+msgid ""
+"The port through which you e-mail notifications will be sent. Make sure the "
+"firewall doesn't block this port"
+msgstr ""
+"Порт, через который вы уведомлений по электронной почте будет отправлено. "
+"Убедитесь, что брандмауэр не блокирует этот порт"
+
+#: admin/em-options.php:503
+msgid "Mail sending method"
+msgstr "Почта способ передачи"
+
+#: admin/em-options.php:503
+msgid "PHP mail function"
+msgstr "PHP почты функцию"
+
+#: admin/em-options.php:503
+msgid "Select the method to send email notification."
+msgstr "Выберите метод для отправки по электронной почте."
+
+#: admin/em-options.php:504
+msgid "Use SMTP authentication?"
+msgstr "Использовать SMTP-аутентификация?"
+
+#: admin/em-options.php:504
+msgid ""
+"SMTP authentication is often needed. If you use GMail, make sure to set this "
+"parameter to Yes"
+msgstr ""
+"SMTP-аутентификация, часто необходимы. Если вы используете GMail, "
+"удостоверьтесь, чтобы установить этот параметр в Да"
+
+#: admin/em-options.php:505
+msgid ""
+"The SMTP host. Usually it corresponds to 'localhost'. If you use GMail, set "
+"this value to 'ssl://smtp.gmail.com:465'."
+msgstr ""
+"Хост SMTP. Обычно это соответствует \"локальный\". Если вы используете "
+"GMail, установите значение \"SSL://smtp.gmail.com: 465\"."
+
+#: admin/em-options.php:506
+msgid "SMTP username"
+msgstr "SMTP имя пользователя"
+
+#: admin/em-options.php:506
+msgid "Insert the username to be used to access your SMTP server."
+msgstr ""
+"Вставить имя пользователя, который будет использоваться для доступа к SMTP-"
+"сервер."
+
+#: admin/em-options.php:507
+msgid "SMTP password"
+msgstr "SMTP пароль"
+
+#: admin/em-options.php:507
+msgid "Insert the password to be used to access your SMTP server"
+msgstr ""
+"Вставьте пароль, который будет использоваться для доступа к SMTP-серверу"
+
+#: admin/em-options.php:515
+msgid "Images size"
+msgstr "Изображения размером"
+
+#: admin/em-options.php:519
+msgid "Maximum width (px)"
+msgstr "Максимальная ширина (пикселей)"
+
+#: admin/em-options.php:519
+msgid "The maximum allowed width for images uploades"
+msgstr "Максимально допустимая ширина изображения uploades"
+
+#: admin/em-options.php:520
+msgid "Maximum height (px)"
+msgstr "Максимальная высота (пикселей)"
+
+#: admin/em-options.php:520
+msgid "The maximum allowed height for images uploaded, in pixels"
+msgstr "Максимально допустимая высота изображения, загруженные в пикселях"
+
+#: admin/em-options.php:521
+msgid "Maximum size (bytes)"
+msgstr "Максимальный размер (байт)"
+
+#: admin/em-options.php:521
+msgid "The maximum allowed size for images uploaded, in bytes"
+msgstr "Максимально допустимый размер изображения, загруженные в байтах"
+
+#: admin/em-options.php:529
+msgid "User Capabilities"
+msgstr "Пользователь возможности"
+
+#: admin/em-options.php:533
+msgid ""
+"Warning: Changing these values may result in exposing previously hidden "
+"information to all users."
+msgstr ""
+"Внимание: Изменение этих значений может привести в разоблачении ранее "
+"скрытой информации для всех пользователей."
+
+#: admin/em-options.php:540
+msgid ""
+"You can now give fine grained control with regards to what your users can do "
+"with events. Each user role can have perform different sets of actions."
+msgstr ""
+"Теперь Вы можете дать тонкую настройку по отношению к тому, что ваши "
+"пользователи могут делать с событиями. Каждый пользователь может иметь роль "
+"выполняют различные наборы действий."
+
+#: admin/em-options.php:548
+msgid "Users can publish events and skip any admin approval."
+msgstr ""
+"Пользователи могут публиковать события и пропустить какой-либо одобрения "
+"администратора."
+
+#: admin/em-options.php:549
+msgid "User can edit the global categories."
+msgstr "Пользователь может редактировать глобальными категориями."
+
+#: admin/em-options.php:550
+msgid "User can delete other users events."
+msgstr "Пользователь может удалить другие события пользователей."
+
+#: admin/em-options.php:551
+msgid "User can delete other users locations."
+msgstr "Пользователь может удалить другие места пользователей."
+
+#: admin/em-options.php:552
+msgid "User can edit other users locations."
+msgstr "Пользователь может редактировать других местах пользователей."
+
+#: admin/em-options.php:553
+msgid ""
+"User can manage other users individual bookings and event booking settings."
+msgstr ""
+"Пользователь может управлять другими пользователями индивидуальных "
+"бронирований и настройки событий бронирования."
+
+#: admin/em-options.php:554
+msgid "User can edit other users events."
+msgstr "Пользователь может редактировать другие события пользователей."
+
+#: admin/em-options.php:555
+msgid "User can delete their own locations."
+msgstr "Пользователь может удалить свои места."
+
+#: admin/em-options.php:556
+msgid "User can delete their events."
+msgstr "Пользователь может удалить их события."
+
+#: admin/em-options.php:557
+msgid "User can edit their locations."
+msgstr "Пользователь может редактировать свои места."
+
+#: admin/em-options.php:558
+msgid "User can use and manage bookings with their events."
+msgstr ""
+"Пользователь может использовать и управлять заказов со своими событиями."
+
+#: admin/em-options.php:559
+msgid ""
+"User can view other users locations, to make locations shared by all users "
+"allow all event user roles to view all locations."
+msgstr ""
+"Пользователь может просматривать другие места пользователей, чтобы сделать "
+"места, используемые всеми пользователями позволяют все роли событие "
+"пользователю просматривать все места."
+
+#: admin/em-options.php:560
+msgid "User can create recurrent events."
+msgstr "Пользователь может создавать повторяющиеся события."
+
+#: admin/em-options.php:561
+msgid "User can create and edit their events."
+msgstr "Пользователь может создавать и редактировать свои мероприятия."
+
+#: admin/em-options.php:593
+msgid "Anonymous Event Submission"
+msgstr "Анонимные Представление событий"
+
+#: admin/em-options.php:597
+msgid ""
+"You can allow users to publicly submit events on your blog by using the "
+"[event_form] shortcode, and enabling anonymous submissions below."
+msgstr ""
+"Вы можете позволить пользователям публично представить события в своем блоге "
+"с помощью [event_form] короткий, и создание благоприятных анонимные ниже."
+
+#: admin/em-options.php:600
+msgid "Allow anonymous event submissions?"
+msgstr "Разрешить анонимные событие?"
+
+#: admin/em-options.php:600
+msgid ""
+"Would you like to allow users to submit bookings anonymously? If so, you can "
+"use the new [event_form] shortcode or <code>em_event_form()</code> template "
+"tag with this enabled."
+msgstr ""
+"Хотите, чтобы позволить пользователям отправлять заказы анонимно? Если это "
+"так, вы можете использовать новый [event_form] короткий или "
+"<code>em_event_form()</code> шаблонный тег с этим включена."
+
+#: admin/em-options.php:601
+msgid "Guest Default User"
+msgstr "Пользователь Гость по умолчанию"
+
+#: admin/em-options.php:601
+msgid ""
+"Events require a user to own them. In order to allow events to be submitted "
+"anonymously you need to assign that event a specific user. We recommend you "
+"create a \"Anonymous\" subscriber with a very good password and use that."
+msgstr ""
+"События требуют пользователь владеть ими. Для того, чтобы позволить "
+"событиям, которые будут представлены анонимно необходимо присвоить этому "
+"событию конкретного пользователя. Мы рекомендуем вам создать \"Anonymous\" "
+"абонент очень хороший пароль и использовать его."
+
+#: admin/em-options.php:602
+msgid "Success Message"
+msgstr "Успех сообщение"
+
+#: admin/em-options.php:602
+msgid ""
+"Anonymous submitters cannot see or modify their event once submitted. You "
+"can customize the success message they see here."
+msgstr ""
+"Анонимные отправители не может видеть или изменять их событие еще "
+"представлены. Вы можете настроить сообщение об успешном они видят здесь."
+
+#: admin/em-docs.php:15
+msgid ""
+"Do a search for this string within event name, details and location address."
+msgstr ""
+"Сделайте поиск для этой строки в имени события, детали и адрес "
+"местонахождения."
+
+#: admin/em-docs.php:16
+msgid "See the events lists limit option on the settings page."
+msgstr "Смотрите предела событий списки опцию на странице настроек."
+
+#: admin/em-docs.php:17 admin/em-docs.php:23
+msgid ""
+"Choose what fields to order your results by. You can supply a single field "
+"or multiple comma-seperated fields (e.g. \"start_date,name\")."
+msgstr ""
+"Выбирайте то, что поля, чтобы заказать результатов. Вы можете указать одно "
+"поле или несколько запятыми seperated полей (например, \"нач_дата, имя»)."
+
+#: admin/em-docs.php:17 admin/em-docs.php:18
+msgid "See the event lists ordering option on the settings page."
+msgstr "Смотрите списка событий заказе опции на странице настроек."
+
+#: admin/em-docs.php:21
+msgid ""
+"If set to 1 will only show locations that have at least one event occurring "
+"during the scope."
+msgstr ""
+"Если установлено в 1 только показать места, которые имеют хотя бы одного "
+"события, произошедшего во время область."
+
+#: admin/em-docs.php:22
+msgid ""
+"If set to 1 will only show locations that have no events occurring during "
+"the scope."
+msgstr ""
+"Если установлено в 1 только показать места, которые не имеют события, "
+"происходящие во время область."
+
+#: admin/em-docs.php:25
+msgid "Search for locations in this town (no partial matches, case sensitive)."
+msgstr ""
+"Поиск места в этом городе (без частичного совпадения, с учетом регистра)."
+
+#: admin/em-docs.php:25 admin/em-docs.php:26 admin/em-docs.php:27
+#: admin/em-docs.php:28 admin/em-docs.php:29
+msgid "none"
+msgstr "ни один"
+
+#: admin/em-docs.php:26
+msgid ""
+"Search for locations in this state (no partial matches, case sensitive)."
+msgstr ""
+"Поиск места в этом состоянии (без частичного совпадения, с учетом регистра)."
+
+#: admin/em-docs.php:27
+msgid ""
+"Search for locations in this region (no partial matches, case sensitive)."
+msgstr ""
+"Поиск мест в этом регионе (без частичного совпадения, с учетом регистра)."
+
+#: admin/em-docs.php:28
+msgid ""
+"Search for locations in this country (no partial matches, case sensitive)."
+msgstr ""
+"Поиск места в этой стране (без частичного совпадения, с учетом регистра)."
+
+#: admin/em-docs.php:29
+msgid ""
+"Search for locations in this postcode (no partial matches, case sensitive)."
+msgstr ""
+"Поиск места в этом почтовый индекс (без частичного совпадения, с учетом "
+"регистра)."
+
+#: admin/em-docs.php:32
+msgid "If set to 1 it will display a full calendar that shows event names."
+msgstr ""
+"Если установлено в 1 он будет отображать полный календарь, который "
+"показывает имена событий."
+
+#: admin/em-docs.php:33
+msgid "If set to 1, will show events that last longer than a day."
+msgstr ""
+"Если установлено в 1, покажет события, которые длятся дольше, чем день."
+
+#: admin/em-docs.php:34
+msgid "Same as for events."
+msgstr "То же, что для событий."
+
+#: admin/em-docs.php:39
+msgid "Limits the amount of values returned to this number."
+msgstr "Ограничение количества значений, возвращаемых на этот номер."
+
+#: admin/em-docs.php:40
+msgid ""
+"Choose the time frame of events to show. Accepted values are \"future\", "
+"\"past\" or \"all\" events. Additionally you can supply dates (in format of "
+"YYYY-MM-DD), either single for events on a specific date or two dates "
+"seperated by a comma (e.g. 2010-12-25,2010-12-31) for events ocurring "
+"between these dates."
+msgstr ""
+"Выберите временные рамки событий, чтобы показать. Допустимые значения "
+"\"будущее\", \"прошлое\" или \"все\" события. Кроме того, можно указать даты "
+"(в формате YYYY-MM-DD), либо один для событий на определенную дату или две "
+"даты, разделенные запятыми (например, 2010-12-25,2010-12-31) для событий "
+"ocurring между этими даты."
+
+#: admin/em-docs.php:41
+msgid ""
+"Indicates the order of the events. Choose between ASC (ascending) and DESC "
+"(descending)."
+msgstr ""
+"Указывает порядок событий. Выбор между ASC (по возрастанию) и DESC (по "
+"убыванию)."
+
+#: admin/em-docs.php:42
+msgid ""
+"Choose what fields to order your results by. You can supply a single field "
+"or multiple comma-seperated fields (e.g. \"start_date,name\"). See specific "
+"instances (e.g. events, locations, etc.) for field names."
+msgstr ""
+"Выбирайте то, что поля, чтобы заказать результатов. Вы можете указать одно "
+"поле или несколько запятыми seperated полей (например, \"нач_дата, имя»). "
+"Смотрите конкретные случаи (например, события, места и т.д.) для имен полей."
+
+#: admin/em-docs.php:43
+msgid ""
+"If you are displaying some information with the shortcode or function (e.g. "
+"listing events), you can supply the html and placeholders here."
+msgstr ""
+"Если вы показываете некоторую информацию с короткий или функции (например, "
+"события листинг), вы можете предоставить HTML и заполнителей здесь."
+
+#: admin/em-docs.php:43
+msgid "The relevant default format will be taken from the settings page."
+msgstr ""
+"Соответствующим форматом по умолчанию будет взят из параметров страницы."
+
+#: admin/em-docs.php:44
+msgid ""
+"Supply a single id or comma-seperated ids (e.g. \"1,2,3\") to limit the "
+"search to events with these id(s)."
+msgstr ""
+"Поставка одного идентификатора или запятыми seperated идентификаторы "
+"(например, \"1,2,3\"), чтобы ограничить поиск событий с этим идентификатором "
+"(ы)."
+
+#: admin/em-docs.php:45
+msgid ""
+"Supply a single id or comma-seperated ids (e.g. \"1,2,3\") to limit the "
+"search to events in these categories."
+msgstr ""
+"Поставка одного идентификатора или запятыми seperated идентификаторы "
+"(например, \"1,2,3\"), чтобы ограничить поиск на события в этих категориях."
+
+#: admin/em-docs.php:46
+msgid ""
+"Supply a single id or comma-seperated ids to limit the search to these "
+"locations (or events in these locations)."
+msgstr ""
+"Поставка одного идентификатора или запятыми seperated идентификаторов для "
+"ограничения поиска в этих местах (или события в этих местах)."
+
+#: admin/em-docs.php:47
+msgid ""
+"For example, if you have ten results, if you set this to 5, only the last 5 "
+"results will be returned. Useful for pagination."
+msgstr ""
+"Например, если у вас есть десять результатов, если вы установите это "
+"значение 5, только за последние 5 результаты будут возвращены. Полезно для "
+"разбивки на страницы."
+
+#: admin/em-docs.php:48
+msgid ""
+"If set to 1, will show only events that are recurring (i.e. events that are "
+"repeated over different dates)."
+msgstr ""
+"Если установлено в 1, покажет только те события, которые периодически (то "
+"есть события, которые повторяются через различные даты)."
+
+#: admin/em-docs.php:49
+msgid ""
+"If set to 1, will only show recurring event templates. Only useful if you "
+"know what you're doing, use recurrence if you want events that are "
+"recurrences."
+msgstr ""
+"Если установлено в 1, будет показана только повторяющиеся шаблоны событий. "
+"Имеет смысл только если вы знаете, что вы делаете, используйте рецидива, "
+"если вы хотите события, которые рецидивов."
+
+#: admin/em-docs.php:50
+msgid ""
+"If set to a month (1 to 12) only events that start or end during this month/"
+"year will be retured. Must be used in conjunction with year and does not "
+"work as intended if used with scope."
+msgstr ""
+"Если установлено в месяц (от 1 до 12) только события, которые начинаются или "
+"заканчиваются в течение этого месяца / года будет retured. Должен быть "
+"использован в сочетании с год и не работает по назначению, если используется "
+"для области."
+
+#: admin/em-docs.php:51
+msgid ""
+"If set to a year (e.g. 2010) only events that start or end during this year/"
+"month will be returned. Does not work as intended if used with scope."
+msgstr ""
+"Если установлено в год (например, 2010) только события, которые начинаются "
+"или заканчиваются в течение этого года / месяца будут возвращены. Не "
+"работает по назначению, если используется для области."
+
+#: admin/em-docs.php:52
+msgid ""
+"If you supply this as an argument, the returned data will be in an array, no "
+"objects (only useful wen using PHP, not shortcodes)"
+msgstr ""
+"Если указать это в качестве аргумента, возвращаемые данные будут в массиве, "
+"никакие объекты (имеет смысл только вэнь использованием PHP, а не короткие)"
+
+#: admin/em-docs.php:53
+msgid ""
+"When using a function or shortcode that outputs items (e.g. [events_list] "
+"for events, [locations_list] for locations), if the number of items "
+"supercede the limit of items to show, setting this to 1 will show page links "
+"under the list."
+msgstr ""
+"При использовании функции или короткий, которая выводит элементы (например, "
+"[events_list] для событий, [locations_list] для мест), если количество "
+"элементов заменяют предел элементов для отображения, установка этого до 1 "
+"покажет ссылки на страницы под списком."
+
+#: admin/em-docs.php:60
+msgid "Displays the name of the event."
+msgstr "Отображает имя события."
+
+#: admin/em-docs.php:61
+msgid "Shows the description of the event."
+msgstr "Показывает описание события."
+
+#: admin/em-docs.php:62
+msgid ""
+"If you added a <a href=\"http://en.support.wordpress.com/splitting-content/"
+"more-tag/\">more tag</a> to your event description, only the content before "
+"this tag will show (currently, no read more link is added)."
+msgstr ""
+"Если вы добавили <a href=\"http://en.support.wordpress.com/splitting-content/"
+"more-tag/\">более теги</a> на ваше мероприятие описание, только содержание, "
+"прежде чем этот тег покажет (в настоящее время не читать далее ссылка "
+"добавляется)."
+
+#: admin/em-docs.php:63
+msgid "Shows the event corresponding ID number in the database table."
+msgstr "Показывает события, соответствующего номеру в таблице базы данных."
+
+#: admin/em-docs.php:64 admin/em-docs.php:133
+msgid "Shows the event image, if available."
+msgstr "Показывает события изображение, если оно доступно."
+
+#: admin/em-docs.php:70
+msgid "Displays the start time in a 24 hours format (e.g. 16:30)."
+msgstr "Отображает время начала в формате 24 часов (например, 16:30)."
+
+#: admin/em-docs.php:71
+msgid "Displays the end time in a 24 hours format (e.g. 18:30)."
+msgstr "Отображает время окончания в 24 часовом формате (например, 18:30)."
+
+#: admin/em-docs.php:72
+msgid "Displays the start time in a 12 hours format (e.g. 4:30 PM)."
+msgstr "Отображает время начала в 12 часовом формате (например, 4:30 вечера)."
+
+#: admin/em-docs.php:73
+msgid "Displays the end time in a 12 hours format (e.g. 6:30 PM)."
+msgstr ""
+"Отображает время окончания в 12 часовом формате (например, 6:30 вечера)."
+
+#: admin/em-docs.php:77
+msgid ""
+"Events Manager allows extremely flexible date formatting by using <a href="
+"\"http://www.php.net/manual/en/function.date.php\">PHP date syntax format "
+"characters</a> along with placeholders."
+msgstr ""
+"События менеджер позволяет чрезвычайно гибкой форматирования даты с помощью "
+"<a href=\"http://www.php.net/manual/en/function.date.php\">PHP даты символов "
+"синтаксиса формате</a> вместе с заполнителями."
+
+#: admin/em-docs.php:79
+msgid ""
+"Prepend <code>#</code> or <code>#@</code> before a valid PHP date syntax "
+"format character to show start and end date/time information respectively (e."
+"g. <code>#F</code> will show the starting month name like \"January\", #@h "
+"shows the end hour)."
+msgstr ""
+"Добавляет <code>#</code> или <code>#@</code> до допустимой датой PHP формата "
+"символов синтаксиса, чтобы показать начальную и конечную даты / времени "
+"соответственно (например, <code>#F</code> покажет начальный месяц названием "
+"как \"Январь\", # @ ч показывает конце часа)."
+
+#: admin/em-docs.php:80
+msgid ""
+"You can also create a date format without prepending # to each character by "
+"wrapping a valid php date() format in <code>#{}</code> or <code>#@{}</code> "
+"(e.g. <code>#_{d/m/Y}</code>). If there is no end date (or is same as start "
+"date), the value is not shown. This is useful if you want to show event end "
+"dates only on events that are longer than on day, e.g. <code>#j #M #Y #@_"
+"{ u\n"
+"\til j M Y}</code>."
+msgstr ""
+"Вы также можете создать формат даты, не предваряя # для каждого персонажа, "
+"обернув действительную дату () языка PHP формате <code>#{}</code> или "
+"<code>#@{}</code> (например, <code>#_{d/m/Y}</code> ). Если не будет "
+"конечной даты (или же, как и дата начала), значение не отображается. Это "
+"полезно, если вы хотите показать событие конечную даты только на события, "
+"которые длиннее, чем на день, например, <code>#j #M #Y #@_{ u\n"
+"\tilj MY}</code> ."
+
+#: admin/em-docs.php:85
+msgid ""
+"Simply prints the event URL. You can use this placeholder to build your own "
+"customised links."
+msgstr ""
+"Просто печатает событие URL. Вы можете использовать этот прототип построить "
+"свою собственную подборку ссылок."
+
+#: admin/em-docs.php:86 admin/em-docs.php:134
+msgid "Shows the event image url, if available."
+msgstr "Показывает URL событие изображения, если это возможно."
+
+#: admin/em-docs.php:87
+msgid "Displays the event name with a link to the event page."
+msgstr "Отображает название события со ссылкой на странице события."
+
+#: admin/em-docs.php:88
+msgid ""
+"Inserts a link to the admin  or buddypress (if activated) edit event page, "
+"only if a user is logged in and is allowed to edit the event."
+msgstr ""
+"Вставляет ссылку на администратора или BuddyPress (если активирован) "
+"редактировать событие странице, только если пользователь вошел в систему и "
+"может редактировать события."
+
+#: admin/em-docs.php:89
+msgid ""
+"Inserts a url to the admin or buddypress (if activated) edit event page, "
+"only if a user is logged in and is allowed to edit the event."
+msgstr ""
+"Вставки URL для администратора или BuddyPress (если активирован) "
+"редактировать событие странице, только если пользователь вошел в систему и "
+"может редактировать события."
+
+#: admin/em-docs.php:93
+msgid ""
+"Events Manager allows you to create dynamic attributes to your events, which "
+"act as extra information fields for your events (e.g. \"Dress Code\"). For "
+"more information see <a href=\"http://wp-events-plugin.com/documentation/"
+"categories-and-attributes/\">our online documentation</a> for more info on "
+"attributes."
+msgstr ""
+"События менеджер позволяет создавать динамические атрибуты для Ваших "
+"мероприятий, которые выступают в качестве дополнительных информационных "
+"полей для Вашего мероприятия (например, «Дресс-код\"). Дополнительные "
+"сведения см. в <a href=\"http://wp-events-plugin.com/documentation/"
+"categories-and-attributes/\">нашем онлайн-документацию</a> для получения "
+"дополнительной информации об атрибутах."
+
+#: admin/em-docs.php:95
+msgid "This key will appear as an option when adding attributes to your event."
+msgstr ""
+"Этот ключ будет выглядеть как опцию при добавлении атрибутов для вашего "
+"мероприятия."
+
+#: admin/em-docs.php:96
+msgid ""
+"This key will appear as an option when adding attributes to your event. The "
+"text in the second braces will appear if the attribute is not defined or "
+"left blank for that event."
+msgstr ""
+"Этот ключ будет выглядеть как опцию при добавлении атрибутов для вашего "
+"мероприятия. Текст во второй скобках будет отображаться, если атрибут не "
+"определен или оставлено пустым для этого события."
+
+#: admin/em-docs.php:97
+msgid ""
+"This key will appear as an option when adding attributes to your event. The "
+"second braces are optional and will use a select box with these values as "
+"input. If no valid value is defined, the first option is used."
+msgstr ""
+"Этот ключ будет выглядеть как опцию при добавлении атрибутов для вашего "
+"мероприятия. Второй скобки являются необязательными, и будет использовать "
+"поле выбора с этими значениями в качестве входных данных. Если "
+"действительная стоимость определяется, первый вариант не используется."
+
+#: admin/em-docs.php:101
+msgid ""
+"These placeholders will only show if RSVP is enabled for the given event and "
+"in the events manager settings page. Spaces placeholders will default to 0"
+msgstr ""
+"Эти заполнители будет показываться только если RSVP включена для данного "
+"события и события страница менеджер настроек. Пространства заполнителей по "
+"умолчанию будет 0"
+
+#: admin/em-docs.php:103
+msgid "Adds a booking forms for this event."
+msgstr "Добавляет формы бронирования для этого события."
+
+#: admin/em-docs.php:104
+msgid "Shows available spaces for the event."
+msgstr "Показывает доступные места для мероприятия."
+
+#: admin/em-docs.php:105
+msgid "Shows the amount of currently booked spaces for the event."
+msgstr ""
+"Показывает количество в настоящее время забронированы места для мероприятия."
+
+#: admin/em-docs.php:106
+msgid "Shows the amount of pending spaces for the event."
+msgstr "Показывает количество в ожидании места для мероприятия."
+
+#: admin/em-docs.php:107
+msgid "Shows the total spaces for the event."
+msgstr "Показывает общее пространство для событий."
+
+#: admin/em-docs.php:108
+msgid "Shows the list of user avatars attending events."
+msgstr "Показывает список пользователей, аватары, участвующих в мероприятиях."
+
+#: admin/em-docs.php:109
+msgid ""
+"A single button that will appear to logged in users, if they click on it, "
+"they apply for a booking. This button will only display if there is one "
+"ticket."
+msgstr ""
+"Одной кнопки, которая появится для зарегистрированных пользователей, если "
+"они нажимают на это, они применяются для бронирования. Эта кнопка будет "
+"отображаться только если есть один билет."
+
+#: admin/em-docs.php:110
+msgid ""
+"Shows the url to the admin or buddypress (if activated) bookings management "
+"page for this event. Only shown if user is logged in and able to manage "
+"bookings."
+msgstr ""
+"Показывает URL для администратора или BuddyPress (если активирован) заказов "
+"страницу управления для этого события. Только в том случае, если "
+"пользователь вошел в систему и в состоянии управлять заказов."
+
+#: admin/em-docs.php:111
+msgid ""
+"Shows a link to the admin or buddypress (if activated) bookings management "
+"page for this event. Only shown if user is logged in and able to manage "
+"bookings."
+msgstr ""
+"Показывает ссылку на администратора или BuddyPress (если активирован) "
+"заказов страницу управления для этого события. Только в том случае, если "
+"пользователь вошел в систему и в состоянии управлять заказов."
+
+#: admin/em-docs.php:115
+msgid ""
+"The values here are taken from the chosen contact for the specific event, or "
+"the default contact in the settings page."
+msgstr ""
+"Значения взяты из выбранного контакта для конкретного события или контактов "
+"по умолчанию на странице настроек."
+
+#: admin/em-docs.php:117
+msgid ""
+"Name of the contact person for this event (as shown in the dropdown when "
+"adding an event)."
+msgstr ""
+"Имя контактного лица для этого события (как показано в выпадающем при "
+"добавлении события)."
+
+#: admin/em-docs.php:118
+msgid "Contact person's username."
+msgstr "Контакт имя пользователя человека."
+
+#: admin/em-docs.php:119
+msgid "E-mail of the contact person for this event."
+msgstr "Электронный адрес контактного лица для этого события."
+
+#: admin/em-docs.php:120
+msgid ""
+"Phone number of the contact person for this event. Can be set in the user "
+"profile page."
+msgstr ""
+"Номер телефона контактного лица для этого события. Может быть установлено на "
+"странице профиля пользователя."
+
+#: admin/em-docs.php:121
+msgid "Contact person's avatar."
+msgstr "Контакт аватара человека."
+
+#: admin/em-docs.php:122
+msgid "Contact person's \"Profile\" link. Only works with BuddyPress enabled."
+msgstr ""
+"Контактное лицо на ссылку \"Профиль\". Работает только с BuddyPress включена."
+
+#: admin/em-docs.php:123
+msgid "Contact person's profile url. Only works with BuddyPress enabled."
+msgstr "Контакт URL профиля человека. Работает только с BuddyPress включена."
+
+#: admin/em-docs.php:124
+msgid "Contact person's wordpress user ID."
+msgstr "Контакт WordPress пользователь человека ID."
+
+#: admin/em-docs.php:131
+msgid "Shows the category name of the event."
+msgstr "Показывает имя категории события."
+
+#: admin/em-docs.php:132
+msgid "Shows the category ID of the event."
+msgstr "Показывает идентификатор категории события."
+
+#: admin/em-docs.php:135 admin/em-docs.php:151
+msgid "Shows the location description."
+msgstr "Показывает местоположение описание."
+
+#: admin/em-docs.php:143
+msgid "Displays the location name."
+msgstr "Отображает название места."
+
+#: admin/em-docs.php:144
+msgid "Displays the address."
+msgstr "Отображает адрес."
+
+#: admin/em-docs.php:145
+msgid "Displays the town."
+msgstr "Отображает города."
+
+#: admin/em-docs.php:146
+msgid "Displays the state/county."
+msgstr "Отображает состояние / уезд."
+
+#: admin/em-docs.php:147
+msgid "Displays the postcode."
+msgstr "Отображает почтовый индекс."
+
+#: admin/em-docs.php:148
+msgid "Displays the region."
+msgstr "Отображает регионе."
+
+#: admin/em-docs.php:149
+msgid "Displays the country."
+msgstr "Отображает страны."
+
+#: admin/em-docs.php:150
+msgid ""
+"Displays a google map showing where the event is located (Will not show if "
+"maps are disabled in the settings page)"
+msgstr ""
+"Отображает карты Google, показывающие, где находится событие (не будет "
+"отображаться, если карты будут отключены на странице настроек)"
+
+#: admin/em-docs.php:152
+msgid ""
+"If you added a <a href=\"http://en.support.wordpress.com/splitting-content/"
+"more-tag/\">more tag</a> to your location description, only the content "
+"before this tag will show (currently, no read more link is added)."
+msgstr ""
+"Если вы добавили <a href=\"http://en.support.wordpress.com/splitting-content/"
+"more-tag/\">более теги</a> к вам описание, только содержание, прежде чем "
+"этот тег покажет (в настоящее время не читать далее ссылка добавляется)."
+
+#: admin/em-docs.php:153
+msgid "Shows the location image."
+msgstr "Показывает расположение изображения."
+
+#: admin/em-docs.php:154
+msgid "Displays the location ID number."
+msgstr "Отображает порядковый номер ID."
+
+#: admin/em-docs.php:159
+msgid ""
+"Simply prints the location URL. You can use this placeholder to build your "
+"own customised links."
+msgstr ""
+"Просто печатает расположение URL. Вы можете использовать этот прототип "
+"построить свою собственную подборку ссылок."
+
+#: admin/em-docs.php:160
+msgid "Displays the location name with a link to the location page."
+msgstr "Отображает название места со ссылкой на месте страницы."
+
+#: admin/em-docs.php:164
+msgid ""
+"You can show lists of other events that are being held at this location. The "
+"formatting of the list is the same as a normal events list."
+msgstr ""
+"Вы можете показать списки других событий, которые проходят в этом месте. "
+"Форматирование списка такой же, как обычный список событий."
+
+#: admin/em-docs.php:166
+msgid "Will show a list of all past events at this location."
+msgstr "Покажет список всех прошлых событий по этому адресу."
+
+#: admin/em-docs.php:167
+msgid "Will show a list of all future events at this location."
+msgstr "Покажет список всех будущих событий в этом месте."
+
+#: admin/em-docs.php:168
+msgid "Will show a list of all events at this location."
+msgstr "Покажет список всех событий, в этом месте."
+
+#: admin/em-docs.php:174
+msgid ""
+"When a specific booking is displayed (on screen and on email), you can use "
+"these placeholders to show specific information about the booking. For "
+"contact details of the contact of this event, see the events placeholders."
+msgstr ""
+"Когда конкретный заказ на дисплей (на экране и на адрес электронной почты), "
+"вы можете использовать эти заполнители, чтобы показать конкретную информацию "
+"о бронировании. Для получения контактной информации о контакте данного "
+"события, см. событий заполнителей."
+
+#: admin/em-docs.php:176
+msgid "Name of person who made the booking."
+msgstr "Имя человека, который сделал заказ."
+
+#: admin/em-docs.php:177
+msgid "Email of person who made the booking."
+msgstr "Email человек, который сделал заказ."
+
+#: admin/em-docs.php:178
+msgid "Phone number of person who made the booking."
+msgstr "Номер телефона человека, который сделал заказ."
+
+#: admin/em-docs.php:179
+msgid "Number of spaces the person has booked."
+msgstr "Количество пробелов человек забронированы."
+
+#: admin/em-docs.php:180
+msgid "Any specific comments made by the person who made the booking."
+msgstr "Любые конкретные замечания, сделанные человеком, который сделал заказ."
+
+#: admin/em-docs.php:181
+msgid ""
+"Name of the ticket booked. Useful in single ticket mode, if multiple tickets "
+"are booked a random ticket is used."
+msgstr ""
+"Название билеты забронированы. Полезное в режиме одного билета, если "
+"несколько билетов забронировать билет случайных используется."
+
+#: admin/em-docs.php:182
+msgid ""
+"Description of the ticket booked. Useful in single ticket mode, if multiple "
+"tickets are booked a random ticket is used."
+msgstr ""
+"Описание билеты забронированы. Полезное в режиме одного билета, если "
+"несколько билетов забронировать билет случайных используется."
+
+#: admin/em-docs.php:183
+msgid ""
+"Booked ticket price with currency symbol (e.g. $ 10.00). Useful in single "
+"ticket mode, if multiple tickets are booked a random ticket is used."
+msgstr ""
+"Предупреждения цена билета с символа валюты (например, $ 10.00). Полезное в "
+"режиме одного билета, если несколько билетов забронировать билет случайных "
+"используется."
+
+#: admin/em-docs.php:184
+msgid ""
+"A list of booked tickets. You can modify this by using template files and "
+"modifying templates/emails/bookingtickets.php"
+msgstr ""
+"Список забронировали билеты. Вы можете изменить это, используя файлы "
+"шаблонов и изменения шаблонов / сообщений / bookingtickets.php"
+
+#: admin/em-docs.php:188
+msgid ""
+"People are able to manage their bookings. Below are some placeholder which "
+"automatically provides correctly formatted urls"
+msgstr ""
+"Люди способны управлять их заказов. Ниже приведены некоторые заполнитель, "
+"который автоматически обеспечивает правильный формат URL-адресов"
+
+#: admin/em-docs.php:190
+msgid "URL to page showing that users booked events."
+msgstr ""
+"URL, чтобы страница, показывающая, что пользователи забронировали событий."
+
+#. #-#-#-#-#  plugin.pot (Events Manager 4.0.83)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  plugin.pot (Events Manager 4.0.83)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "http://wp-events-plugin.com"
+msgstr "http://wp-events-plugin.com"
+
+#. Description of the plugin/theme
+msgid ""
+"Event registration and booking management for Wordpress. Recurring events, "
+"locations, google maps, rss, ical, booking registration and more!"
+msgstr ""
+"Регистрацию событий и бронирование управления для Wordpress. Повторяющиеся "
+"события, места, Google Maps, RSS, ческих, бронирование регистрации и многое "
+"другое!"
+
+#. Author of the plugin/theme
+msgid "Marcus Sykes"
+msgstr "Марк Сайкс"

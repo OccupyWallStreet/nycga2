@@ -19,7 +19,7 @@ class Ai1ec_Updater extends WP_Upgrader {
 		$this->strings['process_failed'] = __('Plugin update failed.');
 		$this->strings['process_success'] = __('Plugin updated successfully.');
 	}
-	function upgrade( $plugin ) {
+	function upgrade( $plugin, $url ) {
 
 		$this->init();
 		$this->upgrade_strings();
@@ -29,7 +29,7 @@ class Ai1ec_Updater extends WP_Upgrader {
 
 		$this->run( 
 			array(
-				'package'           => AI1EC_UPDATES_URL,
+				'package'           => $url,
 				'destination'       => WP_PLUGIN_DIR,
 				'clear_destination' => true,
 				'clear_working'     => true,
@@ -80,11 +80,6 @@ class Ai1ec_Updater extends WP_Upgrader {
 
 		$plugins_dir = $wp_filesystem->wp_plugins_dir();
 		$this_plugin_dir = trailingslashit( dirname( $plugins_dir . $plugin ) );
-
-		$ai1ec_themes = trailingslashit( AI1EC_THEMES_ROOT );
-		if( $wp_filesystem->exists( $ai1ec_themes ) ) {
-			$wp_filesystem->delete( $ai1ec_themes, true );
-		}
 
 		if( ! $wp_filesystem->exists( $this_plugin_dir ) ) //If its already vanished.
 			return $removed;

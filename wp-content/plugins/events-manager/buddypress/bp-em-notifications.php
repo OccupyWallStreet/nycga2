@@ -1,68 +1,5 @@
 <?php
-
-/********************************************************************************
- * Activity & Notification Functions
- *
- * These functions handle the recording, deleting and formatting of activity and
- * notifications for the user and for this specific component.
- */
-/**
- * bp_em_screen_notification_settings()
- *
- * Adds notification settings for the component, so that a user can turn off email
- * notifications set on specific component actions.
- */
-function bp_em_screen_notification_settings() {
-	global $current_user;
-
-	/**
-	 * Under Settings > Notifications within a users profile page they will see
-	 * settings to turn off notifications for each component.
-	 *
-	 * You can plug your custom notification settings into this page, so that when your
-	 * component is active, the user will see options to turn off notifications that are
-	 * specific to your component.
-	 */
-
-	 /**
-	  * Each option is stored in a posted array notifications[SETTING_NAME]
-	  * When saved, the SETTING_NAME is stored as usermeta for that user.
-	  *
-	  * For em, notifications[notification_friends_friendship_accepted] could be
-	  * used like this:
-	  *
-	  * if ( 'no' == get_usermeta( $bp['loggedin_userid'], 'notification_friends_friendship_accepted' ) )
-	  *		// don't send the email notification
-	  *	else
-	  *		// send the email notification.
-      */
-
-	?>
-	<table class="notification-settings" id="bp-em-notification-settings">
-		<tr>
-			<th class="icon"></th>
-			<th class="title"><?php _e( 'Events', 'dbem' ) ?></th>
-			<th class="yes"><?php _e( 'Yes', 'dbem' ) ?></th>
-			<th class="no"><?php _e( 'No', 'dbem' )?></th>
-		</tr>
-		<tr>
-			<td></td>
-			<td><?php _e( 'Action One', 'dbem' ) ?></td>
-			<td class="yes"><input type="radio" name="notifications[notification_em_action_one]" value="yes" <?php if ( !get_usermeta( $current_user->id,'notification_em_action_one') || 'yes' == get_usermeta( $current_user->id,'notification_em_action_one') ) { ?>checked="checked" <?php } ?>/></td>
-			<td class="no"><input type="radio" name="notifications[notification_em_action_one]" value="no" <?php if ( get_usermeta( $current_user->id,'notification_em_action_one') == 'no' ) { ?>checked="checked" <?php } ?>/></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><?php _e( 'Action Two', 'dbem' ) ?></td>
-			<td class="yes"><input type="radio" name="notifications[notification_em_action_two]" value="yes" <?php if ( !get_usermeta( $current_user->id,'notification_em_action_two') || 'yes' == get_usermeta( $current_user->id,'notification_em_action_two') ) { ?>checked="checked" <?php } ?>/></td>
-			<td class="no"><input type="radio" name="notifications[notification_em_action_two]" value="no" <?php if ( 'no' == get_usermeta( $current_user->id,'notification_em_action_two') ) { ?>checked="checked" <?php } ?>/></td>
-		</tr>
-
-		<?php do_action( 'bp_em_notification_settings' ); ?>
-	</table>
-<?php
-}
-//add_action( 'bp_notification_settings', 'bp_em_screen_notification_settings' );
+//This file handles hooks requiring notifications
 
 /**
  * bp_em_format_notifications()
@@ -113,6 +50,16 @@ function bp_em_format_notifications( $action, $item_id, $secondary_item_id, $tot
 }
 
 /**
+ * Remove a screen notification for a user.
+ */
+function bp_em_remove_screen_notifications() {
+	global $bp;
+	bp_core_delete_notifications_by_type( $bp->loggedin_user->id, $bp->events->slug, 'attending' );
+}
+add_action( 'bp_em_my_events', 'bp_em_remove_screen_notifications' );
+add_action( 'xprofile_screen_display_profile', 'bp_em_remove_screen_notifications' );
+
+/**
  * Catch booking saves and add a BP notification.
  * @param boolean $result
  * @param EM_Booking $EM_Booking
@@ -120,15 +67,15 @@ function bp_em_format_notifications( $action, $item_id, $secondary_item_id, $tot
  */
 function bp_em_add_booking_notification($result, $EM_Booking){
 	global $bp;
-	if( get_option('dbem_bookings_approval') && $EM_Booking->status == 0 ){
+	if( get_option('dbem_bookings_approval') && $EM_Booking->get_status() == 0 ){
 		$action = 'pending_booking';
-	}elseif( $EM_Booking->status == 1 || (get_option('dbem_bookings_approval') && $EM_Booking->status == 0) ){
+	}elseif( $EM_Booking->get_status() == 1 || (get_option('dbem_bookings_approval') && $EM_Booking->get_status() == 0) ){
 		$action = 'confirmed_booking';
-	}elseif( $EM_Booking->status == 3 ){
+	}elseif( $EM_Booking->get_status() == 3 ){
 		$action = 'cancelled_booking';
 	}
 	if( !empty($action) ){
-		bp_core_add_notification( $EM_Booking->id, $EM_Booking->get_event()->owner, 'events', $action );
+		bp_core_add_notification( $EM_Booking->booking_id, $EM_Booking->get_event()->get_contact()->ID, 'events', $action );
 	}
 	return $result;
 }

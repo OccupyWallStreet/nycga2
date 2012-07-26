@@ -3,31 +3,28 @@ Contributors: whiteshadow
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A6P9S6CE3SRSW
 Tags: admin, dashboard, menu, security, wpmu
 Requires at least: 3.0
-Tested up to: 3.4
-Stable tag: 1.1.7
+Tested up to: 3.4.1
+Stable tag: 1.1.9
 
-Lets you directly edit the WordPress admin menu. You can re-order, hide or rename existing menus, add custom menus and more. 
+Lets you edit the WordPress admin menu. You can re-order, hide or rename menus, add custom menus and more. 
 
 == Description ==
-Admin Menu Editor lets you manually edit the Dashboard menu. You can reorder the menus, show/hide specific items, change access rights, and more. 
+Admin Menu Editor lets you manually edit the Dashboard menu. You can reorder the menus, show/hide specific items, change access rights, and more.
 
 **Features**
 
-* Edit any existing menu - change the title, access rights, menu icon and so on. 
+* Edit menu title, access rights, URL, icon and so on. 
 * Sort menu items via drag & drop.
-* Move a menu item to a different submenu via cut & paste. 
 * Hide/show any menu or menu item. A hidden menu is invisible to all users, including administrators.
+* Move a menu item to a different submenu. 
 * Create custom menus that point to any part of the Dashboard or an external URL.
 
-The [Pro version](http://w-shadow.com/AdminMenuEditor/) of the plugin lets you also import/export menu configurations, make menu items open in a new window, and use shortcodes in the Dashboard menu.
-
-[Suggest new features and improvements here](http://w-shadow.com/admin-menu-editor-pro/contact/)
+The [Pro version](http://w-shadow.com/AdminMenuEditor/) lets you set per-role [menu permissions](http://w-shadow.com/admin-menu-editor-pro/documentation/permissions/), hide a menu from everyone except a specific user, export your admin menu, drag items between menu levels, make menus open in a new window and more.
 
 **Notes**
 
 * If you delete any of the default menus they will reappear after saving. This is by design. To get rid of a menu for good, either hide it or set it's access rights to a higher level.
-* If one of your menu items is only visible in the editor but not the Dashboard menu itself, make sure its "Custom" checkbox is ticked. The plugin will usually do this for you when you create a new menu.
-* You can't lower a menu's required access rights, but you can change them to be more restrictive.
+* In the free version, you can't lower a menu's required access rights, but you can change them to be more restrictive.
 * In case of emergency, you can reset the menu configuration back to the default by going to http://example.com/wp-admin/?reset\_admin\_menu=1
 
 == Installation ==
@@ -58,8 +55,18 @@ Plugins installed in the `mu-plugins` directory are treated as "always on", so y
 * When Admin Menu Editor is installed in `mu-plugins` or activated via "Network Activate", only the "super admin" user can access the menu editor page. Other users will see the customized Dashboard menu, but be unable to edit it.
 * It is currently not possible to install Admin Menu Editor as both a normal and global plugin on the same site.
 
+== Screenshots ==
+
+1. Plugin interface
+2. A sample menu created by the plugin
+3. Re-ordering menu items via drag and drop
 
 == Changelog ==
+
+= 1.1.8 =
+* Fix author URL (was 404).
+* Tested on WP 3.4.1
+* Update plugin description. Some notes were no longer accurate for the current version.
 
 = 1.1.7 = 
 * Tested on WP 3.4
@@ -150,3 +157,8 @@ Plugins installed in the `mu-plugins` directory are treated as "always on", so y
 * First release on wordpress.org
 * Moved all images into a separate directory.
 * Added a readme.txt
+
+== Upgrade Notice ==
+
+= 1.1.9 =
+Optional upgrade. Just adds a couple of screenshots for the WordPress.org plugin description.

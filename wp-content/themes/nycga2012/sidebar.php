@@ -1,5 +1,5 @@
 <?php do_action( 'bp_before_sidebar' ) ?>
-<div id="sidebar" role="complementary" class="sidebar grid_4">
+<div id="sidebar" role="complementary" class="sidebar grid_5">
 
 	<?php do_action( 'bp_inside_before_sidebar' ) ?>
 
@@ -10,7 +10,7 @@
 				<?php bp_loggedin_user_avatar( 'type=thumb&width=32&height=32' ) ?>
 			</a>
 			<h4><?php echo bp_core_get_userlink( bp_loggedin_user_id() ); ?></h4>
-			<div class="grid_2 push_1">
+			<div class="grid_2">
 				<a class="button logout" href="<?php echo wp_logout_url( bp_get_root_domain() ) ?>"><?php _e( 'Log Out', 'buddypress' ) ?></a>
 			</div>
 			<?php do_action( 'bp_sidebar_me' ) ?>

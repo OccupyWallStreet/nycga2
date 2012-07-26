@@ -1,0 +1,275 @@
+#icon-wpcf {
+    background: url(../images/logo-32.png) no-repeat;
+}
+.wpcf-ajax-loading {
+    background: url(../images/ajax-loader-big.gif) no-repeat;
+    width: 32px;
+    height: 32px;
+}
+.wpcf-ajax-loading-small {
+    background: url(../images/ajax-loader-small.gif) no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+/* FORMS */
+.wpcf-form-fieldset {
+    background-color: #ffffff;
+    padding: 0 15px 15px 15px;
+    border: 1px solid #cccccc;
+    border-color: #cccccc;
+    margin: 15px 0 25px 0;
+}
+.wpcf-form-fieldset fieldset {
+    margin-bottom: 0;
+}
+.wpcf-fields-form fieldset {
+    width: auto;
+}
+.wpcf-form-fieldset legend {
+    font-weight: bold;
+}
+.wpcf-form-fieldset .legend-collapsed {
+    padding-left: 15px;
+    background-image: url(../images/expand.png);
+    background-repeat: no-repeat;
+    background-position: 0px 2px;
+    cursor: pointer;
+}
+.wpcf-form-fieldset .legend-expanded {
+    padding-left: 15px;
+    background-image: url(../images/collapse.png);
+    background-repeat: no-repeat;
+    background-position: 0px 3px;
+    cursor: pointer;
+}
+.wpcf-form-fieldset .collapsed {
+    display: none;
+}
+.wpcf-form-item {
+    margin-bottom: 25px;
+}
+.wpcf-form-fieldset .wpcf-form-item:first-child {
+    margin-top: 5px;
+}
+.wpcf-form-item .wpcf-form-item {
+    margin-bottom: 0;
+}
+.wpcf-form-submit {
+    margin-top: 15px;
+}
+.wpcf-form-description {
+    font-size: 0.85em;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+.wpcf-form-description-fieldset {
+    font-size: 1em;
+    font-style: normal;
+    margin: 10px 0;
+}
+.wpcf-form-textarea {
+    width: 100%;
+}
+.wpcf-form-description-textarea,
+.wpcf-form-description-checkboxes,
+.wpcf-form-description-radios {
+    font-size: 1em;
+    font-style: normal;
+    margin-bottom: 5px;
+}
+.wpcf-form-label {
+    white-space: nowrap;
+}
+.wpcf-form-textfield-label {
+    font-size: 1em;
+    font-weight: bold;
+    display: block;
+}
+.wpcf-form-textfield {
+    width: 200px;
+}
+.wpcf-form-item-file label {
+    font-size: 1em;
+    font-weight: bold;
+    display: block;
+}
+.wpcf-form-item-textarea label,
+.wpcf-form-title-checkboxes,
+.wpcf-form-title-radios,
+.wpcf-form-select-label {
+    font-size: 1em;
+    font-weight: bold;
+}
+.wpcf-form-item-textarea label {
+    display: block;
+}
+.wpcf-form-error {
+    background-color: #ffffe0;
+    border: 1px solid #e6db55;
+    padding: 5px 10px;
+    width: auto;
+    margin: 10px 0;
+    display: block;
+}
+input.wpcf-form-error {
+    background-color: #F8F8F8;
+}
+.wpcf-form-fields-align-right {
+    float: left;
+    width: 250px;
+    margin-top: 0;
+    margin-left: 450px;
+    position: absolute;
+/*    position: fixed; THIS IS SET IN JS AFTER ADDING SCROLL */
+    clear: both;
+}
+.wpcf-form-fields-align-right fieldset {
+    width: 250px;
+}
+.wpcf-form-fields-align-right a.wpcf-fields-add-ajax-link {
+/*    line-height: 30px;*/
+    margin: 3px 5px 2px 0;
+    height: 15px;
+    float: left;
+}
+.wpcf-fields-form .ui-draggable .wpcf-form-fieldset .wpcf-form-fieldset legend {
+    cursor: pointer;
+}
+.wpcf-fields-form .ui-sortable {
+    padding: 0 0 10px 0;
+}
+.wpcf-fields-form .ui-sortable-placeholder {
+    border: 1px dashed #CCCCCC;
+    width: auto;
+    visibility: visible !important;
+}
+.wpcf-form-fields-delete,
+.wpcf-fields-form-move-field {
+    float: left;
+    margin-top: 10px;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+.wpcf-fields-form-move-field {
+    cursor: move;
+}
+.wpcf-fields-form .taxonomy-title {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* LIST */
+#wpcf_groups_list th {
+    white-space: nowrap;
+}
+#wpcf-table-group_name {
+    width: 250px;
+}
+#wpcf-table-group_taxonomies {
+    width: 200px;
+}
+#wpcf-form-fields-main {
+    width: 400px;
+}
+
+/* STRANGE */
+#ui-datepicker-div {
+    display: none;
+}
+
+.wpcf-shortcode {
+    margin-top: 5px;
+}
+.wpcf-pointer {
+    cursor: pointer;
+}
+.wpcf-fields-form-validate-table {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    border: 1px solid #D2D2D2;
+}
+.wpcf-fields-form-validate-table td {
+    padding: 5px 10px;
+    margin: 0;
+}
+.wpcf-fields-form-validate-table thead tr {
+  background-color: #E8E8E8;
+  font-weight: bold;
+}
+.wpcf-fields-form-validate-table thead td {
+  border-bottom: 1px solid #D2D2D2;
+}
+.wpcf-fields-form-validate-table tbody tr:nth-child(odd) {
+  background-color: #F7F7F7;
+}
+.wpcf-fields-form-validate-table tbody tr:nth-child(even) {
+  background-color: #EEEEEE;
+}
+.wpcf-fields-form-validate-table td .textfield{
+    width: 100%;
+}
+
+/* TYPES FORM */
+#wpcf-types-form-name-table,
+#wpcf-types-form-visibility-table,
+#wpcf-types-form-labels-table,
+#wpcf-types-form-taxonomies-table,
+#wpcf-types-form-supports-table,
+.wpcf-types-form-table {
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+#wpcf-types-form-name-table td,
+#wpcf-types-form-visibility-table td,
+#wpcf-types-form-labels-table td,
+#wpcf-types-form-taxonomies-table td,
+#wpcf-types-form-supports-table td,
+.wpcf-types-form-table td {
+    border: none;
+}
+#wpcf-types-form-name-table tbody tr td:first-child {
+    text-align: right;
+}
+#wpcf-types-form-name-table tbody tr:first-child td {
+    padding-top: 10px;
+}
+#wpcf-types-form-name-table input {
+    width: 100%;
+}
+#wpcf-types-form-name-table label {
+    font-weight: normal;
+}
+#wpcf-types-form-visibility-table tbody table {
+    margin-top: 5px;
+}
+#wpcf-types-form-visibility-table tbody table td {
+    padding: 0;
+    vertical-align: middle;
+}
+#wpcf-types-form-visibility-table tbody table tr td:first-child {
+    text-align: right;
+}
+#wpcf-types-form-visibility-table tbody table label {
+    font-weight: normal;
+}
+#wpcf-types-form-labels-table tbody tr td:first-child {
+    text-align: right;
+}
+#wpcf-types-form-labels-table tbody label {
+    font-weight: normal;
+}
+#wpcf-types-form-labels-table tbody td {
+    vertical-align: middle;
+}
+#wpcf-types-form-labels-table .wpcf-form-description {
+    font-size: 0.9em;
+    line-height: 1.2em;
+}
+#wpcf-types-form-labels-table tbody tr:first-child td {
+    padding-top: 15px;
+}
+#wpcf-types-form-rewrite-toggle {
+    margin: 0 0 20px 0;
+}

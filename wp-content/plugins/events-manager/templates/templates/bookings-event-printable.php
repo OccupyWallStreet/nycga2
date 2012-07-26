@@ -34,7 +34,7 @@ global $EM_Event;
 			<td><?php echo $EM_Booking->person->user_email ?></td>
 			<td><?php echo $EM_Booking->person->phone ?></td>
 			<td class='spaces-number'><?php echo $EM_Booking->get_spaces() ?></td>
-			<td><?php echo $EM_Booking->comment ?></td> 
+			<td><?php echo $EM_Booking->booking_comment ?></td> 
 		</tr>
 	   	<?php } ?>
 	  	<tr id='booked-spaces'>

@@ -1,0 +1,19 @@
+#dc_jqdrilldown_widget-%ID%-item {background: #0D5995; color: #fff;}
+#dc_jqdrilldown_widget-%ID%-item .dd-wrapper {font: normal 1em Arial, sans-serif; border: 1px solid #013d6c;}
+#dc_jqdrilldown_widget-%ID%-item .menu {border-top: 1px solid #013d6c;}
+#dc_jqdrilldown_widget-%ID%-item .menu a {text-decoration: none; padding: 10px 10px 10px 15px; display: block; color: #fff; border-bottom: 1px solid #013d6c; border-top: 1px solid #4695d3; position: relative;}
+#dc_jqdrilldown_widget-%ID%-item .menu ul a {padding: 10px 10px 10px 25px;}
+#dc_jqdrilldown_widget-%ID%-item .menu a:hover {background: #05477c; color: #fff;}
+#dc_jqdrilldown_widget-%ID%-item .menu li a .dd-icon {position: absolute; top: 50%; left: 14px; width: 34px; margin-top: -15px; height: 34px;}
+#dc_jqdrilldown_widget-%ID%-item .menu li.dd-parent a.dd-parent-a{padding: 10px 10px 10px 15px;}
+#dc_jqdrilldown_widget-%ID%-item .menu li.dd-parent a:hover {color: #fff;}
+#dc_jqdrilldown_widget-%ID%-item .menu li.dd-parent a.active .dd-icon {}
+#dc_jqdrilldown_widget-%ID%-item .menu li.dd-parent a.active {color: #ccc; background: #0D5995 url(skins/images/checkers.png) repeat 0 0;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header {font: normal 11px Arial, sans-serif;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header ul {width: 100%; overflow: hidden; line-height: 1.5em; padding: 5px 10px;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header li {display: inline;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header li a {text-decoration: none; float: left; display: block; padding: 1px 15px 1px 5px; background: url(skins/images/arrow_white_right.png) no-repeat 100% center; color: #fff;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header li a:hover {color: #ccc; text-decoration: underline;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header a.link-back {text-decoration: none; display: block; padding: 5px 10px 0 20px; background: url(skins/images/arrow_white_left.png) no-repeat 0 center; color: #fff;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header h3 {clear: both; padding: 5px 10px; margin: 0; font-size: 13px;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header h3 .dd-count {display: none;}

@@ -45,6 +45,278 @@ class Ai1ec_Themes_Controller {
 	private function __construct() { }
 
 	/**
+	 * view function
+	 *
+	 * @return void
+	 **/
+	public function view() {
+		global $ai1ec_view_helper, $ct;
+		// defaults
+		$activated = false;
+		$deleted   = false;
+
+		// check if action is set
+		if( isset( $_GET['action'] ) && ! empty( $_GET['action'] ) ) {
+			// action can activate or delete a theme
+			switch( $_GET['action'] ) {
+				// activate theme
+				case 'activate':
+					$activated = $this->activate_theme();
+					break;
+				// delete theme
+				case 'delete':
+					$deleted = $this->delete_theme();
+					break;
+			}
+		}
+
+		$_list_table = new Ai1ec_Themes_List_Table();
+		$_list_table->prepare_items();
+
+		$args = array(
+			'activated'     => $activated,
+			'deleted'       => $deleted,
+			'ct'            => $ct,
+			'wp_list_table' => $_list_table
+		);
+
+		add_thickbox();
+		wp_enqueue_script( 'theme-preview' );
+
+		$ai1ec_view_helper->display_admin( 'themes.php', $args );
+	}
+
+	/**
+	 * view_install function
+	 *
+	 * @return void
+	 **/
+	public function view_install() {
+		global $ai1ec_view_helper;
+
+		$_list_table = new Ai1ec_Themes_List_Table();
+		$_list_table->prepare_items();
+		ob_start();
+		$_list_table->display();
+		$html = ob_get_clean();
+		$args = array(
+			'html' => $html
+		);
+
+		$ai1ec_view_helper->display_admin( 'themes-install.php', $args );
+	}
+
+	/**
+	 * activate_theme function
+	 *
+	 * @return bool
+	 **/
+	public function activate_theme() {
+		check_admin_referer( 'switch-ai1ec_theme_' . $_GET['ai1ec_template'] );
+		$this->switch_theme( $_GET['ai1ec_template'], $_GET['ai1ec_stylesheet'] );
+		return true;
+	}
+
+	/**
+	 * switch_theme function
+	 *
+	 * @return void
+	 **/
+	public function switch_theme( $template, $stylesheet ) {
+		update_option( 'ai1ec_template', $template );
+		update_option( 'ai1ec_stylesheet', $stylesheet );
+		delete_option( 'ai1ec_current_theme' );
+	}
+
+	/**
+	 * delete_theme function
+	 *
+	 * @return bool
+	 **/
+	public function delete_theme() {
+		check_admin_referer( 'delete-ai1ec_theme_' . $_GET['ai1ec_template'] );
+		if( ! current_user_can( 'delete_themes' ) )
+			wp_die( __( 'Cheatin&#8217; uh?' ) );
+
+		$this->remove_theme( $_GET['ai1ec_template'] );
+		return true;
+	}
+
+	/**
+	 * remove_theme function
+	 *
+	 * @return void
+	 **/
+	public function remove_theme( $template ) {
+		global $wp_filesystem;
+
+		if ( empty($template) )
+			return false;
+
+		ob_start();
+		if ( empty( $redirect ) )
+			$redirect = wp_nonce_url(
+				admin_url( AI1EC_THEME_SELECTION_BASE_URL ) .
+				"&amp;action=delete&amp;ai1ec_template=$template", 'delete-ai1ec_theme_' . $template
+			);
+		if ( false === ($credentials = request_filesystem_credentials($redirect)) ) {
+			$data = ob_get_contents();
+			ob_end_clean();
+			if ( ! empty($data) ){
+				include_once( ABSPATH . 'wp-admin/admin-header.php');
+				echo $data;
+				include( ABSPATH . 'wp-admin/admin-footer.php');
+				exit;
+			}
+			return;
+		}
+
+		if ( ! WP_Filesystem($credentials) ) {
+			request_filesystem_credentials($redirect, '', true); // Failed to connect, Error and request again
+			$data = ob_get_contents();
+			ob_end_clean();
+			if ( ! empty($data) ) {
+				include_once( ABSPATH . 'wp-admin/admin-header.php');
+				echo $data;
+				include( ABSPATH . 'wp-admin/admin-footer.php');
+				exit;
+			}
+			return;
+		}
+
+		if ( ! is_object($wp_filesystem) )
+			return new WP_Error('fs_unavailable', __('Could not access filesystem.'));
+
+		if ( is_wp_error($wp_filesystem->errors) && $wp_filesystem->errors->get_error_code() )
+			return new WP_Error('fs_error', __('Filesystem error.'), $wp_filesystem->errors);
+
+		// Get the base plugin folder
+		$themes_dir = $wp_filesystem->wp_content_dir() . AI1EC_THEMES_FOLDER . '/';
+		if ( empty($themes_dir) )
+			return new WP_Error('fs_no_themes_dir', __('Unable to locate WordPress theme directory.'));
+
+		$themes_dir = trailingslashit( $themes_dir );
+		$theme_dir = trailingslashit( $themes_dir . $template );
+
+		$deleted = $wp_filesystem->delete($theme_dir, true);
+
+		if ( ! $deleted )
+			return new WP_Error('could_not_remove_theme', sprintf(__('Could not fully remove the theme %s.'), $template) );
+
+		return true;
+	}
+
+	/**
+	 * preview_theme function
+	 *
+	 * @return void
+	 **/
+	public function preview_theme() {
+		if( ! ( isset( $_GET['ai1ec_template'] ) && isset( $_GET['preview'] ) ) )
+			return;
+
+		if( ! current_user_can( 'switch_themes' ) )
+			return;
+
+		// Admin Thickbox requests
+		if( isset( $_GET['preview_iframe'] ) )
+			show_admin_bar( false );
+
+		$_GET['ai1ec_template'] = preg_replace( '|[^a-z0-9_./-]|i', '', $_GET['ai1ec_template'] );
+
+		if( validate_file( $_GET['ai1ec_template'] ) )
+			return;
+
+		add_filter( 'ai1ec_template', array( &$this, '_preview_theme_template_filter' ) );
+
+		if( isset( $_GET['ai1ec_stylesheet'] ) ) {
+			$_GET['ai1ec_stylesheet'] = preg_replace( '|[^a-z0-9_./-]|i', '', $_GET['ai1ec_stylesheet'] );
+			if( validate_file( $_GET['ai1ec_stylesheet'] ) )
+				return;
+			add_filter( 'ai1ec_stylesheet', array( &$this, '_preview_theme_stylesheet_filter' ) );
+		}
+
+		// Prevent theme mods to current theme being used on theme being previewed
+		add_filter( 'pre_option_mods_' . get_current_theme(), '__return_empty_array' );
+
+		ob_start( array( &$this, 'preview_theme_ob_filter' ) );
+	}
+
+	/**
+	 * preview_theme_ob_filter function
+	 *
+	 * Callback function for ob_start() to capture all links in the theme.
+	 *
+	 * @param string $content
+	 * @return string
+	 */
+	function preview_theme_ob_filter( $content ) {
+		return preg_replace_callback( "|(<a.*?href=([\"']))(.*?)([\"'].*?>)|",
+		                              array( &$this, 'preview_theme_ob_filter_callback' ),
+		                              $content );
+	}
+
+	/**
+	 * preview_theme_ob_filter_callback function
+	 *
+	 * Manipulates preview theme links in order to control and maintain location.
+	 *
+	 * Callback function for preg_replace_callback() to accept and filter matches.
+	 *
+	 * @param array $matches
+	 * @return string
+	 */
+	function preview_theme_ob_filter_callback( $matches ) {
+		if( strpos( $matches[4], 'onclick' ) !== false )
+			$matches[4] = preg_replace( '#onclick=([\'"]).*?(?<!\\\)\\1#i', '', $matches[4] );
+
+		if( ( false !== strpos( $matches[3], '/wp-admin/' ) ) ||
+		    ( false !== strpos( $matches[3], '://' ) && 0 !== strpos( $matches[3], home_url() ) ) ||
+		    ( false !== strpos( $matches[3], '/feed/' ) ) ||
+		    ( false !== strpos( $matches[3], '/trackback/' ) )
+		)
+			return $matches[1] . "#$matches[2] onclick=$matches[2]return false;" . $matches[4];
+
+		$query_arg = array(
+			'preview'          => 1,
+			'ai1ec_template'   => $_GET['ai1ec_template'],
+			'ai1ec_stylesheet' => @$_GET['ai1ec_stylesheet']
+		);
+
+		if( isset( $_GET['preview_iframe'] ) )
+			$query_arg['preview_iframe'] = (int) $_GET['preview_iframe'];
+
+		$link = add_query_arg( $query_arg, $matches[3] );
+
+		if( 0 === strpos( $link, 'preview=1' ) )
+			$link = "?$link";
+
+		return $matches[1] . esc_attr( $link ) . $matches[4];
+	}
+
+	/**
+	 * _preview_theme_template_filter function
+	 *
+	 * Private function to modify the current template when previewing a theme
+	 *
+	 * @return string
+	 */
+	public function _preview_theme_template_filter() {
+		return isset( $_GET['ai1ec_template'] ) ? $_GET['ai1ec_template'] : '';
+	}
+
+	/**
+	 * _preview_theme_stylesheet_filter function
+	 *
+	 * Private function to modify the current stylesheet when previewing a theme
+	 *
+	 * @return string
+	 */
+	public function _preview_theme_stylesheet_filter() {
+		return isset( $_GET['ai1ec_stylesheet'] ) ? $_GET['ai1ec_stylesheet'] : '';
+	}
+
+	/**
    * Returns the root path of ai1ec-themes.
 	 *
 	 * @return string
@@ -163,6 +435,70 @@ class Ai1ec_Themes_Controller {
 		}
 	}
 
+	/**
+	 * Checks if themes are installed.
+	 *
+	 * @return void
+	 */
+	function check_themes() {
+		global $wp_filesystem;
+
+		if ( empty($template) )
+			return false;
+
+		ob_start();
+		if ( empty( $redirect ) )
+			$redirect = wp_nonce_url(
+				admin_url( AI1EC_THEME_SELECTION_BASE_URL ) .
+				"&amp;action=delete&amp;ai1ec_template=$template", 'delete-ai1ec_theme_' . $template
+			);
+		if ( false === ($credentials = request_filesystem_credentials($redirect)) ) {
+			$data = ob_get_contents();
+			ob_end_clean();
+			if ( ! empty($data) ){
+				include_once( ABSPATH . 'wp-admin/admin-header.php');
+				echo $data;
+				include( ABSPATH . 'wp-admin/admin-footer.php');
+				exit;
+			}
+			return;
+		}
+
+		if ( ! WP_Filesystem($credentials) ) {
+			request_filesystem_credentials($redirect, '', true); // Failed to connect, Error and request again
+			$data = ob_get_contents();
+			ob_end_clean();
+			if ( ! empty($data) ) {
+				include_once( ABSPATH . 'wp-admin/admin-header.php');
+				echo $data;
+				include( ABSPATH . 'wp-admin/admin-footer.php');
+				exit;
+			}
+			return;
+		}
+
+		if ( ! is_object($wp_filesystem) )
+			return new WP_Error('fs_unavailable', __('Could not access filesystem.'));
+
+		if ( is_wp_error($wp_filesystem->errors) && $wp_filesystem->errors->get_error_code() )
+			return new WP_Error('fs_error', __('Filesystem error.'), $wp_filesystem->errors);
+
+		// Get the base plugin folder
+		$themes_dir = $wp_filesystem->wp_content_dir() . AI1EC_THEMES_FOLDER . '/';
+		if ( empty($themes_dir) )
+			return new WP_Error('fs_no_themes_dir', __('Unable to locate WordPress theme directory.'));
+
+		$themes_dir = trailingslashit( $themes_dir );
+		$theme_dir = trailingslashit( $themes_dir . $template );
+
+		$deleted = $wp_filesystem->delete($theme_dir, true);
+
+		if ( ! $deleted )
+			return new WP_Error('could_not_remove_theme', sprintf(__('Could not fully remove the theme %s.'), $template) );
+
+		return true;
+	}
+
 
 	/**
 	 * Register Update Calendar Themes page in wp-admin.
@@ -172,8 +508,8 @@ class Ai1ec_Themes_Controller {
 		// by removing it again right away.
 		add_submenu_page(
 			'themes.php',
-			__( 'Update Core Calendar Files', AI1EC_PLUGIN_NAME ),
-			__( 'Update Core Calendar Files', AI1EC_PLUGIN_NAME ),
+			__( 'Update Calendar Themes', AI1EC_PLUGIN_NAME ),
+			__( 'Update Calendar Themes', AI1EC_PLUGIN_NAME ),
 			'install_themes',
 			AI1EC_PLUGIN_NAME . '-update-themes',
 			array( &$this, 'update_core_themes' )
@@ -197,15 +533,22 @@ class Ai1ec_Themes_Controller {
 		$files = array();
 		if ( $active_version < 2 ) {
 			// Copy over files updated between AI1EC 1.6 and 1.7 RC1
+			$files[] = 'gamma/style.css';
+			$files[] = 'plana/style.css';
+			$files[] = 'umbra/css/calendar.css';
+			$files[] = 'umbra/css/event.css';
+			$files[] = 'umbra/css/general.css';
+			$files[] = 'umbra/less/build-css.sh';
+			$files[] = 'umbra/style.css';
 			$files[] = 'vortex/agenda.php';
 			$files[] = 'vortex/agenda-widget.php';
-			$files[] = 'vortex/js/bootstrap-dropdown.js';
-			$files[] = 'vortex/js/bootstrap-tooltip.js';
-			$files[] = 'vortex/js/general.min.js';
 			$files[] = 'vortex/css/calendar.css';
 			$files[] = 'vortex/css/event.css';
 			$files[] = 'vortex/css/general.css';
 			$files[] = 'vortex/css/print.css';
+			$files[] = 'vortex/js/bootstrap-dropdown.js';
+			$files[] = 'vortex/js/bootstrap-tooltip.js';
+			$files[] = 'vortex/js/general.min.js';
 			$files[] = 'vortex/less/build-css.sh';
 			$files[] = 'vortex/less/calendar.less';
 			$files[] = 'vortex/less/event.less';
@@ -247,10 +590,10 @@ class Ai1ec_Themes_Controller {
 		update_option( 'ai1ec_themes_version', AI1EC_THEMES_VERSION );
 
 		if ( $errors ) {
-			$msg = __( '<div id="message" class="error"><h3>Errors occurred while we tried to update your core calendar files.</h3><p><strong>Please follow any instructions listed below or your calendar may malfunction:</strong></p></div>', AI1EC_PLUGIN_NAME );
+			$msg = __( '<div id="message" class="error"><h3>Errors occurred while we tried to update your core Calendar Themes.</h3><p><strong>Please follow any instructions listed below or your calendar may malfunction:</strong></p></div>', AI1EC_PLUGIN_NAME );
 		}
 		else {
-			$msg = __( '<div id="message" class="updated"><h3>Your core calendar files were updated successfully.</h3></div>', AI1EC_PLUGIN_NAME );
+			$msg = __( '<div id="message" class="updated"><h3>Your core Calendar Themes were updated successfully.</h3></div>', AI1EC_PLUGIN_NAME );
 		}
 
 		$args = array(

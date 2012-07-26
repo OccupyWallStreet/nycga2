@@ -1,0 +1,87 @@
+.wpcf-access-type-item {
+    padding: 10px;
+    background-color: #F7F7F7;
+    border: 1px solid #E5E5E5;
+    margin-bottom: 5px;
+}
+.wpcf-access-custom-roles-table {
+    background-color: #F7F7F7;
+    border: 1px solid #E5E5E5;
+    border-bottom: 0px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.wpcf-access-custom-roles-table tbody {
+    padding: 0;
+    margin: 0;
+}
+.wpcf-access-custom-roles-table td {
+    padding: 5px;
+    border-bottom: 1px solid #E5E5E5;
+    vertical-align: top;
+}
+.wpcf-access-custom-roles-table .wpcf-access-roles-builtin {
+
+}
+.wpcf-access-custom-roles-table .wpcf-access-roles-level {
+    color: #a0a0a0;
+}
+.wpcf-access-change-level {
+    text-decoration: none;
+}
+.wpcf-access-custom-roles-select-wrapper {
+    display: none;
+}
+.wpcf-access-mode {
+    margin: 10px 0 10px 0;
+}
+.wpcf-access-mode-predefined, .wpcf-access-mode-custom, .wpcf-access-mode-not_managed{
+    margin: 10px 0 20px 0;
+}
+.wpcf-access-caps-wrapper {
+    margin-top: 10px;
+    border: 0px;
+}
+.wpcf-access-caps-wrapper td {
+    vertical-align: top;
+    padding: 0px;
+    border: 0px;
+}
+.wpcf-access-add-user-wrapper {
+    float: left;
+}
+.wpcf-access-caps-role-item-wrapper {
+    float: left;
+}
+.wpcf-access-caps-item-wrapper {
+    margin-bottom: 20px;
+    display: block;
+    clear: both;
+}
+.wpcf-access-remove-user-wrapper {
+    float: left;
+    margin: 0 12px;
+}
+.wpcf-access-remove-user {
+    background: url("../images/xit.gif") no-repeat scroll 0 0 transparent;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 10px;
+    margin: 4px 0 0 -12px;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -9999px;
+    width: 10px;
+}
+.wpcf-access-remove-user:hover {
+    background: url("../images/xit.gif") no-repeat scroll -10px 0 transparent;
+}
+.wpcf-access-remove-user-wrapper input {
+    margin-left: 10px;
+}
+.wpcf-access-predefined-table td {
+    vertical-align: top;
+}

@@ -1,0 +1,18 @@
+#dc_jqdrilldown_widget-%ID%-item {background: #343434; color: #fff;}
+#dc_jqdrilldown_widget-%ID%-item .dd-wrapper {font: bold 14px Arial, sans-serif; border-top: 1px solid #111; border-right: 1px solid #111; border-left: 1px solid #111;}
+#dc_jqdrilldown_widget-%ID%-item .menu {border-top: 1px solid #111;}
+#dc_jqdrilldown_widget-%ID%-item .menu a {text-decoration: none; padding: 10px 10px 10px 50px; display: block; color: #ddd; border-bottom: 1px solid #222; border-top: 1px solid #555; position: relative;}
+#dc_jqdrilldown_widget-%ID%-item .menu a:hover {background: #232323; color: #fff;}
+#dc_jqdrilldown_widget-%ID%-item .menu li a .dd-icon {position: absolute; top: 50%; left: 14px; width: 34px; margin-top: -15px; height: 34px; background: url(skins/images/arrow_black_right.png) no-repeat 0 center;}
+#dc_jqdrilldown_widget-%ID%-item .menu li.dd-parent a.dd-parent-a {background: #0C0C0C url(skins/images/bg_black.png) repeat-x center center;}
+#dc_jqdrilldown_widget-%ID%-item .menu li.dd-parent a:hover {background: #0C0C0C url(skins/images/bg_black_on.png) repeat-x center center;}
+#dc_jqdrilldown_widget-%ID%-item .menu li.dd-parent a.active .dd-icon {background: url(skins/images/arrow_black_down.png) no-repeat 0 center;}
+#dc_jqdrilldown_widget-%ID%-item .menu li.dd-parent a.active {color: #fff; background: #111;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header {font: normal 11px Arial, sans-serif;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header ul {width: 100%; overflow: hidden; line-height: 1.5em; padding: 5px 10px;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header li {display: inline;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header li a {text-decoration: none; float: left; display: block; padding: 1px 15px 1px 5px; background: url(skins/images/arrow_white_right.png) no-repeat 100% center; color: #fff;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header li a:hover {color: #fff; text-decoration: underline;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header a.link-back {text-decoration: none; display: block; padding: 5px 10px 0 20px; background: url(skins/images/arrow_white_left.png) no-repeat 5px center; color: #fff;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header h3 {clear: both; padding: 5px 10px; margin: 0; font-size: 13px;}
+#dc_jqdrilldown_widget-%ID%-item .dd-header h3 .dd-count {display: none;}

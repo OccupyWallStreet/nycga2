@@ -13,9 +13,9 @@
 <table class="em-calendar">
 	<thead>
 		<tr>
-			<td><a class="em-calnav" href="<?php echo $calendar['links']['previous_url']; ?>">&lt;&lt;</a></td>
+			<td><a class="em-calnav em-calnav-prev" href="<?php echo $calendar['links']['previous_url']; ?>" rel="nofollow">&lt;&lt;</a></td>
 			<td class="month_name" colspan="5"><?php echo ucfirst(date_i18n('M Y', $calendar['month_start'])); ?></td>
-			<td><a class="em-calnav" href="<?php echo $calendar['links']['next_url']; ?>">&gt;&gt;</a></td>
+			<td><a class="em-calnav em-calnav-next" href="<?php echo $calendar['links']['next_url']; ?>" rel="nofollow">&gt;&gt;</a></td>
 		</tr>
 	</thead>
 	<tbody>
@@ -24,7 +24,8 @@
 		</tr>
 		<tr>
 			<?php
-			$col_count = 1; //this counts collumns in the $calendar_array['cells'] array
+			$cal_count = count($calendar['cells']);
+			$col_count = $count = 1; //this counts collumns in the $calendar_array['cells'] array
 			$col_max = count($calendar['row_headers']); //each time this collumn number is reached, we create a new collumn, the number of cells should divide evenly by the number of row_headers
 			foreach($calendar['cells'] as $date => $cell_data ){
 				$class = ( !empty($cell_data['events']) && count($cell_data['events']) > 0 ) ? 'eventful':'eventless';
@@ -42,7 +43,8 @@
 				<?php
 				//create a new row once we reach the end of a table collumn
 				$col_count= ($col_count == $col_max ) ? 1 : $col_count+1;
-				echo ($col_count == 1) ? '</tr><tr>':''; 
+				echo ($col_count == 1 && $count < $cal_count) ? '</tr><tr>':'';
+				$count ++; 
 			}
 			?>
 		</tr>

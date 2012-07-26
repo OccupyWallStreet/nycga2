@@ -67,12 +67,7 @@ function wptouchHandleAdvertising() {
 	var selectValue = wpQuery( '#ad_service' ).attr( 'value' );
 	if ( selectValue == 'none' ) {
 		wpQuery( '#google-adsense' ).hide();
-		wpQuery( '#appstores' ).hide();
 	} else if ( selectValue == 'adsense' ) {
-		wpQuery( '#appstores' ).hide();
 		wpQuery( '#google-adsense' ).fadeIn( 250 );
-	} else if ( selectValue == 'appstores' ) {
-		wpQuery( '#google-adsense' ).hide();
-		wpQuery( '#appstores' ).fadeIn( 250 );
-	}
+	} 
 }

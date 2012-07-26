@@ -2,7 +2,7 @@
 
 	<?php screen_icon(); ?>
 
-	<h2><?php _e( 'Update Core Calendar Files', AI1EC_PLUGIN_NAME ); ?></h2>
+	<h2><?php _e( 'Update Calendar Themes', AI1EC_PLUGIN_NAME ); ?></h2>
 
 	<?php echo $msg; ?>
 

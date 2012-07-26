@@ -1,13 +1,13 @@
 jQuery(document).ready(function($)
     {
         // postTax: is the Post Type and Taxonomy structure
-        var postTax = apl_admin_ui_settings.postTax;
+        var post_types = apl_admin_ui_settings.post_types;
         // postTax_parent_selector: show which Post Types are heirarchical
         var postTax_parent_selector = apl_admin_ui_settings.postTax_parent_selector;
         
-        for (var post_type_name in postTax)
+        for (var post_type_name in post_types)
         {
-            var taxonomies = postTax[post_type_name];
+            //var taxonomies = postTax[post_type_name].taxonomies;
             
             $("#slctParentSelector-" + post_type_name).multiselect({
                 noneSelectedText: "Select Parent",
@@ -16,9 +16,9 @@ jQuery(document).ready(function($)
                 height: 192,
                 click: function(event, ui)
                 {
-                    if (ui.value === "-1")
+                    if (ui.value === "0")
                     {
-                        for (var post_type in postTax)
+                        for (var post_type in post_types)
                         {
                             var parentIDs =  $("#slctParentSelector-" + post_type).val();
                             if (parentIDs == null)
@@ -30,7 +30,7 @@ jQuery(document).ready(function($)
                             if (ui.checked == true)
                             {
                                 tmp_array = parentIDs;
-                                tmp_array[a3] = "-1";
+                                tmp_array[a3] = "0";
                                 $("#slctParentSelector-" + post_type).val(tmp_array);
                             }
                             else
@@ -38,7 +38,8 @@ jQuery(document).ready(function($)
                                 var i = 0;
                                 for (var parent_index in parentIDs)
                                 {
-                                    if (parentIDs[parent_index] === "-1")
+                                    //TODO sloppy, FIX this
+                                    if (parentIDs[parent_index] === "0")
                                     {
                                         //do nothing or skip
                                     }
@@ -65,6 +66,7 @@ jQuery(document).ready(function($)
 //                }
 //                
 //            });
+            // Disable option if the post type is non-hierarchical (Pages)
             if (postTax_parent_selector[post_type_name]['hierarchical'] == false)
             {
                 $("#slctParentSelector-" + post_type_name).multiselect("disable");

@@ -90,6 +90,9 @@ class Ai1ec_App_Controller {
 		// Enable stats collection
 		$this->install_n_cron();
 
+		// Enable checking for cron updates
+		$this->install_u_cron();
+
 		// Continue loading hooks only if themes are installed. Otherwise display a
 		// notification on the backend with instructions how to install themes.
 		if( ! $ai1ec_themes_controller->are_themes_available() ) {
@@ -100,6 +103,8 @@ class Ai1ec_App_Controller {
 		// ===========
 		// = ACTIONS =
 		// ===========
+		// Very early on in WP bootstrap, prepare to do any requested theme preview.
+		add_action( 'setup_theme',                              array( &$ai1ec_themes_controller, 'preview_theme' ) );
 		// Calendar theme initialization
 		add_action( 'after_setup_theme',                        array( &$ai1ec_themes_controller, 'setup_theme' ) );
 		// Create custom post type
@@ -110,6 +115,8 @@ class Ai1ec_App_Controller {
 		add_action( 'init',                                     array( &$ai1ec_events_controller, 'init' ) );
 		// Load plugin text domain
 		add_action( 'init',                                     array( &$this, 'load_textdomain' ) );
+		// Check if themes are installed
+		add_action( 'init',                                     array( &$ai1ec_themes_controller, 'check_themes' ) );
 		// Register The Event Calendar importer
 		add_action( 'admin_init',                               array( &$ai1ec_importer_controller, 'register_importer' ) );
 		// Install admin menu items.
@@ -138,6 +145,8 @@ class Ai1ec_App_Controller {
 		add_action( 'ai1ec_cron',                               array( &$ai1ec_importer_controller, 'cron' ) );
 		// Notification cron job hook
 		add_action( 'ai1ec_n_cron',                             array( &$ai1ec_exporter_controller, 'n_cron' ) );
+		// Updates cron job hook
+		add_action( 'ai1ec_u_cron',                             array( &$ai1ec_settings_controller, 'u_cron' ) );
 		// Category colors
 		add_action( 'events_categories_add_form_fields',        array( &$ai1ec_events_controller, 'events_categories_add_form_fields' ) );
 		add_action( 'events_categories_edit_form_fields',       array( &$ai1ec_events_controller, 'events_categories_edit_form_fields' ) );
@@ -297,6 +306,9 @@ class Ai1ec_App_Controller {
 					ical_organizer    varchar(255),
 					ical_contact      varchar(255),
 					ical_uid          varchar(255),
+					show_coordinates  tinyint(1),
+					latitude          decimal(20,15),
+					longitude         decimal(20,15),
 					PRIMARY KEY  (post_id)
 				) CHARACTER SET utf8;";
 
@@ -397,6 +409,30 @@ class Ai1ec_App_Controller {
 	}
 
 	/**
+	 * install_u_cron function
+	 *
+	 * This function sets up the cron job that checks for available updates
+	 *
+	 * @return void
+	 **/
+	function install_u_cron() {
+		// If existing CRON version is not consistent with current plugin's version,
+		// or does not exist, then create/update cron using
+		if( get_option( 'ai1ec_u_cron_version' ) != AI1EC_U_CRON_VERSION ) {
+			// delete our scheduled crons
+			wp_clear_scheduled_hook( 'ai1ec_u_cron_version' );
+			// reset flags
+			update_option( 'ai1ec_update_available', 0 );
+			update_option( 'ai1ec_update_message', '' );
+			update_option( 'ai1ec_package_url', '' );
+			// set the new cron
+			wp_schedule_event( time(), AI1EC_U_CRON_FREQ, 'ai1ec_u_cron' );
+			// update the cron version
+			update_option( 'ai1ec_u_cron_version', AI1EC_U_CRON_VERSION );
+		}
+	}
+
+	/**
 	 * admin_menu function
 	 * Display the admin menu items using the add_menu_page WP function.
 	 *
@@ -407,6 +443,18 @@ class Ai1ec_App_Controller {
            $ai1ec_settings_helper,
            $ai1ec_settings,
            $ai1ec_themes_controller;
+
+		// ===============
+		// = Themes Page =
+		// ===============
+		$themes_page = add_submenu_page(
+			'themes.php',
+			__( 'Calendar Themes', AI1EC_PLUGIN_NAME ),
+			__( 'Calendar Themes', AI1EC_PLUGIN_NAME ),
+			'switch_ai1ec_themes',
+			AI1EC_PLUGIN_NAME . '-themes',
+			array( &$ai1ec_themes_controller, 'view' )
+		);
 
 		// =======================
 		// = Calendar Feeds Page =
@@ -439,6 +487,7 @@ class Ai1ec_App_Controller {
 		add_action( "load-{$ai1ec_settings->settings_page}", array( &$ai1ec_settings_helper, 'add_settings_meta_boxes') );
 		// Load our plugin's meta boxes.
 		add_action( "load-{$ai1ec_settings->settings_page}", array( &$ai1ec_settings_controller, 'add_settings_meta_boxes' ) );
+
 		// ========================
 		// = Calendar Update Page =
 		// ========================
@@ -633,10 +682,18 @@ class Ai1ec_App_Controller {
 		// continue only if user can update plugins
 		if ( ! current_user_can( 'update_plugins' ) )
 			wp_die( __( 'You do not have sufficient permissions to update plugins for this site.' ) );
+
+		if( ! isset( $_REQUEST["package"] ) || empty( $_REQUEST["package"] ) )
+			wp_die( __( 'Download package is needed and was not supplied. Go to http://then.ly/ to download the newest plugin version' ) );
+
 		// use our custom class
 		$upgrader = new Ai1ec_Updater();
 		// update the plugin
-		$upgrader->upgrade( 'all-in-one-event-calendar' );
+		$upgrader->upgrade( 'all-in-one-event-calendar', $_REQUEST["package"] );
+		// clear update notification
+		update_option( 'ai1ec_update_available', 0 );
+		update_option( 'ai1ec_update_message', '' );
+		update_option( 'ai1ec_package_url', '' );
 		// give user a way out of the page
 		echo '<a href="' . admin_url( 'edit.php?post_type=' . AI1EC_POST_TYPE ) . '">Continue here</a>';
 	}

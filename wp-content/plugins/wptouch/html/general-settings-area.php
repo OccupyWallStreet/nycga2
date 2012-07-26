@@ -53,6 +53,8 @@
 							<option value="eu_EU"<?php if ( $wptouch_settings['wptouch-language'] == "eu_EU" ) echo " selected"; ?>>Basque</option>
 							<!-- <option value="de_DE"<?php if ( $wptouch_settings['wptouch-language'] == "de_DE" ) echo " selected"; ?>>Deutsch</option> -->
 							<option value="ja_JP"<?php if ( $wptouch_settings['wptouch-language'] == "ja_JP" ) echo " selected"; ?>>Japanese</option>
+							<option value="tr_TR"<?php if ( $wptouch_settings['wptouch-language'] == "tr_TR" ) echo " selected"; ?>>Türkçe</option>
+							<option value="it_IT"<?php if ( $wptouch_settings['wptouch-language'] == "it_IT" ) echo " selected"; ?>>Italiano</option>
 							
 							<?php $custom_lang_files = bnc_get_wptouch_custom_lang_files(); ?>
 							<?php if ( count( $custom_lang_files ) ) { ?>

@@ -86,7 +86,7 @@ class BBP_Forums_Admin {
 	 * @return boolean
 	 */
 	private function bail() {
-		if ( $this->post_type != get_current_screen()->post_type )
+		if ( !isset( get_current_screen()->post_type ) || ( $this->post_type != get_current_screen()->post_type ) )
 			return true;
 
 		return false;
@@ -300,6 +300,10 @@ class BBP_Forums_Admin {
 
 		// Nonce check
 		if ( empty( $_POST['bbp_forum_metabox'] ) || !wp_verify_nonce( $_POST['bbp_forum_metabox'], 'bbp_forum_metabox_save' ) )
+			return $forum_id;
+
+		// Only save for forum post-types
+		if ( ! bbp_is_forum( $forum_id ) )
 			return $forum_id;
 
 		// Bail if current user cannot edit this forum

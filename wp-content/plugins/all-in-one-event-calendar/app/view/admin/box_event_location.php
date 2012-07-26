@@ -32,6 +32,40 @@
 					<input type="checkbox" value="1" name="ai1ec_google_map" id="ai1ec_google_map" <?php echo $google_map; ?> />
 				</td>
 			</tr>
+			<tr>
+				<td>
+					<label for="ai1ec_input_coordinates">
+						<?php _e( 'Input Coordinates:', AI1EC_PLUGIN_NAME ); ?>
+					</label>
+				</td>
+				<td>
+					<input type="checkbox" value="1" name="ai1ec_input_coordinates" id="ai1ec_input_coordinates" <?php echo $coordinates; ?> />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table id="ai1ec_table_coordinates" class="ai1ec-form ai1ec-location-form">
+		<tbody>
+			<tr>
+				<td class="ai1ec-first">
+					<label for="ai1ec_longitude">
+						<?php _e( 'Longitude:', AI1EC_PLUGIN_NAME ); ?>
+					</label>
+				</td>
+				<td>
+					<input type="text" class="longitude coordinates" name="ai1ec_longitude" id="ai1ec_longitude" value="<?php echo $longitude; ?>" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="ai1ec_latitude">
+						<?php _e( 'Latitude:', AI1EC_PLUGIN_NAME ); ?>
+					</label>
+				</td>
+				<td>
+					<input type="text" class="latitude coordinates" name="ai1ec_latitude" id="ai1ec_latitude" value="<?php echo $latitude; ?>" />
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </div>

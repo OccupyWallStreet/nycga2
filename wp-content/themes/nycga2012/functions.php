@@ -19,22 +19,6 @@ if ( function_exists( 'add_theme_support' ) ) {
 
 }
 
-
-function nycga_register_sidebars() {
-	register_sidebar(
-		array(
-			'id'						=> 'left sidebar',
-			'name' 					=> 'Left Sidebar',
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'	=> '</div>',
-			'before_title'	=> '<h4 class="widgettitle">',
-			'after_title'		=> '</h4>'
-		)
-	);
-}
-
-add_action( 'widgets_init', 'nycga_register_sidebars' );
-
 global $content_width;
 $content_width = 500;
 
@@ -91,12 +75,15 @@ function add_script() {
 		wp_register_script('tipTip', get_stylesheet_directory_uri()  . '/js/nycga.tipTip.js', false, '1.3	');
 		wp_register_script('nycgaui', get_stylesheet_directory_uri()  . '/js/nycga_ui.js', false, '0.5');
 		wp_register_script('site', get_stylesheet_directory_uri()  . '/js/site.js', false, '0.5');
+    wp_register_script( 'jquery.cycle', '/wp-content/js/jquery.cycle.all.js');
 		wp_enqueue_script('jquery');
+    wp_enqueue_script( 'jquery.cycle' );
 		wp_enqueue_script('toggler', get_bloginfo('url') . '/wp-content/js/hide-form/toggler.js');
 		wp_enqueue_script('boxShadow');
 		wp_enqueue_script('tipTip');
 		wp_enqueue_script('nycgaui');
 		wp_enqueue_script('site');
+		
 	}
 }
 
@@ -117,6 +104,16 @@ function add_search_form_script() {
 	<?php
 }
 
+register_sidebar(
+	array(
+		'name' => 'Announcement',
+		'id' => 'announcement',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widgettitle">',
+		'after_title' => '</h3>'
+	)
+);
 
 register_sidebar(
 	array(
@@ -129,6 +126,7 @@ register_sidebar(
 	)
 );
 
+/*
 register_sidebar(
 	array(
 		'name' => 'Hero-no-login',
@@ -139,6 +137,7 @@ register_sidebar(
 		'after_title' => '</h4>'
 	)
 );
+*/
 
 register_sidebar(
 	array(
@@ -205,6 +204,62 @@ register_sidebar(
 		'after_title' => '</h4>'
 	)
 );
+
+register_sidebar(
+	array(
+		'name' 					=> 'Left Sidebar',
+		'id'						=> 'left sidebar',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</div>',
+		'before_title'	=> '<h4 class="widgettitle">',
+		'after_title'		=> '</h4>'
+	)
+);
+
+register_sidebar(
+	array(
+		'name' => 'Home-side1',
+		'id' => 'sidebar-home-1',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widgettitle">',
+		'after_title' => '</h3>'
+	)
+);
+
+register_sidebar(
+	array(
+		'name' => 'Home-side2',
+		'id' => 'sidebar-home-2',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widgettitle">',
+		'after_title' => '</h3>'
+	)
+);
+
+register_sidebar(
+	array(
+		'name' => 'Home-side3',
+		'id' => 'sidebar-home-3',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widgettitle">',
+		'after_title' => '</h3>'
+	)
+);
+
+register_sidebar(
+	array(
+		'name' => 'Global Footer',
+		'id' => 'global-footer',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widgettitle">',
+		'after_title' => '</h3>'
+	)
+);
+
 
 function change_activity_plus_root_folder() {	
 	echo "<script>
@@ -320,5 +375,7 @@ function nycga_modify_group_membership_by_username() {
 		</script>
 	";
 }
+
+
 
 ?>

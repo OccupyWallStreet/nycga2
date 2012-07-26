@@ -19,6 +19,7 @@ $sql = $wpdb->prepare("
 		location_address AS `address`, 
 		location_town AS `town`, 
 		location_state AS `state`,
+		location_region AS `region`,
 		location_postcode AS `postcode`,
 		location_country AS `country`
 	FROM $locations_table 

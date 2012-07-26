@@ -3,8 +3,8 @@ Contributors: MariusOoms, reblevins
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7374704
 Tags: buddypress,groups,blogs,content
 Requires at least: WP 3.0 / BP 1.2
-Tested up to: WP 3.3.1 / BP 1.5.3.1
-Stable tag: 1.7.1
+Tested up to: WP 3.4.1 / BP 1.6
+Stable tag: 1.8
 
 BuddyPress Groupblog extends the group functionality by enabling the group to have a single blog associated with it.
 
@@ -100,6 +100,12 @@ function bp_core_avatar_url() {
 2. Screenshot of the group blog page.
 
 == Changelog == 
+
+= 1.8 =
+* Fixes bug with blog autojoin
+* l18n improvements
+* Fixes switch_to_blog() bug
+* Impovements to consistency of menu display
 
 = 1.7.1 =
 * Refactors the process that adds members to group blog, to improve performance with large groups

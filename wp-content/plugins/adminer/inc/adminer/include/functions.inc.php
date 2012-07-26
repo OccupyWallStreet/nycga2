@@ -775,6 +775,9 @@ function process_input($field) {
 */
 function search_tables() {
 	global $adminer, $connection;
+	
+	$_POST = AdminerForWP::array_map_recursive( 'stripslashes_deep', $_POST );
+	
 	$_GET["where"][0]["op"] = "LIKE %%";
 	$_GET["where"][0]["val"] = $_POST["query"];
 	$found = false;

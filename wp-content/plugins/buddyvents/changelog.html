@@ -1,0 +1,550 @@
+﻿<h3>v2.1.4</h3>
+<ul>
+    <li>Bugfix: Event logos were showing in activity streams even if they were deactivated</li>
+    <li>Bugfix: Event approval emails were missing content for certain cases</li>
+</ul>
+
+<h3>v2.1.3</h3>
+<ul>
+    <li>Bugfix: typo in $component_warnings</li>
+    <li>Bugfix: Error when users do not have any Facebook pages at all</li>
+    <li>Bugfix: Errors during BP upgrade if Buddyvents was not disabled</li>
+</ul>
+
+<h3>v2.1.2</h3>
+<ul>
+    <li>Bugfix: dbDelta() cannot handle IF NOT EXISTS MySQL statement</li>
+</ul>
+
+<h3>v2.1.1</h3>
+<ul>
+    <li><strong>NEW:</strong> Campaign Monitor and AWeber added to newsletter services</li>
+    <li>Added: Increased stability during upgrade process</li>
+    <li>Added: 3rd party plugins can easily add options to the settings screen</li>
+    <li>Changed: Schedules, documents and groups are seperate components now</li>
+    <li>Changed: All class names for better namespacing and consistency</li>
+    <li>Removed: Support for XML in API has been dropped (the only possible format is JSON now)</li>
+    <li>Bugfix: Typo in variable that prevented event comments from being saved</li>
+    <li>Bugfix: Wrong default value for group_approved could result in no events being shown</li>
+    <li>Bugfix: Maps would not show up on group calendars</li>
+    <li>Bugfix: Typo in Facebook remove token link</li>
+    <li>Bugfix: Ajax nonce error when prepopulating event location with group address</li>
+    <li>Bugfix: Document descriptions were not being saved upon creation</li>
+    <li>Bugfix: Small bug on certain configurations that prevented group contact details from being shown</li>
+</ul>
+
+<h3>v2.1</h3>
+<ul>
+    <li><strong>NEW:</strong> AJAX Pagination</li>
+    <li><strong>NEW:</strong> Export/Import settings</li>
+    <li><strong>NEW:</strong> Mailchimp subscriptions for events</li>
+    <li><strong>NEW:</strong> BBPress 2.1-bleeding integration (Use bleeding-edge versions at your own risk)</li>
+    <li><strong>NEW:</strong> User definable event admin in the backend (Still basic, will get extended)</li>
+    <li><strong>NEW:</strong> Post to all your Facebook pages in addition to your personal stream</li>
+    <li>Added: Infowindow content is now properly configurable via <code>bpe_ajax_map_content</code> filter (current content and event object are passed as reference)</li>
+    <li>Added: Filter, Action &amp; Function Reference chapters to the User Manual</li>
+    <li>Added: Filters to modify any aspect of queries (events, documents, schedules, tickets, sales and invoices)</li>
+    <li>Added: Compatibility with WP 3.3.1 and BP 1.6-bleeding (Use bleeding-edge versions at your own risk)</li>
+    <li>Added: Admin warnings if plugin components/WP/BP have not ben teested with the current Buddyvents version</li>
+    <li>Added: Template functions are now filterable</li>
+    <li>Added: Attendees now get notified if an event is deleted/cancelled</li>
+    <li>Added: Increased compatibility with other plugins</li>
+    <li>Added: Events can now be cancelled as well as deleted</li>
+    <li>Added: Redirection from /active to /archive and vice versa if needed</li>
+    <li>Added: oEmbed in document descriptions</li>
+    <li>Changed: Upgraded Facebook PHP-SDK to version 3.1.1</li>
+    <li>Changed: Load order of initial setup changed to make sure everything needed is available</li>
+    <li>Changed: Several Buddyvents components (API, Twitter, Facebook, Tickets and Eventbrite) get deactivated if the BP settings component is disabled</li>
+    <li>Changed: WP_LOCAL_DEV constant now enables non-minified scripts/styles</li>
+    <li>Changed: Some more database query optimizations</li>
+    <li>Changed: Renamed base class from EVENT_Loader to Buddyvents (it's just prettier, should not be referenced directly anyways...)</li>
+    <li>Changed: Event comments header has changed</li>
+    <li>Removed: WP_DEBUG notices and warnings</li>
+    <li>Bugfix: oEmbed in event descriptions</li>
+    <li>Bugfix: Colorbox was not enqueued on group calendar pages</li>
+    <li>Bugfix: Compatibility if groups/messages/settings components are turned off</li>
+    <li>Bugfix: Schedules datepicker shows correct month now</li>
+    <li>Bugfix: Events without attached location could break feeds</li>
+    <li>Bugfix: Creation tabs get translated now after load order change</li>
+    <li>Bugfix: IE/Safari show fullcalendar events now</li>
+    <li>Bugfix: Invite autocomplete works in IE now</li>
+</ul>
+
+<h3>v2.0.8</h3>
+<ul>
+    <li>Bugfix: Datepicker change was reversed</li>
+</ul>
+
+<h3>v2.0.7</h3>
+<ul>
+	<li>Added: Textareas use wp_editor(), if WP 3.3-beta3 or higher is activated</li>
+	<li>Added: Floating menu to User Manual</li>
+    <li>Added: Private events show join buttons for invited members</li>
+	<li>Changed: jQuery UI Datepicker is now included in WP core and used by Buddyvents</li>
+	<li>Bugfix: infobox.js was not included on search results pages</li>
+    <li>Bugfix: Invites are deactivated if event needs to be group-approved</li>
+    <li>Bugfix: Event count could be off</li>
+    <li>Bugfix: CSS vendor prefix was misspelt</li>
+    <li>Bugfix: Upgrade error</li>
+    <li>Bugfix: When API was enabled and approval disabled options did not get saved</li>
+</ul>
+
+<h3>v2.0.6</h3>
+<ul>
+	<li><strong>NEW:</strong> User Manual</li>
+	<li>Added: Event menu items for WP Admin Bar</li>
+    <li>Added: Function to make German umlauts safe for sending via email</li>
+    <li>Bugfix: Top admin nav was still using bp_admin_url()</li>
+    <li>Bugfix: Cubepoints integration is working again</li>
+</ul>
+
+<h3>v2.0.5</h3>
+<ul>
+    <li>Bugfix: Currencies could not be changed</li>
+</ul>
+
+<h3>v2.0.4</h3>
+<ul>
+	<li>Changed: GUI for invoice filter methods</li>
+	<li>Changed: Search text to 'Search Events...'</li>
+	<li>Bugfix: Fatal error if tickets &amp; invoices were activated and then only tickets deactivated</li>
+    <li>Bugfix: Activity fatal error when maybe accepting an invitation</li>
+    <li>Bugfix: Due to changes in time functions active/archive slugs were wrong</li>
+</ul>
+
+<h3>v2.0.3</h3>
+<ul>
+    <li>Bugfix: Some installs had problems with the way the deactivated_tabs array was checked</li>
+</ul>
+
+<h3>v2.0.2</h3>
+<ul>
+    <li>Bugfix: Parse error introduced during the last upgrade. Duh!</li>
+</ul>
+
+<h3>v2.0.1</h3>
+<ul>
+	<li>Changed: Forum links point now all to the new v2.0 forum</li>
+    <li>Removed: Some more WP_DEBUG notices</li>
+    <li>Bugfix: Approval mails and invites when creating events</li>
+</ul>
+
+<h3>v2.0</h3>
+<ul>
+    <li><strong>NEW:</strong> PayPal integration</li>
+    <li><strong>NEW:</strong> Ticketing system</li>
+    <li><strong>NEW:</strong> API documentation using <a href="http://revaxarts-themes.com/documenter/">Documenter 1.4</a></li>
+    <li><strong>NEW:</strong> PDF invoice system</li>
+    <li><strong>NEW:</strong> Sales overview pages for site and event admins</li>
+    <li><strong>NEW:</strong> Webhooks overview page for site admins</li>
+    <li><strong>NEW:</strong> 4 dashboard widgets (latest events, this months earnings, unpaid invoices &amp; to be approved events)</li>
+    <li><strong>NEW:</strong> Custom Google maps info window</li>
+    <li><strong>NEW:</strong> Events/calendar shortcode system</li>
+    <li><strong>NEW:</strong> Support for native BP oEmbed</li>
+    <li><strong>NEW:</strong> Everybody can attach an event to a group (incl. approval system for group admins)</li>
+	<li><strong>NEW:</strong> Attendees can be added manually</li>
+	<li>Added: System to programatically add recurrence intervals</li>
+	<li>Added: Lots of PHPDoc style documentation for functions</li>
+	<li>Added: Additional services backend page</li>
+	<li>Added: Various display options for documents, schedules and iCal download</li>
+	<li>Added: humans.txt</li>
+    <li>Added: Various filters and actions</li>
+    <li>Added: More consistent way of removing the upgrade nag</li>
+    <li>Added: Backend access is controlled by custom user capabilities</li>
+    <li>Added: Email notifications for approved/declined events</li>
+    <li>Added: System for adding custom backend bulk actions</li>
+    <li>Added: Events to main search form</li>
+    <li>Added: Confirmation to attendance button</li>
+    <li>Added: Increased security</li>
+    <li>Added: Help texts on backend pages</li>
+    <li>Added: Ajax loader to colorbox popups</li>
+    <li>Added: Attending count for displayed members</li>
+    <li>Added: API keys and webhooks get cleaned up on user deletion</li>
+    <li>Added: API keys get suspended automatically if hit limit has been reached 5 times</li>
+    <li>Changed: Even better JS loading both on the front and the backend</li>
+    <li>Changed: Group contact details can be optional now</li>
+    <li>Changed: Moved all options from site_meta table back to blog options to allow for multi-BP setups</li>
+    <li>Changed: All instances of file_get_contents and cURL to WP_Http</li>
+    <li>Changed: Invites are now disabled during event creation if events need approval</li>
+    <li>Changed: BPE Extension now also works in the backend</li>
+    <li>Changed: Grid view, Google maps and PHP calendar use AJAX to get event information</li>
+    <li>Changed: Dev/minified versions of JS/CSS files</li>
+    <li>Changed: API keys page moved into user settings</li>
+    <li>Changed: Readme and changelog are html files now</li>
+    <li>Changed: Slight style changes in the backend</li>
+    <li>Changed: Various vars in activity stream functions</li>
+    <li>Changed: Log function takes multidimensional arrays and strings now</li>
+    <li>Changed: Inconsistency in event comment component</li>
+    <li>Removed: Unused datepicker images</li>
+    <li>Removed: All WP_DEBUG notices I could find</li>
+    <li>Bugfix: Ajax loader for invites did not show</li>
+    <li>Bugfix: Group fields get prepopulated again when creating events</li>
+    <li>Bugfix: Eventmeta did not get deleted under certain circumstances when event got deleted</li>
+    <li>Bugfix: Timezone and venue arrays</li>
+    <li>Bugfix: Single navigation showed unapproved events</li>
+    <li>Bugfix: Publishing events to Twitter, Eventbrite and Facebook</li>
+    <li>Bugfix: Search terms were not picked up on search results map</li>
+    <li>Bugfix: Document extension could get deleted when editing</li>
+    <li>Bugfix: Random events only return public ones now</li>
+    <li>Bugfix: Calendar widget was influenced by normal loop default variables</li>
+    <li>Bugfix: Schedules and documents did not get deleted in certain edge circumstances</li>
+</ul>
+
+<h3>v1.7.9</h3>
+<ul>
+    <li>Added: Meta operators for custom loops: 'LIKE', 'NOT LIKE', '=', '!='</li>
+    <li>Added: Some more action hooks and filters</li>
+    <li>Added: Translation files have been updated with latest strings</li>
+    <li>Changed: First round of recurring events refactoring</li>
+    <li>Bugfix: Description error when groups are turned off</li>
+    <li>Bugfix: Help area shows up again</li>
+</ul>
+
+<h3>v1.7.8</h3>
+<ul>
+	<li>Bugfix: Further compatibility when groups are turned off</li>
+</ul>
+
+<h3>v1.7.7</h3>
+<ul>
+    <li>Added: Link to remove upgrade nag</li>
+    <li>Bugfix: Typo in groups constant</li>
+</ul>
+
+<h3>v1.7.6</h3>
+<ul>
+    <li>Added: Venue name option for long locations or full addresses</li>
+    <li>Bugfix: Improved compatibility when group component is turned off</li>
+    <li>Bugfix: Group list on create page</li>
+    <li>Bugfix: Group invitations on invite-creation screen</li>
+</ul>
+
+<h3>1.7.5</h3>
+<ul>
+    <li>Added: Logo and invite step can be deactivated now</li>
+    <li>Added: Various hooks and filters</li>
+    <li>Bugfix: Editing event if no geonames username available</li>
+    <li>Changed: bpe_admin_url to admin_url in buddyvents.php</li>
+</ul>
+
+<h3>1.7.4</h3>
+<ul>
+    <li>Bugfix: Venue link on map infowindows</li>
+    <li>Bugfix: Event icons as map icons</li>
+    <li>Bugfix: Event images on map infowindows</li>
+</ul>
+
+<h3>1.7.3</h3>
+<ul>
+    <li>Changed: Feed generation/templates</li>
+    <li>Bugfix: Dates did not show on multisite installs</li>
+    <li>Bugfix: Default avatar for IE</li>
+    <li>Bugfix: Calendar widget display for IE</li>
+    <li>Bugfix: Calendar view for week starts on Mondays when the first falls on a Sunday</li>
+</ul>
+
+<h3>1.7.2</h3>
+<ul>
+	<li>Version bump</li>
+</ul>
+
+<h3>1.7.1</h3>
+<ul>
+	<li>Bugfix: Error when deleting an event</li>
+</ul>
+
+<h3>1.7</h3>
+<ul>
+    <li><strong>NEW:</strong> Edit/Create templates</li>
+    <li><strong>NEW:</strong> BPE Event Extension API</li>
+    <li><strong>NEW:</strong> Attendee page has been revamped</li>
+    <li><strong>NEW:</strong> Proper event member management</li>
+    <li><strong>NEW:</strong> BP avatar upload instead of custom one</li>
+    <li><strong>NEW:</strong> Document uploads for single events</li>
+    <li><strong>NEW:</strong> Integration with Cubepoints</li>
+    <li><strong>NEW:</strong> Webhooks/push notifications API (still experimental)</li>
+    <li><strong>NEW:</strong> Edit/delete/create/comment events via the API (still experimental)</li>
+    <li><strong>NEW:</strong> Activity entries for updated schedules, updated documents and new logos</li>
+    <li><strong>NEW:</strong> Timezone support via geonames.org</li>
+    <li><strong>NEW:</strong> Timezone archives and feeds</li>
+    <li><strong>NEW:</strong> Venue archives and feeds</li>
+    <li>Added: Marker Clusterer gets recalculated on maps now</li>
+    <li>Added: Option to globally enable documents, attendees, directions &amp; schedules</li>
+    <li>Added: URL field for events</li>
+    <li>Added: Debug function and log files</li>
+    <li>Added: Secondary activity avatars</li>
+    <li>Added: jQuery UI Timepicker</li>
+    <li>Added: Added support for WP 3.1 &amp; BP 1.2.8</li>
+    <li>Updated: jQuery UI Datepicker to version 1.8.9</li>
+    <li>Changed: Admin menu is on network page when in MS mode</li>
+    <li>Changed: Edited event activity entries get updated rather than newly created</li>
+    <li>Changed: Default map type for all maps</li>
+    <li>Changed: Bumped min BP version to 1.2.8 &amp; min WP version to 3.1</li>
+    <li>Changed: Switched from get_option to get_site_option</li>
+    <li>Changed: Cleaned up templates a bit</li>
+    <li>Removed: API Domain check option</li>
+    <li>Removed: API Key check option</li>
+    <li>Removed: BP independance</li>
+    <li>Removed: Hook documentation (will be put on shabushabu.eu)</li>
+    <li>Removed: API documentation (will be put on shabushabu.eu)</li>
+    <li>Bugfix: Min-max dates for datepicker</li>
+    <li>Bugfix: Events without coordinates showed on overview map</li>
+    <li>Bugfix: Email reminders</li>
+    <li>Bugfix: ICS output</li>
+    <li>Bugfix: Invite system</li>
+    <li>Bugfix: Event admins get properly stripped out of notifications/edit event/invite messages</li>
+    <li>Bugfix: Wrong path when posting to Facebook</li>
+    <li>Bugfix: Recurrence event creation</li>
+</ul>
+
+<h3>1.6</h3>
+<ul>
+    <li><strong>NEW:</strong> Eventbrite integration</li>
+    <li><strong>NEW:</strong> RSVP can be enabled on a per-event basis</li>
+    <li><strong>NEW:</strong> Post new events to the event admins Twitter/Facebook account</li>
+    <li><strong>NEW:</strong> Location based search</li>
+    <li><strong>NEW:</strong> iCalendar output has been integrated into the API</li>
+    <li>Added: Message component independence</li>
+    <li>Added: Reset options in the backend</li>
+    <li>Added: Map icon option</li>
+    <li>Added: Page aware (groups/users) widget options</li>
+    <li>Added: Month and day templates for groups</li>
+    <li>Added: Month, day and category templates for a user</li>
+    <li>Added: RSS feed for user categories</li>
+    <li>Added: Location aware widget option</li>
+    <li>Changed: Switched to SQL_CALC_FOUND_ROWS</li>
+    <li>Changed: Same coordinates get arranged in a circle rather than a line</li>
+    <li>Changed: Switched from load_textdomain to load_plugin_textdomain</li>
+    <li>Changed: API structure</li>
+    <li>Changed: Backend sorting of events</li>
+    <li>Bugfix: $bpe->displayed_event->meta didn't work properly</li>
+    <li>Bugfix: Widget only displayed current event when on single view</li>
+    <li>Bugfix: Existing coordinates did not get incremented properly</li>
+    <li>Bugfix: Group category and group calendar queries</li>
+    <li>Bugfix: Image upload for a certain server setup</li>
+</ul>
+
+<h3>1.5.2</h3>
+<ul>
+    <li>Added: All attached event meta data is now attached to the $bpe->displayed_event->meta object</li>
+    <li>Added: Various hooks for the backend</li>
+    <li>Changed: Invitations don't use friends component anymore</li>
+    <li>Changed: Moved admin templates to templates folder</li>
+    <li>Changed: Google map variable is now of global scope</li>
+</ul>
+
+<h3>1.5.1</h3>
+<ul>
+    <li>Added: Plugin CSS files (events.css, compat.css, datepicker.css and colorbox.css) will be overridden by theme CSS files (events/{filename}.css) if they are present</li>
+    <li>Bugfix: Event changes get now only mailed to members</li>
+    <li>Bugfix: Default avatar upload</li>
+    <li>Bugfix: Installing the plugin broke tab default order</li>
+    <li>Bugfix: CSS changes for IE 7</li>
+</ul>
+
+<h3>1.5</h3>
+<ul>
+    <li><strong>NEW:</strong> RESTfull API to include events on other websites</li>
+    <li><strong>NEW:</strong> Works standalone now without BuddyPress (Sponsored by Rob Lhamon - THX)</li>
+    <li><strong>NEW:</strong> Event schedules</li>
+    <li><strong>NEW:</strong> iCalendar support</li>
+    <li><strong>NEW:</strong> hCalendar microformat (semantic markup)</li>
+    <li><strong>NEW:</strong> Maps can be localized now</li>
+    <li><strong>NEW:</strong> Default view can be set by the site admin now</li>
+    <li>Added: Event deletion from the backend</li>
+    <li>Added: Search template</li>
+    <li>Added: setlocale to translate month names</li>
+    <li>Added: Notification email gets sent to site admin if event needs approval</li>
+    <li>Added: To be approved events (amount) show up in nav menu</li>
+    <li>Checked: Compatibility with BP 1.2.7</li>
+    <li>Checked: Compatibility with WP 3.1</li>
+    <li>Changed: Event admin does not get sent reminder emails anymore</li>
+    <li>Changed: All direct loop parameters (except for feeds &amp; widgets) have been moved to bpe_has_events() in preparation for AJAX navigation in v2.x</li>
+    <li>Bugfix: Events did not show on calendar where month numbers where lower than 10</li>
+    <li>Bugfix: Events did not show on calendar if they stretched across 3 or more months</li>
+    <li>Bugfix: Admin options on single event views</li>
+    <li>Bugfix: Site admins did not see attending buttons</li>
+    <li>Bugfix: MarkerClusterer wasn't loaded if default_tab was map</li>
+    <li>Bugfix: Create link in widgets</li>
+    <li>Bugfix: Attendee management button</li>
+    <li>Bugfix: Another small problem when attending tab was first</li>
+    <li>Updated: Colorbox to v1.3.15</li>
+    <li>Removed: Template changes (needs to be automated for a future version)</li>
+</ul>
+
+<h3>1.4.1</h3> 
+<ul>
+	<li>Bugfix: Problems when attending tab was first</li>
+</ul>
+
+<h3>1.4</h3>
+<ul>
+    <li><strong>NEW:</strong> Directions from users position to the event (THX to Greg Richardson for the idea)</li>
+    <li><strong>NEW:</strong> Create link on group pages that prepopulates the create form</li>
+    <li><strong>NEW:</strong> Admin notice to upgrade the database if needed</li>
+    <li><strong>NEW:</strong> Tabs order can now be changed (Sponsored by Ann Christine Foverskov - THX)</li>
+    <li><strong>NEW:</strong> Tabs can be disabled</li>
+    <li><strong>NEW:</strong> Event creation in the backend</li>
+    <li><strong>NEW:</strong> Option to approve events (Sponsored by Rob Lhamon - THX)</li>
+    <li><strong>NEW:</strong> AJAX calendar widget (Sponsored by Rob Lhamon - THX)</li>
+    <li><strong>NEW:</strong> Daily archives</li>
+    <li><strong>NEW:</strong> Monthly archives</li>
+    <li><strong>NEW:</strong> Option to invite all group members</li>
+    <li>Added: More page titles</li>
+    <li>Added: Finished hook reference</li>
+    <li>Added: A text file where all future template changes will be noted</li>
+    <li>Changed: Moved function add_links to admin class</li>
+    <li>Changed: Category pages use start_date_desc as default sorting option</li>
+    <li>Changed: Renamed some functions to enable sorting of nav items</li>
+    <li>Bugfix: Some strings could not be translated</li>
+    <li>Bugfix: Changed event names get saved again</li>
+</ul>
+
+<h3>1.3</h3>
+<ul>
+    <li><strong>NEW:</strong> Event reminders before the event starts (Sponsored by Roger Coathup - THX)</li>
+    <li><strong>NEW:</strong> Support for the Achievements plugin by DJ Paul</li>
+    <li><strong>NEW:</strong> Basic member management for event admins</li>
+    <li><strong>NEW:</strong> Show spots left when member amount are restricted</li>
+    <li>Added: Number of events show up on nav bars now</li>
+    <li>Added: More widget options</li>
+    <li>Bugfix: Missing var in notifications function</li>
+    <li>Bugfix: Single events did not show when archived</li>
+    <li>Bugfix: Archive template for groups</li>
+    <li>Removed: Screenshots</li>
+</ul>
+
+<h3>1.2.5</h3>
+<ul>
+    <li><strong>NEW:</strong> Event notifications for users (Sponsored by Roger Coathup - THX)</li>
+    <li>Changed: Added future/past false to category/cat feed template loops</li>
+    <li>Bugfix: Header already sent error in the backend when saving an event</li>
+    <li>Bugfix: Location gets re-saved when editing an event</li>
+    <li>Bugfix: begin &amp; end vars fixed in db query</li>
+    <li>Bugfix: Group events permalinks in templates</li>
+</ul>
+
+<h3>1.2.4</h3>
+<ul>
+    <li><strong>NEW:</strong> Events editing in the backend</li>
+    <li><strong>NEW:</strong> Events archive</li>
+    <li><strong>NEW:</strong> Sorting options</li>
+    <li>Added: Support against spam users</li>
+    <li>Added: Avatar for widgets (THX Greg Richardson)</li>
+    <li>Changed: Feeds use creation date rather than start date</li>
+    <li>Bugfix: Activity entries for recurrent events</li>
+    <li>Bugfix: Function name clash</li>
+    <li>Bugfix: Only parent fields are enabled for locations</li>
+    <li>Changed: Prevent JS function name clashes</li>
+</ul>
+
+<h3>1.2.3</h3>
+<ul>
+    <li><strong>NEW:</strong> Proximity filtering for events</li>
+    <li><strong>NEW:</strong> Default avatar upload</li>
+    <li>Changed: Refactored meta-database functions</li>
+    <li>Added: Finished action-hook reference</li>
+    <li>Bugfix: Translation string is fixed</li>
+    <li>Bugfix: Danish characters</li>
+</ul>
+
+<h3>1.2.2</h3>
+<ul>
+    <li>Added: Option to define the main slug (backwards compatible)</li>
+    <li>Bugfix: Added clear:both to the bottom pagination (for grid-view)</li>
+    <li>Bugfix: Full compatibility when BUDDYVENTS_SLUG gets redefined</li>
+    <li>Removed: Name attribute of search submit for a cleaner url</li>
+</ul>
+
+<h3>1.2.1</h3>
+<ul>
+    <li><strong>NEW:</strong> oEmbed support for event descriptions (optional)</li>
+    <li>Added: Filter/Action doumentation (in parts)</li>
+    <li>Added: First steps towards automatic upgrade</li>
+    <li>Changed: Default sorting is now end_date</li>
+    <li>Changed: JS week start now reflects events calendar</li>
+    <li>Changed: All hardcoded instances of events to $bp->buddyvents->slug</li>
+    <li>Changed: Registration now checks for end_date rather than start_date</li>
+    <li>Bugfix: Sometimes the first day of an event showed (cont.) on the calendar</li>
+    <li>Bugfix: Invitation emails work again</li>
+    <li>Bugfix: bpe_is_restricted() checks again for logged-out user (introduced in 1.2)</li>
+    <li>Bugfix: Error message is now being shown for image sizes 150x150 px and smaller</li>
+    <li>Bugfix: date_created sort option didn't work properly</li>
+    <li>Bugfix: Buddyvents page titles were messing with other titles</li>
+    <li>Bugfix: Recurrent event wasn't rescheduled properly due to an overwritten id</li>
+</ul>
+
+<h3>1.2</h3>
+<ul>
+    <li><strong>NEW:</strong> Map options are configurable now</li>
+    <li><strong>NEW:</strong> Option to restrict event creation to group admins</li>
+    <li><strong>NEW:</strong> Manual coordinates generation</li>
+    <li><strong>NEW:</strong> 24h or 12h clock</li>
+    <li><strong>NEW:</strong> Admin links in adminbar</li>
+    <li>Added: German language file</li>
+    <li>Added: Create link in the admin bar</li>
+    <li>Added: Support for Mapology</li>
+    <li>Added: Template for single event navigation</li>
+    <li>Added: Bottom pagination links on templates</li>
+    <li>Changed: Support for multiple MarkerClusterer images is now enabled</li>
+    <li>Changed: Templates have been cleaned up some</li>
+    <li>Changed: Invite template gets hidden when event is closed</li>
+    <li>Changed: Times use bp_core_current_time() now</li>
+    <li>Changed: Date format uses WP default now</li>
+    <li>Bugfix: Added stripslashes in various locations</li>
+    <li>Bugfix: Redirect after editing an event works now properly</li>
+    <li>Bugfix: Userlink did not show for recurrent events</li>
+    <li>Bugfix: JS for calendar gets generated properly for events without coordinates</li>
+    <li>Bugfix: Grid-style javascript</li>
+    <li>Bugfix: bpe_is_single_event() checks for forbidden slugs now</li>
+    <li>Bugfix: Messages are now translatable</li>
+    <li>Removed: Slug re-creation when editing an event</li>
+</ul>
+
+<h3>1.1.1</h3>
+<ul>
+    <li>Bugfix: Image urls have been corrected when WP sits in a sub-folder</li>
+    <li>Changed: Widget and map now only show current events</li>
+</ul>
+
+<h3>1.1</h3>
+<ul>
+    <li><strong>NEW:</strong> Admin definable event categories (AJAX backend)</li>
+    <li><strong>NEW:</strong> Show/hide event categories on the map</li>
+    <li><strong>NEW:</strong> Calendar week start can now be set to either Monday or Sunday</li>
+    <li><strong>NEW:</strong> Automatic notification of new versions (checks once per day)</li>
+    <li><strong>NEW:</strong> Image grid-style and normal list style</li>
+    <li><strong>NEW:</strong> RSS feeds for categories (global/group) and users</li>
+    <li><strong>NEW:</strong> Group calendars</li>
+    <li><strong>NEW:</strong> User event pages</li>
+    <li><strong>NEW:</strong> Group events map</li>
+    <li>Added: Better sorting of events on calendar view</li>
+    <li>Added: Option to disable group contact details</li>
+    <li>Added: Checks for activity component</li>
+    <li>Added: Upgrade routine</li>
+    <li>Added: Event creator shows up in templates</li>
+    <li>Changed: Reorganized template folders</li>
+    <li>Changed: Default pagination limit is now 10/25 for list/grid view</li>
+    <li>Changed: Map events get listed now by end rather than start date</li>
+    <li>Changed: Improved SQL queries for better performance</li>
+    <li>Changed: Min BP version is now 1.2.6</li>
+    <li>Changed: Max attendees gets checked separatly from closed events now</li>
+    <li>Changed: Image urls get saved without root domain</li>
+    <li>Bugfix: Cookie location info was not displayed on create form</li>
+    <li>Bugfix: Event names get properly escaped now</li>
+    <li>Bugfix: Function bpe_is_event_private() returned wrong result</li>
+    <li>Bugfix: Feed link has been fixed</li>
+    <li>Bugfix: Image links on WP MS installs were broken</li>
+    <li>Bugfix: Recurrent events were sometimes not created properly</li>
+</ul>
+
+<h3>1.0.1 Beta</h3>
+<ul>
+   <li>Added: French language file</li>
+    <li>Changed: Calendar uses action_variables now instead of $_GET</li>
+</ul>
+
+<h3>1.0 Beta</h3>
+<ul>
+	<li>initial release</li>
+</ul>

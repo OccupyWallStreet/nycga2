@@ -46,7 +46,7 @@ function ass_digest_fire( $type ) {
 	$ass_email_css['item_content'] = 	'style="color:#333;"';
 	$ass_email_css['item_weekly'] = 	'style="color:#888; padding:4px 10px 0"'; // used in weekly in place of other item_ above
 	$ass_email_css['footer'] = 			'class="ass-footer" style="margin:25px 0 0; padding-top:5px; border-top:1px #bbb solid;"';
-	
+
 	// Allow plugins to filter the CSS
 	$ass_email_css = apply_filters( 'ass_email_css', $ass_email_css );
 
@@ -72,7 +72,7 @@ function ass_digest_fire( $type ) {
 	}
 
 	$user_subscriptions = $wpdb->get_results( $wpdb->prepare( "SELECT user_id, meta_value FROM $wpdb->usermeta WHERE meta_key = 'ass_digest_items' AND meta_value != ''" ) );
-	
+
 	// Do all activity lookups in one single query, and cache the results
 	// Todo: in_array() is slow; isset( array_flip( $array[$id] ) ) is better
 	// but it will take a flip every time
@@ -89,23 +89,24 @@ function ass_digest_fire( $type ) {
 			}
 		}
 	}
-	
+
 	$items = bp_activity_get_specific( array(
 		'sort' 		=> 'ASC',
 		'activity_ids' 	=> $all_activity_items,
 		'show_hidden' 	=> true
 	) );
-	
+
 	foreach( (array)$items['activities'] as $activity ) {
 		$key = 'bp_activity_' . $activity->id;
 		if ( !wp_cache_get( $key, 'bp' ) ) {
 			wp_cache_set( $key, $activity, 'bp', 60*60 );
 		}
 	}
-	
+
 	foreach ( (array)$user_subscriptions as $user ) {
 		$user_id = $user->user_id;
-		$group_activity_ids_array = maybe_unserialize( $user->meta_value );
+
+		$group_activity_ids_array = unserialize( $user->meta_value );
 		$summary = $activity_message = '';
 
 		// We only want the weekly or daily ones
@@ -160,7 +161,7 @@ function ass_digest_fire( $type ) {
 		}
 
 		$message .= apply_filters( 'ass_digest_disable_notifications', $unsubscribe_message, $userdomain . $bp->groups->slug );
-		
+
 		$message .= "</div>";
 
 		$message_plaintext = ass_convert_html_to_plaintext( $message );
@@ -209,15 +210,14 @@ function ass_digest_fire_test() {
 		ass_digest_fire( 'dig' );
 		echo "<h2 style='margin-top:150px'>".__('WEEKLY DIGEST:','bp-ass')."</h2>";
 		ass_digest_fire( 'sum' );
-		
-		
-	global $wpdb;
-	echo '<pre>';print_r( $wpdb->queries );
+
+		//global $wpdb;
+		//echo '<pre>';print_r( $wpdb->queries );
 		die();
 	}
-	
+
 }
-add_action( 'wp', 'ass_digest_fire_test' );
+add_action( 'bp_actions', 'ass_digest_fire_test' );
 
 
 
@@ -260,20 +260,20 @@ function ass_digest_format_item_group( $group_id, $activity_ids, $type, $group_n
 	foreach ( $activity_ids as $activity_id ) {
 		// Cache is set earlier in ass_digest_fire()
 		$activity_item = wp_cache_get( 'bp_activity_' . $activity_id, 'bp' );
-		
+
 		if ( !$activity_item ) {
-			// Try fetching it manually 
+			// Try fetching it manually
 			$activity_items = bp_activity_get_specific( array(
 				'sort' 		=> 'ASC',
 				'activity_ids' 	=> array( $activity_item ),
 				'show_hidden' 	=> true
 			) );
-			
+
 			if ( !empty( $activity_items ) ) {
 				$activity_item = $activity_items[0];
 			}
 		}
-		
+
 		if ( !empty( $activity_item ) ) {
 			$group_message .= ass_digest_format_item( $activity_item, $type );
 		}
@@ -288,9 +288,9 @@ function ass_digest_format_item_group( $group_id, $activity_ids, $type, $group_n
 // displays each item in a group
 function ass_digest_format_item( $item, $type ) {
 	global $ass_email_css;
-	
+
 	$replies = '';
-	
+
 	//load from the cache if it exists
 	if ( $item_cached = wp_cache_get( 'digest_item_' . $type . '_' . $item->id, 'ass' ) ) {
 		//$item_cached .= "GENERATED FROM CACHE";
@@ -339,7 +339,7 @@ function ass_digest_format_item( $item, $type ) {
 
 		if ( $item->type == 'activity_update' || $item->type == 'activity_comment' )
 			$item_message .= ' - <a href="' . bp_activity_get_permalink( $item->id, $item ).'">'.__('View', 'bp-ass').'</a>';
-			
+
 		/* Cleanup */
 		$item_message .= "</div>\n\n";
 
@@ -402,46 +402,32 @@ function ass_convert_html_to_plaintext( $message ) {
 	return $message;
 }
 
-// formats and sends a MIME multipart email with both HTML and plaintext using PHPMailer to get better control
+/**
+ * Formats and sends a MIME multipart email with both HTML and plaintext
+ *
+ * We have to use some fancy filters from the wp_mail function to configure the $phpmailer object
+ * properly
+ */
 function ass_send_multipart_email( $to, $subject, $message_plaintext, $message ) {
-	global $phpmailer;
-
-	// (Re)create it, if it's gone missing
-	if ( !is_object( $phpmailer ) || !is_a( $phpmailer, 'PHPMailer' ) ) {
-		require_once ABSPATH . WPINC . '/class-phpmailer.php';
-		require_once ABSPATH . WPINC . '/class-smtp.php';
-		$phpmailer = new PHPMailer();
-	}
-
-	// clear up stuff
-	$phpmailer->ClearAddresses();$phpmailer->ClearAllRecipients();$phpmailer->ClearAttachments();
-	$phpmailer->ClearBCCs();$phpmailer->ClearCCs();$phpmailer->ClearCustomHeaders();
-	$phpmailer->ClearReplyTos();
 
 	$admin_email = get_site_option( 'admin_email' );
 	if ( $admin_email == '' )
 		$admin_email = 'support@' . $_SERVER['SERVER_NAME'];
 	$from_name = get_site_option( 'site_name' ) == '' ? 'WordPress' : esc_html( get_site_option( 'site_name' ) );
-	$phpmailer->From     = apply_filters( 'wp_mail_from'     , $admin_email );
-	$phpmailer->FromName = apply_filters( 'wp_mail_from_name', $from_name  );
 
-	foreach ( (array) $to as $recipient ) {
-		$phpmailer->AddAddress( trim( $recipient ) );
-	}
+	add_filter( 'wp_mail_from',      create_function( '$admin_email', 'return $admin_email;' ) );
+	add_filter( 'wp_mail_from_name', create_function( '$from_name', 'return $from_name;' ) );
 
-	$phpmailer->Subject = $subject;
-	$phpmailer->Body    = "<html><body>\n".$message."\n</body></html>";
-	$phpmailer->AltBody	= $message_plaintext;
-	$phpmailer->IsHTML( true );
-	$phpmailer->IsMail();
-	$charset = get_bloginfo( 'charset' );
+	add_action( 'phpmailer_init', create_function( '$phpmailer', '
+		$phpmailer->Body = "<html><body>' . addslashes( $message ) . '</body></html>";
+		$phpmailer->AltBody = "' . $message_plaintext . '";
+	' ) );
 
-	$phpmailer->CharSet = apply_filters( 'wp_mail_charset', $charset );
+	$headers = array(
+		'content_type' => 'text/html'
+	);
 
-	//do_action_ref_array( 'phpmailer_init', array( &$phpmailer ) );
-
-	// Send!
-	$result = @$phpmailer->Send();
+	$result = wp_mail( $to, $subject, $message_plaintext, $headers );
 
 	return $result;
 }

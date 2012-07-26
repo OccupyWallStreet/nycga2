@@ -64,8 +64,8 @@ class APLCore
      * @var string
      */
     var $_APL_OPTION_NAME = "APL_Options";
-    
-    
+
+    // SAMPLE OF PHPDOC DESCRIPTION
     /**
      * <p><b>Desc:</b></p>
      * @access private protected public
@@ -89,6 +89,7 @@ class APLCore
      * <li value="6"></li>
      * </ol>
      */
+
     /**
      * <p><b>Desc:</b> Constructs the core attributes to run ALPCore functions.<p>
      * @access public
@@ -118,7 +119,7 @@ class APLCore
     {
         //STEP 1
         $this->APL_load_plugin_data($file);
-        
+
         //STEP 2
         //////// DATABASE ///////
         $APLOptions = $this->APL_options_load();
@@ -128,30 +129,32 @@ class APLCore
             {
                 $APLOptions['version'] = APL_VERSION;
             }
-            
+
             ////// UPGRADES //////
             //Put upgrade database functions in here. Not before.
             // Ex. APL_upgrade_to_XXX()
             $oldversion = $APLOptions['version'];
-            
+
             //UPGRADE TO 0.3.X
-            if (version_compare('0.3.a1', $oldversion, '>'))
+            if (version_compare('0.3.a1',
+                                $oldversion,
+                                '>'))
             {
                 $this->APL_upgrade_to_030();
             }
-            
+
             ////// UPDATE VERSION NUMBER //////
-            if (version_compare(APL_VERSION, $oldversion, '>'))
+            if (version_compare(APL_VERSION,
+                                $oldversion,
+                                '>'))
             {
                 $APLOptions['version'] = APL_VERSION;
             }
             $this->APL_options_save($APLOptions);
         }
-        
+
         //////// ACTION & FILTERS HOOKS ////////
         //STEP 3
-        
-
         //add_action('widgets_init', array($this, 'APL_handler_widget_init'));
         //STEP 4
         add_shortcode('post_list',
@@ -175,6 +178,7 @@ class APLCore
                                     array('APLCore', 'APL_handler_uninstall'));
         }
     }
+
     /**
      * <p><b>Desc: </b>Updates the database in Wordpress options.</p>
      * @access private
@@ -205,13 +209,13 @@ class APLCore
         $APLOptions = $this->APL_options_load();
         $APLOptions['jquery_ui_theme'] = 'overcast';
         $this->APL_options_save($APLOptions);
-        
+
         // Step 2
         //////// UPDATE PRESET DATABASE OPTIONS ////////
         $presetDbObj = new APLPresetDbObj('default');
         $tmp_preset_db = new stdClass();
         // Step 3
-        foreach($presetDbObj->_preset_db as $presetObj_name => $presetObj_value)
+        foreach ($presetDbObj->_preset_db as $presetObj_name => $presetObj_value)
         {
             // Step 4
             //// SET PARENT SETTING ////
@@ -224,13 +228,13 @@ class APLCore
             {
                 $tmp_presetObj->_postParent[0] = $presetObj_value->_postParent;
             }
-            
+
             // Step 5
             //// SET POST TYPES & TAXONOMIES SETTINGS ////
             if ($presetObj_value->_catsSelected !== '')
             {
-                
-                $tmp_presetObj->_postTax->post->taxonomies->category->require_taxonomy = false;//NEW
+
+                $tmp_presetObj->_postTax->post->taxonomies->category->require_taxonomy = false; //NEW
                 $tmp_presetObj->_postTax->post->taxonomies->category->require_terms = true;
                 if ($presetObj_value->_catsRequired === 'false')
                 {
@@ -241,7 +245,8 @@ class APLCore
                 {
                     $tmp_presetObj->_postTax->post->taxonomies->category->include_terms = false;
                 }
-                $terms = explode(',', $presetObj_value->_catsSelected);
+                $terms = explode(',',
+                                 $presetObj_value->_catsSelected);
                 $i = 0;
                 foreach ($terms as $term)
                 {
@@ -252,8 +257,8 @@ class APLCore
             }
             if ($presetObj_value->_tagsSelected !== '')
             {
-                
-                $tmp_presetObj->_postTax->post->taxonomies->post_tag->require_taxonomy = false;//NEW
+
+                $tmp_presetObj->_postTax->post->taxonomies->post_tag->require_taxonomy = false; //NEW
                 $tmp_presetObj->_postTax->post->taxonomies->post_tag->require_terms = true;
                 if ($presetObj_value->_tagsRequired === 'false')
                 {
@@ -264,7 +269,8 @@ class APLCore
                 {
                     $tmp_presetObj->_postTax->post->taxonomies->post_tag->include_terms = false;
                 }
-                $terms = explode(',', $presetObj_value->_tagsSelected);
+                $terms = explode(',',
+                                 $presetObj_value->_tagsSelected);
                 $i = 0;
                 foreach ($terms as $term)
                 {
@@ -276,22 +282,22 @@ class APLCore
             // Step 6
             //// SET THE LIST AMOUNT ////
             $tmp_presetObj->_listAmount = intval($presetObj_value->_listAmount);
-            
+
             //// SET THE ORDER AND ORDERBY SETTINGS ////
             $tmp_presetObj->_listOrder = $presetObj_value->_listOrder;
             $tmp_presetObj->_listOrderBy = $presetObj_value->_listOrderBy;
-            
+
             //// SET THE POST STATUS AS THE DEFAULT ////
             ////  SETTING                           ////
             $tmp_presetObj->_postStatus = 'publish';
-            
+
             //// SET THE EXCLUDE CURRENT POST SETTING ////
             $tmp_presetObj->_postExcludeCurrent = true;
             if ($presetObj_value->_postExcludeCurrent === 'false')
             {
                 $tmp_presetObj->_postExcludeCurrent = false;
             }
-            
+
             //// SET THE STYLE (BEFORE/CONTENT/AFTER) //// 
             ////  CONTENT SETTINGS                    ////
             $tmp_presetObj->_before = $presetObj_value->_before;
@@ -304,6 +310,7 @@ class APLCore
         $presetDbObj->_preset_db = $tmp_preset_db;
         $presetDbObj->options_save_db();
     }
+
     /**
      * <p><b>Desc: </b>Stores all the file (dir/path) values for defining 
      *                  file structure/paths</p>
@@ -364,9 +371,9 @@ class APLCore
     public function APL_handler_admin_init()
     {
         //STEP 1
-       /**************************************************************
-        *************** AJAX ACTION HOOKS **************************** 
-        **************************************************************/
+        /*         * ************************************************************
+         * ************** AJAX ACTION HOOKS **************************** 
+         * ************************************************************ */
         add_action('wp_ajax_APL_handler_save_preset',
                    array($this, 'APL_handler_save_preset'));
         add_action('wp_ajax_APL_handler_delete_preset',
@@ -383,19 +390,19 @@ class APLCore
                    array($this, 'APL_handler_save_settings'));
 
         // Step 2
-       /**************************************************************
-        *************** REMOVE SCRIPTS & STYLES ********************** 
-        **************************************************************/
+        /*         * ************************************************************
+         * ************** REMOVE SCRIPTS & STYLES ********************** 
+         * ************************************************************ */
         wp_deregister_script('apl-jquery');
         wp_deregister_script('apl-admin');
         wp_deregister_script('apl-jquery-ui');
         wp_deregister_script('apl-admin-ui');
         wp_deregister_script('apl-jquery-ui-multiselect');
-        
+
         wp_deregister_style('apl-admin-css');
         wp_deregister_style('apl-admin-ui-css');
 
-        
+
         // Step 3
         $APLOptions = $this->APL_options_load();
         if (!isset($APLOptions['jquery_ui_theme']))
@@ -403,11 +410,11 @@ class APLCore
             $APLOptions['jquery_ui_theme'] = 'overcast';
             $this->APL_options_save($APLOptions);
         }
-        
+
         // Step 4
-       /**************************************************************
-        *************** REGISTER SCRIPTS ***************************** 
-        **************************************************************/
+        /*         * ************************************************************
+         * ************** REGISTER SCRIPTS ***************************** 
+         * ************************************************************ */
         $script_deps = array();
         wp_register_script('apl-jquery',
                            'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js',
@@ -446,23 +453,23 @@ class APLCore
                            $script_deps,
                            APL_VERSION,
                            false);
-        
+
         // Step 5
-       /**************************************************************
-        *************** REGISTER STYLES ****************************** 
-        **************************************************************/
+        /*         * ************************************************************
+         * ************** REGISTER STYLES ****************************** 
+         * ************************************************************ */
         wp_enqueue_style('apl-admin-css',
                          plugins_url() . '/advanced-post-list/includes/css/APL-admin.css',
                          false,
                          APL_VERSION,
                          false);
-        
+
         wp_enqueue_style('apl-admin-ui-css',
                          'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/' . $APLOptions['jquery_ui_theme'] . '/jquery-ui.css',
                          false,
                          APL_VERSION,
                          false);
-        
+
         wp_enqueue_style('apl-jquery-ui-multiselect-css',
                          plugins_url() . '/advanced-post-list/includes/css/jquery-ui-multiselect-widget.css',
                          false,
@@ -509,7 +516,7 @@ class APLCore
         if (!isset($APLOptions['delete_core_db']))
         {
             // Step 3
-            $APLOptions['delete_core_db'] = true;
+            $APLOptions['delete_core_db'] = FALSE;
         }
         if (!isset($APLOptions['jquery_ui_theme']))
         {
@@ -522,8 +529,7 @@ class APLCore
             $APLOptions['error'] = '';
         }
         update_option('APL_Options',
-                          $APLOptions);
-            
+                      $APLOptions);
     }
 
     /**
@@ -540,8 +546,8 @@ class APLCore
      * @tutorial 
      * <ol>
      * <li value="1">Load Options from database</li>
-     * <li value="2">If user has delete database set to true, then 
-     *               delete all options</li>
+     * <li value="2">If user has delete database set to true OR APLOption exists
+     *               but delete_core_db is not set, then delete all options</li>
      * </ol>
      */
     public function APL_handler_deactivation()
@@ -579,7 +585,6 @@ class APLCore
         // Step 2
         //Alt uninstall that uses the 'delete upon deactivation' setting
         delete_option('APL_preset_db-default');
-        
     }
 
     //// FIX SET TO DEFAULT THEN OVERWRITE AND RETURN
@@ -603,13 +608,14 @@ class APLCore
     {
         // Step 1
         $APLOptions = get_option($this->_APL_OPTION_NAME);
-        
+
         // Step 2
         if ($APLOptions !== false)
             return $APLOptions;
         else
             return $this->APL_options_set_to_default();
     }
+
     /**
      * <p><b>Desc:</b></p>
      * @access private
@@ -668,6 +674,7 @@ class APLCore
         // Step 6
         return $APLOptions;
     }
+
     /**
      * <p><b>Desc:</b> Adds the plugins widget to wordpress.</p>
      * @access public
@@ -685,6 +692,7 @@ class APLCore
         //register_widget($widget);
         register_widget('APLWidget');
     }
+
     /**
      * <p><b>Desc:</b>Adds the plugin's menu links to the WordPress.</p>
      * @access public
@@ -702,16 +710,17 @@ class APLCore
     {
         //STEP 1
         $APL_admin_page_hook = add_submenu_page('options-general.php',
-                                         "Advanced Post List",
-                                         "Advanced Post List",
-                                         'manage_options',
-                                         "advanced-post-list",
-                                         array($this, 'APL_admin_page'));
+                                                "Advanced Post List",
+                                                "Advanced Post List",
+                                                'manage_options',
+                                                "advanced-post-list",
+                                                array($this, 'APL_admin_page'));
         //STEP 2
         add_action('admin_print_scripts-' . $APL_admin_page_hook,
                    array($this, 'APL_admin_head'));
         //add_filter('contextual_help', 'kalinsPost_contextual_help', 10, 3);
     }
+
     /**
      * <p><b>Desc:</b> Admin head section that is loaded before the body,
      *                 and carries scripts and styles that are normally loaded
@@ -754,17 +763,19 @@ class APLCore
         wp_enqueue_style('apl-jquery-ui-multiselect-css');
         wp_enqueue_style('apl-admin-css');
         wp_enqueue_style('apl-admin-ui-css');
-        
+
         // Step 3
         //////// GET AND STORE PLUGIN DATA ////////
         $presetDbObj = new APLPresetDbObj('default');
         // Step 4
-        $postTax = $this->APL_get_postTax();
+        $postTax = $this->APL_get_post_types(array('taxonomies'));
         // Step 5
-        $taxTerms = $this->APL_get_taxonomy_terms();
+        $taxTerms = $this->APL_get_taxonomies('', array('terms'));
         // Step 6
-        $postTax_parent_selector = $this->APL_get_postTax_ui_parent_selection();
-
+        $postTax_parent_selector = $this->APL_get_post_types(array('hierarchical'));
+        
+        $post_types = $this->APL_get_post_types();
+        
         // Step 7
         $apl_admin_settings = array(
             'plugin_url' => APL_URL,
@@ -780,10 +791,10 @@ class APLCore
         );
         $apl_admin_ui_settings = array(
             //'post_type_amount' => sizeof((array) $post_taxonomies),
-            'postTax' => $postTax, //issue may arise
+            'post_types' => $post_types, //issue may arise
             'postTax_parent_selector' => $postTax_parent_selector
         );
-        
+
         // Step 8
         //////// SEND PLUGIN DATA TO SCRIPTS ////////
         wp_localize_script('apl-admin',
@@ -793,190 +804,635 @@ class APLCore
                            'apl_admin_ui_settings',
                            $apl_admin_ui_settings);
     }
-    
+
     /**
-     * <p><b>Desc:</b> Sets up and returns the Post Type and Taxonomy structure.</p>
-     * @access private
-     * @return object Contains the Post Type and Taxonomy structure.
-     * 
-     * @since 0.3.0
-     * 
-     * @uses APLCore::APL_get_post_type_taxonomies($post_type_name)
-     * 
-     * @tutorial 
-     * <ol>
-     * <li value="1">Get Post Type names contain in WordPress.</li>
-     * <li value="2">Remove unwanted Post Type names.</li>
-     * <li value="3">Get and setup the Post Type and Taxonomy structure.</li>
-     * <li value="4">For each taxonomy contained in a Post Type, get the correct
-     *               set of Taxonomies.</li>
-     * <li value="5">Return object structure.</li>
-     * </ol>
+     *
+     * @param array $param1 
+     * array(
+     * 0 => labels,
+     * 1 => labels->singular_name,
+     * 2 => hierarchical,
+     * 3 => taxonomies //may add extra support to get other varibles. For now 
+     *                  // I'll just add the names as the default has it.
+      stdClass Object
+      (
+      [labels] => stdClass Object
+      (
+      [name] => string
+      [singular_name] => string
+      [add_new] => string
+      [add_new_item] => string
+      [edit_item] => string
+      [new_item] => string
+      [view_item] => string
+      [search_items] => string
+      [not_found] => string
+      [not_found_in_trash] => string
+      [parent_item_colon] =>
+      [all_items] => string
+      [menu_name] => string
+      [name_admin_bar] => string
+      )
+      [description] => string
+      [publicly_queryable] => boolean
+      [exclude_from_search] => boolean
+      [capability_type] => string
+      [map_meta_cap] => boolean
+      [_builtin] => boolean
+      [_edit_link] => string
+      [hierarchical] => boolean
+      [public] => boolean
+      [rewrite] => boolean
+      [has_archive] => boolean
+      [query_var] => boolean
+      [register_meta_box_cb] => Null
+      [taxonomies] => Array() (CHANGED) - Gets taxonomy Attributes
+      [show_ui] => boolean
+      [menu_position] => Null
+      [menu_icon] => Null
+      [permalink_epmask] => int
+      [can_export] => boolean
+      [show_in_nav_menus] => boolean
+      [show_in_menu] => boolean
+      [show_in_admin_bar] => boolean
+      [name] => string
+      [cap] => stdClass Object
+      (
+      [edit_post] => string
+      [read_post] => string
+      [delete_post] => string
+      [edit_posts] => string
+      [edit_others_posts] => string
+      [publish_posts] => string
+      [read_private_posts] => string
+      [read] => string
+      [delete_posts] => string
+      [delete_private_posts] => string
+      [delete_published_posts] => string
+      [delete_others_posts] => string
+      [edit_private_posts] => string
+      [edit_published_posts] => string
+      )
+      [label] => string
+      )
      */
-    private function  APL_get_postTax()
+    private function APL_get_post_types($attr_names = array())
     {
-        $rtnObj = new stdClass();
-        // Step 1
+        $rtnObj = array();
+
+
         $post_type_names = get_post_types('',
                                           'names');
         // Step 2
         $skip_post_types = array('attachment', 'revision', 'nav_menu_item');
-        foreach($skip_post_types as $value)
+        foreach ($skip_post_types as $post_type_name)
         {
-            unset($post_type_names[$value]);
+            unset($post_type_names[$post_type_name]);
         }
-        // Step 3
-        foreach($post_type_names as $post_type_name)
+        unset($post_type_name);
+        unset($skip_post_types);
+
+
+        if (empty($attr_names))
         {
-            $post_type_object = get_post_type_object($post_type_name);
-            // Step 4
-            $post_type_object->taxonomies = $this->APL_get_post_type_taxonomies($post_type_name);
-            
-            $rtnObj->$post_type_name = new stdClass();
-            $rtnObj->$post_type_name = $post_type_object->taxonomies;
+            return $post_type_names;
         }
 
-        // Step 5
-        return $rtnObj;
-        
-    }
-    /**
-     * <p><b>Desc:</b> Gets the proper Taxonomy names within a Post Type.</p>
-     * @access private
-     * @param string $post_type_name Post Type name.
-     * @return array Contains the Taxonomies within the Post Type.
-     * 
-     * @since 0.3.0
-     * 
-     * @tutorial 
-     * <ol>
-     * <li value="1">Get the Taxonomy names contained in WordPress.</li>
-     * <li value="2">For each taxonomy, get the Taxonomy object.</li>
-     * <li value="3">If the Taxonomy object's Post Type match the Post Type name (param)
-     *               given, then store that Taxonomy name.</li>
-     * <li value="4">Remove unwanted Taxonomy names.</li>
-     * <li value="5">Return array of Taxonomy names.</li>
-     * <li value="6"></li>
-     * </ol>
-     */
-    private function APL_get_post_type_taxonomies($post_type_name)
-    {
-        $rtnTaxonomyArray = array();
-        
-        // Step 1
-        $taxonomy_names = get_taxonomies('', 'names');
-        foreach ($taxonomy_names as $taxonomy_name)
+        foreach ($post_type_names as $post_type_name)
         {
-            // Step 2
-            $taxonomy_object = get_taxonomy($taxonomy_name);
-            foreach ($taxonomy_object->object_type as $object_type_name)
+            $rtnObj[$post_type_name] = new stdClass();
+            if (!empty($attr_names))
             {
-                // Step 3
-                if ($object_type_name === $post_type_name && !empty($object_type_name))
+                //$a1 = 
+                $post_type_object = get_post_type_object($post_type_name);
+                //var_dump($a1);
+
+                foreach ($attr_names as $attr_name)
                 {
-                    $rtnTaxonomyArray[$taxonomy_name] = $taxonomy_name;
+
+                    $delimiter_pos = strpos($attr_name,
+                                            '->');
+                    if ($delimiter_pos !== FALSE)
+                    {
+                        $attr_name_dereference = substr($attr_name,
+                                                        ($delimiter_pos + 2));
+                        $attr_name = substr($attr_name,
+                                            0,
+                                            $delimiter_pos);
+                    }
+                    unset($delimiter_pos);
+
+                    switch ($attr_name)
+                    {
+                        case 'posts':
+                            //
+                            break;
+                        case 'taxonomies':
+                            
+                            if (!empty($attr_name_dereference))
+                            {
+                                $terms_delimeter_pos_start = strpos($attr_name_dereference,
+                                                                    'terms->[');
+                                if ($terms_delimeter_pos_start !== FALSE)
+                                {
+
+                                    $terms_delimeter_pos_length = ((strpos($attr_name_dereference,
+                                                                           '"]"') + 2) - $terms_delimeter_pos_start);
+
+                                    $terms_attr_names = substr($attr_name_dereference,
+                                                               $terms_delimeter_pos_start,
+                                                               $terms_delimeter_pos_length);
+                                    $attr_name_dereference = substr_replace($attr_name_dereference,
+                                                                            'terms',
+                                                                            $terms_delimeter_pos_start,
+                                                                            $terms_delimeter_pos_length);
+
+                                    $taxonomies_attr = json_decode($attr_name_dereference);
+                                    foreach ($taxonomies_attr as &$taxonomies_attr_name)
+                                    {
+                                        if ($taxonomies_attr_name === 'terms')
+                                        {
+                                            $taxonomies_attr_name = $terms_attr_names;
+                                        }
+                                    }
+
+                                    //$attr_name = substr($attr_name, 0, $terms_delimiter_pos);
+                                }
+                                else
+                                {
+                                    $taxonomies_attr = json_decode($attr_name_dereference);
+                                }
+
+                                $rtnObj[$post_type_name]->$attr_name = APLCore::APL_get_taxonomies($post_type_name,
+                                                                                                 $taxonomies_attr);
+                                unset($attr_name_dereference);
+                            }
+                            else
+                            {
+                                $rtnObj[$post_type_name]->$attr_name = APLCore::APL_get_taxonomies($post_type_name,
+                                                                                                 '');
+                            }
+                            break;
+                        case 'labels':
+                            if (!empty($attr_name_dereference))
+                            {
+                                $rtnObj[$post_type_name]->$attr_name->$attr_name_dereference = $post_type_object->$attr_name->$attr_name_dereference;
+                                unset($attr_name_dereference);
+                            }
+                            else
+                            {
+                                $rtnObj[$post_type_name]->$attr_name = $post_type_object->$attr_name;
+                            }
+                            break;
+                        case 'cap':
+                            //
+                            if (!empty($attr_name_dereference))
+                            {
+                                $rtnObj[$post_type_name]->$attr_name->$attr_name_dereference = $post_type_object->$attr_name->$attr_name_dereference;
+                                unset($attr_name_dereference);
+                            }
+                            else
+                            {
+                                $rtnObj[$post_type_name]->$attr_name = $post_type_object->$attr_name;
+                            }
+                            break;
+                        default:
+                            //
+
+                            $rtnObj[$post_type_name]->$attr_name = $post_type_object->$attr_name;
+                            break;
+                    }
                 }
+                unset($attr_name);
+                unset($post_type_object);
             }
         }
-        // Step 4
-        $skip_taxonomies = array('post_format', 'nav_menu', 'link_category');
-        foreach($skip_taxonomies as $value)
-        {
-            unset($rtnTaxonomyArray[$value]);
-        }
-        // Step 5
-        return $rtnTaxonomyArray;
+        unset($post_type_name);
+
+        return $rtnObj;
     }
+
     /**
-     * <p><b>Desc:</b> Alternate function for getting the Taxonomy and Term values.</p>
-     * @access private
-     * @return object Taxonomies that contain the terms.
+     *
+     * @param type $attr_names
+     * @param type $post_type_name
+     * @return stdClass 
      * 
-     * @since 0.3.0
-     * 
-     * @tutorial 
-     * <ol>
-     * <li value="1">Get Taxonomy names from WordPress.</li>
-     * <li value="2">Remove unwanted Taxonomy names.</li>
-     * <li value="3">Get Terms for each taxonomy.</li>
-     * <li value="4">Return the Taxonomy and Terms structure.</li>
-     * </ol>
+      stdClass Object
+      (
+      [hierarchical] => boolean
+      [update_count_callback] => string
+      [rewrite] => array()
+      [query_var] => string
+      [public] => boolean
+      [show_ui] => boolean
+      [show_tagcloud] => boolean
+      [_builtin] => boolean
+      [labels] => stdClass Object
+      (
+      [name] =>  string
+      [singular_name] => string
+      [search_items] => string
+      [popular_items] =>
+      [all_items] => string
+      [parent_item] => string
+      [parent_item_colon] => string
+      [edit_item] => string
+      [view_item] => string
+      [update_item] => string
+      [add_new_item] => string
+      [new_item_name] => string
+      [separate_items_with_commas] =>
+      [add_or_remove_items] =>
+      [choose_from_most_used] =>
+      [menu_name] =>  string
+      [name_admin_bar] => string
+      )
+      [show_in_nav_menus] => boolean
+      [cap] => stdClass Object
+      (
+      [manage_terms] => string
+      [edit_terms] => string
+      [delete_terms] => string
+      [assign_terms] => string
+      )
+      [name] => string
+      [object_type] => Array()
+      [label] => string
+      [terms] => Array() (ADDED) - Can return terms plus attributes.
+      )
      */
-    private function APL_get_taxonomy_terms()
+    private function APL_get_taxonomies($post_type_name = '',
+                                        $attr_names = array())
     {
-        $rtnTaxonomyTermsArray = new stdClass();
-        
-        // Step 1
-        $taxonomy_names = get_taxonomies('', 'names');
-        
-        // Step 2
+        $rtnArr = array();
+        if (!empty($post_type_name))
+        {
+            $taxonomy_names = array();
+            $taxonomy_names = get_object_taxonomies($post_type_name);
+            $tmpArr = array();
+            foreach ($taxonomy_names as $taxonomy_name)
+            {
+                $tmpArr[$taxonomy_name] = $taxonomy_name;
+            }
+            $taxonomy_names = $tmpArr;
+            unset($taxonomy_name);
+            unset($tmpArr);
+        }
+        else
+        {
+            $taxonomy_names = get_taxonomies('',
+                                             'names');
+        }
         $skip_taxonomies = array('post_format', 'nav_menu', 'link_category');
-        foreach($skip_taxonomies as $value)
+        foreach ($skip_taxonomies as $value)
         {
             unset($taxonomy_names[$value]);
         }
-        // Step 4
-        foreach($taxonomy_names as $taxonomy_name)
+        unset($skip_taxonomies);
+        unset($value);
+
+
+        if (empty($attr_names))
         {
-            $argTerms = array(
-              'hide_empty'  =>  0,
-              'taxonomy'    =>  $taxonomy_name  
-            );
-            $terms = get_categories($argTerms);
-            $rtnTaxonomyTermsArray->$taxonomy_name = $terms;
+            return $taxonomy_names;
         }
-        
-        // Step 5
-        return $rtnTaxonomyTermsArray;
+        foreach ($taxonomy_names as $taxonomy_name)
+        {
+
+            $rtnArr[$taxonomy_name] = new stdClass();
+
+            if (!empty($attr_names))
+            {
+                $taxonomy_object = get_taxonomy($taxonomy_name);
+                foreach ($attr_names as $attr_name)
+                {
+                    $delimiter_pos = strpos($attr_name,
+                                            '->');
+                    if ($delimiter_pos !== FALSE)
+                    {
+                        $attr_name_dereference = substr($attr_name,
+                                                        ($delimiter_pos + 2));
+                        $attr_name = substr($attr_name,
+                                            0,
+                                            $delimiter_pos);
+                    }
+                    unset($delimiter_pos);
+
+                    switch ($attr_name)
+                    {
+
+                        case 'terms':
+                            //
+                            if (!empty($attr_name_dereference))
+                            {
+                                $rtnArr[$taxonomy_name]->$attr_name = $this->APL_get_terms($taxonomy_name,
+                                                                                           json_decode($attr_name_dereference));
+                            }
+                            else
+                            {
+                                $rtnArr[$taxonomy_name]->$attr_name = $this->APL_get_terms($taxonomy_name);
+                            }
+
+                            break;
+                        case 'labels':
+                            //
+                            if (!empty($attr_name_dereference))
+                            {
+                                //$rtnArr[$taxonomy_name]->$attr_name = new stdClass();
+                                $rtnArr[$taxonomy_name]->$attr_name->$attr_name_dereference = $taxonomy_object->$attr_name->$attr_name_dereference;
+                                unset($attr_name_dereference);
+                            }
+                            else
+                            {
+                                $rtnArr[$taxonomy_name]->$attr_name = $taxonomy_object->$attr_name;
+                            }
+                            break;
+                        case 'cap':
+                            //
+                            if (!empty($attr_name_dereference))
+                            {
+                                //$rtnArr[$taxonomy_name]->$attr_name = new stdClass();
+                                $rtnArr[$taxonomy_name]->$attr_name->$attr_name_dereference = $taxonomy_object->$attr_name->$attr_name_dereference;
+                                unset($attr_name_dereference);
+                            }
+                            else
+                            {
+                                $rtnArr[$taxonomy_name]->$attr_name = $taxonomy_object->$attr_name;
+                            }
+                            break;
+                        default:
+                            //
+                            $rtnArr[$taxonomy_name]->$attr_name = $taxonomy_object->$attr_name;
+                            break;
+                    }
+                }
+                unset($attr_name);
+            }
+        }
+        unset($taxonomy_name);
+
+        return $rtnArr;
     }
-    /**
-     * <p><b>Desc:</b></p>
-     * @access private
-     * @param datatype1|datatype2 $paramname description
-     * @return object description
+
+    /*
+      stdClass Object
+      (
+      [term_id] => string //TODO CHANGE TO INT
+      [name] => string
+      [slug] => string
+      [term_group] => string //TODO CHANGE TO INT
+      [term_taxonomy_id] => string
+      [taxonomy] => string
+      [description] => string
+      [parent] => string //TODO CHANGE TO INT
+      [count] => string //TODO CHANGE TO INT
+      )
      * 
-     * @since 0.3.0
+     * Taxonomy_Name
      * 
-     * @tutorial 
-     * <ol>
-     * <li value="1">Get Post Type names contained in WordPress.</li>
-     * <li value="2">Remove unwanted Post Types.</li>
-     * <li value="3">Get hierarchical value of the Post Types.</li>
-     * <li value="4">Return object.</li>
-     * </ol>
+      $default_args = array(
+      'number'        => (int)        '',         //The maximum number of terms to return.
+      'offset'        => (int)        '',         //The number by which to offset the terms query.
+      'include'       => (array)      array(),    //An array, comma- or space-delimited string of term ids to include in the return array.
+      'exclude'       => (array)      array(),    //An array, comma- or space-delimited string of term ids to exclude in the return array.
+      'exclude_tree'  => (array)      array(),    //NO DOCUMENTATION
+      'orderby'       => (string)     'id',     //Which properties to order by
+      // 'id', 'count', 'name', 'slug', 'term_group', or 'none'
+      'order'         => (string)     'ASC',      //Which direction to orderby
+      // 'ASC' or 'DESC'
+      'hide_empty'    => (boolean)    false,       //Whether to return terms that haven't been used
+      'fields'        => (string)     'ids',      //Which properties to return
+      // 'all', 'ids', 'names', or 'count'
+      'slug'          => (string)     '',         //Returns terms whose "slug" matches this value.
+      'hierarchical'  => (boolean)    true,       //Whether to include terms that have non-empty descendants
+      'name__like'    => (string)     '',         //Returned terms' names will begin with the value of 'name__like', case-insensitive.
+      'pad_counts'    => (boolean)    false,      //If true, count all of the children along with the $terms.
+      'get'           => (string)     '',         //Allow for overwriting 'hide_empty' and 'child_of', which can be done by setting the value to 'all'.
+      'child_of'      => (int)        0,          //Get all descendents of this term.
+      'parent'        => (int)        '',         //Get direct children of this term (only terms whose explicit parent is this value). If 0 is passed, only top-level terms are returned.
+      'cache_domain'  => (string)     'core',     //The 'cache_domain' argument enables a unique cache key to be produced when the query produced by get_terms() is stored in object cache.
+      'search'        => (string)     ''          //Returned terms' names will contain the value of 'search' case-insensitive.
+      );
+
      */
-    private function APL_get_postTax_ui_parent_selection()
+
+    /**
+     *
+     * @param type $taxonomy_name
+     * @param type $attr_names
+     * @param type $args
+     * @return array 
+     */
+    private function APL_get_terms($taxonomy_name = '',
+                                   $attr_names = array(),
+                                   $args = array())
     {
-        $rtnObj = new stdClass();
-        // Step 1
-        $post_type_names = get_post_types('', 'names');
-        // Step 2
-        $skip_post_types = array('attachment', 'revision', 'nav_menu_item');
-        foreach($skip_post_types as $value)
+
+        $default_args = array(
+            'fields' => 'ids',
+            'orderby' => 'id',
+            'order' => 'ASC',
+            'hide_empty' => false
+        );
+        if (empty($taxonomy_name))
         {
-            unset($post_type_names[$value]);
+            $taxonomy_name = APLCore::APL_get_taxonomies();
         }
-        // Step 3
-        foreach($post_type_names as $post_type_name)
+        if (!empty($args))
         {
-            $post_type_object = get_post_type_object($post_type_name);
-            $rtnObj->$post_type_name->hierarchical = $post_type_object->hierarchical;
+            foreach ($args as $arg_name => $arg_value)
+            {
+
+                if (empty($attr_names) && $arg_name === 'fields')
+                {
+                    $default_args[$arg_name] = $arg_value;
+                }
+                else
+                {
+                    $default_args[$arg_name] = $arg_value;
+                }
+            }
+            unset($arg_name);
+            unset($arg_value);
         }
-        
-        // Step 4
-        return $rtnObj;
+        $args = $default_args;
+        unset($default_args);
+
+
+        $terms = get_terms($taxonomy_name,
+                           $args);
+        if ($args['fields'] === 'ids' || $args['fields'] === 'count')
+        {
+            $tmp_terms = array();
+            foreach ($terms as $key => $value)
+            {
+                $tmp_terms[$key] = intval($value);
+            }
+            unset($key);
+            unset($value);
+            $terms = $tmp_terms;
+            unset($tmp_terms);
+        }
+
+
+        if (empty($attr_names) || $args['fields'] !== 'ids')
+        {
+
+            return $terms;
+        }
+
+        $rtnArr = array();
+
+        foreach ($terms as $key => $term)
+        {
+
+            $term_object = get_term($term,
+                                    $taxonomy_name);
+
+            $rtnArr[$key] = new stdClass();
+
+            if (!empty($attr_names))
+            {
+                foreach ($attr_names as $attr_name)
+                {
+                    if (!empty($attr_name) && isset($term_object->$attr_name))
+                    {
+                        if ($attr_name === 'term_id' || $attr_name === 'term_group' || $attr_name === 'parent' || $attr_name === 'count')
+                        {
+                            $rtnArr[$key]->$attr_name = intval($term_object->$attr_name);
+                        }
+                        else if (isset($term_object->$attr_name))
+                        {
+                            $rtnArr[$key]->$attr_name = $term_object->$attr_name;
+                        }
+                    }
+                }
+                unset($attr_name);
+            }
+        }
+        unset($key);
+        unset($term);
+
+        return $rtnArr;
     }
-    /**
-     * <p><b>Desc:</b> Adds admin page body content.</p>
-     * @access public
-     * 
-     * @since 0.1.0
-     * 
-     * @tutorial 
-     * <ol>
-     * <li value="1">Load admin page.</li>
-     * </ol>
-     */
+//
+//        $available = array(
+//            'orderby' => 'title',
+//            'order' => 'ASC',
+//            'p' => (int) 0,
+//            'post_parent' => (int) 0,
+//            'tax_query' => array(
+//                array(
+//                    'taxonomy' => 'people',
+//                    'field' => 'slug',
+//                    'terms' => 'bob'
+//                )
+//            ),
+//            'post_type' => array('post', 'page', 'custom_post_type_01'), //OR
+//            'post_type' => 'post',
+//            'nopaging' => true
+//        );
+//        
+//        
+//  array(
+//      0 => stdClass Object
+//      {
+//          [ID] => int 0
+//          [post_author] => string ''
+//          [post_date] => string ''
+//          [post_date_gmt] => string ''
+//          [post_content] => string ''
+//          [post_title] => string ''
+//          [post_excerpt] => string ''
+//          [post_status] => string ''
+//          [comment_status] => string ''
+//          [ping_status] => string ''
+//          [post_password] => string ''
+//          [post_name] => string ''
+//          [to_ping] => string ''
+//          [pinged] => string ''
+//          [post_modified] => string ''
+//          [post_modified_gmt] => string ''
+//          [post_content_filtered] => string ''
+//          [post_parent] => int 0
+//          [guid] => string ''
+//          [menu_order] => int 0
+//          [post_type] => string ''
+//          [post_mime_type] => string ''
+//          [comment_count] => string '0'
+//          [filter] => string 'raw'
+//      }
+//  )
+    private function APL_get_posts($attr_names = array(),
+                                   $args = array())
+    {
+        $default = array(
+            'orderby' => 'ID',
+            'order' => 'ASC',
+            'post_type' => 'post',
+            'nopaging' => true
+        );
+
+        if (!empty($args))
+        {
+            foreach ($args as $key => $arg)
+            {
+                if (!empty($arg))
+                {
+                    $default[$key] = $arg;
+                }
+            }
+            unset($arg);
+        }
+        $args = $default;
+
+        $APL_Query = new WP_Query($args);
+
+
+        $posts = $APL_Query->posts;
+        unset($APL_Query);
+
+
+        $rtnPosts = array();
+        $attr_names_count = count($attr_names);
+        if (empty($attr_names))
+        {
+            $rtnPosts = array();
+            foreach ($posts as $post)
+            {
+                $rtnPosts[$post->post_name] = $post->ID;
+            }
+            unset($post);
+            unset($posts);
+            return $rtnPosts;
+        }
+        else
+        {
+            foreach ($posts as $post)
+            {
+                $rtnPosts[$post->post_name] = new stdClass();
+                if (!empty($attr_names))
+                {
+                    foreach ($attr_names as $attr_name)
+                    {
+                        if (!empty($attr_name) && isset($post->$attr_name))
+                        {
+                            $rtnPosts[$post->post_name]->$attr_name = $post->$attr_name;
+                        }
+                    }
+                    unset($attr_name);
+                }
+                unset($post);
+            }
+
+
+
+
+            unset($posts);
+            return $rtnPosts;
+        }
+    }
     public function APL_admin_page()
     {
         // Step 1
@@ -1007,6 +1463,7 @@ class APLCore
         //Step 2
         echo json_encode('');
     }
+
     /**
      * <p><b>Desc:</b></p>
      * @access public
@@ -1034,10 +1491,11 @@ class APLCore
         // Step 3
         $rtnData->filename = $_GET['filename'];
         $rtnData->export_url = APL_URL . 'includes/export.php';
-        
+
         // Step 4
         echo json_encode($rtnData);
     }
+
     /**
      * <p><b>Desc:</b> Method used for saving APL core 'General Settings'
      *                 to the developer's wordpress database.</p>
@@ -1064,16 +1522,21 @@ class APLCore
     {
         // Step 1
         $check_ajax_referer0 = check_ajax_referer("APL_handler_save_settings");
-        
+
         $rtnData = new stdClass();
         $rtnData->error = '';
         $rtnData->theme = 'overcast';
-                
+
         // Step 2
         $APLOptions = $this->APL_options_load();
-        
+
         // Step 3
-        $APLOptions['delete_core_db'] = $_POST['deleteDb'];
+        //$APLOptions['delete_core_db'] = $_POST['deleteDb'];
+        $APLOptions['delete_core_db'] = FALSE;
+        if ($_POST['deleteDb'] === 'true')
+        {
+            $APLOptions['delete_core_db'] = TRUE;
+        }
         // Step 4
         $APLOptions['jquery_ui_theme'] = $_POST['theme'];
         wp_enqueue_style('apl-admin-ui-css',
@@ -1081,16 +1544,17 @@ class APLCore
                          false,
                          APL_VERSION,
                          false);
-        
+
         // Step 5
         $this->APL_options_save($APLOptions);
-        
+
         // Step 6
         $rtnData->theme = $APLOptions['jquery_ui_theme'];
-        
+
         // Step 7
         echo json_encode($rtnData);
     }
+
     /**
      * <p><b>Desc:</b> Saves the created preset data from the APL Admin page.</p>
      * @access public
@@ -1115,10 +1579,10 @@ class APLCore
      * <li value="7">Store the post status.</li>
      * <li value="8">Store the exclude current boolean.</li>
      * <li value="9">Store the Before, Content, & After HTML/JavaScript/Shortcode</li>
-                     content.
+      content.
      * <li value="10">Overwrite or save the preset.</li>
      * <li value="11">Create and store data for the varible returned to the</li>
-                      AJAX function.
+      AJAX function.
      * <li value="12">echo the data returned though a json_encode method.</li>
      * </ol>
      */
@@ -1126,7 +1590,7 @@ class APLCore
     {
         // Step 1
         check_ajax_referer("APL_handler_save_preset");
-        
+
         //DEFAULT USE
         $presetDbObj = new APLPresetDbObj('default');
         //MULTI PRESET OPTIONS
@@ -1136,16 +1600,16 @@ class APLCore
           $preset_db[$key] = $value;
           }
          */
-        
+
         // Step 2
         $preset_name = stripslashes($_POST['presetName']);
 
         $presetObj = new APLPresetObj();
-        
+
         // Step 3
         $presetObj->_postParent = json_decode(stripslashes($_POST['postParent']));
         $presetObj->_postParent = array_unique($presetObj->_postParent);
-        
+
         // Step 4
         $presetObj->_postTax = json_decode(stripslashes($_POST['postTax']));
         $tmp_postTax = new stdClass();
@@ -1156,24 +1620,23 @@ class APLCore
                 $tmp_postTax->$post_type_name->taxonomies->$taxonomy_name->require_taxonomy = $taxonomy_value->require_taxonomy;
                 $tmp_postTax->$post_type_name->taxonomies->$taxonomy_name->require_terms = $taxonomy_value->require_terms;
                 $tmp_postTax->$post_type_name->taxonomies->$taxonomy_name->include_terms = $taxonomy_value->include_terms;
+                
+                $tmp_postTax->$post_type_name->taxonomies->$taxonomy_name->terms = array();
                 foreach ($taxonomy_value->terms as $term_index => $term_value)
                 {
                     $tmp_postTax->$post_type_name->taxonomies->$taxonomy_name->terms[$term_index] = intval($term_value);
                 }
             }
         }
-        $presetObj->_postTax = $tmp_postTax; 
-        
+        $presetObj->_postTax = $tmp_postTax;
+
         // Step 5
         $presetObj->_listAmount = intval($_POST['numberPosts']); //(int) howmany to display
-        
         // Step 6
         $presetObj->_listOrder = $_POST['order']; //(string)
         $presetObj->_listOrderBy = $_POST['orderBy']; //(string)
-        
         // Step 7
         $presetObj->_postStatus = $_POST['postStatus']; //(string)
-        
 //        $presetObj->_ignoreStickyPosts = true; //(boolean)
 //        if ($_POST['ignoreStickyPosts'] === 'false')
 //        {
@@ -1185,16 +1648,15 @@ class APLCore
         {
             $presetObj->_postExcludeCurrent = false;
         }
-        
+
         // Step 9
         $presetObj->_before = stripslashes($_POST['before']); //(string)
         $presetObj->_content = stripslashes($_POST['content']); //(string)
         $presetObj->_after = stripslashes($_POST['after']); //(string)
-
         // Step 10
         $presetDbObj->_preset_db->$preset_name = $presetObj;
         $presetDbObj->options_save_db();
-        
+
         // Step 11
         $rtnData = new stdClass();
         $rtnData->status = "success";
@@ -1204,6 +1666,7 @@ class APLCore
         // Step 12
         echo json_encode($rtnData);
     }
+
     /**
      * <p><b>Desc:</b> Method handler for deleting presets within
      * the Preset DbOptions.</p>
@@ -1238,6 +1701,7 @@ class APLCore
         //Step 6
         echo json_encode($presetDbObj->_preset_db);
     }
+
     /**
      * <p><b>Desc:</b> Method handler for restoring the original plugin
      * preset defaults</p>
@@ -1277,6 +1741,7 @@ class APLCore
         //STEP 6
         echo json_encode($presetDbObj->_preset_db);
     }
+
     /**
      * <p><b>Desc:</b> Method handler for 'post_list' shortcode and 
      * displaying the target post list.</p>
@@ -1322,6 +1787,7 @@ class APLCore
      * <li value="1">return APL_run().</li>
      * </ol>
      */
+
     /**
      * <p><b>Desc:</b> Public funtion for APL_run().</p>
      * @access public
@@ -1341,6 +1807,7 @@ class APLCore
     {
         return $this->APL_run($preset_name);
     }
+
     /**
      * <p><b>Desc:</b> Method used for executing the main purpose of the
      * plugin. Creates an HTML post list string to be sent to the page
@@ -1367,6 +1834,7 @@ class APLCore
      * <li value="9"><i>Return output</i> string</li>
      * </ol>
      */
+
     /**
      * <p><b>Desc:</b> Method used for executing the main purpose of the
      * plugin. Creates an HTML post list string to be sent to the page
@@ -1408,7 +1876,7 @@ class APLCore
         
         $preset_db_obj = new APLPresetDbObj('default');
         // Step 1
-        if(isset($preset_db_obj->_preset_db->$preset_name))
+        if (isset($preset_db_obj->_preset_db->$preset_name))
         {
             $presetObj = new APLPresetObj();
             $presetObj = $preset_db_obj->_preset_db->$preset_name;
@@ -1435,26 +1903,27 @@ class APLCore
           // being currently viewed
           if ($newVals->post_type == "none")
           {
-              $output = APLInternalShortcodeReplace($newVals->content, $post, 0);
+          $output = APLInternalShortcodeReplace($newVals->content, $post, 0);
           }
          */
         // Step 3
         //// GET (GLOBAL) POST DATA OF THE CURRENT POST/PAGE THAT THE
         ////  POST LIST IS DISPLAYED ON.
         $post_obj = $this->APL_get_post_attr();
-        
+
         // Step 4
         //// EXCLUDE CURRENT POST FROM DISPLAYING ON THE POST LIST
         if ($presetObj->_postExcludeCurrent == true)
         {
-            $excludeList = $post_obj->ID;
+            $presetObj->_postExcludeCurrent = $post_obj->ID;
         }
         //TODO
         //$presetObj->before = APLInternalShortcodeReplace($presetObj->before, $post, 0);
         //$presetObj->after = APLInternalShortcodeReplace($presetObj->after, $post, 0);
         // Step 5
-        //// ADD THE POST/PAGE TO THE PARENT ARRAY IF CURRENT PAGE
-        ////  IS SELECTED.
+        //// IF POSTPARENT IS NOT SET THEN CREATE AN EMPTY DEFAULT. OR IF THERE'S  
+        ////  ONE OR MORE PARENT IDS, THEN ADD THOSE PAGE IDS TO THE PARENT ARRAY 
+        ////  AND IF CURRENT PAGE IS SELECTED THEN ADD CURRENT PAGE ID IF. 
         $count = count($presetObj->_postParent);
         if (!isset($presetObj->_postParent))
         {
@@ -1463,9 +1932,10 @@ class APLCore
         }
         else if ($count > 0)
         {
-            foreach($presetObj->_postParent as $index => $value)
+            foreach ($presetObj->_postParent as $index => $value)
             {
-                if ($value === "-1")
+                // Zero is a ID representation of the current page ID
+                if ($value === "0")
                 {
                     $presetObj->_postParent[$index] = strval($post_obj->ID);
                 }
@@ -1474,43 +1944,42 @@ class APLCore
                     $presetObj->_postParent[$index] = $value;
                 }
             }
-            
+
             $presetObj->_postParent = array_unique($presetObj->_postParent);
         }
-        
+
         // Step 6
         //// ADD OTHER TAXONOMY TERMS IF INCLUDED IS CHECKED
         $post_obj_post_type = $post_obj->post_type;
 
         if (isset($presetObj->_postTax->$post_obj_post_type))
         {
-            
-            $a = $presetObj->_postTax->$post_obj_post_type;
-            foreach ($post_obj->taxonomies as $post_taxonomy)
+
+            //$a = $presetObj->_postTax->$post_obj_post_type;
+            foreach ($post_obj->taxonomies as $taxonomy_name=>$taxonomy_object)
             {
-                
-                if ($presetObj->postTax->$post_obj_post_type->taxonomies->$post_taxonomy->include == true)
+                //$a = $presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->include_terms;
+                if ($presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->include_terms == true)
                 {
-                    $count = count($presetObj->postTax->$post_obj_post_type->taxonomies->$post_taxonomy->terms);
-                    foreach ($post_obj->taxonomies->$post_taxonomy as $term)
+                    $count = count($presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms);
+                    foreach ($taxonomy_object->terms as $term_ID)
                     {
-                        $presetObj->postTax->$post_obj_post_type->taxonomies->$post_taxonomy->terms[$count] = $term;
+                        $presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms[$count] = $term_ID;
                         $count++;
                     }
-                    $presetObj->postTax->$post_obj_post_type->taxonomies->$post_taxonomy->terms = array_unique($presetObj->postTax->$post_obj_post_type->taxonomies->$post_taxonomy->terms);
+                    //REMOVES ANY DUPLICATES THAT MAY HAVE BEEN ADDED
+                    $presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms = array_unique($presetObj->_postTax->$post_obj_post_type->taxonomies->$taxonomy_name->terms);
                 }
-                
             }
-            
         }
-        
+
         // Step 7
         //$APL_posts = $this->APL_Query($presetObj);
         $APLQuery = new APLQuery($presetObj);
-        
-        
-        
-        
+
+
+
+
         //STEP 8
         //TODO create a custom message for the dev to use
         //return nothing if no results
@@ -1524,6 +1993,7 @@ class APLCore
 
 ///// CONTENT //////////////////////////////////////////////////////////////////
         $count = 0;
+        
         foreach ($APLQuery->_posts as $APL_post)
         {
             //STEP 8
@@ -1555,9 +2025,8 @@ class APLCore
 
         //STEP 10
         return $output;
-
-
     }
+
     /**
      * <p><b>Desc:</b> Get the post values needed for the plugin's </p>
      * @access private
@@ -1583,7 +2052,7 @@ class APLCore
         $rtnObj = new stdClass();
         // Step 1
         global $post;
-        
+
         // Step 2
         $rtnObj->ID = (int) 0;
         if (isset($post->ID))
@@ -1598,20 +2067,30 @@ class APLCore
         }
         // Step 4
         $rtnObj->taxonomies = new stdClass();
-        $taxonomies = $this->APL_get_post_type_taxonomies($rtnObj->post_type);
+        $taxonomies = $this->APL_get_taxonomies($rtnObj->post_type);
         foreach ($taxonomies as $taxonomy)
         {
             // Step 5
-            $terms  = wp_get_post_terms($post->ID, $taxonomy);
+            $terms = wp_get_post_terms($post->ID,
+                                       $taxonomy);
             if (!empty($terms))
             {
-                $rtnObj->taxonomies->$taxonomy = $terms;
+                //$tmp_terms = array();
+                foreach ($terms as $term_index=>$term_object)
+                {
+                    $rtnObj->taxonomies->$taxonomy->terms[$term_index] = $term_object->term_id;
+                    //$tmp_terms[$term_index] = $term_object->term_id;
+                }
+                
+                //$rtnObj->taxonomies->$taxonomy->terms = $tmp_terms;
             }
         }
         // Step 6
         return $rtnObj;
     }
+
 }
+
 /**
  * <p><b>Desc:</b> (Internal) plugin shortcode function for individual posts.</p>
  * @access public

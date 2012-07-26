@@ -77,9 +77,10 @@
   font-size: 11pt !important;
 }
 .ai1ec-full-event .ai1ec-allday-label {
-  font-size: 10pt !important;
   color: rgba(51, 51, 51, 0.5);
+  font-size: 10pt !important;
   padding-left: 0.2em;
+  white-space: nowrap;
 }
 .ai1ec-multi-event .ai1ec-time {
   line-height: 15pt !important;
@@ -89,6 +90,7 @@
 }
 .ai1ec-multi-event .ai1ec-allday-label {
   font-size: 9pt !important;
+  white-space: nowrap;
 }
 .ai1ec-full-event td.ai1ec-location {
   min-width: 30%;
@@ -208,7 +210,8 @@
   font-size: 8pt !important;
 }
 .ai1ec-excerpt .ai1ec-allday-label {
-  font-size: 9pt !important;
   color: #bbb;
+  font-size: 9pt !important;
   padding-left: 0.2em;
+  white-space: nowrap;
 }

@@ -1125,6 +1125,26 @@ class Ai1ec_Events_Helper {
 	}
 
 	/**
+	 * Returns the latitude/longitude coordinates as a textual string
+	 * parsable by the Geocoder API.
+	 *
+	 * @param  Ai1ec_Event &$event The event to return data from
+	 *
+	 * @return string              The latitude & longitude string, or null
+	 */
+	function get_latlng( &$event ) {
+		// If the coordinates are set, use those, otherwise use the address.
+		$location = NULL;
+		// If the coordinates are set by hand use them.
+		if ( $event->show_coordinates ) {
+			$longitude = floatval( $event->longitude );
+			$latitude = floatval( $event->latitude );
+			$location = "$latitude,$longitude";
+		}
+		return $location;
+	}
+
+	/**
 	 * get_gmap_url function
 	 *
 	 * Returns the URL to the Google Map for the given event object.
@@ -1134,7 +1154,17 @@ class Ai1ec_Events_Helper {
 	 * @return string
 	 **/
 	function get_gmap_url( &$event ) {
-		return "http://www.google.com/maps?f=q&hl=" . $this->get_lang() . "&source=embed&q=" . urlencode( $event->address );
+		$location = $this->get_latlng( $event );
+		if ( $location ) {
+			$location .= empty( $event->venue ) ? '' : " ({$event->venue})";
+		} else {
+			// Otherwise use the address
+			$location = $event->address;
+		}
+
+		$lang = $this->get_lang();
+
+		return "http://www.google.com/maps?f=q&hl=" . $lang . "&source=embed&q=" . urlencode( $location );
 	}
 
 	/**

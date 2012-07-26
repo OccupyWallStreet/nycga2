@@ -13,9 +13,7 @@
 
 	<?php do_action( 'bp_before_directory_activity_page' ); ?>
 
-	<?php locate_template( array( 'leftsidebar.php' ), true ) ?>
-
-		<div id="content" class="grid_14">
+		<div id="content" class="grid_19">
 
 			<?php do_action( 'bp_before_directory_activity' ); ?>
 

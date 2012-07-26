@@ -377,8 +377,16 @@ class Ai1ec_Settings_Helper {
 	  global $ai1ec_view_helper,
 					 $ai1ec_settings;
 
+    $event_platform             = $ai1ec_settings->event_platform_active ? 'checked="checked"' : '';
+    $event_platform_disabled    = AI1EC_EVENT_PLATFORM ? 'disabled="disabled"' : '';
+    $event_platform_strict      = $ai1ec_settings->event_platform_strict ? 'checked="checked"' : '';
+
 		$args = array(
       'calendar_css_selector'   => $ai1ec_settings->calendar_css_selector,
+      'event_platform'          => $event_platform,
+      'event_platform_disabled' => $event_platform_disabled,
+			'event_platform_strict'   => $event_platform_strict,
+      'display_event_platform'  => is_super_admin(),
 	  );
 	  $ai1ec_view_helper->display_admin( 'box_advanced_settings.php', $args );
 	}

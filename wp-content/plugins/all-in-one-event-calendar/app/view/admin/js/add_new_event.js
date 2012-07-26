@@ -17,30 +17,26 @@ var ai1ec_convert_commas_to_dots_for_coordinates = function() {
  * Shows the error message after the field
  *
  * @param Object the dom element after which we put the error
- *
  * @param the error message
- *
  */
 var ai1ec_show_error_message_after_element = function( el, error_message ) {
 	// Create the element to append in case of error
 	var error = jQuery( '<div />',
 			{
-				text : error_message,
-				class : "ai1ec-error"
+				'text': error_message,
+				'class': 'ai1ec-error'
 			}
 	);
 	// Insert error message
 	jQuery( el ).after( error );
 }
+
 /**
- *
- * prevent default actions and stop immediate propagation if the publish button was clicked and
- * gives focus to the passed element
+ * Prevent default actions and stop immediate propagation if the publish button
+ * was clicked and gives focus to the passed element.
  *
  * @param Object the event object
- *
  * @param Object the element to focus
- *
  */
 var ai1ec_prevent_actions_and_focus_on_errors = function( e, el ) {
 	// If the validation was triggered  by clicking publish
@@ -54,6 +50,101 @@ var ai1ec_prevent_actions_and_focus_on_errors = function( e, el ) {
 	jQuery( el ).focus();
 }
 
+/**
+ * Updates the map taking the coordinates from the input fields
+ */
+var ai1ec_update_map_from_coordinates = function() {
+	var lat = parseFloat( jQuery( 'input.latitude' ).val() );
+	var long = parseFloat( jQuery( 'input.longitude' ).val() );
+	var LatLong = new google.maps.LatLng( lat, long );
+
+	ai1ec_map.setCenter( LatLong );
+	ai1ec_map.setZoom( 15 );
+	ai1ec_marker_draggable.setPosition( LatLong );
+}
+/**
+ * check that both latitude and longitude are not empty when publishing an event if the "Input coordinates" check-box
+ * is checked
+ *
+ * @param Object the event object
+ *
+ * @returns boolean true if the check is ok, false otherwise
+ *
+ */
+var ai1ec_check_lat_long_fields_filled_when_publishing_event = function( e ) {
+	var valid = true;
+	// We will save the first non valid field in this variable so whe can focus
+	var first_not_valid = false;
+	if ( jQuery( '#ai1ec_input_coordinates:checked' ).length > 0 ) {
+		// Clean up old error messages
+		jQuery( 'div.ai1ec-error' ).remove();
+
+		jQuery( '#ai1ec_table_coordinates input.coordinates' ).each( function() {
+			// Check if we are validating latitude or longitude
+			var latitude = jQuery( this ).hasClass( 'latitude' );
+			// Get the correct error message
+			var error_message = latitude ? ai1ec_add_new_event.error_message_not_entered_lat : ai1ec_add_new_event.error_message_not_entered_long;
+			if ( this.value === '' ) {
+				valid = false;
+				if( first_not_valid === false ) {
+					first_not_valid = this;
+				}
+				ai1ec_show_error_message_after_element( this, error_message );
+			}
+		});
+	}
+	if ( valid === false ) {
+		ai1ec_prevent_actions_and_focus_on_errors( e, first_not_valid );
+	}
+	return valid;
+}
+/**
+ * checks if latitude and longitude fields are valid and a search can be performed
+ *
+ * @param Object the event object that is passed to the handler function
+ *
+ * @return boolean true if the values are valid and both fields have a value, false otherwise;
+ */
+var ai1ec_check_lat_long_ok_for_search = function( e ) {
+	// If the coordinates checkbox is checked
+	if ( jQuery( '#ai1ec_input_coordinates:checked' ).length === 1 ) {
+		// Clean up old error messages
+		jQuery( 'div.ai1ec-error' ).remove();
+		var valid = true;
+		// We will save the first non valid field in this variable so whe can focus
+		var first_not_valid = false;
+		// If a field is empty, we will return false so that the map is not updated.
+		var at_least_one_field_empty = false;
+		// Let's iterate over the coordinates.
+		jQuery( '#ai1ec_table_coordinates input.coordinates' ).each( function() {
+			if ( this.value === '' ) {
+				at_least_one_field_empty = true;
+				return;
+			}
+			// Check if we are validating latitude or longitude
+			var latitude = jQuery( this ).hasClass( 'latitude' );
+			// Get the correct error message
+			var error_message = latitude ? ai1ec_add_new_event.error_message_not_valid_lat : ai1ec_add_new_event.error_message_not_valid_long;
+			// Check if the coordinate is valid.
+			if( ! AI1EC_UTILS.is_valid_coordinate( this.value, latitude ) ) {
+				valid = false;
+				// Save the elements so that we can focus later
+				if ( first_not_valid === false ) {
+					first_not_valid = this;
+				}
+				ai1ec_show_error_message_after_element( this, error_message );
+			};
+		});
+		// Check if there are errors
+		if ( valid === false ) {
+			ai1ec_prevent_actions_and_focus_on_errors( e, first_not_valid )
+		}
+		if ( at_least_one_field_empty === true ) {
+			valid = false;
+		}
+		return valid;
+	}
+}
 /**
  * Given a location, update the address field with a reformatted version,
  * update hidden location fields with address data, and center map on
@@ -459,6 +550,18 @@ jQuery( function( $ ){
 		ai1ec_map = new google.maps.Map( $( '#ai1ec_map_canvas' ).get(0), ai1ec_myOptions );
 		ai1ec_marker = new google.maps.Marker({ map: ai1ec_map });
 
+		// If the draggable marker is undefined, create it and attach the event listener.
+		if ( typeof ai1ec_marker_draggable === 'undefined' ) {
+			ai1ec_marker_draggable = new google.maps.Marker({
+				map: ai1ec_map,
+				draggable: true
+			});
+			google.maps.event.addListener( ai1ec_marker_draggable, 'dragend', function( e ) {
+				$( 'input.longitude' ).val( e.latLng.lng() );
+				$( 'input.latitude' ).val( e.latLng.lat() );
+			});
+		}
+
 		if( ! ai1ec_add_new_event.disable_autocompletion ) {
 			// This is the only way to stop the autocomplete from firing when the
 			// coordinates checkbox is checked. The new jQuery UI autocomplete
@@ -532,6 +635,41 @@ jQuery( function( $ ){
 			} else {
 				// hide the map
 				$( '.ai1ec_box_map' ).slideUp( 'fast' );
+			}
+		});
+
+		// Hide / Show the coordinates table when clicking the checkbox
+		$( '#ai1ec_input_coordinates' ).change( function() {
+			// If the checkbox is checked
+			if( this.checked === true ) {
+				$( '#ai1ec_table_coordinates' ).css( { visibility : 'visible' } );
+			} else {
+				// Hide the table
+				$( '#ai1ec_table_coordinates' ).css( { visibility : 'hidden' } );
+				// Erase the input fields
+				$( '#ai1ec_table_coordinates input' ).val( '' );
+				// Clean up error messages
+				$( 'div.ai1ec-error' ).remove();
+			}
+		});
+		// Validate the coordinates when clicking Publish
+		$( '#publish' ).click( function( e ) {
+			if ( ai1ec_check_lat_long_fields_filled_when_publishing_event( e ) === true ) {
+				// Convert commas to dots
+				ai1ec_convert_commas_to_dots_for_coordinates();
+				// Check that fields are ok and there are no errors
+				ai1ec_check_lat_long_ok_for_search( e );
+			}
+		});
+
+		$( 'input.coordinates' ).blur ( function( e ) {
+			// Convert commas to dots
+			ai1ec_convert_commas_to_dots_for_coordinates();
+			// Check if the coordinates are valid.
+			var valid = ai1ec_check_lat_long_ok_for_search( e );
+			// If they are valid, update the map.
+			if( valid === true ) {
+				ai1ec_update_map_from_coordinates();
 			}
 		});
 

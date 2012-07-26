@@ -3,83 +3,54 @@
 if( !class_exists('EM_Permalinks') ){
 	class EM_Permalinks {
 		static $em_queryvars = array(
-			'event_id', 'event_slug',
-			'location_id', 'location_slug',
+			'event_id','event_slug', 'em_redirect',
+			'location_id','location_slug',
 			'person_id',
 			'booking_id',
 			'category_id', 'category_slug',
 			'ticket_id',
 			'calendar_day',
-			'book',
-			'rss','ical', 'scope', 'page', 'bookings_page', 'payment_gateway','event_categories','event_locations'
+			'rss', 'ical', 'bookings_page','event_categories','event_locations'
 		);
-		static $scopes = 'today|tomorrow|this\-month|next\-month|past|all|future';
 		
-		function init(){	
+		function init(){
 			add_filter('pre_update_option_dbem_events_page', array('EM_Permalinks','option_update'));
-			add_filter('init', array('EM_Permalinks','flush'));
+			if( get_option('dbem_flush_needed') ){
+				add_filter('init', array('EM_Permalinks','flush'));
+			}
 			add_filter('rewrite_rules_array',array('EM_Permalinks','rewrite_rules_array'));
 			add_filter('query_vars',array('EM_Permalinks','query_vars'));
-			add_action('template_redirect',array('EM_Permalinks','init_objects'), 1);
-			add_action('template_redirect',array('EM_Permalinks','redirection'), 1);
-			//Add filters to rewrite the URLs
-			add_filter('em_event_output_placeholder',array('EM_Permalinks','rewrite_urls'),1,3);
-			add_filter('em_location_output_placeholder',array('EM_Permalinks','rewrite_urls'),1,3);
-			add_filter('em_category_output_placeholder',array('EM_Permalinks','rewrite_urls'),1,3);
+			add_action('parse_query',array('EM_Permalinks','init_objects'), 1);
+			add_action('parse_query',array('EM_Permalinks','redirection'), 1);
 			if( !defined('EM_EVENT_SLUG') ){ define('EM_EVENT_SLUG','event'); }
 			if( !defined('EM_LOCATION_SLUG') ){ define('EM_LOCATION_SLUG','location'); }
 			if( !defined('EM_LOCATIONS_SLUG') ){ define('EM_LOCATIONS_SLUG','locations'); }
 			if( !defined('EM_CATEGORY_SLUG') ){ define('EM_CATEGORY_SLUG','category'); }
 			if( !defined('EM_CATEGORIES_SLUG') ){ define('EM_CATEGORIES_SLUG','categories'); }
+			add_filter('post_type_archive_link',array('EM_Permalinks','post_type_archive_link'),10,2);
 		}
 		
 		function flush(){
 			global $wp_rewrite;
-			if( get_option('dbem_flush_needed') ){
-			   	$wp_rewrite->flush_rules();
-				delete_option('dbem_flush_needed');
-			}
+			$wp_rewrite->flush_rules();
+			delete_option('dbem_flush_needed');
 		}
 		
-		function rewrite_urls($replace, $object, $result){
-			global $wp_query, $wp_rewrite;
-			if( $wp_rewrite->using_permalinks() && !defined('EM_DISABLE_PERMALINKS')){
-				switch( $result ){
-					case '#_EVENTPAGEURL': //Depreciated	
-					case '#_LINKEDNAME': //Depreciated
-					case '#_EVENTURL': //Just the URL
-					case '#_EVENTLINK': //HTML Link
-						if( is_object($object) && get_class($object)=='EM_Event' ){
-							$EM_URI = EM_URI;
-							if( is_multisite() && get_site_option('dbem_ms_global_events') && get_site_option('dbem_ms_global_events_links') && !empty($object->blog_id) && is_main_site() && $object->blog_id != get_current_blog_id() ){
-								$EM_URI = get_blog_permalink($object->blog_id, get_blog_option($object->blog_id, 'dbem_events_page'));
-							}
-							$event_link = trailingslashit(trailingslashit($EM_URI).EM_EVENT_SLUG.'/'.$object->slug);
-							if($result == '#_LINKEDNAME' || $result == '#_EVENTLINK'){
-								$replace = "<a href='{$event_link}' title='{$object->name}'>{$object->name}</a>";
-							}else{
-								$replace = $event_link;
-							}
-						}
-						break;
-					case '#_LOCATIONURL':
-					case '#_LOCATIONLINK':
-					case '#_LOCATIONPAGEURL': //Depreciated
-						if( is_object($object) && get_class($object)=='EM_Location' ){
-							$link = trailingslashit(trailingslashit(EM_URI).EM_LOCATION_SLUG.'/'.$object->slug);
-							$replace = ($result == '#_LOCATIONURL' || $result == '#_LOCATIONPAGEURL') ? $link : '<a href="'.$link.'">'.$object->name.'</a>';
-						}
-						break;
-					case '#_CATEGORYLINK':
-					case '#_CATEGORYURL':
-						if( is_object($object) && get_class($object)=='EM_Category' ){
-							$link = trailingslashit(trailingslashit(EM_URI).EM_CATEGORY_SLUG.'/'.$object->slug);
-							$replace = ($result == '#_CATEGORYURL') ? $link : '<a href="'.$link.'">'.$object->name.'</a>';
-						}
-						break;
+		function post_type_archive_link($link, $post_type){
+			if( $post_type == EM_POST_TYPE_EVENT ){
+				if( get_option('dbem_events_page') ){
+					$new_link = get_permalink(get_option('dbem_events_page'));
 				}
 			}
-			return $replace;
+			if( $post_type == EM_POST_TYPE_LOCATION ){
+				if( get_option('dbem_locations_page') ){
+					$new_link = get_permalink(get_option('dbem_locations_page'));
+				}
+			}
+			if( !empty($new_link) ){
+				$link = $new_link;
+			}
+			return $link;
 		}
 		
 		/**
@@ -87,31 +58,26 @@ if( !class_exists('EM_Permalinks') ){
 		 * @return mixed
 		 */
 		function redirection(){
-			global $wp_rewrite, $post, $wp_query;
-			if( $wp_rewrite->using_permalinks() && !is_admin() && !defined('EM_DISABLE_PERMALINKS') ){
+			global $wpdb, $wp_rewrite, $post, $wp_query;
+			if( is_object($wp_query) && $wp_query->get('em_redirect') ){
 				//is this a querystring url?
-				$events_page_id = get_option ( 'dbem_events_page' );
-				if ( is_object($post) && $post->ID == $events_page_id && $events_page_id != 0 ) {
-					$page = ( !empty($_GET['page']) && is_numeric($_GET['page']) )? $_GET['page'] : '';
-					if ( !empty($_GET['calendar_day']) ) {
-						//Events for a specific day
-						wp_redirect( self::url($_GET['calendar_day'],$page), 301);
-						exit();
-					} elseif ( !empty($_GET['location_id']) && is_numeric($_GET['location_id']) ) {
-						//Just a single location
-						$EM_Location = new EM_Location($_GET['location_id']);
-						wp_redirect( self::url('location', $EM_Location->slug,$page), 301);
-						exit();
-					} elseif ( !empty($_GET['event_id']) && is_numeric($_GET['event_id']) ) {
-						//single event page
-						$EM_Event = new EM_Event($_GET['event_id']);
-						wp_redirect( self::url(EM_EVENT_SLUG, $EM_Event->slug), 301);
-						exit();
-					}			
+				if( $wp_query->get('event_slug') ){
+					$event = $wpdb->get_row('SELECT event_id, post_id FROM '.EM_EVENTS_TABLE." WHERE event_slug='".$wp_query->get('event_slug')."' AND (blog_id=".get_current_blog_id()." OR blog_id IS NULL OR blog_id=0)", ARRAY_A);
+					if( !empty($event) ){
+						$EM_Event = em_get_event($event['event_id']);
+						$url = get_permalink($EM_Event->post_id);
+					}
+				}elseif( $wp_query->get('location_slug') ){
+					$location = $wpdb->get_row('SELECT location_id, post_id FROM '.EM_LOCATIONS_TABLE." WHERE location_slug='".$wp_query->get('location_slug')."' AND (blog_id=".get_current_blog_id()." OR blog_id IS NULL OR blog_id=0)", ARRAY_A);
+					if( !empty($location) ){
+						$EM_Location = em_get_location($location['location_id']);
+						$url = get_permalink($EM_Location->post_id);
+					}
+				}elseif( $wp_query->get('category_slug') ){
+					$url = get_term_link($wp_query->get('category_slug'), EM_TAXONOMY_CATEGORY);
 				}
-				if( !empty($_GET['dbem_rss']) ){
-					//RSS page
-					wp_redirect( self::url('rss'), 301);
+				if(!empty($url)){
+					wp_redirect($url,301);
 					exit();
 				}
 			}
@@ -123,31 +89,74 @@ if( !class_exists('EM_Permalinks') ){
 			$events_page = get_post($events_page_id);
 			$em_rules = array();
 			if( is_object($events_page) ){
-				$events_slug = str_replace(trailingslashit(get_bloginfo('wpurl')),'', get_permalink($events_page->ID));
-        		$events_slug = str_replace(trailingslashit(get_bloginfo('url')),'', get_permalink($events_page->ID));				
-				$events_slug = preg_replace('/\/$/','',$events_slug);
-				$em_rules[$events_slug.'/('.self::$scopes.')$'] = 'index.php?pagename='.$events_slug.'&scope=$matches[1]'; //events with scope
-				$em_rules[$events_slug.'/(\d{4}-\d{2}-\d{2})$'] = 'index.php?pagename='.$events_slug.'&calendar_day=$matches[1]'; //event calendar date search
-				$em_rules[$events_slug.'/'.EM_EVENT_SLUG.'/(\d*)$'] = 'index.php?pagename='.$events_slug.'&event_id=$matches[1]'; //single event page with id
-				$em_rules[$events_slug.'/my\-bookings$'] = 'index.php?pagename='.$events_slug.'&bookings_page=1'; //page for users to manage bookings
-				$em_rules[$events_slug.'/my\-bookings/(\d+)$'] = 'index.php?pagename='.$events_slug.'&booking_id=$matches[1]'; //page for users to manage bookings
-				$em_rules[$events_slug.'/bookings/(\d+)$'] = 'index.php?pagename='.$events_slug.'&event_id=$matches[1]&book=1'; //single event booking form with id
-				$em_rules[$events_slug.'/bookings/(.+)$'] = 'index.php?pagename='.$events_slug.'&event_slug=$matches[1]&book=1'; //single event booking form with slug
-				$em_rules[$events_slug.'/'.EM_EVENT_SLUG.'/(.+)$'] = 'index.php?pagename='.$events_slug.'&event_slug=$matches[1]'; //single event page with slug
-				$em_rules[$events_slug.'/'.EM_LOCATIONS_SLUG.'$'] = 'index.php?pagename='.$events_slug.'&event_locations=1'; //category list with slug
-				$em_rules[$events_slug.'/'.EM_LOCATION_SLUG.'/(\d+)$'] = 'index.php?pagename='.$events_slug.'&location_id=$matches[1]'; //location page with id
-				$em_rules[$events_slug.'/'.EM_LOCATION_SLUG.'/(.+)$'] = 'index.php?pagename='.$events_slug.'&location_slug=$matches[1]'; //location page with slug
-				$em_rules[$events_slug.'/'.EM_CATEGORIES_SLUG.'$'] = 'index.php?pagename='.$events_slug.'&event_categories=1'; //category list with slug
-				$em_rules[$events_slug.'/'.EM_CATEGORY_SLUG.'/(.+)$'] = 'index.php?pagename='.$events_slug.'&category_slug=$matches[1]'; //category page with slug
-				$em_rules[$events_slug.'/rss$'] = 'index.php?pagename='.$events_slug.'&rss=1'; //rss page
-				$em_rules[$events_slug.'/ical$'] = 'index.php?pagename='.$events_slug.'&ical=1'; //ical page
-				$em_rules[$events_slug.'/payments/(.+)$'] = 'index.php?pagename='.$events_slug.'&payment_gateway=$matches[1]'; //single event booking form with slug
-				$em_rules[$events_slug.'/(\d+)$'] = 'index.php?pagename='.$events_slug.'&page=$matches[1]'; //event pageno
+				$events_slug = preg_replace('/\/$/', '', str_replace( trailingslashit(home_url()), '', get_permalink($events_page_id)) );
+				$events_slug = ( !empty($events_slug) ) ? trailingslashit($events_slug) : $events_slug;		
+				$em_rules[$events_slug.'(\d{4}-\d{2}-\d{2})$'] = 'index.php?pagename='.$events_slug.'&calendar_day=$matches[1]'; //event calendar date search
+				$em_rules[$events_slug.'rss$'] = 'index.php?pagename='.$events_slug.'&rss=1'; //rss page
+				$em_rules[$events_slug.'feed$'] = 'index.php?pagename='.$events_slug.'&rss=1'; //compatible rss page
+				if( EM_POST_TYPE_EVENT_SLUG.'/' == $events_slug ){ //won't apply on homepage
+					//make sure we hard-code rewrites for child pages of events
+					$child_posts = get_posts(array('post_type'=>'page', 'post_parent'=>$events_page->ID, 'numberposts'=>0));
+					foreach($child_posts as $child_post){
+						$em_rules[$events_slug.$child_post->post_name.'/?$'] = 'index.php?page_id='.$child_post->ID; //single event booking form with slug
+					}		
+				}
+				if( EM_MS_GLOBAL && !get_site_option('dbem_ms_global_events_links', true) ){
+					//MS Mode has slug also for global links
+					$em_rules[$events_slug.get_site_option('dbem_ms_events_slug',EM_EVENT_SLUG).'/(.+)$'] = 'index.php?pagename='.$events_slug.'&em_redirect=1&event_slug=$matches[1]'; //single event from subsite
+				}
+				//add redirection for backwards compatability
+				$em_rules[$events_slug.EM_EVENT_SLUG.'/(.+)$'] = 'index.php?pagename='.$events_slug.'&em_redirect=1&event_slug=$matches[1]'; //single event
+				$em_rules[$events_slug.EM_LOCATION_SLUG.'/(.+)$'] = 'index.php?pagename='.$events_slug.'&em_redirect=1&location_slug=$matches[1]'; //single location page
+				$em_rules[$events_slug.EM_CATEGORY_SLUG.'/(.+)$'] = 'index.php?pagename='.$events_slug.'&em_redirect=1&category_slug=$matches[1]'; //single category page slug
+				//add a rule that ensures that the events page is found and used over other pages
+				$em_rules[trim($events_slug,'/').'/?$'] = 'index.php?pagename='.trim($events_slug,'/') ;
+			}else{
+				$events_slug = EM_POST_TYPE_EVENT_SLUG;
+				$em_rules[$events_slug.'/(\d{4}-\d{2}-\d{2})$'] = 'index.php?post_type='.EM_POST_TYPE_EVENT.'&calendar_day=$matches[1]'; //event calendar date search
+				if( !get_option( 'dbem_my_bookings_page') || !is_object(get_post(get_option( 'dbem_my_bookings_page'))) ){ //only added if bookings page isn't assigned
+					$em_rules[$events_slug.'/my\-bookings$'] = 'index.php?post_type='.EM_POST_TYPE_EVENT.'&bookings_page=1'; //page for users to manage bookings
+				}
+				//check for potentially conflicting posts with the same slug as events
+				$conflicting_posts = get_posts(array('name'=>EM_POST_TYPE_EVENT_SLUG, 'post_type'=>'any', 'numberposts'=>0));
+				if( count($conflicting_posts) > 0 ){ //won't apply on homepage
+					foreach($conflicting_posts as $conflicting_post){
+						//make sure we hard-code rewrites for child pages of events
+						$child_posts = get_posts(array('post_type'=>'any', 'post_parent'=>$conflicting_post->ID, 'numberposts'=>0));
+						foreach($child_posts as $child_post){
+							$em_rules[EM_POST_TYPE_EVENT_SLUG.'/'.$child_post->post_name.'/?$'] = 'index.php?page_id='.$child_post->ID; //single event booking form with slug
+						}
+					}
+				}
 			}
+			//make sure there's no page with same name as archives, that should take precedence as it can easily be deleted wp admin side
+			$em_query = new WP_Query(array('pagename'=>EM_POST_TYPE_EVENT_SLUG));
+			if( $em_query->have_posts() ){
+				$em_rules[trim(EM_POST_TYPE_EVENT_SLUG,'/').'/?$'] = 'index.php?pagename='.trim(EM_POST_TYPE_EVENT_SLUG,'/') ;
+				wp_reset_postdata();
+			}
+			//make sure there's no page with same name as archives, that should take precedence as it can easily be deleted wp admin side
+			$em_query = new WP_Query(array('pagename'=>EM_POST_TYPE_LOCATION_SLUG));
+			if( $em_query->have_posts() ){
+				$em_rules[trim(EM_POST_TYPE_LOCATION_SLUG,'/').'/?$'] = 'index.php?pagename='.trim(EM_POST_TYPE_LOCATION_SLUG,'/') ;
+				wp_reset_postdata();
+			}
+			//If in MS global mode and locations are linked on same site
+			if( EM_MS_GLOBAL && !get_site_option('dbem_ms_global_locations_links', true) ){
+				$locations_page_id = get_option ( 'dbem_locations_page' );
+				$locations_page = get_post($locations_page_id);
+				if( is_object($locations_page) ){
+					$locations_slug = preg_replace('/\/$/', '', str_replace( trailingslashit(home_url()), '', get_permalink($locations_page_id) ));
+					$em_rules[$locations_slug.'/'.get_site_option('dbem_ms_locations_slug',EM_LOCATION_SLUG).'/(.+)$'] = 'index.php?pagename='.$locations_slug.'&location_slug=$matches[1]'; //single event booking form with slug
+				}					
+			}
+			//add ical endpoint
+			$em_rules[EM_POST_TYPE_EVENT_SLUG."/([^/]+)/ical/?$"] = 'index.php?event=$matches[1]&ical=1';
 			return $em_rules + $rules;
 		}
 		
 		/**
+		 * Depreciated, use get_post_permalink() from now on or the output function with a placeholder
 		 * Generate a URL. Pass each section of a link as a parameter, e.g. EM_Permalinks::url('event',$event_id); will create an event link.
 		 * @param mixed 
 		 */
@@ -155,7 +164,7 @@ if( !class_exists('EM_Permalinks') ){
 			global $wp_rewrite;
 			$args = func_get_args();
 			$em_uri = get_permalink(get_option("dbem_events_page")); //PAGE URI OF EM
-			if ( $wp_rewrite->using_permalinks() && !defined('EM_DISABLE_PERMALINKS') ) {
+			if ( $wp_rewrite->using_permalinks() /*&& !defined('EM_DISABLE_PERMALINKS')*/ ) {
 				$event_link = trailingslashit(trailingslashit($em_uri). implode('/',$args));
 			}
 			return $event_link;
@@ -185,9 +194,15 @@ if( !class_exists('EM_Permalinks') ){
 		 * Not the "WP way" but for now this'll do! 
 		 */
 		function init_objects(){
-			//Build permalinks here
 			global $wp_query, $wp_rewrite;
-			if ( $wp_rewrite->using_permalinks() && !defined('EM_DISABLE_PERMALINKS') ) {
+			//check some homepage conditions
+			$events_page_id = get_option ( 'dbem_events_page' );
+			if( is_object($wp_query) && $wp_query->is_home && 'page' == get_option('show_on_front') && get_option('page_on_front') == $events_page_id ){
+				$wp_query->is_page = true;
+				$wp_query->is_home = false;
+				$wp_query->query_vars['page_id'] = $events_page_id;
+			}
+			if ( is_object($wp_query) && is_object($wp_rewrite) && $wp_rewrite->using_permalinks() ) {
 				foreach(self::$em_queryvars as $em_queryvar){
 					if( $wp_query->get($em_queryvar) ) {
 						$_REQUEST[$em_queryvar] = $wp_query->get($em_queryvar);
@@ -214,8 +229,8 @@ function em_get_my_bookings_url(){
 	if( is_object($bp) ){
 		//get member url
 		return $bp->events->link.'attending/';
-	}elseif( get_option('dbem_bookings_my_page') ){
-		return get_permalink(get_option('dbem_bookings_my_page'));
+	}elseif( get_option('dbem_my_bookings_page') ){
+		return get_permalink(get_option('dbem_my_bookings_page'));
 	}else{
 		if( $wp_rewrite->using_permalinks() && !defined('EM_DISABLE_PERMALINKS') ){
 			return trailingslashit(EM_URI)."my-bookings/";

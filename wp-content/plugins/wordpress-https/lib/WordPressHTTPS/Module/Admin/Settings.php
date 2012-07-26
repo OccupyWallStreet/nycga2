@@ -9,10 +9,7 @@
  * 
  */
 
-require_once('Mvied/Module.php');
-require_once('Mvied/Module/Interface.php');
-
-class WordPressHTTPS_Module_Admin_Settings extends Mvied_Module implements Mvied_Module_Interface {
+class WordPressHTTPS_Module_Admin_Settings extends Mvied_Plugin_Module implements Mvied_Plugin_Module_Interface {
 
 	/**
 	 * Initialize Module
@@ -49,6 +46,15 @@ class WordPressHTTPS_Module_Admin_Settings extends Mvied_Module implements Mvied
 			'main',
 			'core',
 			array( 'metabox' => 'settings' )
+		);
+		add_meta_box(
+			$this->getPlugin()->getSlug() . '_filters',
+			__( 'URL Filters', $this->getPlugin()->getSlug() ),
+			array($this->getPlugin()->getModule('Admin'), 'meta_box_render'),
+			'toplevel_page_' . $this->getPlugin()->getSlug(),
+			'main',
+			'core',
+			array( 'metabox' => 'filters' )
 		);
 		add_meta_box(
 			$this->getPlugin()->getSlug() . '_updates',
@@ -148,13 +154,13 @@ class WordPressHTTPS_Module_Admin_Settings extends Mvied_Module implements Mvied
 		$errors = array();
 		$reload = false;
 		$logout = false;
-		if ( @$_POST['Reset'] ) {
+		if ( isset($_POST['settings-reset']) ) {
 			foreach ($this->getPlugin()->getSettings() as $key => $default) {
 				$this->getPlugin()->setSetting($key, $default);
 			}
 			$this->getPlugin()->install();
 			$reload = true;
-		} else {
+		} else if ( isset($_POST['settings-save']) ) {
 			foreach ($this->getPlugin()->getSettings() as $key => $default) {
 				if ( !array_key_exists($key, $_POST) && $default == 0 ) {
 					$_POST[$key] = 0;
@@ -183,16 +189,16 @@ class WordPressHTTPS_Module_Admin_Settings extends Mvied_Module implements Mvied
 
 							if ( $ssl_host->toString() != $this->getPlugin()->getHttpsUrl()->toString() ) {
 								// Ensure that the WordPress installation is accessible at this host
-								if ( $ssl_host->isValid() ) {
+								//if ( $ssl_host->isValid() ) {
 									// If secure domain has changed and currently on SSL, logout user
 									if ( $this->getPlugin()->isSsl() ) {
 										$logout = true;
 									}
 									$_POST[$key] = $ssl_host->setPort('');
-								} else {
+								/*} else {
 									$errors[] = '<strong>SSL Host</strong> - Invalid WordPress installation at ' . $ssl_host;
 									$_POST[$key] = get_option($key);
-								}
+								}*/
 							} else {
 								$_POST[$key] = $this->getPlugin()->getHttpsUrl()->toString();
 							}
@@ -227,6 +233,13 @@ class WordPressHTTPS_Module_Admin_Settings extends Mvied_Module implements Mvied
 					$this->getPlugin()->setSetting($key, $_POST[$key]);
 				}
 			}
+		} else if ( isset($_POST['filters-save']) ) {
+			$filters = array_map('trim', explode("\n", $_POST['secure_filter']));
+			$filters = array_filter($filters); // Removes blank array items
+			$this->getPlugin()->setSetting('secure_filter', $filters);
+		} else if ( isset($_POST['filters-reset']) ) {
+			$this->getPlugin()->setSetting('secure_filter', array());
+			$reload = true;
 		}
 
 		if ( $logout ) {

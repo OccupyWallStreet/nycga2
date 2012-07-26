@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: calendar, event, events, ics, ics calendar, ical-feed, ics feed, wordpress ics importer, wordpress ical importer, upcoming events, todo, notes, journal, freebusy, availability, web calendar, web events, webcal, google calendar, ical, iCalendar, all-in-one, ai1ec, google calendar sync, ical sync, events sync, holiday calendar, calendar 2011, events 2011, widget, events widget, upcoming events widget, calendar widget, agenda widget
 Requires at least: 3.2
 Tested up to: 3.4
-Stable tag: 1.7
+Stable tag: 1.7.1
 
 A calendar system with month, week, agenda views, upcoming events widget, color-coded categories, recurrence, and import/export of .ics feeds.
 
@@ -16,6 +16,10 @@ Our new calendar system combines a clean visual design, solid architectural patt
 
 Download the free Premium version at [then.ly](http://then.ly/) and choose from 3 custom designed themes for your Calendar, or develop your own!
 
+**New in version 1.7:** 
+* Bug fixes: JavaScript, theme compatibility, slider conflicts, date selectors
+* Multi-day event UI fixes
+* Un-minified css for easier editing
 
 = Calendar Features For Users =
 
@@ -82,30 +86,41 @@ https://vimeo.com/41738066
 * Filter by post ids (separate ids by comma): **[ai1ec post_id="1, 2"]**
 
 == Changelog ==
-= Version 1.7 =
-* Restored support for WordPress 3.2.x, which fixes numerous JavaScript issues in that version of WordPress
-* Removed opaque background from calendar containers to better match WP theme background
-* Removed jQuery conflicts to reduce issues with colliding JavaScript
-* Fixed display bugs for multi-day events
-* Other bug fixes
+= Version 1.7.1 Premium =
+* AIOEC-186 AIOEC-195: Added compatibility for WordPress 3.4
+* AIOEC-120: Internet Explorer - admin + frontend UI compatibility
+* AIOEC-193: On single events page, the "pm" (or am) appears on the following line in Skeptical Wootheme
+* AIOEC-195: Theme screenshots do not show up in 3.4
 
-= Version 1.6.3 =
+= Version 1.7 Premium =
+* Restored support for WordPress 3.2.x, which fixes numerous JavaScript issues in that version of WordPress
+* Updated jQuery loading to avoid theme, slider, other issues
+* Removed opaque background from calendar containers to better match WP theme background
+* Updated multi-day UI
+* Improved UI for latitude / longitude
+* un-minified css for easier editing
+
+= Version 1.6.3 Premium =
 * Added support for server running versions of php below 5.2.9
 
-= Version 1.6.2 =
+= Version 1.6.2 Premium =
 * Fixed bug that was breaking adding/importing/editing events
 * Enabled updates and update notifications when there is a newer version
 
-= Version 1.6.1 =
+= Version 1.6.1 Premium =
 * Fixed bug that was breaking widget management screen
 * Removed some warnings from month view in certain setups
 
-= Version 1.6 =
+= Version 1.6 Premium =
+* Choose new Calendar Themes
+* Duplicate Events
 * Create Print View
+* Add location details that allow latitude and longitude for areas poorly covered by Google Maps
 * Turn on/off autocomplete for addresses
 * See more intuitive views of multi-day events on weekly and monthly calendars
+* Calendar administration role to allow for dedicated calendar application
 * Security updates
-* Bug Fixes
+* Bug fixes
 
 = Version 1.5 =
 * Added daily view

@@ -156,6 +156,27 @@ class Ai1ec_Event {
 	var $show_map;
 
 	/**
+	 * longitude class variable
+	 *
+	 * @var int
+	 **/
+	var $show_coordinates;
+
+	/**
+	 * longitude class variable
+	 *
+	 * @var float
+	 **/
+	var $longitude;
+
+	/**
+	 * latitude class variable
+	 *
+	 * @var float
+	 **/
+	var $latitude;
+
+	/**
 	 * contact_name class variable
 	 *
 	 * @var string
@@ -324,7 +345,7 @@ class Ai1ec_Event {
 			$select_sql     = "e.post_id, e.recurrence_rules, e.exception_rules, e.allday, " .
 			                  "e.recurrence_dates, e.exception_dates, e.venue, e.country, e.address, e.city, e.province, e.postal_code, " .
 			                  "e.show_map, e.contact_name, e.contact_phone, e.contact_email, e.cost, e.ical_feed_url, e.ical_source_url, " .
-			                  "e.ical_organizer, e.ical_contact, e.ical_uid, " .
+			                  "e.ical_organizer, e.ical_contact, e.ical_uid, e.longitude, e.latitude, e.show_coordinates, " .
 			                  "GROUP_CONCAT( ttc.term_id ) AS categories, " .
 			                  "GROUP_CONCAT( ttt.term_id ) AS tags ";
 
@@ -498,24 +519,32 @@ class Ai1ec_Event {
 
 			case 'timespan_html':
 				$timespan = '';
-				$long_start_date = $this->long_start_date;
-				$long_end_date   = $this->long_end_date;
+				$long_start_date = str_replace( ' ', '&nbsp;', esc_html( $this->long_start_date ) );
+				$long_end_date   = str_replace( ' ', '&nbsp;', esc_html( $this->long_end_date ) );
 
 				if( $this->allday ) {
 					$timespan .= $long_start_date;
-					if( $long_end_date != $long_start_date )
+					if( $long_end_date != $long_start_date ) {
 						$timespan .= " – $long_end_date";
-					$timespan = esc_html( $timespan );
+					}
 					$timespan .= '<span class="ai1ec-allday-label">';
 					$timespan .= __( ' (all-day)', AI1EC_PLUGIN_NAME );
 					$timespan .= '</span>';
-				} else {
-					if( $long_end_date != $long_start_date )
-						$timespan .= esc_html( $this->long_start_time . ' – ' . $this->long_end_time );
-					elseif( $this->start != $this->end )
-						$timespan .= esc_html( $this->long_start_time . ' - ' . $this->end_time );
-					else
-						$timespan .= esc_html( $this->long_start_time );
+				}
+				else {
+					$long_start_time = str_replace( ' ', '&nbsp;', esc_html( $this->long_start_time ) );
+					$long_end_time   = str_replace( ' ', '&nbsp;', esc_html( $this->long_end_time ) );
+					$end_time        = str_replace( ' ', '&nbsp;', esc_html( $this->end_time ) );
+
+					if( $long_end_date != $long_start_date ) {
+						$timespan .= $long_start_time . ' – ' . $long_end_time;
+					}
+					elseif( $this->start != $this->end ) {
+						$timespan .= $long_start_time . ' - ' . $end_time;
+					}
+					else {
+						$timespan .= $long_start_time;
+					}
 				}
 				return $timespan;
 
@@ -719,6 +748,9 @@ class Ai1ec_Event {
 			'ical_feed_url'    => $this->ical_feed_url,
 			'ical_source_url'  => $this->ical_source_url,
 			'ical_uid'         => $this->ical_uid,
+			'show_coordinates' => $this->show_coordinates,
+			'latitude'         => $this->latitude,
+			'longitude'        => $this->longitude,
 		);
 
 		$format = array(
@@ -744,6 +776,9 @@ class Ai1ec_Event {
 			'%s',
 			'%s',
 			'%s',
+			'%d',
+			'%f',
+			'%f',
 		);
 
 		$table_name = $wpdb->prefix . 'ai1ec_events';

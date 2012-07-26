@@ -195,16 +195,24 @@ jQuery(document).ready(function($){
         
         for (var post_type_name in postTax)
         {
-            for (var taxonomy_name in postTax[post_type_name])
+            for (var taxonomy_name in postTax[post_type_name].taxonomies)
             {
                 $("#chkReqTaxonomy-" + post_type_name + "-" + taxonomy_name).attr('checked', false);
                 $("#chkReqTerms-" + post_type_name + "-" + taxonomy_name).attr('checked', false);
                 $("#chkIncldTerms-" + post_type_name + "-" + taxonomy_name).attr('checked', false);
                 
-                for (var term in taxTerms[taxonomy_name])
+//                var a1 = taxTerms[taxonomy_name];
+//                var a2 = taxTerms[taxonomy_name]['terms'];
+                var terms = taxTerms[taxonomy_name].terms;
+                
+//                for (var i = 0; i < taxTerms[taxonomy_name].terms; i++)
+//                {
+//                    $("#chkTerm-" + post_type_name + "-" + taxonomy_name + '-' + term).attr('checked',false)
+//                }
+                for (var term in terms)
                 {
                     
-                    $("#chkTerm-" + post_type_name + "-" + taxonomy_name + '-' + taxTerms[taxonomy_name][term]['term_id']).attr('checked',false)
+                    $("#chkTerm-" + post_type_name + "-" + taxonomy_name + '-' + terms[term]).attr('checked',false)
                     
                 }
                 
@@ -216,7 +224,8 @@ jQuery(document).ready(function($){
     function set_parent(parentArr)
     {
         reset_parent();
-        
+        //parentArr.toArray();
+        parentArr = jQuery.makeArray(parentArr); 
         
         for (var post_type_name in postTax)
         {
@@ -252,6 +261,7 @@ jQuery(document).ready(function($){
             save_preset();
         }
     });
+    //// RETURN TRUE IF AN EVENT OCCURED
     function save_preset_precheck()
     {
         if (!check_required())
@@ -272,7 +282,7 @@ jQuery(document).ready(function($){
         for (var post_type_name in postTax)
         {
             var require_taxonomy = new Array();
-            for (var taxonomy_name in postTax[post_type_name])
+            for (var taxonomy_name in postTax[post_type_name].taxonomies)
             {
                 require_taxonomy[taxonomy_name] = new Array();
                 require_taxonomy[taxonomy_name]['require'] = $("#chkReqTaxonomy-" + post_type_name + "-" + taxonomy_name).is(':checked');
@@ -280,9 +290,10 @@ jQuery(document).ready(function($){
                 var include_terms = $("#chkIncldTerms-" + post_type_name + "-" + taxonomy_name).is(':checked');
                 require_taxonomy[taxonomy_name]['count'] = 0;
                 
-                for (var term in taxTerms[taxonomy_name])
+                var terms = taxTerms[taxonomy_name].terms;
+                for (var term in terms)
                 {
-                    if ($("#chkTerm-" + post_type_name + "-" + taxonomy_name + '-' + taxTerms[taxonomy_name][term]['term_id']).is(':checked'))
+                    if ($("#chkTerm-" + post_type_name + "-" + taxonomy_name + '-' + terms[term]).is(':checked'))
                     {
                         require_taxonomy[taxonomy_name]['count']++;
                     }
@@ -410,6 +421,7 @@ jQuery(document).ready(function($){
             action: 'APL_handler_save_preset',
             _ajax_nonce : savePresetNonce
         }
+        //css style bug fix
         var btn_height = $('#btnSavePreset').height() + 2;
         var btn_width = $('#btnSavePreset').width() + 2;
         $('#btnSavePreset').html("Saving...");
@@ -477,26 +489,26 @@ jQuery(document).ready(function($){
         {
             var tmp_taxonomies = new Object();
             var post_type_used = false;
-            for (var taxonomy_name in postTax[post_type_name])
+            for (var taxonomy_name in postTax[post_type_name].taxonomies)
             {
-                var terms = new Array();
+                var tmp_terms = new Array();
                 var i = 0;
-                for (var term in taxTerms[taxonomy_name])
+                var terms = taxTerms[taxonomy_name].terms;
+                for (var term in terms)
                 {
-                    if ($("#chkTerm-" + post_type_name + "-" + taxonomy_name + '-' + taxTerms[taxonomy_name][term]['term_id']).is(':checked'))
+                    if ($("#chkTerm-" + post_type_name + "-" + taxonomy_name + '-' + terms[term]).is(':checked'))
                     {
-                        terms[i] = taxTerms[taxonomy_name][term]['term_id']
+                        tmp_terms[i] = terms[term];
                         i++;
                     }
                 }
-                if (i > 0 || $("#chkReq-" + post_type_name + "-" + taxonomy_name).is(':checked') || $("#chkIncld-" + post_type_name + "-" + taxonomy_name).is(':checked')
-                    )
-                    {
+                if (i > 0 || $("#chkIncldTerms-" + post_type_name + "-" + taxonomy_name).is(':checked'))
+                {
                     tmp_taxonomies[taxonomy_name] = new Object();
                     tmp_taxonomies[taxonomy_name].require_taxonomy = $("#chkReqTaxonomy-" + post_type_name + "-" + taxonomy_name).is(':checked');
                     tmp_taxonomies[taxonomy_name].require_terms = $("#chkReqTerms-" + post_type_name + "-" + taxonomy_name).is(':checked');
                     tmp_taxonomies[taxonomy_name].include_terms = $("#chkIncldTerms-" + post_type_name + "-" + taxonomy_name).is(':checked');
-                    tmp_taxonomies[taxonomy_name].terms = terms;
+                    tmp_taxonomies[taxonomy_name].terms = tmp_terms;
 
                     post_type_used = true;
                 }
@@ -518,6 +530,29 @@ jQuery(document).ready(function($){
         
         var parentIDs = new Array();
         var rtnArray = new Array();
+        var unique = function(origArr) 
+        {  
+            var newArr = [],  
+            origLen = origArr.length,  
+            found,  
+            x, y;  
+  
+            for ( x = 0; x < origLen; x++ ) 
+            {  
+                found = undefined;  
+                for ( y = 0; y < newArr.length; y++ ) 
+                {  
+                    if ( origArr[x] === newArr[y] ) 
+                    {  
+                        found = true;  
+                        break;  
+                    }  
+                }  
+                if ( !found) newArr.push( origArr[x] );  
+            }  
+            return newArr;  
+        };
+        
         var i = 0;
         for (var post_type_name in postTax)
         {
@@ -531,6 +566,8 @@ jQuery(document).ready(function($){
                 }
             }
         }
+        //TODO make array unique
+        rtnArray = unique(rtnArray);
         return rtnArray;
     }
     

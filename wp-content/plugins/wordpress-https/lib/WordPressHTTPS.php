@@ -43,6 +43,7 @@ class WordPressHTTPS extends Mvied_Plugin {
 		'ssl_proxy' =>              0,       // Proxy detection
 		'debug' =>                  0,       // Debug Mode
 		'admin_menu' =>             'side',  // HTTPS Admin Menu location
+		'secure_filter' =>          array(), // Array of expressions to secure URL's against
 	);
 
 	/**
@@ -170,10 +171,9 @@ class WordPressHTTPS extends Mvied_Plugin {
 	 * @return boolean
 	 */
 	public function isUrlLocal($url) {
-		$string = $url;
-		$url = WordPressHTTPS_Url::fromString($string);
+		$url_parts = parse_url($url);
 
-		if ( $this->getHttpUrl()->getHost() != $url->getHost() && $this->getHttpsUrl()->getHost() != $url->getHost() ) {
+		if ( $url_parts && $this->getHttpUrl()->getHost() != $url_parts['host'] && $this->getHttpsUrl()->getHost() != $url_parts['host'] ) {
 			return false;
 		} else {
 			return true;
@@ -188,22 +188,41 @@ class WordPressHTTPS extends Mvied_Plugin {
 	 */
 	public function makeUrlHttps( $string ) {
 		$url = WordPressHTTPS_Url::fromString( $string ); // URL to replace HTTP URL
-		if ( $url && $this->isUrlLocal($url) ) {
-			$url->setScheme('https');
-			$url->setHost($this->getHttpsUrl()->getHost());
-			$url->setPort($this->getHttpsUrl()->getPort());
+		if ( $url ) {
+			if ( $this->isUrlLocal($url) ) {
+				$url->setScheme('https');
+				$url->setHost($this->getHttpsUrl()->getHost());
+				$url->setPort($this->getHttpsUrl()->getPort());
 
-			if ( $this->getSetting('ssl_host_diff') && strpos($url->getPath(), $this->getHttpsUrl()->getPath()) === false ) {
-				if ( $this->getHttpUrl()->getPath() == '/' ) {
-					$url->setPath(rtrim($this->getHttpsUrl()->getPath(), '/') . $url->getPath());
-				} else {
-					$url->setPath(str_replace($this->getHttpUrl()->getPath(), $this->getHttpsUrl()->getPath(), $url->getPath()));
+				if ( $this->getSetting('ssl_host_diff') && strpos($url->getPath(), $this->getHttpsUrl()->getPath()) === false ) {
+					if ( $this->getHttpUrl()->getPath() == '/' ) {
+						$url->setPath(rtrim($this->getHttpsUrl()->getPath(), '/') . $url->getPath());
+					} else {
+						$url->setPath(str_replace($this->getHttpUrl()->getPath(), $this->getHttpsUrl()->getPath(), $url->getPath()));
+					}
+				}
+
+				$string = $url->toString();
+			} else {
+				if ( $url->getScheme() == 'http' && @in_array($url, $this->getSetting('secure_external_urls')) == false && @in_array($url, $this->getSetting('unsecure_external_urls')) == false ) {
+					$test_url = clone $url;
+					$test_url->setScheme('https');
+					if ( $test_url->isValid() ) {
+						// Cache this URL as available over HTTPS for future reference
+						$this->addSecureExternalUrl($url->toString());
+					} else {
+						// If not available over HTTPS, mark as an unsecure external URL
+						$this->addUnsecureExternalUrl($url->toString());
+					}
+				}
+
+				if ( in_array($url->toString(), $this->getSetting('secure_external_urls')) ) {
+					$string = str_replace($url, str_replace('http://', 'https://', $url), $string);
 				}
 			}
-			return $url->toString();
-		} else {
-			return $string;
+			unset($url);
 		}
+		return $string;
 	}
 
 	/**
@@ -214,18 +233,61 @@ class WordPressHTTPS extends Mvied_Plugin {
 	 */
 	public function makeUrlHttp( $string ) {
 		$url = WordPressHTTPS_Url::fromString( $string ); // URL to replace HTTP URL
-		if ( $url && $this->isUrlLocal($url) ) {
-			$url->setScheme('http');
-			$url->setHost($this->getHttpUrl()->getHost());
-			$url->setPort($this->getHttpUrl()->getPort());
+		if ( $url ) {
+			if ( $this->isUrlLocal($url) ) {
+				$url->setScheme('http');
+				$url->setHost($this->getHttpUrl()->getHost());
+				$url->setPort($this->getHttpUrl()->getPort());
 
-			if ( $this->getSetting('ssl_host_diff') && strpos($url->getPath(), $this->getHttpsUrl()->getPath()) !== false ) {
-				$url->setPath(str_replace($this->getHttpsUrl()->getPath(), $this->getHttpUrl()->getPath(), $url->getPath()));
+				if ( $this->getSetting('ssl_host_diff') && strpos($url->getPath(), $this->getHttpsUrl()->getPath()) !== false ) {
+					$url->setPath(str_replace($this->getHttpsUrl()->getPath(), $this->getHttpUrl()->getPath(), $url->getPath()));
+				}
+
+				$string = $url->toString();
+			} else {
+				if ( $url ) {
+					$string = str_replace($url, str_replace('https://', 'http://', $url), $string);
+				}
 			}
-			return $url->toString();
-		} else {
-			return $string;
+			unset($url);
 		}
+		return $string;
+	}
+
+	/**
+	 * Add Secure External URL
+	 *
+	 * @param string $value
+	 * @return $this
+	 */
+	public function addSecureExternalUrl( $value ) {
+		if ( trim($value) == '' ) {
+			return $this;
+		}
+
+		$secure_external_urls = (array) $this->getSetting('secure_external_urls');
+		array_push($secure_external_urls, (string) $value);
+		$this->setSetting('secure_external_urls', $secure_external_urls);
+
+		return $this;
+	}
+
+	/**
+	 * Add Unsecure External URL
+	 *
+	 * @param string $value
+	 * @return $this
+	 */
+	public function addUnsecureExternalUrl( $value ) {
+		if ( trim($value) == '' ) {
+			return $this;
+		}
+
+		$unsecure_external_urls = (array) $this->getSetting('unsecure_external_urls');
+		array_push($unsecure_external_urls, (string) $value);
+		$this->setSetting('unsecure_external_urls', $unsecure_external_urls);
+
+		return $this;
 	}
 
 	/**
@@ -276,7 +338,11 @@ class WordPressHTTPS extends Mvied_Plugin {
 		}
 
 		if ( $url ) {
-			$path = $_SERVER['REQUEST_URI'];
+			$path = ( isset($_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : $_SERVER['REQUEST_URI'] );
+			if ( strpos($_SERVER['REQUEST_URI'], '?') !== false && isset($_SERVER['REDIRECT_URL']) && strpos($_SERVER['REDIRECT_URL'], '?') === false ) {
+				$path .= substr($_SERVER['REQUEST_URI'], strpos($_SERVER['REQUEST_URI'], '?'));
+			}
+
 			if ( $this->getHttpsUrl()->getPath() != '/' ) {
 				$path = str_replace($this->getHttpsUrl()->getPath(), '', $path);
 			}
@@ -294,6 +360,16 @@ class WordPressHTTPS extends Mvied_Plugin {
 				} else {
 					$url->setPath(rtrim($this->getHttpUrl()->getPath(), '/') . '/' . $path);
 				}
+			}
+
+			// Use a cookie to detect redirect loops
+			$redirect_count = ( isset($_COOKIE['redirect_count']) && is_numeric($_COOKIE['redirect_count']) ? (int)$_COOKIE['redirect_count']+1 : 1 );
+			setcookie('redirect_count', $redirect_count, 0, '/');
+			// If redirect count is greater than 2, prevent redirect and log the redirect loop
+			if ( $redirect_count > 2 ) {
+				setcookie('redirect_count', null, -time(), '/');
+				$this->getLogger()->log('[ERROR] Redirect Loop!');
+				return;
 			}
 
 			// Redirect

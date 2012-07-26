@@ -1,7 +1,7 @@
 <?php
 
 define ( 'BP_GROUPBLOG_IS_INSTALLED', 1 );
-define ( 'BP_GROUPBLOG_VERSION', '1.7.1' );
+define ( 'BP_GROUPBLOG_VERSION', '1.8' );
 
 // Define default roles
 if ( !defined( 'BP_GROUPBLOG_DEFAULT_ADMIN_ROLE' ) )
@@ -72,7 +72,7 @@ if ( version_compare( $bp_version, '1.3', '<' ) ) {
  * Add language support.
  */
 if ( file_exists( WP_PLUGIN_DIR . '/bp-groupblog/languages/groupblog-' . get_locale() . '.mo' ) )
-	load_textdomain( 'groupblog', WP_PLUGIN_DIR . '/bp-groupblog/languages/groupblog-' . get_locale() . '.mo' );
+	load_plugin_textdomain( 'groupblog', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 /**
  * bp_groupblog_setup_globals()
@@ -107,7 +107,21 @@ function bp_groupblog_setup_nav() {
 
 			$parent_slug = isset( $bp->bp_nav[$bp->groups->current_group->slug] ) ? $bp->groups->current_group->slug : $bp->groups->slug;
 
-			if ( bp_groupblog_is_blog_enabled( $bp->groups->current_group->id ) )
+			if (
+
+				// existing groupblog logic
+				bp_groupblog_is_blog_enabled( $bp->groups->current_group->id )
+
+				OR
+
+				// mahype's fixes for the non-appearance of the groupblog tab
+				// with the addition of a check for the array key to prevent PHP notices.
+				(
+					isset( $_POST['groupblog-create-new'] ) AND
+					$_POST['groupblog-create-new'] == 'yes'
+				)
+
+			) {
 				bp_core_new_subnav_item(
 					array(
 						'name' => __( 'Blog', 'groupblog' ),
@@ -119,7 +133,7 @@ function bp_groupblog_setup_nav() {
 						'item_css_id' => 'group-blog'
 					)
 				);
-
+			}
 		}
 	}
 }
@@ -247,14 +261,12 @@ function groupblog_edit_base_settings( $groupblog_enable_blog, $groupblog_silent
  * Runs whenever member permissions are changed and saved - by Boone
  */
 function bp_groupblog_member_join( $group_id ) {
-	global $bp, $wpdb, $username, $blog_id, $userdata, $current_blog;
-
 	$params = array(
 		'exclude_admins_mods'	=> 0,
 		'per_page'		=> 10000,
 		'group_id'		=> $group_id
 	);
-	
+
 	if ( bp_group_has_members( $params ) ) {
 		$blog_id = groups_get_groupmeta( $group_id, 'groupblog_blog_id' );
 		$group   = groups_get_group( array( 'group_id' => $group_id ) );
@@ -310,7 +322,7 @@ function bp_groupblog_upgrade_user( $user_id, $group_id, $blog_id = false ) {
 				}
 			}
 		}
-		
+
 		if ( empty( $bp->groups->current_group->modlist ) ) {
 			$bp->groups->current_group->modlist = array();
 			if ( isset( $bp->groups->current_group->mods ) ) {
@@ -321,7 +333,7 @@ function bp_groupblog_upgrade_user( $user_id, $group_id, $blog_id = false ) {
 				}
 			}
 		}
-		
+
 		if ( in_array( $user_id, $bp->groups->current_group->adminlist ) ) {
 			$user_group_status = 'admin';
 		} elseif ( in_array( $user_id, $bp->groups->current_group->modlist ) ) {
@@ -342,7 +354,7 @@ function bp_groupblog_upgrade_user( $user_id, $group_id, $blog_id = false ) {
 			return false;
 		}
 	}
-	
+
 	switch ( $user_group_status ) {
 		case 'admin' :
 			$default_role = $groupblog_default_admin_role;
@@ -510,19 +522,19 @@ function bp_groupblog_create_screen_save() {
  */
 function bp_groupblog_show_blog_form( $blogname = '', $blog_title = '', $errors = '' ) {
 	global $bp, $groupblog_create_screen, $current_site;
-	
+
 	// Get the group id, which is fetched differently depending on whether this is a group
 	// Create or Edit screen
 	$group_id = bp_is_group_create() ? bp_get_new_group_id() : bp_get_current_group_id();
-	
+
 	$blog_id = get_groupblog_blog_id();
-	
+
 	$disabled = bp_groupblog_is_blog_enabled( $group_id ) ? '' : ' disabled="true" ';
-	
+
 	?>
-	
+
 	<div id="blog-details-fields">
-	
+
 	<?php if ( !$groupblog_create_screen && $blog_id != '' ) : ?>
 		<?php /* We're showing the admin form */ ?>
 		<?php $blog_details = get_blog_details( get_groupblog_blog_id(), true ); ?>
@@ -532,33 +544,33 @@ function bp_groupblog_show_blog_form( $blogname = '', $blog_title = '', $errors 
 		<?php } ?>
 		<p><?php echo $blog_details->blogname; ?></p>
 		<input name="blog_title" type="hidden" id="blog_title" value="<?php echo $blog_details->blogname; ?>" />
-		
+
 		<label for="blogname"><strong><?php _e( 'Blog Address:', 'groupblog' ) ?></strong></label>
 		<?php if ( $errmsg = $errors->get_error_message('blogname') ) : ?>
 			<p class="error"><?php echo $errmsg ?></p>
 		<?php endif ?>
-		
+
 		<p><em><?php echo $blog_details->siteurl; ?> </em></p>
 		<input name="blogname" type="hidden" id="blogname" value="<?php echo $blog_details->siteurl; ?>" maxlength="50" />
-		
+
 		<div id="uncouple-blog">
 			<label for="uncouple"><?php printf( __( 'Uncouple the blog "%1$s" from the group "%2$s":', 'groupblog' ), $blog_details->blogname, $bp->groups->current_group->name ) ?></label>
-			
+
 			<p class="description"><?php printf( __( '<strong>Note:</strong> Uncoupling will remove the blog from your group&#8217;s navigation and prevent future synchronization of group members and blog authors, but it will not remove change blog permissions for any current member. Visit <a href="%1$s">the Users panel</a> if you&#8217;d like to remove users from the blog.', 'groupblog' ), $blog_details->siteurl . '/wp-admin/users.php' ) ?></p>
-			
-			<a class="button" href="<?php echo wp_nonce_url( bp_get_group_permalink( $bp->groups->current_group ) . 'admin/group-blog/uncouple', 'groupblog-uncouple' ) ?>">Uncouple</a>
-			
+
+			<a class="button" href="<?php echo wp_nonce_url( bp_get_group_permalink( $bp->groups->current_group ) . 'admin/group-blog/uncouple', 'groupblog-uncouple' ) ?>"><?php _e( 'Uncouple', 'groupblog' ); ?></a>
+
 		</div>
-		
+
 		<?php $bp->groups->current_group->status == 'public' ? $group_public = '1' : $group_public = '0'; ?>
 		<input type="hidden" id="blog_public" name="blog_public" value="<?php echo $group_public ?>" />
 		<input type="hidden" id="groupblog_create_screen" name="groupblog_create_screen" value="<?php echo $groupblog_create_screen; ?>" />
-	
+
 	<?php else : ?>
 		<?php /* Showing the create screen form */ ?>
-	
+
 		<p><?php _e( 'Choose either one of your existing blogs or create a new one all together with the details displayed below.', 'groupblog' ); ?><br /><?php _e('Take care as you can only choose once.  Later you may still disable or enable the blog, but your choice is set.', 'groupblog' ); ?></p>
-	
+
 		<p>
 			<input <?php echo $disabled ?> type="radio" value="no" name="groupblog-create-new" /><span>&nbsp;<?php _e( 'Use one of your own available blogs:', 'groupblog' ); ?>&nbsp;</span>
 
@@ -567,7 +579,7 @@ function bp_groupblog_show_blog_form( $blogname = '', $blog_title = '', $errors 
 			<select <?php echo $disabled ?> name="groupblog-blogid" id="groupblog-blogid">
 				<option value="0"><?php _e( 'choose a blog', 'groupblog' ) ?></option>
 				<?php
-				
+
 				foreach( (array)$user_blogs as $user_blog ) {
 					if ( !get_groupblog_group_id( $user_blog->userblog_id ) ) : ?>
 						<option value="<?php echo $user_blog->userblog_id; ?>"><?php echo $user_blog->blogname; ?></option>
@@ -576,34 +588,34 @@ function bp_groupblog_show_blog_form( $blogname = '', $blog_title = '', $errors 
 				} ?>
 			</select>
 		</p>
-	
+
 		<p>
 			<input <?php echo $disabled ?> type="radio" value="yes" name="groupblog-create-new" checked="checked" /><span>&nbsp;<?php _e( 'Or, create a new blog', 'groupblog' ); ?></span>
 		</p>
-		
+
 		<ul id="groupblog-details">
 			<li>
 				<label class="groupblog-label" for="blog_title"><strong><?php _e( 'Blog Title:', 'groupblog' ) ?></strong></label>
-				
+
 				<?php if ( $errmsg = $errors->get_error_message('blog_title') ) : ?>
 					<span class="error"><?php echo $errmsg ?></span>
 				<?php endif ?>
-				
+
 				<?php $blog_title = isset( $_GET['invalid_name'] ) ? urldecode( $_GET['invalid_name'] ) : $bp->groups->current_group->name ?>
-				
+
 				<span class="gbd-value">
 					<input name="blog_title" type="text" id="blog_title" value="<?php echo $blog_title ?>" />
 				</span>
 			</li>
-			
+
 			<li>
 				<label class="groupblog-label" for="blogname"><strong><?php _e( 'Blog Address:', 'groupblog' ) ?></strong></label>
 				<?php if ( $errmsg = $errors->get_error_message('blogname') ) : ?>
 					<span class="error"><?php echo $errmsg ?></span>
 				<?php endif ?>
-				
+
 				<?php $blog_address = isset( $_GET['invalid_address'] ) ? urldecode( $_GET['invalid_address'] ) : bp_groupblog_sanitize_blog_name( $bp->groups->current_group->slug ) ?>
-				
+
 				<?php if (is_subdomain_install()) : ?>
 					<span class="gbd-value"><em>http://</em><input name="blogname" type="text" id="blogname" value="<?php echo $blog_address; ?>" maxlength="50" /><em><?php echo $current_site->domain . $current_site->path ?></em></span>
 				<?php else : ?>
@@ -612,16 +624,16 @@ function bp_groupblog_show_blog_form( $blogname = '', $blog_title = '', $errors 
 
 			</li>
 		</ul>
-		
+
 		<?php $bp->groups->current_group->status == 'public' ? $group_public = '1' : $group_public = '0'; ?>
 		<input type="hidden" id="blog_public" name="blog_public" value="<?php echo $group_public ?>" />
 		<input type="hidden" id="groupblog_create_screen" name="groupblog_create_screen" value="<?php echo $groupblog_create_screen; ?>" />
-		
+
 	<?php endif ?>
-	
+
 	</div>
 	<?php
-	
+
 	do_action( 'signup_blogform', $errors );
 }
 
@@ -721,15 +733,15 @@ function bp_groupblog_validate_blog_form() {
  */
 function bp_groupblog_sanitize_blog_name( $group_name = '' ) {
 	$checks = get_site_option('bp_groupblog_blog_defaults_options');
-				
+
 	$baddies = array ();
 	if ( $checks['allowdashes'] != '1' )
 		$baddies[] = '-';
 	if ( $checks['allowunderscores'] != '1' )
 		$baddies[] = '_';
-	
+
 	$blog_address = str_replace ( $baddies, '', $group_name );
-	
+
 	return $blog_address;
 }
 
@@ -741,22 +753,22 @@ function bp_groupblog_sanitize_blog_name( $group_name = '' ) {
 function bp_groupblog_process_uncouple() {
 	if ( bp_is_group() && bp_is_current_action( 'admin' ) && bp_is_action_variable( 'group-blog', 0 ) && bp_is_action_variable( 'uncouple', 1 ) ) {
 		check_admin_referer( 'groupblog-uncouple' );
-		
+
 		if ( !bp_group_is_admin() ) {
 			bp_core_add_message( __( 'You must be a group admin to perform this action.', 'groupblog' ), 'error' );
 			bp_core_redirect( bp_get_group_permalink( groups_get_current_group() ) );
 		}
-		
+
 		$blog_id = get_groupblog_blog_id();
 
 		// If groupblog is enabled, disable it
 		groups_update_groupmeta( bp_get_current_group_id(), 'groupblog_enable_blog', 0 );
-		
+
 		// Unset the groupblog ID
 		groups_update_groupmeta( bp_get_current_group_id(), 'groupblog_blog_id', '' );
-		
+
 		bp_core_add_message( __( 'Blog uncoupled.', 'groupblog' ) );
-		
+
 		// Redirect to the groupblog admin
 		bp_core_redirect( bp_get_group_permalink( groups_get_current_group() ) . 'admin/group-blog' );
 	}
@@ -938,11 +950,11 @@ function bp_groupblog_validate_blog_signup() {
 
 	if ( $errors->get_error_code() ) {
 		$message = '';
-		$message .= $errors->get_error_message('blogname');
-		$message .= __( ' We suggest adjusting the blog address below, in accordance with the following requirements:', 'groupblog' );
+		$message .= $errors->get_error_message('blogname') . '<br />';
+		$message .= __( ' We suggest adjusting the blog address below, in accordance with the following requirements:', 'groupblog' ) . '<br />';
 		if ( $checks['allowunderscores'] != '1' || $checks['allowdashes'] != '1' )
-			$message .= __( ' &raquo; Only letters and numbers allowed.', 'groupblog' );
-		$message .= sprintf( __( ' &raquo; Must be at least %s characters.', 'groupblog' ), $checks['minlength'] );
+			$message .= __( ' &raquo; Only letters and numbers allowed.', 'groupblog' ) . '<br />';
+		$message .= sprintf( __( ' &raquo; Must be at least %s characters.', 'groupblog' ), $checks['minlength'] ) . '<br />' ;
 		if ( $checks['allownumeric'] != '1' )
 			$message .= __( ' &raquo; Has to contain letters as well.', 'groupblog' );
 		bp_core_add_message( $message, 'error' );
@@ -1054,7 +1066,7 @@ function bp_groupblog_set_group_to_post_activity( $activity ) {
 	$activity->item_id = (int)$group_id;
 	$activity->component = 'groups';
 	$activity->hide_sitewide = 0;
-	
+
 	remove_action( 'bp_activity_before_save', 'bp_groupblog_set_group_to_post_activity');
 	return $activity;
 }

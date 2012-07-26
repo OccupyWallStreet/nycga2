@@ -1,7 +1,7 @@
 /*
 Theme Name: NYCGA 2012
 Description: Three column bp-default based child theme.
-Version: 1.0
+Version: 2.0
 Author: Internet Working Group of the NY General Assembly
 Template: bp-default
 Author URI: http://www.nycga.net
@@ -14,6 +14,22 @@ Tags: buddypress, three-column, multi-site
 @import url('css/font-oswald.css');
 @import url('css/type.css');
 @import url('css/events.css');
+
+/*
+--------------------------------------------------------------
+ Body
+--------------------------------------------------------------
+*/
+
+body {
+	width: 100%;
+}
+
+div.wrapper {
+	margin: 0 auto;
+	border: 1px solid blue;
+}
+
 
 /*
 --------------------------------------------------------------
@@ -254,7 +270,10 @@ Tags: buddypress, three-column, multi-site
 --------------------------------------------------------------
 */
 
-#footer {}
+#footer {
+	clear:both;
+	margin-top: 5em;
+}
 
 #footer .widget { margin-bottom:1em; }
 
@@ -381,7 +400,9 @@ Tags: buddypress, three-column, multi-site
 a.button{}
 
 .like,
-.button {
+.button,
+a.em-event-delete,
+a.em-event-rec-delete {
 	background: white;
 	background: -moz-linear-gradient(top, white 0%, #EDEDED 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white), color-stop(100%,#EDEDED));

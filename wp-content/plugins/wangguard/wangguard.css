@@ -16,7 +16,7 @@ a.wangguard-recheck {
 	font-weight:normal;
 }
 
-.wangguard-delete-question {
+.wangguard-delete-question , .wangguard-delete-cronjob {
 	color: #BC0B0B;
 	font-weight:normal;
 	font-size: 11px;
@@ -39,14 +39,14 @@ a.wangguard-recheck {
 	color: #d54e21;
 }
 
-.wangguard-question {
+.wangguard-question , .wangguard-cronjob {
 	padding: 15px 10px;
 	margin-bottom: 15px;
 	border: 1px solid #d0d0d0;
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-#wangguardnewquestionerror {
+#wangguardnewquestionerror , #wangguardnewconjoberror {
 	margin: 15px 0;
 	padding: 10px;
 	font-size: 11px;
@@ -292,9 +292,15 @@ wangguard-confico img {
 	background: url('img/security-bg.png') bottom right no-repeat;
 	padding: 10px 20px 30px;
 }
-#wangguard-conf-settings {
+#wangguard-conf-settings, #wangguard-conf-cron {
 	background: url('img/settings-bg.png') bottom right no-repeat;
 	padding: 10px 20px 70px;
+}
+#wangguard-conf-questions h4 , #wangguard-conf-cron h4 {
+	padding-bottom: 3px;
+	border-bottom: 1px solid #c0c0c0;
+	margin-top: 25px;
+	margin-bottom: 10px;
 }
 #wangguard-conf-domains {
 	background: url('img/blocked-bg.png') bottom right no-repeat;
@@ -310,6 +316,19 @@ wangguard-confico img {
 	margin: 10px 0px -25px 0px;
 	clear: both;
 }
+#wangguard-users-cont {
+	background: url('img/users-bg.png') bottom right no-repeat;
+	padding: 10px 20px 150px;
+	margin: 10px 0px -25px 0px;
+	clear: both;
+}
+#wangguard-users-cont .wangguard-confico {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+#wangguard-users-cont p.search-box {
+	clear: right;
+}
 #wangguard-wizard-cont {
 	background: url('img/wizard-bg.png') bottom right no-repeat;
 	padding: 10px 20px 150px;
@@ -321,4 +340,86 @@ wangguard-confico img {
 	padding: 10px 20px 150px;
 	margin: 10px 0px -25px 0px;
 	clear: both;
+}
+.wangguard_proxy {
+	font-size: 11px;
+	color: #BC0B0B;
+}
+.wangguard-user-ip {
+	white-space: nowrap;
+	margin-bottom: 5px;
+}
+
+#wangguard-deleteallsplcont {
+	margin-left: 15px;
+}
+#wangguard-deleteallspl {
+	display: inline-block;
+}
+#wangguard-deleteallspl:hover {
+	color: #fff;
+}
+.mshot-container {
+    background: none repeat scroll 0 0 #5C5C5C;
+    border-radius: 6px 6px 6px 6px;
+    height: 338px;
+    padding: 7px;
+    position: absolute;
+    top: -94px;
+    width: 450px;
+    z-index: 20000;
+}
+.mshot-arrow-right {
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #5C5C5C;
+    border-top: 10px solid transparent;
+    height: 0;
+    right: -6px;
+    position: absolute;
+    top: 91px;
+    width: 0;
+}
+.wangguard-ipinfo-container {
+    background: none repeat scroll 0 0 #5C5C5C;
+    border-radius: 6px 6px 6px 6px;
+	padding: 10px;
+    padding: 7px;
+    position: absolute;
+    top: -94px;
+    width: 350px;
+    z-index: 20000;
+	line-height: 20px;
+/*    height: 160px;*/
+}
+.wangguard-ipdata-container {
+	background-color: #fff;
+	padding: 10px;
+    border-radius: 6px 6px 6px 6px;
+/*    height: 140px;*/
+	font-size: 12px;
+    white-space: normal;
+}
+.wangguard-ipdata-container h1 {
+	font-weight:bold;
+	font-size: 22px;
+	line-height: 34px;
+	padding: 0px;
+	margin: 0px 0px 10px;
+}
+.wangguard-ipdata-container h1 .icon32 {
+	padding: 0px;
+	margin: 0px 5px 0px 0px;
+}
+.wangguard-ipdata-wait {
+	margin-left: 157px;
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+div.wangguard-user-ip span.wangguard-user-ip-bb {
+	border-bottom: 1px dashed #555555;
+	cursor: pointer;
+}
+.wangguard_select option {
+	padding-left: 4px !important;
+	padding-right: 4px !important;
 }

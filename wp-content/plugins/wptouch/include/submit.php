@@ -257,18 +257,6 @@ if ( isset( $_POST['submit'] ) ) {
 	} else {
 		$a['ad_service'] = 'none';	
 	}	
-	
-	if ( isset( $_POST['appstores_pub_id'] ) ) {
-		$a['appstores_pub_id'] = $_POST['appstores_pub_id'];
-	} else {
-		$a['appstores_pub_id'] = '';
-	}
-	
-	if ( isset( $_POST['appstores_ad_pages'] ) ) {
-		$a['appstores_ad_pages'] = $_POST['appstores_ad_pages'];
-	} else {
-		$a['appstores_ad_pages'] = '';
-	}
 
 	foreach ($_POST as $k => $v) {
 		if ($k == 'enable_main_title') {

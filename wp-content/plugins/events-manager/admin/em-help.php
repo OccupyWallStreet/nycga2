@@ -23,7 +23,7 @@ function em_admin_help_page(){
 				If you can't find what you're looking for in the documentation, you may find help on our <a href="http://wp-events-plugin.com/forums/">support forums</a>. 
 			</p>
 			<h2><?php _e('Placeholders for customizing event pages','dbem'); ?></h2>
-			<p><?php echo sprintf( __("In the <a href='%s'>settings page</a>, you'll find various textboxes where you can edit how event information looks, such as for event and location lists. Using the placeholders below, you can choose what information should be displayed.",'dbem'), 'admin.php?page=events-manager-options'); ?></p>
+			<p><?php echo sprintf( __("In the <a href='%s'>settings page</a>, you'll find various textboxes where you can edit how event information looks, such as for event and location lists. Using the placeholders below, you can choose what information should be displayed.",'dbem'), EM_ADMIN_URL .'&amp;events-manager-options'); ?></p>
 			<a name="event-placeholders"></a>
 			<h3 style="margin-top:20px;"><?php _e('Event Related Placeholders','dbem'); ?></h3>
 			<?php echo em_docs_placeholders( array('type'=>'events') ); ?>
@@ -50,7 +50,7 @@ function em_admin_help_page(){
 		   		<p>If something went wrong with the update to version 3 read on:</p>
 		   		<h4>Scenario 1: the plugin is working, but for some reason the old events weren't imported</h4>
 		   		<p>You can safely reimport your old events from the previous tables without any risk of deleting them. However, if you click the link below <b>YOU WILL OVERWRITE ANY NEW EVENTS YOU CREATED IN VERSION 3</b></p>
-				<p><a onclick="return confirm('Are you sure you want to do this? Any new changes made since updating will be overwritten by your old ones, and this cannot be undone');" href="<?php echo wp_nonce_url( get_bloginfo('wpurl').'/wp-admin/admin.php?page=events-manager-help&em_reimport=1', 'em_reimport' ) ?>">Reimport Events from version 2</a></p>
+				<p><a onclick="return confirm('Are you sure you want to do this? Any new changes made since updating will be overwritten by your old ones, and this cannot be undone');" href="<?php echo wp_nonce_url( EM_ADMIN_URL .'&amp;events-manager-help&em_reimport=1', 'em_reimport' ) ?>">Reimport Events from version 2</a></p>
 				<h4>Scenario 2: the plugin is not working, I want to go back to version 2!</h4>
 				<p>You can safely downgrade and will not lose any information.</p>
 				<ol> 

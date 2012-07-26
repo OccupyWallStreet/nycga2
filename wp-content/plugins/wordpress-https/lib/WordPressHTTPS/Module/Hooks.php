@@ -7,10 +7,7 @@
  *
  */
 
-require_once('Mvied/Module.php');
-require_once('Mvied/Module/Interface.php');
-
-class WordPressHTTPS_Module_Hooks extends Mvied_Module implements Mvied_Module_Interface {
+class WordPressHTTPS_Module_Hooks extends Mvied_Plugin_Module implements Mvied_Plugin_Module_Interface {
 
 	/**
 	 * Initialize
@@ -28,11 +25,17 @@ class WordPressHTTPS_Module_Hooks extends Mvied_Module implements Mvied_Module_I
 				add_action('set_auth_cookie', array(&$this, 'set_cookie'), 10, 5);
 				add_action('set_logged_in_cookie', array(&$this, 'set_cookie'), 10, 5);
 			}
+		}
 
-			// Filter redirects in admin panel
-			if ( is_admin() && $this->getPlugin()->getSetting('ssl_admin') ) {
-				add_action('wp_redirect', array($this->getPlugin(), 'redirectAdmin'), 10, 1);
-			}
+		// Filter scripts
+		add_action('wp_print_scripts', array(&$this, 'fix_scripts'), 100, 0);
+
+		// Filter styles
+		add_action('wp_print_styles', array(&$this, 'fix_styles'), 100, 0);
+
+		// Filter redirects in admin panel
+		if ( is_admin() && ( $this->getPlugin()->getSetting('ssl_admin') || $this->getPlugin()->isSsl() ) ) {
+			add_action('wp_redirect', array($this->getPlugin(), 'redirectAdmin'), 10, 1);
 		}
 
 		// Run proxy check
@@ -51,7 +54,52 @@ class WordPressHTTPS_Module_Hooks extends Mvied_Module implements Mvied_Module_I
 		}
 
 		// Check if the page needs to be redirected
-		add_action('template_redirect', array(&$this, 'redirect_check'));
+		add_action('template_redirect', array(&$this, 'redirect_check'), 10, 1);
+		add_action('template_redirect', array(&$this, 'clear_redirect_count_cookie'), 9, 1);
+	}
+
+	/**
+	 * Fix Enqueued Scripts
+	 *
+	 * @param none
+	 * @return void
+	 */
+	public function fix_scripts() {
+		global $wp_scripts;
+		if ( isset($wp_scripts) && sizeof($wp_scripts->registered) > 0 ) {
+			foreach ( $wp_scripts->registered as $script ) {
+				if ( strpos($script->src, 'http') !== 0 ) {
+					$script->src = site_url($script->src);
+				}
+				if ( $this->getPlugin()->isSsl() ) {
+					$script->src = $this->getPlugin()->makeUrlHttps($script->src);
+				} else {
+					$script->src = $this->getPlugin()->makeUrlHttp($script->src);
+				}
+			}
+	}
+	}
+
+	/**
+	 * Fix Enqueued Styles
+	 *
+	 * @param none
+	 * @return void
+	 */
+	public function fix_styles() {
+		global $wp_styles;
+		if ( isset($wp_styles) && sizeof($wp_styles->registered) > 0 ) {
+			foreach ( (array)$wp_styles->registered as $style ) {
+				if ( strpos($style->src, 'http') !== 0 ) {
+					$style->src = site_url($style->src);
+				}
+				if ( $this->getPlugin()->isSsl() ) {
+					$style->src = $this->getPlugin()->makeUrlHttps($style->src);
+				} else {
+					$style->src = $this->getPlugin()->makeUrlHttp($style->src);
+				}
+			}
+		}
 	}
 
 	/**
@@ -95,21 +143,7 @@ class WordPressHTTPS_Module_Hooks extends Mvied_Module implements Mvied_Module_I
 		}
 		
 		if ( $post->ID > 0 ) {
-			$force_ssl = apply_filters('force_ssl', null, $post->ID );
-		}
-		
-		// Secure Front Page
-		if ( is_front_page() ) {
-			if ( $this->getPlugin()->getSetting('frontpage') ) {
-				$force_ssl = true;
-			} else if ( ! $this->getPlugin()->getSetting('frontpage') && $this->getPlugin()->getSetting('exclusive_https') && ( ! $this->getPlugin()->getSetting('ssl_host_diff') || ( $this->getPlugin()->getSetting('ssl_host_diff') && $this->getPlugin()->getSetting('ssl_admin') && ! is_user_logged_in() ) ) ) {
-				$force_ssl = false;
-			}
-		}
-
-		// Exclusive HTTPS
-		if ( $this->getPlugin()->getSetting('exclusive_https') && $this->getPlugin()->isSsl() && ! isset($force_ssl) ) {
-			$force_ssl = false;
+			$force_ssl = apply_filters('force_ssl', null, $post->ID, ( $this->getPlugin()->isSsl() ? 'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 		}
 
 		if ( ! $this->getPlugin()->isSsl() && isset($force_ssl) && $force_ssl ) {
@@ -139,7 +173,7 @@ class WordPressHTTPS_Module_Hooks extends Mvied_Module implements Mvied_Module_I
 		if ( ( $scheme == 'secure_auth' && $this->getPlugin()->isSsl() ) || ( $this->getPlugin()->getSetting('ssl_admin') && ! $this->getPlugin()->getSetting('ssl_host_subdomain') ) ) {
 			$secure = true;
 		}
-		$secure = apply_filters('secure_auth_cookie', $secure, $user_id);
+		$secure = apply_filters('secure_auth_cookie', @$secure, $user_id);
 
 		if( $scheme == 'logged_in' ) {
 			$cookie_name = LOGGED_IN_COOKIE;
@@ -149,6 +183,7 @@ class WordPressHTTPS_Module_Hooks extends Mvied_Module implements Mvied_Module_I
 		} else {
 			$cookie_name = AUTH_COOKIE;
 			$scheme = 'auth';
+			$secure = false;
 		}
 
 		//$cookie_domain = COOKIE_DOMAIN;
@@ -181,7 +216,7 @@ class WordPressHTTPS_Module_Hooks extends Mvied_Module implements Mvied_Module_I
 			$cookie_path = rtrim($this->getPlugin()->getHttpsUrl()->getPath(), '/') . $cookie_path;
 			$cookie_path_site = rtrim($this->getPlugin()->getHttpsUrl()->getPath(), '/') . $cookie_path_site;
 			$cookie_path_plugins = rtrim($this->getPlugin()->getHttpsUrl()->getPath(), '/') . $cookie_path_plugins;
-			$cookie_path_admin = $cookie_path_site . 'wp-admin';
+			$cookie_path_admin = rtrim($cookie_path_site, '/') . '/wp-admin';
 		}
 
 		if ( $scheme == 'logged_in' ) {
@@ -193,6 +228,16 @@ class WordPressHTTPS_Module_Hooks extends Mvied_Module implements Mvied_Module_I
 			setcookie($cookie_name, $cookie, $expire, $cookie_path_plugins, $cookie_domain, false, true);
 			setcookie($cookie_name, $cookie, $expire, $cookie_path_admin, $cookie_domain, false, true);
 		}
+	}
+
+	/**
+	 * Removes redirect_count cookie.
+	 *
+	 * @param none
+	 * @return void
+	 */
+	public function clear_redirect_count_cookie() {
+		setcookie('redirect_count', null, -time(), '/');
 	}
 
 	/**

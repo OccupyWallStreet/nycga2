@@ -234,6 +234,21 @@ class Ai1ec_Settings {
    **/
   var $allow_statistics;
 
+  /**
+   * Turn this blog into an events-only platform (this setting is overridden by
+   * AI1EC_EVENT_PLATFORM; i.e. if that is TRUE, this setting does nothing).
+   *
+   * @var bool
+   */
+  var $event_platform;
+
+	/**
+	 * Enable "strict" event platform mode for this blog.
+	 *
+	 * @var bool
+	 */
+	var $event_platform_strict;
+
 	/**
 	 * disable_autocompletion class variable
 	 *
@@ -296,6 +311,25 @@ class Ai1ec_Settings {
 		return self::$_instance;
 	}
 
+  /**
+   * Magic get function. Returns correct value of event_platform based on
+   * whether it was defined.
+   *
+   * @param string $name Property name
+   *
+   * @return mixed Property value
+   **/
+  public function __get( $name ) {
+    global $post, $more, $ai1ec_events_helper;
+
+    switch( $name ) {
+
+      case 'event_platform_active':
+        return AI1EC_EVENT_PLATFORM || $this->event_platform;
+        break;
+    }
+  }
+
 	/**
 	 * save function
 	 *
@@ -341,7 +375,9 @@ class Ai1ec_Settings {
 			'timezone'                      => get_option( 'timezone_string' ),
 			'geo_region_biasing'            => FALSE,
 			'show_data_notification'        => TRUE,
-      'allow_statistics'              => FALSE, // stats are opt-in
+      'allow_statistics'              => TRUE,
+      'event_platform'                => FALSE,
+			'event_platform_strict'         => FALSE,
 			'disable_autocompletion'        => FALSE,
 			'show_location_in_title'        => TRUE,
 			'show_year_in_agenda_dates'     => FALSE,
@@ -395,6 +431,11 @@ class Ai1ec_Settings {
           'show_location_in_title',
           'show_year_in_agenda_dates',
         );
+        // Only super-admins have the power to change Event Platform mode.
+        if( is_super_admin() ) {
+          $checkboxes[] = 'event_platform';
+          $checkboxes[] = 'event_platform_strict';
+        }
 
         // Assign parameters to settings.
         foreach( $field_names as $field_name ) {

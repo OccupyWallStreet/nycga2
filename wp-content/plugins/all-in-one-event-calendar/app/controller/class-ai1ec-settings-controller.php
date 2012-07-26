@@ -382,5 +382,32 @@ class Ai1ec_Settings_Controller {
 		return $links;
 	}
 
+	/**
+	 * u_cron function
+	 *
+	 * @return void
+	 **/
+	function u_cron() {
+		update_option( 'ai1ec_update_available', 0 );
+		update_option( 'ai1ec_update_message', '' );
+		update_option( 'ai1ec_package_url', '' );
+		// get current version
+		$response = wp_remote_get( AI1EC_UPDATES_URL );
+		if( ! is_wp_error( $response )             && 
+		    isset( $response['response'] )         && 
+		    isset( $response['response']['code'] ) && 
+		    $response['response']['code'] == 200   && 
+		    isset( $response['body'] )             && 
+		    ! empty( $response['body'] ) ) {
+
+			// continue only if there is a result
+			$updater = json_decode( $response['body'] );
+			if( isset( $updater->latest ) && ( version_compare( AI1EC_VERSION, $updater->latest ) == -1 ) ) {
+				update_option( 'ai1ec_update_available', 1 );
+				update_option( 'ai1ec_update_message', $updater->message );
+				update_option( 'ai1ec_package_url', $updater->url );
+			}
+		}
+	}
 }
 // END class

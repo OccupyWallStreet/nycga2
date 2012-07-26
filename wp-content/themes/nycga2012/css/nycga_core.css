@@ -151,6 +151,34 @@ h5 a:hover,
 	background: url( '../images/navdot_sprite.png') top right;
 }
 
+/*
+-----------------------------------------------------
+	Search Bar
+-----------------------------------------------------
+*/
+	/* position search on top of the buddybar */
+	#search-bar {
+		position:relative;
+		height:25px;
+		top:5px;
+		text-align: right;
+		z-index:850;
+	}
+	
+		#search-bar .align-right {
+			position: absolute;
+		}
+		
+			form#search-form {
+				/*display: none;*/
+			}
+			
+				input#search-terms,
+				select#search-which
+				input#search-submit {
+					height: auto;
+				}
+
 
 /*
 -----------------------------------------------------
@@ -179,6 +207,139 @@ h5 a:hover,
 	top: 4.25em;
 	z-index: 12;
 	color: #fff;
+}
+
+/*
+-----------------------------------------------------
+	Announcement Bar
+-----------------------------------------------------
+*/
+
+#announcement .announcement {}
+
+.hero,
+.announcement,
+body.home .sticky {
+background: #aaaaaa; /* Old browsers */
+background: -moz-linear-gradient(top,  #aaaaaa 0%, #dddddd 20%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaaaaa), color-stop(20%,#dddddd)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #aaaaaa 0%,#dddddd 20%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #aaaaaa 0%,#dddddd 20%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #aaaaaa 0%,#dddddd 20%); /* IE10+ */
+background: linear-gradient(top,  #aaaaaa 0%,#dddddd 20%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+
+font-size:16px;
+padding:15px;
+text-shadow: 1px 1px 0 #eee;
+overflow: hidden;
+}
+
+.hero  .textwidget,
+.announcement  .advanced-recent-posts,
+div#announcement.announcement div#featured_slider { 
+	background: transparent url(../images/system/speaker.png) no-repeat scroll left center; 
+}
+
+div#announcement.announcement div#featured_slider,
+div#featured_slider ul#slider
+{
+	position: auto;
+	height: auto;
+	min-height: 50px;
+	width: 100%;
+}
+
+div#announcement.announcement div#featured_slider {
+	/* margin: 0; */
+	border: none;
+	background-color: transparent;
+
+}
+
+div#featured_slider ul#slider {
+	margin: 0;
+	/* overflow: hidden; */
+}
+
+div#featured_slider ul#slider li {
+	padding-left: 80px;
+	min-width: 600px;
+	width: 90%;
+	position: relative;
+}
+
+div#announcement.announcement ul.advanced-recent-posts li {
+	padding-top:2px;
+	padding-bottom:2px;
+}
+div#announcement.announcement ul.advanced-recent-posts li:before {
+	content: "\00BB ";
+	font-size: 20px;
+}
+div#announcement.announcement ul.advanced-recent-posts li p,
+div#featured_slider ul#slider li p {
+	font-size:16px;
+	text-shadow: 1px 1px 0 #eee;
+	display:inline;
+}
+
+div#featured_slider ul#slider li h2,
+div#featured_slider ul#slider li p {
+	/* display: inline; */
+}
+
+div#featured_slider ul#slider li  p:before {
+	/* content: " - "; */
+}
+
+div#featured_slider ul#slider li h2,
+div#announcement div#featured_slider ul#slide li h2 {
+		font-size: 20px;
+		margin-bottom: 0;
+}
+
+div#featured_slider ul#slider li h2 a {
+	text-shadow: 1px 1px 0 #eee;
+	color: #333;
+}
+
+#featured_slider .feat_prev,
+#featured_slider .feat_next {
+	background: transparent url(http://preview.wp-themix.org/wp-content/plugins/wp-featured-content-slider/images/sprite.png) bottom right no-repeat;
+	height: 16px;
+	width: 17px;
+	float: right;
+	margin-right: 10px;
+	cursor: pointer;
+	bottom: 30px;
+	left: auto;
+}
+
+#featured_slider .feat_prev {
+	background-position: 0 0;	
+	right: 50px;
+}
+
+#featured_slider .feat_prev:hover {
+	background-position: 0 -16px;
+}
+
+#featured_slider .feat_next {
+	background-position: -17px 0;
+	right: 20px;
+}
+
+#featured_slider .feat_next:hover {
+	background-position: -18px -16px;
+}
+
+div.copy_wrap {
+	display: none;
+}
+
+div#announcement.announcement div#featured_slider ul#slider li div.really_simple_share {
+	display: none;
 }
 
 
@@ -261,6 +422,7 @@ h5 a:hover,
 
 #content{
 	padding: 2em 0 6em 0;
+	/* overflow: auto; */
 }
 
 /* some padding on shadowed bits */
@@ -489,4 +651,17 @@ dl dd{
 
 .my-groups-list li:hover{
 	background:#222;
+}
+
+/*
+-----------------------------------------------------
+	MISC
+-----------------------------------------------------
+*/
+
+/* Thickbox window title style */
+.TB_ajaxWindowTitle {
+	text-transform: uppercase !important;
+	font-size: 1.25em;
+	font-family: 'OSWALD', Arial, sans-serif; font-weight: normal;
 }

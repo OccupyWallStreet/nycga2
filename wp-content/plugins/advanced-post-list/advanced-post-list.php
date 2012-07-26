@@ -2,13 +2,13 @@
 
 /*
   Plugin Name: Advanced Post List
-  Version: 0.3.b3
-  Plugin URI: http://advanced-post-list.wikiforum.net/
+  Version: 0.3.b4
+  Plugin URI: http://ekojr.com/advanced-post-list/
   Description: Create highly customizable post lists with dynamic features. 
-  Author: JoKeR
+  Author: EkoJr
 
   == Copyright ==
-  Advanced Post List by JoKeR (email: jokerbr313@gmail.com)
+  Advanced Post List by EkoJr (email: ekojr1337@gmail.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -28,7 +28,8 @@
  * @package advanced-post-list
  * @since 0.1.0
  * @version 0.2.0 - Added more require functions for additional pages.
- * @link http://code.google.com/p/wordpress-advanced-post-list/ Advanced Post List Homepage
+ * @version 0.3.0 - Added APL_Query
+ * @link http://ekojr.com/advanced-post-list/ Advanced Post List Homepage
  */
 /*****************************************************************************/
 /************************ Compatability Checks *******************************/
@@ -59,7 +60,7 @@ else
 //Define constant varibles
 define('APL_NAME',      'Advanced Post List');
 //FIX ALWAYS - Update version number
-define('APL_VERSION',   '0.3.b3');
+define('APL_VERSION',   '0.3.b4');
 //APL_DIR = C:\xampp\htdocs\wordpress\wp-content\plugins\advanced-post-list/
 define('APL_DIR',       plugin_dir_path(__FILE__));
 //APL_URL = http://localhost/wordpress/wp-content/plugins/advanced-post-list/

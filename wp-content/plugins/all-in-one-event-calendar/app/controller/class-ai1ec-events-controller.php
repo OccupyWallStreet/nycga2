@@ -117,6 +117,8 @@ class Ai1ec_Events_Controller {
 			$ai1ec_view_helper->admin_enqueue_script( 'geo_autocomplete', 'geo_autocomplete.js', array( 'jquery', 'autocomplete_geomod' ) );
 			// Include element selector function
 			$ai1ec_view_helper->admin_enqueue_script( 'ai1ec-element-selector', 'element-selector.js', array( 'jquery' ) );
+			// Include custom utils object
+			$ai1ec_view_helper->admin_enqueue_script( 'ai1ec-utils', 'utils.js', array( 'jquery' ) );
 			// Include jQuery Tools form elements
 			$ai1ec_view_helper->admin_enqueue_script( 'jquery.tools', 'jquery.tools.min.js', array( 'jquery' ) );
 			// Include add new event script
@@ -153,6 +155,10 @@ class Ai1ec_Events_Controller {
 				'duplicate_feed_message'       => esc_html__( 'This feed is already being imported.', AI1EC_PLUGIN_NAME ),
 				'invalid_url_message'          => esc_html__( 'Please enter a valid iCalendar URL.', AI1EC_PLUGIN_NAME ),
 				'disable_autocompletion'       => $ai1ec_settings->disable_autocompletion,
+				'error_message_not_valid_lat'  => __( 'Please enter a valid latitude. A valid latitude is comprised between +90 and -90.', AI1EC_PLUGIN_NAME ),
+				'error_message_not_valid_long' => __( 'Please enter a valid longitude. A valid longitude is comprised between +180 and -180.', AI1EC_PLUGIN_NAME ),
+				'error_message_not_entered_lat'  => __( 'When the "Input coordinates" checkbox is checked, "Latitude" is a required field.', AI1EC_PLUGIN_NAME ),
+				'error_message_not_entered_long' => __( 'When the "Input coordinates" checkbox is checked, "Longitude" is a required field.', AI1EC_PLUGIN_NAME ),
 			) );
 
 			// =======
@@ -231,6 +237,10 @@ class Ai1ec_Events_Controller {
 		$exrule_text      = '';
 		$exclude_event    = false;
 		$exdate           = '';
+		$show_coordinates = false;
+		$longitude        = '';
+		$latitude         = '';
+		$coordinates      = '';
 
 		try
 	 	{
@@ -249,6 +259,17 @@ class Ai1ec_Events_Controller {
 
 			$show_map         = $event->show_map;
 			$google_map       = $show_map ? 'checked="checked"' : '';
+
+			$show_coordinates = $event->show_coordinates;
+			$coordinates      = $show_coordinates ? 'checked="checked"' : '';
+			$longitude        = $event->longitude !== NULL ? floatval( $event->longitude ) : '';
+			$latitude         = $event->latitude !== NULL ?  floatval( $event->latitude ) : '';
+			// There is a known bug in Wordpress (https://core.trac.wordpress.org/ticket/15158) that saves 0 to the DB instead of null.
+			// We handle a special case here to avoid having the fields with a value of 0 when the user never inputted any coordinates
+			if ( ! $show_coordinates ) {
+				$longitude = '';
+				$latitude = '';
+			}
 
 			$venue            = $event->venue;
 			$country          = $event->country;
@@ -312,6 +333,10 @@ class Ai1ec_Events_Controller {
 			'postal_code'      => $postal_code,
 			'google_map'       => $google_map,
 			'show_map'         => $show_map,
+			'show_coordinates' => $show_coordinates,
+			'longitude'        => $longitude,
+			'latitude'         => $latitude,
+			'coordinates'      => $coordinates,
 		);
 		$ai1ec_view_helper->display_admin( 'box_event_location.php', $args );
 
@@ -398,6 +423,9 @@ class Ai1ec_Events_Controller {
 		$contact_name     = isset( $_POST['ai1ec_contact_name'] )     ? stripslashes( $_POST['ai1ec_contact_name'] )  : '';
 		$contact_phone    = isset( $_POST['ai1ec_contact_phone'] )    ? stripslashes( $_POST['ai1ec_contact_phone'] ) : '';
 		$contact_email    = isset( $_POST['ai1ec_contact_email'] )    ? stripslashes( $_POST['ai1ec_contact_email'] ) : '';
+		$show_coordinates = isset( $_POST['ai1ec_input_coordinates'] )? 1                                             : 0;
+		$longitude        = isset( $_POST['ai1ec_longitude'] )        ? stripslashes( $_POST['ai1ec_longitude'] )     : '';
+		$latitude         = isset( $_POST['ai1ec_latitude'] )         ? stripslashes( $_POST['ai1ec_latitude'] )      : '';
 
 		$rrule  = null;
 		$exrule = null;
@@ -444,6 +472,9 @@ class Ai1ec_Events_Controller {
 		$event->recurrence_rules    = $rrule;
 		$event->exception_rules     = $exrule;
 		$event->exception_dates     = $exdate;
+		$event->show_coordinates    = $show_coordinates;
+		$event->longitude           = trim( $longitude ) !== '' ? (float) $longitude : NULL;
+		$event->latitude            = trim( $latitude ) !== '' ? (float) $latitude : NULL;
 
 		$event->save( ! $is_new );
 
@@ -691,8 +722,13 @@ class Ai1ec_Events_Controller {
 		if( ! $event->show_map )
 			return '';
 
+		$location = $ai1ec_events_helper->get_latlng( $event );
+		if ( ! $location ) {
+			$location = $event->address;
+		}
+
 		$args = array(
-			'address'                 => $event->address,
+			'address'                 => $location,
 			'gmap_url_link'           => $ai1ec_events_helper->get_gmap_url( $event, false ),
 			'hide_maps_until_clicked' => $ai1ec_settings->hide_maps_until_clicked,
 		);

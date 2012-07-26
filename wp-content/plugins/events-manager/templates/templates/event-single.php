@@ -1,4 +1,9 @@
 <?php
+/* 
+ * Remember that this file is only used if you have chosen to override event pages with formats in your event settings!
+ * You can also override the single event page completely in any case (e.g. at a level where you can control sidebars etc.), as described here - http://codex.wordpress.org/Post_Types#Template_Files
+ * Your file would be named single-event.php
+ */
 /*
  * This page displays a single event, called during the em_content() if this is an event page.
  * You can override the default display settings pages by copying this file to yourthemefolder/plugins/events-manager/templates/ and modifying it however you need.
@@ -8,9 +13,5 @@
  */
 global $EM_Event;
 /* @var $EM_Event EM_Event */
-if( $EM_Event->status == 1 ){
-	echo $EM_Event->output_single();
-}else{
-	echo get_option('dbem_no_events_message');
-}
+echo $EM_Event->output_single();
 ?>

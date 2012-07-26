@@ -688,14 +688,14 @@ class Ai1ec_App_Helper {
 			$args = array(
 				'label'  => 'All-in-One Calendar Notice',
 				'msg'    => sprintf(
-					__( '<p><strong>Core calendar files are not installed.</strong></p>' .
-					'<p>Our automated install couldn\'t install certain core files automatically. ' .
-					'You will need to install these files manually by following these steps:</p>' .
+					__( '<p><strong>Core Calendar Themes are not installed.</strong></p>' .
+					'<p>Our automated install couldn\'t install the core Calendar Themes automatically. ' .
+					'You will need to install calendar themes manually by following these steps:</p>' .
 					'<ol><li>Gain access to your WordPress files. Either direct filesystem access or FTP access is fine.</li>' .
 					'<li>Navigate to the <strong>%s</strong> folder.</li>' .
 					'<li>Copy the <strong>%s</strong> folder and all of its contents into the <strong>%s</strong> folder.</li>' .
 					'<li>You should now have a folder named <strong>%s</strong> containing all the same files and sub-folders as <strong>%s</strong> does.</li>' .
-					'<li>Refresh this page and if this notice is gone, the core files are installed.</li></ol>', AI1EC_PLUGIN_NAME ),
+					'<li>Refresh this page and if this notice is gone, the core Calendar Themes are installed.</li></ol>', AI1EC_PLUGIN_NAME ),
 					AI1EC_PATH,
 					AI1EC_THEMES_FOLDER,
 					WP_CONTENT_DIR,
@@ -710,11 +710,11 @@ class Ai1ec_App_Helper {
 			$args = array(
 				'label' => 'All-in-One Calendar Notice',
 				'msg' => sprintf(
-					__( '<p><strong>Core calendar files are out of date.</strong> ' .
-					'We have found updates for some of your core calendar files and you should update them now to ensure proper functioning of your calendar.</p>' .
-					'<p><strong>Warning:</strong> If you have previously modified any core calendar files, ' .
+					__( '<p><strong>Core Calendar Themes are out of date.</strong> ' .
+					'We have found updates for some of your core Calendar Theme files and you should update them now to ensure proper functioning of your calendar.</p>' .
+					'<p><strong>Warning:</strong> If you have previously modified any core Calendar Theme files, ' .
 					'your changes may be lost during update. Please make a backup of all modifications before proceeding.</p>' .
-					'<p>Once you are ready, please <a href="%s">update your core calendar files</a>.</p>', AI1EC_PLUGIN_NAME ),
+					'<p>Once you are ready, please <a href="%s">update your core Calendar Themes</a>.</p>', AI1EC_PLUGIN_NAME ),
 					admin_url( AI1EC_UPDATE_THEMES_BASE_URL )
 				),
 			);
@@ -726,10 +726,10 @@ class Ai1ec_App_Helper {
 				'label'  => 'All-in-One Calendar Notice',
 				'msg'    =>
 					sprintf(
-						__( '<p>We would like to collect some basic information about how your calendar works in order to deliver a better ' .
+						__( '<p>We collect some basic information about how your calendar works in order to deliver a better ' .
 						'and faster calendar system and one that will help you promote your events even more.</p>' .
 						'<p>You can find more detailed information by <a href="%s" target="_blank">clicking here &raquo;</a></p>' .
-						'<p>You may opt in of sending data to us by checking &quot;Allow Then.ly to collect statistics&quot; checkbox located on plugin\'s <a href="%s">Settings page</a>.</p>', AI1EC_PLUGIN_NAME ),
+						'<p>You may opt out of sending data to us by unchecking &quot;Allow Then.ly to collect statistics&quot; checkbox located on plugin\'s <a href="%s">Settings page</a>.</p>', AI1EC_PLUGIN_NAME ),
 						'http://then.ly/all-in-one-event-calendar-privacy-policy/',
 						admin_url( AI1EC_SETTINGS_BASE_URL )
 					),
@@ -780,6 +780,21 @@ class Ai1ec_App_Helper {
 				$args['msg'] = "<p>$messages[0]</p>";
 			}
 			$args['label'] = __( 'All-in-One Calendar Notice', AI1EC_PLUGIN_NAME );
+			$ai1ec_view_helper->display_admin( 'admin_notices.php', $args );
+		}
+
+		// Premium plugin update available notice.
+		if( get_option( 'ai1ec_update_available', false ) ) {
+			$args = array(
+				'label' => __( 'All-in-One Calendar Update', AI1EC_PLUGIN_NAME )
+			);
+			$update_url = 'edit.php?post_type=' . AI1EC_POST_TYPE . '&amp;page=' . AI1EC_PLUGIN_NAME . '-upgrade';
+			$update_url .= '&amp;package=' . esc_url( get_option( 'ai1ec_package_url' ) );
+			$args['msg'] = get_option( 'ai1ec_update_message', '' );
+			$args['msg'] .= '<a href="';
+			$args['msg'] .= admin_url( $update_url );
+			$args['msg'] .= '">Click to upgrade</a>';
+			$args['msg'] = '<p>' . $args['msg'] . '</p>';
 			$ai1ec_view_helper->display_admin( 'admin_notices.php', $args );
 		}
 	}

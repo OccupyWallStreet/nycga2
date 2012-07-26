@@ -1,14 +1,36 @@
 <?php
-if (!function_exists('add_action'))
+////////////////////////////////////////////////////////////////////////////////
+// APLCore Class uses this file in method APL_admin_head, if any other
+//  and/or method uses this php file. Then it will exit this file.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+if (!method_exists('APLCore', 'APL_admin_head'))
 {
     echo "Hi there!  I'm just a plugin, not much I can do when called directly.";
     exit;
 }
 require_once APL_DIR . 'includes/APL-admin_dialogs.php';
 
+//echo '//// TESTING PURPOSES ///////////////////////////////////////////////////';
+//echo '/////////////////////////////////////////////////////////////////////////';
+//echo '/////////////////////////////////////////////////////////////////////////';
+//$post_type_names = get_post_types('',
+//                                      'names');
+//$skip_post_types = array('attachment', 'revision', 'nav_menu_item');
+//foreach ($skip_post_types as $value)
+//{
+//    unset($post_type_names[$value]);
+//}
+//var_dump($post_type_names);
+//
+//echo '/////////////////////////////////////////////////////////////////////////';
+//echo '/////////////////////////////////////////////////////////////////////////';
+//echo '/////////////////////////////////////////////////////////////////////////';
+//
+//var_dump($this->APL_get_post_types());
 
-$catList = get_categories('hide_empty=0');
-$tagList = get_tags('hide_empty=0');
+
 
 $adminOptions = $this->APL_options_load();
 
@@ -226,7 +248,7 @@ function APL_get_page_heirarchy($page_settings = array('post_type_name' => 'post
     $dashes = '';
     if ($depth == -1)
     {
-        $rtnString .= '<option id="slctChkCurrent-' . $page_settings['post_type_name'] . '" value="' . -1 . '"><b>Current Page</b></option>';
+        $rtnString .= '<option id="slctChkCurrent-' . $page_settings['post_type_name'] . '" value="' . 0 . '"><b>Current Page</b></option>';
     }
     $depth++;
     for ($i = 0;
@@ -240,7 +262,7 @@ function APL_get_page_heirarchy($page_settings = array('post_type_name' => 'post
 //            'orderby' => 'title',
 //            'post_type' => $post_type_name
 //        );  
-    $a01 = $page_settings['post_type_name'];
+//    $a01 = $page_settings['post_type_name'];
     $argPages = array('numberposts' => -1,
         'orderby' => 'title',
         'order' => 'ASC',
@@ -254,7 +276,7 @@ function APL_get_page_heirarchy($page_settings = array('post_type_name' => 'post
         {
 
             $id = $page->ID;
-            $rtnString .= "<option value='" . $page->ID . "'>" . $dashes . $page->post_title . "</option>";
+            $rtnString .= '<option value="' . $page->ID . '">' . $dashes . $page->post_title . '</option>';
             $rtnString .= APL_get_page_heirarchy($page_settings,
                                                  $id,
                                                  $depth);
@@ -280,7 +302,6 @@ function APL_get_cat_hierchy($post_tax_settings = array('post_type_name' => 'pos
         $dashes .= '-';
     }
     $terms = get_categories($argTerms);
-    $rtn = new stdClass;
 
     foreach ($terms as $term)
     {
@@ -297,13 +318,16 @@ function APL_get_cat_hierchy($post_tax_settings = array('post_type_name' => 'pos
 
     return $rtnString;
 }
+////////////////////////////////////////////////////////////////////////////////
+// END OF PHP                                                                 //
+////////////////////////////////////////////////////////////////////////////////
 ?>
 <div style="max-width: 800px; min-width: 640px; margin-top: 0px">
     <div style="float: left;" >
         <h2>Advanced Post List - Settings</h2>
     </div>
     <div style="float: right; margin-right: 25px;" >
-        <h3>Plugin Page (<a href="http://advanced-post-list.wikiforum.net/" title="Community Support Forum" target="_new">Plugin Page</a> / <a href="http://wordpress.org/extend/plugins/advanced-post-list/" title="Default Plugin Page" target="_new">Wordpress</a>)</h3>
+        <h3>Plugin Page (<a href="http://ekojr.com/advanced-post-list/" title="Author's site" target="_new">Plugin Page</a> / <a href="http://wordpress.org/extend/plugins/advanced-post-list/" title="Default Plugin Page" target="_new">Wordpress</a>)</h3>
     </div>
 </div>
 <br style="clear:left"/>
@@ -419,18 +443,20 @@ function APL_get_cat_hierchy($post_tax_settings = array('post_type_name' => 'pos
                     <td width="216" >Delete database upon deactivation.</td>
                     <td width="84"><input id="rdoDeleteDb" name="rdoDeleteDb" type="radio" value="true" 
                         <?php
-                        $a1 = $adminOptions["delete_core_db"];
-                        if ($adminOptions["delete_core_db"] == "true")
+                        //$a1 = $adminOptions["delete_core_db"];
+                        if ($adminOptions["delete_core_db"] === TRUE || !isset($adminOptions["delete_core_db"]))
                         {
                             echo "checked";
                         }
                         ?>
-                    /> Yes <input id="rdoDeleteDb" name="rdoDeleteDb" type="radio" value="false" <?php
-                                          if ($adminOptions["delete_core_db"] == "false")
-                                          {
-                                              echo "checked";
-                                          }
-?> /> No 
+                    /> Yes <input id="rdoDeleteDb" name="rdoDeleteDb" type="radio" value="false" 
+                        <?php
+                        if ($adminOptions["delete_core_db"] === FALSE)
+                        {
+                            echo "checked";
+                        }
+                        ?>
+                    /> No 
                     </td>
                     
                     

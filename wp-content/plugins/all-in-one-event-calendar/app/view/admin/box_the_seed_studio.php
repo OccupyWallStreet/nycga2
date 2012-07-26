@@ -18,32 +18,6 @@
 	</div>
 
 	<p></p>
-	<h2>
-		<?php _e( 'Upgrade to the free Premium version and get access to exclusive features such as:', AI1EC_PLUGIN_NAME ) ?>
-	</h2>
-	<p></p>
-	<h4 class="row-fluid">
-		<div class="span1">&nbsp;</div>
-		<div class="span4">
-			<ul>
-				<li class="icon-leaf span6"><strong><?php _e( 'Calendar Themes', AI1EC_PLUGIN_NAME ) ?></strong></li>
-				<li class="icon-calendar span6"><strong><?php _e( 'Duplicate Events', AI1EC_PLUGIN_NAME ) ?></strong></li>
-			</ul>
-		</div>
-		<div class="span4">
-			<ul>
-				<li class="icon-map-marker span6"><strong><?php _e( 'Location by Latitude/Longitude', AI1EC_PLUGIN_NAME ) ?></strong></li>
-				<li class="icon-star span6"><strong><?php _e( '... and more!', AI1EC_PLUGIN_NAME ) ?></strong></li>
-			</ul>
-		</div>
-	</h4>
-	<p></p>
-	<p class="ai1ec-get-support">
-		<a class="btn btn-large btn-primary" href="<?php echo admin_url( 'edit.php?post_type=' . AI1EC_POST_TYPE . '&amp;page=' . AI1EC_PLUGIN_NAME . '-upgrade' ) ?>">
-			<i class="icon-download-alt"></i> <?php _e( 'Upgrade to Premium for Free', AI1EC_PLUGIN_NAME ) ?>
-		</a>
-	</p>
-	<hr />
 	<h4>
 		<?php _e( 'Then.ly is dedicated to creating the best calendar software in the world.', AI1EC_PLUGIN_NAME ) ?>
 	</h4>

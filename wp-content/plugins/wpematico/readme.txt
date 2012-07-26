@@ -1,23 +1,25 @@
-=== WPeMatico ===
+=== Plugin Name ===
 Contributors: etruel
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B8V39NWK3NFQU
 Tags: RSS, Post, Posts, Feed, Feeds, RSS to Post, Feed to Post, admin, aggregation, atom, autoblogging, bot, content, syndication, writing
-Requires at least: 3.0
-Tested up to: 3.3.2
-Stable tag: 0.91.1Beta
+Requires at least: 3.1
+Tested up to: 3.4.1
+Stable tag: 1.0
 
-WPeMatico is for autoblogging, automatically creating posts from the RSS/Atom feeds you choose, which are organized into campaigns. 
+WPeMatico is for autoblogging. Drink a coffee meanwhile WPeMatico publish your posts.
+Automatically create posts from the RSS/Atom feeds you choose, which are organized into campaigns.
 
 == Description ==
 
 WPeMatico is for autoblogging, automatically creating posts from the RSS/Atom feeds you choose, which are organized into campaigns. 
-For RSS fetching it's using the simplepie library included in Wordpress.
+For RSS fetching it's using the Simplepie library included in Wordpress.
 Also for image processing it's using the core functions of wordpress.
 Translations ready. .pot english file included for localize.  Translations files are welcome.
-I take code from many many other plugins, but for this plugin I read a lot of code of the old WP-o-Matic and also old versions of BackWPUp. Thanks to the developers;)
-If you like, please rate 5 stars. thanks :)
+I take code from many many other plugins, but for the first beta versions of this plugin I read a lot of code of the old WP-o-Matic and also old versions of BackWPUp. Thanks to the developers ;)
 
-Supported features:
+If you like, please rate 5 stars and/or donate something. thanks :)
+
+Some supported features (but not all of them):
 
 * Campaigs Feeds and options are organized into campaigns.
 * Comfortable interface like Worpress posts editing for every campaign.
@@ -33,11 +35,12 @@ Supported features:
 * Detailed Log sending to custom e-mail. Always on every executed cron or only on errors with campaign.
 * Option to replace title links (Permalink) to source.
 * Post templating. 
+* Now you can choose what role can see the dashboard widget.
 * Multilanguage ready.
-* Tested in Wordpress MULTISITE 
 
 * Extra PRO features
-* New option for attempt to get Full Content of source site.
+* Option for attempt to get Full Content of source site.
+* Fix and correct wrong HTML on content.
 * Delete last HTML tag option.
 * Words count filters. Count how many words are in content for assign a category or skip the post.
 * Also the content can be converted to text and cutted at wanted amount of words or letters.
@@ -50,7 +53,7 @@ Upcoming features:
 
 PHP5 is required!
 
-Copyright 2010.
+Copyright 2012.
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version. 
 
 If you want support or more detail in spanish you can search WPeMatico here:[NetMdP](http://www.netmdp.com). 
@@ -76,19 +79,64 @@ You can either install it automatically from the WordPress admin, or do it manua
 
 == Screenshots ==
 
-1. The table list of campaigns and some info of everyone.
+1. Dashboard Widget and menu.
 
-2. The detailed log after executing "Run Now" in campaign.
+2. The table list of campaigns and some info of everyone.
 
-3. Checking feeds on campaign editing.
+3. Editing campaign.  Feeds list.
 
-4. Assigning a category to a post because there is a word in content.
+4. Enabling PRO features.
 
-5. Filtering with keywords or Regular Expressions at title or content.
+5. Settings page.
 
-6. Cutting last html predefined tag, and counting words or letters to skip, cut or asign to a category.
+== Contributions ==
+
+You can contribute with WPeMatico
+Needed translation files: if you can translate from english to any language, you are welcome.
+The .pot file are included on plugin and you must use poedit for tranlate.  
+Your work, name and website will be mentioned here.
+
+Also we need tutorials on text, pdf, videos.  All are welcome.  Isn't it?
+You can send your files to [NetMdP](http://www.netmdp.com/wpematico/)
+or to e-mail etruel@gmail.com
 
 == Changelog ==
+
+= 1.0 =
+
+This is a really update. Lot of things that you asked for, are ready in 1.0 version.
+
+* Now use Wordpress custom post types for campaigns.
+* Now you can move and close metaboxes.
+* Now you can paginate and filter campaigns list by name.
+* Now we have an image background at WP repository. :)
+* Improved feed list with scroll into campaign.
+* Improved feed search filter.
+* Better help.
+* Better performance.
+* Colored boxes for knowing what I'm doing.
+* More options on Settings.
+* New logo and images.
+* Totally translatable. 
+* Better use of Ajax.
+* Better use of class SimplePie included into Wordpress core.
+* Deactivated Wordpress Autosave only editing WPeMatico campaigns.
+* Automatic check fields values before save campaign without reload page and/or lost fields content.
+* Option to activate or deactivate automatic feed check before save campaign.
+* Added option for test only one feed.
+* Added description field for every campaign.
+* New option to del hash on feeds for fetch duplicated posts. (Advanced config)
+* New option to see last log of every campaign. (Advanced config)
+* Now you can Disable Check Feeds before Save. (Advanced config)
+* Now you can choose which roles can see the dashboard widget.
+* Fixed rewrite to also rewrite html code.
+* First image on content as WP feature image.
+* Now support relative paths for upload images from source content.
+* [PRO]
+* Option to automatic create author names based on source or custom typed author.
+* Option to assign author per feed, instead campaign or both options.
+* Option for correct and fix wrong html code with a lot of options from htmLawed.
+* [/PRO]
 
 = 0.91.1Beta =
 * [PRO]
@@ -193,6 +241,5 @@ You can either install it automatically from the WordPress admin, or do it manua
 
 == Upgrade Notice ==
 
-= 0.91.1Beta PRO =
-* Fix minor but important thing about duplicates post.
-* WP 3.3.2 Ready.
+= 1.0 =
+* 

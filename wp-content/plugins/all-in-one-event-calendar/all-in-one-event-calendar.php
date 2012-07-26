@@ -5,7 +5,7 @@
  * Description: A calendar system with month, week, day, agenda views, upcoming events widget, color-coded categories, recurrence, and import/export of .ics feeds.
  * Author: Then.ly
  * Author URI: http://then.ly/
- * Version: 1.7
+ * Version: 1.7.1 Premium
  */
 @set_time_limit( 0 );
 @ini_set( 'memory_limit',           '256M' );
@@ -24,12 +24,12 @@ define( 'AI1EC_PLUGIN_BASENAME',    plugin_basename( __FILE__ ) );
 // ==================
 // = Plugin Version =
 // ==================
-define( 'AI1EC_VERSION',            '1.7' );
+define( 'AI1EC_VERSION',            '1.7.1' );
 
 // ====================
 // = Database Version =
 // ====================
-define( 'AI1EC_DB_VERSION',         109 );
+define( 'AI1EC_DB_VERSION',         110 );
 
 // ==========================
 // = Bundled themes version =
@@ -42,7 +42,9 @@ define( 'AI1EC_THEMES_VERSION',     4 );
 define( 'AI1EC_CRON_VERSION',       102 );
 define( 'AI1EC_N_CRON_VERSION',     101 );
 define( 'AI1EC_N_CRON_FREQ',        'daily' );
-define( 'AI1EC_UPDATES_URL',        'http://then.ly/assets/thenly-all-in-one-calendar-1.7.zip' );
+define( 'AI1EC_U_CRON_VERSION',     104 );
+define( 'AI1EC_U_CRON_FREQ',        'hourly' );
+define( 'AI1EC_UPDATES_URL',        'http://then.ly/updates.json' );
 
 // ===============
 // = Plugin Path =
@@ -164,6 +166,11 @@ define( 'AI1EC_ADMIN_THEME_IMG_URL', AI1EC_URL . '/app/view/admin/' . AI1EC_IMG_
 // =============
 define( 'AI1EC_POST_TYPE',          'ai1ec_event' );
 
+// =======================================================
+// = THEME SELECTION PAGE BASE URL (wrap in admin_url()) =
+// =======================================================
+define( 'AI1EC_THEME_SELECTION_BASE_URL', 'themes.php?page=' . AI1EC_PLUGIN_NAME . '-themes' );
+
 // =====================================================
 // = UPDATE THEMES PAGE BASE URL (wrap in admin_url()) =
 // =====================================================
@@ -236,6 +243,21 @@ $tmp = str_replace( 'http://', 'webcal://', AI1EC_SCRIPT_URL );
 // ==============
 define( 'AI1EC_EXPORT_URL',         $tmp . "&controller=ai1ec_exporter_controller&action=export_events&cb=" . rand() );
 
+// ====================
+// = SPECIAL SETTINGS =
+// ====================
+
+// Set AI1EC_EVENT_PLATFORM to TRUE to turn WordPress into an events-only
+// platform. For a multi-site install, setting this to TRUE is equivalent to a
+// super-administrator selecting the
+//   "Turn this blog into an events-only platform" checkbox
+// on the Calendar Settings page of every blog on the network.
+// This mode, when enabled on blogs where this plugin is active, hides all
+// administrative functions unrelated to events and the calendar (except to
+// super-administrators), and sets default WordPress settings appropriate for
+// pure event management.
+define( 'AI1EC_EVENT_PLATFORM',     FALSE );
+
 // ====================================
 // = Include iCal parsers and helpers =
 // ====================================
@@ -289,6 +311,22 @@ function ai1ec_autoload( $class_name )
 }
 spl_autoload_register( 'ai1ec_autoload' );
 
+// ================================================
+// = Disable updates checking for premium version =
+// ================================================
+function ai1ec_disable_updates( $r, $url ) {
+	if ( 0 !== strpos( $url, 'http://api.wordpress.org/plugins/update-check' ) )
+		return $r; // Not a plugin update request.
+
+	$plugins = unserialize( $r['body']['plugins'] );
+	unset( $plugins->plugins[ plugin_basename( __FILE__ ) ] );
+	unset( $plugins->active[ array_search( plugin_basename( __FILE__ ), $plugins->active ) ] );
+	$r['body']['plugins'] = serialize( $plugins );
+
+	return $r;
+}
+add_filter( 'http_request_args', 'ai1ec_disable_updates', 5, 2 );
+
 // ===============================
 // = Initialize and setup MODELS =
 // ===============================
@@ -306,7 +344,8 @@ global $ai1ec_view_helper,
        $ai1ec_app_helper,
        $ai1ec_events_helper,
        $ai1ec_importer_helper,
-       $ai1ec_exporter_helper;
+       $ai1ec_exporter_helper,
+       $ai1ec_platform_helper;
 
 $ai1ec_view_helper     = Ai1ec_View_Helper::get_instance();
 $ai1ec_settings_helper = Ai1ec_Settings_Helper::get_instance();
@@ -315,6 +354,7 @@ $ai1ec_app_helper      = Ai1ec_App_Helper::get_instance();
 $ai1ec_events_helper   = Ai1ec_Events_Helper::get_instance();
 $ai1ec_importer_helper = Ai1ec_Importer_Helper::get_instance();
 $ai1ec_exporter_helper = Ai1ec_Exporter_Helper::get_instance();
+$ai1ec_platform_helper = Ai1ec_Platform_Helper::get_instance();
 
 // ====================================
 // = Initialize and setup CONTROLLERS =
@@ -325,7 +365,9 @@ global $ai1ec_app_controller,
        $ai1ec_calendar_controller,
        $ai1ec_importer_controller,
        $ai1ec_exporter_controller,
-       $ai1ec_themes_controller;
+       $ai1ec_themes_controller,
+       $ai1ec_platform_controller,
+  	   $ai1ec_duplicate_controller;
 
 $ai1ec_settings_controller  = Ai1ec_Settings_Controller::get_instance();
 $ai1ec_events_controller    = Ai1ec_Events_Controller::get_instance();
@@ -333,6 +375,9 @@ $ai1ec_calendar_controller  = Ai1ec_Calendar_Controller::get_instance();
 $ai1ec_importer_controller  = Ai1ec_Importer_Controller::get_instance();
 $ai1ec_exporter_controller  = Ai1ec_Exporter_Controller::get_instance();
 $ai1ec_themes_controller    = Ai1ec_Themes_Controller::get_instance();
+$ai1ec_platform_controller  = Ai1ec_Platform_Controller::get_instance();
+$ai1ec_duplicate_controller = Ai1ec_Duplicate_Controller::get_instance();
+
 
 // ==========================================================================
 // = All app initialization is done in Ai1ec_App_Controller::__construct(). =

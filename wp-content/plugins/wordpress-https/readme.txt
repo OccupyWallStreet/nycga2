@@ -4,12 +4,12 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: security, encryption, ssl, shared ssl, private ssl, public ssl, private ssl, http, https
 Requires at least: 3.0
 Tested up to: 3.4
-Stable tag: 3.0.4
+Stable tag: 3.1.2
 
 WordPress HTTPS is intended to be an all-in-one solution to using SSL on WordPress sites.
 
 == Description ==
-If you're having partially encrypted/mixed content errors or other problems, please read the <a href="http://wordpress.org/extend/plugins/wordpress-https/faq/">FAQ</a>. If you're still having trouble, please <a href="http://wordpress.org/tags/wordpress-https#postform">start a support topic</a> and I will do my best to assist you.
+If you're having partially encrypted/mixed content errors or other problems, please read the <a href="http://wordpress.org/extend/plugins/wordpress-https/faq/">FAQ</a>. If you're still having trouble, please <a href="http://wordpress.org/support/plugin/wordpress-https">start a support topic</a> and I will do my best to assist you.
 
 == Installation ==
 1. Upload the `wordpress-https` folder to the `/wp-content/plugins/` directory.
@@ -44,39 +44,52 @@ Most insecure content warnings can generally be resolved by changing absolute re
  <li>Elements loaded via JavaScript that are hard-coded to HTTP. Usually this can be fixed by altering the JavaScript calling these elements.</li>
  <li>External elements that can not be delivered over HTTPS. These elements will have to be removed from the page, or hosted locally so that they can be loaded over HTTPS.</li>
  <li>YouTube videos - YouTube allows videos to use HTTPS. <a href="http://support.google.com/youtube/bin/answer.py?hl=en&answer=171780&expand=UseHTTPS">How to embed a YouTube video</a>.</li>
- <li>Google Maps - Loading Google maps over HTTPS requires a Google Maps API Premiere account. (<a href="http://code.google.com/apis/maps/faq.html#ssl" target="_blank">source</a>)</li>
+ <li>Google Maps - Using Google Maps API V3, you can use HTTPS. Using V2, HTTPS requires a Google Maps API Premiere account. (<a href="http://code.google.com/apis/maps/faq.html#ssl" target="_blank">source</a>)</li>
 </ul>
 
 = Is there a hook or filter to force pages to be secure? =
 Yes! Here is an example of how to use the 'force_ssl' filter to force a page to be secure.
-`function custom_force_ssl( $force_ssl, $post_id ) {
+`function custom_force_ssl( $force_ssl, $post_id = 0, $url = '' ) {
 	if ( $post_id == 5 ) {
 		return true
 	}
 	return $force_ssl;
 }
 
-add_filter('force_ssl' , 'custom_force_ssl', 10, 2);`
+add_filter('force_ssl' , 'custom_force_ssl', 10, 3);`
 
 You can also use this filter to filter pages based on their URL. Let's say you have an E-commerce site and all of your E-commerce URL's contain 'store'.
-`function store_force_ssl( $force_ssl, $post_id ) {
-	if ( strpos($_SERVER['REQUEST_URI'], 'store') !== false ) {
+`function store_force_ssl( $force_ssl, $post_id = 0, $url = '' ) {
+	if ( strpos($url, 'store') !== false ) {
 		$force_ssl = true;
 	}
 	return $force_ssl;
 }
 
-add_filter('force_ssl', 'store_force_ssl', 10, 2);`
+add_filter('force_ssl', 'store_force_ssl', 10, 3);`
 
 == Screenshots ==
 1. WordPress HTTPS Settings screen
 2. Force SSL checkbox added to add/edit posts screen
 
 == To Do ==
-* qTranslate Support
 * SSL Domain Mapping
 
 == Changelog ==
+= 3.1.2 =
+* Bug Fix - Redirects should no longer remove URL parameters.
+* Bug Fix - Removed loginout filter that was changing links to plain text.
+* Bug Fix - Plugin should no longer cause JavaScript errors from removing quotes from the end of URL's.
+* Bug Fix - CSS backgrounds that do not have quotes should no longer break debug output.
+= 3.1.1 =
+* Bug Fix - Fixed bug in Parser.
+= 3.1 =
+* Memory optimization.
+* Added secure URL filtering.
+* Users receiving 404 errors on every page when using Shared SSL should now be able to use those Shared SSL's that previously did not work.
+* Added support for qTranslate.
+* Added support for securing custom post types.
+* Added $url to the force_ssl filter as the third arguement. See FAQ for example usage.
 = 3.0.4 =
 * Fixed multiple bugs for sites using SSL for the entire site.
 * Bug Fix - plugin should no longer try to load hidden files as modules.

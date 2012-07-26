@@ -1,8 +1,11 @@
-<!-- page.php -->
+<?php
+/*
+Template Name: Default Page Template
+*/
+?>
 	<?php get_header() ?>
 
-		<?php locate_template( array( 'leftsidebar.php' ), true ) ?>
-		<div id="content" class="grid_15">
+		<div id="content" class="grid_19">
 		<?php do_action( 'bp_before_blog_page' ) ?>
 			<div class="page" id="blog-page" role="main">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>

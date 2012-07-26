@@ -152,6 +152,11 @@ blockquote {
 	margin-right: auto;
 }
 
+iframe[src^='http://maps.google'] {
+		width: 100%;
+		max-width: 100%;
+}
+
 .wptouch-videos {
 	-webkit-transform: translate3d(0,0,0);
 }

@@ -1,0 +1,443 @@
+﻿/*
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*/
+
+/*
+	-----------------------------------------------------------------------------------
+	Styling you can change for your own blog
+	Many themes unfortunately use high-priority selectors, so if you make a CSS setting
+	and it doesn't seem to be working, try adding the "!important" modifier.
+	-----------------------------------------------------------------------------------
+*/
+
+/* Container div for the map */
+.mapp-container {
+	overflow: none !important;
+	margin: 3px !important;     /* Add a little space between the map & surrounding text; feel free to override this */
+	padding: 0px !important;    
+}
+
+/* Div on which the map is rendered */
+.mapp-canvas {
+	overflow: hidden !important;   
+	padding: 0px !important;
+	margin: 0px;  	/* Do not set !important on this - plugin overrides it using a style during display, for map alignment */
+	color: black !important;	
+    background-position: center center !important;    
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+    background-image: url(../images/loading.gif);
+}
+
+/* Map images returned from google - these setting are required or map will not render correctly */
+.mapp-canvas img {
+	background-color: transparent !important;
+	max-width: none !important;  /* Some themes have max-width/max-height set, which interferes with map */
+	max-height: none !important;
+	visibility: inherit !important;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+/* Panel */
+.mapp-canvas-panel {    
+    overflow: hidden !important;    
+}
+
+/* Drop shadow for canvas panel */
+.mapp-canvas-panel-shadow {
+    -moz-box-shadow: 10px 10px 5px #888;
+    -webkit-box-shadow: 10px 10px 5px #888;
+    box-shadow: 10px 10px 5px #888;
+}
+
+/* Infowindow */
+.mapp-overlay {
+	font-size: 12px !important; 
+	padding: 0px !important;
+	margin: 0px !important;
+	color: black !important;
+	text-align: center !important;
+	font-family: arial,sans-serif !important;	
+	line-height: normal !important;	
+}
+
+/* Set defaults for links in the overlay window */
+.mapp-overlay a {
+	color: #0000FF !important;
+	text-decoration: underline;
+}
+
+.mapp-overlay img {
+	margin: 3px 3px 3px 3px;
+}
+
+/* InfoWindow title */
+.mapp-overlay-title {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+/* Infowindow body */
+.mapp-overlay-body {
+}
+
+/* Infowindow links */
+.mapp-overlay-links {
+	margin-top: 4px;
+	text-align: center;
+}
+
+/* Directions <div> */
+.mapp-directions {
+    display:none;    
+    overflow: none !important;
+    margin: 0px !important;
+    padding: 0px !important;    
+	margin-top: 10px 0 0 0;
+}
+
+/* POI list */
+.mapp-poi-list {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.mapp-poi-list table {
+	width: 100%;
+	line-height: normal;
+	font-size: 12px;
+}
+
+.mapp-poi-list td {
+	padding: 5px !important;
+	margin: 0px !important;
+	border-bottom: 1px solid ghostwhite;
+}
+
+/* POI list marker column */
+.mapp-poi-list .mapp-marker {
+	width: 32px;
+	height: 32px;
+	text-align: center;
+	vertical-align: middle;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+/* Directions table with the start/end fields, etc. */
+.mapp-directions table {
+	padding: 0 !important;
+	margin: 0 !important;
+	border-collapse: collapse !important;
+	border: none !important;
+	background: transparent !important;
+	width: 90% !important;
+	table-layout: auto !important;
+	line-height: normal !important;
+}
+
+/* Left-most column with icons */
+.mapp-directions .mapp-directions-table-col1 {
+	width: 18px !important;
+}
+
+/* Left-most column with icons */
+.mapp-directions .mapp-directions-table-col1 img {
+	height: 16px !important;
+	width: 16px !important;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+.mapp-directions table td {
+	padding: 2px !important;
+	margin: 0 !important;
+	border: none !important;
+	background: transparent !important;
+	vertical-align: middle !important;
+}
+
+.mapp-directions table input {
+	margin: 0px !important;
+	width: 100% !important;
+	line-height: normal !important;
+}
+
+.mapp-directions table span {
+	display: inline-block !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+/* Travel mode images */
+.mapp-directions table .mapp-a {
+	background-image: url(../images/a.png) !important;
+	width: 16px !important;
+	height: 16px !important;
+}
+
+.mapp-directions table .mapp-b {
+	background-image: url(../images/b.png);
+	width: 16px !important;
+	height: 16px !important;
+}
+
+.mapp-directions table .mapp-swap {
+	background-image: url(../images/swap.png);
+	width: 18px !important;
+	height: 18px !important;
+	vertical-align:middle !important;
+}
+
+.mapp-address-corrected {
+	font-size: x-small;
+	width: 100%;
+	border: none;
+	background-color: transparent;
+}
+
+.mapp-address-error {
+	background-color: #ffebe8;
+	margin: 0;
+	padding: 2px;
+	background-color: pink !important;
+}
+
+.mapp-travelmode {
+	border: 1px solid lightgray !important;
+}
+
+/* Travel mode buttons */
+.mapp-car-button {
+	width:37px;
+	height:23px;
+	background-image: url(../images/car_off.png);
+	text-align: left;
+	display: inline-block;
+}
+
+.mapp-car-button.selected {
+	width:37px;
+	height:23px;
+	background-image: url(../images/car_on.png);
+	display: inline-block;
+}
+
+.mapp-bike-button {
+	width:37px;
+	height:23px;
+	background-image: url(../images/bike_off.png);
+	text-align: left;
+	display: inline-block;
+}
+
+.mapp-bike-button.selected {
+	width:37px;
+	height:23px;
+	background-image: url(../images/bike_on.png);
+	display: inline-block;
+}
+
+.mapp-walk-button {
+	width:37px;
+	height:23px;
+	background-image: url(../images/walk_off.png);
+	display: inline-block;
+}
+
+.mapp-walk-button.selected {
+	width:37px;
+	height:23px;
+	background-image: url(../images/walk_on.png);
+	display: inline-block;
+}
+
+.mapp-traffic-button {
+	border: black 1px solid !important;
+	margin-top: 5px !important;
+	background-color: white !important;	
+}
+
+.mapp-traffic-button-inner {
+	margin: 2px 4px 2px 4px !important;
+	cursor: pointer !important; 
+	text-align: center !important;
+	font-family: Arial,sans-serif !important;
+	color: black !important;
+	font-size: 12px !important;
+	padding: 0px !important;
+}
+
+.mapp-traffic-button-inner * {
+	margin: 0px !important;
+	vertical-align: middle !important;
+	padding: 0px !important;
+	font-size: 12px !important;
+}
+
+/* Generic table (currently used in settings screen for map sizes) */
+.mapp-table {
+	width: auto;
+	height: auto;
+	border: 1px solid black;
+	border-collapse: collapse;
+	background-color: none;	
+}
+
+.mapp-table th {
+	width: auto;
+	height: auto;
+	background-color: #f9f9f9;
+	border: 1px solid black;
+	padding: 2px 4px 2px 4px;
+}
+
+.mapp-table td {
+	width: auto;
+	height: auto;
+	background-color: white;
+	border: 1px solid black;
+	padding: 2px 4px 2px 4px;
+}
+
+/*
+	-----------------------------------------------------------------------------------
+	Styling for MapPress internal messages, etc.  You shouldn't need to change these.
+	Note that some styling is in inline styles because the CSS may not be initially
+	loaded...
+	-----------------------------------------------------------------------------------
+*/
+
+/*  Div to contain the editable map */
+.mapp-edit-canvas {
+	overflow: hidden;
+	text-align: center;
+	padding: 0px 0px 0px 0px;
+	line-height: normal;
+	margin: 0 0 0 0;
+	color: black;
+}
+
+/* Map images returned from google - these setting are required or map will not render correctly */
+.mapp-edit-map img {
+	background-color: transparent !important;
+	max-width: none !important;  /* Some themes have max-width/max-height set, which interferes with map */
+	max-height: none !important;
+}
+
+/* Infowindow */
+/* Google's IW size is very limited, and Firefox/IE use different heights for elements.  Fixed height is the only solution. */
+#mapp_edit_overlay {
+	color: black;
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	line-height: normal;
+	height: 140px;
+}
+
+#mapp_edit_overlay_title {
+	font-weight: bold;
+	width: 80%;
+}
+
+#mapp_edit_overlay_body {
+	width:90%;
+	height: 75px;
+}
+
+#mapp_edit_overlay img {
+	width: 32px;
+	height: 32px;
+	border: 1px solid blue;
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+}
+
+#mapp_edit_icon_list img {
+	border: 1px solid white;
+	float: left;
+}
+
+#mapp_edit_icon_list a:hover img {
+	border: 1px solid blue;
+	float: left;
+}
+
+/* Add location panel */
+#mapp_add_panel {
+	visibility:hidden;
+}
+
+#mapp_add_address {
+	display: inline;
+}
+
+/* Map list panel */
+#mapp_maplist_panel {
+}
+
+/* Map list table */
+#mapp_maplist table {
+	width:100%;
+}
+
+#mapp_maplist table td {
+	padding-bottom: 5px;
+}
+
+/* Map list edit/delete/insert links */
+.mapp-maplist-links {
+	font-size: 11px;
+	margin-top: 2px;
+}
+
+/* Map preview panel */
+#mapp_preview_panel {
+	width: 100%;
+}
+
+/* Left panel - includes map list, adjust, and poi panels */
+#mapp_left_panel {
+	width: 200px;
+	overflow: hidden;
+}
+
+#mapp_adjust {
+	min-height: 120px !important;
+}
+
+/* POI list div */
+.mapp-edit-poi-list {
+	overflow: auto;
+}
+
+.mapp-edit-poi-list table {
+	width: 100%;
+	white-space: nowrap;
+}
+
+/* POI list marker column */
+.mapp-edit-poi-list .mapp-marker {
+	width: 32px;
+	height: 32px;
+	text-align: center;
+}
+
+.mapp-icon {
+	max-width: 32px;
+	max-height: 32px;
+}
+
+/* Selected row */
+.mapp-selected {
+	background-color: #FFFF99 !important;
+}
+
+.mapp-alternate {
+	background-color: #f9f9f9;
+}

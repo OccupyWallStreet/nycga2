@@ -1,10 +1,10 @@
 === Adminer ===
 Contributors: Bueltge
-Donate link: http://bueltge.de/wunschliste/
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6069955
 Tags: adminer, debug, sql, analyse, tuning, performance, database, queries, query, phpMyAdmin, admin, database management
 Requires at least: 2.7
-Tested up to: 3.3-beta3
-Stable tag: 1.2.0
+Tested up to: 3.4
+Stable tag: 1.2.1
 
 Adminer is a full-featured MySQL management tool written in PHP. This plugin include this tool in WordPress.
 
@@ -12,17 +12,6 @@ Adminer is a full-featured MySQL management tool written in PHP. This plugin inc
 Adminer (formerly phpMinAdmin) is a full-featured MySQL management tool written in PHP. Conversely to phpMyAdmin, it consist of a single file ready to deploy to the target server. This plugin include this tool in WordPress for a fast management of your database. [Adminer](http://www.adminer.org/ "Adminer") is also used without this plugin and WordPress.
 
 This plugin supports Multisite Installs only as Network Admin; add an menu item on Settings and also an link to WP Admin Bar to the item Network Admin.
-
-= Localizations =
-* Thanks for german language file to [myself](http://bueltge.de/ "Frank B&uuml;ltge") ;)
-* Thanks to [J&uuml;rgen Toth](http://www.relijoc.ro/ "J&uuml;rgen Toth") for romanian language file
-* Thanks for italien language files to [Gianni Diurno](http://gidibao.net/)
-* Thanks for belorussian language files to [Marcis G.](http://pc.de/)
-* Thanks for ukrainian language files to [F&ouml;rderkreis Saporoshje e.V](http://foerderkreis-saporoshje.de/)
-* Thanks for chech language files to [Peter Kahoun](http://kahi.cz/wordpress/)
-* Thanks for dutch translation to [Renè](http://wpwebshop.com/premium-wordpress-themes/ "WP webshop")
-* Thanks for japanese translation to [KAZ]
-* Thanks for the Spanish language files to [Techfacts](http://www.techfacts.net/)
 
 = More Plugins = 
 Please see also my [Premium Plugins](http://wpplugins.com/author/malo.conny/). Maybe you find an solution for your requirement.
@@ -41,6 +30,17 @@ You may also be interested in WordPress tips and tricks at [WP Engineer](http://
 1. Menu `Tools` -> `Adminer`
 1. Klick button `Start Adminer` for view the database
 
+If you use the plugins outside the wp-root or other one install, then you must define the absolute path to `wp-load.php` in the install root of WordPress in the `config.php` inside the plugin folder of Adminer.
+
+	/**
+	 * The path to wp-load.php,
+	 * if you have the plugin folder not inside the default path
+	 * 
+	 * example: '/var/www/wpbeta'
+	 * or on Windows client with XAMPP C:/xampp/htdocs/wpbeta
+	 */
+	$wp_siteurl = ''; 
+
 == Screenshots ==
 1. Page in Backend (WordPress 2.9-rare)
 1. Adminer with a database (WordPress 2.9-rare)
@@ -58,6 +58,7 @@ You may also be interested in WordPress tips and tricks at [WP Engineer](http://
 * Thanks for dutch translation to [Renè](http://wpwebshop.com/premium-wordpress-themes/ "WP webshop")
 * Thanks for japanese translation to [KAZ]
 * Thanks for the Spanish language files to [Techfacts](http://www.techfacts.net/)
+* Thanks to [Brian Flores](http://www.inmotionhosting.com/) for serbian translation
 
 = Licence =
 Good news, this plugin is free for everyone! Since it's released under the GPL, you can use it free of charge on your personal or commercial blog. But if you enjoy this plugin, you can thank me and leave a [small donation](http://bueltge.de/wunschliste/ "Wishliste and Donate") for the time I've spent writing and supporting this plugin. And I really don't want to know how many hours of my life this plugin has already eaten ;)
@@ -66,6 +67,9 @@ Good news, this plugin is free for everyone! Since it's released under the GPL, 
 The plugin comes with various translations, please refer to the [WordPress Codex](http://codex.wordpress.org/Installing_WordPress_in_Your_Language "Installing WordPress in Your Language") for more information about activating the translation. If you want to help to translate the plugin to your language, please have a look at the .pot file which contains all defintions and may be used with a [gettext](http://www.gnu.org/software/gettext/) editor like [Poedit](http://www.poedit.net/) (Windows) or plugin for WordPress [Localization](http://wordpress.org/extend/plugins/codestyling-localization/).
 
 == Changelog ==
+= v1.2.1 =
+* Filter magic quotes of WP on more vars
+
 = v1.2.0 (11/12/2011) =
 * Support for Multisite Network
 * Add menu item to network, if networrk activate
@@ -140,7 +144,3 @@ The plugin comes with various translations, please refer to the [WordPress Codex
 
 = v0.1 (21/08/2009) =
 * Write a Plugin based on my ideas
-
-== Frequently Asked Questions ==
-= I love this plugin! How can I show the developer how much I appreciate his work? =
-Please visit [my website](http://bueltge.de/ "bueltge.de") and let him know your care or see the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author or use the donate form.
