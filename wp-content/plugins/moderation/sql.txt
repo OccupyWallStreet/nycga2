@@ -1,0 +1,56 @@
+CREATE TABLE IF NOT EXISTS `wp_moderation_reports` (
+  `report_ID` bigint(20) unsigned NOT NULL auto_increment,
+  `report_blog_ID` int(11) NOT NULL default '0',
+  `report_object_type` varchar(255),
+  `report_object_ID` int(11) NOT NULL default '0',
+  `report_reason` varchar(255),
+  `report_note` TEXT,
+  `report_user_ID` int(11) NOT NULL default '0',
+  `report_user_email` varchar(255),
+  `report_user_IP` varchar(100),
+  `report_stamp` varchar(255),
+  `report_date` datetime NOT NULL default '0000-00-00 00:00:00',
+  `report_date_gmt` datetime NOT NULL default '0000-00-00 00:00:00',
+  `report_status` varchar(20) NOT NULL default 'new',
+  PRIMARY KEY  (`report_ID`)
+) ENGINE=MyISAM;
+
+CREATE TABLE IF NOT EXISTS `wp_post_archive` (
+  `post_archive_id` bigint(20) unsigned NOT NULL auto_increment,
+  `blog_id` bigint(20),
+  `post_id` bigint(20),
+  `post_author` bigint(20),
+  `post_title` TEXT,
+  `post_content` TEXT,
+  `post_type` varchar(255),
+  `post_stamp` varchar(255),
+  `post_date` datetime NOT NULL default '0000-00-00 00:00:00',
+  `post_date_gmt` datetime NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`post_archive_id`)
+) ENGINE=MyISAM;
+
+CREATE TABLE IF NOT EXISTS `wp_comment_archive` (
+  `comment_archive_id` bigint(20) unsigned NOT NULL auto_increment,
+  `blog_id` bigint(20),
+  `comment_id` bigint(20),
+  `post_id` bigint(20),
+  `comment_author_user_id` bigint(20),
+  `comment_author_email` varchar(255),
+  `comment_author_ip` varchar(255),
+  `comment_author_url` varchar(255),
+  `comment_content` TEXT,
+  `comment_stamp` varchar(255),
+  `comment_date` datetime NOT NULL default '0000-00-00 00:00:00',
+  `comment_date_gmt` datetime NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`comment_archive_id`)
+) ENGINE=MyISAM;
+
+CREATE TABLE IF NOT EXISTS `wp_moderation_warnings` (
+  `warning_ID` bigint(20) unsigned NOT NULL auto_increment,
+  `warning_user_ID` int(11) NOT NULL default '0',
+  `warning_read` tinyint(1) NOT NULL default '0',
+  `warning_note` TEXT,
+  PRIMARY KEY  (`warning_ID`)
+) ENGINE=MyISAM;
+
+18246-1343360256-ai
