@@ -3,7 +3,7 @@ Contributors: jbrinley
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A69NZPKWGB6H2
 Tags: URL mapping, callback functions
 Requires at least: 3.0
-Tested up to: 3.1
+Tested up to: 3.4
 Stable tag: trunk
 
 Provides a simple API for mapping requests to callback functions.
@@ -23,7 +23,7 @@ post types, query variables, rewrite rules, etc., and lets you write code to
 do what you want it to do. One function call is all it takes to map a
 URL to your designated callback function and display the return value in the page.
 
-Created by [Adelie Design](http://www.AdelieDesign.com)
+Created by [Flightless](http://flightless.us)
 
 == Installation ==
 
@@ -156,3 +156,22 @@ Creating or changing routes should always occur in the context of the `wp_router
 * Added option to specify different callback functions depending on the HTTP request method
 * Verified compatibility with WordPress 3.0
 * Added WP_Router::get_url() function
+
+= 0.3.1 =
+
+* Added WP_Router::get_url()
+* Added WP_Route::url()
+
+= 0.3.2 =
+
+* Make $arguments param optional for WP_Router::get_url() and WP_Router::url()
+
+= 0.3.3 =
+
+* Prevent redirect from all route pages when %category% is in the permastruct
+* Redirect placeholder page to the blog front page
+* Fix usage of translation functions
+
+= 0.4 =
+
+* Prevent redirect from route pages with the "page" or "paged" query arg

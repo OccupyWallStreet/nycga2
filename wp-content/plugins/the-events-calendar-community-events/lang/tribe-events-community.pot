@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: The Events Calendar: Community Events 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-05 19:29-0500\n"
-"PO-Revision-Date: 2012-06-05 19:29-0500\n"
+"POT-Creation-Date: 2012-07-11 14:41-0800\n"
+"PO-Revision-Date: 2012-07-11 14:41-0800\n"
 "Last-Translator: Paul Hughes <paul@paulalexanderhughes.com>\n"
 "Language-Team: Modern Tribe, Inc. <pro@tri.be>\n"
 "MIME-Version: 1.0\n"
@@ -17,14 +17,13 @@ msgstr ""
 "X-Poedit-Basepath: ./\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../tribe-community-events.php:51
 #: ../tribe-community-events.php:52
 msgid "The Events Calendar"
 msgstr ""
 
-#: ../tribe-community-events.php:52
+#: ../tribe-community-events.php:53
 #, php-format
-msgid "To begin using <b>The Events Calendar: Community Events</b>, please install the latest version of %s."
+msgid "To begin using The Events Calendar: Community Events, please install the latest version of <a href=\"%s\" class=\"thickbox\" title=\"%s\">The Events Calendar</a>."
 msgstr ""
 
 #: ../admin-views/community-options-template.php:45
@@ -35,419 +34,431 @@ msgstr ""
 msgid "Use New Venue/No Default"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:68
-msgid "General"
+#: ../admin-views/community-options-template.php:70
+msgid "Community Events Settings"
 msgstr ""
 
 #: ../admin-views/community-options-template.php:74
-msgid "Allow anonymous submissions"
+msgid "Community Events enables frontend event-submission on your site. Whether soliciting contributions from anonymous users or registered members of the site, you as the admin have complete editorial control over what makes it on the calendar.</p><p>Before jumping into it, make sure you've checked out our <a href=\"http://tri.be/support/documentation/community-events-new-user-primer/\">Community Events new user primer</a>: it features both videos and written steps covering how the plugin works and what the different options available on this settings page can do to enhance your site."
 msgstr ""
 
 #: ../admin-views/community-options-template.php:82
+msgid "General"
+msgstr ""
+
+#: ../admin-views/community-options-template.php:88
+msgid "Allow anonymous submissions"
+msgstr ""
+
+#: ../admin-views/community-options-template.php:96
 msgid "Use visual editor for event descriptions"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:83
+#: ../admin-views/community-options-template.php:97
 msgid "Requires WordPress 3.3 +"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:91
+#: ../admin-views/community-options-template.php:105
 msgid "Default status for submitted events"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:101
+#: ../admin-views/community-options-template.php:115
 msgid "Community rewrite slug"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:105
+#: ../admin-views/community-options-template.php:119
 msgid "The slug used for building the community events URL -- it uses the main events slug as well."
 msgstr ""
 
-#: ../admin-views/community-options-template.php:118
+#: ../admin-views/community-options-template.php:132
 msgid "Alerts"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:123
+#: ../admin-views/community-options-template.php:137
 msgid "Send an email alert when a new event is submitted"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:131
+#: ../admin-views/community-options-template.php:145
 msgid "Email addresses to be notified"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:134
+#: ../admin-views/community-options-template.php:148
 msgid "One address per line"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:142
+#: ../admin-views/community-options-template.php:156
 msgid "Members"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:147
+#: ../admin-views/community-options-template.php:161
 msgid "Options to grant members (logged in users) access to their submitted events"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:152
+#: ../admin-views/community-options-template.php:166
 msgid "Allow users to edit their submissions"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:160
+#: ../admin-views/community-options-template.php:174
 msgid "Allow users to remove their submissions"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:168
+#: ../admin-views/community-options-template.php:182
 msgid "Deleted events should be:"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:177
-#: ../lib/tribe-community-events.class.php:499
-#: ../lib/tribe-community-events.class.php:521
-#: ../lib/tribe-community-events.class.php:932
-#: ../lib/tribe-community-events.class.php:1559
-#: ../lib/tribe-community-events.class.php:1701
+#: ../admin-views/community-options-template.php:191
+#: ../lib/tribe-community-events.class.php:510
+#: ../lib/tribe-community-events.class.php:532
+#: ../lib/tribe-community-events.class.php:943
+#: ../lib/tribe-community-events.class.php:1569
+#: ../lib/tribe-community-events.class.php:1709
 msgid "My Events"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:182
+#: ../admin-views/community-options-template.php:196
 msgid "Events per page"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:183
+#: ../admin-views/community-options-template.php:197
 msgid "This is the number of events displayed per page"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:191
+#: ../admin-views/community-options-template.php:205
 msgid "Date/time format"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:192
+#: ../admin-views/community-options-template.php:206
 msgid "Help with Date &amp; Time Formatting"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:200
+#: ../admin-views/community-options-template.php:214
 msgid "Access Control"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:205
+#: ../admin-views/community-options-template.php:219
 msgid "Block access to WordPress Admin"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:206
+#: ../admin-views/community-options-template.php:220
 msgid "Also disables the admin bar"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:214
+#: ../admin-views/community-options-template.php:228
 msgid "Roles to block"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:224
+#: ../admin-views/community-options-template.php:238
 msgid "Redirect URL"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:225
+#: ../admin-views/community-options-template.php:239
 msgid "Where users will be sent if they attempt to access the admin<br>Should be a full url e.g. http://domain.com/path/ <br> Leave blank for homepage"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:235
+#: ../admin-views/community-options-template.php:249
 msgid "Pro Options"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:241
+#: ../admin-views/community-options-template.php:255
 msgid "Default venue for submitted events"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:252
+#: ../admin-views/community-options-template.php:266
 msgid "Default organizer for submitted events"
 msgstr ""
 
-#: ../admin-views/community-options-template.php:266
+#: ../admin-views/community-options-template.php:280
 msgid "Your current community events URLs are"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:272
+#: ../lib/tribe-community-events.class.php:277
 msgid "edit"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:273
+#: ../lib/tribe-community-events.class.php:278
 msgid "add"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:274
+#: ../lib/tribe-community-events.class.php:279
 msgid "delete"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:275
+#: ../lib/tribe-community-events.class.php:280
 msgid "list"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:277
+#: ../lib/tribe-community-events.class.php:282
 msgid "venue"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:278
+#: ../lib/tribe-community-events.class.php:283
 msgid "organizer"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:279
+#: ../lib/tribe-community-events.class.php:284
 msgid "event"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:371
-#: ../lib/tribe-community-events.class.php:859
+#: ../lib/tribe-community-events.class.php:382
+#: ../lib/tribe-community-events.class.php:870
 msgid "Edit a Venue"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:393
-#: ../lib/tribe-community-events.class.php:862
+#: ../lib/tribe-community-events.class.php:404
+#: ../lib/tribe-community-events.class.php:873
 msgid "Edit an Organizer"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:414
-#: ../lib/tribe-community-events.class.php:856
+#: ../lib/tribe-community-events.class.php:425
+#: ../lib/tribe-community-events.class.php:867
 msgid "Edit an Event"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:436
+#: ../lib/tribe-community-events.class.php:447
 msgid "Redirect"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:457
-#: ../lib/tribe-community-events.class.php:954
+#: ../lib/tribe-community-events.class.php:468
+#: ../lib/tribe-community-events.class.php:965
 msgid "Submit an Event"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:478
-#: ../lib/tribe-community-events.class.php:841
+#: ../lib/tribe-community-events.class.php:489
+#: ../lib/tribe-community-events.class.php:852
 msgid "Remove an Event"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:582
+#: ../lib/tribe-community-events.class.php:593
 msgid "Not found."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:718
+#: ../lib/tribe-community-events.class.php:729
 msgid "Community Events requires non-default (pretty) permalinks to be enabled or the [tribe_community_events] shortcode to exist on a page."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:770
-#: ../lib/tribe-community-events.class.php:775
+#: ../lib/tribe-community-events.class.php:781
+#: ../lib/tribe-community-events.class.php:786
 msgid "Delete"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:775
+#: ../lib/tribe-community-events.class.php:786
 msgid "Are you sure?"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:844
+#: ../lib/tribe-community-events.class.php:855
 msgid "Remove a Venue"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:847
+#: ../lib/tribe-community-events.class.php:858
 msgid "Remove an Organizer"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:850
-#: ../lib/tribe-community-events.class.php:865
+#: ../lib/tribe-community-events.class.php:861
+#: ../lib/tribe-community-events.class.php:876
 msgid "Unknown Post Type"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:992
+#: ../lib/tribe-community-events.class.php:1003
 msgid "This shortcode can only be used in pages."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1241
+#: ../lib/tribe-community-events.class.php:1252
 #, php-format
 msgid "[%s] Community Events Submission:"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1247
+#: ../lib/tribe-community-events.class.php:1258
 msgid "Event Organizer"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1248
+#: ../lib/tribe-community-events.class.php:1259
 msgid "Event Venue"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1249
+#: ../lib/tribe-community-events.class.php:1260
 msgid "<h3>Description</h3>"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1250
+#: ../lib/tribe-community-events.class.php:1261
 msgid "Review Event"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1350
+#: ../lib/tribe-community-events.class.php:1361
 msgid "Trashed Event #"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1353
+#: ../lib/tribe-community-events.class.php:1364
 msgid "Deleted Event #"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1362
+#: ../lib/tribe-community-events.class.php:1373
 #, php-format
 msgid "Removed occurence %s from Event #"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1365
+#: ../lib/tribe-community-events.class.php:1376
 #, php-format
 msgid "This event (#%s) does not appear to exist."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1368
+#: ../lib/tribe-community-events.class.php:1379
 msgid "You do not have permission to delete this event."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1377
+#: ../lib/tribe-community-events.class.php:1388
 msgid "Back"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1415
+#: ../lib/tribe-community-events.class.php:1425
 #, php-format
 msgid "%sWarning:%s You are editing a recurring event. All changes will be applied to the entire series."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1436
+#: ../lib/tribe-community-events.class.php:1446
 msgid "Event not found."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1444
+#: ../lib/tribe-community-events.class.php:1454
 msgid "Please log in first."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1454
+#: ../lib/tribe-community-events.class.php:1464
 msgid "You do not have permission to edit this event."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1473
+#: ../lib/tribe-community-events.class.php:1483
 msgid "Event updated."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1474
-#: ../lib/tribe-community-events.class.php:1500
+#: ../lib/tribe-community-events.class.php:1484
+#: ../lib/tribe-community-events.class.php:1510
 msgid "Edit event"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1475
-#: ../lib/tribe-community-events.class.php:1502
+#: ../lib/tribe-community-events.class.php:1485
+#: ../lib/tribe-community-events.class.php:1512
 msgid "Submit another event"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1481
+#: ../lib/tribe-community-events.class.php:1491
 msgid "There was a problem saving your event, please try again."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1497
+#: ../lib/tribe-community-events.class.php:1507
 msgid "Event submitted."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1513
+#: ../lib/tribe-community-events.class.php:1523
 msgid "Event title and description are required."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1516
+#: ../lib/tribe-community-events.class.php:1526
 msgid "Event description is required."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1519
+#: ../lib/tribe-community-events.class.php:1529
 msgid "Event title is required."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1522
-#: ../lib/tribe-community-events.class.php:1534
+#: ../lib/tribe-community-events.class.php:1532
+#: ../lib/tribe-community-events.class.php:1544
 msgid "There was a problem submitting your event, please try again."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1531
+#: ../lib/tribe-community-events.class.php:1541
 msgid "Please check the box below to prove you are not an evil spammer."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1562
-#: ../lib/tribe-community-events.class.php:1704
+#: ../lib/tribe-community-events.class.php:1572
+#: ../lib/tribe-community-events.class.php:1712
 msgid "Not"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1562
-#: ../lib/tribe-community-events.class.php:1704
+#: ../lib/tribe-community-events.class.php:1572
+#: ../lib/tribe-community-events.class.php:1712
 msgid "Log Out"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1632
-#: ../lib/tribe-community-events.class.php:1753
-#: ../lib/tribe-community-events.class.php:1848
+#: ../lib/tribe-community-events.class.php:1640
+#: ../lib/tribe-community-events.class.php:1759
+#: ../lib/tribe-community-events.class.php:1853
 msgid "This feature is not currently enabled."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1637
+#: ../lib/tribe-community-events.class.php:1645
 msgid "You do not have permission to edit this venue."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1663
+#: ../lib/tribe-community-events.class.php:1671
 msgid "Venue updated."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1674
+#: ../lib/tribe-community-events.class.php:1682
 msgid "Venue name cannot be blank."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1679
+#: ../lib/tribe-community-events.class.php:1687
 msgid "There was a problem updating your venue, please try again."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1684
+#: ../lib/tribe-community-events.class.php:1692
 msgid "Venue not found."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1721
+#: ../lib/tribe-community-events.class.php:1729
 msgid "Please log in to edit this venue"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1756
+#: ../lib/tribe-community-events.class.php:1762
 msgid "You do not have permission to edit this organizer."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1776
+#: ../lib/tribe-community-events.class.php:1782
 msgid "Organizer updated."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1788
+#: ../lib/tribe-community-events.class.php:1794
 msgid "Organizer name cannot be blank."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1793
+#: ../lib/tribe-community-events.class.php:1799
 msgid "There was a problem updating this organizer, please try again."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1798
+#: ../lib/tribe-community-events.class.php:1804
 msgid "Organizer not found."
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1820
+#: ../lib/tribe-community-events.class.php:1826
 msgid "Please log in to edit this organizer"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:1888
+#: ../lib/tribe-community-events.class.php:1893
 msgid "Please log in to view your events"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:2025
+#: ../lib/tribe-community-events.class.php:2030
 msgid "I am not an evil spammer"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:2501
+#: ../lib/tribe-community-events.class.php:2506
 msgid "Community"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:2756
+#: ../lib/tribe-community-events.class.php:2761
 msgid "Community: Submit Event"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:2764
+#: ../lib/tribe-community-events.class.php:2769
 msgid "Community: My Events"
 msgstr ""
 
-#: ../lib/tribe-community-events.class.php:2773
+#: ../lib/tribe-community-events.class.php:2778
 msgid "Community Events"
+msgstr ""
+
+#: ../lib/tribe-community-events.class.php:2794
+msgid "Settings"
 msgstr ""
 
 #: ../vendor/pue-client/admin-views/license-key.view.php:9
@@ -460,50 +471,70 @@ msgstr ""
 msgid "A valid license key is required for support and updates."
 msgstr ""
 
-#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:194
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:174
 #, php-format
 msgid "License Key for %s"
 msgstr ""
 
-#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:195
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:175
 msgid "A valid license key is required for support and updates"
 msgstr ""
 
-#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:258
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:238
 msgid "License key(s) updated."
 msgstr ""
 
-#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:295
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:275
 msgid "Sorry, key validation server is not available."
 msgstr ""
 
-#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:297
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:277
 msgid "Sorry, this key is expired."
 msgstr ""
 
-#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:299
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:279
 msgid "Sorry, this key is out of installs."
 msgstr ""
 
-#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:301
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:281
 msgid "Sorry, this key is not valid."
 msgstr ""
 
-#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:304
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:284
 #, php-format
 msgid "Valid Key! Expires on %s"
 msgstr ""
 
-#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:308
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:288
 msgid "Hmmm... something's wrong with this validator. Please contact <a href=\"http://tri.be/support\">support.</a>"
 msgstr ""
 
-#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:484
+#: ../vendor/pue-client/lib/pue_plugin_update_engine.class.php:316
 msgid "[X]"
 msgstr ""
 
 #: ../vendor/tribe-support/tribe-support.class.php:54
 msgid "Send a support request for this site."
+msgstr ""
+
+#: ../vendor/wp-router/WP_Route.class.php:36
+#, php-format
+msgid "Missing %s"
+msgstr ""
+
+#: ../vendor/wp-router/WP_Route.class.php:63
+#, php-format
+msgid "Property not found: %s."
+msgstr ""
+
+#: ../vendor/wp-router/WP_Route.class.php:77
+#, php-format
+msgid "Invalid value for %s. Value may not be empty."
+msgstr ""
+
+#: ../vendor/wp-router/WP_Route.class.php:80
+#, php-format
+msgid "Invalid value for %1$s: %2$s. Value must be an array."
 msgstr ""
 
 #: ../vendor/wp-router/WP_Route.class.php:250
@@ -518,7 +549,7 @@ msgstr ""
 msgid "WP Router Placeholder Page"
 msgstr ""
 
-#: ../vendor/wp-router/WP_Router_Utility.class.php:71
+#: ../vendor/wp-router/WP_Router_Utility.class.php:49
 #, php-format
 msgid "%1$s requires WordPress %2$s or higher and PHP %3$s or higher."
 msgstr ""

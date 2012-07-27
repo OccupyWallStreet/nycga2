@@ -1,9 +1,4 @@
 <?php
-/**
- * User: jbrinley
- * Date: 5/18/11
- * Time: 12:29 PM
- */
  
 class WP_Router extends WP_Router_Utility {
 	const ROUTE_CACHE_OPTION = 'WP_Router_route_hash';
@@ -90,7 +85,14 @@ class WP_Router extends WP_Router_Utility {
 		}
 	}
 
-	public function get_url( $route_id, $arguments ) {
+	/**
+	 * Get the URL to access the given route with the given arguments
+	 * 
+	 * @param string $route_id
+	 * @param array $arguments
+	 * @return string The url to the route, or the home URL if the route doesn't exist
+	 */
+	public function get_url( $route_id, $arguments = array() ) {
 		$route = $this->get_route($route_id);
 		if ( !$route ) {
 			return home_url();
@@ -188,8 +190,23 @@ class WP_Router extends WP_Router_Utility {
 	 * @return
 	 */
 	public function parse_request( WP $query ) {
+		$this->redirect_placeholder($query);
 		if ( $id = $this->identify_route($query) ) {
 			$this->routes[$id]->execute($query);
+		}
+	}
+
+	/**
+	 * Redirect the placeholder page back to the front page
+	 *
+	 * @param WP|WP_Query $query
+	 */
+	protected function redirect_placeholder( $query ) {
+		// we'll only get a 'wp_router_page' query var when visiting
+		// the page for a WP Router post, and there's only one of those
+		if ( !empty( $query->query_vars[WP_Router_Page::POST_TYPE]) ) {
+			wp_redirect( home_url(), 303 );
+			exit();
 		}
 	}
 

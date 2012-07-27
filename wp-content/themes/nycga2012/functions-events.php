@@ -162,16 +162,16 @@ function nycga_em_group_event_can_manage( $result, $EM_Event){
 }
 
 // require categories
-add_action('em_event_validate', 'nycga_require_category', 2, 10);
-function nycga_require_category($valid, $event)
-{
-	if ( empty($_POST['event_categories']) || $_POST['event_categories'][0] == '')
-	{
-		$event->add_error(__('Category is required'));
-		return false;
-	}
-	return $valid;
-}
+// add_action('em_event_validate', 'nycga_require_category', 2, 10);
+// function nycga_require_category($valid, $event)
+// {
+// 	if ( empty($_POST['event_categories']) || $_POST['event_categories'][0] == '')
+//	{
+//		$event->add_error(__('Category is required'));
+//		return false;
+//	}
+//	return $valid;
+//}
 
 // include general assembly events when showing events from "My Groups"
 add_filter('em_events_build_sql_conditions','nycga_my_events_include_general',10,2);

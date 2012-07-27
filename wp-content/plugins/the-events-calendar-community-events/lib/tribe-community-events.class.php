@@ -15,7 +15,17 @@ if ( !class_exists( 'TribeCommunityEvents' ) ) {
 	 * @author Modern Tribe Inc.
 	 */
 	class TribeCommunityEvents {
-
+		
+		/**
+		 * The current version of Community Events
+		 */
+		const VERSION = '1.0.2';
+		
+		/**
+		 * required The Events Calendar Version
+		 */
+		const REQUIRED_TEC_VERSION = '2.0.8';
+		
 		/**
 		 * Singleton instance variable
 		 * @var object
@@ -209,11 +219,6 @@ if ( !class_exists( 'TribeCommunityEvents' ) ) {
 		const OPTIONNAME = 'tribe_community_events_options';
 
 		/**
-		 * required The Events Calendar Version
-		 */
-		const REQUIRED_TEC_VERSION = '2.0.7';
-
-		/**
 		 * class constructor
 		 * sets all the class vars up and such
 		 *
@@ -315,7 +320,13 @@ if ( !class_exists( 'TribeCommunityEvents' ) ) {
 			add_action( 'tribe_settings_do_tabs', array( $this, 'doSettingsTab' ), 10, 1 );
 
 			add_action( 'wp_router_generate_routes', array( $this, 'addRoutes' ) );
-
+			
+			add_action( 'plugin_action_links_' . trailingslashit( $this->pluginDir ) . 'tribe-community-events.php', array( $this, 'addLinksToPluginActions' ) );
+		
+			// PressTrends WordPress Action
+			if ( tribe_get_option( 'sendPressTrendsData', false ) ) {
+				add_action('admin_init', 'presstrends_plugin_tribe_events_community');
+			}
 		}
 
 		/**
@@ -1397,7 +1408,6 @@ if ( !class_exists( 'TribeCommunityEvents' ) ) {
 			add_filter( 'tribe_display_event_organizer_dropdown_id', array( $this, 'tribe_display_event_organizer_dropdown_id' ) );
 
 			add_filter( 'tribe-post-origin', array( $this, 'filterPostOrigin' ) );
-			add_filter( 'tribe-post-audit-trail', array( $this, 'filterPostOrigin' ) );
 
 			$output    = '';
 			$show_form = true;
@@ -1606,7 +1616,6 @@ if ( !class_exists( 'TribeCommunityEvents' ) ) {
 
 			wp_reset_query();
 			remove_filter( 'tribe-post-origin', array( $this, 'filterPostOrigin' ) );
-			remove_filter( 'tribe-post-audit-trail', array( $this, 'filterPostOrigin' ) );
 
 			return $output;
 
@@ -1625,7 +1634,6 @@ if ( !class_exists( 'TribeCommunityEvents' ) ) {
 			$output = '';
 
 			add_filter( 'tribe-post-origin', array( $this, 'filterPostOrigin' ) );
-			add_filter( 'tribe-post-audit-trail', array( $this, 'filterPostOrigin' ) );
 
 
 			if ( !$this->allowUsersToEditSubmissions || !TribeEvents::ecpActive() )
@@ -1728,7 +1736,6 @@ if ( !class_exists( 'TribeCommunityEvents' ) ) {
 			$output .= '</div>';
 
 			remove_filter( 'tribe-post-origin', array( $this, 'filterPostOrigin' ) );
-			remove_filter( 'tribe-post-audit-trail', array( $this, 'filterPostOrigin' ) );
 			return $output;
 
 		}
@@ -1745,7 +1752,6 @@ if ( !class_exists( 'TribeCommunityEvents' ) ) {
 		public function doOrganizerForm( $tribe_organizer_id ) {
 
 			add_filter( 'tribe-post-origin', array( $this, 'filterPostOrigin' ) );
-			add_filter( 'tribe-post-audit-trail', array( $this, 'filterPostOrigin' ) );
 
 			$output = '';
 
@@ -1827,7 +1833,6 @@ if ( !class_exists( 'TribeCommunityEvents' ) ) {
 			$output .= '</div>';
 
 			remove_filter( 'tribe-post-origin', array( $this, 'filterPostOrigin' ) );
-			remove_filter( 'tribe-post-audit-trail', array( $this, 'filterPostOrigin' ) );
 
 			return $output;
 
@@ -2771,10 +2776,24 @@ if ( !class_exists( 'TribeCommunityEvents' ) ) {
 				$wp_admin_bar->add_menu( array(
 					'id' => 'tribe-community-events-settings-sub',
 					'title' => __( 'Community Events', 'tribe-events-calendar' ),
-					'href' => trailingslashit( get_admin_url() ) . 'options-general.php?page=tribe-events-calendar&tab=community',
+					'href' => trailingslashit( get_admin_url() ) . 'edit.php?post_type=' . TribeEvents::POSTTYPE .'&page=tribe-events-calendar&tab=community',
 					'parent' => 'tribe-events-settings'
 				) );
 			}
+		}
+		
+		/**
+		 * Return additional action for the plugin on the plugins page.
+		 *
+		 * @since 2.0.8
+		 *
+		 * @return array
+		 */
+		public function addLinksToPluginActions( $actions ) {
+			if( class_exists( 'TribeEvents' ) ) {
+				$actions['settings'] = '<a href="' . add_query_arg( array( 'post_type' => TribeEvents::POSTTYPE, 'page' => 'tribe-events-calendar', 'tab' => 'community' ), admin_url( 'edit.php' ) ) .'">' . __('Settings', 'tribe-events-community') . '</a>';
+			}
+			return $actions;
 		}
 
 		/**
@@ -2828,6 +2847,19 @@ if ( !class_exists( 'TribeCommunityEvents' ) ) {
 			$options = self::getOptions();
 			$options['maybeFlushRewrite'] = true;
 			update_option( self::OPTIONNAME, $options );
+		}
+		
+		/**
+		 * Add Community Events to the list of add-ons to check required version.
+		 *
+		 * @author PaulHughes01
+		 * @since 1.0.1
+		 * @return array $plugins the existing plugins
+		 * @return array the pluggins
+		 */
+		public function init_addon( $plugins ) {
+			$plugins['TribeCE'] = array( 'plugin_name' => 'The Events Calendar: Community Events', 'required_version' => TribeCommunityEvents::REQUIRED_TEC_VERSION, 'current_version' => TribeCommunityEvents::VERSION, 'plugin_dir_file' => basename( dirname( dirname( __FILE__ ) ) ) . '/tribe-community-events.php' );
+			return $plugins;
 		}
 		
 		/**

@@ -628,11 +628,14 @@ dl dd{
     overflow-y:scroll;
 }
 
-.my-groups-list .item-avatar{
+.my-groups-list .item-avatar,
+ul.my-groups-list li div.item-avatar a img.avatar{
 	left: 0.25em;
     margin-right: 1em;
     position: absolute;
     top: 0.25em;
+    height: 25px !important;
+    width: 25px !important;
 }
 
 .my-groups-list .item-title a{

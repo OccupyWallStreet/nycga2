@@ -61,9 +61,23 @@ if ( TribeEvents::ecpActive() ) {
 $communityTab = array(
 	'priority' => 36,
 	'fields' => array(
-
-
-	'general-heading' => array(
+		'info-start' => array(
+			'type' => 'html',
+			'html' => '<div id="modern-tribe-info">'
+		),
+		'info-box-title' => array(
+			'type' => 'html',
+			'html' => '<h2>' . __('Community Events Settings', 'tribe-events-comunity') . '</h2>',
+		),
+		'info-box-description' => array(
+			'type' => 'html',
+			'html' => '<p>' . __('Community Events enables frontend event-submission on your site. Whether soliciting contributions from anonymous users or registered members of the site, you as the admin have complete editorial control over what makes it on the calendar.</p><p>Before jumping into it, make sure you\'ve checked out our <a href="http://tri.be/support/documentation/community-events-new-user-primer/">Community Events new user primer</a>: it features both videos and written steps covering how the plugin works and what the different options available on this settings page can do to enhance your site.', 'tribe-events-community') . '</p>',
+		),
+		'info-end' => array(
+			'type' => 'html',
+			'html' => '</div>',
+		),
+		'general-heading' => array(
 		'type' => 'heading',
 		'label' => __( 'General', 'tribe-events-community' ),
 		'parent_option' => TribeCommunityEvents::OPTIONNAME,

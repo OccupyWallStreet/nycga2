@@ -19,6 +19,27 @@ if ( function_exists( 'add_theme_support' ) ) {
 
 }
 
+function add_script() {
+	if (!is_admin()) {
+		wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js', false, '1.5.2');
+		wp_register_script('boxShadow', get_stylesheet_directory_uri()  . '/js/boxShadow.js', false, '0.5');
+		wp_register_script('tipTip', get_stylesheet_directory_uri()  . '/js/nycga.tipTip.js', false, '1.3	');
+		wp_register_script('nycgaui', get_stylesheet_directory_uri()  . '/js/nycga_ui.js', false, '0.5');
+		wp_register_script('site', get_stylesheet_directory_uri()  . '/js/site.js', false, '0.5');
+    wp_register_script( 'jquery.cycle', '/wp-content/js/jquery.cycle.all.js');
+		wp_enqueue_script('jquery');
+    wp_enqueue_script( 'jquery.cycle' );
+		wp_enqueue_script('toggler', get_bloginfo('url') . '/wp-content/js/hide-form/toggler.js');
+		wp_enqueue_script('boxShadow');
+		wp_enqueue_script('tipTip');
+		wp_enqueue_script('nycgaui');
+		wp_enqueue_script('site');
+		
+	}
+}
+
+add_action('init', 'add_script');
+
 global $content_width;
 $content_width = 500;
 
@@ -67,27 +88,6 @@ function my_bp_search_form_type_select() {
 }
 add_filter('bp_search_form_type_select','my_bp_search_form_type_select');
 
-
-function add_script() {
-	if (!is_admin()) {
-		wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js', false, '1.5.2');
-		wp_register_script('boxShadow', get_stylesheet_directory_uri()  . '/js/boxShadow.js', false, '0.5');
-		wp_register_script('tipTip', get_stylesheet_directory_uri()  . '/js/nycga.tipTip.js', false, '1.3	');
-		wp_register_script('nycgaui', get_stylesheet_directory_uri()  . '/js/nycga_ui.js', false, '0.5');
-		wp_register_script('site', get_stylesheet_directory_uri()  . '/js/site.js', false, '0.5');
-    wp_register_script( 'jquery.cycle', '/wp-content/js/jquery.cycle.all.js');
-		wp_enqueue_script('jquery');
-    wp_enqueue_script( 'jquery.cycle' );
-		wp_enqueue_script('toggler', get_bloginfo('url') . '/wp-content/js/hide-form/toggler.js');
-		wp_enqueue_script('boxShadow');
-		wp_enqueue_script('tipTip');
-		wp_enqueue_script('nycgaui');
-		wp_enqueue_script('site');
-		
-	}
-}
-
-add_action('init', 'add_script');
 
 add_action('wp_footer', 'add_search_form_script');
 

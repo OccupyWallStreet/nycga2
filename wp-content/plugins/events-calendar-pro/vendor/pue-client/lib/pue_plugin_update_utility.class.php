@@ -10,7 +10,7 @@ if ( !class_exists('PluginUpdateUtility') ) {
 
 	/**
 	 * A simple container class for holding information about an available update.
-	 * 
+	 *
 	 * @version 1.2
 	 * @access public
 	 */
@@ -22,10 +22,10 @@ if ( !class_exists('PluginUpdateUtility') ) {
 		public $download_url;
 		public $sections = array();
 		public $upgrade_notice;
-	
+
 		/**
 		 * Create a new instance of PluginUpdateUtility from its JSON-encoded representation.
-		 * 
+		 *
 		 * @param string $json
 		 * @return PluginUpdateUtility
 		 */
@@ -40,11 +40,11 @@ if ( !class_exists('PluginUpdateUtility') ) {
 				return null;
 			}
 		}
-	
+
 		/**
 		 * Create a new instance of PluginUpdateUtility based on an instance of PU_PluginInfo.
 		 * Basically, this just copies a subset of fields from one object to another.
-		 * 
+		 *
 		 * @param PU_PluginInfo $info
 		 * @return PluginUpdateUtility
 		 */
@@ -56,15 +56,15 @@ if ( !class_exists('PluginUpdateUtility') ) {
 			}
 			return $update;
 		}
-	
+
 		/**
 		 * Transform the update into the format used by WordPress native plugin API.
-		 * 
+		 *
 		 * @return object
 		 */
 		public function toWpFormat(){
 			$update = new StdClass;
-		
+
 			$update->id = $this->id;
 			$update->slug = $this->slug;
 			$update->new_version = $this->version;
@@ -73,7 +73,7 @@ if ( !class_exists('PluginUpdateUtility') ) {
 			if ( !empty($this->upgrade_notice) ){
 				$update->upgrade_notice = $this->upgrade_notice;
 			}
-		
+
 			return $update;
 		}
 	}

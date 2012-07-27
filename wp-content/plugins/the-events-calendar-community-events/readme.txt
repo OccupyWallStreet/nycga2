@@ -2,9 +2,9 @@
 
 Contributors: shane.pearlman, peterchester, reid.peifer, PaulHughes01, roblagatta, jonahcoyote, ModernTribe
 Tags: widget, events, simple, tooltips, grid, month, list, calendar, event, venue, community, registration, api, dates, date, plugin, posts, sidebar, template, theme, time, google maps, google, maps, conference, workshop, concert, meeting, seminar, summit, forum, shortcode, The Events Calendar, The Events Calendar PRO
-Requires at least: 3.2
-Tested up to: 3.4-alpha
-Stable tag: 1.0.1
+Requires at least: 3.3
+Tested up to: 3.4
+Stable tag: 1.0.2
 
 == Description ==
 
@@ -26,7 +26,7 @@ Content
 
 = Requirements =
 
-* WordPress 3.2
+* WordPress 3.3
 * PHP 5.2
 
 == Documentation ==
@@ -91,6 +91,17 @@ The plugin is produced by <a href="http://tri.be/?ref=tec-readme">Modern Tribe I
 
 
 == Changelog ==
+
+= 1.0.2 =
+
+*Small features, UX and Content Tweaks:*
+
+* Integration with Presstrends (<a href="http://www.presstrends.io/">http://www.presstrends.io/</a>).
+
+*Bug Fixes:*
+
+* Removed unclear/confusing message warning message regarding the need for plugin consistency and added clearer warnings with appropriate links when plugins or add-ons are out date.
+
 
 = 1.0.1 = 
 

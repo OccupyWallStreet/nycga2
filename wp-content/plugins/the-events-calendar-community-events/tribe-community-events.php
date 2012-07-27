@@ -2,7 +2,7 @@
 /*
  Plugin Name: The Events Calendar: Community Events
  Description: Community Events is an add-on providing additional functionality to the open source plugin The Events Calendar. Empower users to submit and manage their events on your website. <a href="http://tri.be/shop/wordpress-community-events/?ref=tec-community-plugin">Check out the full feature list</a>. Need more features? Peruse our selection of <a href="http://tri.be/shop/" target="_blank">plugins</a>.
- Version: 1.0.1.1
+ Version: 1.0.2
  Author: Modern Tribe, Inc.
  Author URI: http://tri.be?ref=tec-plugin
  Text Domain: tribe-events-community
@@ -30,12 +30,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 require_once( dirname( __FILE__ ) . '/lib/tribe-community-events.class.php' );
 require_once( dirname( __FILE__ ) . '/vendor/tribe-common-libraries/tribe-common-libraries.class.php' );
 require_once( dirname( __FILE__ ) . '/lib/tribe-community-events-template-tags.php' );
+require_once( dirname( __FILE__ ) . '/lib/tribe-presstrends-events-community.php' );
 
 /**
  * Instantiate class and set up WordPress actions.
  */
 function Tribe_CE_Load() {
-	if ( class_exists( 'TribeEvents' ) && defined( 'TribeEvents::VERSION' ) && version_compare( TribeEvents::VERSION, TribeCommunityEvents::REQUIRED_TEC_VERSION, '>=' ) ) {
+	if ( class_exists( 'TribeEvents' ) && defined( 'TribeEvents::VERSION' ) ) {
 		TribeCommunityEvents::instance();
 	} else {
 		add_action( 'admin_notices', 'tribe_ce_show_fail_message' );
@@ -49,7 +50,7 @@ function tribe_ce_show_fail_message() {
 	if ( current_user_can( 'activate_plugins' ) ) {
 		$url = 'plugin-install.php?tab=plugin-information&plugin=the-events-calendar&TB_iframe=true';
 		$title = __( 'The Events Calendar', 'tribe-events-community' );
-		echo '<div class="error"><p>'.sprintf( __( 'To begin using <b>The Events Calendar: Community Events</b>, please install the latest version of %s.', 'tribe-events-community' ), '<a href="%s" class="thickbox" title="%s">' . __( 'The Events Calendar', 'tribe-events-community' ) . '</a>', $title ) . '</p></div>';
+		echo '<div class="error"><p>'.sprintf( __( 'To begin using The Events Calendar: Community Events, please install the latest version of <a href="%s" class="thickbox" title="%s">The Events Calendar</a>.', 'tribe-events-community' ), $url, $title ) . '</p></div>';
 	}
 }
 
@@ -61,5 +62,7 @@ function tribe_ce_uninstall() {
 
 register_uninstall_hook( __FILE__ , 'tribe_ce_uninstall' );
 register_activation_hook( __FILE__ , array( 'TribeCommunityEvents', 'activateFlushRewrite' ) );
+
+add_filter( 'tribe_tec_addons', array( 'TribeCommunityEvents', 'init_addon' ) );
 
 add_action( 'plugins_loaded', 'Tribe_CE_Load', 1 ); // high priority so that it's not too late for tribe_register-helpers class
