@@ -695,7 +695,7 @@ global $id, $post;
   $content = apply_filters('the_content', $content);
   $content = str_replace(']]>', ']]&gt;', $content);
   $content = strip_tags($content, '<p>');
-  return $content . "<p><a href=\"". get_permalink() . "#more-$id\">" . __('...Click here to read more &raquo;', TEMPLATE_DOMAIN) . "</a></p>";
+  return $content . "<p><a href=\"". get_permalink() . "\">" . __('More &raquo;', TEMPLATE_DOMAIN) . "</a></p>";
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -743,7 +743,7 @@ $excerpt .= $blah[$i] . ' ';
 }
 // Display "more" link (use css class 'more-link' to set layout).
 if (($use_more_link && $use_dotdotdot) || $force_more_link) {
-$excerpt .= "<a href=\"". get_permalink() . "#more-$id\">" . __('<br />...Click here to read more &raquo;', TEMPLATE_DOMAIN) . "</a>";
+$excerpt .= "<a href=\"". get_permalink() . "\">" . __('<br />More &raquo;', TEMPLATE_DOMAIN) . "</a>";
 } else {
 $excerpt .= ($use_dotdotdot) ? '...' : '';
 }

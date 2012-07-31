@@ -38,6 +38,21 @@ div#header div#access div.menu ul li a
 	background-color: #ffcc00 !important;
 	color: #000 !important;
 	}
+	
+/* Homepage */
+/* Feature */
+div.feat-post div.feat-post-content,
+div.feat-post div.feat-post-content p,
+div.feat-post ul.more-article li div.alignright,
+div.feat-post ul.more-article li div.alignright:hover {
+	color: #444;
+}
+
+div.feat-post div.feat-post-content img.feat-post-thumbnail {
+	float: left;
+	padding-right: 10px;
+	max-width: 200px !important;
+}
 
 /* Hover */
 div#header div#access div.menu ul li:hover,
@@ -127,7 +142,8 @@ div#footer .widgettitle {
 	padding: 2px 4px;
 }
 
-ul.my-groups-list li div.item-avatar a img.avatar {
+ul.my-groups-list li div.item-avatar a img.avatar,
+div.user_groups ul.user_groups-ul a img.avatar {
 	height: 25px;
 	width: 25px;
 }

@@ -23,4 +23,4 @@ Allow your readers to register for events you organize
 
 * Initial release
 
-65047-1342150151
+18246-1343677516

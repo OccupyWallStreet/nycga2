@@ -24,7 +24,7 @@ if($home_featured_block_count == 'Select a number' || $home_featured_block_count
 ?>
 
 <?php 
-$args = array( 'post_type' => 'ai1ec_event', 'cat' => 'featured', 'posts_per_page' => 10 );
+$args = array( 'post_type' => 'incsub_event', 'cat' => 'featured', 'posts_per_page' => 10 );
 $loop = new WP_Query( $args );
 while ( $loop->have_posts() ) : $loop->the_post();
  $the_post_ids = $post->ID;
