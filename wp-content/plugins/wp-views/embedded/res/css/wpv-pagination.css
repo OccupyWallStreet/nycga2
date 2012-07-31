@@ -1,0 +1,23 @@
+.wpv_pagination_dots li a {
+    background-image: url("../img/pagination_dots.png");
+    display: block;
+    float: left;
+    height: 0;
+    overflow: hidden;
+    padding-top: 16px;
+    width: 16px;
+}
+
+ul.wpv_pagination_dots {
+
+    list-style: none outside none;
+}
+
+.wpv_pagination_dots li.wpv_page_current a {
+    background-position: 0 -16px;
+}
+
+.wpv-filter-next-link,
+.wpv-filter-previous-link {
+    z-index: 10;
+}

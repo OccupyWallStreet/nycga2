@@ -1,0 +1,24 @@
+
+.wpv-sorting-indicator {
+    position: absolute;
+	display: none;
+	width: 7px;
+	height: 4px;
+	margin-top: 8px;
+	margin-left: 7px;
+	background-image: url(../img/sort.gif);
+	background-repeat: no-repeat;
+}
+
+a.wpv-header-no-sort:hover .wpv-sorting-indicator,
+a.wpv-header-asc .wpv-sorting-indicator,
+a.wpv-header-desc:hover .wpv-sorting-indicator {
+	display: inline;
+	background-position: 0 0;
+}
+
+a.wpv-header-desc .wpv-sorting-indicator,
+a.wpv-header-asc:hover .wpv-sorting-indicator {
+	display: inline;
+	background-position: -7px 0;
+}

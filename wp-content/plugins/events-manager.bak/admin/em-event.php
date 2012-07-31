@@ -192,7 +192,7 @@ function em_admin_event_page() {
 								<div class="inside">
 									<p>
 										<select name="group_id">
-											<option value="<?php echo $BP_Group->id; ?>">Not a Group Event</option>
+											<option value="<?php echo $BP_Group->id; ?>">I'm Not a Group Event</option>
 										<?php
 										foreach($user_groups as $BP_Group){
 											?>

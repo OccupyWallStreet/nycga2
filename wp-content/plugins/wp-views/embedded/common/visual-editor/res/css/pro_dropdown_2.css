@@ -1,0 +1,176 @@
+/* ================================================================ 
+This copyright notice must be kept untouched in the stylesheet at 
+all times.
+
+The original version of this stylesheet and the associated (x)html
+is available at http://www.stunicholls.com/menu/pro_drop_2.html
+Copyright (c) 2005-2007 Stu Nicholls. All rights reserved.
+This stylesheet and the associated (x)html may be modified in any 
+way to fit your requirements.
+=================================================================== */
+
+.preload1 {background: url(../img/three_1.gif);}
+.preload2 {background: url(../img/three_1a.gif);}
+
+#editor_addon {display: inline;}
+
+#editor_addon li.top {display: inline;}
+#editor_addon li a.top_link {display: inline; cursor:pointer;}
+
+/* Default list styling */
+
+#editor_addon li:hover {position:relative; z-index:200;}
+
+#editor_addon li:hover ul.sub
+{left:1px; top:18px; background: #ffffff; padding:3px; border:1px solid #5c731e; white-space:nowrap; width:90px; height:auto; z-index:300;}
+#editor_addon li:hover ul.sub li
+{display:block; height:20px; position:relative; float:left; width:90px; font-weight:normal;}
+#editor_addon li:hover ul.sub li a
+{display:block; font-size:11px; height:18px; width:88px; line-height:18px; text-indent:5px; color:#000; text-decoration:none;}
+#editor_addon li ul.sub li a.fly
+{background:#ffffff url(../img/arrow.gif) 80px 6px no-repeat;}
+#editor_addon li:hover ul.sub li a:hover 
+{background:#6a812c; color:#fff; border-color:#fff;}
+#editor_addon li:hover ul.sub li a.fly:hover
+{background:#6a812c url(../img/arrow_over.gif) 80px 6px no-repeat; color:#fff;}
+
+
+#editor_addon li:hover li:hover ul,
+#editor_addon li:hover li:hover li:hover ul,
+#editor_addon li:hover li:hover li:hover li:hover ul,
+#editor_addon li:hover li:hover li:hover li:hover li:hover ul
+{left:90px; top:-4px; background: #ffffff; padding:3px; border:1px solid #5c731e; white-space:nowrap; width:90px; z-index:400; height:auto;}
+
+#editor_addon ul, 
+#editor_addon li:hover ul ul,
+#editor_addon li:hover li:hover ul ul,
+#editor_addon li:hover li:hover li:hover ul ul,
+#editor_addon li:hover li:hover li:hover li:hover ul ul
+{position:absolute; left:-9999px; top:-9999px; width:0; height:0; margin:0; padding:0; list-style:none;}
+
+#editor_addon li:hover li:hover a.fly,
+#editor_addon li:hover li:hover li:hover a.fly,
+#editor_addon li:hover li:hover li:hover li:hover a.fly,
+#editor_addon li:hover li:hover li:hover li:hover li:hover a.fly
+{background:#ffffff url(../img/arrow_over.gif) 80px 6px no-repeat; color:#000; border-color:#fff;} 
+
+#editor_addon li:hover li:hover li a.fly,
+#editor_addon li:hover li:hover li:hover li a.fly,
+#editor_addon li:hover li:hover li:hover li:hover li a.fly
+{background:#ffffff url(../img/arrow.gif) 80px 6px no-repeat; color:#000; border-color:#bbd37e;}
+
+.editor_addon_wrapper {
+    display: inline;
+    width: 20px;
+}
+
+.editor_addon_wrapper li {
+    display: inline;
+    width: 20px;
+}
+
+.editor_addon_wrapper img {
+    margin: 0 2px;
+    cursor: pointer;
+    display: inline;
+}
+
+.editor_addon_dropdown {
+    display: inline;
+    visibility: hidden;
+    position: absolute;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 0;
+    z-index: 99;
+    width: auto;
+    height: auto;
+    margin-top: 22px;
+    margin-left: -16px;
+    margin-right: 30px;
+    overflow: hidden;
+}
+
+.editor_addon_dropdown ul {
+    list-style: none inside none;
+}
+
+.editor_addon_dropdown li {
+    padding: 5px 20px 20px 20px;
+    margin: 0;
+    display: block;
+    width: auto;
+}
+
+.editor_addon_dropdown li:first-child {
+    padding: 5px 10px;
+    margin: 0;
+    background-color: #EFEFEF;
+    width: auto;
+}
+
+.editor_addon_dropdown .title {
+    font-weight: bold;
+    width: 200px;
+}
+
+.editor_addon_dropdown .close {
+    width: 11px;
+    height: 11px;
+    background-image: url(../img/close_icon.gif);
+    float: right;
+    margin: -15px -5px 0 0;
+    cursor: pointer;
+}
+
+.editor_addon_dropdown .scroll {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    overflow-x: hidden;
+    -ms-overflow-x: hidden;
+}
+
+.editor_addon_dropdown .scroll .wrapper {
+    position: relative;
+}
+
+.editor_addon_dropdown .group-title {
+    font-weight: bold;
+}
+
+.editor-addon-link-to-top {
+    font-weight: normal;
+    color: #909090;
+}
+
+.editor_addon_dropdown .group {
+    margin-bottom: 20px;
+}
+
+.editor_addon_dropdown .group .group .group-title {
+    margin-top: 20px;
+}
+
+.editor_addon_dropdown .group .group {
+    margin-left: 20px;
+}
+
+.editor_addon_dropdown .item {
+    margin: 0 0 0 10px;
+    line-height: 1.8em;
+    white-space: nowrap;
+    padding: 0;
+}
+
+.editor_addon_dropdown .direct-links {
+    margin-bottom: 10px;
+}
+
+.editor_addon_dropdown .direct-links a {
+    font-weight: normal;
+    line-height: 1.8em;
+    margin-right: 10px;
+    padding: 0;
+    color: #909090 !important;
+}
