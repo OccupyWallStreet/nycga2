@@ -1,0 +1,58 @@
+.wp-pagenavi
+{
+font-size:12px;
+display:block;
+clear:both;
+padding:20px 10px 20px 10px;
+}
+.wp-pagenavi a,
+.wp-pagenavi a:link,
+.wp-pagenavi a:visited,
+.wp-pagenavi a:active {
+    padding: 4px 8px !important;
+    margin: 3px !important;
+    text-decoration: none !important;
+    border: 1px solid #C8C8C2 !important;
+    background: #FCFCFC !important;
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) !important;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) !important;
+    color: #999 !important;
+}
+
+.wp-pagenavi a:hover {
+    border: 1px solid #a7a7a3 !important;
+    color: #444 !important;
+}
+
+.wp-pagenavi span.pages {
+    padding: 4px 8px !important;
+    margin: 3px !important;
+    font-family: Georgia,serif !important;
+    font-style: italic !important;
+    color: #999 !important;
+}
+
+.wp-pagenavi span.current {
+    padding: 4px 8px !important;
+    margin: 3px !important;
+    text-decoration: none !important;
+    border: 1px solid #a7a7a3 !important;
+    background: #FCFCFC !important;
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) !important;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) !important;
+    font-weight: bold !important;
+    color: #444 !important;
+}
+
+.wp-pagenavi span.extend {
+    padding: 4px 8px !important;
+    margin: 3px !important;
+    text-decoration: none !important;
+    border: 1px solid #C8C8C2 !important;
+    background: #FCFCFC !important;
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) !important;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) !important;
+}

@@ -148,7 +148,7 @@ class PLheroUnit extends PageLinesSection {
 		$hero_img = ploption( 'pagelines_herounit_image', $this->tset );
 		$hero_butt_link = ploption( 'herounit_button_link', $this->oset );
 		$hero_butt_text = ploption( 'herounit_button_text', $this->oset );
-		$hero_butt_target = ploption( 'herounit_button_target', $this->oset );
+		$hero_butt_target = ( ploption( 'herounit_button_target', $this->oset ) ) ? ' target="_blank"': '';
 		$hero_butt_theme = ploption( 'herounit_button_theme', $this->oset );
 
    		if($hero_title)	{ ?>

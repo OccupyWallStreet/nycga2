@@ -45,7 +45,8 @@ class WPMenuEditor extends MenuEd_ShadowPluginFramework {
 		$this->defaults = array(
 			'hide_advanced_settings' => true,
 			'menu_format_version' => 0,
-			'display_survey_notice' => false,
+			'display_survey_notice' => true,
+			'first_install_time' => null,
 		);
 		$this->serialize_with_json = false; //(Don't) store the options in JSON format
 
@@ -109,6 +110,18 @@ class WPMenuEditor extends MenuEd_ShadowPluginFramework {
 		add_action('plugins_loaded', array($this, 'capture_request_vars'));
 
 		add_action('admin_enqueue_scripts', array($this, 'enqueue_menu_fix_script'));
+
+		//User survey
+		add_action('admin_notices', array($this, 'display_survey_notice'));
+	}
+
+	function init_finish() {
+		parent::init_finish();
+
+		if ( !isset($this->options['first_install_time']) ) {
+			$this->options['first_install_time'] = time();
+			$this->save_options();
+		}
 	}
 	
   /**
@@ -122,7 +135,7 @@ class WPMenuEditor extends MenuEd_ShadowPluginFramework {
 		if ( !$this->load_options() ){
 			$this->import_settings();
 		}
-		
+
 		parent::activate();
 	}
 	
@@ -149,16 +162,16 @@ class WPMenuEditor extends MenuEd_ShadowPluginFramework {
    */
 	function enqueue_scripts(){
 		//jQuery JSON plugin
-		wp_enqueue_script('jquery-json', $this->plugin_dir_url.'/js/jquery.json-1.3.js', array('jquery'), '1.3');
+		wp_enqueue_script('jquery-json', plugins_url('js/jquery.json-1.3.js', $this->plugin_file), array('jquery'), '1.3');
 		//jQuery sort plugin
-		wp_enqueue_script('jquery-sort', $this->plugin_dir_url.'/js/jquery.sort.js', array('jquery'));
+		wp_enqueue_script('jquery-sort', plugins_url('js/jquery.sort.js', $this->plugin_file), array('jquery'));
 		//jQuery UI Droppable
 		wp_enqueue_script('jquery-ui-droppable');
 		
 		//Editor's scipts
         wp_enqueue_script(
-			'menu-editor', 
-			$this->plugin_dir_url.'/js/menu-editor.js', 
+			'menu-editor',
+			plugins_url('js/menu-editor.js', $this->plugin_file),
 			array('jquery', 'jquery-ui-sortable', 'jquery-ui-dialog', 'jquery-form'), 
 			'1.1'
 		);
@@ -180,7 +193,7 @@ class WPMenuEditor extends MenuEd_ShadowPluginFramework {
    * @return void
    */
 	function enqueue_styles(){
-		wp_enqueue_style('menu-editor-style', $this->plugin_dir_url . '/css/menu-editor.css', array(), '20120626');
+		wp_enqueue_style('menu-editor-style', plugins_url('css/menu-editor.css', $this->plugin_file), array(), '20120626');
 	}
 
   /**
@@ -888,7 +901,7 @@ class WPMenuEditor extends MenuEd_ShadowPluginFramework {
 		if ( !$this->current_user_can_edit_menu() ){
 			die("Access denied");
 		}
-		
+
 		$action = isset($this->post['action']) ? $this->post['action'] : (isset($this->get['action']) ? $this->get['action'] : '');
 		do_action('admin_menu_editor_header', $action);
 		
@@ -930,26 +943,6 @@ class WPMenuEditor extends MenuEd_ShadowPluginFramework {
 		if ( !apply_filters('admin_menu_editor_is_pro', false) ){
 			$this->print_upgrade_notice();
 		}
-		
-		//Handle the survey notice
-		if ( isset($this->get['hide_survey_notice']) && !empty($this->get['hide_survey_notice']) ) {
-			$this->options['display_survey_notice'] = false;
-			$this->save_options();
-		}
-				
-		if ( $this->options['display_survey_notice'] ) {
-			$survey_url = 'https://docs.google.com/spreadsheet/viewform?formkey=dDVLOFM4V0JodUVTbWdUMkJtb2ZtZGc6MQ';
-			$hide_url = add_query_arg('hide_survey_notice', 1);
-			printf(
-				'<div class="updated">
-					<p><strong>Help improve this plugin - take the Admin Menu Editor user survey!</strong></p>
-					<p><a href="%s" target="_blank" title="Opens in a new window">Take the survey</a></p>
-					<p><a href="%s">Hide this notice</a></p>
-				</div>',
-				esc_attr($survey_url),
-				esc_attr($hide_url)
-			);
-		}
 ?>
 <div class="wrap">
 <h2>
@@ -982,7 +975,7 @@ class WPMenuEditor extends MenuEd_ShadowPluginFramework {
 	$custom_menu_js = $this->getMenuAsJS($custom_menu);
 
 	$plugin_url = $this->plugin_dir_url;
-	$images_url = $this->plugin_dir_url . '/images';
+	$images_url = plugins_url('images', $this->plugin_file);
 	
 	//Create a list of all known capabilities and roles. Used for the dropdown list on the access field.
 	$all_capabilities = $this->get_all_capabilities();
@@ -1347,9 +1340,9 @@ window.wsMenuEditorPro = false; //Will be overwritten if extras are loaded
 	public function enqueue_menu_fix_script() {
 		wp_enqueue_script(
 			'ame-menu-fix',
-			$this->plugin_dir_url . '/js/menu-highlight-fix.js',
+			plugins_url('js/menu-highlight-fix.js', $this->plugin_file),
 			array('jquery'),
-			'20120519',
+			'20120709',
 			true
 		);
 	}
@@ -1361,6 +1354,43 @@ window.wsMenuEditorPro = false; //Will be overwritten if extras are loaded
 	 */
 	function noop(){
 		//nihil
+	}
+
+	public function display_survey_notice() {
+		//Handle the survey notice
+		$hide_param_name = 'ame_hide_survey_notice';
+		if ( isset($this->get[$hide_param_name]) ) {
+			$this->options['display_survey_notice'] = empty($this->get[$hide_param_name]);
+			$this->save_options();
+		}
+
+		$display_notice = $this->options['display_survey_notice'] && $this->current_user_can_edit_menu();
+		if ( isset($this->options['first_install_time']) ) {
+			$minimum_usage_period = 3*24*3600;
+			$display_notice = $display_notice && ((time() - $this->options['first_install_time']) > $minimum_usage_period);
+		}
+
+		if ( $display_notice ) {
+			$free_survey_url = 'https://docs.google.com/spreadsheet/viewform?formkey=dERyeDk0OWhlbkxYcEY4QTNaMnlTQUE6MQ';
+			$pro_survey_url =  'https://docs.google.com/spreadsheet/viewform?formkey=dHl4MnlHaVI3NE5JdVFDWG01SkRKTWc6MA';
+
+			if ( apply_filters('admin_menu_editor_is_pro', false) ) {
+				$survey_url = $pro_survey_url;
+			} else {
+				$survey_url = $free_survey_url;
+			}
+
+			$hide_url = add_query_arg($hide_param_name, 1);
+			printf(
+				'<div class="updated">
+					<p><strong>Help improve Admin Menu Editor - take the user survey!</strong></p>
+					<p><a href="%s" target="_blank" title="Opens in a new window">Take the survey</a></p>
+					<p><a href="%s">Hide this notice</a></p>
+				</div>',
+				esc_attr($survey_url),
+				esc_attr($hide_url)
+			);
+		}
 	}
 
 	/**

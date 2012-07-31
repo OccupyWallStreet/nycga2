@@ -130,8 +130,8 @@ class Eab_Events_FrontPageEditing {
 		return 
 			$content .
 			'<p>' .
-				'<a href="' . $this->_get_front_editor_link($event->get_id()) . '">' . 
-					__('Edit event', Eab_EventsHub::TEXT_DOMAIN) . 
+				'<a class="button" href="' . $this->_get_front_editor_link($event->get_id()) . '">' . 
+					__('Edit Event', Eab_EventsHub::TEXT_DOMAIN) . 
 				'</a>' .
 			'</p>' .
 		'';
@@ -146,7 +146,7 @@ class Eab_Events_FrontPageEditing {
 		echo '' . 
 			'<p>' .
 				'<a href="' . $this->_get_front_editor_link() . '">' . 
-					__('Add event', Eab_EventsHub::TEXT_DOMAIN) . 
+					__('Add Event', Eab_EventsHub::TEXT_DOMAIN) . 
 				'</a>' .
 			'</p>' .
 		'';
@@ -174,7 +174,7 @@ class Eab_Events_FrontPageEditing {
 			$wp_admin_bar->add_menu(array(
 				'parent' => 'eab-events-fpe-admin_bar',
 				'id' => 'eab-events-fpe-admin_bar-edit_event',
-				'title' => __('Edit this Event', Eab_EventsHub::TEXT_DOMAIN),
+				'title' => __('Edit This Event', Eab_EventsHub::TEXT_DOMAIN),
 				'href' => $this->_get_front_editor_link($post->ID),
 			));
 		}

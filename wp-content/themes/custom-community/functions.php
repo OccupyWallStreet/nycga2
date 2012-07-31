@@ -24,6 +24,7 @@ if ( ! function_exists( 'cc_setup' ) ):
  * @uses BP_DISABLE_ADMIN_BAR To disable the admin bar if set to disabled in the themesettings.
  *
  */
+
 function cc_setup() {
 global $cap, $content_width;
 
@@ -571,4 +572,19 @@ if($cap->buddydev_search == true && defined('BP_VERSION') && function_exists('bp
 	remove_action( 'bp_init', 'bp_core_action_search_site', 7 );
 		
 }
+
+ /* Register styles */
+function my_styles_method()  
+{ 
+  wp_register_style( 'events', get_template_directory_uri() . '/_inc/css/events.css');
+  wp_register_style( 'nycga-core', get_template_directory_uri() . '/_inc/css/nycga_core.css', array(), '20120729', 'all' );
+  wp_register_style( 'type', get_template_directory_uri() . '/_inc/css/type.css');
+
+  // enqueing
+  wp_enqueue_style( 'events' );
+  wp_enqueue_style( 'nycga-core' );
+  wp_enqueue_style( 'type' );
+}
+add_action('wp_enqueue_scripts', 'my_styles_method', 101);
+
 ?>

@@ -37,7 +37,7 @@ if ( !isset( $moderation_save_to_archive ))
 
 if ( !isset( $moderation_use_filters ))
     $moderation_use_filters = array(
-        'post'      => true, 
+        'post'      => false, 
         'comment'   => true,
         'blog'      => true,
     );
@@ -260,7 +260,7 @@ function moderation_site_admin_options_process() {
 	update_site_option( 'moderators_can_remove_users' , $_POST['moderators_can_remove_users'] );
 	update_site_option( 'moderators_can_remove_blogs' , $_POST['moderators_can_remove_blogs'] );
 	if( $_POST['moderation_report_post_reasons'] != '' ) {
-		$moderation_report_post_reasons = split( "\n", stripslashes( $_POST['moderation_report_post_reasons'] ) );
+		$moderation_report_post_reasons = split( "n", stripslashes( $_POST['moderation_report_post_reasons'] ) );
 		foreach( (array) $moderation_report_post_reasons as $moderation_report_post_reason ) {
 			$report_post_reasons[] = trim( $moderation_report_post_reason );
 		}
@@ -269,7 +269,7 @@ function moderation_site_admin_options_process() {
 		update_site_option( "moderation_report_post_reasons", '' );
 	}
 	if( $_POST['moderation_report_comment_reasons'] != '' ) {
-		$moderation_report_comment_reasons = split( "\n", stripslashes( $_POST['moderation_report_comment_reasons'] ) );
+		$moderation_report_comment_reasons = split( "n", stripslashes( $_POST['moderation_report_comment_reasons'] ) );
 		foreach( (array) $moderation_report_comment_reasons as $moderation_report_comment_reason ) {
 			$report_comment_reasons[] = trim( $moderation_report_comment_reason );
 		}
@@ -278,7 +278,7 @@ function moderation_site_admin_options_process() {
 		update_site_option( "moderation_report_comment_reasons", '' );
 	}
 	if( $_POST['moderation_report_blog_reasons'] != '' ) {
-		$moderation_report_blog_reasons = split( "\n", stripslashes( $_POST['moderation_report_blog_reasons'] ) );
+		$moderation_report_blog_reasons = split( "n", stripslashes( $_POST['moderation_report_blog_reasons'] ) );
 		foreach( (array) $moderation_report_blog_reasons as $moderation_report_blog_reason ) {
 			$report_blog_reasons[] = trim( $moderation_report_blog_reason );
 		}
@@ -287,7 +287,7 @@ function moderation_site_admin_options_process() {
 		update_site_option( "moderation_report_blog_reasons", '' );
 	}
 	if( $_POST['moderation_remove_notes'] != '' ) {
-		$moderation_remove_notes = split( "\n", stripslashes( $_POST['moderation_remove_notes'] ) );
+		$moderation_remove_notes = split( "n", stripslashes( $_POST['moderation_remove_notes'] ) );
 		foreach( (array) $moderation_remove_notes as $moderation_remove_note ) {
 			$remove_notes[] = trim( $moderation_remove_note );
 		}
@@ -326,7 +326,7 @@ function moderation_init() {
 			case "submit_report" :
 				
 				moderation_process_submission();
-				echo '<p>&nbsp;</p><p>&nbsp;</p><p>'.__('Thanks for the report. We\'ll look into it', 'moderation').'</p>'; //// CHMAC TODO Prettify and nocache header this
+				echo '<p>&nbsp;</p><p>&nbsp;</p><p>'.__('Thanks for the report. We'll look into it', 'moderation').'</p>'; //// CHMAC TODO Prettify and nocache header this
 				echo '<script type="text/javascript">setTimeout("tb_remove()",5000);</script>';
 				exit();
 				
@@ -411,7 +411,7 @@ function moderation_report_link($object_type, $object_id, $link_text = '', $link
     // Construct HTML container atts
     $tag_atts = '';
     foreach ($link_atts as $att_name => $att_value) {
-        $tag_atts .= " {$att_name}=\"{$att_value}\"";
+        $tag_atts .= " {$att_name}="{$att_value}"";
     }
     
     return "<{$tag}{$tag_atts}>{$link}</{$tag}>";
@@ -605,7 +605,7 @@ function moderation_site_admin_options() {
 			<tr valign="top">
 				<th scope="row"><?php _e('Report Post Reasons', 'moderation') ?></th>
 				<td>
-					<textarea name="moderation_report_post_reasons" id="moderation_report_post_reasons" cols='40' rows='5' style="width: 95%;"><?php echo $moderation_report_post_reasons == '' ? '' : @implode( "\n", $moderation_report_post_reasons ); ?></textarea>
+					<textarea name="moderation_report_post_reasons" id="moderation_report_post_reasons" cols='40' rows='5' style="width: 95%;"><?php echo $moderation_report_post_reasons == '' ? '' : @implode( "n", $moderation_report_post_reasons ); ?></textarea>
 					<br />
 					<?php _e('Reasons for reporting a post. One per line.', 'moderation') ?>
 				</td>
@@ -613,7 +613,7 @@ function moderation_site_admin_options() {
 			<tr valign="top">
 				<th scope="row"><?php _e('Report Comment Reasons', 'moderation') ?></th>
 				<td>
-					<textarea name="moderation_report_comment_reasons" id="moderation_report_comment_reasons" cols='40' rows='5' style="width: 95%;"><?php echo $moderation_report_comment_reasons == '' ? '' : @implode( "\n", $moderation_report_comment_reasons ); ?></textarea>
+					<textarea name="moderation_report_comment_reasons" id="moderation_report_comment_reasons" cols='40' rows='5' style="width: 95%;"><?php echo $moderation_report_comment_reasons == '' ? '' : @implode( "n", $moderation_report_comment_reasons ); ?></textarea>
 					<br />
 					<?php _e('Reasons for reporting a comment. One per line.', 'moderation') ?>
 				</td>
@@ -621,7 +621,7 @@ function moderation_site_admin_options() {
 			<tr valign="top">
 				<th scope="row"><?php _e('Report Blog Reasons', 'moderation') ?></th>
 				<td>
-					<textarea name="moderation_report_blog_reasons" id="moderation_report_blog_reasons" cols='40' rows='5' style="width: 95%;"><?php echo $moderation_report_blog_reasons == '' ? '' : @implode( "\n", $moderation_report_blog_reasons ); ?></textarea>
+					<textarea name="moderation_report_blog_reasons" id="moderation_report_blog_reasons" cols='40' rows='5' style="width: 95%;"><?php echo $moderation_report_blog_reasons == '' ? '' : @implode( "n", $moderation_report_blog_reasons ); ?></textarea>
 					<br />
 					<?php _e('Reasons for reporting a Blog. One per line.', 'moderation') ?>
 				</td>
@@ -629,7 +629,7 @@ function moderation_site_admin_options() {
 			<tr valign="top">
 				<th scope="row"><?php _e('Remove Notes', 'moderation') ?></th>
 				<td>
-					<textarea name="moderation_remove_notes" id="moderation_remove_notes" cols='40' rows='5' style="width: 95%;"><?php echo $moderation_remove_notes == '' ? '' : @implode( "\n", $moderation_remove_notes ); ?></textarea>
+					<textarea name="moderation_remove_notes" id="moderation_remove_notes" cols='40' rows='5' style="width: 95%;"><?php echo $moderation_remove_notes == '' ? '' : @implode( "n", $moderation_remove_notes ); ?></textarea>
 					<br />
 					<?php _e('Note to user when a post or comment is removed. One per line.', 'moderation') ?>
 				</td>
@@ -1153,7 +1153,7 @@ function moderation_posts() {
 				<?php
 			} else {
 				?>
-	            <p><?php _e('There currently aren\'t any posts in the moderation queue.', 'moderation') ?></p>
+	            <p><?php _e('There currently aren't any posts in the moderation queue.', 'moderation') ?></p>
                 <?php
 			}
 		break;
@@ -1335,7 +1335,7 @@ function moderation_blogs() {
 				<?php
 			} else {
 				?>
-	            <p><?php _e('There currently aren\'t any blogs in the moderation queue.', 'moderation') ?></p>
+	            <p><?php _e('There currently aren't any blogs in the moderation queue.', 'moderation') ?></p>
                 <?php
 			}
 		break;
@@ -1530,7 +1530,7 @@ function moderation_comments() {
 				<?php
 			} else {
 				?>
-	            <p><?php _e('There currently aren\'t any comments in the moderation queue.', 'moderation') ?></p>
+	            <p><?php _e('There currently aren't any comments in the moderation queue.', 'moderation') ?></p>
                 <?php
 			}
 		break;

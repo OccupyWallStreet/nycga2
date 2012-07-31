@@ -1,0 +1,52 @@
+.wp-pagenavi
+{
+font-size:12px;
+display:block;
+clear:both;
+padding:20px 0px 20px 0px;
+}
+.wp-pagenavi a,
+.wp-pagenavi a:link,
+.wp-pagenavi a:visited,
+.wp-pagenavi a:active {
+    padding:6px 9px 6px 9px;
+    margin: 3px;
+    text-decoration: none;
+    border: 1px solid #C8C8C2;
+    background: #FCFCFC;
+    color: #999;
+}
+
+.wp-pagenavi a:hover {
+    border: 1px solid #a7a7a3;
+    color: #444;
+}
+
+.wp-pagenavi span.pages {
+    padding:6px 9px 6px 9px;
+    margin: 3px;
+    font-family: Georgia,serif;
+    font-style: italic;
+    color: #999;
+}
+
+.wp-pagenavi span.current {
+    padding:6px 9px 6px 9px;
+    margin: 3px;
+    text-decoration: none;
+    border: 1px solid #a7a7a3;
+    background: #FCFCFC;
+    font-weight: bold;
+    color: #444;
+}
+
+.wp-pagenavi span.extend {
+    padding:6px 9px 6px 9px;
+    margin: 3px;
+    text-decoration: none;
+    border: 1px solid #C8C8C2;
+    background: #FCFCFC;
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}

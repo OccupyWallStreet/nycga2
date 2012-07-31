@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>A guide to the Query Posts widget</title>
+
+<link rel="stylesheet" href="readme.css" type="text/css" media="screen" />
+
+</head>
+<body>
+
+<h1>A guide to the Query Posts widget</h1>
+
+<p class="first"><em>Query Posts</em> is a widget that allows you to display posts in any way you want.  It is a revolution in how users interact with their site, allowing them to have the power of more-advanced developers at the tip of their fingertips.</p>
+
+<p>WordPress is a wonderful <acronym title="Content Management System">CMS</acronym> to work with, but for end users, it can sometimes be a daunting task trying to make things work just they want.  <em>Query Posts</em> makes WordPress a more robust, yet intuitive, platform for users to work from.</p>
+
+<ul>
+	<li><a href="#about">What does this widget do?</a></li>
+	<li><a href="#installation">How to install the plugin</a></li>
+	<li><a href="#settings">Widget settings</a>
+		<ul>
+		<li><a href="#title">title</a></li>
+		<li><a href="#orderby">orderby</a></li>
+		<li><a href="#order">order</a></li>
+		<li><a href="#post_status">post_status</a></li>
+		<li><a href="#post_type">post_type</a></li>
+		<li><a href="#posts_per_page">posts_per_page</a></li>
+		<li><a href="#offset">offset</a></li>
+		<li><a href="#paged">paged</a></li>
+		<li><a href="#post_parent">post_parent</a></li>
+		<li><a href="#author">author</a></li>
+		<li><a href="#year">year</a></li>
+		<li><a href="#monthnum">monthnum</a></li>
+		<li><a href="#w">w</a></li>
+		<li><a href="#day">day</a></li>
+		<li><a href="#hour">hour</a></li>
+		<li><a href="#minute">minute</a></li>
+		<li><a href="#second">second</a></li>
+		<li><a href="#caller_get_posts">Disable sticky posts</a></li>
+		<li><a href="#wp_reset_query">Reset Query</a></li>
+		<li><a href="#enable_widget_title">Enable widget title</a></li>
+		<li><a href="#entry_container">entry_container</a></li>
+		<li><a href="#post_class">post_class</a></li>
+		<li><a href="#the_post_thumbnail">Enable post thumbnails</a></li>
+		<li><a href="#size">size</a></li>
+		<li><a href="#show_entry_title">Enable entry titles</a></li>
+		<li><a href="#entry_title">entry_title</a></li>
+		<li><a href="#byline">byline</a></li>
+		<li><a href="#entry_content">entry_content</a></li>
+		<li><a href="#more_link_text">&lt;!--more--></a></li>
+		<li><a href="#wp_link_pages">Enable page links</a></li>
+		<li><a href="#entry_meta">entry_meta</a></li>
+		<li><a href="#error_message">error_message</a></li>
+		<li><a href="#post">post</a></li>
+		<li><a href="#page">page</a></li>
+		<li><a href="#attachment">attachment</a></li>
+		<li><a href="#category">category</a></li>
+		<li><a href="#post_tag">post_tag</a></li>
+		</ul>
+	</li>
+	<li><a href="#widgets-page-template">Creating a completely widgetized page template</a></li>
+	<li><a href="#support">Plugin Support</a></li>
+	<li><a href="#copyright">Copyright &amp; License</a></li>
+</ul>
+
+<h2 id="installation">How to install the plugin</h2>
+
+<ol>
+	<li>Unzip the <code>query-posts.zip</code> folder.</li>
+	<li>Upload the <code>query-posts</code> folder to your <code>/wp-content/plugins</code> directory.</li>
+	<li>In your WordPress dashboard, head over to the <em>Plugins</em> section.</li>
+	<li>Activate <em>Query Posts</em>.</li>
+</ol>
+
+<h2 id="about">What does the widget do?</h2>
+
+<p>Basically, it is a wrapper for the <a href="http://codex.wordpress.org/Template_Tags/query_posts" title="WordPress Codex: query_posts()">query_posts()</a> function in WordPress.  This is a fairly standard function used, but it requires that end users dive into code to use it.  This plugin provides an interface so that the average user can interact with this function without having to learn the intricacies of the <code>query_posts()</code> template tag and making it work with <em>The Loop</em>.</p>
+
+<p><em>Query Posts</em> is a widget that allows you to select from several options on what posts you'd like to display.  The plugin handles the rest, even the output of your selected data.</p>
+
+<h2 id="settings">Widget Settings</h2>
+
+<p>There are several settings for the widget.  Understanding how the <a href="http://codex.wordpress.org/Template_Tags/query_posts" title="WordPress Codex: query_posts()">query_posts()</a> function works will help tremendously in setting up this widget.</p>
+
+<h3 id="title">title</h3>
+
+<p>Set a title for your widget.  There's a checkbox in the settings to display this.</p>
+
+<h3 id="orerby">orderby</h3>
+
+<p>Criteria by which you want to order your posts.</p>
+
+<h3 id="order">order</h3>
+
+<p>The order in which your posts should appear.</p>
+
+<h3 id="post_status">post_status</h3>
+
+<p>A multiple select box that allows you to only display posts with a specific status.</p>
+
+<h3 id="post_type">post_type</h3>
+
+<p>A multiple select box that allows you to dispaly specific post types.</p>
+
+<h3 id="posts_per_page">posts_per_page</h3>
+
+<p>Number of posts to display.</p>
+
+<h3 id="offset">offset</h3>
+
+<p>The number of posts to skip over before displaying your posts.</p>
+
+<h3 id="paged">paged</h3>
+
+<p>A number that represents a specific page of posts.  For example, you could list posts that should only be on page 2.</p>
+
+<h3 id="post_parent">post_parent</h3>
+
+<p>ID of the parent post for which you want to list its children.</p>
+
+<h3 id="post_mime_type">post_mime_type</h3>
+
+<p>Multiple select box for showing posts with a specific mime type.  This is generally only useful for attachments.</p>
+
+<h3 id="meta_key">meta_key</h3>
+
+<p>Select a custom field (meta) key to list posts by.  Only posts with this meta key will be shown.</p>
+
+<h3 id="meta_value">meta_value</h3>
+
+<p>Select a custom field (meta) value to list posts by.  Only posts with this meta value will be shown.</p>
+
+<h3 id="meta_compare">meta_compare</h3>
+
+<p>A comparison value to decide how to list posts when listing them by meta key and value.</p>
+
+<h3 id="author">author</h3>
+
+<p>Comma-separated list of author IDs.</p>
+
+<h3 id="year">year</h3>
+
+<p>A four-digit year to select posts from.</p>
+
+<h3 id="monthnum">monthnum</h3>
+
+<p>A select box for a month to show posts from.</p>
+
+<h3 id="w">w</h3>
+
+<p>A select box for a week of the year to show posts from.</p>
+
+<h3 id="day">day</h3>
+
+<p>A select box for a day of the week to show posts from.</p>
+
+<h3 id="hour">hour</h3>
+
+<p>A select box for an hour of the day to show posts from.</p>
+
+<h3 id="minute">minute</h3>
+
+<p>A select box for a specific minute to show posts from.</p>
+
+<h3 id="second">second</h3>
+
+<p>A select box for a specific second to show posts from.</p>
+
+<h3 id="caller_get_posts">Disable sticky posts</h3>
+
+<p>Check to make sure no sticky posts appear at the top of the list.</p>
+
+<h3 id="wp_reset_query">Reset query</h3>
+
+<p>Resets the query used to what the current WordPress query is.  Use this if you're having trouble is conditional tags in your theme.</p>
+
+<h3 id="enable_widget_title">Enable widget title</h3>
+
+<p>Check this to display the widget title at the top of the widget.</p>
+
+<h3 id="entry_container">entry_container</h3>
+
+<p>Select box for which to wrap each post shown.  Note that the "widget" option will make each post an individual widget on display.</p>
+
+<h3 id="post_class">post_class</h3>
+
+<p>An additional CSS/HTML class for individual posts.</p>
+
+<h3 id="the_post_thumbnail">Enable post thumbnails</h3>
+
+<p>Whether to show an image along with each post.  If you have the <em>Get the Image</em> plugin installed or a theme that has it packaged, the <code>get_the_image()</code> function will be used.  Otherwise, the <code>the_post_thumbnail()</code> WordPress function will be used.</p>
+
+<h3 id="size">size</h3>
+
+<p>The size of the image you'd like to show.</p>
+
+<h3 id="show_entry_title">Enable entry titles</h3>
+
+<p>Whether to display the post title.</p>
+
+<h3 id="entry_title">entry_title</h3>
+
+<p>The HTML element to wrap the entry title in on display.</p>
+
+<h3 id="byline">byline</h3>
+
+<p>A shortcode-ready area for showing a post byline under the post title.</p>
+
+<h3 id="entry_content">entry_content</h3>
+
+<p>Whether to display the full post content, excerpt, or no content at all.</p>
+
+<h3 id="more_link_text">&lt;!--more--></h3>
+
+<p>The text to display for the <code>&lt;!--more--></code> link when showing the full post content.</p>
+
+<h3 id="wp_link_pages">Enable page links</h3>
+
+<p>Whether to display the paginated list of pages when using the <code>&lt;!--nextpage--></code> short tag.</p>
+
+<h3 id="entry_meta">entry_meta</h3>
+
+<p>A shortcode-ready text input for displaying post meta information after the post content.</p>
+
+<h3 id="error_message">error_message</h3>
+
+<p>A custom error message to display when no posts are found.  This is shortcode-ready.</p>
+
+<h3 id="post">post</h3>
+
+<p>Comma-separated list of post IDs to show.</p>
+
+<h3 id="page">page</h3>
+
+<p>Comma-separated list of page IDs to show.</p>
+
+<h3 id="attachment">attachment</h3>
+
+<p>Comma-separated list of attachment IDs to show.</p>
+
+<h3 id="category">category</h3>
+
+<p>Comma-separated list of category IDs to show.</p>
+
+<h3 id="post_tag">post_tag</h3>
+
+<p>Comma-separated list of tag slugs to show.</p>
+
+<h2 id="widgets-page-template">Creating a completely widgetized page template</h2>
+
+<p>This is <strong>not required</strong> but could be fun to do.</p>
+
+<p>To truly understand how powerful this plugin is, you might want a widgetized page template, or several.  My <a href="http://themehybrid.com/themes/hybrid" title="Hybrid WordPress theme framework">Hybrid theme</a> has one of these.  I'll give you a quick tutorial here.  For more information on page templates, read this <a href="http://justintadlock.com/archives/2009/03/13/page-templates-the-untapped-potential-of-wordpress" title="Page templates: The untapped potential of WordPress">tutorial on page templates</a>.</p>
+
+<p>The first thing you want to do is create a new widget section.  So, open your theme's <code>functions.php</code> file and add this code:</p>
+
+<pre><code>&lt;?php
+register_sidebar( array(
+	'name' => 'Widgets Template',
+	'id' => 'widgets-template',
+	'before' => '&lt;div id="%1$s" class="widget %2$s widget-%2$s"&gt;',
+	'after' => '&lt;/div>',
+	'before_title' => '&lt;h3 class="widget-title"&gt;',
+	'after_title', => '&lt;/h3&gt;'
+) );
+?&gt;</code></pre>
+
+<p>Save your <code>functions.php</code> file.</p>
+
+<p>Then, you need to create a new file in your theme's root folder named <code>page-widgets.php</code>.  The best method is to copy your theme's <code>page.php</code> file and mold this code into it.  Here is an example:</p>
+
+<pre><code>&lt;?php
+/*
+Template Name: Widgets
+*/
+
+get_header(); ?&gt;
+
+	&lt;div class="content"&gt;
+
+		&lt;?php dynamic_sidebar( 'widgets-template' ); ?&gt;
+
+	&lt;/div&gt;
+
+&lt;?php get_footer(); ?&gt;</code></pre>
+
+<h2 id="support">Plugin Support</h2>
+
+<p>I run a WordPress community called <a href="http://themehybrid.com" title="Theme Hybrid">Theme Hybrid</a>, which is where I fully support all of my WordPress projects, including plugins.  You can sign up for an account to get plugin support for a small yearly fee ($25 <acronym title="United States Dollars">USD</acronym> at the time of writing).</p>
+
+<p>I know.  I know.  You might not want to pay for support, but just consider it a donation to the project.  To continue making cool, <acronym title="GNU General Public License">GPL</acronym>-licensed plugins and having the time to support them, I must pay the bills.</p>
+
+<h2 id="copyright">Copyright &amp; License</h2>
+
+<p><em>Query Posts</em> is licensed under the <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html" title="GNU GPL">GNU General Public License</a>, version 2 (<acronym title="GNU General Public License">GPL</acronym>).</p>
+
+<p>This plugin is copyrighted to <a href="http://justintadlock.com" title="Justin Tadlock">Justin Tadlock</a>.</p>
+
+<p>2009&thinsp;&ndash;&thinsp;2010 &copy; Justin Tadlock.  All rights reserved.</p>
+
+</body>
+</html>

@@ -22,9 +22,17 @@
 		<?php do_action( 'bp_before_header' ) ?>
 
 		<div id="header">
+		
+			<div class="padder branding">
+			<div id="header-link"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"></a></div>
+			<h2 id="description" role="tagline"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>">#OccupyWallStreet</a></h2>
+			</div>
+			
 			<div id="search-bar" role="search">
 				<div class="padder">
-					<h1 id="logo" role="banner"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"><?php bp_site_name(); ?></a></h1>
+						
+									<h1 id="logo" role="banner"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"><?php bp_site_name(); ?></a></h1>
+			<h3 id="description" role="description"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"><?php bloginfo('description'); ?></a></h3>
 
 						<form action="<?php echo bp_search_form_action() ?>" method="post" id="search-form">
 							<label for="search-terms" class="accessibly-hidden"><?php _e( 'Search for:', 'buddypress' ); ?></label>
@@ -54,8 +62,15 @@
 			<?php do_action( 'bp_header' ) ?>
 
 		</div><!-- #header -->
+				
+		<!-- BEGIN: announcement bar -->
 
+		<?php locate_template( array( 'announcement.php' ), true ) ?>
+
+		<!-- //END: announcement bar -->
+
+        
 		<?php do_action( 'bp_after_header' ) ?>
 		<?php do_action( 'bp_before_container' ) ?>
-
-		<div id="container">
+		
+		<div id="container" class="container_24">

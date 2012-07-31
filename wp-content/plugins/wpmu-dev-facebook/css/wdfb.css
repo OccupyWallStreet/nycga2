@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+a.wdfb_register_button, a.wdfb_register_button:hover, a.wdfb_register_button:active, a.wdfb_register_button:visited {
+/*
+	background: url(../img/fb-big-button.png) top left no-repeat #5B74A8;
+	border: 1px solid black;
+	border-color: #29447E #29447E #1A356E;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+*/
+	text-decoration: none;
+	color: #FFF;
+
+	background: url("http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png") no-repeat scroll 0 0 #29447E;
+	background-position: left -60px;
+    cursor: pointer;
+    display: inline-block;
+    outline: medium none;
+    padding: 0 0 0 1px;
+    margin-left: 1em;
+}
+
+a.wdfb_register_button span {
+	display: block;
+	height: 31px;
+	line-height: 31px !important;
+	font-size: 14px;
+	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+	font-weight: bold;
+	text-align: center;
+
+	background: url("http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png") repeat scroll 0 0 #5F78AB;
+    border-bottom: 1px solid #1A356E;
+    border-top: 1px solid #879AC0;
+    color: #FFFFFF;
+    display: block;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-weight: bold;
+    margin: 1px 1px 0 38px;
+    padding: 2px 6px 3px 12px;
+    text-shadow: none;
+}
+
+/* 18246-1343677405 */

@@ -46,7 +46,12 @@ Template Name: Widgetized Page
 		</div><!-- .padder -->
 	</div><!-- #content -->
 	
-	<?php get_sidebar() ?>
+	<?php// get_sidebar() ?>
+	<!-- BEGIN: sidebar -->
+	<div class="sidebar grid_4">
+	<?php locate_template( array( 'sidebar-home-3.php' ), true ) ?>
+	</div>
+	<!-- //END: sidebar -->
 	
 <?php get_footer(); ?>
 

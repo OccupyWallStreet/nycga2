@@ -1,0 +1,27 @@
+.wp-pagenavi {
+	padding: 10px 20px 10px;
+	display:block;
+	clear:both;
+}
+.wp-pagenavi a ,.wp-pagenavi span.pages, .wp-pagenavi span.extend {
+		color:#fff !important;
+		border:solid 1px #02360b !important;
+		padding:6px 9px 6px 9px !important;
+		margin-right:3px !important;
+		text-decoration:none !important;
+		font-size:12px !important;
+		background:#2c9c3f !important;
+}
+.wp-pagenavi a:hover {
+		color:#fff !important;
+		border-color:#02360b !important;
+		background:#03cf26 !important;
+}
+ .wp-pagenavi span.current{
+		padding:6px 9px 6px 9px !important;
+		border:solid 1px #DCDCDC !important;
+		color:#fff !important;
+		margin-right:3px !important;
+		border-color:#02360b !important;
+		background:#03cf26 !important;
+}

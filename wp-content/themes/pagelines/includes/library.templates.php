@@ -19,7 +19,7 @@ function do_special_content_wrap(){
 		isset($pagelines_render)
 		|| class_exists('SkinPageLinesWiki')
 		|| function_exists('vanilla_dcss')
-		|| (function_exists('is_jigoshop') && is_jigoshop() && class_exists('PageLinesJigoShop'))
+	//	|| (function_exists('is_jigoshop') && is_jigoshop() && class_exists('PageLinesJigoShop'))
 	)
 		return false; 
 	else 
@@ -482,8 +482,10 @@ function pagelines_filter_wp_title( $title ) {
 	global $wp_query, $s, $paged, $page;
 	$sep = __( '|','pagelines' );
 	$new_title = get_bloginfo( 'name' ) . ' ';
-	$bloginfo_description = get_bloginfo( 'description' );	
-	if ( ( is_home () || is_front_page() ) && ! empty( $bloginfo_description ) && !$paged && !$page ) {
+	$bloginfo_description = get_bloginfo( 'description' );
+	if( is_feed() ) {
+		$new_title = $title;
+	} elseif ( ( is_home () || is_front_page() ) && ! empty( $bloginfo_description ) && ! $paged && ! $page ) {
 		$new_title .= $sep . ' ' . $bloginfo_description;
 	} elseif ( is_category() ) {
 		$new_title .= $sep . ' ' . single_cat_title( '', false );

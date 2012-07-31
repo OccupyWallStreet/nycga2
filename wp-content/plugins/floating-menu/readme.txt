@@ -4,7 +4,7 @@ Donate link: http://www.designchemical.com/blog/index.php/wordpress-plugins/word
 Tags: jquery, flyout, drop down, floating, sliding, menu, vertical, animated, navigation, widget
 Requires at least: 3.0
 Tested up to: 3.10
-Stable tag: 1.4
+Stable tag: 1.4.1
 
 Floating Menu creates a sticky, floating menu widget from any Wordpress custom menu using jQuery.
 
@@ -66,6 +66,9 @@ Another likely cause is due to other non-functioning plugins, which may have err
 1. Floating Menu widget in edit mode
 
 == Changelog ==
+
+= 1.4.1 = 
+* Update: change wp_enqueue_script to function
 
 = 1.3 = 
 * Added: option to position menu from center of browser window

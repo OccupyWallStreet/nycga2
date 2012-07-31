@@ -10,7 +10,8 @@ class PageLinesRenderCSS {
 	
 	function __construct() {
 		
-		$this->ctimout = 86400;
+		$this->url_string = '%s/?pageless=%s';
+		$this->ctimeout = 86400;
 		$this->btimeout = 604800;
 		$this->types = array( 'sections', 'core', 'custom' );
 		$this->lessfiles = $this->get_core_lessfiles();
@@ -70,7 +71,8 @@ class PageLinesRenderCSS {
 
 		add_action( 'wp_print_styles', array( &$this, 'load_less_css' ), 11 );
 		add_action( 'pagelines_head_last', array( &$this, 'draw_inline_custom_css' ) , 25 );
-		add_action( 'wp_head', array(&$pagelines_template, 'print_template_section_head' ), 12 );
+		add_action( 'wp_head', array( &$pagelines_template, 'print_template_section_head' ), 12 );
+		add_action( 'wp_head', array( &$this, 'do_background_image' ), 13 );
 		add_action( 'extend_flush', array( &$this, 'flush_version' ) );	
 		add_filter( 'pagelines_insert_core_less', array( &$this, 'pagelines_insert_core_less_callback' ) );
 		add_action( 'admin_notices', array(&$this,'less_error_report') );
@@ -103,12 +105,11 @@ class PageLinesRenderCSS {
 		$out .= $this->minify( $a['dynamic'] );
 		$mem = ( function_exists('memory_get_usage') ) ? round( memory_get_usage() / 1024 / 1024, 2 ) : 0;
 		$out .= sprintf( __( 'CSS was compiled at %s and took %s seconds using %sMB of unicorn dust.', 'pagelines' ), date( DATE_RFC822, $a['time'] ), $a['c_time'],  $mem );
-		$this->write_css_file( $out );
-		
+		$this->write_css_file( $out );	
 	}
 	
 	function write_css_file( $txt ){
-	add_filter('request_filesystem_credentials', '__return_true' );
+		add_filter('request_filesystem_credentials', '__return_true' );
 
 		$method = '';
 		$url = 'themes.php?page=pagelines';
@@ -143,6 +144,33 @@ class PageLinesRenderCSS {
 
 			define( 'DYNAMIC_FILE_URL', sprintf( '%s/pagelines/%s', $upload_dir['baseurl'], $file ) );
 	}
+
+	function do_background_image() {
+			
+		global $pagelines_ID;
+		if ( is_archive() || is_home() )
+			$pagelines_ID = null;
+		$oset = array( 'post_id' => $pagelines_ID );
+		$oid = 'page_background_image';
+		$sel = '.full_width #page .page-canvas, body.fixed_width';		
+		if( !ploption('supersize_bg', $oset) && ploption( $oid . '_url', $oset )){
+			
+			$bg_repeat = (ploption($oid.'_repeat', $oset)) ? ploption($oid.'_repeat', $oset) : 'no-repeat';
+			$bg_attach = (ploption($oid.'_attach', $oset)) ? ploption($oid.'_attach', $oset): 'scroll';
+			$bg_pos_vert = (ploption($oid.'_pos_vert', $oset) || ploption($oid.'_pos_vert', $oset) == 0 ) ? (int) ploption($oid.'_pos_vert', $oset) : '0';
+			$bg_pos_hor = (ploption($oid.'_pos_hor', $oset) || ploption($oid.'_pos_hor', $oset) == 0 ) ? (int) ploption($oid.'_pos_hor', $oset) : '50';
+			$bg_selector = (ploption($oid.'_selector', $oset)) ? ploption($oid.'_selector', $oset) : $sel;
+			$bg_url = ploption($oid.'_url', $oset);
+			
+			$css = sprintf('%s{ background-image:url(%s);', $bg_selector, $bg_url);
+			$css .= sprintf('background-repeat: %s;', $bg_repeat);
+			$css .= sprintf('background-attachment: %s;', $bg_attach);
+			$css .= sprintf('background-position: %s%% %s%%;}', $bg_pos_hor, $bg_pos_vert);
+			echo inline_css_markup( 'pagelines-page-bg', $css );
+			
+		}	
+	}
+
 	
 	function less_css_bar() {
 		foreach ( $this->types as $t ) {		
@@ -254,9 +282,13 @@ class PageLinesRenderCSS {
 			$version = '1';
 		if ( '' != get_option('permalink_structure') && ! $this->check_compat() )
 			$url = sprintf( '%s/pagelines-compiled-css-%s/', PARENT_URL, $version );
-		else
-			$url = sprintf( '%s/?pageless=%s', $this->get_base_url(), $version );
-		
+		else {
+			
+			if ( false !== ( strpos( $this->get_base_url(), '?' ) ) )
+				$this->url_string = '%s&pageless=%s';
+			
+			$url = sprintf( $this->url_string, untrailingslashit( $this->get_base_url() ), $version );
+		}
 		if ( defined( 'DYNAMIC_FILE_URL' ) )
 			$url = DYNAMIC_FILE_URL;
 		
@@ -276,11 +308,19 @@ class PageLinesRenderCSS {
 						
 			return sprintf( '%s/%s/', get_home_url(), $lang->slug );
 		}
+
+		if(function_exists('icl_get_home_url')) {
+		    return icl_get_home_url();
+		  }
+
 		return get_home_url();		
 	}
 
 	function check_compat() {
 		
+		if ( function_exists( 'icl_get_home_url' ) )
+			return true;
+
 		if ( defined( 'PLL_INC') )
 			return true;
 			
@@ -592,8 +632,19 @@ class PageLinesRenderCSS {
 
 		foreach( $disabled as $type => $class ) 			
 			unset( $available[$type][key( $class )] );
+		/*
+		* We need to reorder the array so sections css is loaded in the right order.
+		* Core, then pagelines-sections, followed by anything else. 
+		*/
+		$sections = array();
+		$sections['parent'] = $available['parent'];
+		unset( $available['parent'] );
+		$sections['child'] = $available['child'];
+		unset( $available['child'] );
+		if ( is_array( $available ) )
+			$sections = array_merge( $sections, $available );
 
-		foreach( $available as $t ) {		
+		foreach( $sections as $t ) {		
 			foreach( $t as $key => $data ) {
 				if ( $data['less'] ) {
 					if ( is_file( $data['base_dir'] . '/style.less' ) )

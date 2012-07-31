@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
+</IfModule>

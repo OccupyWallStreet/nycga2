@@ -5,17 +5,6 @@
  * @copyright 2008-2011
  */
  
-//Make sure the needed constants are defined
-if ( ! defined( 'WP_CONTENT_URL' ) )
-	define( 'WP_CONTENT_URL', get_option( 'siteurl' ) . '/wp-content' );
-if ( ! defined( 'WP_CONTENT_DIR' ) )
-	define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
-if ( ! defined( 'WP_PLUGIN_URL' ) )
-	define( 'WP_PLUGIN_URL', WP_CONTENT_URL. '/plugins' );
-if ( ! defined( 'WP_PLUGIN_DIR' ) )
-	define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins' );
-	
-
 //Load JSON functions for PHP < 5.2
 if ( !(function_exists('json_encode') && function_exists('json_decode')) && !(class_exists('Services_JSON') || class_exists('Moxiecode_JSON')) ){
 	$class_json_path = ABSPATH.WPINC.'/class-json.php';
@@ -67,12 +56,8 @@ class MenuEd_ShadowPluginFramework {
 		$this->plugin_file = $plugin_file;
 		$this->plugin_basename = plugin_basename($this->plugin_file);
 		
-		if ( $this->is_mu_plugin ){
-			$this->plugin_dir_url = WPMU_PLUGIN_URL . '/' . dirname($this->plugin_basename);
-		} else {
-			$this->plugin_dir_url = WP_PLUGIN_URL . '/' . dirname($this->plugin_basename);
-		}
-		
+		$this->plugin_dir_url = rtrim(plugin_dir_url($this->plugin_file), '/');
+
 		/************************************
 				Add the default hooks
 		************************************/

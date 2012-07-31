@@ -57,9 +57,9 @@ class Eab_Upcoming_Widget extends Eab_Widget {
 					<li>
 						<a href="<?php print get_permalink($_event->get_id()); ?>" class="<?php print ($_event->get_id() == $post->ID)?'current':''; ?>" >
 							<?php if ($options['thumbnail'] && $thumbnail) { ?>
-								<img src="<?php echo $thumbnail; ?>" /><br />
+								<img src="<?php echo $thumbnail; ?>" />
 							<?php } ?>
-							<?php print $_event->get_title(); ?>
+							  <h2 class="upcoming-events"><?php print $_event->get_title(); ?></h2>
 						</a>
 						<?php if ($options['dates']) { ?>
 							<div class="wpmudevevents-date">

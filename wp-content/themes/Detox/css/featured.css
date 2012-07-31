@@ -1,0 +1,54 @@
+/* ----------------------------------- slider */
+#featured{clear:both;background:transparent;padding:10px 0;margin:10px 0;width:100%;height:260px;overflow:hidden;border-bottom:2px solid #ccc;}
+#glidercontent{margin:0;border:0;width:46%;height:260px;float:left;}
+.glidecontentwrapper{position:relative;width:95%;height:260px;overflow:hidden;margin:0;background:transparent;}
+.glidecontent{position:absolute;background:#fff;padding:0;visibility:hidden;width:100%;height:260px;color:#333;margin:0;z-index:-1;}
+#glidercontent h2 a{padding:5px 0 0 0 !important;margin:0 !important;font:22px 'Old Standard TT',times new roman,georgia,baskerville,serif;line-height:19px;color:#000;}
+#glidercontent h2 a:hover{color:#900;}
+.hentry {margin:0;padding:0;overflow:hidden;background:transparent;}
+.hentry .txt{position:absolute;margin:0;padding:0 10px;bottom:10px;left:0px;height:150px;width:70%;overflow:hidden;background:#fff;-moz-box-shadow:0 2px 2px #333;-webkit-box-shadow:0 2px 2px #333;box-shadow:0 2px 2px #333;}
+.hentry .txt p{margin:0 !important;padding:0 !important;color:#333;}
+.hentry small{margin:0;padding:0;text-align:right;float:right;}
+.hentry a{color:#fff;}
+#glidercontent .hentry .lead{overflow:hidden;margin:0;padding:0;width:100%;background:transparent;height:260px;position:relative;}
+#glidercontent .hentry .lead img{margin:0;padding:0;}
+
+.glidecontenttoggler{width:20%;height:260px;margin:0;padding:0;background:transparent;float:left;}
+.glidecontenttoggler a{text-decoration:none;color:#333;background:transparent;width:100px;height:55px;overflow:hidden;}
+.glidecontenttoggler a.toc img{float:left;border:2px solid #ccc;margin:5px 5px;padding:0;}
+.glidecontenttoggler a.toc img:hover{border:2px solid #fff;}
+.glidecontenttoggler h3{text-decoration:none;}
+.glidecontenttoggler a.selected,.glidecontenttoggler a:hover{color:#000;outline:none;background:#fff url(../images/05.png) bottom center repeat-x;-moz-box-shadow:0 2px 2px #333;-webkit-box-shadow:0 2px 2px #333;box-shadow:0 2px 2px #333;}
+.glidecontenttoggler a.toc{display:block;width:99%;padding:2px 0;margin:3px 0;overflow:hidden;}
+.glidecontenttoggler .fet{display:block;margin:-5px 0 0 0;padding:0;}
+.glidecontenttoggler a.prev,.glidecontenttoggler a.next{display:none;}
+.glidecontenttoggler a.prev:hover,.glidecontenttoggler a.next:hover,.glidecontenttoggler a.toc:hover{background:#fff url(../images/05.png) bottom center repeat-x;outline:none;-moz-box-shadow:0 2px 2px #333;-webkit-box-shadow:0 2px 2px #333;box-shadow:0 2px 2px #333;}
+.fet{padding:0;font:16px 'Old Standard TT',times new roman,georgia,baskerville,serif;line-height:16px;height:33px;overflow:hidden;color:#000;}
+.fet:hover{color:#900;}
+
+/* ----------------------------------- slider bottom */
+#slider{background:transparent;padding:0;margin:0;position:relative;}
+#slider h3{color:#333;font:16px 'Old Standard TT',times new roman,georgia,baskerville,serif;text-transform:uppercase;margin:0;padding:0;}
+.stepcarousel{position:relative;overflow:scroll;width:95%;height:225px;margin:0 auto;background:transparent;}
+.stepcarousel .belt{position:absolute;left:0;top:0;z-index:1;}
+.stepcarousel .panel{float:left;overflow:hidden;margin:0 20px 0 0;width:190px;background:transparent;height:225px;border:0;}
+.stepcarousel .lead{overflow:hidden;margin:0;width:175px;background:transparent;height:155px;border:0;}
+.stepcarousel .panel .entry{text-align:left;overflow:hidden;margin:5px 0;padding:0;font-size:80%;line-height:100%;}
+.stepcarousel h4 a{font:16px 'Old Standard TT',times new roman;height:22px;width:100%;color:#000;overflow:hidden;display:block;margin:1px 0;padding:0;}
+.stepcarousel .panel img{background:transparent;margin:0;padding:0;-moz-box-shadow:0 2px 2px #666;-webkit-box-shadow:0 2px 2px #666;box-shadow:0 2px 2px #666;}
+.stepcarousel .belts{position:absolute;left:200px;top:0;width:180px;height:220px;margin:0;padding:5px 15px;z-index:3;background:#fff;}
+.stepcarousel .belts ul,.stepcarousel .belts p{list-style:none;margin:0;padding:0;font-size:80%;}
+.stepcarousel .belts li{list-style:none;margin:0;padding:0;}
+.stepcarousel .belts ul li{margin:0;padding:5px 0 0 0;}
+.stepcarousel .belts ul li a{text-decoration:none;display:block;height:18px;overflow:hidden;}
+
+/* ----------------------------------- barslider */ 
+.contentslide{margin:2px 0;padding:0;width:100%;height:500px;overflow:hidden;background:transparent;position:relative;}
+.contentslide .opacitylayer{width:100%;height:500px;}
+.contentslide .contentdiv{display:none;}
+.contentslide .pagination{width:99%;padding:5px 0;font:normal 14px arial;text-align:left;position:absolute;top:465px;left:0px;}
+.contentslide .pagination a{padding:0 5px;text-decoration:none;color:#666;border:1px solid #fff;}
+.contentslide .pagination a:hover,.contentslide .pagination a.selected{color:#900;border:1px solid #900;}
+.contentslide h3 a{margin:0;padding:0;display:block;height:19px;width:99%;overflow:hidden;}
+.contentslide img{margin:2px 0;padding:0;float:right;;overflow:hidden;background:transparent;}
+.contentslide ul li,.col4 ul li,.col5 ul li,.col6 ul li{margin:2px 0;padding:0;clear:both;}

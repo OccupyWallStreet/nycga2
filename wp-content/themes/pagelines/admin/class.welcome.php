@@ -114,43 +114,6 @@ class PageLinesWelcome {
 		return $data;
 		
 	}
-	
-
-	/**
-     * Get Intro
-     *
-     * Includes the 'welcome.php' file from Child-Theme's root folder if it exists.
-     *
-     * @uses    default_headers
-     *
-     * @return  string
-     */
-	function get_intro( $o ) {
-		
-		if ( is_file( get_stylesheet_directory() . '/welcome.php' ) ) {
-			
-			ob_start();
-				include( get_stylesheet_directory() . '/welcome.php' );
-			$welcome =  ob_get_clean();	
-			
-			$a = array();
-			
-			if ( is_file( get_stylesheet_directory() . '/welcome.png' ) )
-				$icon = get_stylesheet_directory_uri() . '/welcome.png';
-			else
-				$icon =  PL_ADMIN_ICONS . '/welcome.png';
-			$a['welcome'] = array(
-				'icon'			=> $icon,
-				'hide_pagelines_introduction'	=> array(
-					'type'			=> 'text_content',
-					'flag'			=> 'hide_option',
-					'exp'			=> $welcome
-				)
-			);		
-		$o = array_merge( $a, $o );
-		}
-	return $o;
-	}
 
 	/**
      * Get Welcome Billboard

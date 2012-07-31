@@ -495,7 +495,7 @@ class Eab_Template {
 			
 			$content .= $key ? __(' and ', Eab_EventsHub::TEXT_DOMAIN) : '';
 			$content .= apply_filters('eab-events-event_date_string', sprintf(
-				__('On %s <span class="wpmudevevents-date_format-start">from %s</span> <span class="wpmudevevents-date_format-end">to %s</span><br />', Eab_EventsHub::TEXT_DOMAIN),
+				__('%s <span class="wpmudevevents-date_format-start"> - %s</span> to <span class="wpmudevevents-date_format-end"> %s</span><br />', Eab_EventsHub::TEXT_DOMAIN),
 				'<span class="wpmudevevents-date_format-start_date">' . date_i18n(get_option('date_format'), $start) . '</span>',
 				'<span class="wpmudevevents-date_format-start_time">' . date_i18n(get_option('time_format'), $start) . '</span>',
 				'<span class="wpmudevevents-date_format-end_date">' . $end_date_str . '</span> <span class="wpmudevevents-date_format-end_time">' . date_i18n(get_option('time_format'), $end) . '</span>'

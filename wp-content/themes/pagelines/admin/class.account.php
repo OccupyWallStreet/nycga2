@@ -14,7 +14,7 @@ class PageLinesAccount {
 	function __construct(){
 		
 		add_action( 'admin_init', array(&$this, 'update_lpinfo' ) );
-		add_filter( 'pagelines_account_array', 'PageLinesWelcome::get_intro', 15 );		
+		add_filter( 'pagelines_account_array', array( &$this, 'get_intro' ) );		
 	}
 	
 	/**
@@ -81,6 +81,41 @@ class PageLinesAccount {
 		return apply_filters( 'pagelines_account_array', $d ); 
 	}
 
+	/**
+     * Get Intro
+     *
+     * Includes the 'welcome.php' file from Child-Theme's root folder if it exists.
+     *
+     * @uses    default_headers
+     *
+     * @return  string
+     */
+	function get_intro( $o ) {
+		
+		if ( is_file( get_stylesheet_directory() . '/welcome.php' ) ) {
+			
+			ob_start();
+				include( get_stylesheet_directory() . '/welcome.php' );
+			$welcome =  ob_get_clean();	
+			
+			$a = array();
+			
+			if ( is_file( get_stylesheet_directory() . '/welcome.png' ) )
+				$icon = get_stylesheet_directory_uri() . '/welcome.png';
+			else
+				$icon =  PL_ADMIN_ICONS . '/welcome.png';
+			$a['welcome'] = array(
+				'icon'			=> $icon,
+				'hide_pagelines_introduction'	=> array(
+					'type'			=> 'text_content',
+					'flag'			=> 'hide_option',
+					'exp'			=> $welcome
+				)
+			);		
+		$o = array_merge( $a, $o );
+		}
+	return $o;
+	}
 
 	function pl_add_live_chat_dash(){
 		$ext = new PageLinesSupportPanel();

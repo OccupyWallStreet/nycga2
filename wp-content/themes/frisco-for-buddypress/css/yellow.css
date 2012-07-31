@@ -1,30 +1,30 @@
 a {
-    color: #EEB900;
+    color: #008098;
     font-weight: bold;
     text-decoration: none;
 }
 a:hover {
-    color: #A27E00;
+    color: #444;
 }
 
 #header #search-bar {
-	background: #EEB900; 
-	background: -moz-linear-gradient(top, #EEB900 0%, #EEB900 15%, #9C7A00 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EEB900), color-stop(15%,#EEB900), color-stop(100%,#9C7A00)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #EEB900 0%,#EEB900 15%,#9C7A00 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #EEB900 0%,#EEB900 15%,#9C7A00 100%); /* Opera11.10+ */
-	background: -ms-linear-gradient(top, #EEB900 0%, #EEB900 15%,#9C7A00 100%); /* IE10+ */
+	background: -moz-linear-gradient(top, #ffcc00 0%, #ffcc00 15%, #9C7A00 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(15%,#ffcc00), color-stop(100%,#9C7A00)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffcc00 0%,#ffcc00 15%,#9C7A00 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffcc00 0%,#ffcc00 15%,#9C7A00 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #ffcc00 0%, #ffcc00 15%,#9C7A00 100%); /* IE10+ */
 	filter: none; /* IE6-9 */
-	background: linear-gradient(top, #EEB900 0%,#EEB900 15%,#9C7A00 100%); /* W3C */
+	background: linear-gradient(top, #ffcc00 0%,#ffcc00 15%,#9C7A00 100%); /* W3C */
+	background: #ffcc00; 
 }
  
 div.item-list-tabs ul li {
-    background: #FFC809;
-    border: 1px solid #FFC809;
+    background: #ffcc00;
+    border: 1px solid #ffcc00;
 }
 div.item-list-tabs ul li:hover {
-    background: #EEB900;
-    border-color: #EEB900;
+    background: #ffcc00;
+    border-color: #ffcc00;
 }
 
 div.item-list-tabs ul li, 
@@ -57,7 +57,12 @@ div.item-list-tabs ul li a:hover span {
 }
 #header h1 a {
 	text-shadow: 0 -1px 0 #000000;
+	font-family: Oswald, sans-serif !important;
+	text-transform: uppercase;
 }
+
+
+
 form#whats-new-form textarea:focus {
 	-moz-box-shadow: 0 0 7px #FFF0BB inset, 0 0 7px #FFF0BB inset;
    	-webkit-box-shadow: 0 0 7px #FFF0BB inset, 0 0 7px #FFF0BB inset;

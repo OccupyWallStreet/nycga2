@@ -40,9 +40,19 @@ jQuery(function($) {
 		uri : null,
 		link : null,
 		matchingParams : -1,
-		differentParams : 10000
+		differentParams : 10000,
+		isAnchorMatch : false,
+		isTopMenu : false
 	};
+
 	$('#adminmenu li > a').each(function(index, link) {
+		var $link = $(link);
+
+		//Skip "#" links. Some plugins (e.g. S2Member 120703) use such no-op items as menu dividers.
+		if ($link.attr('href') == '#') {
+			return true;
+		}
+
 		var uri = parseUri(link.href);
 
 		//Check for a close match - everything but query and #anchor.
@@ -73,34 +83,55 @@ jQuery(function($) {
 			}
 		}
 
-		//Note: We're not checking for #anchor matches since it's extremely unlikely we'll ever encounter
-		//a case where two menu pages are identical except for the anchor.
+		var isAnchorMatch = uri.anchor == currentUri.anchor;
+		var isTopMenu = $link.hasClass('menu-top');
 
-		if (
-			(matchingParams > bestMatch.matchingParams)
-				||
-			(
-				(matchingParams == bestMatch.matchingParams) &&
-				(differentParams < bestMatch.differentParams)
-			)
-				||
-			(
-				//Prefer sub-menu links.
-				(matchingParams == bestMatch.matchingParams) &&
-				(differentParams == bestMatch.differentParams) &&
-				!$(link).hasClass('menu-top')
-			)
-		) {
-			bestMatch.uri = uri;
-			bestMatch.link = link;
-			bestMatch.matchingParams = matchingParams;
-			bestMatch.differentParams = differentParams;
+		//Figure out if the current link is better than the best found so far.
+		//To do that, we compare them by several criteria (in order of priority):
+		var comparisons = [
+			{
+				better : (matchingParams > bestMatch.matchingParams),
+				equal  : (matchingParams == bestMatch.matchingParams)
+			},
+			{
+				better : (differentParams < bestMatch.differentParams),
+				equal  : (differentParams == bestMatch.differentParams)
+			},
+			{
+				better : (isAnchorMatch && (!bestMatch.isAnchorMatch)),
+				equal  : (isAnchorMatch == bestMatch.isAnchorMatch)
+			},
+			{
+				better : (!isTopMenu && bestMatch.isTopMenu),
+				equal  : (isTopMenu == bestMatch.isTopMenu)
+			}
+		];
+
+		var isBetterMatch = false,
+			isEquallyGood = true,
+			j = 0;
+
+		while (isEquallyGood && !isBetterMatch && (j < comparisons.length)) {
+			isBetterMatch = comparisons[j].better;
+			isEquallyGood = comparisons[j].equal;
+			j++;
+		}
+
+		if (isBetterMatch || isEquallyGood) {
+			bestMatch = {
+				uri : uri,
+				link : $link,
+				matchingParams : matchingParams,
+				differentParams : differentParams,
+				isAnchorMatch : isAnchorMatch,
+				isTopMenu : isTopMenu
+			}
 		}
 	});
 
 	//Highlight and/or expand the best matching menu.
 	if (bestMatch.link !== null) {
-		var bestMatchLink = $(bestMatch.link);
+		var bestMatchLink = bestMatch.link;
 		var parentMenu = bestMatchLink.closest('li.menu-top');
 		//console.log('Best match is: ', bestMatchLink);
 

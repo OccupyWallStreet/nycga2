@@ -1,0 +1,38 @@
+.wp-pagenavi {
+	padding: 10px 20px 10px !important;
+	display:block !important;
+	clear:both !important;
+}
+.wp-pagenavi a ,.wp-pagenavi span.pages, .wp-pagenavi span.extend {
+		color:#707070 !important;
+		background:#FFFFFF !important;
+		border-radius:3px !important;	
+		-moz-border-radius:3px !important;
+		-webkit-border-radius:3px !important;
+		border:solid 1px #DCDCDC !important;
+		padding:6px 9px 6px 9px !important;
+		margin-right:3px !important;
+		text-decoration:none !important;
+		font-size:12px !important;
+}
+.wp-pagenavi a:hover {
+		text-shadow:0px 1px #388DBE !important;
+		border-color:#3390CA !important;
+		background:#58B0E7 !important;
+		background:-moz-linear-gradient(top,#B4F6FF 1px,#63D0FE 1px,#58B0E7) !important;
+		background:-webkit-gradient(linear,0 0,0 100%,color-stop(0.02,#B4F6FF),color-stop(0.02,#63D0FE),color-stop(1,#58B0E7)) !important;
+
+}
+ .wp-pagenavi span.current{
+		text-shadow:0px 1px #388DBE !important;
+		padding:6px 9px 6px 9px !important;
+		border:solid 1px #DCDCDC !important;
+		border-color:#3390CA !important;
+		border-radius:3px !important;	
+		-moz-border-radius:3px !important;
+		-webkit-border-radius:3px !important;
+		background:#58B0E7 !important;
+		background:-moz-linear-gradient(top,#B4F6FF 1px,#63D0FE 1px,#58B0E7) !important;
+		background:-webkit-gradient(linear,0 0,0 100%,color-stop(0.02,#B4F6FF),color-stop(0.02,#63D0FE),color-stop(1,#58B0E7)) !important;
+		margin-right:3px !important;
+}

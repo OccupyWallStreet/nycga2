@@ -80,29 +80,24 @@ class PageLinesBoxes extends PageLinesSection {
 					'selectvalues'	=> array(
 						
 						'the_box_icon' 		=> array(
-								'version' 	=> 'pro',
 								'type' 		=> 'image_upload',					
 								'inputlabel' 	=> __( 'Box Image', 'pagelines'),
 							), 
 						'the_box_icon_link'		=> array(
-								'version' => 'pro',
 								'type' => 'text',					
 								'inputlabel' => __( 'Box Link (Optional)', 'pagelines'),
 							), 
 						'the_box_icon_target'		=> array(
-								'version' => 'pro',
 								'type' => 'check',					
 								'inputlabel' => __( 'Open link in New Window?', 'pagelines'),
 							),
 						'box_class' => array(
-							'version'		=> 'pro',
 							'default'		=> '',
 							'type' 			=> 'text',
 							'size'			=> 'small',
 							'inputlabel' 	=> __( 'Boxes Custom Class', 'pagelines'),
 						),
 						'box_more_text' => array(
-							'version'		=> 'pro',
 							'default'		=> '',
 							'type' 			=> 'text',
 							'size'			=> 'small',
@@ -153,7 +148,6 @@ class PageLinesBoxes extends PageLinesSection {
 					'selectvalues'	=> array(
 						
 						'box_set' => array(
-							'version' 		=> 'pro',
 							'default'		=> 'default-boxes',
 							'type' 			=> 'select_taxonomy',
 							'taxonomy_id'	=> $this->taxID,				
@@ -167,7 +161,6 @@ class PageLinesBoxes extends PageLinesSection {
 							'inputlabel' 		=> __( "Boxes Per Row", 'pagelines'),
 						), 
 						'box_items' => array(
-							'version'		=> 'pro',
 							'default'		=> '6',
 							'type' 			=> 'text_small',
 							'size'			=> 'small',
@@ -184,7 +177,6 @@ class PageLinesBoxes extends PageLinesSection {
 						'selectvalues'	=> array(
 							
 							'box_thumb_type' => array(
-								'version' 	=> 'pro',
 								'type' 		=> 'select',
 								'default'	=> 'inline_thumbs',
 								'selectvalues'	=> array(
@@ -196,14 +188,12 @@ class PageLinesBoxes extends PageLinesSection {
 
 							),
 							'box_thumb_size' => array(
-								'version'		=> 'pro',
 								'default'		=> '64',
 								'type' 			=> 'text_small',
 								'size'			=> 'small',
 								'inputlabel' 		=> __( 'Enter the max image size in pixels (optional)', 'pagelines'),
 							),
 							'box_thumb_frame' => array(
-								'version'		=> 'pro',
 								'default'		=> '64',
 								'type' 			=> 'check',
 								'size'			=> 'small',
@@ -223,7 +213,6 @@ class PageLinesBoxes extends PageLinesSection {
 							'box_orderby' => array(
 								'type'			=> 'select',
 								'default'		=> 'ID',
-								'version'		=> 'pro',
 								'inputlabel'	=> 'Order Boxes By (If Not With Post Type Order Plugin)',
 								'selectvalues' => array(
 									'ID' 		=> array('name' => __( 'Post ID (default)', 'pagelines') ),
@@ -235,7 +224,6 @@ class PageLinesBoxes extends PageLinesSection {
 							),
 							'box_order' => array(
 									'default' => 'DESC',
-									'version'	=> 'pro',
 									'type' => 'select',
 									'selectvalues' => array(
 										'DESC' 		=> array('name' => __( 'Descending', 'pagelines') ),
@@ -247,7 +235,6 @@ class PageLinesBoxes extends PageLinesSection {
 					),
 					
 					'box_more_text' => array(
-						'version'		=> 'pro',
 						'default'		=> '',
 						'type' 			=> 'text',
 						'size'			=> 'small',
@@ -257,7 +244,6 @@ class PageLinesBoxes extends PageLinesSection {
 						'exp'			=> __( 'If this option is blank (and not set in defaults), no more text will show.<br/><br/> This option can be overridden in individual box settings.', 'pagelines')
 					),
 					'box_class' => array(
-						'version'		=> 'pro',
 						'default'		=> '',
 						'type' 			=> 'text',
 						'size'			=> 'small',

@@ -1,0 +1,251 @@
+Plugin Name: Ultimate Facebook
+Author: Ve Bailovity (Incsub)
+
+Change Log:
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+2.2.3 - 2012-07-25
+----------------------------------------------------------------------
+- Fix for limit attribute in albums shortcode.
+- Fix for protocol mismatch in mixed HTTPS/HTTP environments.
+
+2.2.2 - 2012-07-09
+----------------------------------------------------------------------
+- Using bundled datepicker in events widget.
+- Replacing deprecated calls, typo fixes, silencing notices.
+- Added filtering for login redirection URL.
+- Added macro expansion for URL redirection.
+- Added avatar size attribute to connect shortcode.
+
+2.2.1 - 2012-06-29
+----------------------------------------------------------------------
+- Fix for permissions check procedure.
+- Fix for button width issue.
+- Silenced some debug mode output.
+
+
+2.2 - 2012-06-15
+----------------------------------------------------------------------
+- Fix for long-term tokens handling.
+- Fix for autopost warnings.
+- Filtering profile name, with sensible default.
+- Added LikeBox widget filterable hiding logic.
+- Added Facebook avatar size mapping to admin gravatar filters.
+- Added registration postprocessing filter.
+
+2.1 - 2012-04-30
+----------------------------------------------------------------------
+- Deprecated offline_access.
+- Fix for title OpenGraph issue.
+- Fix for plugin conflict.
+- Added new permissions level (extras). 
+
+2.0.1 - 2012-03-24
+----------------------------------------------------------------------
+- Improved OpenGraph tags generation.
+- Improved Facebook album photos shortcode handling.
+- Recalculating necessary widths for Like buttons.
+- Added metabox override caching for delayed autoposting.
+- Fix for https issues with linked resources.
+- Fix for address mapping.
+- Fix for activity feed widget.
+
+2.0 - 2012-01-26
+----------------------------------------------------------------------
+- Added contextual help and pointer tutorial.
+- Added album shortcode.
+- Improved settings.
+- Improved performance.
+
+1.6.2.1 - 2012-01-03
+----------------------------------------------------------------------
+- Silenced debug output.
+
+1.6.2 - 2011-12-27
+----------------------------------------------------------------------
+- Workaround for late cookie setting issue.
+
+1.6.1 - 2011-12-22
+----------------------------------------------------------------------
+- Added locale support to widgets.
+- Fix for login issues under certain conditions.
+
+1.6 - 2011-12-15
+----------------------------------------------------------------------
+- Added recently imported comments widget.
+- Switched to new method of permissions requesting.
+- Added an option for making a Facebook account an absolute requirement.
+
+1.5.1 - 2011-11-27
+----------------------------------------------------------------------
+- Added event title as link to event on Facebook.
+- Added filtering to OpenGraph image finding results.
+- Replaced images with better compressed ones - props KFUK-KFUM
+
+1.5 - 2011-11-23
+----------------------------------------------------------------------
+- Fix for registration URL.
+- Fixes for script elements.
+- Styling fixes.
+- Added support for additional OpenGraph headers.
+- Allowed for registration page templating - props KFUK-KFUM.
+- Better optional registration button placement on single sites - props riyaku.
+- Events sorting direction added to shortcode.
+
+1.4.3 - 2011-10-28
+----------------------------------------------------------------------
+- Fix for Facebook registration form.
+- Fix for uniform options propagation to registration widget and page.
+- Added registration options filtering mechanism.
+
+1.4.2 - 2011-10-23
+----------------------------------------------------------------------
+- Fix for FB buttons with nested posts.
+- Fix for autposting escaping and stripping.
+- Fix for registration redirection issues with BuddyPress 1.5
+- Support for frontend posting posting plugins.
+
+1.4.1 - 2011-10-17
+----------------------------------------------------------------------
+- Fix for BuddyPress avatars import.
+- Added forced Facebook locale settings.
+- Added optional login redirection settings.
+
+1.4 - 2011-10-10
+----------------------------------------------------------------------
+- Merged App ID and API key fields.
+- Fixed autoposting on Facebook for scheduled posts.
+- Fixed conflict with single-line oEmbeds.
+- Added granular permissions framework
+- Added Activity Feed widget.
+
+1.3.1 - 2011-09-21
+----------------------------------------------------------------------
+- Fix for publishing posts without images.
+- Fix for default Likebox height.
+- Updated posts not published on FB will remain unpublished on subsequent updates - unless overriden manually.
+
+1.3 - 2011-09-18
+----------------------------------------------------------------------
+- Added error logging for Facebook publishing.
+- Added height attribute for the Like Box widget.
+
+1.2.2 - 2011-09-14
+----------------------------------------------------------------------
+- Fix for importing and displaying Facebook avatars.
+- Fix for post as page hangups.
+- Fix for not fetching pages info bug
+- Added new optional setting for linked account info fetching
+- Added trimming app id and secret key to prevent possible whitespace issues.
+- Added async mapping of account IDs to names (Comments Import)
+
+1.2.1 - 2011-09-09
+----------------------------------------------------------------------
+- Added Facebook Connect shortcode.
+- Optional permission check notice auto-updated.
+- Fix for comments notices.
+- Applied multiple app security patch.
+
+1.2 - 2011-08-24
+----------------------------------------------------------------------
+- Added permission granting improvement.
+- Fix for workarounds for default certificate usage.
+- Fix for fallback image on home page first.
+- Fixes for undefined variables.
+- Fix for New blogs to be public by default.
+- Fix for style injection conflict with gridmarket.
+
+1.1.4.1 - 2011-08-17
+----------------------------------------------------------------------
+- Switching between IFRAME/XFBML buttons on front page.
+
+1.1.4 - 2011-08-16
+----------------------------------------------------------------------
+- Fix for front page Like buttons
+
+1.1.3 - 2011-08-15
+----------------------------------------------------------------------
+- Fixed site home OpenGraph for moved root installs.
+- Added image cropping option to Albums widget.
+
+1.1.2 - 2011-08-10
+----------------------------------------------------------------------
+- Fix for BuddyPress profile fields discovery in multidb setups.
+
+1.1.1 - 2011-08-08
+----------------------------------------------------------------------
+- Forcing cookie cleanup after SDK.
+
+1.1 - 2011-08-02
+----------------------------------------------------------------------
+- Improved new username creation.
+- Post to Facebook metabox is now optional.
+- Added notification in metabox for already published posts.
+- Added "On Facebook" status columns to post/page management list.
+- Optional register button looks a bit more like a button now.
+- Made CAPTCHA image optional on registration.
+- Optional preventing site admin access to plugin settings.
+- Improved login/logout process.
+
+1.0.9 - 2011-07-20
+----------------------------------------------------------------------
+- Fix for unchecking "post as page" checkbox issue.
+- Fix for posting as page and gathering API info on subsites.
+- Avatar importing for BuddyPress defaults to a large picture.
+
+1.0.7 - 2011-06-25
+----------------------------------------------------------------------
+- Added "show on front page" option for Like buttons.
+- Added publishing to Facebook page *as* page.
+- Improved error handling and user notification for Facebook publishing.
+- Fix for Membership shortcodes.
+
+1.0.6.1 - 2011-06-21
+----------------------------------------------------------------------
+- Fix for styles and scripts loading on admin pages.
+
+1.0.6 - 2011-06-19
+----------------------------------------------------------------------
+- Added events shortcode attributes, "starting_from" and "only_future".
+- Added custom hook field for Facebook Comments.
+- Added support for OpenGraph type property.
+- Fixed the wording for Autpost settings.
+
+1.0.5 - 2011-06-17
+----------------------------------------------------------------------
+- Added single-click registration option. 
+- Added basic WP avatar support to Connect widget.
+- Full registration allows for site creation, if enabled in network options.
+- Added option for hiding API credentials from sub-site admins.
+- Post length quickfix for autoposting.
+- Allowing one dimension to be omitted in Facebook Album widget, so the images are properly scaled.
+- Added additional settings for Facebook Comments.
+- Added optional URL attribute for the Facepile widget.
+
+1.0.4 - 2011-06-14
+----------------------------------------------------------------------
+- Added filtering past dates to Facebook Events widget.
+- Added some more fields to profile import.
+- Fix for registration button at login in single site.
+- Fix for shortcodes registration, so Membership pick them up.
+- Fix for OpenGraph to play nice with Membership.
+
+1.0.3 - 2011-06-11
+----------------------------------------------------------------------
+- Fix for registration listener.
+- Facebook Connect widget fix: unbinding the click handlers before binding our own.
+- Added datepicker to Facebook Events widget.
+- Updated strings for l10n.
+- Added more strings for translation.
+- Applied grola's fix for fetching the first post image.
+
+1.0.2 - 2011-06-09
+----------------------------------------------------------------------
+- Added "forced" attribute to FB Like button: overrides post types negative filter.
+- Changed targeting for Facebook Connect widget tab triggers to be more precise.
+- Added class name to Like button wrapping div, for styling.
+- Added an option for overriding the WordPress discussion settings.
+- Added date threshold parameter for Facebook Events widget.
+
+18246-1343677405

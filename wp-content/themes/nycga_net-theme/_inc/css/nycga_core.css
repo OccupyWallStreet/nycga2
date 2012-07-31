@@ -1,0 +1,199 @@
+/* Links */
+a,a:link {
+	color:#0af !important;
+	text-decoration: none;
+}
+
+a:hover {
+	color:#444444;
+}
+
+/* Header */
+
+div#header {
+	background-image: none;
+}
+
+html div#header div#access {
+	margin-top: 125px !important;
+}
+
+/* Navigation */
+
+html div#navigation {
+	background-color: #ffcc00 !important;
+	color: #000 !important;
+}
+
+div#header div#access div.menu ul li a,
+div#header div#access div.menu ul li a:hover {
+	border-radius: 0;
+}
+
+div#header div#access,
+div#header div#access div.menu ul,
+div#header div#access div.menu ul li,
+div#header div#access div.menu ul li a
+ {
+	background-color: #ffcc00 !important;
+	color: #000 !important;
+	}
+
+/* Hover */
+div#header div#access div.menu ul li:hover,
+div#header div#access div.menu ul li a:hover
+ {
+	background-color: #000 !important;
+	color: #ffcc00 !important;
+}
+
+#access a, #access ul ul a, 
+#access ul.children li.selected > a, 
+#access ul li:hover > a, 
+#access ul ul *:hover > a, 
+#access ul.children li:hover > a, 
+#access ul.sub-menu li:hover > a, 
+#access ul li.current_page_item > a, 
+#access ul li.current-menu-ancestor > a, 
+#access ul li.current-menu-item > a, 
+#access li.selected > a, 
+#access ul li.current-menu-parent > a {}
+
+
+/* Widgets */
+html div.widget h3.widgettitle {
+	background-color: #ffcc00 !important;
+}
+
+/* Groups */
+html body#cc.single-item div#container div#content div#item-header div#item-header-content span.highlight {
+	display: none;
+}
+
+div.generic-button a,
+a.button {
+	color: #fff !important;
+}
+
+
+div#item-header div#item-header-content {
+	margin: 0 0 0 85px !important;
+	padding: 0;
+}
+
+div#item-header div#item-header-avatar a img.avatar,
+div#item-header div#item-header-avatar{
+	float: left !important;
+	width: 75px;
+	height: 75px;
+}
+
+div#item-header div#item-actions {
+	clear: right;
+	float: right !important;
+}
+
+div#item-body form#whats-new-form h5 {
+	margin-top: 0 !important;
+}
+ 
+/* div.item-list-tabs ul li.selected, */
+div.item-list-tabs ul li.selected a,
+div.item-list-tabs ul li.selected a:link,
+div.item-list-tabs ul li.selected a:visited,
+div.item-list-tabs ul li.selected a:active {
+	background-color: #ffcc00 !important;
+	color: #000 !important;
+	}
+
+/*
+div#item-header div#item-header-content span.activity,
+div#item-header div#item-header-content div#item-meta {
+	float: left;
+}
+
+div#item-header div#item-header-content div#item-meta div.generic-button {
+	clear: left;
+}
+*/
+
+/* Widgets */
+
+.widgettitle {
+	background-color: #ffcc00 !important;
+}
+
+div#footer .widgettitle {
+	padding: 2px 4px;
+}
+
+ul.my-groups-list li div.item-avatar a img.avatar {
+	height: 25px;
+	width: 25px;
+}
+
+ul.my-groups-list li div.item div.item-meta {
+	display: none;
+}
+
+ul.my-groups-list li div.item div.item-title {
+	width: auto;
+}
+
+/* Featured event widget */
+
+div#event-popular ul li a {}
+
+div#event-popular ul li a img {
+	float: left;
+	height: 75px;
+	width: 75px;
+}
+
+div#event-popular h2.upcoming-events,
+div#event-popular div.wpmudevevents-date {
+	margin-left: 80px;
+}
+
+/* Buttons */
+
+a.button,
+a.view-post,
+a.like,
+a.group-button,
+div#item-buttons div.generic-button a.group-button,
+div.generic-button a {
+	color:#666666 !important;
+	text-transform: none;
+}
+
+/* Header */
+
+div#top-header div#custom-logo {
+	width: 100%;
+	float: left;
+}
+
+div#top-header h1 a,
+div#navigation ul#nav li.menu-item a {
+	color: #000 !important;
+}
+
+div#top-header h1 {
+	font-size: 50px;
+}
+
+div#top-header div#custom-logo p {
+	font-size: 26px;
+}
+
+div#navigation ul#nav li.menu-item .sub-menu a {
+	color: #fff !important;
+}
+
+div#top-header div#pg-nav ul#pnav.menu {
+	text-transform: uppercase;
+}
+
+html.js body#custom.directory div#wrapper.activity_not_front div#container div.content div#content div.padder form#forums-search-form.dir-form h3
+

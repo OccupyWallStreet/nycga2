@@ -1,0 +1,86 @@
+/* --------------------------------------------------------------
+   RTL CSS
+-------------------------------------------------------------- */
+/* =Reset reset
+----------------------------------------------- */
+
+caption, th, td {
+	text-align: right;
+}
+
+/* =Structure
+----------------------------------------------- */
+
+body {
+	direction:rtl;
+	unicode-bidi:embed;
+}
+#wp-admin-bar {
+	direction:ltr;
+	unicode-bidi:embed;
+}
+
+#top-header .site-title, #call-action .call-join {
+    float: right;
+    padding-right: 20px;
+}
+
+ul#wpnv, #custom .fright { float:left; }
+ul#nav li, #custom .fleft {
+    float: right;
+}
+#custom .fright {
+   text-align: left;
+}
+#top-header .header-nav {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+ul#nav li a  {
+  text-align: right !important;
+}
+
+
+div.reply a {
+  text-align: center !important;
+}
+
+.directory .item-avatar {
+     float: right;
+    margin-left: 30px;
+}
+
+ul.item-list li div.action {
+    left: 0;
+    position: absolute;
+    text-align: left;
+    top: 15px;
+}
+
+ul#pnav {
+    float: left;
+}
+
+#custom .post-author {
+float: right;
+    background: url("../images/clock.gif") no-repeat scroll right 4px transparent;
+    padding: 0 20px 0 0px;
+}
+
+#custom .post-tagged p.tags {
+    background: url("../images/setting-bullet.png") no-repeat scroll right 4px transparent;
+    float: right;
+    font-size: 0.85em;
+    margin: 0;
+    padding: 3px 25px 3px 0px;
+    width: 75%;
+}
+
+div.dir-search {
+    float: left;
+}
+
+/* 18246-1343677369 */

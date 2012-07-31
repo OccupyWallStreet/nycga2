@@ -6,8 +6,10 @@ function bp_dtheme_enqueue_styles() {
 	$version = '20111214';
 	// Register main stylesheet
 	wp_register_style( 'nycga2012', get_stylesheet_directory_uri() . '/style.css', array(), $version );
+	wp_register_style( 'uniforms', '/wp-content/js/uniform/css/uniform.default.css' );
 	// Enqueue main stylesheet
 	wp_enqueue_style( 'nycga2012' );
+	wp_enqueue_style( 'uniforms' );
 }
 add_action( 'wp_print_styles', 'bp_dtheme_enqueue_styles' );
 endif;
@@ -27,13 +29,15 @@ function add_script() {
 		wp_register_script('nycgaui', get_stylesheet_directory_uri()  . '/js/nycga_ui.js', false, '0.5');
 		wp_register_script('site', get_stylesheet_directory_uri()  . '/js/site.js', false, '0.5');
     wp_register_script( 'jquery.cycle', '/wp-content/js/jquery.cycle.all.js');
+    wp_register_script( 'jquery.uniform', '/wp-content/js/uniform/jquery.uniform.min.js');
 		wp_enqueue_script('jquery');
-    wp_enqueue_script( 'jquery.cycle' );
 		wp_enqueue_script('toggler', get_bloginfo('url') . '/wp-content/js/hide-form/toggler.js');
 		wp_enqueue_script('boxShadow');
 		wp_enqueue_script('tipTip');
 		wp_enqueue_script('nycgaui');
 		wp_enqueue_script('site');
+    wp_enqueue_script( 'jquery.cycle' );
+    wp_enqueue_script( 'jquery.uniform' );
 		
 	}
 }

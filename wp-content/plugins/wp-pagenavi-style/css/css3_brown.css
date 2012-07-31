@@ -1,0 +1,40 @@
+.wp-pagenavi {
+	padding: 10px 20px 10px !important;
+	display:block !important;
+	clear:both !important;
+}
+.wp-pagenavi a ,.wp-pagenavi span.pages, .wp-pagenavi span.extend {
+		color:#707070 !important;
+		background:#FFFFFF !important;
+		border-radius:3px !important;	
+		-moz-border-radius:3px !important;
+		-webkit-border-radius:3px !important;
+		border:solid 1px #DCDCDC !important;
+		padding:6px 9px 6px 9px !important;
+		margin-right:3px !important;
+		text-decoration:none !important;
+		font-size:12px !important;
+}
+.wp-pagenavi a:hover {
+		color:#fff !important;
+		text-shadow:0px 1px #866454 !important;
+		border-color:#886756 !important;
+		background:#A37A66 !important;
+		background:-moz-linear-gradient(top,#E9C4B2 1px,#C59882 1px,#A37A66) !important;
+		background:-webkit-gradient(linear,0 0,0 100%,color-stop(0.02,#E9C4B2),color-stop(0.02,#C59882),color-stop(1,#A37A66)) !important;
+}
+ .wp-pagenavi span.current{
+		padding:6px 9px 6px 9px !important;
+		border:solid 1px #DCDCDC !important;
+		border-color:#3390CA !important;
+		border-radius:3px !important;	
+		-moz-border-radius:3px !important;
+		-webkit-border-radius:3px !important;
+		color:#fff !important;
+		margin-right:3px !important;
+		text-shadow:0px 1px #866454 !important;
+		border-color:#886756 !important;
+		background:#A37A66 !important;
+		background:-moz-linear-gradient(top,#E9C4B2 1px,#C59882 1px,#A37A66) !important;
+		background:-webkit-gradient(linear,0 0,0 100%,color-stop(0.02,#E9C4B2),color-stop(0.02,#C59882),color-stop(1,#A37A66)) !important;
+}
