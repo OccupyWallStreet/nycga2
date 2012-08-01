@@ -136,7 +136,7 @@ class Eab_BuddyPress_GroupEvents {
 		'</label></div>';
 		
 		$ret .= __('This is a group event for', Eab_EventsHub::TEXT_DOMAIN);
-		$ret .= ' <select name="eab_event-bp-group_event" id="eab_event-bp-group_event">';
+		$ret .= ' <select name="eab_event-bp-group_event" id="eab_event-bp-group_event" class="chzn-select">';
 		$ret .= '<option value="">' . __('Not a group event', Eab_EventsHub::TEXT_DOMAIN) . '&nbsp;</option>';
 		foreach ($groups as $group) {
 			$selected = ($group->id == $group_id) ? 'selected="selected"' : '';

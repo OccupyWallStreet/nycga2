@@ -8,16 +8,21 @@ function my_styles_method()
 { 
 	wp_enqueue_style( 'type', get_stylesheet_directory_uri() . '/_inc/css/type.css' ); // Inside a child theme
 	wp_enqueue_style( 'events', get_stylesheet_directory_uri() . '/_inc/css/events.css' ); // Inside a child theme
+	wp_enqueue_style( 'chosenform', get_stylesheet_directory_uri() . '/_inc/js/chosen.css' ); // Inside a child theme
 
   // enqueing
   wp_enqueue_style( 'type' );
   wp_enqueue_style( 'events' );
+  wp_enqueue_style( 'chosenform' );
 }
 add_action('wp_enqueue_scripts', 'my_styles_method', 1);
 
-
-// Bump this when changes are made to bust cache
-$version = '20120730';
+// Register scripts
+function my_scripts_method() {  
+    wp_register_script( 'chosenformscript', get_stylesheet_directory_uri() . '/_inc/js/chosen.jquery.js' ); // Inside a child theme
+    wp_enqueue_script('chosenformscript');  
+}  
+add_action('init', 'my_scripts_method');  
 
 
 // Send user email address to CiviCRM so they can be added to lists
@@ -192,7 +197,8 @@ global $bp;
     if ( bp_is_current_component(BP_SEARCH_SLUG) )//if thids is search page
         bp_core_load_template( apply_filters( 'bp_core_template_search_template', 'search-single' ) );//load the single searh template
 }
-//Tweak query string
+
+//Tweak query string
 add_action('advance-search','bpmag_show_search_results',1);//highest priority
 /* we just need to filter the query and change search_term=The search text*/
 function bpmag_show_search_results(){

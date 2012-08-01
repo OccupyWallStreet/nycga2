@@ -10,75 +10,6 @@
 if ( !defined('ABSPATH') ) { die('-1'); }
 
 ?>
-
-<?php
-	   $taxonomy     = TribeEvents::TAXONOMY;
-	   $orderby      = 'name'; 
-	   $show_count   = 1;      // 1 for yes, 0 for no
-	   $pad_counts   = 0;      // 1 for yes, 0 for no
-	   $hierarchical = 1;      // 1 for yes, 0 for no
-	   $title        = '';
-	   
-	   $args = array(
-		 'taxonomy'     => $taxonomy,
-		 'orderby'      => $orderby,
-		 'show_count'   => $show_count,
-		 'hierarchical' => $hierarchical,
-		 'title_li'     => $title
-	   );
-?>
-<form class="eventform" action="<?php bloginfo('url'); ?>" method="get">
-	<div>
-		<?php $cats = get_categories($args); ?>
-		<select class="categories">
-			<label title="Category"></label>
-			<option value="">Select a Category</option>
-		<?php foreach ($cats as $cat) : ?>
-		    <option value="<?php echo get_term_link($cat, $cat->taxonomy) ?>"><?php echo $cat->name ?></option>
-		<?php endforeach; ?>
-		</select>
-		
-		<?php if ( bp_has_groups('type=alphabetical&per_page=0&page=0') ) : ?> 
-		<select name="group_id" class="groups">
-			<label title="Groups"></label>
-			<option value=""><?php _e('Select a Group','tribe-events-calendar'); ?></option>
-			<?php while ( bp_groups() ) : bp_the_group(); ?>
-					 <option value="<?php echo bp_group_id(); ?>" <?php echo (!empty($tribe_ecp->group_id) && $tribe_ecp->group_id == bp_get_group_id()) ? 'selected="selected"':''; ?>><?php echo bp_group_name(); ?></option>
-			<?php endwhile; ?>
-		</select>
-		<?php endif; ?>
-	</div>
-	<input type="submit" value="<?php _e('Search Events','tribe-events-calendar'); ?>" class="button" />
-</form>
-
-
-/*
-<script language="javascript">
-	jQuery(document).ready(function($){
-		$('.categories').change(function()
-		   {
-		   	   window.location = jQuery(this).val();
-			   return false;
-		   });
-		
-	});
-</script>
-*/
-
-<?php
-    // $elements is your list of elements that you are adding to your string array
-		global $bp;
-    $myGroupList = array();
-    foreach($groups as $group_id)
-	    {
-	    $myGroupList[] = $group_id;
-	    print_r($groups);
-	    }
-?>
-
-<?php
-
-?>
 <div id="tribe-events-content" class="upcoming">
 
 	<?php if(!tribe_is_day()): // day view doesn't have a grid ?>
@@ -97,88 +28,93 @@ if ( !defined('ABSPATH') ) { die('-1'); }
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php global $more; $more = false; ?>
 		<div id="post-<?php the_ID() ?>" <?php post_class('tribe-events-event clearfix') ?> itemscope itemtype="http://schema.org/Event">
-			<?php if ( tribe_is_new_event_day() && !tribe_is_day() ) : ?>
-				<h3 class="event-day"><?php echo tribe_get_start_date( null, false, 'l, F j'); ?></h3>
-			<?php endif; ?>
-			<?php if ( tribe_is_day() && $first ) : $first = false; ?>
-				<h4 class="event-day"><?php echo tribe_event_format_date(strtotime(get_query_var('eventDate')), false); ?></h4>
-			<?php endif; ?>
-			<?php the_title('<h2 class="entry-title" itemprop="name"><a href="' . tribe_get_event_link() . '" title="' . the_title_attribute('echo=0') . '" rel="bookmark">', '</a></h2>'); ?>
-			<?php tribe_meta_event_cats(); ?>
-			<?php echo tribe_meta_event_category_name('',', '); ?>
-			<!--<div class="entry-content tribe-events-event-entry" itemprop="description">
-				<?php if (has_excerpt ()): ?>
-					<?php the_excerpt(); ?>
-				<?php else: ?>
-					<?php the_content(); ?>
-				<?php tribe_the_custom_fields(); ?>
+			
+			<?php if ( function_exists('has_post_thumbnail') && has_post_thumbnail() ) { ?>
+				<div class="list-thumbnail">
+						<?php the_post_thumbnail('thumbnail'); ?>	
+				</div>
+			<?php } ?>
+
+			<div class="list-content <?php if ( function_exists('has_post_thumbnail') && has_post_thumbnail() ) { ?>with-thumb<?php } ?>">
+				<?php if ( tribe_is_new_event_day() && !tribe_is_day() ) : ?>
+					<h4 class="event-day"><?php echo tribe_get_start_date( null, false ); ?></h4>
 				<?php endif; ?>
-			</div>--> <!-- End tribe-events-event-entry -->
-
-			<div class="tribe-events-event-list-meta" itemprop="location" itemscope itemtype="http://schema.org/Place">
-				<table cellspacing="0" border="1">
-					<?php if (tribe_is_multiday() || !tribe_get_all_day()): ?>
-					<tr>
-						<td rowspan="3"><?php echo tribe_get_start_date( $post->ID, true, 'D. M j, Y' );; ?></td>
-						<td class="tribe-events-event-meta-desc"><?php _e('Start:', 'tribe-events-calendar') ?></td>
-						<td class="tribe-events-event-meta-value" itemprop="startDate" content="<?php echo tribe_get_start_date(true); ?>"><?php echo tribe_get_start_date(true); ?></td>
-					</tr>
-					<tr>
-						<td class="tribe-events-event-meta-desc"><?php _e('End:', 'tribe-events-calendar') ?></td>
-						<td class="tribe-events-event-meta-value" itemprop="endDate" content="<?php echo tribe_get_end_date(true); ?>"><?php echo tribe_get_end_date(true); ?></td>
-					</tr>
+				<?php if ( tribe_is_day() && $first ) : $first = false; ?>
+					<h4 class="event-day"><?php echo tribe_event_format_date(strtotime(get_query_var('eventDate')), false); ?></h4>
+				<?php endif; ?>
+				<?php the_title('<h2 class="entry-title" itemprop="name"><a href="' . tribe_get_event_link() . '" title="' . the_title_attribute('echo=0') . '" rel="bookmark">', '</a></h2>'); ?>
+				<div class="entry-content tribe-events-event-entry" itemprop="description">
+					<?php if (has_excerpt ()): ?>
+						<?php the_excerpt(); ?>
 					<?php else: ?>
-					<tr>
-						<td class="tribe-events-event-meta-desc"><?php _e('Date:', 'tribe-events-calendar') ?></td>
-						<td class="tribe-events-event-meta-value" itemprop="startDate" content="<?php echo tribe_get_start_date(true); ?>"><?php echo tribe_get_start_date(true); ?></td>
-					</tr>
+						<?php the_content(); ?>
 					<?php endif; ?>
+				</div> <!-- End tribe-events-event-entry -->
 
-					<?php
-						$venue = tribe_get_venue();
-						if ( !empty( $venue ) ) :
-					?>
-					<tr>
-						<td class="tribe-events-event-meta-desc"><?php _e('Location:', 'tribe-events-calendar') ?></td>
-						<td class="tribe-events-event-meta-value" itemprop="name">
-							<? if( class_exists( 'TribeEventsPro' ) ): ?>
-								<?php tribe_get_venue_link( get_the_ID(), class_exists( 'TribeEventsPro' ) ); ?>
-							<? else: ?>
-								<?php echo tribe_get_venue( get_the_ID() ) ?>
-							<? endif; ?>
-						</td>
-					</tr>
-					<?php endif; ?>
-					<?php
-						$phone = tribe_get_phone();
-						if ( !empty( $phone ) ) :
-					?>
-					<tr>
-						<td class="tribe-events-event-meta-desc"><?php _e('Phone:', 'tribe-events-calendar') ?></td>
-						<td class="tribe-events-event-meta-value" itemprop="telephone"><?php echo $phone; ?></td>
-					</tr>
-					<?php endif; ?>
-					<?php if (tribe_address_exists( get_the_ID() ) ) : ?>
-					<tr>
-						<td class="tribe-events-event-meta-desc"><?php _e('', 'tribe-events-calendar'); ?><br />
-						<?php if( get_post_meta( get_the_ID(), '_EventShowMapLink', true ) == 'true' ) : ?>
-							<a class="gmap" itemprop="maps" href="<?php echo tribe_get_map_link(); ?>" title="Click to view a Google Map" target="_blank"><?php _e('Google Map', 'tribe-events-calendar' ); ?></a>
-						<?php endif; ?></td>
-						<td class="tribe-events-event-meta-value"><?php echo tribe_get_address( get_the_ID() ); ?><br>
-						<?php echo tribe_get_city( get_the_ID() ); ?></td>
-					</tr>
-					<?php endif; ?>
-					<?php
-						$cost = tribe_get_cost();
-						if ( !empty( $cost ) ) :
-					?>
-					<tr>
-						<td class="tribe-events-event-meta-desc"><?php _e('Cost:', 'tribe-events-calendar') ?></td>
-						<td class="tribe-events-event-meta-value" itemprop="price"><?php echo $cost; ?></td>
-					 </tr>
-					<?php endif; ?>
-				</table>
+				<div class="tribe-events-event-list-meta" itemprop="location" itemscope itemtype="http://schema.org/Place">
+					<table cellspacing="0">
+						<?php if (tribe_is_multiday() || !tribe_get_all_day()): ?>
+						<tr>
+							<td class="tribe-events-event-meta-desc"><?php _e('Start:', 'tribe-events-calendar') ?></td>
+							<td class="tribe-events-event-meta-value" itemprop="startDate" content="<?php echo tribe_get_start_date(); ?>"><?php echo tribe_get_start_date(); ?></td>
+						</tr>
+						<tr>
+							<td class="tribe-events-event-meta-desc"><?php _e('End:', 'tribe-events-calendar') ?></td>
+							<td class="tribe-events-event-meta-value" itemprop="endDate" content="<?php echo tribe_get_end_date(); ?>"><?php echo tribe_get_end_date(); ?></td>
+						</tr>
+						<?php else: ?>
+						<tr>
+							<td class="tribe-events-event-meta-desc"><?php _e('Date:', 'tribe-events-calendar') ?></td>
+							<td class="tribe-events-event-meta-value" itemprop="startDate" content="<?php echo tribe_get_start_date(); ?>"><?php echo tribe_get_start_date(); ?></td>
+						</tr>
+						<?php endif; ?>
+	
+						<?php
+							$venue = tribe_get_venue();
+							if ( !empty( $venue ) ) :
+						?>
+						<tr>
+							<td class="tribe-events-event-meta-desc"><?php _e('Venue:', 'tribe-events-calendar') ?></td>
+							<td class="tribe-events-event-meta-value" itemprop="name">
+								<? if( class_exists( 'TribeEventsPro' ) ): ?>
+									<?php tribe_get_venue_link( get_the_ID(), class_exists( 'TribeEventsPro' ) ); ?>
+								<? else: ?>
+									<?php echo tribe_get_venue( get_the_ID() ) ?>
+								<? endif; ?>
+							</td>
+						</tr>
+						<?php endif; ?>
+						<?php
+							$phone = tribe_get_phone();
+							if ( !empty( $phone ) ) :
+						?>
+						<tr>
+							<td class="tribe-events-event-meta-desc"><?php _e('Phone:', 'tribe-events-calendar') ?></td>
+							<td class="tribe-events-event-meta-value" itemprop="telephone"><?php echo $phone; ?></td>
+						</tr>
+						<?php endif; ?>
+						<?php if (tribe_address_exists( get_the_ID() ) ) : ?>
+						<tr>
+							<td class="tribe-events-event-meta-desc"><?php _e('Address:', 'tribe-events-calendar'); ?><br />
+							<?php if( get_post_meta( get_the_ID(), '_EventShowMapLink', true ) == 'true' ) : ?>
+								<a class="gmap" itemprop="maps" href="<?php echo tribe_get_map_link(); ?>" title="Click to view a Google Map" target="_blank"><?php _e('Google Map', 'tribe-events-calendar' ); ?></a>
+							<?php endif; ?></td>
+							<td class="tribe-events-event-meta-value"><?php echo tribe_get_full_address( get_the_ID() ); ?></td>
+						</tr>
+						<?php endif; ?>
+						<?php
+							$cost = tribe_get_cost();
+							if ( !empty( $cost ) ) :
+						?>
+						<tr>
+							<td class="tribe-events-event-meta-desc"><?php _e('Cost:', 'tribe-events-calendar') ?></td>
+							<td class="tribe-events-event-meta-value" itemprop="price"><?php echo $cost; ?></td>
+						 </tr>
+						<?php endif; ?>
+					</table>
+				</div>
 			</div>
+
 		</div> <!-- End post -->
 	<?php endwhile;// posts ?>
 	<?php else :?>
@@ -236,6 +172,6 @@ if ( !defined('ABSPATH') ) { die('-1'); }
 
 	</div>
 	<?php if ( !empty($hasPosts) && function_exists('tribe_get_ical_link') ): ?>
-		<a title="<?php esc_attr_e('iCal', 'tribe-events-calendar') ?>" class="ical" href="<?php echo tribe_get_ical_link(); ?>"><?php _e('iCal', 'tribe-events-calendar') ?></a>
+		<a title="<?php esc_attr_e('iCal Import', 'tribe-events-calendar') ?>" class="ical" href="<?php echo tribe_get_ical_link(); ?>"><?php _e('iCal Import', 'tribe-events-calendar') ?></a>
 	<?php endif; ?>
 </div>
