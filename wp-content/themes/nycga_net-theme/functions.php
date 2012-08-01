@@ -305,6 +305,7 @@ function bpmag_show_bbpress_topic_search(){
 //Hook Blogs results to search page if blogs comonent is active
  if(function_exists( 'bbp_has_topics' ))
     add_action('advance-search','bpmag_show_bbpress_topic_search',40);
-    
+
+ 
 
 ?>

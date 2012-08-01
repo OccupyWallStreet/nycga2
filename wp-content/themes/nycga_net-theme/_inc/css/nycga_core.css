@@ -80,8 +80,21 @@ html div.widget h3.widgettitle {
 	background-color: #ffcc00 !important;
 }
 
+/* Activity widget */
+
+list.activity-list li div.activity-content div.activity-header p {
+	color: #444;
+}
+
+div.activity-content div.activity-inner {
+	background-color: #dddddd !important;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 4px;
+}
+
 /* Groups */
-html body#cc.single-item div#container div#content div#item-header div#item-header-content span.highlight {
+div#item-header-content span.highlight {
 	display: none;
 }
 
@@ -158,18 +171,28 @@ ul.my-groups-list li div.item div.item-title {
 
 /* Featured event widget */
 
-div#event-popular ul li a {}
+div#event-popular ul li br {
+	display: none;
+}
+div#event-popular ul li {
+		font-family: Oswald, helvetica, arial, sans-serif !important;
+		text-transform: uppercase!important;
+		font-size: 1.5em !important;
+		line-height: 1.25em;
+}
 
 div#event-popular ul li a img {
 	float: left;
 	height: 75px;
 	width: 75px;
+	padding-right: 5px;
 }
 
 div#event-popular h2.upcoming-events,
 div#event-popular div.wpmudevevents-date {
 	margin-left: 80px;
 }
+
 
 /* Buttons */
 
@@ -211,6 +234,3 @@ div#navigation ul#nav li.menu-item .sub-menu a {
 div#top-header div#pg-nav ul#pnav.menu {
 	text-transform: uppercase;
 }
-
-html.js body#custom.directory div#wrapper.activity_not_front div#container div.content div#content div.padder form#forums-search-form.dir-form h3
-

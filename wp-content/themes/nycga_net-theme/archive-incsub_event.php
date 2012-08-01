@@ -5,7 +5,7 @@ get_header( 'event' );
 
   <div id="wpmudevevents-wrapper">
       <h2><?php _e('Events', Eab_EventsHub::TEXT_DOMAIN); ?></h2>
-      <a href="/edit-event/" class="button">Create an Event</a>
+      <a href="/edit-event/" class="button new">Create an Event</a>
       <?php if ( !have_posts() ) : ?>
         <?php $event_group = groups_get_group( array( 'group_id' => $event->group_id ) ); ?>
           <p><?php $event_ptype = get_post_type_object( 'incsub_event' ); echo $event_ptype->labels->not_found; ?></p>

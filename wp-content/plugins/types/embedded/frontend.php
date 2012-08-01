@@ -349,3 +349,96 @@ function wpcf_frontend_wrap_field_value($field, $content, $params = array()) {
         return stripslashes($content);
     }
 }
+
+// Add a filter to handle Views queries with checkboxes.
+
+add_filter('wpv_filter_query', 'wpcf_views_query', 12, 2); // after custom fields.
+
+function wpcf_views_query($query, $view_settings) {
+    
+    $meta_filter_required = false;
+    
+    $opt = get_option('wpcf-fields');
+    
+    if (isset($query['meta_query'])) {
+        foreach ($query['meta_query'] as $index => $meta) {
+            $field_name = $meta['key'];
+            if (_wpcf_is_checkboxes_field($field_name)) {
+                
+                // We'll use SQL regexp to find the checked items.
+                // Note that we are creating something here that
+                // then gets modified to a proper SQL REGEXP in
+                // the get_meta_sql filter.
+
+                $field_name = substr($field_name, 5);
+
+                $meta_filter_required = true;
+                $meta['compare'] = '=';
+                
+				$values = explode(',', $meta['value']);
+                
+                $meta['value'] = ' REGEXP(';
+
+                $options = $opt[$field_name]['data']['options'];
+
+                $count = 0;
+                foreach ($values as $value) {
+                    
+                    foreach($options as $key => $option) {
+                        if ($option['title'] == $value) {
+                            if ($count > 0) {
+                                $meta['value'] .= '|';
+                            }
+                            $meta['value'] .= $key;
+                            break;
+                        }
+                    }
+                    $count++;
+                }
+                
+                $meta['value'] .= ')';
+                
+                $query['meta_query'][$index] = $meta;
+            }
+        }
+    }
+
+    if ($meta_filter_required) {
+        add_filter('get_meta_sql', 'wpcf_views_get_meta_sql', 10, 6);
+    }
+    
+    return $query;
+}
+
+function _wpcf_is_checkboxes_field($field_name) {
+    $opt = get_option('wpcf-fields');
+    if($opt && mb_ereg('^wpcf-', $field_name)) {
+        $field_name = substr($field_name, 5);
+        if (isset($opt[$field_name]['type'])) {
+            $field_type = strtolower($opt[$field_name]['type']);
+            if ( $field_type == 'checkboxes') {
+                return true;
+            }
+        }
+        
+    }
+    
+    return false;
+}
+
+function wpcf_views_get_meta_sql($clause, $queries, $type, $primary_table, $primary_id_column, $context ) {
+    
+    // Look for the REGEXP code we added and covert it to a proper SQL REGEXP 
+    $regex = '/= \'REGEXP\(([^\)]*)\)\'/siU';
+    
+	if(preg_match_all($regex, $clause['where'], $matches, PREG_SET_ORDER)) {
+		foreach($matches as $match) {
+            $clause['where'] = str_replace($match[0], 'REGEXP \'' . $match[1] . '\'', $clause['where']);
+        }
+        
+    }
+    
+    remove_filter('get_meta_sql', 'wpcf_views_get_meta_sql', 10, 6);
+
+    return $clause;
+}

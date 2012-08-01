@@ -34,7 +34,7 @@ while ( $loop->have_posts() ) : $loop->the_post();
 <h1><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></h1>
 <div class="feat-tag"><?php the_tags(__('tagged in&nbsp;', TEMPLATE_DOMAIN), ', ', ''); ?></div>
 <div class="feat-post-content">
-<?php the_post_thumbnail(array(432,999), array('class' => 'feat-post-thumbnail')); ?>           
+<?php the_post_thumbnail(array(432,999), array('class' => 'feat-post-thumbnail')); ?>
 <?php echo custom_the_content(125); ?>
 </div>
 
@@ -45,7 +45,8 @@ while ( $loop->have_posts() ) : $loop->the_post();
 
 <?php } elseif($bc > 1 || $featured_count != '1') { ?>
 
-<li><div class="alignleft"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></div><div class="alignright"><?php the_time('l, F jS') ?></div></li>
+<li><div class="alignleft"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></div>
+<div class="alignright"><?php the_time('l, F jS') ?></div></li>
 
 <?php } ?>
 

@@ -169,8 +169,11 @@ jQuery(window).load(function(){
     });
     // Set Meta HTML dropdown to insert there
     window.wpcfInsertMetaHTML = false;
-    jQuery('#wpv_layout_meta_html_admin_edit .item, #wpv_filter_meta_html_admin_edit .item').click(function(){
+    jQuery('#wpv_filter_meta_html_admin_edit .item').click(function(){
         window.wpcfInsertMetaHTML = jQuery(this).parents('.editor_addon_wrapper').parent().find('textarea').attr('id');
+    });
+    jQuery('#wpv_layout_meta_html_admin_edit .item').click(function(){
+        window.wpcfInsertMetaHTML = jQuery(this).parents('.editor_addon_wrapper').parent().parent().find('textarea').attr('id');
     });
     // Direct links
     jQuery('.editor-addon-top-link').bind('click', function(){

@@ -319,6 +319,7 @@ function wpv_evaluate_expression($expression){
  *
  * id can be a integer to refer directly to a post
  * id can be $parent to refer to the parent
+ * id can be $current_page or refer to the current page
  *
  * id can also refer to a related post type
  * eg. for a stay the related post types could be guest and room
@@ -341,6 +342,16 @@ class WPV_wpcf_switch_post_from_attr_id {
                 // Handle the parent if the id is $parent
                 if ($atts['id'] == '$parent' && isset($post->post_parent)) {
                     $post_id = $post->post_parent;
+				} else if ($atts['id'] == '$current_page') {
+					if (is_single() || is_page()) {
+						global $wp_query;
+						
+						if (isset($wp_query->posts[0])) {
+							$current_post = $wp_query->posts[0];
+							$post_id = $current_post->ID;
+						}
+					}
+					
                 } else {
                     // See if Views has the variable
                     global $WP_Views;

@@ -208,6 +208,9 @@ function wpcf_pr_admin_post_meta_box_has_form_headers($post, $post_type,
 
     $headers = array();
     $wpcf_fields = wpcf_admin_fields_get_fields(true);
+    if (empty($data['fields_setting'])) {
+        $data['fields_setting'] = 'all_cf';
+    }
     if ($data['fields_setting'] == 'specific') {
         $keys = array_keys($data['fields']);
         foreach ($keys as $k => $header) {

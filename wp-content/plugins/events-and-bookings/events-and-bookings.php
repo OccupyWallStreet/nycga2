@@ -993,7 +993,7 @@ class Eab_EventsHub {
 		$events = Eab_CollectionFactory::get_all_recurring_children_events($event);
 		$dt_format = get_option('date_format') . ' ' . get_option('time_format');
 		
-		$selection = '<h4><a href="#edit-instances" id="eab_event-edit_recurring_instances">' . __('Edit instances', self::TEXT_DOMAIN) . '</a></h4>';
+		$selection = '<h4><a href="#edit-instances" id="eab_event-edit_recurring_instances">' . __('Edit Instances', self::TEXT_DOMAIN) . '</a></h4>';
 		$selection .= "<ul id='eab_event-recurring_instances' style='display:none'>";
 		foreach ($events as $instance) {
 			$url = admin_url('post.php?post=' . $instance->get_id() . '&action=edit');
@@ -1421,7 +1421,7 @@ class Eab_EventsHub {
 				;
 				
 				if (current_user_can($post_type_object->cap->edit_post, $event->get_id()) && 'trash' != $post->post_status) {
-					$actions['edit'] = '<a title="' . esc_attr(__('Edit Event', self::TEXT_DOMAIN)) . '" href="' . $edit_link . '">' . __('Edit') . '</a>';
+					$actions['edit'] = '<a title="' . esc_attr(__('Edit Event', self::TEXT_DOMAIN)) . '" href="' . $edit_link . '" class="button">' . __('Edit') . '</a>';
 					$actions['inline hide-if-no-js'] = '<a href="#" class="editinline" title="' . esc_attr(__( 'Edit this Event inline', self::TEXT_DOMAIN)) . '">' . __('Quick&nbsp;Edit') . '</a>';
 				}
 				

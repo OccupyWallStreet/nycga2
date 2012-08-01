@@ -290,7 +290,7 @@ if (!class_exists('Editor_addon')) {
         		$slug = str_replace('wpv-post-taxonomy', 'wpv-taxonomy', $slug); */
         	}
         	
-        	return '<a href="javascript:void(0);" class="item" onclick="on_add_field_wpv(\''. $param1 . '\', \'' . $slug . '\', \'' . base64_encode($menu_item[0]) . '\')">' . $menu_item[0] . "</a>\n";
+        	return '<a href="javascript:void(0);" class="item" onclick="on_add_field_wpv(\''. $param1 . '\', \'' . esc_js($slug) . '\', \'' . base64_encode($menu_item[0]) . '\')">' . $menu_item[0] . "</a>\n";
         }
         
         // add parent items for Views and View Templates
