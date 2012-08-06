@@ -2,9 +2,6 @@
 $direct_path =  get_bloginfo('wpurl')."/wp-content/plugins/announcement-slider";
 ?>
 
-<style>
-</style>
-
 <script>
 	jQuery('#featured_slider ul').cycle({
 		fx: 'fade',
@@ -18,7 +15,7 @@ $direct_path =  get_bloginfo('wpurl')."/wp-content/plugins/announcement-slider";
 
 <div id="featured_slider">
 
-	<ul id="slider">
+	<ul id="announcement_slider">
 
 		<?php
 		
@@ -29,7 +26,7 @@ $direct_path =  get_bloginfo('wpurl')."/wp-content/plugins/announcement-slider";
 	
 		global $post;
 		
-		$args = array( 'meta_key' => 'feat_slider', 'meta_value'=> '1', 'suppress_filters' => 0, 'post_type' => array('announcements', 'post', 'page'), 'orderby' => $sort, 'order' => $order);
+		$args = array( 'meta_key' => 'feat_slider', 'meta_value'=> '1', 'suppress_filters' => 0, 'post_type' => array('announcement', 'post', 'page'), 'orderby' => $sort, 'order' => $order);
 		
 		$myposts = get_posts( $args );
 		

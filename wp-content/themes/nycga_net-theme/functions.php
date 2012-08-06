@@ -20,7 +20,9 @@ add_action('wp_enqueue_scripts', 'my_styles_method', 1);
 // Register scripts
 function my_scripts_method() {  
     wp_register_script( 'chosenformscript', get_stylesheet_directory_uri() . '/_inc/js/chosen.jquery.js' ); // Inside a child theme
+    wp_register_script( 'jquery.cycle', get_stylesheet_directory_uri() . '/_inc/js/jquery.cycle.all.2.72.js' ); // Inside a child theme
     wp_enqueue_script('chosenformscript');  
+    wp_enqueue_script('jquery.cycle');
 }  
 add_action('init', 'my_scripts_method');  
 
@@ -72,6 +74,7 @@ add_action('bp_activity_entry_meta', 'my_bp_activity_entry_meta');
 
 
 // Register announcement widget
+/*
 register_sidebar(
 	array(
 		'name' => 'Announcement',
@@ -82,6 +85,48 @@ register_sidebar(
 		'after_title' => '</h3>'
 	)
 );
+*/
+
+add_action( 'init', 'register_cpt_announcement' );
+
+function register_cpt_announcement() {
+
+    $labels = array( 
+        'name' => _x( 'Announcements', 'announcement' ),
+        'singular_name' => _x( 'Announcement', 'announcement' ),
+        'add_new' => _x( 'Add New', 'announcement' ),
+        'add_new_item' => _x( 'Add New Announcement', 'announcement' ),
+        'edit_item' => _x( 'Edit Announcement', 'announcement' ),
+        'new_item' => _x( 'New Announcement', 'announcement' ),
+        'view_item' => _x( 'View Announcement', 'announcement' ),
+        'search_items' => _x( 'Search Announcements', 'announcement' ),
+        'not_found' => _x( 'No announcements found', 'announcement' ),
+        'not_found_in_trash' => _x( 'No announcements found in Trash', 'announcement' ),
+        'parent_item_colon' => _x( 'Parent Announcement:', 'announcement' ),
+        'menu_name' => _x( 'Announcements', 'announcement' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => true,
+        'supports' => array( 'title', 'editor' ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 20,
+        'menu_icon' => 'icon.png',
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
+        'has_archive' => false,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => false,
+        'capability_type' => 'post'
+    );
+
+    register_post_type( 'announcement', $args );
+}
 
 //Remove paragraph tags from excerpt
 remove_filter('the_excerpt', 'wpautop');

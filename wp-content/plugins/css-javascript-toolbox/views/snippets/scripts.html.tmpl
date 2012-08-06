@@ -1,0 +1,37 @@
+<div id="cjtoolbox_popup" class="cjt-block-scripts">
+	<form id="cjtoolbox_embedded_scripts">
+		<input type="hidden" name="block_id" value="<?php echo $_GET['block_id'] ?>" />
+		<ul>
+<?php
+	// Get Wordpress scripts.
+	$wp_scripts = new WP_Scripts();
+	wp_default_scripts($wp_scripts);
+	// Register additional script that shipped with the Plugin.
+	$this->registerScripts($wp_scripts);
+	// Block selected scripts.
+	$selections = explode(',', (string) $_GET['selections']);
+	// Sort scripts.
+	$scripts = $wp_scripts->registered;
+	ksort($scripts);
+	foreach ($scripts as $handle => $script) :
+		// Gen friendly name from handle name.
+		$handleFriendlyName = str_replace(array('-', '_'), ' ', $handle);
+		$handleFriendlyName = ucfirst($handleFriendlyName);
+		$checkboxId = "cjt-script-{$handle}";
+		if (in_array($handle, $selections)) {
+			$checked = 'checked="checked"';
+			$labelStyle = 'class="marked-text"';
+		} else{
+		  $labelStyle = $checked = '';
+		}
+?>
+			<li><input type="checkbox" name="cjt-scripts[]" id="<?php echo $checkboxId ?>" value="<?php echo $handle ?>" <?php echo $checked ?>/><label title="<?php echo "{$handleFriendlyName} ({$script->ver})" ?>" <?php echo $labelStyle ?> for="<? echo $checkboxId ?>"> <?php echo $handleFriendlyName ?></label></li>
+<?php
+	endforeach;
+?>
+		</ul>
+	  <input type="submit" name="submit" value="Save" />
+		<input type="button" value="<?php _e('Close', CJTOOLBOX_TEXT_DOMAIN) ?>" onclick="tb_remove();" />
+		<img style="display:none;" src="<?php echo CJTOOLBOX_MEDIA_URL ?>/loading-bottom.gif" class="ajax-loading-img ajax-loading-img-bottom" alt="<?php _e('Working', CJTOOLBOX_TEXT_DOMAIN) ?>..." />
+	</form>
+</div>

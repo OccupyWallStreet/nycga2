@@ -1,0 +1,79 @@
+<div id="cjtoolbox-admin" class="wrap">
+	<div id="custom-icon" style="background: transparent url('<?php echo CJTOOLBOX_MEDIA_URL ?>/CSS_JS_Toolbox_Icon.png') no-repeat;" class="icon32"></div>
+	<h2><?php _e('CSS & JavaScript Toolbox', CJTOOLBOX_TEXT_DOMAIN) ?></h2>
+	<div id="cjtoolbox_donate">
+		<?php _e('Like this plugin? Please support our work', CJTOOLBOX_TEXT_DOMAIN) ?>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="VMXTA3838F6A8">
+			<input type="image" src="<?php echo CJTOOLBOX_MEDIA_URL;?>/Donate_Button.png" border="0" name="submit" alt="<?php _e('Donate!', CJTOOLBOX_TEXT_DOMAIN) ?>">
+			<img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+		</form>
+	</div>
+	<div class="cj-save-popup" id="cj-popup-save">
+		<div id="cj-save-save"><?php _e('Options Updated', CJTOOLBOX_TEXT_DOMAIN) ?></div>
+	</div>
+	<div class="cj-save-popup" id="cj-popup-reset">
+		<div id="cj-save-reset"><?php _e('Options Reset', CJTOOLBOX_TEXT_DOMAIN) ?></div>
+	</div>
+	<div id="cj-ajax-load">
+		<img src="<?php echo CJTOOLBOX_MEDIA_URL; ?>/ajax-loader.gif" class="ajax-loading-img ajax-loading-img-bottom" alt="<?php _e('Working', CJTOOLBOX_TEXT_DOMAIN) ?>..." />
+	</div>
+	<?php do_action('cjt_manage_start', $this->cjdata) ?>
+	<form id="cjtoolbox_form" action="admin-post.php" method="post">
+		<?php do_action('cjt_manage_form_start', $this->cjdata) ?>
+		<?php wp_nonce_field('cjtoolbox'); ?>
+		<?php wp_nonce_field('closedpostboxes', 'closedpostboxesnonce', false ); ?>
+		<?php wp_nonce_field('meta-box-order', 'meta-box-order-nonce', false ); ?>
+		<input type="hidden" name="action" value="cjtoolbox_save" />
+		<input type="hidden" id="cjsecurity" name="security" value="<?php echo ($this->security_nonce = wp_create_nonce('cjtoolbox-admin'));?>" />
+		<input type="hidden" id="cjblock-count" name="count" value="<?php echo $count; ?>" />
+		<div id="poststuff" class="metabox-holder">
+			<div id="post-body">
+				<?php do_action('cjt_post_body_before_blocks') ?>
+				<?php do_meta_boxes($this->hook_manage, 'normal', $this->cjdata); ?>
+				<?php do_action('cjt_post_body_after_blocks') ?>
+			</div>
+			<br class="clear"/>
+			<div id="save_bar">
+				<a class="button-secondary" id="cjtoolbox-addblock"><?php _e('Add New CSS/JS Block', CJTOOLBOX_TEXT_DOMAIN) ?></a>
+				<input type="submit" value="<?php _e('Save All Changes', CJTOOLBOX_TEXT_DOMAIN) ?>" class="button-primary" name="save" />
+			</div>
+		</div>
+		<?php do_action('cjt_manage_form_end', $this->cjdata) ?>
+	</form>
+	<div id="cjtoolbox-tips">
+		<ul>
+			<li><?php _e('Note: CSS &amp; JavaScript Blocks with EMPTY code will not be saved!', CJTOOLBOX_TEXT_DOMAIN) ?></li>
+			<li><span style="font-weight:bold"><?php _e('Warning!', CJTOOLBOX_TEXT_DOMAIN) ?></span>  <?php _e('Please make sure to validate added CSS &amp; JavaScript codes, the plugin doesn\'t do that for you!', CJTOOLBOX_TEXT_DOMAIN) ?></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var contentHash = null;
+		//<![CDATA[
+		jQuery(document).ready( function($) {
+			// close postboxes that should be closed
+			$('.if-js-closed').removeClass('if-js-closed').addClass('closed');
+			// postboxes setup
+			postboxes.add_postbox_toggles('<?php echo $this->hook_manage; ?>');
+			// Create content hash for notifying use changes.
+			contentHash = new ContentHash({});
+			contentHash.generate();
+		});
+		if (Array.indexOf == undefined) { /* IE7 */
+			Array.prototype.indexOf = function(value) {
+				var index = -1;
+				var array = this;
+				jQuery.each(array, function(sIndex, sValue) {
+					if (sValue == value) {
+						index = sIndex;
+					  return;
+					}
+				});
+				return index;
+			}
+		}
+		//]]>
+	</script>
+	<?php do_action('cjt_manage_end', $this->cjdata) ?>
+</div>

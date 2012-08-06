@@ -1,0 +1,31 @@
+<div id="cjtoolbox_popup">
+	<form id="cjtoolbox_newcode" action="admin-post.php" method="post">
+		<input id="new_type" type="hidden" name="new_type" value="<?php echo $template['type'];?>" />
+		<input id="new_id" type="hidden" name="id" value="<?php echo $template['id'];?>" />
+		<input id="new_security" type="hidden" name="security" value="<?php echo wp_create_nonce('cjtoolbox-popup');?>" />
+		<input type="hidden" id="content_hash" value="" />
+		<script type="text/javascript">
+			jQuery('#cjtoolbox_newcode #content_hash').val(getCodeTemplateContentHash());
+		</script>
+		<fieldset>
+			<ul>
+		  	<li>
+		  		<label class="field-title" for="new_title"><?php _e('Title', CJTOOLBOX_TEXT_DOMAIN) ?></label><input type="text" id="new_title" name="new_title" value="<?php echo $template['title'] ?>" style="width:324px" />
+		  	</li>
+		  	<li style="vertical-align:top">
+		  		<label class="field-title" for="new_code"></label><textarea id="new_code" name="new_code"><?php echo $template['code'] ?></textarea>
+		  	</li>
+		  	<li>
+		  		<label class="field-title" style="width:95px"></label>
+		  		<input type="submit" name="submit" value="<?php _e('Save Changes', CJTOOLBOX_TEXT_DOMAIN) ?>" />
+		  		<?php if ($template['id']) : ?>
+		  		<input type="button" value="<?php _e('Close', CJTOOLBOX_TEXT_DOMAIN) ?>" onclick="tb_remove();" />
+		  		<?php else : ?>
+		  		<input type="button" value="<?php _e('Cancel', CJTOOLBOX_TEXT_DOMAIN) ?>" onclick="tb_remove();" />
+		  		<?php endif; ?>
+		  	</li>
+			</ul>
+		</fieldset>
+		<img style="display:none;" src="<?php echo CJTOOLBOX_MEDIA_URL ?>/loading-bottom.gif" class="ajax-loading-img ajax-loading-img-bottom" alt="<?php _e('Working', CJTOOLBOX_TEXT_DOMAIN) ?>..." />
+	</form>
+</div>

@@ -1,0 +1,47 @@
+<?php
+	$pages = $this->cjdata[$boxid]['page'];
+	$categories = $this->cjdata[$boxid]['category'];
+?>
+<div id="tabs-<?php echo $boxid;?>">
+	<ul>
+		<li><a href="#tabs-<?php echo $boxid;?>-1"><?php _e('Pages', CJTOOLBOX_TEXT_DOMAIN) ?></a></li>
+		<li><a href="#tabs-<?php echo $boxid;?>-2"><?php _e('Categories', CJTOOLBOX_TEXT_DOMAIN) ?></a></li>
+		<li><a href="#tabs-<?php echo $boxid;?>-3"><?php _e('URL List', CJTOOLBOX_TEXT_DOMAIN) ?></a></li>
+	</ul>
+	<div id="tabs-<?php echo $boxid;?>-1">
+		<p><?php _e('Add this CSS/JS code to ?', CJTOOLBOX_TEXT_DOMAIN) ?></p>
+		<ul class="pagelist">
+			<li>
+				<label>
+					<input type="checkbox" name="cjtoolbox[<?php echo $boxid;?>][page][]" value="frontpage" <?php echo (is_array($pages) && in_array('frontpage', $pages)) ? 'checked="checked"' : ''; ?> /> <?php _e('Front Page', CJTOOLBOX_TEXT_DOMAIN) ?>
+				</label> 
+				<a class="l_ext" target="_blank" href="<?php bloginfo('url');?>"></a></li>
+			<li>
+				<label>
+					<input type="checkbox" name="cjtoolbox[<?php echo $boxid;?>][page][]" value="allposts" <?php echo (is_array($pages) && in_array('allposts', $pages)) ? 'checked="checked"' : ''; ?> /> <?php _e('All Posts', CJTOOLBOX_TEXT_DOMAIN) ?>
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="checkbox" name="cjtoolbox[<?php echo $boxid;?>][page][]" value="allpages" <?php echo (is_array($pages) && in_array('allpages', $pages)) ? 'checked="checked"' : ''; ?> /> <?php _e('All Pages', CJTOOLBOX_TEXT_DOMAIN) ?>
+				</label>
+			</li>
+			<?php $this->show_pages_with_checkbox($boxid, $pages); ?>
+		</ul>
+	</div>
+	<div id="tabs-<?php echo $boxid;?>-2">
+		<p><?php _e('Add this CSS/JS code to category page?', CJTOOLBOX_TEXT_DOMAIN) ?></p>
+		<ul class="pagelist">
+			<?php $this->show_taxonomy_with_checkbox($boxid, $categories); ?>
+		</ul>
+	</div>
+	<div id="tabs-<?php echo $boxid;?>-3" class="linklist">
+		<p><?php _e('Add one URL per line (include http://)', CJTOOLBOX_TEXT_DOMAIN) ?></p>
+		<textarea cols="31" rows="9" name="cjtoolbox[<?php echo $boxid;?>][links]" id="cjcode-links-<?php echo $boxid;?>"><?php echo $this->cjdata[$boxid]['links'] ;?></textarea>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(function() {
+		jQuery("#tabs-<?php echo $boxid;?>").tabs();
+	});
+</script>

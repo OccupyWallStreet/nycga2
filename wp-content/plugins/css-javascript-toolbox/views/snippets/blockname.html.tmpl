@@ -1,0 +1,23 @@
+
+  <div id="cjtoolbox_popup">
+    <form id="cjtoolbox_block_name">
+      <input type="hidden" name="block_id" value="<?php echo $_GET['block_id'] ?>" />
+      <p><label><?php _e('Block Name', CJTOOLBOX_TEXT_DOMAIN) ?><br /><input type="text" id="block_name" name="block_name" value="<?php echo $_GET['block_name'] ?>" style="width:300px" /></label></p>
+      <input type="submit" name="submit" value="Save" />
+		  <?php if ($_GET['isNew']) : ?>
+		  <input type="button" value="<?php _e('Cancel', CJTOOLBOX_TEXT_DOMAIN) ?>" onclick="return closeBlockNameForm(<?php echo $_GET['block_id'] ?>, <?php echo $_GET['isNew'] ?>);" />
+		  <?php else : ?>
+		  <input type="button" value="<?php _e('Close', CJTOOLBOX_TEXT_DOMAIN) ?>" onclick="return closeBlockNameForm(<?php echo $_GET['block_id'] ?>, <?php echo $_GET['isNew'] ?>);" />
+		  <?php endif; ?>
+      <img style="display:none;" src="<?php echo CJTOOLBOX_MEDIA_URL ?>/loading-bottom.gif" class="ajax-loading-img ajax-loading-img-bottom" alt="<?php _e('Working', CJTOOLBOX_TEXT_DOMAIN) ?>..." />
+    </form>
+    <p class="popup-note">
+    	<?php _e('Block names are useful to keep your code blocks managed and organised.') ?>
+    	<?php _e('Please type a relevant name that describes what your block does, then click Save.') ?>
+    </p>
+	  <script type="text/javascript">
+  		jQuery('#TB_window #TB_closeWindowButton').click(function(){
+  		  closeBlockNameForm(<?php echo $_GET['block_id'] ?>, <?php echo $_GET['isNew'] ?>);
+			});
+	  </script>
+  </div>

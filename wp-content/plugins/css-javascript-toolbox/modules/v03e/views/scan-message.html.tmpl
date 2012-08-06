@@ -1,0 +1,21 @@
+		<div class="error-message">
+			<p><?php _e('Detected error') ?>: <span class="txt-<?php echo $detectedErrorType['id'] ?>"><?php _e($detectedErrorType['displayName']) ?></span></p>
+			<div class="error-list-container">
+				<ul class="error-list blockID-<?php echo $blockId ?>">
+<?php
+				$list = $errorDetails['_list'];
+				foreach($list as $index => $errorMatch) :
+?>
+					<li>
+						<input type="hidden"   name="cjtoolbox[<?php echo $blockId ?>][meta][<?php echo $this->moduleInfo['id'] ?>][_list][<?php echo $index ?>][0]" value="<?php echo $errorMatch[0] ?>" />
+						<input type="checkbox" name="cjtoolbox[<?php echo $blockId ?>][meta][<?php echo $this->moduleInfo['id'] ?>][_list][<?php echo $index ?>][1]" value="<?php echo htmlspecialchars($errorMatch[1]) ?>" checked="checked" /> <?php echo htmlspecialchars($errorMatch[1]) ?>
+					</li>
+<?php
+				endforeach;
+?>
+					<input type="hidden" id="cjtoolbox[<?php echo $blockId ?>][meta][<?php echo $this->moduleInfo['id'] ?>][_list_json]" value="<?php echo htmlspecialchars(json_encode($list)) ?>" />
+					<input type="hidden" id="cjtoolbox[<?php echo $blockId ?>][meta][<?php echo $this->moduleInfo['id'] ?>][_code_hash]" value="#" />
+				</ul>
+				<p class="matches-note"><?php _e('For the location of each match, click on the item.') ?></p>
+			</div>
+		</div>

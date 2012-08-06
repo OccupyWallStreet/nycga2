@@ -1,0 +1,97 @@
+<div class="cjpageblock">
+	<?php require CJTOOLBOX_VIEWS_SNIPPETS_PATH . '/wpobjectslist.tmpl' ?>
+	<div style="clear:both;"></div>
+</div>
+<div class="cjcontainer">
+<div class="cjcodeblock">
+	<div class="cssblock">
+		<p class="cjtitle"><?php echo _e('CSS Template', CJTOOLBOX_TEXT_DOMAIN) ?> <?php $this->show_dropdown_box('css', $boxid);?></p>
+		<p class="cjbutton">
+			<a class="insert_code" title="<?php _e('Insert selected CSS Template', CJTOOLBOX_TEXT_DOMAIN) ?>" href="javascript:void('#');" onclick="return insert_code('css', '<?php echo $boxid;?>');"><?php _e('Insert Code', CJTOOLBOX_TEXT_DOMAIN) ?></a> 
+			<a class="add_code thickbox" href="<?php echo get_option('siteurl'); ?>/wp-admin/admin-ajax.php?action=cjtoolbox_form&security=<?php echo $this->security_nonce ?>&type=css&width=500&height=350" title="<?php _e('Add New CSS Code Template', CJTOOLBOX_TEXT_DOMAIN) ?>"><?php _e('New', CJTOOLBOX_TEXT_DOMAIN) ?></a>
+			<a class="edit_code" href="javascript:void('#');" onclick="return edit_code('<?php echo $this->security_nonce ?>', <?php echo $boxid ?>, '<?php _e('Edit CSS Code Template', CJTOOLBOX_TEXT_DOMAIN) ?>', 'css', 500, 350);" title="<?php _e('Edit CSS Code Template', CJTOOLBOX_TEXT_DOMAIN) ?>"><?php _e('Edit', CJTOOLBOX_TEXT_DOMAIN) ?></a>
+			<a class="delete_code" title="<?php _e('Delete selected CSS Template', CJTOOLBOX_TEXT_DOMAIN) ?>" href="javascript:void('#');" onclick="return delete_code('css', '<?php echo $boxid;?>');"><?php _e('Delete Code', CJTOOLBOX_TEXT_DOMAIN) ?></a> 
+		</p>
+	</div>
+	<div class="jsblock">
+		<p class="cjtitle"><?php _e('JS Template', CJTOOLBOX_TEXT_DOMAIN) ?> <?php $this->show_dropdown_box('js', $boxid);?></p>
+		<p class="cjbutton">
+		<a class="insert_code" title="<?php _e('Insert selected JavaScript Template', CJTOOLBOX_TEXT_DOMAIN) ?>" href="javascript:void('#');" onclick="return insert_code('js', '<?php echo $boxid;?>');"><?php _e('Insert Code', CJTOOLBOX_TEXT_DOMAIN) ?></a> 
+		<a class="add_code thickbox" href="<?php echo get_option('siteurl'); ?>/wp-admin/admin-ajax.php?action=cjtoolbox_form&security=<?php echo $this->security_nonce ?>&type=js&width=500&height=350" title="<?php _e('Add New JavaScript Code Template', CJTOOLBOX_TEXT_DOMAIN) ?>"><?php _e('New', CJTOOLBOX_TEXT_DOMAIN) ?></a>
+		<a class="edit_code" href="javascript:void('#');" onclick="return edit_code('<?php echo $this->security_nonce ?>', <?php echo $boxid ?>, '<?php _e('Edit JS Code Template', CJTOOLBOX_TEXT_DOMAIN) ?>', 'js', 500, 350);" title="<?php _e('Edit JS Code Template', CJTOOLBOX_TEXT_DOMAIN) ?>"><?php _e('Edit', CJTOOLBOX_TEXT_DOMAIN) ?></a>
+		<a class="delete_code" title="<?php _e('Delete selected JavaScript Template', CJTOOLBOX_TEXT_DOMAIN) ?>" href="javascript:void('#');" onclick="return delete_code('js', '<?php echo $boxid;?>');"><?php _e('Delete Code', CJTOOLBOX_TEXT_DOMAIN) ?></a> 
+	</p>
+	</div>
+	<?php do_action('cjt_block_template_panel', $boxid, $currentBlock) ?>
+	<div class="datablock">
+		<?php do_action('cjt_block_before_code', $boxid, $currentBlock) ?>
+		<textarea cols="100" rows="12" name="cjtoolbox[<?php echo $boxid;?>][code]" id="cjcode-<?php echo $boxid;?>"><?php echo $this->cjdata[$boxid]['code'] ;?></textarea>
+		<?php do_action('cjt_block_after_code', $boxid, $currentBlock) ?>
+	</div>
+  <input type="hidden" name="cjtoolbox[<?php echo $boxid;?>][block_name]" value="<?php echo $blockName ?>" />
+  <input type="hidden" name="cjtoolbox[<?php echo $boxid;?>][scripts]" value="<?php echo $this->getScriptsList($currentBlock) ?>" />
+  <input type="hidden" name="blocks[]" value="<?php echo $boxid ?>" />
+  <input type="hidden" name="is_new" value="<?php echo abs((int) $ajax) ?>" />
+  <input type="hidden" name="sync" value="<?php echo abs((int) !$ajax) ?>" />
+<?php
+  // Meta field.
+  foreach ((array) $currentBlock['meta'] as $module => $values) :
+  	foreach ($values as $metaName => $metaValue) :
+  	$isHidden = strpos($metaName, '_');
+  	if (($isHidden !== FALSE) && ($isHidden == 0)) {
+  		// Fields start with underscore is private to the modules.
+  	  continue;
+		}
+		if (is_array($metaValue)) {
+		  $metaValue = json_encode($metaValue);
+		}
+?>
+  <input type="hidden" class="meta-<?php echo $boxid ?>-<?php echo $module ?>" name="cjtoolbox[<?php echo $boxid ?>][meta][<?php echo $module ?>][<?php echo $metaName ?>]" value='<?php echo $metaValue ?>' />
+<?php	
+		endforeach;
+	endforeach;
+?>
+  <?php do_action('cjt_block_variables', $boxid, $currentBlock) ?>
+</div>
+</div>
+<div class="extra-links-bar">
+  <p class="cjtitle">
+    <?php _e('Location', CJTOOLBOX_TEXT_DOMAIN) ?>/<?php _e('Hook', CJTOOLBOX_TEXT_DOMAIN) ?>
+    <select style="width:110px" name="cjtoolbox[<?php echo $boxid;?>][location]">
+    <?php
+      $location_selection = array(
+        'wp_head' => __('Header', CJTOOLBOX_TEXT_DOMAIN),
+        'wp_footer' => __('Footer', CJTOOLBOX_TEXT_DOMAIN),
+      );
+      foreach ($location_selection as $locationHook => $locationName) :
+      	$blockLocation = $this->getHookLocation($currentBlock);
+        $selected = ( $blockLocation == $locationHook ) ? 'selected="selected"' : '';
+    ?>
+      <option value="<?php echo $locationHook ?>" <?php echo $selected ?>><?php echo $locationName ?></option>
+    <?php
+      endforeach;
+    ?>
+    </select>
+  </p>
+  <p class="embedded-scripts-link cjtitle">
+  	<a href="javascript:void('#');" onclick="scriptsForm('<?php _e('Scripts Autoload') ?>', '<?php echo $this->security_nonce ?>', <?php echo $boxid ?>, 700, 500);" title="<?php _e('Automatically load Wordpress build-in scripts.') ?>"><?php _e('Embedded Scripts') ?></a>
+  </p>
+  <?php do_action('cjt_links_bar', $boxid, $currentBlock) ?>
+</div>
+<div class="deleteblock">
+	<p class="cjexample"><?php _e('Click for', CJTOOLBOX_TEXT_DOMAIN) ?>
+	 <a target="_blank" href="http://wipeoutmedia.com/wordpress-plugins/css-javascript-toolbox/" title="<?php _e('Click for Hints &amp; Tips', CJTOOLBOX_TEXT_DOMAIN) ?>"><strong><?php _e('Hints', CJTOOLBOX_TEXT_DOMAIN) ?> &amp; <?php _e('Tips', CJTOOLBOX_TEXT_DOMAIN) ?></strong>
+	 </a>
+	</p>
+<?php if (is_array(cssJSToolbox::$premiumUpgradeTransient) && cssJSToolbox::$premiumUpgradeTransient['availability']) : ?>	
+	<p class="upgradeLink">
+		<?php _e('Upgrade to') ?>
+		<a target="_blank" href="<?php echo cssJSToolbox::$premiumUpgradeTransient['upgradeLink'] ?>"><img src="<?php echo cssJSToolbox::$premiumUpgradeTransient['imageURL'] ?>" /><?php _e('CSS & Javascript Toolbox') ?> <?php echo cssJSToolbox::$premiumUpgradeTransient['version'] ?>
+		</a>
+	</p>
+<?php endif; ?>
+	<a class="button-secondary save_changes_button" href="javascript:void('#');" onclick="return block_saveAllChanges();" style="<?php echo ((($blocksCount > 1) || ($ajax)) ? '' : 'display:none') ?>"><?php _e('Save Changes', CJTOOLBOX_TEXT_DOMAIN) ?></a>
+  <a class="button-secondary delete_block_button" href="javascript:void('#');" onclick="return delete_block('<?php echo ($boxid + 1);?>');" style="<?php echo ((($blocksCount > 1) || ($ajax)) ? '' : 'display:none') ?>"><?php _e('Delete This Block', CJTOOLBOX_TEXT_DOMAIN) ?></a>
+  <a class="button-secondary edit_block_button" href="javascript:void('#');" onclick="return editBlockNameForm('<?php _e('Edit Block Name', CJTOOLBOX_TEXT_DOMAIN) ?>', '<?php echo $this->security_nonce ?>', <?php echo $boxid ?>, 331, 211);" title="<?php _e('Edit Block Name', CJTOOLBOX_TEXT_DOMAIN) ?>"><?php _e('Edit Block Name', CJTOOLBOX_TEXT_DOMAIN) ?></a>
+	<div style="clear:both;"></div>
+</div>

@@ -1,0 +1,20 @@
+<?php
+	if (isset($_GET['restore']) && $_GET['restore']) :
+?>
+				<div class="cjt-tools-notice">
+					<p><?php _e('You have now restored the code blocks from the current backup.') ?></p>
+					<p><?php _e('Nothing is saved until you click the "Save Changes" button.') ?></p>
+					<p><?php _e('To revert back to the previous code blocks and discard this action, simply click the Cancel Restoring link.') ?></p>
+				</div>
+				<div id="cjt-tools">
+					<?php _e('CSS & Javascript Database:') ?> <a id="cjt-tools-backup" href="javascript:void('#');" onclick="CJTTools.backup();"><?php _e('Backup') ?></a> | <a id="cjt-tools-restore" href="javascript:void('#');" onclick="CJTTools.cancelRestore();"><?php _e('Cancel Restoring') ?></a>
+				</div>
+<?php
+	else :
+?>
+				<div id="cjt-tools">
+					<?php _e('CSS & Javascript Database:') ?> <a id="cjt-tools-backup" href="javascript:void('#');" onclick="CJTTools.backup();"><?php _e('Backup') ?></a> | <a id="cjt-tools-restore" href="javascript:void('#');" onclick="CJTTools.restore();"><?php _e('Restore') ?></a>
+				</div>
+<?php
+	endif;
+?>

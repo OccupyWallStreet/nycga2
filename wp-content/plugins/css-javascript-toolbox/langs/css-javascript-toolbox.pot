@@ -1,0 +1,533 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-28 07:22-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: css-js-toolbox.php:516
+msgid "Oops, unable to add CSS & JavaScript Block! Please try again!!!"
+msgstr ""
+
+#: css-js-toolbox.php:517
+msgid "Oops, unable to fetch selected {type} template! Please try again!!!"
+msgstr ""
+
+#: css-js-toolbox.php:518
+msgid "Are you sure? Selected template will be deleted permanently!!!"
+msgstr ""
+
+#: css-js-toolbox.php:519
+msgid "Oops, unable to delete selected {type} template! Please try again!!!"
+msgstr ""
+
+#: css-js-toolbox.php:520
+msgid "Selected {type} template deleted successfully!"
+msgstr ""
+
+#: css-js-toolbox.php:521
+msgid "Are you sure you want to delete \"{block_name}\" block?"
+msgstr ""
+
+#: css-js-toolbox.php:521
+msgid ""
+"The block is not permanently deleted unless \"Save Changes\" button is "
+"clicked"
+msgstr ""
+
+#: css-js-toolbox.php:522
+msgid "Please enter title for code!"
+msgstr ""
+
+#: css-js-toolbox.php:523
+msgid "Please enter code to save!"
+msgstr ""
+
+#: css-js-toolbox.php:524
+msgid "Code template was not saved because there were no changes made."
+msgstr ""
+
+#: css-js-toolbox.php:524
+msgid "Do you wish to finish editing anyway?"
+msgstr ""
+
+#: css-js-toolbox.php:525
+msgid "Could not save template, please try again."
+msgstr ""
+
+#: css-js-toolbox.php:526
+msgid "\"{title}\" {type} code template has been saved successfully."
+msgstr ""
+
+#: css-js-toolbox.php:527
+msgid "Block name cannot be null, please type a name."
+msgstr ""
+
+#: css-js-toolbox.php:528
+msgid "Block name is in use. There is another block with the same name!!!"
+msgstr ""
+
+#: css-js-toolbox.php:528
+msgid "Please select another name."
+msgstr ""
+
+#: css-js-toolbox.php:551 views/snippets/newblock.html.tmpl:2
+#, php-format
+msgid "CSS & JavaScript Block: %s"
+msgstr ""
+
+#: css-js-toolbox.php:820 css-js-toolbox.php:836
+msgid "Invalid Request: Unable to process the request!"
+msgstr ""
+
+#: css-js-toolbox.php:1033
+msgid "CSS & JAVASCRIPT TOOLBOX - INSTRUCTIONS AND DEMO"
+msgstr ""
+
+#: css-js-toolbox.php:1034
+msgid ""
+"Feel free to delete all of this text at any time.  For more information, "
+"please click 'Hints & Tips'"
+msgstr ""
+
+#: css-js-toolbox.php:1035
+msgid ""
+"Write your CSS and JS code here, then apply it by using one of the tabs "
+"(Pages, Categories, URL) from the panel on the right"
+msgstr ""
+
+#: css-js-toolbox.php:1036
+msgid ""
+"The example JavaScript code shown below will display an alert message box"
+msgstr ""
+
+#: css-js-toolbox.php:1037
+msgid ""
+"To see this code in action, lets click the \"Front Page\" checkbox from the "
+"panel on the right"
+msgstr ""
+
+#: css-js-toolbox.php:1038
+msgid ""
+"Click the blue 'Save All Changes' button, then click the Front Page "
+"navigation icon to open the page in a new window"
+msgstr ""
+
+#: css-js-toolbox.php:1039
+msgid "Have fun!!!"
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:3 modules/v03e/v03e.php:72
+msgid ""
+"Current code block contains errors!!! Click here to show or hide the details"
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:8
+msgid ""
+"You have upgraded from an older version, and unfortunately the previous "
+"version introduced an error, which needs correcting."
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:9
+msgid ""
+"Inspect your code blocks and you may notice extra back slash characters "
+"occurring before quotes, double quotes and other back slashes."
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:10
+msgid ""
+"Due to a bug, these 'additional' back slash characters were added when code "
+"was inserted from the CSS or JS Template drop-down boxes."
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:11
+msgid ""
+"In this latest version, we have created an error detection and correction "
+"system to help you to fix these errors."
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:12
+#, php-format
+msgid ""
+"Please note that the error detection and correction system can not be 100% "
+"certain if the detected error is actually an error or not."
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:13
+msgid ""
+"Therefore, you would need to assist this error system by confirming whether "
+"the back slash character should be there or not."
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:14
+msgid ""
+"Consider backing up your code blocks by clicking the Backup link in the top "
+"right corner beforehand, then you can restore your code blocks."
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:15
+msgid ""
+"Clicking 'Clean up' will clean extra back slash errors and you can see this "
+"happen in the editor window. For a video on how this works, please click:"
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:15
+msgid "Help Video"
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:16
+msgid ""
+"This error system for detecting and correcting code blocks supports the "
+"following error types:"
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:24
+#: modules/v03e/views/scan-message.html.tmpl:2
+msgid "displayName"
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:24
+msgid "description"
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:35
+msgid "Dismiss"
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:36
+msgid "Re-scan"
+msgstr ""
+
+#: modules/v03e/views/error-note.html.tmpl:37
+msgid "Clean up"
+msgstr ""
+
+#: modules/v03e/views/scan-message.html.tmpl:2
+msgid "Detected error"
+msgstr ""
+
+#: modules/v03e/views/scan-message.html.tmpl:19
+msgid "For the location of each match, click on the item."
+msgstr ""
+
+#: modules/v03e/v03e.php:62
+msgid ""
+"After cleaning up this code block, you will not be able to scan the code "
+"again."
+msgstr ""
+
+#: modules/v03e/v03e.php:63
+msgid "Would you like to clean up the current code block?"
+msgstr ""
+
+#: modules/v03e/v03e.php:64 modules/tools/views/tools-bar.html.tmpl:6
+msgid "Nothing is saved until you click the \"Save Changes\" button."
+msgstr ""
+
+#: modules/v03e/v03e.php:65
+msgid "The scan is outdated."
+msgstr ""
+
+#: modules/v03e/v03e.php:66
+msgid "This is may be a result of changing the block code."
+msgstr ""
+
+#: modules/v03e/v03e.php:67
+msgid "Please rescan the code and then click cleanUp."
+msgstr ""
+
+#: modules/v03e/v03e.php:68
+msgid ""
+"After dismissing this message you'll never be able to scan/clean this block "
+"again"
+msgstr ""
+
+#: modules/v03e/v03e.php:69
+msgid "Are you sure?"
+msgstr ""
+
+#: modules/v03e/v03e.php:70
+msgid "Block code is now clean"
+msgstr ""
+
+#: modules/v03e/v03e.php:71
+msgid "Nothing saved untill \"Save all changes\" button is clicked."
+msgstr ""
+
+#: modules/v03e/v03e.php:73
+msgid "Block code has been changed, scan is outdated!!!"
+msgstr ""
+
+#: modules/v03e/v03e.php:74
+msgid "Would you like to rescan the code?"
+msgstr ""
+
+#: modules/tools/views/tools-bar.html.tmpl:5
+msgid "You have now restored the code blocks from the current backup."
+msgstr ""
+
+#: modules/tools/views/tools-bar.html.tmpl:7
+msgid ""
+"To revert back to the previous code blocks and discard this action, simply "
+"click the Cancel Restoring link."
+msgstr ""
+
+#: modules/tools/views/tools-bar.html.tmpl:10
+#: modules/tools/views/tools-bar.html.tmpl:16
+msgid "CSS & Javascript Database:"
+msgstr ""
+
+#: modules/tools/views/tools-bar.html.tmpl:10
+#: modules/tools/views/tools-bar.html.tmpl:16
+#: modules/tools/views/backupform.html.tmpl:25
+msgid "Backup"
+msgstr ""
+
+#: modules/tools/views/tools-bar.html.tmpl:10
+msgid "Cancel Restoring"
+msgstr ""
+
+#: modules/tools/views/tools-bar.html.tmpl:16
+#: modules/tools/views/backupform.html.tmpl:27
+msgid "Restore"
+msgstr ""
+
+#: modules/tools/views/backupform.html.tmpl:8
+msgid "on"
+msgstr ""
+
+#: modules/tools/views/backupform.html.tmpl:8
+msgid "by"
+msgstr ""
+
+#: modules/tools/views/backupform.html.tmpl:29
+#: views/snippets/blockname.html.tmpl:8 views/snippets/newcode.html.tmpl:24
+msgid "Cancel"
+msgstr ""
+
+#: modules/tools/tools.php:49
+msgid "Content change has been detected."
+msgstr ""
+
+#: modules/tools/tools.php:50
+msgid "It seems that some changes made in the blocks code."
+msgstr ""
+
+#: modules/tools/tools.php:51
+msgid "This changes won't be saved in the backup."
+msgstr ""
+
+#: modules/tools/tools.php:52
+msgid "To save these changes click \"Save Changes\" and then click backup."
+msgstr ""
+
+#: modules/tools/tools.php:53
+msgid "Would you to discard these changes from the backup?"
+msgstr ""
+
+#: modules/tools/tools.php:54
+msgid "Could not backup the database, please try again."
+msgstr ""
+
+#: modules/tools/tools.php:55
+msgid "Server not responding!!! Please try again."
+msgstr ""
+
+#: modules/tools/tools.php:56
+msgid "No backup available!!!"
+msgstr ""
+
+#: views/snippets/wpobjectslist.tmpl:7
+msgid "Pages"
+msgstr ""
+
+#: views/snippets/wpobjectslist.tmpl:8
+msgid "Categories"
+msgstr ""
+
+#: views/snippets/wpobjectslist.tmpl:9
+msgid "URL List"
+msgstr ""
+
+#: views/snippets/wpobjectslist.tmpl:12
+msgid "Add this CSS/JS code to ?"
+msgstr ""
+
+#: views/snippets/wpobjectslist.tmpl:16
+msgid "Front Page"
+msgstr ""
+
+#: views/snippets/wpobjectslist.tmpl:21
+msgid "All Posts"
+msgstr ""
+
+#: views/snippets/wpobjectslist.tmpl:26
+msgid "All Pages"
+msgstr ""
+
+#: views/snippets/wpobjectslist.tmpl:33
+msgid "Add this CSS/JS code to category page?"
+msgstr ""
+
+#: views/snippets/wpobjectslist.tmpl:39
+msgid "Add one URL per line (include http://)"
+msgstr ""
+
+#: views/snippets/block.tmpl:8
+msgid "CSS Template"
+msgstr ""
+
+#: views/snippets/block.tmpl:10
+msgid "Insert selected CSS Template"
+msgstr ""
+
+#: views/snippets/block.tmpl:10 views/snippets/block.tmpl:19
+msgid "Insert Code"
+msgstr ""
+
+#: views/snippets/block.tmpl:11
+msgid "Add New CSS Code Template"
+msgstr ""
+
+#: views/snippets/block.tmpl:11 views/snippets/block.tmpl:20
+msgid "New"
+msgstr ""
+
+#: views/snippets/block.tmpl:12
+msgid "Edit CSS Code Template"
+msgstr ""
+
+#: views/snippets/block.tmpl:12 views/snippets/block.tmpl:21
+msgid "Edit"
+msgstr ""
+
+#: views/snippets/block.tmpl:13
+msgid "Delete selected CSS Template"
+msgstr ""
+
+#: views/snippets/block.tmpl:13 views/snippets/block.tmpl:22
+msgid "Delete Code"
+msgstr ""
+
+#: views/snippets/block.tmpl:17
+msgid "JS Template"
+msgstr ""
+
+#: views/snippets/block.tmpl:19
+msgid "Insert selected JavaScript Template"
+msgstr ""
+
+#: views/snippets/block.tmpl:20
+msgid "Add New JavaScript Code Template"
+msgstr ""
+
+#: views/snippets/block.tmpl:21
+msgid "Edit JS Code Template"
+msgstr ""
+
+#: views/snippets/block.tmpl:22
+msgid "Delete selected JavaScript Template"
+msgstr ""
+
+#: views/snippets/block.tmpl:59
+msgid "Location"
+msgstr ""
+
+#: views/snippets/block.tmpl:59
+msgid "Hook"
+msgstr ""
+
+#: views/snippets/block.tmpl:63
+msgid "Header"
+msgstr ""
+
+#: views/snippets/block.tmpl:64
+msgid "Footer"
+msgstr ""
+
+#: views/snippets/block.tmpl:77
+msgid "Scripts Autoload"
+msgstr ""
+
+#: views/snippets/block.tmpl:77
+msgid "Automatically load Wordpress build-in scripts."
+msgstr ""
+
+#: views/snippets/block.tmpl:77
+msgid "Embedded Scripts"
+msgstr ""
+
+#: views/snippets/block.tmpl:82
+msgid "Click for"
+msgstr ""
+
+#: views/snippets/block.tmpl:83
+msgid "Click for Hints &amp; Tips"
+msgstr ""
+
+#: views/snippets/block.tmpl:83
+msgid "Hints"
+msgstr ""
+
+#: views/snippets/block.tmpl:83
+msgid "Tips"
+msgstr ""
+
+#: views/snippets/block.tmpl:88
+msgid "Upgrade to"
+msgstr ""
+
+#: views/snippets/block.tmpl:89
+msgid "CSS & Javascript Toolbox"
+msgstr ""
+
+#: views/snippets/block.tmpl:93 views/snippets/newcode.html.tmpl:20
+msgid "Save Changes"
+msgstr ""
+
+#: views/snippets/block.tmpl:94
+msgid "Delete This Block"
+msgstr ""
+
+#: views/snippets/block.tmpl:95
+msgid "Edit Block Name"
+msgstr ""
+
+#: views/snippets/blockname.html.tmpl:5
+msgid "Block Name"
+msgstr ""
+
+#: views/snippets/blockname.html.tmpl:10 views/snippets/newcode.html.tmpl:22
+#: views/snippets/scripts.html.tmpl:34
+msgid "Close"
+msgstr ""
+
+#: views/snippets/blockname.html.tmpl:12 views/snippets/newcode.html.tmpl:29
+#: views/snippets/scripts.html.tmpl:35
+msgid "Working"
+msgstr ""
+
+#: views/snippets/blockname.html.tmpl:15
+msgid "Block names are useful to keep your code blocks managed and organised."
+msgstr ""
+
+#: views/snippets/blockname.html.tmpl:16
+msgid ""
+"Please type a relevant name that describes what your block does, then click "
+"Save."
+msgstr ""
+
+#: views/snippets/newcode.html.tmpl:13
+msgid "Title"
+msgstr ""

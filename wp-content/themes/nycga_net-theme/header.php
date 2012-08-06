@@ -296,12 +296,8 @@ if($tn_buddycorp_header_logo == '') { ?>
 <img src="<?php echo stripslashes($tn_buddycorp_header_logo); ?>" alt="<?php bloginfo('name'); ?> <?php _e('homepage', TEMPLATE_DOMAIN); ?>" /></a>
 <?php } ?>
 </div>
-
-
-
-
-
 </div>
+
 
 <?php do_action( 'bp_after_header' ) ?>
 
@@ -410,6 +406,13 @@ if( $tn_buddycorp_header_on == 'enable') { ?>
 
 
 <?php do_action( 'bp_before_container' ) ?>
+
+	<!-- BEGIN: announcement bar -->
+
+	<?php locate_template( array( 'announcement.php' ), true ) ?>
+
+	<!-- //END: announcement bar -->
+
 
 <?php if($bp_existed == 'true') { //check if bp existed ?>
 <div class="content">

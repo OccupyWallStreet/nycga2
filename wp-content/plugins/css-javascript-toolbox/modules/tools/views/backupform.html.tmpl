@@ -1,0 +1,35 @@
+<div id="cjtoolbox_tools_backup_form">
+<?php
+	// pleasd remember the context is the cssJSToolbox class not CJTTooks class.
+	$backups = $tools->getAvailableBackups();
+	foreach ($backups as $index => $backup) :
+?>
+	<div id="backup-<?php echo $index ?>">
+		<h3><span class="name"><?php echo $backup['name'] ?></span> <?php echo _e('on') ?> <span class="time"><?php echo $backup['time'] ?></span> <?php _e('by') ?> <span class="author"><?php echo $backup['author'] ?></span></h3>
+		<ul class="blocks-list">
+<?php
+			foreach ($backup['data'] as $blockId => $block) :
+?>
+			<li class="item">
+				<a class="block-link" href="#"><?php echo $this->getBlockName($block, $blockId, 'Block #') ?></a>
+				<ul class="more-details">
+					<li><textarea style="width:98%;height:300px"><?php echo $block['code'] ?></textarea></li>
+				</ul>
+			</li>
+<?php
+			endforeach;
+?>
+		</ul>
+		<div class="buttons">
+<?php if ($_GET['task'] == 'backup') : ?>
+			<input type="button" onclick="CJTTools.backupDatabase();tb_remove();" value="<?php _e('Backup') ?>" />
+<?php else : ?>
+			<input type="button" onclick="CJTTools.restoreDatabase();" value="<?php _e('Restore') ?>" />
+<?php endif; ?>
+			<input type="button" onclick="tb_remove();" value="<?php _e('Cancel') ?>" />
+		</div>
+	</div>
+<?php
+	endforeach;
+?>
+</div>

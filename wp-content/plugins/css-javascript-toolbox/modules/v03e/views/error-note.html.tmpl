@@ -1,0 +1,40 @@
+<div id="v03e-error-note-block-<?php echo $blockId ?>" class="v03e-block-message">
+	<div class="notification-bar notify-<?php echo $errorDetails['errorType'] ?>">
+		<p><?php _e('Current code block contains errors!!! Click here to show or hide the details') ?></p>
+	</div>
+	<div class="message-area">
+		<div class="help">
+			<p>
+				<?php _e('You have upgraded from an older version, and unfortunately the previous version introduced an error, which needs correcting.') ?>
+			  <?php _e('Inspect your code blocks and you may notice extra back slash characters occurring before quotes, double quotes and other back slashes.') ?>
+			  <?php _e('Due to a bug, these \'additional\' back slash characters were added when code was inserted from the CSS or JS Template drop-down boxes.') ?>
+			  <?php _e('In this latest version, we have created an error detection and correction system to help you to fix these errors.') ?>
+			  <?php _e('Please note that the error detection and correction system can not be 100% certain if the detected error is actually an error or not.') ?>
+			  <?php _e('Therefore, you would need to assist this error system by confirming whether the back slash character should be there or not.') ?>
+			  <?php _e('Consider backing up your code blocks by clicking the Backup link in the top right corner beforehand, then you can restore your code blocks.') ?>
+			  <?php _e('Clicking \'Clean up\' will clean extra back slash errors and you can see this happen in the editor window. For a video on how this works, please click:') ?> <a href="http://wipeoutmedia.com/wordpress-plugins/cjt-bug-fix-upgrading-to-v0-8" target="_blank"><?php _e('Help Video') ?></a>
+			  <h4><?php _e('This error system for detecting and correcting code blocks supports the following error types:') ?></h4>
+			</p>
+			<ul class="v0e3-error-types-list">
+<?php
+			$errorTypes = json_decode($errorDetails['allErrorTypes']);
+			foreach ($errorTypes as $errorKey) :
+				$errorType = CJTV03Error::$errorTypes[$errorKey];
+?>
+    		<li><p class="txt-<?php echo $errorKey ?>"><?php _e($errorType['displayName']) ?>: <?php _e($errorType['description']) ?></p></li>
+<?php
+			endforeach;
+?>
+			</ul>
+		</div>
+<?php require 'scan-message.html.tmpl' ?>
+		<div class="v03e-loader" id="v03e-block-loader-<?php echo $blockId ?>">
+			<img src="<?php echo CJTOOLBOX_MEDIA_URL . '/ajax-loader.gif' ?>" />
+		</div>
+		<div class="commands">
+			<a href="javascript:void('#');" onclick="v03e.nextError(<?php echo $blockId ?>, true)"><?php _e('Dismiss') ?></a> | 
+			<a href="javascript:void('#');" onclick="v03e.rescan(<?php echo $blockId ?>)"><?php _e('Re-scan') ?></a> | 
+			<a href="javascript:void('#');" onclick="v03e.cleanUpBlock(<?php echo $blockId ?>)"><?php _e('Clean up') ?></a>
+		</div>
+	</div>
+</div>

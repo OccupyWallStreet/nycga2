@@ -1,0 +1,82 @@
+/** CSS &amp; Javascript Toolkit - Admin CSS **/
+.wrap { position:relative; }
+.wrap h2 { float:left; }
+#wpcontent { min-width:1040px; }
+#post-body { min-width:1020px; }
+#cjtoolbox_donate { float:right; position:relative; right:20px; line-height:40px; width:380px; }
+#cjtoolbox_donate input { position:absolute; right:0; top:0; }
+
+#cjtoolbox_form { clear:both; }
+.cjcodeblock { margin-right:350px; min-width:780px; }
+.cjpageblock { width:272px; height: 298px; position:absolute; right:12px; }
+.pagelist { padding:10px; height:172px; overflow:auto; background:#fff; border:1px solid #ccc; }
+.pagelist li { line-height:19px; word-wrap:break-word; margin:0; padding:0; }
+.pagelist ul { margin-left:18px; }
+.cssblock, .jsblock { width:50%; }
+.cssblock { float:left; }
+.jsblock { float:right; }
+.datablock {clear:both;} /* IE8 */
+.datablock textarea { width:99%; height:242px; }
+.deleteblock a.button-secondary { padding:5px 10px; margin:10px 5px 5px; float:right; }
+.linklist textarea { width:245px; font-size:11px; height:190px; }
+
+.cjtitle { float:left; width:245px; }
+.cssblock select { width:150px; }
+.jsblock select { width:155px; }
+.cjbutton { width:116px; height:24px; float:left; }
+.cjbutton a { height:24px; width:24px; text-indent:-999em; display:block; float:left; }
+.cjexample { clear:left; float:left; padding:5px 0 0; }
+.upgradeLink { margin-top: -8px; float:left; margin-left: 60px; padding:5px 0 0;}
+.upgradeLink img{ position: relative; top: 8px; }
+.embedded-scripts-link{ margin-top: 16px; }
+
+a.add_code { background:url(../media/icons/add_code.png) no-repeat; }
+a.edit_code { background:url(../media/icons/edit_code.png) no-repeat; }
+a.delete_code { background:url(../media/icons/delete_code.png) no-repeat; }
+a.insert_code { background:url(../media/icons/insert_code.png) no-repeat; }
+a.l_ext { position: relative; top: 3px; background:url(../media/icons/external_link.png) no-repeat; width:18px; height:13px; display:inline-block; }
+a.save_changes_button, a:hover.save_changes_button, a:visited.save_changes_button{color: #21759B;}
+
+#cjtoolbox-addblock { float:left; padding:5px 10px; }
+
+#cjtoolbox-tips { padding:20px; }
+#cjtoolbox-tips ul li { list-style-type:square; }
+
+.field-title{ width: 100px; display: inline-block; }
+#new_code {width: 324px; height: 248px; }
+.popup-note{ text-align:justify;background-color:snow;padding: 3px 3px 3px 3px; }
+
+.cj-save-popup { position:absolute; -moz-border-radius:12px; -webkit-border-radius:12px; border-radius:12px; background:rgba(0, 0, 0, 0.4); color:#fff; font-size:24px; text-align:center; display:none; z-index:99; }
+#cj-save-save { background:url(../media/accept.png) 20px 50% no-repeat; padding:30px 30px 30px 70px; }
+#cj-save-reset { background:url(../media/warning.png) 20px 50% no-repeat; padding:30px 30px 30px 70px; }
+
+#cj-ajax-load { position:absolute; background:rgba(255, 255, 255, 0.8); text-align:center; display:none; padding:50px; z-index:999; width:100%; height:100%; }
+#cj-ajax-load img { position:absolute; }
+
+#save_bar { background: #f3f3f3; border:solid #ccc; border-width:1px; padding: 10px 20px; text-align: right; -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
+.hide { display:none }
+.ajax-loading-img-top { margin: 8px 4px 0; float:left }
+
+.cjt-block-scripts ul{ list-style: none; margin: 0px; padding: 5px 5px 5px 5px; height: 450px; overflow: auto; }
+.cjt-block-scripts ul li{ display: inline-block; background: none; width: 200px; }
+.marked-text{ color: #bf6b19; }
+
+/*
+ * jQuery UI Tabs 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Tabs#theming
+ */
+.ui-tabs { position: relative; padding: .2em; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.ui-tabs .ui-tabs-nav { margin: 0; padding: .2em .2em 0; }
+.ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; padding: 0; white-space: nowrap; }
+.ui-tabs .ui-tabs-nav li a { background:#F1F1F1; color:#999999; border-color:#DFDFDF #DFDFDF #CCCCCC; height:18px;margin:5px 5px 0 0;padding:4px 5px 2px;float:right;cursor:pointer;border-width:1px;border-style:solid;-moz-border-radius:3px 3px 0 0;-webkit-border-top-right-radius:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-right-radius:3px;-khtml-border-top-left-radius:3px;border-top-right-radius:3px;border-top-left-radius:3px; border-bottom: 0 !important; }
+.ui-tabs .ui-tabs-nav li a { float: left; padding: .5em 1em; text-decoration: none; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom: 1px; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; background:#E9E9E9; border-color:#CCCCCC #CCCCCC #E9E9E9; color:#333333; }
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.ui-tabs .ui-tabs-panel { display: block; padding: 5px 10px; background: #EFEFEF; border-color:#CCCCCC; border-style:solid;border-width:1px;border-collapse:separate;-moz-border-radius:3px 3px 0 0;-webkit-border-top-right-radius:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-right-radius:3px;-khtml-border-top-left-radius:3px;border-top-right-radius:3px;border-top-left-radius:3px; clear:both }
+.ui-tabs .ui-tabs-hide { display: none !important; }

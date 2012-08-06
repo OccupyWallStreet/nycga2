@@ -1,0 +1,34 @@
+
+.error-list{border: 1px solid #999; overflow: auto;padding: 10px 0; max-height: 140px;}
+.error-list li{cursor: pointer;list-style: none;background: none;margin-left: 20px; color: black;}
+.error-list .selected{background-color: #EFEFEF;}
+.v03e-block-message{width:99%;}
+.notification-bar p{cursor: pointer; font-weight: bold;font-size: 14px;}
+.message-area{display: none;background-color:#fff; padding: 5px 5px 5px 5px; border: solid 1px #ccc;}
+.message-area .commands {background-color: white;} /* Links */
+.v03e-loader{display: none;}
+.warning-message{color:#97854e; font-weight: bold;}
+.error-message p {color: black;}
+ p.matches-note{color: gray;}
+
+.notification-bar.notify-error {
+	background: #FFBFBF url(../images/error.png) center no-repeat;
+	background-position: 15px 50%;
+	text-align: left;
+	padding: 0px 0px 0px 45px;
+	border-top: 2px solid #FF2424;
+	border-bottom: 2px solid #FF2424;color:red;
+}
+.message-area .txt-error{ color:#F00;}
+
+.notification-bar.notify-warning {
+	background: #ffe38f url(../images/warning.png) center no-repeat;
+	background-position: 15px 50%;
+	text-align: left;
+	padding: 0px 0px 0px 45px;
+	border-top: 2px solid #fece3e;
+	border-bottom: 2px solid #fece3e;color:#97854e;
+}
+.message-area .txt-warning{ color:#97854e;}
+
+ul.v0e3-error-types-list{font-weight: bolder; padding-left: 40px;list-style-type: disc;}
