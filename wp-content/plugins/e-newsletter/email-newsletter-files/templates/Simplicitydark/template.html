@@ -1,0 +1,59 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Simplicity Dark</title>
+        <style type="text/css">
+            a:link, a, a:visited{color:#99aa00;}
+            a:hover { text-decoration: none !important; color:#99aa00;}
+            h2, h3, h4, h5, h6{padding: 0px 0px 10px 0px;margin:0px;}
+			.alignleft { display: inline; float: left; margin-right: 1.625em; }
+			.alignright { display: inline; float: right; margin-left: 1.625em; }
+			.aligncenter { clear: both; display: block;	margin-left: auto; margin-right: auto; }
+			img.alignleft, img.alignright, img.aligncenter { margin-bottom: 1.625em; }
+        </style>
+    </head>
+    <body marginheight="0" topmargin="0" marginwidth="0" leftmargin="0">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding: 10px 100px 10px 100px; background-color: #000; margin: 0; font-family:Arial,Sans-serif; line-height:22px; color:#ffffff; font-size:12px;">
+        <tr>
+            <td>
+                <!-- start header -->
+                <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:30px; margin-bottom:10px;">
+                    <tr>
+                        <td valign="middle">
+	                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+							    <tr>
+								    <td style="color:#aaaaaa; font-size:20px; line-height:20px; font-weight:bold; padding-bottom:10px; padding-left:5px;">
+								    </td>
+							    </tr>
+                                <tr>
+                                    <td>
+                                	    <h1 style="font-size:55px; line-height:55px; margin:0px; padding-bottom:10px; color:#99aa00;">{EMAIL_SUBJECT}</h1>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+				    <tr>
+                           <td style="font-size:12px; line-height:22px; color:#aaaaaa;">
+						        <h2 style="margin:0px; color:#99aa00 !important;">From {FROM_NAME} <span style="float: right;"> {FROM_EMAIL}</span></h2>
+							    {EMAIL_BODY}
+                                <pre>{CONTACT_INFO}</pre>
+                            </td>
+					    </tr>
+                </table>
+       		    <!-- end header -->
+
+	                <!-- start footer -->
+	           	    <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:30px;">
+	               	    <tr>
+						    <td style="padding-top:10px; text-align:center; color:#666666; font-weight:bold;">
+							    Not interested anymore? <a href="{UNSUBSCRIBE_URL}" style="color:#999999;" >Unsubscribe</a> Instantly.
+						    </td>
+					     </tr>
+	           	    </table>
+				    <!-- end footer -->
+        	    </td>
+    	    </tr>
+	    </table>
+    </body>
+</html>

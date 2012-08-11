@@ -1,0 +1,556 @@
+/* --------------------------------------------------------------
+Reset default browser CSS.
+Based on work by Eric Meyer:http://meyerweb.com/eric/tools/css/reset/index.html
+-------------------------------------------------------------- */
+/* v1.0 | 20080212 */
+html,body,div,span,applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,
+del,dfn,em,font,img,ins,kbd,q,s,samp,
+small,strike,strong,sub,sup,tt,var,
+b,u,i,center,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
+body{background:#fff;line-height:1;}
+ol,ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,
+q:before,q:after{content:'';content:none;}
+/* remember to define focus styles! */
+:focus{outline:0;}
+/* remember to highlight inserts somehow! */
+ins{text-decoration:none;}
+del{text-decoration:line-through;}
+/* tables still need 'cellspacing="0"' in the markup */
+table{border-collapse:collapse;border-spacing:0;}
+a img{border:none;}
+.clear{clear:both;}
+.clear-left{clear:left;}
+.clear-right{clear:right;}
+/********************************************* layout */
+body{margin:0px;padding:0px;}
+body.activity-permalink div#container{background:none;border:none;padding-bottom:10px;}
+.padder{padding-top:10px;}
+#site-wrapper{text-align:left;}
+/********************************************* header */
+#site-logo{margin:0px;padding:25px 0px;float:left;}
+#site-logo{font-size:36px;}
+#site-logo a,#site-logo a:visited,#site-logo a:link{color:#EEEEEE;text-decoration:none;text-shadow:1px 1px #000000;}
+#site-logo a:hover{color:#cccccc;text-decoration:none;}
+.logo-square{float:left;padding:0px 10px 0px 0px;}
+#header-wrapper{height:100px;z-index:999;}
+#header{width:980px;margin-left:auto;margin-right:auto;text-align:center;}
+#customheader-holder{width:980px;margin-left:auto;margin-right:auto;text-align:center;padding:20px 0px;}
+/********************************************* sign up box */
+#signup-wrapper{clear:both;}
+#signup-section{width:980px;margin-left:auto;margin-right:auto;text-align:center;border-top:1px solid #eeeeee;padding-top:10px;}
+#signup-about{text-align:left;}
+#signup-about .button{float:right;margin:0px 0px 10px 20px;}
+/********************************************* footer */
+#footer-wrapper{height:50px;}
+#footer{width:980px;margin-left:auto;margin-right:auto;text-align:center;border-top:1px solid #eeeeee;padding-top:10px;}
+#footer-links{text-align:left;}
+#footer a{margin-right:20px;}
+/********************************************* content */
+#content-fullwidth{width:970px;text-align:left;padding:20px 0px;}
+#content{width:690px;float:left;text-align:left;padding:20px 0px;}
+#signup-section{padding:20px 0px 10px 0px;}
+#homepage{text-align:left;}
+#container{width:980px;margin-left:auto;margin-right:auto;text-align:center;}
+#feature{width:980px;margin-left:auto;margin-right:auto;text-align:center;padding:20px 0px;}
+#feature h3{text-align:left;}
+#widgets{width:980px;margin-left:auto;margin-right:auto;text-align:center;}
+.widget ul{list-style:none;margin:0px;}
+.widget{padding-bottom:20px;}
+#strapline-wrapper{background:#ececec;}
+#strapline-holder{width:980px;margin-left:auto;margin-right:auto;text-align:center;}
+#strapline{padding:20px 0px 20px 0px;text-align:left;}
+#slideshow{border:1px solid #e2e2e2;background:#ffffff;padding:10px;-moz-border-radius:10px;-khtml-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;margin:0px 0px 20px 0px;}
+#content-blocks{margin:20px 0px;border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;padding:20px 0px;}
+#content-blocks-blue,#content-blocks-widget{padding:20px 0px;text-align:left;}
+.content-block{width:300px;margin-right:20px;float:left;}
+.content-block-end{width:300px;float:left;}
+.post{border-bottom:1px solid #e2e2e2;padding-bottom:20px;margin-bottom:20px;}
+.borderbreak{clear:both;border-top:1px solid #dddddd;margin-bottom:20px;}
+/********************************************* forms */
+#searchsubmit{margin-top:10px;}
+ul.button-nav li a,div.generic-button a{padding:5px 10px;-moz-border-radius:5px;-khtml-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;vertical-align:bottom;cursor:pointer;text-decoration:none;font-size:14px;font-weight:normal;}
+ul.button-nav li a:hover,ul.button-nav li.current a,
+div.generic-button a:hover{outline:none;}
+ul.button-nav li.current a{font-weight:bold;}
+div.accept,div.reject{float:left;margin-left:10px;}
+ul.button-nav li{float:left;margin:10px 10px 10px 0px;}
+ul.button-nav{padding:0px;margin:0px;}
+div.activity-comments form .ac-textarea{padding:8px;margin-bottom:10px;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;}
+div.activity-comments form textarea{width:100%;height:60px;border:none;padding:0;}
+div.activity-comments form input{margin-top:5px;}
+div.dir-search input[type=text]{padding:5px;}
+div#signup-avatar img{margin:0 15px 10px 0;}
+form.standard-form textarea,form.standard-form input[type=text],
+form.standard-form select,form.standard-form input[type=password],
+.dir-search input[type=text]{-moz-border-radius:5px;-khtml-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;padding:5px;}
+form.standard-form select{padding:5px;}
+form.standard-form input[type=password]{margin-bottom:5px;}
+form.standard-form label,form.standard-form span.label{display:block;margin:15px 0 5px 0;}
+form.standard-form div.checkbox label,
+form.standard-form div.radio label{margin:5px 0 0 0;}
+form.standard-form#sidebar-login-form label{margin-top:5px;}
+form.standard-form input[type=text]{width:95%;}
+form.standard-form#sidebar-login-form input[type=text],
+form.standard-form#sidebar-login-form input[type=password]{padding:4px;width:95%;}
+form.standard-form #basic-details-section input[type=password],
+form.standard-form #blog-details-section input#signup_blog_url{width:35%;}
+form.standard-form#signup_form input[type=text],
+form.standard-form#signup_form textarea{width:90%;}
+form.standard-form#signup_form div.submit{float:right;}
+form.standard-form textarea{width:95%;height:120px;}
+form.standard-form textarea#message_content{height:200px;}
+form.standard-form#send-reply textarea{width:97.5%;}
+form.standard-form p.description{margin:5px 0;}
+form.standard-form div.submit{padding:15px 0;clear:both;}
+form.standard-form div.submit input{margin-right:15px;}
+form.standard-form div.radio ul{margin:10px 0 15px 38px;list-style:disc;}
+form.standard-form div.radio ul li{margin-bottom:5px;}
+form.standard-form #basic-details-section,form.standard-form #blog-details-section,
+form.standard-form #profile-details-section{float:left;width:48%;}
+form.standard-form #profile-details-section{float:right;}
+form.standard-form #blog-details-section{clear:left;}
+form.standard-form#signup_form div div.error{-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;padding:6px;width:90%;margin:0 0 10px 0;}
+form.standard-form a.clear-value{display:block;margin-top:5px;outline:none;}
+form#send-invite-form{margin-top:20px;}
+textarea{-moz-border-radius:5px;-khtml-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}
+form#whats-new-form textarea{width:100%;height:50px;border:none;margin:0;padding:0;-moz-border-radius:5px;-khtml-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}
+/********************************************* sidebar */
+#sidebar{float:right;width:250px;margin:0px;padding:0px;text-align:left;}
+#sidebar .padder{padding:30px 0px 20px 0px;}
+.widget-error{padding:10px;margin-bottom:10px;}
+.widget ul{margin:0px;padding:0px;list-style-type:none;}
+#content-block-widgets li{padding:10px 0px;list-style-type:none;}
+/********************************************* navigation */
+.navigation{margin:0px;padding:30px 0px 0px;float:right;}
+.nav{margin:0;padding:7px 0px 0px 0px;line-height:100%;}
+.nav li{margin:0 5px;padding:0 0 8px;float:left;position:relative;list-style:none;}
+/* main level link */
+.nav a,.nav a:visited,.nav a:link{font-style:normal;font-weight:normal;text-decoration:none;display:block;padding:10px 15px;font-size:14px;margin:0;-webkit-border-radius:5px;-moz-border-radius:5px;}
+/* main level link hover */
+.nav .current a,.nav li:hover > a,.nav li.current_page_item a{font-style:normal;-webkit-border-radius:5px;-moz-border-radius:5px;}
+/* sub levels link hover */
+.nav ul li:hover a,.nav li:hover li a{-webkit-box-shadow:none;-moz-box-shadow:none;}
+.nav ul a:hover{text-align:left;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:0 1px 3px rgba(0,0,0,.3);-moz-box-shadow:0 1px 3px rgba(0,0,0,.3);box-shadow:0 1px 3px rgba(0,0,0,.3);}
+/* level 2 list */
+.nav ul{text-align:left;display:none;margin:0;z-index:999;padding:0;width:185px;position:absolute;top:35px;left:0;}
+/* dropdown */
+.nav li:hover > ul{display:block;}
+.nav ul li{float:none;margin:0;padding:0;}
+.nav ul a{font-weight:normal;text-shadow:#000000 1px 1px 0px;}
+/* level 3+ list */
+.nav ul ul{left:181px;top:-3px;}
+/* rounded corners for first and last child */
+.nav ul li:first-child > a{}
+.nav ul li:last-child > a{}
+/* clearfix */
+.nav:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;}
+.nav{display:inline-block;}
+html[xmlns] #nav{display:block;}
+* html #nav{height:1%;}
+/********************************************* comments */
+#comments .title{padding-bottom:10px;padding-left:10px;font-size:16px;}
+#comments h3,#trackbacks h3,#respond h3{font-size:20px;margin:10px 0px;font-weight:normal;font-size:20px;font-weight:normal;}
+.comment-body{padding-bottom:10px;}
+div.comment-meta h5{font-weight:normal;}
+ol.commentlist li{margin-bottom:10px;background:#f3f3f3;padding:10px;border:1px solid #e2e2e2;-moz-border-radius:5px;-khtml-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}
+ol.commentlist,ol.commentlist li{list-style:none;margin:10px 0px;}
+.comment-content p{padding:0px 10px;}
+ol.commentlist .children{margin-left:20px;}
+div.comment-meta em{float:right;}
+div.comment-options{border-bottom:none;}
+.comment-options a{margin-right:10px;}
+.commentmetadata{clear:both;margin-top:20px;}
+#trackbacks{margin-top:30px;}
+/********************************************* global */
+.alignright{float:right;margin-left:15px;}
+.alignleft{float:left;margin-right:15px;}
+p{margin-bottom:10px;}
+ul{list-style:square;margin:10px 0px;}
+ol{list-style:decimal;margin:0 0 18px 1.5em;}
+ol ol{list-style:upper-alpha;}
+ol ol ol{list-style:lower-roman;}
+ol ol ol ol{list-style:lower-alpha;}
+ul ul,
+ol ol,
+ul ol,
+ol ul{margin-bottom:0;}
+dl{margin:0 0 24px 0;}
+dt{font-weight:bold;}
+dd{margin-bottom:18px;}
+strong{font-weight:bold;}
+cite,
+em,
+i{font-style:italic;}
+big{font-size:131.25%;}
+blockquote{font-style:italic;padding:0 3em;}
+blockquote cite,
+blockquote em,
+blockquote i{font-style:normal;}
+pre{line-height:18px;margin-bottom:18px;padding:1.5em;}
+sup,
+sub{height:0;line-height:1;vertical-align:baseline;position:relative;}
+sup{bottom:1ex;}
+sub{top:.5ex;}
+input[type="text"],
+textarea{background:#ffffff;border:1px solid #e2e2e2;-moz-border-radius:5px;-khtml-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;padding:5px;}
+#wp_tag_cloud div{line-height:1.6em;}
+#wp-calendar{width:100%;}
+#wp-calendar caption{font-weight:bold;text-align:left;font-size:14px;padding-bottom:4px;}
+#wp-calendar thead{font-size:11px;}
+#wp-calendar tbody td{padding:3px 0 2px;text-align:center;}
+#wp-calendar tfoot #next{text-align:right;}
+/********************************************* images */
+#content img{margin:0;max-width:640px;}
+#content .attachment img{max-width:900px;}
+#content .alignleft,
+#content img.alignleft{display:inline;float:left;margin-right:24px;margin-top:4px;}
+#content .alignright,
+#content img.alignright{display:inline;float:right;margin-left:24px;margin-top:4px;}
+#content .aligncenter,
+#content img.aligncenter{clear:both;display:block;margin-left:auto;margin-right:auto;}
+#content img.alignleft,
+#content img.alignright,
+#content img.aligncenter{margin-bottom:12px;}
+#content .wp-caption{line-height:18px;text-align:center;margin-bottom:20px;padding:4px;}
+#content .wp-caption img{margin:5px 5px 0;}
+#content .wp-caption p.wp-caption-text{margin:5px;font-size:12px;}
+#content .wp-smiley{margin:0;}
+#content .gallery{margin:auto;}
+#content .gallery .gallery-item{float:left;margin-top:0;text-align:center;width:33%;}
+#content .gallery .gallery-caption{font-size:12px;margin:0 0 12px;}
+#content .gallery dl{margin:0;}
+#content .gallery br+br{display:none;}
+/********************************************* typography */
+/********************************************* fonts */
+body{font-size:12px;font-weight:normal;line-height:22px;}
+h1{font-size:24px;font-weight:normal;padding-bottom:10px;}
+h2{font-size:22px;font-weight:normal;line-height:24px;}
+h3{font-size:20px;font-weight:normal;}
+h4{font-size:18px;font-weight:normal;}
+h5{font-size:14px;font-weight:normal;}
+h6{font-size:12px;font-weight:normal;}
+#strapline h2{font-size:14px;line-height:22px;}
+h1,h2,h3,h4,h5,h6{}
+code{font-family:Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace;}
+.post blockquote{margin:10px;padding:10px;font-style:italic;}
+#content-blocks h4,#content-blocks-blue h4{padding-bottom:10px;}
+pre{font-family:"Courier 10 Pitch",Courier,monospace;}
+em{font-style:italic;font-weight:normal;}
+.spacer{height:10px;}
+.largespacer{height:20px;}
+.headerpad{padding-bottom:20px;}
+/******************************************************************* loopedslider*/
+#loopedSlider{margin:0px auto;width:960px;position:relative;clear:both;padding-bottom:10px;text-align:left;}
+#loopedSlider .slides{position:absolute;top:0;left:0;}
+#loopedSlider .slides div.slide{position:absolute;top:0;width:960px;display:none;padding:0px;}
+ul.pagination{list-style-type:none;padding:0;margin:20px 0px;width:132px;position:absolute;}
+ul.pagination li{float:left;margin:0px 5px;}
+ul.pagination a{display:block;width:12px;padding-top:12px;height:0;overflow:hidden;background-image:url(../../library/styles/colour-images/pagination.png);background-position:0 0;background-repeat:no-repeat;}
+ul.pagination li.active a{background-position:0 -12px}
+ul#group-admins li{list-style:none;}
+div.activity-comments form div.ac-reply-content{margin-left:40px;}
+/*
+Name: Sliding Login Panel with jQuery 1.3.2
+Author: Jeremie Tisseau
+Author URI: http://web-kreation.com/
+Date: March 26, 2009
+Version: 1.0
+
+	Copyright 2009 Jeremie Tisseau
+	"Sliding Login Panel with jQuery 1.3.2" is distributed under the GNU General Public License version 3:
+	http://www.gnu.org/licenses/gpl-3.0.html
+*/
+
+/***** clearfix *****/
+.clear {
+clear: both;
+height: 0;
+line-height: 0;
+}
+.clearfix:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+.clearfix {
+display: inline-block;
+}
+/* Hides from IE-mac \*/
+* html .clearfix {
+height: 1%;
+}
+.clearfix {
+display: block;
+}
+/* End hide from IE-mac */
+.clearfix {
+height: 1%;
+}
+.clearfix {
+display: block;
+}
+
+/* Panel Tab/button */
+.tab {
+height: 42px;
+position: relative;
+top: 0;
+z-index: 998;
+}
+
+.tab ul.login {
+display: block;
+position: relative;
+float: left;
+clear: left;
+height: 42px;
+width: auto;
+font-weight: bold;
+font-size: 14px;
+line-height: 42px;
+margin: 0;
+	/*right: 150px;*/
+  	color: white;
+text-align: center;
+}
+
+.tab ul.login li.left {
+background: url(../../library/styles/colour-images/tab_l.png) no-repeat left 0;
+height: 42px;
+width: 15px;
+padding: 0;
+margin: 0;
+display: block;
+float: left;
+}
+
+.tab ul.login li.right {
+background: url(../../library/styles/colour-images/tab_r.png) no-repeat left 0;
+height: 42px;
+width: 30px;
+padding: 0;
+margin: 0;
+display: block;
+float: left;
+}
+
+.tab ul.login li {
+text-align: left;
+padding: 0 6px;
+display: block;
+float: left;
+height: 42px;
+background: url(../../library/styles/colour-images/tab_m.png) repeat-x 0 0;
+}
+
+.tab ul.login li a:hover {
+color: white;
+}
+
+.tab .sep {
+color: #414141
+}
+
+.tab a.open, .tab a.close {
+height: 20px;
+line-height: 20px !important;
+padding-left: 30px !important;
+cursor: pointer;
+display: block;
+position: relative;
+top: 11px;
+}
+
+.tab a.open {
+background: url(../../library/styles/colour-images/bt_open.png) no-repeat left 0;
+}
+.tab a.close {
+background: url(../../library/styles/colour-images/bt_close.png) no-repeat left 0;
+}
+.tab a:hover.open {
+background: url(../../library/styles/colour-images/bt_open.png) no-repeat left -19px;
+}
+.tab a:hover.close {
+background: url(../../library/styles/colour-images/bt_close.png) no-repeat left -19px;
+}
+
+/* sliding panel */
+#toppanel {
+   /* position: absolute;   /*Panel will overlap  content */
+    /*position: relative;*/   /*Panel will "push" the content down */
+    top: 0;
+z-index: 998;
+background: #ececec;
+width: 980px;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+}
+
+#panel {
+padding-top: 10px;
+border-top: 1px solid #444444;
+width: 100%;
+padding-bottom: 10px;
+color: #999999;
+background: #272727;
+overflow: hidden;
+position: relative;
+z-index: 3;
+display: none;
+}
+
+#panel h1 {
+font-size: 20px;
+padding: 5px 0 10px;
+margin: 0;
+color: #ffffff;
+text-shadow: #000000 1px 1px 0px;
+}
+
+#panel h2 {
+font-size: 18px;
+padding: 10px 0 5px;
+margin: 0;
+color: #ffffff;
+text-shadow: #000000 1px 1px 0px;
+}
+
+#panel p {
+margin: 5px 0;
+padding: 0;
+}
+
+#panel a:hover {
+color: white;
+}
+
+#panel a-lost-pwd {
+display: block;
+float: left;
+}
+
+#panel .content {
+width: 960px;
+margin: 0 auto;
+padding-top: 15px;
+text-align: left;
+font-size: 14px;
+}
+
+#panel .content .left {
+width: 280px;
+float: left;
+padding: 0 15px;
+border-left: 1px solid #333;
+}
+
+#panel .content .right {
+border-right: 1px solid #333;
+}
+
+#panel .content form {
+margin: 0 0 10px 0;
+}
+
+#panel .content label {
+float: left;
+clear: both;
+width: 280px;
+display: block;
+}
+
+#panel .content input.field {
+border: 1px #1A1A1A solid;
+background: #414141;
+margin-right: 5px;
+margin-top: 4px;
+width: 200px;
+color: white;
+height: 16px;
+}
+
+#panel .content input:focus.field {
+background: #545454;
+}
+
+/* BUTTONS */
+/* Login and Register buttons */
+#panel .content input.bt_login,
+#panel .content input.bt_register {
+display: block;
+float: left;
+clear: left;
+height: 24px;
+text-align: center;
+cursor: pointer;
+border: none;
+font-weight: bold;
+margin: 10px 0;
+background: #E5E5E4;
+}
+
+#panel .content input.bt_login {
+width: 74px;
+background: transparent url(../../library/styles/colour-images/bt_login.png) no-repeat 0 0;
+}
+
+#panel .content input.bt_register {
+width: 94px;
+color: white;
+background: transparent url(../../library/styles/colour-images/bt_register.png) no-repeat 0 0;
+}
+
+#panel .lost-pwd {
+display: block;
+float: left;
+clear: right;
+padding: 15px 5px 0;
+font-size: 14px;
+text-decoration: underline;
+}
+
+.user {
+font-size: 30px;
+line-height: 34px;
+}
+
+.user img {
+border: 2px solid #ffffff;
+margin-right: 10px;
+}
+
+#panel li {
+list-style: none;
+border-top: 1px solid #444444;
+border-bottom: 1px solid #444444;
+padding: 10px 0px;
+}
+
+#panel ul {
+margin: 10px 0px;
+list-style: none;
+}
+
+#panel .avatar {
+float: none;
+padding: 0px;
+border: 5px solid #444444;
+}
+
+.activity-list div.activity-meta a, .activity-list div.activity-meta a:hover{
+	font-weight: normal!important;
+	font-size:12px!important;
+	text-shadow: none!important;
+}
+
+/* 18246-1344572864-ai */

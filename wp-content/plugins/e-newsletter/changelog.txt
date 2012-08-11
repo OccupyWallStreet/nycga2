@@ -1,0 +1,114 @@
+=== e-newsletter ===
+Authors: Cole / Andrey (Incsub)
+Plugin Page: http://premium.wpmudev.org/project/e-newsletter    
+
+ 
+== Changelog ==
+
+= 1.2.2 =
+* Fixed issue with escaping quotes in some settings
+* Fixed bug concerning saving a newsletter after creating it in the HTML tab
+* Added locale specific double_optin messages. Check /enewsletter/email-newsletter-files/emails/readme.txt for more info
+
+= 1.2.1 =
+* Fixed problem with creating and previewing html newsletters
+* fixed wp_eneueue_scripts debug errors
+
+= 1.2.0 =
+* Minor UI changes
+* Added {DATE} template and content tag.
+
+= 1.1.8 =
+* Fixed version error
+
+= 1.1.7 =
+* Added wordpress editor-style alignment css to included templates
+
+= 1.1.6 =
+* Changed WYSIWYG editor on WP editor;
+* Changed image uploader on WP media Upload/Insert;
+* Text correction;
+* Fixed unsubscribe link;
+* Fixed translation (WPML);
+
+= 1.1.5 =
+* WP 3.3 compatibility;
+* Fixed problem with require_once PHPMailer file;
+
+= 1.1.4 =
+* Fixed rewrite rules;
+
+= 1.1.3 =
+* Changed button for "New Member / Import forms";
+* Fixed security of SMTP password (added encrypt/decrypt);
+* Added more information for SMTP method;
+
+= 1.1.2 =
+* Fixed problem with create the enewsletter_send_members table.
+
+= 1.1.1 =
+* Fixed problem with send by role.
+
+= 1.1.0 =
+* Fixed slow loading Dashboard and Send pages.
+* Rewrited logic for send by CRON and CRON limit.
+
+= 1.0.9 =
+* Fixed slow loading list of members on members page.
+* Fixed path to the language file.
+* Fixed bounce test connection.
+* Some translation fixes.
+* Fixed JS problem of TinyMCE (added language).
+
+= 1.0.8.2 =
+* fixed some buttons of WYSIWYG editor.
+
+= 1.0.8.1 =
+* added new tab of Settings as "Uninstall" - for delete data from DB (data is not lost after deactivation of the plugin).
+* changed HTML for widget.
+
+= 1.0.8 =
+* fixed notice
+* changed widget's scripts
+* added feature for import members
+* added pagination on members page
+* added new bulk option as assign multiple users with group
+
+= 1.0.7.2 =
+* fixed upload file 
+
+= 1.0.7.1 =
+* fixed text of button
+
+= 1.0.7 =
+* changed page of unsubscription
+* changed WYSIWYG editor
+* fixed JS conflict problem
+* corrected some texts
+
+= 1.0.6 =
+* include of JS and CSS only on plugins pages;
+
+= 1.0.5 =
+* fixed problem with tiny_mce (deleted function of compression to the gzip file);
+
+= 1.0.4 =
+* fixed problem of creating extra tables when activating the plugin not for all sites of the network;
+* added the "changelog.txt" file :) ;
+* some text changes;
+
+= 1.0.3 =
+* fixed problem with tiny_mce;
+
+= 1.0.2 =
+* changed logic for MultiSite (separate for sites);
+
+= 1.0.1 =
+* fixed include of JS; 
+
+= 1.0.0 =
+* Initial Release;
+
+62863-1331581920
+
+18246-1344386699-ai

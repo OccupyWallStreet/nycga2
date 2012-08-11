@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document 
+Author:Tejaswini
+Website:http://www.clickonf5.org
+*/
+#smooth_sldr div,#smooth_sldr p,#smooth_sldr li,#smooth_sldr span,#smooth_sldr img,#smooth_sldr h2,#smooth_sldr ul{list-style:none;background:transparent;vertical-align:baseline;}
+#smooth_sldr div{display:block;}
+#smooth_sldr span{display:inline;}
+#smooth_sldr{overflow:hidden;margin: 10px auto;line-height:18px;}
+#smooth_sldr a{text-decoration:none;}
+#smooth_sldr_items{width:100%;}
+#smooth_sldr_body{width:100%;}
+#smooth_sliderc{position:relative;text-align:justify;}
+#smooth_sliderc .smooth_sliderb{position:absolute;/*dont change this value*/left:0;top:0;}
+.smooth_slideri{padding-right:10px;overflow:hidden;line-height:18px;}
+.sldr_title{margin:0;}
+#smooth_sldr_body h2{clear:none;display:block;padding:0px;}
+.slider_item {padding-left:1px;}
+#smooth_sldr_body p.more a{text-decoration:underline;float:right;}
+#smooth_sldr_body p.more a:hover{text-decoration:none;}
+#smooth_sliderc_nav{float:left;width:70%;overflow:hidden;padding:0;margin:2px 0 0 0;}
+a.smooth_sliderc_nav{margin:0 5px 0 0;display:block;float:left;background-repeat:no-repeat;background-position:center;}
+#smooth_sliderc_nav li{float:left;margin:0 5px 0 0;display:block;background-color:transparent;line-height:14px;}
+#smooth_sliderc_nav li a{display:block;padding:1px 5px 1px 5px;outline:none;}
+.sldrbr{line-height:1px;}
+.sldrlink{clear:both;display:block;font-size:8px;float:right;margin-top:-8px;font-family:Verdana, Helvetica, sans-serif;}
+.sldrlink a{color:#333333;}
+

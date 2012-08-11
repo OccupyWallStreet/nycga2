@@ -1,0 +1,261 @@
+/*  Font Awesome
+the iconic font designed for use with Twitter Bootstrap
+-------------------------------------------------------
+The full suite of pictographic icons, examples, and documentation
+can be found at: http://fortawesome.github.com/Font-Awesome/
+
+License
+-------------------------------------------------------
+The Font Awesome webfont, CSS, and LESS files are licensed under CC BY 3.0:
+http://creativecommons.org/licenses/by/3.0/ A mention of
+'Font Awesome - http://fortawesome.github.com/Font-Awesome' in human-readable
+source code is considered acceptable attribution (most common on the web).
+If human readable source code is not available to the end user, a mention in
+an 'About' or 'Credits' screen is considered acceptable (most common in desktop
+or mobile software).
+
+Contact
+-------------------------------------------------------
+Email: dave@davegandy.com
+Twitter: http://twitter.com/fortaweso_me
+Work: http://lemonwi.se co-founder
+
+*/
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../fonts/fontawesome-webfont.eot');
+    src: url('../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/fontawesome-webfont.woff') format('woff'),
+    url('../fonts/fontawesome-webfont.ttf') format('truetype'),
+    url('../fonts/fontawesome-webfont.svgz#FontAwesomeRegular') format('svg'),
+    url('../fonts/fontawesome-webfont.svg#FontAwesomeRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+  /*  Font Awesome styles
+    ------------------------------------------------------- */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+		font-family: FontAwesome;
+		font-weight: normal;
+		font-style: normal;
+		display: inline-block;
+		text-decoration: inherit;
+}
+a [class^="icon-"], a [class*=" icon-"] {
+		display: inline-block;
+		text-decoration: inherit;
+}
+/* makes the font 33% larger relative to the icon container */
+.icon-large:before {
+vertical-align: middle;
+font-size: 1.3333333333333333em;
+}
+.btn [class^="icon-"], .btn [class*=" icon-"] {
+		/* keeps button heights with and without icons the same */
+		line-height: .9em;
+}
+li [class^="icon-"], li [class*=" icon-"] {
+		display: inline-block;
+		width: 1.25em;
+		text-align: center;
+}
+li .icon-large[class^="icon-"], li .icon-large[class*=" icon-"] {
+		/* 1.5 increased font size for icon-large * 1.25 width */
+		width: 1.875em;
+}
+li[class^="icon-"], li[class*=" icon-"] {
+		margin-left: 0;
+		list-style-type: none;
+}
+li[class^="icon-"]:before, li[class*=" icon-"]:before {
+		text-indent: -2em;
+		text-align: center;
+}
+li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
+		text-indent: -1.3333333333333333em;
+}
+/*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+		readers do not read off random characters that represent icons */
+.icon-download-alt:before       { content: "\f019"; }
+.icon-upload-alt:before         { content: "\f093"; }
+.icon-question-sign:before      { content: "\f059"; }
+.icon-info-sign:before          { content: "\f05a"; }
+.icon-pencil:before             { content: "\f040"; }
+.icon-share-alt:before          { content: "\f064"; }
+.icon-arrow-up:before           { content: "\f062"; }
+
+
+/* NEW RELEASE NOTIFICATION
+   ======================== */
+div.wpmudev-new, div.wpmudev-message, div.wpdv-msg {
+	padding:10px;
+	color:#5f5f5f;
+	border-radius:2px;
+	text-shadow: 0 1px 0 #ffffff;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+	background: url("../images/texture.png") repeat scroll 0 0 #F0F1F2;
+	border: 1px solid #CFDFE5;
+	margin: 5px 15px 15px 0;
+	position: relative;
+}
+
+  div.dev-widget-content > h4  { padding-bottom:10px; border-bottom:1px solid #dceaf5; }
+
+  div.dev-content-wrapper { margin-top:10px; }
+  div.wpmudev-new h4, div.squish h4 { margin-top:0; margin-bottom:10px; font-size:1.3em; font-family: 'Helvetica Neue', helvetica, arial, sans-serif; font-weight:600; color:#3c3c3c; }
+  div.squish h4 { margin:0;  line-height:1.4em; }
+  a.wpmudev-dismiss {
+		font-size: 10px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+		text-decoration: none;
+	}
+  div.update-nag a.wpmudev-dismiss { right:210px; top:5px; }
+  div.wpmudev-new h4 strong, div.squish h4 {
+		color:#053254;
+		font-weight:400;
+		font-size:1.3em;
+		background: url("../images/icon.png") transparent scroll left 10px no-repeat;
+    padding-left: 20px;
+		line-height: 33px;
+	}
+	div.wpmudev-new h4 strong {
+		background-position: left 5px;
+  }
+  div.wpmudev-new img { float:left; margin-right:20px; }
+
+  div.dev-cta-wrap a.button-primary, div#wpmudev_widget a.button-primary, a#api-add, a#wdv-upgrade, a.wdv-upgrade {
+    font-size:1em;
+    float:left;
+    margin-right:10px;
+    color: rgb(231,238,251);
+    text-decoration:none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 -1px 0 #000000;
+    padding:8px 18px;
+    border:none;
+    border-radius:0;
+    background: rgb(7,67,112); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(7,67,112,1) 0%, rgba(5,50,84,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(7,67,112,1)), color-stop(100%,rgba(5,50,84,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(7,67,112,1) 0%,rgba(5,50,84,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(7,67,112,1) 0%,rgba(5,50,84,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(7,67,112,1) 0%,rgba(5,50,84,1) 100%); /* IE10+ */
+    background: linear-gradient(top,  rgba(7,67,112,1) 0%,rgba(5,50,84,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#074370', endColorstr='#053254',GradientType=0 ); /* IE6-9 */
+  }
+
+  div.dev-cta-wrap a.button-primary:hover, div#wpmudev_widget a.button-primary:hover,  a#api-add:hover, a#wdv-upgrade:hover  {
+    color:#ffffff;
+    cursor:pointer;
+    background: rgb(9,82,135); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(9,82,135,1) 0%, rgba(6,65,107,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(9,82,135,1)), color-stop(100%,rgba(6,65,107,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(9,82,135,1) 0%,rgba(6,65,107,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(9,82,135,1) 0%,rgba(6,65,107,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(9,82,135,1) 0%,rgba(6,65,107,1) 100%); /* IE10+ */
+    background: linear-gradient(top,  rgba(9,82,135,1) 0%,rgba(6,65,107,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#095287', endColorstr='#06416b',GradientType=0 ); /* IE6-9 */
+  }
+
+  a#api-add, a#wdv-upgrade { float:right; margin:0 0 0 5px; }
+	a#wdv-upgrade { margin-top:2px; }
+	blockquote a#wdv-upgrade { margin-left:0; }
+  a#wdv-release-info, div#wpmudev_widget a#wdv-release-info {
+  	background:none;
+  	color: #3ebae8;
+  	text-shadow:none;
+  	text-decoration:underline;
+}
+
+/* GENERIC WIDGET STYLING
+   ====================== */
+div#wpmudev_widget, div#wpmudev_news_widget { border:1px solid #031f34; border-radius:3px; }
+  div#wpmudev_widget h3.hndle, div#wpmudev_news_widget h3.hndle {
+    color: #cee3f0;
+    border-radius:0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight:100;
+    border-bottom:1px solid #031f34;
+    text-shadow: 0 -1px 1px #021a2b;
+    background: rgb(7,67,112); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(7,67,112,1) 0%, rgba(5,50,84,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(7,67,112,1)), color-stop(100%,rgba(5,50,84,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(7,67,112,1) 0%,rgba(5,50,84,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(7,67,112,1) 0%,rgba(5,50,84,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(7,67,112,1) 0%,rgba(5,50,84,1) 100%); /* IE10+ */
+    background: linear-gradient(top,  rgba(7,67,112,1) 0%,rgba(5,50,84,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#074370', endColorstr='#053254',GradientType=0 ); /* IE6-9 */
+  }
+
+  div#wpmudev_widget h3.hndle:before, div#wpmudev_news_widget h3.hndle:before {
+    content:url(../images/devicon_light.png);
+    position:relative;
+    top:0px;
+    margin-right:10px;
+    float:left;
+  }
+
+  div#wpmudev_widget div.inside, div#wpmudev_news_widget div.inside {
+    background:#f0f1f2 url(../images/texture.png) repeat;
+  }
+
+  div#wpmudev_widget a, div#wpmudev_news_widget a {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  /* WPMU DEV DASHBOARD
+     ================== */
+
+  div#wpmudev_widget h4 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size:1.3em;
+    font-weight:500;
+    color:#053254;
+}
+
+div#wpmudev_widget blockquote { margin:10px 0; font-style:italic; }
+
+div#wpmudev_widget a#wdv-release-img { float:left; margin-right:20px; }
+div#wpmudev_widget div#wpdv-dash-release h4 { margin-bottom:20px; }
+div#wpmudev_widget div#wpdv-dash-release > div h4 { margin-bottom:10px; }
+div#wpdv-dash-links a.button-primary {
+  background:none;
+  text-shadow: 0 1px 0 #ffffff;
+  color:#10a2d8;
+  font-weight:500;
+  padding: 4px 8px;
+  border:1px solid #e6f3fc;
+  border-radius:2px;
+}
+
+div#wpdv-dash-links a.button-primary:hover {
+  background:none;
+  border: 1px solid #dceaf5;
+  color: #053254;
+  font-weight: 500;
+}
+
+div#wpdv-dash-links a.button-primary span.update-plugins > span.updates-count { background-color: #D6EAF5; color: #0D84AF; text-shadow:none; border-radius:100%; padding:1px 5px; }
+
+
+/* WPMU DEV NEWS WIDGET
+   ==================== */
+
+div#wpmudev_news_widget div.inside { margin-bottom:0; }
+div#wpmudev_news_widget li { padding-bottom:10px; border-bottom:1px solid #dceaf5; }
+div#wpmudev_news_widget li:last-child { border-bottom:none; margin-bottom:0; }
+div#wpmudev_news_widget a { color:#10a2d8; }
+
+/* FIXING CONFLICTS */
+
+div#message, div.updated, div.settings-error, div#setting-error-settings_updated { clear:both; }
+
+div.dev-widget-content > div.squish { border:none; padding:0; }
+
+/* 85361-1344386499 */

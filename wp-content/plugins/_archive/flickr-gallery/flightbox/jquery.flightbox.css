@@ -1,0 +1,99 @@
+#floverlay {
+	background-color: 	#000000;
+	opacity: 			0.9;
+	position: 			fixed;
+	top: 				0px;
+	left: 0px;
+	z-index: 			1000;
+	/*-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";*/
+	filter: alpha(opacity=90);
+
+}
+
+#flightbox {
+	top: 100px;
+	width: 100px;
+	height: 100px;
+	position: 		absolute;
+	background-color: 	#FFFFFF;
+	z-index: 1001;
+	padding: 15px;
+	background: #FFFFFF url(images/loading.gif) no-repeat scroll center center;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+
+}
+
+#flightbox-close {
+	float: right;
+	width: 75px;
+	height: 18px;
+	background: #FFFFFF url(images/close.gif) no-repeat scroll center center;
+	text-align: right;
+	cursor: pointer;
+}
+
+#flightbox-prev, #flightbox-next {
+	width: 54px;
+	height: 33px;
+	position: absolute;
+	top: 25%;
+	display: none;
+}
+
+#flightbox-prev {
+	left: 0px;
+	background: #FFFFFF url(images/prev.gif) no-repeat scroll center left;	
+	-moz-border-radius-topright: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+
+}
+
+
+#flightbox-next {
+	right: 0px;
+	background: #FFFFFF url(images/next.gif) no-repeat scroll center right;	
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+#flightbox-left, #flightbox-right {
+	position: absolute;
+	top: 15px;
+	cursor: pointer;
+	z-index: 20000;
+	background-image: url(images/blank.gif);
+}
+
+#flightbox-video {
+	z-index: 20001;
+}
+
+#flightbox-left { left: 15px; }
+#flightbox-right { right: 15px; }
+
+
+#flightbox-image {
+	display: none;
+}
+
+#flightbox-meta {
+	padding-top: 5px;
+	display: none;
+	text-align: left;
+}
+
+#flightbox-title {
+	font-size: 12pt;
+	font-family: Arial;
+	margin-right: 40px;
+}

@@ -1,0 +1,263 @@
+changelog
+
+1.0.1
+----------------------------------------
+Sidebars not showing widgets issue resolved for 2 sidebars on directories
+
+1.0.2
+----------------------------------------
+Fixed issue with forum topics posting
+
+1.0.3
+----------------------------------------
+Fixed second issue with forum topics posting
+
+1.0.4
+----------------------------------------
+Removed height from meta to make it capable of double lines of tags or more
+
+1.0.5
+----------------------------------------
+- Added home.php so automatically shows home layout without template allocation
+- Created blog template to be used for blog / news page
+- Added on / off for site message in header
+- Added (UK) .po and .mo and language files
+- Added support for single WP install without BuddyPress
+
+1.0.6
+----------------------------------------
+Supports BuddyPress 1.2.1 with the bug fixes from that version applied
+
+1.0.7
+_____________
+- Added missed text in mo/ po
+
+1.0.8
+_____________
+- Fixed ie 6 bug
+
+1.0.9
+-------------
+- Updated documentation
+
+1.1
+-------------
+- Moved site wide members message to home sidebar to avoid display issue with long message in login bar
+
+1.1.1
+-------------
+- Fixed group description merging into meta browser issue when long description
+- Fixed space between name and group membership request message that was missing
+
+1.1.2
+-------------
+- Fixed bug of member page rendering when friends connections is off
+
+1.1.3
+------------
+- Changed way navigation and header custom background gets treated
+
+1.1.4
+------------
+- Forced sidebar widget to not show arrow despite list style in all styles and presets
+
+v.1.1.5
+------------
+- Updated localisation / language global names: no core changes
+
+v.1.1.6
+------------
+- Fixed message to all users only showing for logged in users
+
+v.1.1.7
+------------
+- Changed call to content-body check in activity stream - activity/entry.php change in one line
+
+v.1.1.8
+------------
+- Added user request for padding on content inner boxes - layout.css only change
+
+v.1.1.9
+------------
+- Changed is_front_page call on navigation - changed main-navigation.php
+
+v.2.0
+-----------
+- Fixed theme customisation not working on some servers: theme-options.php, header.php and options.php changed.
+
+v.2.1
+-----------
+- Updated to work with BuddyPress 1.2.2.1
+
+v.2.1.2
+-----------
+- Fixed update to theme options where comment background and border was coming through the same
+
+v.2.1.3
+----------
+- Fixed some browser issue on group display
+
+v.2.1.4
+---------
+- Fixed sidebar issue with groups widget
+
+v.2.1.5
+--------
+- Fixed widgets not auto refreshing: functions.php only change
+
+v.2.1.6
+--------
+- Updated to work with BuddyPress 1.2.3
+
+v.2.1.7
+--------
+- Fixed headline font issue with custom style sheets in some cases
+
+v.2.1.8
+--------
+- Added comments to pages to turn off just set page comments off under your per page settings
+
+v.2.1.9
+-------
+- Fixed issue with right sidebar not showing right widget when using template
+
+v.2.2
+------
+- Added catch for some servers when using logo causing errors
+
+v.2.3
+-----
+- Updated for BuddyPress 1.2.4
+- Added change in way call categories in theme options drop down
+
+v2.4
+-----
+- Updated for WordPress 3.0
+- NEW FEATURE: Added post thumbnails to all search and archive page using wordpress post thumbnail function
+- Updated for BuddyPress 1.2.4.1
+
+v.2.5
+-----
+- Updated for BuddyPress 1.2.5
+
+v.2.6
+-----
+- Fixed issue where if you use on a sub blog the theme theme options don't work since 3.0
+
+v2.8
+-----
+- Updated mo / po files
+
+v2.9
+----
+- Reverting timestamp change
+
+v3
+---
+- New bp exists functionality for sub blogs not showing buddypress navigation
+
+v3.1
+----
+- Fix for group calendar sidebar issue
+
+v3.2
+----
+- Updated for BuddyPress 1.2.6
+
+v3.3
+----
+- Updated zip
+
+v3.4
+----
+- Classifieds plugin modification
+
+v3.5
+----
+- BuddyPress 1.2.7 update
+- Sidebar changes
+- Regenerated mo / po file
+- Change in language functions
+
+v.3.6
+-----
+- language changes
+
+v.3.6.1
+-------
+- language changes
+
+v.3.6.2
+-------
+- ID changes
+
+v.3.7
+-----
+- BuddyPress 1.2.7 update
+
+v.3.7.1/.2
+----------
+- 3.1 Update
+
+v.3.7.3
+-------
+- Fixed some functions
+
+v.3.7.4
+-------
+- WPDEBUG fixes and other fixes
+
+3.7.7
+-----
+3.2 update
+
+4.0
+---
+- BuddyPress 1.5 update
+- Compressed CSS sheets
+- Reduction in CSS sheet number
+- New set up theme function
+- Updated header links and formats
+- Use enqueue for all styling and scripts
+- New theme function allows for child themes to override everything including function files
+- Updated comment forms to use functions and comment_form
+
+4.1
+---
+- Fix issue with child theme and extra }
+
+4.2
+---
+- Colour options fix
+
+4.2.1
+-----
+- CSS adjustments
+
+4.2.2
+Removal of TEXT_DOMAIN to use a string and also merging of strings for buddypress and theme to give consistency and better language handling.
+
+4.2.3
+-----
+- Fix issue with image ordering
+
+4.2.4
+-----
+- Removal of functions from child theme using from parent automatically now to enqueue just update child.css with your changes
+
+4.2.5
+-----
+- Fix layout issue on page
+
+4.2.6
+-----
+- WordPress 3.3 ready
+- Fixed updated theme check validation
+
+4.2.7
+styles from print to scripts on enqueue
+
+4.2.8
+Fixed sinnnngle post formmat issueeeeeeeeeeeee
+
+18246-1344572760-ai

@@ -1,0 +1,129 @@
+/*
+Theme Name: Edu Clean
+Theme URI: http://premium.wpmudev.org
+Description: Fully Customize WPMU/BuddyPress theme with tabbed rss feeds and extended colourpicker to customize your own theme. Based on 2009 <a href="http://edublogs.org">Edublogs</a> design. Compatible with WordPress with or without BuddyPress, WordPress MU with or without BuddyPress and WP/WPMU installation with BuddyPress 1.2+ only. This is one of Edublogs Theme pack, more edublogs theme pack can be download at <a href="http://premium.wpmudev.org/edublogs-themes/">WPMU DEV</a>
+Version: 2.2.7
+Author: Richie KS - WPMU DEV - WordPress Experts
+Author URI: http://premium.wpmudev.org/
+License: GPL
+License URI: http://www.opensource.org/licenses/gpl-license.php
+WDP ID: 23
+Tags: buddypress,white,blue,three-columns,two-columns,right-sidebar,fixed-width,custom-colors,custom-header,theme-options,threaded-comments
+
+Copyright 2007-2012 Incsub (http://incsub.com)
+The CSS, XHTML and design is released under GPL:
+http://www.opensource.org/licenses/gpl-license.php
+
+changelog
+version 2.2.7
+- update buddypress theme core component to BuddyPress 1.5.4         
+
+version 2.2.6
+- fixed 'header already sent' error when privacy enabled
+- fixed child theme error in ie8
+
+version 2.2.5
+- added compatible with WordPress 3.3.1 and BuddyPress 1.5.3.1
+- added BBPress Sidebar Widget
+- fixed static front page and posts page issue with index.php. home.php deleted and index-home.php and index-post added
+
+version 2.2.4
+- added compatible with WordPress 3.3 and BuddyPress 1.5.2
+- remove global-adminbar.php and replace option with site_option() - updated mu-plugins/bp-global-adminbar-css.php
+- All styles and js scripts are now loaded in wp_enqueue_scripts() in functions.php
+- added css3 media query for mobile device
+
+version 2.2.3
+- added wp_filter_post_kses() and wp_kses() to custom-component to prevent script insertion XSS vulnerability
+- fixed get_theme_data() issue with some hosting that produce error messages
+- fixed misplace remove all js function from admin_header() that cause all tabs/link unclickable     
+
+version 2.2.2
+- added compatible with WordPress 3.2.1 and BuddyPress 1.5
+- fixed theme options tabs panel conflict with other jquery library
+
+version 2.2.1
+- added compatible with WordPress 3.2 and BuddyPress 1.2.9
+- added rtl css support
+- added new privacy option for none friend viewing profile privacy
+- updated buddypress global.js and ajax.php for compatibility with new WordPress jQuery changes
+- added confirmation popup before restore all setting in theme options
+- fix missing intro css theme options
+- remove footer !important css in theme-options.php
+
+version 2.2
+- add jquery call in header
+- fix plugin js conflict with tab rss network feeds
+- minor css bug fix
+
+version 2.1.9
+- added google web fonts replacement
+- new and improved theme option panel style
+- replaced deprecated functions
+- fixed url(none) error log
+- change default.css to bp-default.css
+- combine global.css into base.css
+- added compatible with WordPress 3.1.3 and BuddyPress 1.2.8
+
+version 2.1.8
+- added compatible with WordPress 3.0.4 and BuddyPress 1.2.7
+
+version 2.1.7
+- fixed function error when buddypress not activated/installed
+
+version 2.1.6
+- add redirect options in privacy theme settings
+- refine load_text_domain() function call
+- add new custom widgets like flickr, twitter and featured post multi-category widget
+
+version 2.1.5
+- missing template option include in service-mode.php
+
+version 2.1.4
+- Extending to compatible with latest BuddyPress 1.2.6 and WordPress 3.0.1
+- refine component css to be compatible with buddypress
+- added support for new wordpress 3.0 menu system
+- fixed bug/trac from forums members
+- fixed widget missing translations
+- added new theme options for activity style and button style
+
+
+version 2.1.3
+- Extending to compatible with latest BuddyPress 1.2.1
+- making it work with or without BuddyPress installed
+- update documentation
+- add theme option to work with BuddyPress components and css
+- add load_textdomain()
+
+version 2.1.2
+- PHP5 fix and new full width page template
+
+version 2.1.1
+- minor text removal
+
+version 2.1
+- Internationalized!
+
+version 2
+- Massively more easily customizable!
+
+version 1.3
+- making it gpl
+
+version 1.2
+- fixes error in the ie status bar. - props afzz
+
+version 1.1
+- This version strips out all direct calls to edublogs.org saving you some time - Props Andrea!
+
+version 1
+- New released
+
+*/
+
+
+/* IMPORTANT UPDATES
+- All styles and js scripts are now loaded in wp_print_style() and wp_enqueue_scripts() in functions.php
+*/
+
+/* 18246-1344572817-ai */

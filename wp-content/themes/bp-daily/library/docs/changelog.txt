@@ -1,0 +1,212 @@
+changelog
+
+1.1
+-------
+- Fixed breadcrumbs issue where a blank entry was being inserted and causing some layout issues.
+
+1.2
+------
+- Changed naming on theme options to make clearer for users after member request
+
+1.3
+------
+- Reparsed the mo and po default files
+
+1.4
+-----
+- Updated adminbar.css in child and parent as issues with drop downs in some blogs
+
+1.5
+-----
+- Changed wording for custom header size - no core files changed just text
+
+1.6
+-----
+- Added comment form to pages please turn off under per page settings if don't want comments on pages
+
+1.7
+-----
+- Fixed sidebar widget refresh issue on blog pages for ajax widgets
+
+1.8
+-----
+- Fixed issue with layout on messages
+
+1.9
+----
+- Added catch for some servers when using logo causing errors
+
+2.0
+----
+- Fixed alt table not showing background on colour picker
+
+2.1.
+----
+- Updated for BuddyPress 1.2.4
+- Fixed calls that weren't using locate template to ensure better child templating
+
+2.2
+----
+- Updated for BuddyPress 1.2.4.1
+- Updated for WordPress 3.0
+- Fixed some language strings
+- Language mo and po files updated
+- NEW FEATURE: Sign up now box: encourage your users to sign up with a button and text area linking to sign up form that detects if multisite or buddypress form it should show.  You can also enter your own custom login page url if you have created one and it will link to that.
+- NEW FEATURE: Date and time now uses whatever you have your set up defined as for both - simply change that and it will reflect on the front
+- NEW FEATURE: Added post thumbnails to all search and archive pages - uses the built in wordpress post thumbnail feature
+- Default theme CSS adjustments
+- Fixed incorrect stylesheet tag of layout 3 column
+
+2.3
+----
+- Fixed language issue with menus in admin
+- Updated mo and po files
+
+2.4
+----
+- Child.css tidy
+
+2.5
+----
+- Sorted zip issues
+
+2.6
+----
+- Updated to BuddyPress 1.2.5
+- Added new post loop function
+
+2.7
+---
+- Fixed issue where post author wasn't showing
+
+2.8
+---
+- Fixed issue where if you use on a sub blog the theme theme options don't work since 3.0
+
+2.9
+---
+- Added back in spotlight size
+
+3.0
+---
+- Updated to work with BuddyPress 1.2.5.2
+
+3.1
+---
+- Fixed possible issue with category pages on some installs
+
+3.3
+---
+- Added fix to get to work for some Buddypress navigation plugins
+
+3.4
+---
+- Updated language files and some CSS
+
+3.5
+---
+- New bp exists functionality for sub blogs not showing buddypress navigation
+
+3.6
+---
+- Updated for BuddyPress 1.2.6
+
+3.7
+---
+- Updated zip
+
+3.8
+---
+- Classifieds plugin modification
+
+3.8.1
+-----
+- Comments fix
+
+3.9
+----
+- BuddyPress 1.2.7 update
+- Added attachment page
+- Sidebar changes
+- Regenerated mo / po files
+- Change in language function
+
+3.9.1
+-----
+- language changes
+
+3.9.2
+-----
+- language changes
+
+3.9.3
+-----
+- ID changes
+
+3.9.4
+-----
+- BuddyPress 1.2.7 update
+
+3.9.5
+------
+- Updated zip format
+
+3.9.6
+-----
+- Updated for WordPress 3.1
+- Re PDF Manual
+- Added update notification function
+
+3.9.7
+-----
+- Fixed some functions
+
+3.9.8
+-----
+- WPDEBUG fixes
+
+3.9.9.1
+-------
+- Antisplog fix
+
+3.9.9.2
+-------
+3.2 update
+
+4.0
+---
+- BuddyPress 1.5 update
+- Compressed CSS sheets
+- Reduction in CSS sheet number
+- New set up theme function
+- Updated header links and formats
+- Use enqueue for all styling and scripts
+- New theme function allows for child themes to override everything including function files
+- Updated comment forms to use functions and comment_form
+
+4.1
+- Colour options fix
+
+4.1.1
+Comment cleanup
+
+4.1.2
+Removal of TEXT_DOMAIN to use a string and also merging of strings for buddypress and theme to give consistency and better language handling.
+
+4.1.3
+Fixing of child theme options issue on some setups not picking up variables.
+
+4.1.4
+- Removal of functions from child theme using from parent automatically now to enqueue just update child.css with your changes
+
+4.1.5
+- WordPress 3.3 ready
+- Updated theme check validation fixes
+
+4.1.6
+styles from print to scripts on enqueue
+
+4.1.7
+- Added in header style variations these are new as user requested
+
+18246-1344572726-ai

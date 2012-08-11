@@ -1,0 +1,221 @@
+<html>
+	<head>
+		<title>Feature</title>
+		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" ></script>  
+		<script src="http://code.jquery.com/ui/1.8.22/jquery-ui.min.js"></script>
+		<script src="/wp-includes/js/jquery/ui/jquery.ui.core.min.js"></script>
+		<script src="/wp-includes/js/jquery/ui/jquery.ui.accordion.min.js"></script>
+		<script src="/wp-includes/js/jquery/ui/jquery.ui.widget.min.js"></script>
+
+		<link type="text/css" href="/wp-content/css/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+		
+		<style type="text/css">
+		
+			body {
+				font-family: Arial,Helvetica,sans-serif;
+			}
+			
+	    #featured{  
+        width:500px;
+        padding-left:250px; 
+        position:relative;  
+        height: 310px; 
+        background:#fff;  
+    }
+    
+    h2 {
+	    color: #007389;
+    }
+    
+    /* Position tabs */
+    #featured ul.ui-tabs-nav{  
+	    position:absolute;  
+	    top:0; left:0; /* left:400px; */ 
+	    list-style:none;  
+	    padding:0; margin:0;  
+	    width:250px;  
+    }  
+    #featured ul.ui-tabs-nav li{  
+        padding:0 0; /* padding:1px 0; */ /* padding-left:13px;  */ 
+        font-size:12px;  
+        color:#666;  
+    }  
+    #featured ul.ui-tabs-nav li span {  
+        font-size:11px;
+        line-height:18px;
+        padding: 5px 10px;
+        display: block;
+    }
+    
+    #featured .ui-tabs-panel {  
+		    width:500px; height: 310px; /* width:400px; height:250px; */  
+		    /* background:#999; */ position:relative;  
+        overflow:hidden;  
+		}
+		#featured .ui-tabs-hide {  
+		    display:none;  
+		}
+		
+		/* Tabs */
+		#featured li.ui-tabs-nav-item a {/*On Hover Style*/  
+		    display:block;  
+		    height:100px;  
+		    color:#333;  background:#fff;  
+		    line-height:20px;  
+		    outline:none;
+		    text-decoration: none;
+		}  
+		#featured li.ui-tabs-nav-item a:hover{}  
+		#featured li.ui-tabs-selected { /*Selected tab style*/  
+		    background:url('images/selected-item.gif') top left no-repeat;  
+		}  
+		#featured ul.ui-tabs-nav li.ui-tabs-selected a {  
+		    text-decoration: none;
+		}
+		
+		div#featured ul.ui-tabs-nav li.ui-tabs-nav-item a span h2 {
+			display: inline;
+			font-size: 14px;
+		}
+		
+		div#featured.ui-tabs-nav ul.ui-tabs-nav li#nav-fragment-1.ui-tabs-nav-item a {
+			background-color: #9ee4f0;
+		}
+		div#featured.ui-tabs-nav ul.ui-tabs-nav li#nav-fragment-2.ui-tabs-nav-item a {
+			background-color: #bcf187;
+			border-top: 5px solid #fff;
+			border-bottom: 5px solid #fff;
+		}
+		div#featured.ui-tabs-nav ul.ui-tabs-nav li#nav-fragment-3.ui-tabs-nav-item a {
+			background-color: #ebcdfb;
+		}
+		div#featured.ui-tabs-nav ul.ui-tabs-nav li#nav-fragment-1.ui-tabs-nav-item a:hover {
+			background-color: #a7d7df;
+		}
+		div#featured.ui-tabs-nav ul.ui-tabs-nav li#nav-fragment-2.ui-tabs-nav-item a:hover {
+			background-color: #b5df8b;
+		}
+		div#featured.ui-tabs-nav ul.ui-tabs-nav li#nav-fragment-3.ui-tabs-nav-item a:hover {
+			background-color: #eae0ef;
+		}
+		
+		/* Thumbnail */
+			#featured ul.ui-tabs-nav li img {  
+		    float:left; margin:2px 5px;  
+		    background:#fff;  
+		    padding:2px;  
+		    border:1px solid #eee;  
+		}
+		
+		/* Teaser */
+    #featured .ui-tabs-panel .info {  
+        position:absolute;  
+        top:180px; left:0;  
+        height:70px; /* width: 400px; */  width: 500px;
+        background: url('images/transparent-bg.png');  
+    }  
+    #featured .info h2 {  
+        font-size:18px;  
+        padding:5px 15px; margin:0;  
+        overflow:hidden;  
+    }  
+    #featured .info p {  
+        margin:0 15px;
+        font-size:12px;  
+        line-height:18px; color:#444;  
+    } 
+    
+    /* Links */
+    #featured .info a {  
+        text-decoration:none;
+        color: #007389;
+        /* color:#fff; */
+    }  
+    #featured .info a:hover{  
+        text-decoration:underline;  
+    }  
+    </style>
+    <script>
+        $(document).ready(function(){  
+        $("#featured").tabs({fx:{opacity: "toggle"}}).tabs("rotate", 5000, true);   
+    });
+    </script>
+    <script>
+    $(function() {
+			$( "#accordion" ).accordion({
+				collapsible: true
+			});
+		});
+	</script>
+	</head>
+	<body>
+	<div id="featured" >
+    <ul class="ui-tabs-nav">  
+        <li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-1"><a href="#fragment-1"><span><h2>Learn</h2> about the Alliance's role in preventing sexual violence, as a Center of Excellence in Primary Prevention.</span></a></li>  
+        <li class="ui-tabs-nav-item" id="nav-fragment-2"><a href="#fragment-2"><span><h2>Purchase</h2> tickets to the Staten Island Yankee game, August 10th, to raise scholarship funds for The Richmond University Medical Center.</span></a></li>  
+        <li class="ui-tabs-nav-item" id="nav-fragment-3"><a href="#fragment-3"><span><h2>Expand</h2> your professional training. See what courses we're currently offering in the SAFE Training Institute. </span></a></li>  
+        <!-- <li class="ui-tabs-nav-item" id="nav-fragment-4"><a href="#fragment-4"><img src="images/image4-small.jpg" alt="" /><span>Create a Vintage Photograph in Photoshop</span></a></li>   -->
+    </ul>  
+    <!-- First Content -->  
+    <div id="fragment-1" class="ui-tabs-panel" style="">  
+        <img src="http://svfreenyc.org/media/homepage/bands/band_11.GIF" alt="" />  
+        <div class="info" >  
+        <h2><a href="#" >Center of Exellence</a></h2>  
+        <p>In Primary Prevention of Sexual Violence <a href="#" >read more &raquo; </a></p>  
+        </div>  
+    </div>  
+    <!-- Second Content -->  
+    <div id="fragment-2" class="ui-tabs-panel ui-tabs-hide" style="">  
+        <img src="http://svfreenyc.org/media/homepage/bands/band_1.png" alt="" />  
+        <div class="info" >  
+        <h2><a href="#" >Staten Island Yankees</a></h2>  
+        <p>Vestibulum leo quam, accumsan nec porttitor a, euismod ac tortor. Sed ipsum lorem, sagittis non egestas id, suscipit <a href="#" >read more &raquo;</a></p>  
+        </div>  
+    </div>  
+    <!-- Third Content -->  
+    <div id="fragment-3" class="ui-tabs-panel ui-tabs-hide" style="">  
+        <img src="http://svfreenyc.org/media/homepage/bands/band_2.jpg" alt="" />  
+        <div class="info" >  
+        <h2><a href="#" >Health & Forensic Services</a></h2>  
+        <p>liquam erat volutpat. Proin id volutpat nisi. Nulla facilisi. Curabitur facilisis sollicitudin ornare <a href="#" >read more &raquo;</a></p>  
+        </div>  
+    </div>  
+    <!-- Fourth Content -->  
+    <!--
+<div id="fragment-4" class="ui-tabs-panel ui-tabs-hide" style="">  
+        <img src="images/image4.jpg" alt="" />  
+        <div class="info" >  
+        <h2><a href="#" >Create a Vintage Photograph in Photoshop</a></h2>  
+        <p>Quisque sed orci ut lacus viverra interdum ornare sed est. Donec porta, erat eu pretium luctus, leo augue sodales....<a href="#" >read more</a></p>  
+        </div>  
+    </div>
+-->  
+</div> 
+
+<div id="accordion">
+	<h3><a href="#">Section 1</a></h3>
+	<div>
+		<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+	</div>
+	<h3><a href="#">Section 2</a></h3>
+	<div>
+		<p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+	</div>
+	<h3><a href="#">Section 3</a></h3>
+	<div>
+		<p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui. </p>
+		<ul>
+			<li>List item one</li>
+			<li>List item two</li>
+			<li>List item three</li>
+		</ul>
+	</div>
+	<h3><a href="#">Section 4</a></h3>
+	<div>
+		<p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+	</div>
+</div>
+		
+	</body>
+</html>

@@ -1,0 +1,120 @@
+div.olt-sw-body {
+    clear: both;
+    border-width: 1px;
+    border-style: solid;
+    -moz-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border-color: #dfdfdf;
+}
+
+div.olt-sw-body p.olt-sw-body-help {
+    padding: 6px 0.9em 6px 0.9em;
+    margin: 0;
+    font-size: 11px;
+    color: #333333;
+    background-color: #ededed;
+    background-image: url(olt-checklist/gray-grad.png);
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
+div.olt-sw-body code {
+    background: transparent;
+}
+
+div.olt-sw-body>textarea {
+    width: 100%;
+    border: none;
+    -moz-border-radius: 0px;
+    -khtml-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    margin: 0;
+}
+
+/* Tabbed section widget */
+
+.olt-swt-designer-top>* {
+    float: left;
+}
+
+.olt-swt-designer-top label {
+    padding-top: 4px;
+    padding-right: 4px;
+}
+
+.olt-swt-designer-top .olt-swt-designer-tabs-controls {
+    padding-top: 4px !important;
+    padding-left: 8px !important;
+}
+
+.olt-swt-designer-add-tab>a {
+    padding: 0.5em !important;
+}
+
+.olt-swt-designer-tab, .olt-swt-designer-tab a {
+    cursor: move !important;
+}
+
+.olt-swt-designer-add-tab, .olt-swt-designer-add-tab>a {
+    cursor: pointer !important;
+}
+
+.olt-swt-designer-main code {
+    background: transparent !important;
+}
+
+/* Option page */
+
+div#swt-theme-preview {
+    width: 400px;
+    margin: 10px 0;
+}
+
+div#swt-scope-help {
+    max-width: 650px;
+    background-color: #eeeeee;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+div#swt-scope-help p {
+    text-align: justify;
+}
+
+div#swt-scope-detect-message div {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    margin: 2px;
+    padding: 2px 6px 2px 6px;
+}
+
+div#swt-scope-detect-message div.success {
+    color: #33cc66;
+    border-color: #33cc66;
+    background-color: #ccffcc;
+}
+
+div#swt-scope-detect-message div.message {
+    color: #3399cc;
+    border-color: #3399cc;
+    background-color: #ccffff;
+}
+
+div#swt-scope-detect-message div.warning {
+    color: #999900;
+    border-color: #999900;
+    background-color: #ffffcc;
+}
+
+div#swt-scope-detect-message div.error {
+    color: #ff0000;
+    border-color: #ff0000;
+    background-color: #ffcccc;
+}

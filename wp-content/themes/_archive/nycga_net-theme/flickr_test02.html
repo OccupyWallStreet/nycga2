@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title>Flickr Test 2</title>
+		
+				<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+				<script src="_inc/js/galleria/galleria-1.2.8.min.js"></script>
+				<script src="_inc/js/galleria/plugins/flickr/galleria.flickr.min.js"></script>
+				
+				<style>#flickr-gallery{height:400px;}</style>
+			
+
+	</head>
+	<body>
+		
+	<!--
+<script>
+    $("body").text("jQuery works");
+	</script>
+	<script>
+    if (Galleria) { $("body").text('Galleria works') }
+	</script>
+-->
+	<style>#flickr-gallery{height:400px;}</style>
+	
+	<div id="flickr-gallery"></div>
+	
+	<script type="text/javascript">
+
+    // Load  theme
+    Galleria.loadTheme('_inc/js/galleria/themes/nycga/galleria.nycga.js');
+    
+    var flickr = new Galleria.Flickr();
+			flickr.user('occupywallstreet', function(data) {
+			    Galleria.run('#flickr-gallery', {
+			        dataSource: data
+			    });
+			});
+			
+			Galleria.configure({
+			    showImagenav: true,
+			    autoplay: 5000,
+			    showInfo: true,
+			    showCounter:true,
+			    thumbnails:false,
+			    transition:"fade",
+			    transitionSpeed:600,
+			    imageCrop: true,
+			    carousel: false,
+			    responsive: true,
+			    height: 400
+			});
+
+    // Initialize Galleria
+    //Galleria.run('#flickr-gallery', {
+    //    flickr: 'search:cityscape',
+    //    flickrOptions: {
+    //        sort: 'interestingness-desc'
+    //    }
+    //});
+    </script>
+		
+	</body>
+</html>

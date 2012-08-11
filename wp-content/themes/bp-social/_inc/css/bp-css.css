@@ -1,0 +1,212 @@
+/* --------------------------------------------------------------
+
+   BuddyPress Components Custom CSS.
+
+-------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {margin: 5px 0 15px 0;}
+#optionsbar span {
+  display: none;
+}
+#whats-new, .ac-textarea textarea {
+  height: 90px !important;
+  border: 0px none;
+  overflow: hidden;
+
+}
+#whats-new-options {
+  height: 55px !important;
+}
+
+p {
+  line-height: 20px;
+}
+
+div.dir-search input[type="text"] {
+    width: 120px;
+}
+div#message-thread div.message-box { margin:-5px; padding:15px;}
+#custom #wp-admin-bar .padder {width:100% !important;}
+
+div.pagination { margin: 0px; padding: 0px !important; }
+
+ul.item-list li div.action {top: 45px;}
+
+ul.item-list li div.item-title span {font-size: 12px; line-height: 20px;}
+
+.directory #content, .registration #content {width: 666px; float: left;}
+
+ul#topic-post-list {margin: 15px -10px; width: auto;}
+
+div#topic-meta div.admin-links {bottom: -30px;}
+
+.directory #container .padder {float: left; width: 100%;}
+
+table.forum {margin: 10px -10px 10px; width: auto;}
+
+div.activity-meta {margin: 15px 0px 0px 3px !important;}
+
+#content {width: 480px; float: left; padding: 10px 20px 10px 10px; border-right: 1px solid #eee;}
+
+div#subnav.item-list-tabs {border-bottom: 1px solid #EAEAEA; margin: 5px 0px 5px 0px; width: 100%; padding: 0px; overflow: hidden;}
+
+.padder {clear: both;}
+
+#container div.activity-comments ul li {background: #EEEEEE none repeat scroll 0 0; padding: 5px !important;}
+
+div.pagination .pagination-links span, div.pagination .pagination-links a {font-size: 10px;}
+
+div#item-header div#item-header-content {margin-left: 0px;}
+
+div.item-list-tabs ul li a, div.item-list-tabs ul li span {padding: 5px 7px;}
+
+#sidebar-column .activity-list li.mini .activity-content {margin-right: 3px !important;}
+
+div.item-list-tabs {margin: 25px -5px 20px;}
+
+ul.item-list li div.item-desc {margin: 10px 0 0 6px;}
+
+div#subnav.item-list-tabs {border-bottom: 0px none;}
+
+div#subnav {padding: 10px 15px 0px 15px;}
+
+div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a {}
+
+.item-options .selected {font-weight: bold; text-decoration: underline;}
+
+.standard-form p {clear: both;}
+
+.padder h3 {font-size: 18px;}
+
+.widget h2.widgettitle {margin-bottom:12px !important;}
+
+.registration .padder {clear: both;}
+
+.registration .register-section {margin-top: 20px;}
+
+div.item-list-tabs ul li:first-child {margin-left: 8px;}
+
+div.item-list-tabs ul li.feed {margin-left: 18px;}
+
+.forum .post-content {float:none !important; padding:0 !important; width: 90%;}
+
+.directory div.item-list-tabs {width: 100%;}
+
+.dir-search input [ type = 'text' ] {width: 150px; float: left; margin-right: 10px;}
+
+#item-header-content span.activity {margin-top: 15px;}
+
+#item-buttons div {margin-bottom: 6px !important;}
+
+ul.item-list li div.item-title, ul.item-list li h4 {width: 80%;}
+
+a {color: #0F447A; text-decoration: underline;}
+
+a:hover, a:active {color: #C63; text-decoration: underline;}
+
+a:focus {outline: 1px dotted #ccc;}
+
+.clear {clear: left;}
+
+blockquote {font: italic normal 13px Georgia, "Times New Roman", Times, serif; letter-spacing: normal; word-spacing: normal;}
+
+.item-options {font-size: 11px; margin-bottom: 15px;}
+
+p:last-child {margin-bottom: 0;}
+
+hr {background: #E7E7E7; border: 0 none; clear: both; height: 1px; margin: 20px 0;}
+
+img.avatar {float: left; border: 2px solid #eee;}
+
+div.item-list-tabs ul li a, div.item-list-tabs ul li span {font-size: 11px; color: #181919;}
+
+.bp-widget {margin: 5px 0px 15px 0px !important; padding: 0px; float: left; width: 95%;}
+
+#whats-new-form {padding: 20px; margin-bottom: 20px !important; border-bottom: 0 none !important; -moz-border-radius: 6px; -khtml-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; background: #f5f5f5; border: 1px solid #ddd;}
+
+.widget table thead {color: #111111;}
+
+.avatar-box img {border: 0 none !important;}
+
+.activity-permalink .avatar-box {display: none;}
+
+body.activity-permalink .activity-list li .activity-content {background: #FFFFFF none repeat scroll 0 0; border-bottom: 0 none; border-right: 0 none; font-size: 16px; line-height: 150%; margin-left:105px !important;}
+
+div.activity-comments ul li {border-top:0px none !important;}
+
+#topic-post-list li {margin-left: 10px;}
+
+.activity-list .activity-header a:first-child, span.highlight {-moz-border-radius-bottomleft: 4px; -moz-border-radius-bottomright: 4px; -moz-border-radius-topleft: 4px; -moz-border-radius-topright: 4px; color: #026180 !important; border: 1px solid #AFE2FE; margin-right: 3px; padding: 2px 6px; font-size: 11px; text-decoration: none; background: #D3F0FE;}
+
+.activity-list .activity-header a:first-child:hover, span.highlight:hover {-moz-border-radius-bottomleft: 4px; -moz-border-radius-bottomright: 4px; -moz-border-radius-topleft: 4px; -moz-border-radius-topright: 4px; color: #026180 !important; border: 1px solid #AFE2FE; margin-right: 3px; padding: 2px 6px; font-size: 11px; text-decoration: none; background: #EAF4FF !important;}
+
+span.activity {color: #026180; line-height: 15px; border: 1px solid #AFE2FE; margin-right: 3px; padding: 2px 5px; font-size:10px !important; text-decoration: none; background: #D3F0FE;}
+
+#members-list span.activity {}
+
+#forums-dir-list {font-size: 12px; line-height: 20px !important;}
+
+#footer ul.item-list li {border-bottom: 1px solid #2B353C !important;}
+
+.activity-list li.mini {padding-bottom: 10px !important;}
+
+#custom .activity-list div.activity-meta a.acomment-reply {color: #666 !important; background: #eee; border-right-width: 1px; border-bottom-width: 1px; border-right-style: solid; border-bottom-style: solid; border-right-color: #ccc; border-bottom-color: #ccc;}
+
+#custom .activity-list div.activity-meta a:hover.acomment-reply {color: #000 !important; text-decoration: none; background: #CCC; border-right-width: 1px; border-bottom-width: 1px; border-right-style: solid; border-bottom-style: solid; border-right-color: #999; border-bottom-color: #999;}
+
+#custom .activity-list div.activity-meta a.fav {color: #666 !important; background: #eee; border-right-width: 1px; border-bottom-width: 1px; border-right-style: solid; border-bottom-style: solid; border-right-color: #ccc; border-bottom-color: #ccc;}
+
+#custom .activity-list div.activity-meta a:hover.fav {color: #000 !important; text-decoration: none; background: #CCC; border-right-width: 1px; border-bottom-width: 1px; border-right-style: solid; border-bottom-style: solid; border-right-color: #999; border-bottom-color: #999;}
+
+p#login-text {font-size: 12px; line-height: 16px;}
+
+p#login-text a {color: #06C; text-decoration: underline;}
+
+p.forgetmenot {font-size: 11px; color: #333; font-weight: normal;}
+
+.activity-inreplyto {font-size: 12px; line-height: 18px;}
+
+#activity-filter-links {margin: 0px; padding: 7px 0px;}
+
+#activity-filter-links li {display: inline; margin: 0px 5px 5px 0px; padding: 0px; float: left; width: auto; -moz-border-radius: 6px; -khtml-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; color: #333; text-decoration: none; background: #f7f7f7; border-width: 1px 1px; border-style: solid solid; border-color: #eee #CCC #999 #eee;}
+
+#activity-filter-links li a {color: #333 !important; text-decoration: none; padding: 3px 2px;}
+
+#sidebar .activity-list li.mini .activity-content {margin-right: 0px;}
+
+#sidebar .activity-list li.mini .activity-meta {position: absolute; bottom: 0;}
+
+div.dir-search {float: right; margin: -40px 0 0;}
+
+ul.item-list li {padding: 12px 0; margin: 6px 0;}
+
+.activity-inner > blockquote {margin: 10px 0px 10px 0px !important;}
+
+.item-list-tabs select {padding-top: 1px; padding-bottom: 1px;}
+
+div.item-list-tabs ul li {float: left; margin: 5px 0 0 5px;}
+
+.activity-list li.mini .activity-content {margin-right: 5px;}
+
+#blogs-list li div.meta {color: #888888; font-size: 11px; margin-top: 10px; width: 300px; float: right;}
+
+#custom .bp-widget ul#myflickr li {padding: 0px; float: left !important; list-style: none; width: 100% !important; margin: 0px 0px 25px;}
+
+#custom .bp-widget ul#myflickr li .flickr_badge_image {margin: 0px 10px 10px 0px; padding: 5px; float: left !important; list-style: none; width: auto !important; border: 1px solid #ddd;}
+
+#custom .bp-widget ul#myflickr li .flickr_badge_image .img {margin: 0px; padding: 0px !important; float: left !important; list-style: none; border-top: 0px none; border-right: 0px none; border-bottom: 0px none; border-left: 0px none;}
+
+.bp-widget h4, .profile h4, .standard-form h4 {font-size: 14px; font-weight: bold; margin: 5px 0; padding: 0 0 5px;}
+
+.bp-widget h4 span {font-size: 13px; float: right;}
+
+#search-bar .padder {padding: 0px; float: left; width: 100% !important; margin: 0px 0px 15px;}
+
+#search-form #search-terms {width: 50% !important;}
+
+#signup_form select {width: 90% !important;}
+
+#container #top-right-panel .p-user-meta #bplogout {color: #333 !important; text-decoration: none;}
+
+#right-sidebar #message { margin-bottom: 15px; }
+
+/* 18246-1344572780-ai */

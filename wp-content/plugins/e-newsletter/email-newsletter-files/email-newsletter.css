@@ -1,0 +1,236 @@
+/*
+
+Email-Newsletter CSS Styles
+
+*/
+
+
+/*  Progressbar */
+.enewsletter_progressbar .ui-corner-all,
+.enewsletter_progressbar .ui-corner-bottom,
+.enewsletter_progressbar .ui-corner-right,
+.enewsletter_progressbar .ui-corner-br {
+    -moz-border-radius-bottomright: 4px;
+}
+
+.enewsletter_progressbar .ui-corner-all,
+.enewsletter_progressbar .ui-corner-bottom,
+.enewsletter_progressbar .ui-corner-left,
+.enewsletter_progressbar .ui-corner-bl {
+    -moz-border-radius-bottomleft: 4px;
+}
+
+.enewsletter_progressbar .ui-corner-all,
+.enewsletter_progressbar .ui-corner-top,
+.enewsletter_progressbar .ui-corner-right,
+.enewsletter_progressbar .ui-corner-tr {
+    -moz-border-radius-topright: 4px;
+}
+
+.enewsletter_progressbar .ui-corner-all,
+.enewsletter_progressbar .ui-corner-top,
+.enewsletter_progressbar .ui-corner-left,
+.enewsletter_progressbar .ui-corner-tl {
+    -moz-border-radius-topleft: 4px;
+}
+
+.enewsletter_progressbar .ui-widget-content {
+    border: 1px solid #AAAAAA;
+    color: #222222;
+}
+
+.enewsletter_progressbar .ui-progressbar {
+    width: 500px;
+    height: 22px;
+    text-align: left;
+}
+
+.enewsletter_progressbar .ui-progressbar .ui-progressbar-value {
+    margin: 0px;
+    height:100%;
+}
+
+.enewsletter_progressbar .ui-progressbar-value {
+    background-image: url(images/pbar-ani.gif);
+}
+
+.enewsletter_progressbar #progressbar {
+    position: relative;
+}
+.enewsletter_progressbar #progressbar_text {
+    font-weight: bold;
+    position: absolute;
+    left: 45%;
+    top: 2px;
+    z-index: 1001;
+}
+
+/* End of Progressbar */
+
+
+.red {
+    color: red;
+}
+
+.settings-form td {
+    padding: 8px 10px;
+}
+
+
+.updated {
+    background-color: #FFFFE0;
+    border-color: #E6DB55;
+    margin: 5px 0 15px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 0 0.6em;
+}
+
+/* Page create-newsletter*/
+
+
+#largeImg {
+    border: solid 1px #ccc;
+    width: 550px;
+    padding: 5px;
+}
+
+
+.newsletter-templates {
+    display: table-cell;
+}
+
+.preview-template {
+    display: table-cell;
+    vertical-align: top;
+}
+
+
+.newsletter-templates .template {
+    background-color: #EFEFEF;
+    border: 3px solid #FFFFFF;
+    cursor: pointer;
+    height: 120px;
+    margin: 5px;
+    text-align: center;
+    width: 100px;
+    float: left;
+    text-decoration: none;
+}
+
+.newsletter-templates .template.selected {
+    border: 3px solid #515151 !important;
+}
+
+.newsletter-templates .template-name {
+    background: url("images/555555_40x100_textures_03_highlight_soft_75.png") repeat-x scroll 50% 50% #555555;
+    color: #FFFFFF;
+    font-weight: bold;
+    clear:both;
+    padding:5px;
+    table-layout: inherit;
+}
+
+#selected_temp {
+    margin: 0px 0px 0px 20px;
+}
+
+#preview_block {
+    margin: 10px 0px 0px 0px;
+}
+
+/* end Page create-newsletter*/
+
+
+/* Add member block */
+
+#panel {
+    background: #F9F9F9;
+    border: solid 1px #DFDFDF;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    -moz-border-radius-bottomright: 4px;
+    display: none;
+    width: 95%;
+    margin: 10px 0px 30px 0px;
+}
+
+#panel form {
+    padding: 0px 20px 0px 20px;
+}
+
+#panel .create_mamber {
+    width: 430px;
+    border-right: solid 1px #555;
+    padding: 10px 40px 10px 0px;
+    margin : 0px 10px 0px 20px;
+}
+
+#panel .import_members {
+    padding: 10px 0px 10px 0px;
+    margin : 0px 20px 0px 20px;
+}
+
+.slide {
+    margin: 0;
+    padding: 0;
+    background: none transparent no-repeat center top;
+    width: 95%;
+    margin : 10px 0px 20px 0px;
+}
+
+/* End Add member block */
+
+th.check-column {
+padding: 0px 0px 0px 0px !important;
+vertical-align: middle !important;
+}
+
+#send_form table td {
+    padding: 20px 30px 20px 30px;
+}
+
+#send_form #send {
+    margin: 20px 30px 20px 30px;
+}
+
+.sent_count {
+    margin: 20px 30px 20px 30px;
+}
+
+.contact-information {
+    width: 300px;
+    height: 100px;
+}
+#send_list th,
+#send_list td {
+    text-align: center;
+}
+
+.newsletter_table_center th,
+.newsletter_table_center td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.newsletter_error {
+    background: #FFEBE8;
+}
+
+
+#test_bounce_loading {
+    width: 15px;
+    height: 15px;
+    background: url("images/loading-publish.gif") #fff no-repeat center center;
+    display: none;
+    float: right;
+    margin: 20px 0px 0px 0px;
+}
+
+#settings_form .email_out_smtp input {
+    width: 225px;
+}
+
+/* 18246-1344386699-ai */

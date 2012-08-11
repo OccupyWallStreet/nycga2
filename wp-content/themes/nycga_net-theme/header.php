@@ -318,9 +318,6 @@ if($tn_buddycorp_header_logo == '') { ?>
 </div>
 
 
-
-
-
 <?php
 if( $tn_buddycorp_header_on == 'enable') { ?>
 <?php if('' != get_header_image() ) { ?>
@@ -328,7 +325,6 @@ if( $tn_buddycorp_header_on == 'enable') { ?>
 <div class="custom-img-header"><a href="<?php echo home_url(); ?>"><img src="<?php header_image(); ?>" alt="<?php bloginfo('name'); ?>" /></a></div>
 </div>
 <?php } } ?>
-
 
 
 <?php do_action( 'bp_before_search_login_bar' ) ?>
@@ -409,7 +405,7 @@ if( $tn_buddycorp_header_on == 'enable') { ?>
 
 	<!-- BEGIN: announcement bar -->
 
-	<?php locate_template( array( 'announcement.php' ), true ) ?>
+	<?php// locate_template( array( 'announcement.php' ), true ) ?>
 
 	<!-- //END: announcement bar -->
 

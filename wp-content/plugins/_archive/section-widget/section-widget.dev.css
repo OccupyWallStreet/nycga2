@@ -1,0 +1,74 @@
+.section-widget-tabs-container {
+	margin: 1em 0 1em 0;
+	padding: 0;
+}
+
+ul.section-widget-tabs {
+    margin: 12px 0 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+ul.section-widget-tabs li.section-widget-tab {
+    display: inline;
+	padding: 5px 8px 5px 8px;
+	margin: 0;
+	border: 0;
+}
+
+ul.section-widget-tabs li.section-widget-tab a {
+	text-decoration: none;
+	line-height: 12px;
+}
+
+ul.section-widget-tabs li.section-widget-tab.ui-tabs-selected {
+	-moz-border-radius: 3px 3px 0 0;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-khtml-border-top-left-radius: 3px;
+	-khtml-border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-style: solid solid none solid;
+	border-width: 1px 1px 0px 1px;
+	border-color: #dfdfdf;
+	background-color: #f1f1f1;
+}
+
+ul.section-widget-tabs li.section-widget-tab.ui-tabs-selected a {
+	color: #000000;
+}
+
+.section-widget-tabs-container div.section-widget-tab-panel {
+	height: 150px;
+	overflow: auto;
+	margin: 3px 0 0 0;
+	padding: 0.5em 0.9em 0.5em 0.9em;
+	border: 1px solid #dfdfdf;
+}
+ 
+.section-widget-tabs-container div.section-widget-tab-panel ul {
+    margin: 0;
+    padding: 0;
+}
+
+.section-widget-tabs-container div.section-widget-tab-panel li {
+    margin: 0;
+    list-style: none;
+	line-height: 19px;
+}
+
+.section-widget-checklist-entry {
+	width: 100%;
+}
+
+.section-widget-checklist-entry>p {
+	font-size: 80%;
+	margin-left: 2em !important;
+}
+
+.section-widget-controls-container {
+	font-size: 75%;
+	text-decoration: none;
+    display: none;
+}

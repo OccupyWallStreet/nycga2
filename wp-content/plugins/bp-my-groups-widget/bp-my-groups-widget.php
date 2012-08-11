@@ -33,12 +33,14 @@ class BP_My_Groups_Widget extends WP_Widget {
 		$title = apply_filters('widget_title', empty($instance['title'])?__('My Groups','buddypress'):$instance['title']);
 
 		echo $before_widget;
-		echo $before_title
+		?>
+		
+		<?php echo $before_title
 		   . $title
 		   . $after_title; ?>
-
+	
 		<?php if ( bp_has_groups( 'type=alphabetical&user_id=' . $bp->loggedin_user->id )&& is_user_logged_in()) : ?>
-
+		
 			<ul class="my-groups-list item-list">
 				<?php while ( bp_groups() ) : bp_the_group(); ?>
 					<li>
@@ -59,13 +61,11 @@ class BP_My_Groups_Widget extends WP_Widget {
 
 		<?php else: ?>
 			
-			<div class="widget-error">
-				<?php if( is_user_logged_in() ) {
-					_e('You have not joined any groups.','buddypress');
-				} else {
-					_e('Please log in to see your groups.', 'buddypress');
-				} ?> 
-			</div>
+			<style>
+				div.widget.widget_bp_my_groups_widget {
+					display:none;
+				}
+			</style>
 
 		<?php endif; ?>
 

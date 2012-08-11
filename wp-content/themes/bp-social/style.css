@@ -1,0 +1,185 @@
+/*
+Theme Name: BuddyPress Social
+Theme URI: http://premium.wpmudev.org/
+Description: A Social BuddyPress Theme that connect people, friends and family. Compatible with WordPress with or without BuddyPress, WordPress MU with or without BuddyPress and WP/WPMU installation with BuddyPress 1.2+ only.
+Version: 1.3.5.2
+Author: Richie KS, S H Mohanjith - WPMU DEV - WordPress Experts
+Author URI: http://premium.wpmudev.org/
+License: GPL
+License URI: http://www.opensource.org/licenses/gpl-license.php
+WDP ID: 116
+Tags: buddypress,white,blue,three-columns,two-columns,right-sidebar,fixed-width,custom-colors,custom-header,theme-options,threaded-comments
+
+Copyright 2007-2012 Incsub (http://incsub.com)
+The CSS, XHTML and design is released under GPL:
+http://www.opensource.org/licenses/gpl-license.php
+
+
+changelog
+v1.3.5.2
+- Change Facebook like code to HTML5
+- Added BuddyPress site wide notice
+- Added Theme Customizer support
+- General bug fixes
+
+v1.3.5.1
+- Fixed the double up of the word "by" under "post-info".
+- Added img.aligncenter next to img.centered to make image centering work.
+- Added "height:auto" under ".post-content img" to stop images from stretching vertically when they are set at full-size within the 3-column grid layout.
+- replaced ".id" with ".id_str" under "// multi instance twitter widget".
+- taken out search input under <div class="main-sidebar" id="right-sidebar"> because of the double up if another is added under the widgets.
+- taken out anchor tag under h1 class="post-title" inside the template=2-column because it is not a link
+- 3.4 compatibility fixes
+- Fixed: undefined constants
+
+v1.3.5
+- Bug fixes
+- Fixed: Social Theme: Simple press not working
+
+v1.3.4
+- update buddypress theme core component to BuddyPress 1.5.4
+- fix some css cosmetic issue in buddypress component page
+
+v1.3.3
+- fixed 'header already sent' error when privacy enabled
+- fixed child theme error in ie8
+
+v1.3.2
+- added compatible with WordPress 3.3.1 and BuddyPress 1.5.3.1
+- added BBPress Sidebar Widget
+- fixed search keyword not applied correctly
+- fixed static front page and posts page issue with index.php. home.php deleted and index-home.php and index-post added
+
+v1.3.1
+- fixed missing intro header for not logged in user
+
+v1.3
+- added compatible with WordPress 3.3 and BuddyPress 1.5.2
+- remove global-adminbar.php and replace option with site_option() - updated mu-plugins/bp-global-adminbar-css.php
+- All styles and js scripts are now loaded in wp_enqueue_scripts() in functions.php
+- added css3 media query for mobile device
+
+v1.2.9
+- added wp_filter_post_kses() and wp_kses() to custom-component to prevent script insertion XSS vulnerability
+- fixed get_theme_data() issue with some hosting that produce error messages
+
+v1.2.8
+- added compatible with WordPress 3.2.1 and BuddyPress 1.5
+- fixed theme options tabs panel conflict with other jquery library
+
+v1.2.7
+- added compatible with WordPress 3.2 and BuddyPress 1.2.9
+- added rtl css support
+- added new privacy option for none friend viewing profile privacy
+- updated buddypress global.js and ajax.php for compatibility with new WordPress jQuery changes
+- added confirmation popup before restore all setting in theme options
+
+v1.2.6
+- add jquery call in header
+- minor css bug fix
+
+v1.2.5
+- fixed layout issue when activity in front
+
+v1.2.4
+- fixed navigation.php site_url trailing missing issue
+
+v1.2.3
+- added google web fonts replacement
+- new and improved theme option panel style
+- replaced deprecated functions
+- fixed url(none) error log
+- Gradient CSS3 for main intro box
+- added youtube and alternate featured video options
+- change default.css to bp-default.css
+- combine global.css into base.css
+- added compatible with WordPress 3.1.3 and BuddyPress 1.2.8
+
+v1.2.2
+- fixed directory paging css issue
+- add 1-column, 2-column and 3-column choice for members profile/components pages
+- added compatible with WordPress 3.0.4 and BuddyPress 1.2.7
+
+v1.2.1
+- fixed function error when buddypress not activated/installed
+
+v1.2
+- add redirect options in privacy theme settings
+- refine load_theme_textdomain() function call
+- add multi category selections for featured article and featured slideshow
+- add new custom widgets like flickr, twitter and featured post multi-category widget
+
+v1.1.9
+- added new WordPress 3.0 custom menu support
+- added compatible with latest WordPress 3.0 and BuddyPress 1.2.6
+- replace incudes() with locate_template() for better child theme support
+- fixed language missed localize
+- core templating changes with added lib folder
+- fixed bug trac
+
+v1.1.8
+- add border line for activity stream
+- update adminbar to new bp 1.2 style
+- fixed adminbar dropdown missing in sub blog
+
+v1.1.7
+- updated documentation
+
+v1.1.6
+- fixed css for cancel friendship button
+- fixed css for single item activity avatar
+- if you are updating from v1.1.5, just update the _inc/css/member.css
+
+v1.1.5
+- added missing modify to theme option php to stylesheet sync
+- fix ie issue, especially missing avatar block in ie8..some css ruling needed apply
+- compatible up to buddypress 1.2.1
+- missing depth=0 for navigation subpage
+- added li border line for directory
+
+
+v1.1.4
+- fixed recent sitewide blockquote padding issue
+- fixed group item-content css overlay issue
+- replace php theme option stylesheet with style sync theme option for better compatible with various server host
+- fixed navigation for if multiblog enable
+
+
+v1.1.3
+- added compatible with BuddyPress 1.2+
+- added compatible with single wordpress install or wpmu install with or without BuddyPress enable.
+- frontpage activity stream support
+
+
+v1.1.2b
+- refixed admin bar style across all blogs
+
+v1.1.2
+- added widget for group slug - group left and group right
+- fixed ie major bug
+- fixed admin bar default core css overwrite the theme option css
+- fixed facebook avatar image scale
+- added global button css
+
+v1.1
+- added gallery style and articles style featured block controllable via theme options
+- added home and blog layout option - choose between 2 column or 3 column
+- added page template - full width and 2 column
+- fixed slug for setting and member on custom component and avatar post
+- fixed custom-function copy.function error in earlier version
+- added bp-social-childtheme
+- refine css for new bp 1.1.3 activity blockquote css
+- fixed group layout break if no member detected - problem cause by endif was close before </div>
+- add optional advertisment or script block in header image position..user can used ads here instead of custom image header...suitable for skywide 720x90 ads
+
+v1.0
+- new version
+
+*/
+
+
+/* IMPORTANT UPDATES
+- All styles and js scripts are now loaded in wp_print_style() and wp_enqueue_scripts() in functions.php
+*/
+
+/* 18246-1344572780-ai */

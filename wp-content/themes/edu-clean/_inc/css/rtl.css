@@ -1,0 +1,116 @@
+/* --------------------------------------------------------------
+   RTL CSS
+-------------------------------------------------------------- */
+/* =Reset reset
+----------------------------------------------- */
+
+caption, th, td {
+	text-align: right;
+}
+
+/* =Structure
+----------------------------------------------- */
+
+body {
+	direction:rtl;
+	unicode-bidi:embed;
+}
+#wp-admin-bar {
+	direction:ltr;
+	unicode-bidi:embed;
+}
+.site-logo {
+    float: right;
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+.site-stats {
+
+    float: left;
+
+}
+h2#post-header {
+
+    float: right;
+
+}
+
+.p-avatar {
+    float: right;
+    margin: 0;
+    padding: 0 0px 10px 15px;
+}
+.post-under {
+    background: url("../images/tag.png") no-repeat scroll right 7px transparent;
+    padding: 8px 25px 8px 0px;
+
+}
+ul.sidebar_list li ul li ul li {
+    background: url("../images/children.png") no-repeat scroll right 4px transparent;
+    padding: 3px 15px 3px 0px;
+    width: 90%;
+}
+#custom .post-author {
+    padding: 5px 0px 5px 20px !important;
+}
+#site-title, #header #intro-text {
+    float: right;
+    padding-right: 20px;
+}
+
+ul#nav, #custom #incsubfooter, .post-author .alignright { float:left; }
+ul#nav li, #custom .myedu, .post-author .alignleft {
+    float: right;
+}
+#custom #incsubfooter, .post-author .alignright {
+   text-align: left;
+}
+
+
+ul#nav li a  {
+  text-align: right !important;
+}
+
+
+div.reply a {
+  text-align: center !important;
+}
+
+.directory .item-avatar {
+     float: right;
+    margin-left: 30px;
+}
+
+ul.item-list li div.action {
+    left: 0;
+    position: absolute;
+    text-align: left;
+    top: 15px;
+}
+
+ul#pnav {
+    float: left;
+}
+
+#custom .post-author {
+float: right;
+    background: url("../images/clock.gif") no-repeat scroll right 4px transparent;
+    padding: 0 20px 0 0px;
+}
+
+#custom .post-tagged p.tags {
+    background: url("../images/setting-bullet.png") no-repeat scroll right 4px transparent;
+    float: right;
+    font-size: 0.85em;
+    margin: 0;
+    padding: 3px 25px 3px 0px;
+    width: 75%;
+}
+
+div.dir-search {
+    float: left;
+}
+
+/* 18246-1344572817-ai */

@@ -1,0 +1,29 @@
+Installing and using themes from WPMU DEV
+-----------------------------------------
+*All our themes work both on WordPress and WPMU both with and without BuddyPress
+
+Installing just the parent theme
+--------------------------------
+
+1. Unzip the downloaded zip file
+2. You should see several files and folders depending on your theme package
+3. Upload the entire contents of the themes/ folder but not the themes/ directory itself to wp-content/themes
+4. Login to your dashboard >> Appearance and activate the theme - if you using WPMU, you need to go to site admin and activate the theme before it shows in Appearance
+5. Your theme should be now be activated and ready for use
+
+*Make sure your install path is themes/ not themes/themes/thethemename/
+
+For this theme under wp-content/themes/ you should have:
+blogs-mu/
+blogs-mu-child/
+
+
+Parent and child themes
+-------------------------------------------
+We also provide child themes with all of our BuddyPress themes which enable you to customise your own files without having those changes overwritten when we update a theme. To find out more about parent and children themes please visit http://premium.wpmudev.org/the-buddypress-manual/what-are-parent-and-child-themes/. 
+
+If you are using a child theme you need not activate the parent just activate the child theme. Remember to check each new version of the theme for any changes in your child theme that may have been done in the parent. Also when you update a theme just do not update the child only update the parent and all your changes will be kept.
+
+4-1338868607
+
+18246-1344572699-ai

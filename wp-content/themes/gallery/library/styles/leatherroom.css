@@ -1,0 +1,476 @@
+/* shadows */
+#branding, #widgets h4, a.button, input[type=submit], input[type=button],
+ul.button-nav li a, div.generic-button a
+div.generic-button a:hover, #homepage-content .nav a, #homepage-content .nav a:visited, #homepage-content .nav a:link,
+.nav a, .nav a:visited, .nav a:link, .nav .current a, .nav li:hover > a, .nav li.current_page_item a, .nav ul a:hover, 
+.nav ul a, h1, h2, h3, h4, h5, h6, div.item-list-tabs, div.item-list-tabs#subnav, .activity-list li.load-more{
+text-shadow: 0px 1px 0 #111111;
+}
+
+.grid-block, .grid-block-end, #slider-wrapper, #slider-wrapper-small, #whats-new-form, #respond,
+#homepage-content .nav a, #homepage-content .nav a:visited, #homepage-content .nav a:link, 
+.nav a, .nav a:visited, .nav a:link, .nav ul, .attachment-post-thumbnail, .entry img, img.avatar,
+div.item-list-tabs, div.item-list-tabs#subnav, .activity-list li.load-more{
+-moz-box-shadow: 0 4px 2px #342819;
+-webkit-box-shadow: 0 4px 2px #342819;
+-moz-box-shadow: 0 4px 2px #342819;
+}
+
+/********************************************* layout */
+body {
+color: #eeeeee;
+background-color: #222222; 
+background-image: url('images/backgrounds/leather.jpg');
+}
+
+#branding {
+color: #ffffff;
+}
+
+.grid-block, .grid-block-end {
+background: none repeat scroll 0 0 #23180b;
+border: 1px solid #23180b;
+}
+
+#grid h4 {
+color: #cccccc;
+}
+
+#slider-wrapper, #slider-wrapper-small, #whats-new-form, #respond {
+background: #23180b;
+border: 1px solid #111111;
+}
+
+#widgets h4 {
+font-weight: bold;
+}
+
+.post {
+border-bottom: 1px solid #111111;
+margin-bottom: 10px;
+}
+
+a:link {
+color: #ffffff;
+}
+
+a:visited {
+color: #ffffff;
+}
+
+a:active,
+a:hover {
+color: #cccccc;
+}
+
+/********************************************* forms */
+input[type="text"], input[type="password"],
+textarea {
+background: #23180b;
+border: 1px solid #342819;
+color: #ffffff;
+padding: 5px;
+}
+
+input[type="textarea"],
+textarea {
+background: #23180b;
+border: 1px solid #342819;
+color: #ffffff;
+padding: 5px;
+width: 96%;
+}
+
+a.comment-reply-link, a.button, input[type=submit], input[type=button],
+ul.button-nav li a, div.generic-button a {
+font-size: 14px;
+font-weight: bold;
+padding: 5px 10px;
+-moz-border-radius: 5px;
+-khtml-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+text-decoration: none;
+color: #ffffff;
+background: #111111;
+border: 1px solid #111111;
+}
+
+a.comment-reply-link:hover, a.button:hover, a.button:focus, input[type=submit]:hover, input[type=button]:hover,
+ul.button-nav li a:hover, ul.button-nav li.current a,
+div.generic-button a:hover {
+font-size: 14px;
+font-weight: bold;
+padding: 5px 10px;
+-moz-border-radius: 5px;
+-khtml-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+text-decoration: none;
+color: #ffffff;
+background: #333333;
+border: 1px solid #333333;
+}
+
+
+/********************************************* navigation */
+#homepage-content .nav a, #homepage-content .nav a:visited, #homepage-content .nav a:link {
+font-style: normal;
+text-decoration: none;
+padding: 10px;
+font-size: 18px;
+line-height: 22px;
+margin: 0;
+color: #ffffff;
+background: #443625;
+}
+
+.nav li {
+margin: 0px 0px 0px 5px;
+padding: 0 0 8px;
+float: right;
+position: relative;
+list-style: none;
+}
+
+/* main level link */
+.nav a, .nav a:visited, .nav a:link {
+font-style: normal;
+text-decoration: none;
+display: block;
+padding: 10px;
+font-size: 18px;
+margin: 0;
+color: #ffffff;
+background: #443625;
+}
+
+/* main level link hover */
+#homepage-content .nav a, #homepage-content .nav a:visited, #homepage-content .nav a:link, .nav .current a, .nav li:hover > a, .nav li.current_page_item a {
+padding: 10px;
+background: #23180b; /* for non-css3 browsers */
+color: #cccccc;
+}
+
+/* sub levels link hover */
+.nav ul li:hover a, .nav li:hover li a {
+background: none;
+border: none;
+color: #ffffff;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+}
+
+.nav ul a:hover {
+background: #333333; /* for non-css3 browsers */
+color: #fff;
+}
+
+/* level 2 list */
+.nav ul {
+background: #333333; /* for non-css3 browsers */
+display: none;
+margin: 0;
+padding: 0;
+width: 185px;
+position: absolute;
+top: 35px;
+left: 0;
+text-align: left;
+z-index: 9999;
+}
+
+.nav ul a {
+font-weight: normal;
+}
+
+/********************************************* text */
+h1, h2, h3, h4, h5, h6 {
+color: #ffffff;
+}
+
+/********************************************* comments */
+ol.commentlist li {
+margin-bottom: 10px;
+padding: 10px 0px;
+}
+
+ol.commentlist {
+padding: 10px;
+border-top: 1px solid #eeeeee;
+border-bottom: 1px solid #eeeeee;
+}
+
+h3#comments, h3.comments-header {
+padding-top: 10px;
+}
+
+.comment-body {
+padding: 10px;
+}
+
+ul.children {
+margin-top: 10px;
+}
+
+.author-box img.avatar {
+margin-bottom: 10px;
+}
+
+.attachment-post-thumbnail, .entry img {
+padding: 5px;
+background: none repeat scroll 0 0 #23180b;
+border: 5px solid #23180b !important;
+margin-bottom: 10px;
+}
+
+/******************************************** buddypress */
+img.avatar {
+padding: 5px;
+background: none repeat scroll 0 0 #23180b;
+border: 1px solid #23180b;
+float: left;
+margin-right: 10px;
+}
+
+div#item-header h2 span.highlight span {
+background: #a1dcfa;
+color: #9BB400;
+}
+
+div.item-list-tabs {
+padding: 0px 10px;
+font-size: 14px;
+color: #ffffff;
+background: #23180b;
+}
+
+div.item-list-tabs ul li a {
+padding: 10px;
+}
+
+div.item-list-tabs ul li.selected a,
+div.item-list-tabs ul li.current a {
+background-color: #23180b;
+color: #ffffff;
+}
+
+ul li.loading a {
+background-image: url( images/ajax-loader.gif );
+background-position: 92% 50%;
+background-repeat: no-repeat;
+}
+
+div.item-list-tabs#subnav {
+padding: 0px 10px;
+margin: 10px 0px;
+font-size: 14px;
+color: #ffffff;
+background: #23180b;
+}
+
+div.item-list-tabs ul li.feed a {
+background: url( images/rss_sml.png ) center left no-repeat;
+}
+
+span.activity, div#message p {
+background: #FFF9DB;
+border-bottom: 1px solid #FFE8C4;
+border-right: 1px solid #FFE8C4;
+color: #ffa200;
+}
+
+#closed-notice {
+clear: both;
+padding-top: 10px;
+}
+
+div.pagination#user-pag, .friends div.pagination,
+.mygroups div.pagination, .myblogs div.pagination, noscript div.pagination {
+background: #23180b;
+}
+
+div#message.error p {
+background: #e41717;
+color: #fff;
+border-color: #a71a1a;
+}
+
+div#message.updated p {
+background: #dffcd9;
+color: #1a9b00;
+border-color: #c4e9bd;
+}
+
+form.standard-form#signup_form div div.error {
+color: #fff;
+background: #e41717;
+}
+
+.ajax-loader {
+background: url( images/ajax-loader.gif ) center left no-repeat;
+}
+
+a.loading {
+background-image: url( images/ajax-loader.gif );
+background-position: 95% 50%;
+background-repeat: no-repeat;
+}
+
+div#invite-list {
+background: #23180b;
+}
+
+table tr.alt {
+background: #443625;
+}
+
+table.forum tr:first-child {
+background: #23180b;
+}
+
+table.forum tr.sticky td {
+background: #FFF9DB;
+border-top: 1px solid #FFE8C4;
+border-bottom: 1px solid #FFE8C4;
+}
+
+table.forum tr.closed td.td-title {
+background-image: url( images/closed.png );
+background-position: 15px 50%;
+background-repeat: no-repeat;
+}
+
+.activity-list li .activity-inreplyto {
+background: url( images/replyto_arrow.gif ) 7px 0 no-repeat;
+}
+
+body.activity-permalink .activity-list li .activity-content {
+background: #23180b;
+}
+
+body.activity-permalink .activity-list li .activity-header > p {
+background: url( images/activity_arrow.gif ) top left no-repeat;
+}
+
+.activity-list .activity-header a:first-child, span.highlight {
+background: #EBF7FF;
+border-bottom: 1px solid #a1dcfa;
+border-right: 1px solid #a1dcfa;
+color: #059AE7;
+text-decoration: none;
+}
+
+div.item-list-tabs ul li a, div.item-list-tabs ul li span {
+text-decoration: none;
+}
+
+.activity-list .activity-header a:first-child:hover {
+background: #059AE7;
+color: #fff;
+}
+
+.activity-list .activity-content .activity-inner,
+.activity-list .activity-content blockquote {
+overflow: hidden;
+}
+
+.activity-list .activity-content img.thumbnail {
+border: 2px solid #111111;
+}
+
+.activity-list li.load-more {
+padding: 10px;
+font-size: 14px;
+color: #bbbbbb;
+background: #342819;
+text-align: center;
+text-decoration: none;
+border: none;
+}
+
+.activity-list div.activity-meta a {
+background: #f4f4f4;
+border-bottom: 1px solid #ddd;
+border-right: 1px solid #ddd;
+color: #999;
+text-decoration: none;
+}
+
+.activity-list div.activity-meta a.acomment-reply {
+background: #FFF9DB;
+border-bottom: 1px solid #FFE8C4;
+border-right: 1px solid #FFE8C4;
+color: #ffa200;
+}
+
+div.activity-meta a:focus {
+outline: none;
+}
+
+div.activity-meta a:hover {
+background: #aaa;
+color: #fff;
+border-color: #aaa;
+}
+
+div.activity-meta a.acomment-reply:hover {
+background: #f7740a;
+color: #fff;
+border-color: #f7740a;
+}
+
+div.activity-comments > ul {
+background: #23180b;
+}
+
+div.activity-comments ul li {
+border-top: 2px solid #111111;
+}
+
+div.activity-comments form.ac-form {
+background: #23180b;
+}
+
+div.activity-comments form.loading {
+background-image: url( images/ajax-loader.gif );
+background-position: 2% 95%;
+background-repeat: no-repeat;
+}
+
+div.ac-reply-avatar img {
+float: left;
+padding: 0px;
+}
+
+table#message-threads tr.unread td {
+background: #23180b;
+}
+
+table#message-threads tr.unread td span.activity {
+background: #23180b;
+}
+
+li span.unread-count, tr.unread span.unread-count {
+background: #23180b;
+font-weight: bold;
+}
+
+div.messages-options-nav {
+background: #23180b;
+}
+
+div#message-thread div.alt {
+background: #23180b;
+}
+
+ul#topic-post-list li.alt {
+background: #23180b;
+}
+
+ul.item-list li {
+border-top: 1px solid #111111;
+border-bottom: 1px solid #111111;
+}
+
+/* 18246-1344572888-ai */
