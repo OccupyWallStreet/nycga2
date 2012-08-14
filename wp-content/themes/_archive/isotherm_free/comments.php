@@ -1,5 +1,0 @@
-<?php
-
-    bizz_comments();
-
-

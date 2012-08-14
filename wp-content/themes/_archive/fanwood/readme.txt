@@ -1,1 +1,0 @@
-Documentations, copyright, and license references are available in the readme.html under the "docs" folder.
