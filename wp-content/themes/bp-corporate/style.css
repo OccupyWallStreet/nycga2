@@ -1,0 +1,163 @@
+/*
+Theme Name: BuddyPress Corporate
+Theme URI: http://premium.wpmudev.org/
+Description: A massively customizable BuddyPress theme that might be suitable for a more corporate look and feel - 12 preset variations to choose from. Compatible with WordPress with or without BuddyPress, WordPress MU with or without BuddyPress and WP/WPMU installation with BuddyPress 1.2+ only.
+Version: 1.4.4
+Author: Richie KS - WPMU DEV - WordPress Experts
+Author URI: http://premium.wpmudev.org/
+License: GPL
+License URI: http://www.opensource.org/licenses/gpl-license.php
+WDP ID: 91
+Tags: buddypress,white,dark,three-columns,two-columns,right-sidebar,fixed-width,custom-colors,custom-header,theme-options,threaded-comments
+
+Copyright 2007-2012 Incsub (http://incsub.com)
+The CSS, XHTML and design is released under GPL:
+http://www.opensource.org/licenses/gpl-license.php
+
+changelog
+v1.4.4
+- update buddypress theme core component to BuddyPress 1.5.4
+
+v1.4.3
+- fixed 'header already sent' error when privacy enabled
+- fixed child theme error in ie8
+
+v1.4.2
+- added compatible with WordPress 3.3.1 and BuddyPress 1.5.3.1
+- fixed static front page and posts page issue with index.php. home.php deleted and index-home.php and index-post added
+- added BBPress Sidebar Widget
+
+v1.4.1
+- added compatible with WordPress 3.3 and BuddyPress 1.5.2
+- remove global-adminbar.php and replace option with site_option() - updated mu-plugins/bp-global-adminbar-css.php
+- All styles and js scripts are now loaded in wp_enqueue_scripts() in functions.php
+- added css3 media query for mobile device
+
+v1.4
+- fixed misplace remove all js function from admin_header() that cause all tabs/link unclickable
+- fixed get_theme_data() issue with some hosting that produce error messages
+
+v.1.3.9
+- added compatible with WordPress 3.2.1 and BuddyPress 1.5
+- fixed theme options tabs panel conflict with other jquery library
+
+v.1.3.8
+- added compatible with WordPress 3.2 and BuddyPress 1.2.9
+- change widget name/id for member-right/member-left to buddypress-right/buddypress-left so it did not confuse user
+- fixed layout issue when using buddypress component layout column setting
+- added rtl css support
+- added new privacy option for none friend viewing profile privacy
+- updated buddypress global.js and ajax.php for compatibility with new WordPress jQuery changes
+- added confirmation popup before restore all setting in theme options
+
+v1.3.7
+- modified add_image_size() so it look better in nivo slider for featured thumbnail
+- add jquery call in header
+- minor css bug fix
+
+v1.3.6
+- fixed navigation.php site_url trailing missing issue
+
+v1.3.5
+- added google web fonts replacement
+- new and improved theme option panel style
+- featured box color theme options added
+- replaced deprecated functions
+- fixed url(none) error log
+- change default.css to bp-default.css
+- combine global.css into base.css
+- added compatible with WordPress 3.1.3 and BuddyPress 1.2.8
+
+v1.3.4
+- fix button alignment issue inside some components
+- add 1-column, 2-column and 3-column choice for members profile/components pages
+- added compatible with WordPress 3.0.4 and BuddyPress 1.2.7
+
+v1.3.3
+- fixed function error when buddypress not activated/installed
+
+v1.3.2
+- add redirect options in privacy theme settings
+- refine load_theme_textdomain() function call
+- add multi category selections for featured article and featured slideshow
+- add new custom widgets like flickr, twitter and featured post multi-category widget
+
+v1.3.1
+- fix link color in preset style drop downs
+- remove userbar and optionbar objectnav and place in default location
+- add https SSL detected mode
+- fix function error siteurl() to site_url() in call-signup.php
+
+v1.3
+- added new WordPress 3.0 custom menu support
+- added featured articles options for articles mode or slideshow mode with attachment or custom field thumbnail options
+- added multi level drop down navigation
+- added compatible with latest WordPress 3.0 and BuddyPress 1.2.5.2
+- replace incudes() with locate_template() for better child theme support
+- fixed bug trac
+
+v1.2
+- add border line for activity stream
+- update adminbar to new bp 1.2 style
+- fixed adminbar dropdown missing in sub blog
+
+v1.1.9
+- Updated documentation
+
+v1.1.8
+- fixed missing filter option in activity
+- fixed group options_nav issue
+- fixed navigation ruling when in multiblog mode
+
+
+v1.1.7
+- fixed recent sitewide blockquote padding issue
+- fixed group item-content css overlay issue
+- replace php theme option stylesheet with style sync theme option for better compatible with various server host
+
+
+v1.1.6
+- added compatible with BuddyPress 1.2+
+- added compatible with single wordpress install or wpmu install with or without BuddyPress enable.
+- frontpage activity stream support
+
+
+v1.1.5
+- added privacy option and article block on and off
+- added global adminbar option
+- fix components css
+- added dropdown navigation
+- fixed directory templating
+- img overflow fixed
+- added the ability to let only admin and mod create group
+- added widget to profile page
+- fixed footer widget css
+- add default style for extra component without breaking the original css.
+
+v1.1.4
+- fix forum directory css
+- fix double facebook fbc_login with bp-fbconnect
+- fix adminbar css across all blogs
+
+v1.1.3
+- facebook core code changed that changed their css fb_login needed to recss
+- remove current-site option in navigation so site link did not link to main blog
+- recss item class for members-list
+- you can comment out the main-column.php if you do not want to used the home news feature
+
+v1.1.2
+- added support for facebook Connect plugin
+
+v1.1
+- added compatible with bp 1.1 new theme structure
+
+v1.0
+- new release
+*/
+
+
+/* IMPORTANT UPDATES
+- All styles and js scripts are now loaded in wp_print_style() and wp_enqueue_scripts() in functions.php
+*/
+
+/* 18246-1343677342 */

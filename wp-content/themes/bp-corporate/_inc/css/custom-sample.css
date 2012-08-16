@@ -1,0 +1,35 @@
+/*
+ any custom css can be input here to prevent any css edit missing when version updates to themes
+ to effective overide some css used #custom first id hack
+
+ sample:
+ #custom .myclass {}  or used !important for better css hack overide
+
+ sample
+ #custom .myclass {
+ color: #fff !important;
+ size: 14px !important;
+ }
+
+ try not to touch the css from other stylesheet for better and easy updates.
+*/
+
+#navigation,
+#post-entry h2.widgettitle,
+#center-column h2.widgettitle,
+#right-column h2.widgettitle,
+#container .sidebar_list h2.widgettitle,
+#userbar #meprofile
+ {
+	/* background: url(corporate-orange/side.png) repeat-x left bottom!important; */
+	background-image:none !important;
+	background:#ffcc00 !important;
+
+}
+
+
+ul#nav li.selected a, ul#nav li.current_page_item a {
+	background:#ffcc00 !important;
+}
+
+/* 18246-1343677342 */
