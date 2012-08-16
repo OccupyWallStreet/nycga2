@@ -58,15 +58,15 @@ class APLPresetDbObj
         //Step 2
         $this->option_load_db();
 
-        //If data doesn't exist in options, then make one
-        if (empty($this->_preset_db) && empty($this->_delete))
-        {
-            //Step 3
-            $this->set_to_defaults();
-            //Step 4
-            $this->options_save_db();
-            //$this->option_load_db();
-        }
+//        //If data doesn't exist in options, then make one
+//        if (empty($this->_preset_db) && empty($this->_delete))
+//        {
+//            //Step 3
+//            $this->set_to_defaults();
+//            //Step 4
+//            $this->options_save_db();
+//            //$this->option_load_db();
+//        }
     }
 
     /**
@@ -88,8 +88,17 @@ class APLPresetDbObj
         //Step 1
         $DBOptions = get_option($this->_preset_db_name);
         //Step 2
-        $this->_preset_db = $DBOptions->_preset_db;
-        $this->_delete = $DBOptions->_delete;
+        if ($DBOptions == FALSE)
+        {
+            $this->set_to_defaults();
+            $this->options_save_db();
+        }
+        else
+        {
+            $this->_preset_db = $DBOptions->_preset_db;
+            $this->_delete = $DBOptions->_delete;
+        }
+        
     }
 
     /**
@@ -168,211 +177,183 @@ class APLPresetDbObj
         //Step 1
         $this->_delete = 'true';
         //Step 2
-        $tmpPreset = (string) '{"pageContentDivided_5":{
-                                                    "_before":"<p><hr\/>",
-                                                    "_content":"<a href=\"[post_permalink]\">[post_title]<\/a> by [post_author] - [post_date]<br\/>[post_content]<hr\/>",
-                                                    "_after":"<\/p>",
-                                                    "_catsSelected":"",
-                                                    "_tagsSelected":"",
-                                                    "_catsInclude":"false",
-                                                    "_tagsInclude":"false",
-                                                    "_catsRequired":"false",
-                                                    "_tagsRequired":"false",
-                                                    "_listOrder":"DESC",
-                                                    "_listOrderBy":"post_date",
-                                                    "_listAmount":"5",
-                                                    "_postType":"post",
-                                                    "_postParent":"None",
-                                                    "_postExcludeCurrent":"true"
-                                                   },
-                            "postExcerptDivided_5":{
-                                                    "_before":"<p><hr\/>",
-                                                    "_content":"<a href=\"[post_permalink]\">[post_title]<\/a> by [post_author] - [post_date]<br\/>[post_excerpt]<hr\/>",
-                                                    "_after":"<\/p>",
-                                                    "_catsSelected":"",
-                                                    "_tagsSelected":"",
-                                                    "_catsInclude":"false",
-                                                    "_tagsInclude":"false",
-                                                    "_catsRequired":"false",
-                                                    "_tagsRequired":"false",
-                                                    "_listOrder":"DESC",
-                                                    "_listOrderBy":"post_date",
-                                                    "_listAmount":"5",
-                                                    "_postType":"post",
-                                                    "_postParent":"None",
-                                                    "_postExcludeCurrent":"true"
-                                                   },
-                         "simpleAttachmentList_10":{
-                                                    "_before":"<ul>",
-                                                    "_content":"<li><a href=\"[post_permalink]\">[post_title]<\/a><\/li>",
-                                                    "_after":"<\/ul>",
-                                                    "_catsSelected":"",
-                                                    "_tagsSelected":"",
-                                                    "_catsInclude":"false",
-                                                    "_tagsInclude":"false",
-                                                    "_catsRequired":"false",
-                                                    "_tagsRequired":"false",
-                                                    "_listOrder":"DESC",
-                                                    "_listOrderBy":"post_date",
-                                                    "_listAmount":"5",
-                                                    "_postType":"post",
-                                                    "_postParent":"None",
-                                                    "_postExcludeCurrent":"true"
-                                                   },
-                                        "images_5":{
-                                                    "_before":"<hr \/>",
-                                                    "_content":"<p><a href=\"[post_permalink]\"><img src=\"[guid]\" \/><\/a><\/p>",
-                                                    "_after":"<hr \/>",
-                                                    "_catsSelected":"",
-                                                    "_tagsSelected":"",
-                                                    "_catsInclude":"false",
-                                                    "_tagsInclude":"false",
-                                                    "_catsRequired":"false",
-                                                    "_tagsRequired":"false",
-                                                    "_listOrder":"DESC",
-                                                    "_listOrderBy":"post_date",
-                                                    "_listAmount":"5",
-                                                    "_postType":"post",
-                                                    "_postParent":"None",
-                                                    "_postExcludeCurrent":"true"
-                                                   },
-                                "pageDropdown_100":{
-                                                    "_before":"<p><select id=\"postList_dropdown\" style=\"width:200px; margin-right:20px\">",
-                                                    "_content":"<option value=\"[post_permalink]\">[post_title]<\/option>",
-                                                    "_after":"<\/ select> <input type=\"button\" id=\"postList_goBtn\" value=\"GO!\" onClick=\"javascript:window.location=document.getElementById(\'postList_dropdown\').value\" \/><\/p>",
-                                                    "_catsSelected":"",
-                                                    "_tagsSelected":"",
-                                                    "_catsInclude":"false",
-                                                    "_tagsInclude":"false",
-                                                    "_catsRequired":"false",
-                                                    "_tagsRequired":"false",
-                                                    "_listOrder":"DESC",
-                                                    "_listOrderBy":"post_date",
-                                                    "_listAmount":"5",
-                                                    "_postType":"post",
-                                                    "_postParent":"None",
-                                                    "_postExcludeCurrent":"true"
-                                                   },
-                                "simplePostList_5":{
-                                                    "_before":"<p>",
-                                                    "_content":"<a href=\"[post_permalink]\">[post_title]<\/a>[final_end], ",
-                                                    "_after":"<\/p>",
-                                                    "_catsSelected":"",
-                                                    "_tagsSelected":"",
-                                                    "_catsInclude":"false",
-                                                    "_tagsInclude":"false",
-                                                    "_catsRequired":"false",
-                                                    "_tagsRequired":"false",
-                                                    "_listOrder":"DESC",
-                                                    "_listOrderBy":"post_date",
-                                                    "_listAmount":"5",
-                                                    "_postType":"post",
-                                                    "_postParent":"None",
-                                                    "_postExcludeCurrent":"true"
-                                                   },
-                               "footerPageList_10":{
-                                                     "_before":"<p align=\"center\">",
-                                                    "_content":"<a href=\"[post_permalink]\">[post_title]<\/a>[final_end] | ",
-                                                    "_after":"<\/p>",
-                                                    "_catsSelected":"",
-                                                    "_tagsSelected":"",
-                                                    "_catsInclude":"false",
-                                                    "_tagsInclude":"false",
-                                                    "_catsRequired":"false",
-                                                    "_tagsRequired":"false",
-                                                    "_listOrder":"DESC",
-                                                    "_listOrderBy":"post_date",
-                                                    "_listAmount":"5",
-                                                    "_postType":"page",
-                                                    "_postParent":"",
-                                                    "_postExcludeCurrent":"true"
-                                                   },
-                          "everythingNumbered_200":{
-                                                    "_before":"<p>All my pages and posts (roll over for titles):<br\/>",
-                                                    "_content":"<a href=\"[post_permalink]\" title=\"[post_title]\">[item_number]<\/a>[final_end], ",
-                                                    "_after":"<\/p>",
-                                                    "_catsSelected":"",
-                                                    "_tagsSelected":"",
-                                                    "_catsInclude":"false",
-                                                    "_tagsInclude":"false",
-                                                    "_catsRequired":"false",
-                                                    "_tagsRequired":"false",
-                                                    "_listOrder":"DESC",
-                                                    "_listOrderBy":"post_date",
-                                                    "_listAmount":"5",
-                                                    "_postType":"page",
-                                                    "_postParent":"",
-                                                    "_postExcludeCurrent":"true"
-                                                   },
-                                "everythingID_200":{
-                                                    "_before":"<p>All my pages and posts (roll over for titles):<br\/>",
-                                                    "_content":"<a href=\"[post_permalink]\" title=\"[post_title]\">[ID]<\/a>[final_end], ",
-                                                    "_after":"<\/p>",
-                                                    "_catsSelected":"",
-                                                    "_tagsSelected":"",
-                                                    "_catsInclude":"false",
-                                                    "_tagsInclude":"false",
-                                                    "_catsRequired":"false",
-                                                    "_tagsRequired":"false",
-                                                    "_listOrder":"DESC",
-                                                    "_listOrderBy":"post_date",
-                                                    "_listAmount":"5",
-                                                    "_postType":"page",
-                                                    "_postParent":"",
-                                                    "_postExcludeCurrent":"true"
-                                                   },
-                                  "relatedPosts_5":{
-                                                    "_before":"<p>Related posts: ",
-                                                    "_content":"<a href=\"[post_permalink]\" title=\"[post_excerpt]\">[post_title]<\/a>[final_end], ",
-                                                    "_after":"<\/p>",
-                                                    "_catsSelected":"",
-                                                    "_tagsSelected":"",
-                                                    "_catsInclude":"false",
-                                                    "_tagsInclude":"false",
-                                                    "_catsRequired":"false",
-                                                    "_tagsRequired":"false",
-                                                    "_listOrder":"DESC",
-                                                    "_listOrderBy":"post_date",
-                                                    "_listAmount":"5",
-                                                    "_postType":"page",
-                                                    "_postParent":"",
-                                                    "_postExcludeCurrent":"true"
-                                                   },
-                                        "CSSTable":{
-                                                    "_before":"<style>\n.k_ul{width: 320px;text-align:center;list-style-type:none;}\n.k_li{width: 100px; height:65px; float: left; padding:3px;}\n.k_a{border:1px solid #f00;display:block;text-decoration:none;font-weight:bold;width:100%; height:65px}\n.k_a:hover{border:1px solid #00f;background:#00f;color:#fff;}\n.k_a:active{background:#f00;color:#fff;}\n<\/style><ul class=\"k_ul\">",
-                                                    "_content":"<li class=\"k_li\"><a class=\"k_a\" href=\"[post_permalink]\">[post_title]<\/a><\/li>",
-                                                    "_after":"<\/ul>",
-                                                    "_catsSelected":"",
-                                                    "_tagsSelected":"",
-                                                    "_catsInclude":"false",
-                                                    "_tagsInclude":"false",
-                                                    "_catsRequired":"false",
-                                                    "_tagsRequired":"false",
-                                                    "_listOrder":"DESC",
-                                                    "_listOrderBy":"post_date",
-                                                    "_listAmount":"5",
-                                                    "_postType":"page",
-                                                    "_postParent":"",
-                                                    "_postExcludeCurrent":"true"
-                                                   }
-                                             }';
+        $tmpPreset = (string) '{
+                                    "pageContentDivided_5":
+                                    {
+                                        "_postParent":[],
+                                        "_postTax":{},
+                                        "_listAmount":5,
+                                        "_listOrderBy":"date",
+                                        "_listOrder":"DESC",
+                                        "_postStatus":"publish",
+                                        "_postExcludeCurrent":true,
+                                        "_before":"<p><hr\/>",
+                                        "_content":"<a href=\"[post_permalink]\">[post_title]<\/a> by [post_author] - [post_date]<br\/>[post_content]<hr\/>",
+                                        "_after":"<\/p>"
+                                    },
+                                    "postExcerptDivided_5":
+                                    {
+                                        "_postParent":[],
+                                        "_postTax":{},
+                                        "_listAmount":5,
+                                        "_listOrderBy":"date",
+                                        "_listOrder":"DESC",
+                                        "_postStatus":"publish",
+                                        "_postExcludeCurrent":true,
+                                        "_before":"<p><hr\/>",
+                                        "_content":"<a href=\"[post_permalink]\">[post_title]<\/a> by [post_author] - [post_date]<br\/>[post_excerpt]<hr\/>",
+                                        "_after":"<\/p>"
+                                    },
+                                    "simpleAttachmentList_10":
+                                    {
+                                        "_postParent":[],
+                                        "_postTax":{},
+                                        "_listAmount":10,
+                                        "_listOrderBy":"date",
+                                        "_listOrder":"DESC",
+                                        "_postStatus":"publish",
+                                        "_postExcludeCurrent":true,
+                                        "_before":"<ul>",
+                                        "_content":"<li><a href=\"[post_permalink]\">[post_title]<\/a><\/li>",
+                                        "_after":"<\/ul>"
+                                    },
+                                    "images_5":
+                                    {
+                                        "_postParent":[],
+                                        "_postTax":{},
+                                        "_listAmount":5,
+                                        "_listOrderBy":"date",
+                                        "_listOrder":"DESC",
+                                        "_postStatus":"publish",
+                                        "_postExcludeCurrent":true,
+                                        "_before":"<hr \/>",
+                                        "_content":"<p><a href=\"[post_permalink]\"><img src=\"[guid]\" \/><\/a><\/p>",
+                                        "_after":"<hr \/>"
+                                    },
+                                    "pageDropdown_100":
+                                    {
+                                        "_postParent":[],
+                                        "_postTax":{},
+                                        "_listAmount":100,
+                                        "_listOrderBy":"date",
+                                        "_listOrder":"DESC",
+                                        "_postStatus":"publish",
+                                        "_postExcludeCurrent":true,
+                                        "_before":"<p><select id=\"postList_dropdown\" style=\"width:200px; margin-right:20px\">",
+                                        "_content":"<option value=\"[post_permalink]\">[post_title]<\/option>",
+                                        "_after":"<\/ select> <input type=\"button\" id=\"postList_goBtn\" value=\"GO!\" onClick=\"javascript:window.location=document.getElementById(\'postList_dropdown\').value\" \/><\/p>"
+                                    },
+                                    "simplePostList_5":
+                                    {
+                                        "_postParent":[],
+                                        "_postTax":{},
+                                        "_listAmount":5,
+                                        "_listOrderBy":"date",
+                                        "_listOrder":"DESC",
+                                        "_postStatus":"publish",
+                                        "_postExcludeCurrent":true,
+                                        "_before":"<p>",
+                                        "_content":"<a href=\"[post_permalink]\">[post_title]<\/a>[final_end], ",
+                                        "_after":"<\/p>"
+                                    },
+                                    "footerPageList_10":
+                                    {
+                                        "_postParent":[],
+                                        "_postTax":{},
+                                        "_listAmount":10,
+                                        "_listOrderBy":"date",
+                                        "_listOrder":"DESC",
+                                        "_postStatus":"publish",
+                                        "_postExcludeCurrent":true,
+                                        "_before":"<p align=\"center\">",
+                                        "_content":"<a href=\"[post_permalink]\">[post_title]<\/a>[final_end] | ",
+                                        "_after":"<\/p>"
+                                    },
+                                    "everythingNumbered_200":
+                                    {
+                                        "_postParent":[],
+                                        "_postTax":{},
+                                        "_listAmount":200,
+                                        "_listOrderBy":"date",
+                                        "_listOrder":"DESC",
+                                        "_postStatus":"publish",
+                                        "_postExcludeCurrent":true,
+                                        "_before":"<p>All my pages and posts (roll over for titles):<br\/>",
+                                        "_content":"<a href=\"[post_permalink]\" title=\"[post_title]\">[item_number]<\/a>[final_end], ",
+                                        "_after":"<\/p>"
+                                    },
+                                    "everythingID_200":
+                                    {
+                                        "_postParent":[],
+                                        "_postTax":{},
+                                        "_listAmount":200,
+                                        "_listOrderBy":"date",
+                                        "_listOrder":"DESC",
+                                        "_postStatus":"publish",
+                                        "_postExcludeCurrent":true,
+                                        "_before":"<p>All my pages and posts (roll over for titles):<br\/>",
+                                        "_content":"<a href=\"[post_permalink]\" title=\"[post_title]\">[ID]<\/a>[final_end], ",
+                                        "_after":"<\/p>"
+                                    },
+                                    "relatedPosts_5":
+                                    {
+                                        "_postParent":[],
+                                        "_postTax":{},
+                                        "_listAmount":5,
+                                        "_listOrderBy":"date",
+                                        "_listOrder":"DESC",
+                                        "_postStatus":"publish",
+                                        "_postExcludeCurrent":true,
+                                        "_before":"<p>Related posts: ",
+                                        "_content":"<a href=\"[post_permalink]\" title=\"[post_excerpt]\">[post_title]<\/a>[final_end], ",
+                                        "_after":"<\/p>"
+                                    },
+                                    "CSSTable":
+                                    {
+                                        "_postParent":[],
+                                        "_postTax":{},
+                                        "_listAmount":9,
+                                        "_listOrderBy":"date",
+                                        "_listOrder":"DESC",
+                                        "_postStatus":"publish",
+                                        "_postExcludeCurrent":true,
+                                        "_before":"<style>\n.k_ul{width: 320px;text-align:center;list-style-type:none;}\n.k_li{width: 100px; height:65px; float: left; padding:3px;}\n.k_a{border:1px solid #f00;display:block;text-decoration:none;font-weight:bold;width:100%; height:65px}\n.k_a:hover{border:1px solid #00f;background:#00f;color:#fff;}\n.k_a:active{background:#f00;color:#fff;}\n<\/style><ul class=\"k_ul\">",
+                                        "_content":"<li class=\"k_li\"><a class=\"k_a\" href=\"[post_permalink]\">[post_title]<\/a><\/li>",
+                                        "_after":"<\/ul>"
+                                    },
+                                    "postExcerptDivided_10":
+                                    {
+                                        "_postParent":["-1"],
+                                        "_postTax":
+                                        {
+                                            "post":
+                                            {
+                                                "taxonomies":
+                                                {
+                                                    "category":
+                                                    {
+                                                        "require_taxonomy":false,
+                                                        "require_terms":false,
+                                                        "include_terms":false,
+                                                        "terms":[1]
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "_listAmount":10,
+                                        "_listOrderBy":"date",
+                                        "_listOrder":"DESC",
+                                        "_postStatus":"publish",
+                                        "_postExcludeCurrent":true,
+                                        "_before":"<p><hr\/>",
+                                        "_content":"<a href=\"[post_permalink]\">[post_title]<\/a> by [post_author] - [post_date]<br\/>[post_excerpt]<hr\/>",
+                                        "_after":"<\/p>"
+                                    }
+                                }';
         //Step 3
         $this->_preset_db = json_decode($tmpPreset);
     }
 
 }
 
-/*
- * //Load Options if any
-  foreach ($name as $key)
-  {
-      $preset_options[$name[$key]] = get_option('APL_preset_' . $name);
-      //TODO create other options for creating groups of post
-      //      list settings.
-  }
-  if (!isset($preset_options))
-  {
-      install();
-  }
- */
 ?>

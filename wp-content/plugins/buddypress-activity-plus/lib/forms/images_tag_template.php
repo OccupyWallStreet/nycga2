@@ -2,7 +2,7 @@
 <?php $rel = md5(microtime() . rand());?>
 <?php foreach ($images as $img) { ?>
 	<?php if (!$img) continue; ?>
-	<?php if (preg_match('!^' . preg_quote('http://') . '!i', $img)) { // Remote image ?>
+	<?php if (preg_match('!^https?:\/\/!i', $img)) { // Remote image ?>
 		<img src="<?php echo $img; ?>" />
 	<?php } else { ?>
 		<?php $info = pathinfo($img);?>

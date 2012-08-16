@@ -2,13 +2,13 @@
 
 /*
   Plugin Name: Advanced Post List
-  Version: 0.2.0
-  Plugin URI: http://code.google.com/p/wordpress-advanced-post-list/
+  Version: 0.3.b4
+  Plugin URI: http://ekojr.com/advanced-post-list/
   Description: Create highly customizable post lists with dynamic features. 
-  Author: JoKeR
+  Author: EkoJr
 
   == Copyright ==
-  Advanced Post List by JoKeR (email: jokerbr313@gmail.com)
+  Advanced Post List by EkoJr (email: ekojr1337@gmail.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -28,7 +28,8 @@
  * @package advanced-post-list
  * @since 0.1.0
  * @version 0.2.0 - Added more require functions for additional pages.
- * @link http://code.google.com/p/wordpress-advanced-post-list/ Advanced Post List Homepage
+ * @version 0.3.0 - Added APL_Query
+ * @link http://ekojr.com/advanced-post-list/ Advanced Post List Homepage
  */
 /*****************************************************************************/
 /************************ Compatability Checks *******************************/
@@ -51,30 +52,33 @@ else
   echo "You are attempting to access this plugin directly.";
 }
 
+
+
 /*****************************************************************************/
 /************************ CONSTANTS ******************************************/
 /*****************************************************************************/
 //Define constant varibles
-define('APL_NAME', 'Advanced Post List');
-define('APL_DIR', plugin_dir_path(__FILE__));
-define('APL_URL', plugin_dir_url(__FILE__));
+define('APL_NAME',      'Advanced Post List');
 //FIX ALWAYS - Update version number
-define('APL_VERSION', '0.2.0');
-
+define('APL_VERSION',   '0.3.b4');
+//APL_DIR = C:\xampp\htdocs\wordpress\wp-content\plugins\advanced-post-list/
+define('APL_DIR',       plugin_dir_path(__FILE__));
+//APL_URL = http://localhost/wordpress/wp-content/plugins/advanced-post-list/
+define('APL_URL',       plugin_dir_url(__FILE__));
 /*****************************************************************************/
 /************************ REQUIRED FILES *************************************/
 /*****************************************************************************/
-require_once(APL_DIR . 'includes/Class/APLCore.php');
-require_once(APL_DIR . 'includes/Class/APLPresetDbObj.php');
-require_once(APL_DIR . 'includes/Class/APLPresetObj.php');
-require_once(APL_DIR . 'includes/Class/APLCallback.php');
-require_once(APL_DIR . 'includes/APLWidget.php');
-//require_once(APL_DIR . 'includes/Class/APLExport.php');
-//require_once(APL_DIR . 'includes/Class/APLImport.php');
+require_once(APL_DIR . 'includes/class/APLCore.php');
+require_once(APL_DIR . 'includes/class/APLPresetDbObj.php');
+require_once(APL_DIR . 'includes/class/APLPresetObj.php');
+require_once(APL_DIR . 'includes/class/APLCallback.php');
+require_once(APL_DIR . 'includes/class/APLWidget.php');
+require_once(APL_DIR . 'includes/class/APLQuery.php');
 
 /*****************************************************************************/
 /************************ LOAD HANDLER ***************************************/
 /*****************************************************************************/
+
 //Load Handler
 $advanced_post_list = new APLCore(__FILE__);
 
