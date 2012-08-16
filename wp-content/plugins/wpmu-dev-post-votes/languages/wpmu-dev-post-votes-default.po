@@ -1,0 +1,299 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPMU DEV Post Votes 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-20 16:25+0100\n"
+"PO-Revision-Date: 2011-11-20 16:25+0100\n"
+"Last-Translator: \n"
+"Language-Team: Incsub\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: D:\\xampp\\htdocs\\post-voting\\wp-content\\plugins\\wpmu-dev-post-votes\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SearchPath-0: lib\n"
+"X-Poedit-SearchPath-1: lib\\forms\n"
+
+#: lib/class_wdpv_admin_form_renderer.php:16
+msgid "Yes"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:19
+msgid "No"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:38
+msgid "<p>By default, visitors are tracked by IP too in order to prevent multiple voting. However, this can be problematic in certain cases (e.g. multiple users behind a single router).</p><p>Set this to \"No\" if you don't want to use this measure.</p>"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:46
+msgid "<p>By default, if visitor voting is not allowed, voting will not be shown at all.</p><p>Set this to \"Yes\" if you wish to have the login link instead.</p>"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:53
+msgid "Before the post"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:54
+msgid "After the post"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:55
+msgid "Both before and after the post"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:56
+msgid "Manually position the box using shortcode or widget"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:66
+msgid "<p>By default, voting will be shown only on singular pages.</p><p>Set this option to \"Yes\" to add voting to all posts on the front page.</p>"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:73
+msgid "Default"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:74
+msgid "Arrows"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:75
+msgid "Plus/Minus"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:76
+msgid "White arrows"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:77
+msgid "Q&amp;A arrows"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:83
+msgid "Preview:"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:92
+msgid "<p>If checked, this option will prevent negative votes by showing only positive voting link.</p>"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:99
+msgid "<p>By default, Site Admins are allowed to access plugin settings and make changes.</p><p>Set this option to \"Yes\" to prevent them from making changes to plugin settings.</p>"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:119
+msgid "<p>Voting will <strong><em>not</em></strong> be shown for selected types.</p>"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:128
+msgid "Activities will be recorded only for your logged in users"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:129
+msgid "Hide from sitewide activity stream:"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:131
+msgid "Recorded activities will be hidden from your sitewide activity stream"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:143
+msgid "Show"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:146
+msgid "all"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:152
+msgid "vote(s) within last"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:178
+msgid "Add-on name"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:179
+msgid "Add-on description"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:194
+msgid "Deactivate"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:196
+msgid "Activate"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:202
+#, php-format
+msgid "Version %s"
+msgstr ""
+
+#: lib/class_wdpv_admin_form_renderer.php:204
+#, php-format
+msgid "by %s"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:46
+msgid "Voting settings"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:47
+msgid "Allow post voting"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:48
+msgid "Allow voting for unregistered users"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:49
+msgid "Use IP check"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:50
+msgid "Show login link for visitors"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:51
+msgid "Do <strong>NOT</strong> show voting for these types"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:52
+msgid "Voting box position"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:53
+msgid "Appearance"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:54
+msgid "Prevent negative voting"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:55
+msgid "Voting on Front Page"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:57
+msgid "Prevent Site Admins from making changes?"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:61
+msgid "BuddyPress integration"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:62
+msgid "Publish votes to activity stream"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:63
+msgid "Show recent votes on user profile page"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:66
+msgid "Post Voting add-ons"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:67
+msgid "All add-ons"
+msgstr ""
+
+#: lib/class_wdpv_admin_pages.php:145
+#, php-format
+msgid "%s voted on <a href=\"%s\">%s</a>"
+msgstr ""
+
+#: lib/class_wdpv_codec.php:28
+#, php-format
+msgid "<div class=\"wdpv_login\">This post has %s votes. <a href=\"%s\">Log in now</a> to vote</div>"
+msgstr ""
+
+#: lib/class_wdpv_codec.php:67
+#: lib/class_wpdv_widget_network_popular.php:80
+#: lib/class_wpdv_widget_popular.php:93
+#, php-format
+msgid "<span class=\"wdpv_vote_count\">(%s votes)</span>"
+msgstr ""
+
+#: lib/class_wdpv_options.php:12
+msgid "This week"
+msgstr ""
+
+#: lib/class_wdpv_options.php:13
+msgid "Last week"
+msgstr ""
+
+#: lib/class_wdpv_options.php:14
+msgid "This month"
+msgstr ""
+
+#: lib/class_wdpv_options.php:15
+msgid "Last month"
+msgstr ""
+
+#: lib/class_wdpv_options.php:16
+msgid "This year"
+msgstr ""
+
+#: lib/class_wpdv_widget_network_popular.php:8
+msgid "Shows list of posts with highest number of votes on entire network."
+msgstr ""
+
+#: lib/class_wpdv_widget_network_popular.php:21
+#: lib/class_wpdv_widget_popular.php:22
+#: lib/class_wpdv_widget_voting.php:22
+msgid "Title:"
+msgstr ""
+
+#: lib/class_wpdv_widget_network_popular.php:26
+#: lib/class_wpdv_widget_popular.php:27
+msgid "Show this many posts:"
+msgstr ""
+
+#: lib/class_wpdv_widget_network_popular.php:36
+#: lib/class_wpdv_widget_popular.php:47
+msgid "Voted within:"
+msgstr ""
+
+#: lib/class_wpdv_widget_network_popular.php:38
+#: lib/class_wpdv_widget_popular.php:39
+#: lib/class_wpdv_widget_popular.php:49
+msgid "All time"
+msgstr ""
+
+#: lib/class_wpdv_widget_popular.php:8
+msgid "Shows list of posts with highest number of votes on current blog."
+msgstr ""
+
+#: lib/class_wpdv_widget_popular.php:37
+msgid "Posted within:"
+msgstr ""
+
+#: lib/class_wpdv_widget_voting.php:8
+msgid "Shows \"Vote\" box for current post/page with number of votes."
+msgstr ""
+
+#: lib/class_wpdv_widget_voting.php:27
+msgid "Show \"Vote up\" button:"
+msgstr ""
+
+#: lib/class_wpdv_widget_voting.php:32
+msgid "Show \"Vote down\" button:"
+msgstr ""
+
+#: lib/class_wpdv_widget_voting.php:37
+msgid "Show voting results:"
+msgstr ""
+
+#: lib/forms/bp_profile.php:1
+msgid "Recent votes"
+msgstr ""
+
+#: lib/forms/bp_profile.php:17
+msgid "No recent votes"
+msgstr ""
+

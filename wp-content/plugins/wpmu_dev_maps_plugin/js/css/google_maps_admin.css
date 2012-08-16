@@ -1,0 +1,100 @@
+@CHARSET "UTF-8";
+
+li.existing_map_item {
+	margin-bottom: .6em;
+	background: none;
+}
+li.existing_map_item.agm_active_item {
+	background: #FFFFd0;
+}
+li.existing_map_item .map_item_title {
+	font-weight: bold;
+}
+li.existing_map_item .map_item_actions {
+	font-size: .9em;
+}
+
+li.existing_map_item .map_advanced_checkbox_container {
+	float: right;
+	text-align: right;
+}
+li.existing_map_item .map_advanced_checkbox_container input {
+	margin: 1em;
+}
+
+/*#agm_map_options,*/ #agm_go_back {
+	float:right; 
+}
+#agm_map_options_controls_container {
+	float: right; 
+	width: 40%;
+	text-align: right;
+}
+#agm_map_drop_marker_controls_container {
+	width: 40%;
+	text-align: left;
+}
+
+#agm_mh_markers li {
+	margin-top: .6em;
+}
+
+.agm_mh_info_content {
+	width: 350px;
+}
+.agm_mh_info_icon_switch {
+	display: block;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+}
+.agm_mh_info_text {
+	float: left;
+	width: 300px;
+	margin-left: 5px;
+}
+.agm_mh_info_text input, .agm_mh_info_text textarea {
+	width: 100%;
+}
+
+.agm_less_important {
+	color: #999;
+	font-size: .8em;
+	font-style: italic;
+}
+
+div.ui-dialog {
+	font-size: 1em;
+}
+div.ui-dialog ul.agm_associated_list {
+	list-style-type: disc;
+	margin-left: 2em;
+	margin-top: .4em;
+}
+div.ui-dialog ul.agm_associated_list li {
+	font-size: .8em;
+	font-weight: bold;
+	line-height: .8em;
+}
+div.ui-dialog fieldset {
+	border: 1px solid #ccc;
+	padding: 1em;
+	padding-top: .2em;
+	margin-top: .2em;
+}
+div.ui-dialog legend {
+	padding: .4em;
+	font-size: .8em;
+	font-weight: bold;
+	font-style: italic;
+	color: #999;
+}
+
+#agm_mh_header {
+	margin-bottom: .4em;
+}
+#agm_mh_footer {
+	margin-top: .4em;
+}
+
+/* 18246-1343360157-ai */

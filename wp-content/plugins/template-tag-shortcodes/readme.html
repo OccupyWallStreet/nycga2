@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>A guide to the Template Tag Shortcodes plugin</title>
+
+<link rel="stylesheet" href="readme.css" type="text/css" media="screen" />
+
+</head>
+<body>
+
+<h1 title="A guide to using the Template Tag Shortcodes plugin">A guide to Template Tag Shortcodes</h1>
+
+<p><em>Template Tag Shortcodes</em> is a plugin that turns many of the WordPress <a href="http://codex.wordpress.org/Template_Tags" title="WordPress template tags">template tags</a> into easy-to-use shortcodes.</p>
+
+<p>This plugin was created so end users could make use of the template tags within their posts and pages.  Currently, this plugin creates 40+ shortcodes for use.  Not all template tags are available as shortcodes, but you are more than welcome to request others be added.</p>
+
+<h2>How to install the plugin</h2>
+
+<ol>
+	<li>Unzip the <code>template-tag-shortcodes.zip</code> folder.</li>
+	<li>Upload the <code>template-tag-shortcodes</code> folder to your <code>/wp-content/plugins</code> directory.</li>
+	<li>In your WordPress dashboard, head over to the <em>Plugins</em> section.</li>
+	<li>Activate <em>Template Tag Shortcodes</em>.</li>
+</ol>
+
+<h2>How to use the plugin</h2>
+
+<p>Once you've activated the plugin, you'll want to type one or more of the shortcodes within your post/page.  Here is a basic example of the <code>[wp_list_pages]</code> shortcode:</p>
+
+<pre><code>[wp_list_pages]</code></pre>
+
+<p>That will create a list of all your pages.  But, you can do much more.  Most shortcodes have several arguments you can input.  Here's an example of <code>[wp_list_pages]</code> that only lists specific pages we want:</p>
+
+<pre><code>[wp_list_pages include="1,2,3,4"]</code></pre>
+
+<p>If you're giving this a go, you might notice the invalid <acronym title="Extensible Hypertext Markup Language">XHTML</acronym> output.  This is because the shortcode does not wrap <code>&lt;ul></code> tags around the list items.  This is the default WordPress functionality that several template tags have.  This plugin will adhere to the WP defaults.  So, we might want to make this valid:</p>
+
+<pre><code>&lt;ul>[wp_list_pages include="1,2,3,4"]&lt;/ul></code></pre>
+
+<p>This is both a burden and a blessing.  It forces you to input the appropriate <acronym title="Extensible Hypertext Markup Language">XHTML</acronym> with a few of the shortcodes (particularly the ones that list items).  However, it gives you much more flexibility.  For example, we could've wrapped the list in <code>&lt;ol></code> tags.</p>
+
+<h2>The Shortcodes</h2>
+
+<p>I'm not going to explain each shortcode's parameters here.  That would take hours of my time.  Quite frankly, I don't have that much time to give.  I encourage you to be familiar with the <a href="http://codex.wordpress.org/Template_Tags" title="WordPress template tags">template tag</a> equivalent of the shortcode you'd like to use.  I will link to the relevant template tags below.</p>
+
+<p>I've separated each shortcode into groups for easier referencing.  Just click on a link below to find particular shortcodes:</p>
+
+<ul>
+	<li><a href="#author" title="Author shortcodes">Author shortcodes</a></li>
+	<li><a href="#category" title="Category shortcodes">Category shortcodes</a></li>
+	<li><a href="#date-time" title="Date and time shortcodes">Date and time shortcodes</a></li>
+	<li><a href="#tag" title="Tag shortcodes">Tag shortcodes</a></li>
+	<li><a href="#taxonomy" title="Taxonomy shortcodes">Taxonomy (term) shortcodes</a></li>
+	<li><a href="#bookmarks" title="Bookmarks/links shortcodes">Bookmarks/Links shortcodes</a></li>
+	<li><a href="#post" title="Post shortcodes">Post shortcodes</a></li>
+	<li><a href="#general" title=" shortcodes">General shortcodes</a></li>
+</ul>
+
+<h3 id="author">Author Shortcodes</h3>
+
+<dl>
+	<dt>[wp_list_authors]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/wp_list_authors" title="wp_list_authors() template tag">wp_list_authors()</a></dd>
+	<dd>Parameters: <code>optioncount</code>, <code>exclude_admin</code>, <code>show_fullname</code>, <code>hide_empty</code>, <code>feed</code>, <code>feed_image</code>, <code>style</code>, <code>html</code></dd>
+
+	<dt>[the_author_meta]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_meta" title="the_author_meta() template tag">the_author_meta()</a></dd>
+	<dd>Parameters: <code>field</code>, <code>user_id</code></dd>
+
+	<dt>[the_author]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author" title="the_author() template tag">the_author()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_author_description]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_description" title="the_author_description() template tag">the_author_description()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_author_login]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_login" title="the_author_login() template tag">the_author_login()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_author_firstname]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_firstname" title="the_author_firstname() template tag">the_author_firstname()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_author_lastname]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_lastname" title="the_author_lastname() template tag">the_author_lastname()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_author_nickname]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_nickname" title="the_author_nickname() template tag">the_author_nickname()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_author_ID]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_ID" title="the_author_ID() template tag">the_author_ID()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_author_url]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_url" title="the_author_url() template tag">the_author_url()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_author_email]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_email" title="the_author_email() template tag">the_author_email()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_author_link]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_link" title="the_author_link() template tag">the_author_link()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_author_aim]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_aim" title="the_author_aim() template tag">the_author_aim()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_author_yim]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_yim" title="the_author_yim() template tag">the_author_yim()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_author_posts]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_posts" title="the_author_posts() template tag">the_author_posts()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_author_posts_link]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_author_posts_link" title="the_author_posts_link() template tag">the_author_posts_link()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_modified_author]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_modified_author" title="the_modified_author() template tag">the_modified_author()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+</dl>
+
+<h3 id="category">Category Shortcodes</h3>
+
+<dl>
+	<dt>[wp_list_categories]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/wp_list_categories" title="wp_list_categories() template tag">wp_list_categories()</a></dd>
+	<dd>Parameters: <code>show_option_all</code>, <code>order</code>, <code>orderby</code>, <code>show_last_update</code>, <code>style</code>, <code>show_count</code>, <code>hide_empty</code>, <code>use_desc_for_title</code>, <code>child_of</code>, <code>feed</code>, <code>feed_image</code>, <code>exclude</code>, <code>include</code>, <code>current_category</code>, <code>hierarchical</code>, <code>title_li</code>, <code>echo</code>, <code>depth</code>, <code>number</code></dd>
+
+	<dt>[wp_dropdown_categories]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/wp_dropdown_categories" title="wp_dropdown_categories template() tag">wp_dropdown_categories()</a></dd>
+	<dd>Parameters: <code>show_option_none</code>, <code>show_option_all</code>, <code>order</code>, <code>orderby</code>, <code>show_last_update</code>, <code>style</code>, <code>show_count</code>, <code>hide_empty</code>, <code>use_desc_for_title</code>, <code>child_of</code>, <code>feed</code>, <code>feed_image</code>, <code>exclude</code>, <code>include</code>, <code>current_category</code>, <code>hierarchical</code>, <code>title_li</code>, <code>echo</code>, <code>depth</code>, <code>number</code>, <code>selected</code>, <code>name</code>, <code>class</code>, <code>postform</code></dd>
+
+	<dt>[the_category]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_category" title="the_category() template tag">the_category</a>()</dd>
+	<dd>Parameters: <code>separator</code>, <code>parents</code></dd>
+
+	<dt>[get_category_link]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Function_Reference/get_category_link" title="get_category_link() template tag">get_category_link()</a></dd>
+	<dd>Parameters: <code>category_id</code></dd>
+</dl>
+
+<h3 id="date-time">Date and Time Shortcodes</h3>
+
+<dl>
+	<dt>[the_date]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_date" title="the_date() template tag">the_date()</a></dd>
+	<dd>Parameters: <code>format</code>, <code>before</code>, <code>after</code></dd>
+
+	<dt>[the_time]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_time" title="the_time() template tag">the_time()</a></dd>
+	<dd>Parameters: <code>format</code></dd>
+
+	<dt>[the_modified_date]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_modified_date" title="the_modified_date() template tag">the_modified_date()</a></dd>
+	<dd>Parameters: <code>format</code></dd>
+
+	<dt>[the_modified_time]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_modified_time" title="the_modified_time() template tag">the_modified_time()</a></dd>
+	<dd>Parameters: <code>format</code></dd>
+</dl>
+
+<h3 id="tag">Tag shortcodes</h3>
+
+<dl>
+	<dt>[wp_tag_cloud]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/wp_tag_cloud" title="wp_tag_cloud() template tag">wp_tag_cloud()</a></dd>
+	<dd>Parameters: <code>taxonomy</code><code>smallest</code>, <code>largest</code>, <code>unit</code>, <code>number</code>, <code>format</code>, <code>order</code>, <code>orderby</code>, <code>exclude</code>, <code>include</code>, <code>link</code></dd>
+
+	<dt>[the_tags]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_tags" title="the_tags() template tag">the_tags()</a></dd>
+	<dd>Parameters: <code>before</code>, <code>separator</code>, <code>after</code></dd>
+
+	<dt>[get_tag_link]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Function_Reference/get_tag_link" title="get_tag_link() template tag">get_tag_link()</a></dd>
+	<dd>Parameters: <code>tag_id</code></dd>
+</dl>
+
+<h3 id="taxonomy">Taxonomy shortcodes</h3>
+
+<dl>
+	<dt>[the_terms]</dt>
+	<dd>Parameters: <code>id</code>, <code>taxonomy</code>, <code>separator</code>, <code>before</code>, <code>after</code></dd>
+
+	<dt>[term_description]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Function_Reference/term_description" title="term_description() template tag">term_description()</a></dd>
+	<dd>Parameters: <code>term</code>, <code>taxonomy</code></dd>
+</dl>
+
+<h3 id="bookmarks">Bookmarks/Links shortcodes</h3>
+
+<dl>
+	<dt>[wp_list_bookmarks]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/wp_list_bookmarks" title="wp_list_bookmarks() template tag">wp_list_bookmarks()</a></dd>
+	<dd>Parameters: <code>categorize</code>, <code>category</code>, <code>exclude_category</code>, <code>category_name</code>, <code>category_before</code>, <code>category_after</code>, <code>class</code>, <code>category_orderby</code>, <code>category_order</code>, <code>title_li</code>, <code>title_before</code>, <code>title_after</code>, <code>show_private</code>, <code>include</code>, <code>exclude</code>, <code>orderby</code>, <code>order</code>, <code>limit</code>, <code>before</code>, <code>after</code>, <code>link_before</code>, <code>link_after</code>, <code>between</code>, <code>show_images</code>, <code>show_description</code>, <code>show_name</code>, <code>show_rating</code>, <code>show_updated</code>, <code>hide_invisible</code></dd>
+</dl>
+
+<h3 id="post">Post Shortcodes</h3>
+
+<dl>
+	<dt>[the_title]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_title" title="the_title() template tag">the_title()</a></dd>
+	<dd>Parameters: <code>before</code>, <code>after</code></dd>
+
+	<dt>[the_title_attribute]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_title_attribute" title="the_title_attribute() template tag">the_title_attribute()</a></dd>
+	<dd>Parameters: <code>before</code>, <code>after</code></dd>
+
+	<dt>[the_ID]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_ID" title="the_ID() template tag">the_ID()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[the_permalink]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/the_permalink" title="the_permalink() template tag">the_permalink()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[get_permalink]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/get_permalink" title="get_permalink() template tag">get_permalink()</a></dd>
+	<dd>Parameters: <code>id</code></dd>
+
+	<dt>[comments_link]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/comments_link" title="comments_link() template tag">comments_link()</a></dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+</dl>
+
+<h3 id="general">General Shortcodes</h3>
+
+<dl>
+	<dt>[wp_list_pages]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/wp_list_pages" title="wp_list_pages() template tag">wp_list_pages()</a></dd>
+	<dd>Parameters: <code>depth</code>, <code>show_date</code>, <code>date_format</code>, <code>child_of</code>, <code>exclude</code>, <code>include</code>, <code>title_li</code>, <code>authors</code>, <code>sort_column</code>, <code>link_before</code>, <code>link_after</code>, <code>exclude_tree</code>, <code>sort_order</code>, <code>depth</code>, <code>hierarchical</code>, <code>meta_key</code>, <code>meta_value</code></dd>
+
+	<dt>[wp_dropdown_pages]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/wp_dropdown_pages" title="wp_dropdown_pages template() tag">wp_dropdown_pages()</a></dd>
+	<dd>Parameters: <code>name</code>, <code>show_option_none</code>, <code>selected</code>, <code>depth</code>, <code>show_date</code>, <code>date_format</code>, <code>child_of</code>, <code>exclude</code>, <code>include</code>, <code>title_li</code>, <code>authors</code>, <code>sort_column</code>, <code>exclude_tree</code>, <code>sort_order</code>, <code>depth</code>, <code>hierarchical</code>, <code>meta_key</code>, <code>meta_value</code></dd>
+
+	<dt>[wp_get_archives]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/wp_get_archives" title="wp_get_archives() template tag">wp_get_archives()</a></dd>
+	<dd>Parameters: <code>type</code>, <code>limit</code>, <code>format</code>, <code>before</code>, <code>after</code>, <code>show_post_count</code></dd>
+
+	<dt>[bloginfo]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/bloginfo" title="bloginfo() template tag">bloginfo()</a></dd>
+	<dd>Parameters: <code>show</code></dd>
+
+	<dt>[allowed_tags]</dt>
+	<dd>Template Tag: allowed_tags</dd>
+	<dd><em>This shortcode has no parameters.</em></dd>
+
+	<dt>[wp_logout_url]</dt>
+	<dd>Template Tag: <a href="http://codex.wordpress.org/Template_Tags/wp_logout_url" title="wp_logout_url() template tag">wp_logout_url()</a></dd>
+	<dd>Parameters: <code>redirect</code></dd>
+
+	<dt>[wp_login_url]</dt>
+	<dd>Template Tag: wp_login_url()</dd>
+	<dd>Parameters: <code>redirect</code></dd>
+</dl>
+
+<h2>Get involved</h2>
+
+<p>WordPress has tons of template tags.  Choosing which should be a converted to shortcodes is tough work.  I probably won't use most of them, but there may particular shortcodes you'd like to see.  If so, just let me know about it.  I'll be happy to add it to the plugin (if possible).</p>
+
+<h2>Plugin support</h2>
+
+<p>I run a WordPress community called <a href="http://themehybrid.com" title="Theme Hybrid">Theme Hybrid</a>, which is where I fully support all of my WordPress projects, including plugins.  You can sign up for an account to get plugin support for a small yearly fee ($25 <acronym title="United States Dollars">USD</acronym> at the time of writing).</p>
+
+<p>I know.  I know.  You might not want to pay for support, but just consider it a donation to the project.  To continue making cool, GPL-licensed plugins and having the time to support them, I must pay the bills.</p>
+
+<h2>Copyright &amp; license</h2>
+
+<p><em>Template Tag Shortcodes</em> is licensed under the <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html" title="GNU GPL">GNU General Public License</a>, version 2 (<acronym title="GNU General Public License">GPL</acronym>).</p>
+
+<p>This plugin is copyrighted to <a href="http://justintadlock.com" title="Justin Tadlock">Justin Tadlock</a>.</p>
+
+<p>2009 &copy; Justin Tadlock</p>
+
+</body>
+</html>
