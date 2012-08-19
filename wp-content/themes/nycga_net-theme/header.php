@@ -405,7 +405,7 @@ if( $tn_buddycorp_header_on == 'enable') { ?>
 
 	<!-- BEGIN: announcement bar -->
 
-	<?php// locate_template( array( 'announcement.php' ), true ) ?>
+	<?php locate_template( array( 'announcement.php' ), true ) ?>
 
 	<!-- //END: announcement bar -->
 

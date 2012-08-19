@@ -2,7 +2,9 @@
 /* @var $EM_Event EM_Event */
 $people = array();
 foreach($EM_Event->get_bookings() as $EM_Booking){
-	$people[$EM_Booking->person->ID] = $EM_Booking->person;
+	if($EM_Booking->status == 1){
+		$people[$EM_Booking->person->ID] = $EM_Booking->person;
+	}
 }
 ?>
 <ul class="event-attendees">

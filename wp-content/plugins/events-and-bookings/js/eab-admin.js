@@ -11,19 +11,19 @@ jQuery(function() {
     
     jQuery("#eab-add-more").show();
     jQuery("#eab-add-more-button").click(function() {
-	row_id = jQuery('.eab-start-section').length-1;
-	jQuery("#eab-add-more-rows").append(jQuery("#eab-add-more-bank").html().replace(/_bank/gi, '_'+row_id).replace(/bank/gi, row_id+1).replace(/_b/gi, ''));
+		row_id = jQuery('.eab-start-section').length-1;
+		jQuery("#eab-add-more-rows").append(jQuery("#eab-add-more-bank").html().replace(/_bank/gi, '_'+row_id).replace(/bank/gi, row_id+1).replace(/_b/gi, ''));
 	
-	jQuery( "#incsub_event_start_"+row_id+" , #incsub_event_end_"+row_id ).datepicker({
-	    minDate: 0,
-	    dateFormat: "yy-mm-dd",
-	    changeMonth: true,
-	    changeYear: true
-	});
-	
-	if (jQuery('.eab-section-block').length > 2) {
-	    jQuery('.eab-section-heading').show();
-	}
+		jQuery( "#incsub_event_start_"+row_id+" , #incsub_event_end_"+row_id ).datepicker({
+		    minDate: 0,
+		    dateFormat: "yy-mm-dd",
+		    changeMonth: true,
+		    changeYear: true
+		});
+		
+		if (jQuery('.eab-section-block').length > 2) {
+		    jQuery('.eab-section-heading').show();
+		}
     });
     
     if (jQuery("#incsub_event-accept_payments:checked") && jQuery("#incsub_event-accept_payments:checked").length == 0) {
@@ -67,10 +67,26 @@ jQuery(function() {
 		jQuery('.eab-section-heading').hide();
     }
     
-    jQuery('input.incsub_event').change(function () {
+    jQuery("#incsub-event").on("change", 'input.incsub_event', function () {
 		_c = jQuery(this).attr('id').replace(/incsub_event_[a-z_]+_/gi, '');
 		_eab_validate_when(_c);
     });
+
+    jQuery("#incsub-event").on("change", ".incsub_event_no_start_time", function () {
+    	var $me = jQuery(this);
+    	_c = $me.attr('id').replace(/incsub_event_[a-z_]+_/gi, '');
+    	if ($me.is(":checked")) jQuery("#incsub_event_start_time_" + _c).hide();
+    	else jQuery("#incsub_event_start_time_" + _c).show();
+    });
+    jQuery(".incsub_event_no_start_time").each(function () { jQuery(this).trigger("change");});
+
+    jQuery("#incsub-event").on("change", ".incsub_event_no_end_time", function () {
+    	var $me = jQuery(this);
+    	_c = $me.attr('id').replace(/incsub_event_[a-z_]+_/gi, '');
+    	if ($me.is(":checked")) jQuery("#incsub_event_end_time_" + _c).hide();
+    	else jQuery("#incsub_event_end_time_" + _c).show();
+    });
+    jQuery(".incsub_event_no_end_time").each(function () { jQuery(this).trigger("change");});
 
 
     jQuery('form#post').submit(function () {
@@ -88,11 +104,12 @@ jQuery(function() {
     });
     
     function _eab_validate_when(_c) {
+    	console.log(_c)
 		_start = false;//new Date();
 		if (jQuery('#incsub_event_start_'+_c).val() != '') {
 		    _start = new Date(jQuery('#incsub_event_start_'+_c).val());
-			if (jQuery('#incsub_event_start_time_'+_c).val() != '') {
-			    _start_time = jQuery('#incsub_event_start_time_'+_c).val();
+			if (jQuery('#incsub_event_start_time_'+_c).val() != '' || jQuery('#incsub_event_no_start_time_'+_c).is(":checked")) {
+			    _start_time = jQuery('#incsub_event_no_start_time_'+_c).is(":checked") ? '00:01' : jQuery('#incsub_event_start_time_'+_c).val();
 			    _start_time_parts = _start_time.split(/:/gi);
 			    
 			    _start.setHours(_start_time_parts[0]);
@@ -103,14 +120,17 @@ jQuery(function() {
 		_end = false;//new Date();
 		if (jQuery('#incsub_event_end_'+_c).val() != '') {
 		    _end = new Date(jQuery('#incsub_event_end_'+_c).val());
-			if (jQuery('#incsub_event_end_time_'+_c).val() != '') {
-			    _end_time = jQuery('#incsub_event_end_time_'+_c).val();
+			if (jQuery('#incsub_event_end_time_'+_c).val() != '' || jQuery('#incsub_event_no_end_time_'+_c).is(":checked")) {
+			    _end_time = jQuery('#incsub_event_no_end_time_'+_c).is(":checked") ? '23:59' : jQuery('#incsub_event_end_time_'+_c).val();
 			    _end_time_parts = _end_time.split(/:/gi);
 			    
 			    _end.setHours(_end_time_parts[0]);
 			    _end.setMinutes(_end_time_parts[1]);
 			}
 		}
+
+console.log(_start)
+console.log(_end)
 	
 		if ((!_start || !_end) || _start.getTime() >= _end.getTime()) {
 		    jQuery('#incsub_event_start_'+_c).addClass('error');

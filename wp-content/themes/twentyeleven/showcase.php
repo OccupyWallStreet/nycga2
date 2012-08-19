@@ -15,7 +15,7 @@
  */
 
 // Enqueue showcase script for the slider
-wp_enqueue_script( 'twentyeleven-showcase', get_template_directory_uri() . '/js/showcase.js', array( 'jquery' ), '2011-04-28' );
+wp_enqueue_script( 'showcase', get_stylesheet_directory_uri() . '/_inc/js/showcase.js', array( 'jquery' ), '2011-04-28' );
 
 get_header(); ?>
 

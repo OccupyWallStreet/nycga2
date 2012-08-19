@@ -7,12 +7,14 @@ abstract class WpmuDev_DatedItem {
 	 * @return array Start dates. 
 	 */
 	abstract public function get_start_dates ();
+	abstract public function has_no_start_time ($key=0);
 	
 	/**
 	 * Packs event end dates as an array of (string)MySQL dates.
 	 * @return array End dates. 
 	 */
 	abstract public function get_end_dates ();
+	abstract public function has_no_end_time ($key=0);
 	
 	/**
 	 * Gets indexed start date as (string)MySQL date.
@@ -335,8 +337,31 @@ class Eab_EventModel extends WpmuDev_DatedVenuePremiumModel {
 		return ($this->_event->post_status == self::POST_STATUS_TRASH);
 	}
 
+	public function get_categories () {
+		$list = get_the_terms($this->get_id(), 'eab_events_category');
+		return is_wp_error($list) ? false : $list;
+	}
+
+	public function get_category_ids () {
+		$list = $this->get_categories();
+		if (!$list) return false;
+		$cats = array();
+		foreach ($list as $category) $cats[] = $category->term_id;
+		return $cats;
+	}
+
 
 /* ----- Date/Time methods ----- */
+
+	public function has_no_start_time ($key=0) {
+		$raw = get_post_meta($this->get_id(), 'incsub_event_no_start');
+		return $raw[$key];
+	}
+	
+	public function has_no_end_time ($key=0) {
+		$raw = get_post_meta($this->get_id(), 'incsub_event_no_end');
+		return $raw[$key];
+	}
 	
 	/**
 	 * Packs event start dates as an array of (string)MySQL dates.
@@ -424,7 +449,7 @@ class Eab_EventModel extends WpmuDev_DatedVenuePremiumModel {
 		
 		$instances = $this->_get_recurring_instances_timestamps($start, $end, $interval, $time_parts);
 	
-		$duration = (int)@$time_parts['duration'];
+		$duration = (float)@$time_parts['duration'];
 		$duration = $duration ? $duration : 1;
 		
 		$venue = $this->get_venue();
@@ -442,6 +467,13 @@ class Eab_EventModel extends WpmuDev_DatedVenuePremiumModel {
 			global $wpdb;
 			if (false !== $wpdb->insert($wpdb->posts, $post)) {
 				$post_id = $wpdb->insert_id;
+
+				$event_cats = $this->get_category_ids();
+				if ($event_cats) {
+					wp_set_post_terms($post_id, $event_cats, 'eab_events_category', false);
+					do_action('eab-events-recurrent_event_child-assigned_taxonomies', $post_id, $event_cats);
+				}
+				
 				update_post_meta($post_id, 'incsub_event_start', date("Y-m-d H:i:s", $instance));
 				update_post_meta($post_id, 'incsub_event_end', date("Y-m-d H:i:s", $instance + ($duration * 3600)));
 				update_post_meta($post_id, 'incsub_event_venue', $venue);
@@ -523,9 +555,9 @@ class Eab_EventModel extends WpmuDev_DatedVenuePremiumModel {
 	 * @return price
 	 */
 	public function get_price () {
-		if ($this->_price) return $this->_price;
+		if ($this->_price) return apply_filters('eab-payment-event_price', $this->_price, $this->get_id());
 		$this->_price = get_post_meta($this->get_id(), 'incsub_event_fee', true);
-		return $this->_price;
+		return apply_filters('eab-payment-event_price', $this->_price, $this->get_id());
 	}
 	
 	public function user_paid ($user_id=false) {

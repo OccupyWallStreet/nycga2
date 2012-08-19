@@ -6,11 +6,14 @@ $version = '20120732';
 /* Register styles */
 function my_styles_method()  
 { 
+	wp_enqueue_style( 'nycga', get_stylesheet_directory_uri() . '/_inc/css/nycga_core.css' ); // Inside a child theme
 	wp_enqueue_style( 'type', get_stylesheet_directory_uri() . '/_inc/css/type.css' ); // Inside a child theme
+	wp_enqueue_style( 'font', 'http://fonts.googleapis.com/css?family=Oswald' ); // Inside a child theme
 	wp_enqueue_style( 'events', get_stylesheet_directory_uri() . '/_inc/css/events.css' ); // Inside a child theme
 	wp_enqueue_style( 'chosenform', get_stylesheet_directory_uri() . '/_inc/js/chosen.css' ); // Inside a child theme
 
   // enqueing
+  wp_enqueue_style( 'nycga' );
   wp_enqueue_style( 'type' );
   wp_enqueue_style( 'events' );
   wp_enqueue_style( 'chosenform' );
@@ -67,6 +70,34 @@ function my_bp_activity_entry_meta() {
  
 }
 add_action('bp_activity_entry_meta', 'my_bp_activity_entry_meta');
+
+// Register homepage top left-column widget
+register_sidebar(
+	array(
+		'name' => __('top-left-column', TEMPLATE_DOMAIN),
+      'id'            => 'top-left-column',
+			'description'   => 'Top Left Column Widget',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h2 class="widgettitle">',
+      'after_title'   => '</h2>'
+	)
+);
+add_action( 'init', 'top-left-column' );
+
+// Register homepage top right-column widget
+register_sidebar(
+	array(
+		'name' => __('top-right-column', TEMPLATE_DOMAIN),
+      'id'            => 'top-right-column',
+			'description'   => 'Top Right Column Widget',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h2 class="widgettitle">',
+      'after_title'   => '</h2>'
+	)
+);
+add_action( 'init', 'top-right-column' );
 
 
 
@@ -432,6 +463,27 @@ function hhs_add_admin_scripts( $hook ) {
 			wp_enqueue_style( 'chosen', get_stylesheet_directory_uri().'/_inc_js/chosen.css' );
 		}
 	}
+}
+
+// Improved excerpt function
+function improved_trim_excerpt($text) {
+    global $post;
+    if ( '' == $text ) {
+        $text = get_the_content('');
+        $text = apply_filters('the_content', $text);
+        $text = str_replace('\]\]\>', ']]&gt;', $text);
+        $text = preg_replace('@<script[^>]*?>.*?</script>@si', '', $text);
+        $text = strip_tags($text, '<p>');
+        $text = strip_tags($text, '<a>');
+        $excerpt_length = 80;
+        $words = explode(' ', $text, $excerpt_length + 1);
+        if (count($words)> $excerpt_length) {
+                array_pop($words);
+                array_push($words, '[…]');
+                $text = implode(' ', $words);
+        }
+    }
+    return $text;
 }
 
 

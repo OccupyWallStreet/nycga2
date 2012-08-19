@@ -55,19 +55,21 @@ function wangguard_conf() {
 
 	} elseif ( isset($_POST['optssave']) ) {
 
-			wangguard_update_option('wangguard-expertmode', $_POST['wangguardexpertmode']=='1' ? 1 : 0 );
+			wangguard_update_option('wangguard-expertmode', @$_POST['wangguardexpertmode']=='1' ? 1 : 0 );
 
-			wangguard_update_option('wangguard-report-posts', $_POST['wangguardreportposts']=='1' ? 1 : 0 );
+			wangguard_update_option('wangguard-report-posts', @$_POST['wangguardreportposts']=='1' ? 1 : 0 );
 
-			wangguard_update_option('wangguard-delete-users-on-report', $_POST['wangguard-delete-users-on-report']=='1' ? 1 : -1 );
+			wangguard_update_option('wangguard-delete-users-on-report', @$_POST['wangguard-delete-users-on-report']=='1' ? 1 : -1 );
 			
-			wangguard_update_option('wangguard-enable-bp-report-btn', $_POST['wangguardenablebpreportbtn']=='1' ? 1 : -1 );
+			wangguard_update_option('wangguard-enable-bp-report-btn', @$_POST['wangguardenablebpreportbtn']=='1' ? 1 : -1 );
 			
-			wangguard_update_option('wangguard-enable-bp-report-blog', $_POST['wangguardenablebpreportblog']=='1' ? 1 : -1 );
+			wangguard_update_option('wangguard-enable-bp-report-blog', @$_POST['wangguardenablebpreportblog']=='1' ? 1 : -1 );
 
-			wangguard_update_option('wangguard-verify-gmail', $_POST['wangguard-verify-gmail']=='1' ? 1 : 0 );
+			wangguard_update_option('wangguard-verify-gmail', @$_POST['wangguard-verify-gmail']=='1' ? 1 : 0 );
 			
-			wangguard_update_option('wangguard-verify-dns-mx', $_POST['wangguard-verify-dns-mx']=='1' ? 1 : 0 );
+			wangguard_update_option('wangguard-verify-dns-mx', @$_POST['wangguard-verify-dns-mx']=='1' ? 1 : 0 );
+
+			wangguard_update_option('wangguard-do-not-check-client-ip', @$_POST['wangguard-do-not-check-client-ip']=='1' ? 1 : 0 );
 
 			$selectedTab = 2;
 			
@@ -97,7 +99,7 @@ function wangguard_conf() {
 			$ms[] = 'key_failed';
 		}
 	}
-
+	
 
 	$messages = array(
 		'new_key_empty' => array('class' => 'wangguard-info', 'text' => __('Your key has been cleared.', 'wangguard')),
@@ -149,7 +151,7 @@ function wangguard_conf() {
 					<?php endforeach; ?>
 					<p><input id="key" name="key" type="text" size="35" maxlength="32" value="<?php echo wangguard_get_option('wangguard_api_key'); ?>" style="font-family: 'Courier New', Courier, mono; font-size: 1.5em;" /> (<?php _e('<a href="http://wangguard.com/faq" target="_new">What is this?</a>', 'wangguard'); ?>)</p>
 
-					<?php if ( $invalid_key ) { ?>
+					<?php if ( $key_status == 'invalid' ) { ?>
 						<h3><?php _e('Why might my key be invalid?', 'wangguard'); ?></h3>
 						<p><?php _e('This can mean one of two things, either you copied the key wrong or that the plugin is unable to reach the WangGuard servers, which is most often caused by an issue with your web host around firewalls or similar.', 'wangguard'); ?></p>
 					<?php } ?>
@@ -175,9 +177,13 @@ function wangguard_conf() {
 				<?php
 				$table_name = $wpdb->base_prefix . "wangguardquestions";
 				$wgquestRs = $wpdb->get_results("select * from $table_name order by id");
-
-				if (!empty ($wgquestRs)) {
-					?><h4><?php _e('Existing security questions', 'wangguard')?></h4><?php
+				?>
+				
+				<h4><?php _e('Existing security questions', 'wangguard')?></h4>				
+				
+				<?php
+				if (empty ($wgquestRs)) {
+					?><div id="wangguard-question-noquestion"><?php _e('No security questions created yet','wangguard')?></div><?php
 				}
 				foreach ($wgquestRs as $question) {?>
 					<div class="wangguard-question" id="wangguard-question-<?php echo $question->id?>">
@@ -201,6 +207,8 @@ function wangguard_conf() {
 			</div>
 
 
+			
+			
 
 
 			<!--WANGGUARD SETTINGS-->
@@ -224,14 +232,19 @@ function wangguard_conf() {
 						<input type="checkbox" name="wangguard-delete-users-on-report" id="wangguard-delete-users-on-report" value="1" <?php echo wangguard_get_option("wangguard-delete-users-on-report")=='1' ? 'checked' : ''?> />
 						<label for="wangguard-delete-users-on-report"><?php _e("<strong>Delete users when reporting them to WangGuard.</strong><br/>By checking this option, the users you report as Sploggers will be deleted from your site.", 'wangguard') ?></label>
 					</p>
+					
+					<?php if (defined('BP_VERSION')) { ?>
 					<p>
 						<input type="checkbox" name="wangguardenablebpreportbtn" id="wangguardenablebpreportbtn" value="1" <?php echo wangguard_get_option("wangguard-enable-bp-report-btn")=='1' ? 'checked' : ''?> />
 						<label for="wangguardenablebpreportbtn"><?php _e("<strong>Show the 'report user' button on BuddyPress.</strong><br/>BuddyPress only. By checking this option a link called 'report user' will be shown on each user's activity and profile page.", 'wangguard') ?></label>
 					</p>
+					<?php } ?>
+					<?php if (defined('BP_VERSION') || wangguard_is_multisite()) { ?>
 					<p>
 						<input type="checkbox" name="wangguardenablebpreportblog" id="wangguardenablebpreportblog" value="1" <?php echo wangguard_get_option("wangguard-enable-bp-report-blog")=='1' ? 'checked' : ''?> />
-						<label for="wangguardenablebpreportblog"><?php _e("<strong>Show the 'Report blog and author' menu item in the Admin Bar.</strong><br/>BuddyPress only. By checking this option a new menu item on the Admin Bar called 'Report blog and author' will be shown on each blog.", 'wangguard') ?></label>
+						<label for="wangguardenablebpreportblog"><?php _e("<strong>Show the 'Report blog and author' menu item in the Admin Bar.</strong><br/>By checking this option a new menu item on the Admin Bar called 'Report blog and author' will be shown on each blog.", 'wangguard') ?></label>
 					</p>
+					<?php } ?>
 
 					<p>
 						<input type="checkbox" name="wangguard-verify-gmail" id="wangguard-verify-gmail" value="1" <?php echo wangguard_get_option("wangguard-verify-gmail")=='1' ? 'checked' : ''?> />
@@ -252,6 +265,11 @@ function wangguard_conf() {
 					</p>
 
 					<p>
+						<input type="checkbox" name="wangguard-do-not-check-client-ip" id="wangguard-do-not-check-client-ip" value="1" <?php echo wangguard_get_option("wangguard-do-not-check-client-ip")=='1' ? 'checked' : ''?> />
+						<label for="wangguard-do-not-check-client-ip"><?php _e("<strong>Do NOT verify client IP address.</strong><br/>By checking this option, when checking a user, the IP address of the user will not be sent along with the e-mail address to the WangGuard service. Selecting this option reduces WangGuard effectiveness, but if your new accounts come mostly from the same IP, in the case of colleges, universities or other large institutions, this would prevent WangGuard from flagging the IP address as suspicious.", 'wangguard') ?></label>
+					</p>
+
+					<p>
 						<input type="checkbox" name="wangguardexpertmode" id="wangguardexpertmode" value="1" <?php echo wangguard_get_option("wangguard-expertmode")=='1' ? 'checked' : ''?> />
 						<label for="wangguardexpertmode"><?php _e("<strong>Ninja mode.</strong><br/>By checking this option no confirmation message will be asked for report operations on the Users manager. Just remember that users gets deleted when reported and the option 'Delete users when reporting them to WangGuard' is selected.", 'wangguard') ?></label>
 					</p>
@@ -261,6 +279,11 @@ function wangguard_conf() {
 				</form>
 			</div>
 
+			
+
+
+			
+			
 			
 
 			<!--WANGGUARD BLOCKED DOMAINS-->

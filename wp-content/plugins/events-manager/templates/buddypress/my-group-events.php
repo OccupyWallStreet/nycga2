@@ -1,4 +1,5 @@
 <?php
+/* WARNING! This file may change in the near future as we intend to add features to BuddyPress - 2012-02-14 */
 	global $bp, $EM_Notices;
 	echo $EM_Notices;
 	$url = $bp->events->link . 'my-events/'; //url to this page
@@ -58,7 +59,7 @@
 					$localised_end_date = date_i18n('D d M Y', $event->end);
 					$style = "";
 					$today = date ( "Y-m-d" );
-					$location_summary = "<b>" . $event->location->name . "</b><br/>" . $event->location->address . " - " . $event->location->town;
+					$location_summary = "<b>" . $event->get_location()->name . "</b><br/>" . $event->get_location()->address . " - " . $event->get_location()->town;
 					
 					if ($event->start_date < $today && $event->end_date < $today){
 						$class .= " past";
@@ -68,21 +69,21 @@
 						$class .= " pending";
 					}					
 					?>
-					<tr class="event <?php echo trim($class); ?>" <?php echo $style; ?> id="event_<?php echo $event->id ?>">
+					<tr class="event <?php echo trim($class); ?>" <?php echo $style; ?> id="event_<?php echo $event->event_id ?>">
 						<?php /*
 						<td>
-							<input type='checkbox' class='row-selector' value='<?php echo $event->id; ?>' name='events[]' />
+							<input type='checkbox' class='row-selector' value='<?php echo $event->event_id; ?>' name='events[]' />
 						</td>
 						*/ ?>
 						<td>
 							<strong>
-								<a class="row-title" href="<?php echo $url; ?>edit/?event_id=<?php echo $event->id ?>"><?php echo ($event->name); ?></a>
+								<a class="row-title" href="<?php echo $url; ?>edit/?event_id=<?php echo $event->event_id ?>"><?php echo ($event->event_name); ?></a>
 							</strong>
 							<?php 
-							if( $event->can_manage('manage_bookings','manage_others_bookings') && get_option('dbem_rsvp_enabled') == 1 && $event->rsvp == 1 ){
+							if( $event->can_manage('manage_bookings','manage_others_bookings') && get_option('dbem_rsvp_enabled') == 1 && $event->event_rsvp == 1 ){
 								?>
 								<br/>
-								<a href="<?php echo $url ?>bookings/?event_id=<?php echo $event->id ?>"><?php echo __("Bookings",'dbem'); ?></a> &ndash;
+								<a href="<?php echo $url ?>bookings/?event_id=<?php echo $event->event_id ?>"><?php echo __("Bookings",'dbem'); ?></a> &ndash;
 								<?php _e("Booked",'dbem'); ?>: <?php echo $event->get_bookings()->get_booked_spaces()."/".$event->get_spaces(); ?>
 								<?php if( get_option('dbem_bookings_approval') == 1 ): ?>
 									| <?php _e("Pending",'dbem') ?>: <?php echo $event->get_bookings()->get_pending_spaces(); ?>
@@ -91,12 +92,12 @@
 							?>
 							<div class="row-actions">
 								<?php if( current_user_can('delete_events')) : ?>
-								<span class="trash"><a href="<?php echo $url ?>?action=event_delete&amp;event_id=<?php echo $event->id ?>" class="em-event-delete"><?php _e('Delete','dbem'); ?></a></span>
+								<span class="trash"><a href="<?php echo $url ?>?action=event_delete&amp;event_id=<?php echo $event->event_id ?>" class="em-event-delete"><?php _e('Delete','dbem'); ?></a></span>
 								<?php endif; ?>
 							</div>
 						</td>
 						<td>
-							<a href="<?php echo $url ?>edit/?action=event_duplicate&amp;event_id=<?php echo $event->id ?>" title="<?php _e ( 'Duplicate this event', 'dbem' ); ?>">
+							<a href="<?php echo $url ?>edit/?action=event_duplicate&amp;event_id=<?php echo $event->event_id ?>" title="<?php _e ( 'Duplicate this event', 'dbem' ); ?>">
 								<strong>+</strong>
 							</a>
 						</td>
@@ -123,9 +124,9 @@
 								?>
 								<strong>
 								<?php echo $event->get_recurrence_description(); ?> <br />
-								<a href="<?php echo $url ?>edit/?event_id=<?php echo $event->recurrence_id ?>"><?php _e ( 'Reschedule', 'dbem' ); ?></a>
+								<a href="<?php echo $url ?>edit/?event_id=<?php echo $event->recurrence_id ?>"><?php _e ( 'Edit Recurring Events', 'dbem' ); ?></a>
 								<?php if( current_user_can('delete_events')) : ?>
-								<span class="trash"><a href="<?php echo $url ?>?action=event_delete&amp;event_id=<?php echo $event->id ?>" class="em-event-rec-delete" onclick ="if( !confirm('<?php echo $recurrence_delete_confirm; ?>') ){ return false; }"><?php _e('Delete','dbem'); ?></a></span>
+								<span class="trash"><a href="<?php echo $url ?>?action=event_delete&amp;event_id=<?php echo $event->event_id ?>" class="em-event-rec-delete" onclick ="if( !confirm('<?php echo $recurrence_delete_confirm; ?>') ){ return false; }"><?php _e('Delete','dbem'); ?></a></span>
 								<?php endif; ?>										
 								</strong>
 								<?php

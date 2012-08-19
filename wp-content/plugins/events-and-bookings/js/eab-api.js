@@ -110,7 +110,8 @@ function create_wordpress_login_popup ($action, post_id) {
 	$wrapper.css({
 		"left": ($(document).width() - 300) / 2,
 	});
-	$("#eab-wordpress_login-mode_toggle a").on('click', function () {
+	//$("#eab-wordpress_login-mode_toggle a").on('click', function () {
+	$("#eab-wordpress_login-mode_toggle a").click(function () {
 		var $me = $(this);
 		if ($("#eab-wordpress_login-registration_wrapper").is(":visible")) {
 			$me.text($me.attr("data-off"));
@@ -123,8 +124,10 @@ function create_wordpress_login_popup ($action, post_id) {
 		}	
 		return false;
 	});
-	$("#eab-wordpress_login-command-ok").on('click', dispatch_login_register);
-	$("#eab-wordpress_login-command-cancel, #eab-wordpress_login-background").on('click', function () {
+	//$("#eab-wordpress_login-command-ok").on('click', dispatch_login_register);
+	$("#eab-wordpress_login-command-ok").click(dispatch_login_register);
+	//$("#eab-wordpress_login-command-cancel, #eab-wordpress_login-background").on('click', function () {
+	$("#eab-wordpress_login-command-cancel, #eab-wordpress_login-background").click(function () {
 		$wrapper.remove();
 		$background.remove();
 		return false;

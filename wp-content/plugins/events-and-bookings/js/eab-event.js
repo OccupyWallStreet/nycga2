@@ -32,7 +32,8 @@ jQuery(function() {
     jQuery(".eab-buy_tickets-target").hide();
     jQuery(".eab-buy_tickets-trigger")
     	.show()
-    	.on('click', function () {
+        //.on('click', function () {
+    	.click(function () {
     		jQuery(this).hide().parent().find(".eab-buy_tickets-target").show();
     		return false;
     	})

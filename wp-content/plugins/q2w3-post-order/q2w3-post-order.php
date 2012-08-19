@@ -4,7 +4,7 @@ Plugin Name: Q2W3 Post Order
 Plugin URI: http://www.q2w3.ru/q2w3-post-order-wordpress-plugin/
 Description: With Q2W3 Post Order you can can change natural order of posts. Supported custom taxonomies and custom post type archive pages. Requires WP 3.1 or higher. 
 Author: Max Bond, AndreSC
-Version: 1.2.4
+Version: 1.2.2
 Author URI: http://www.q2w3.ru/
 */
 
@@ -355,9 +355,7 @@ class q2w3_post_order {
 				
 				$res .= '<span style="float: left; margin-left: 9px">';
 				
-				if (isset($settings['post_types'][$post_type->name])) $opt = $settings['post_types'][$post_type->name]; else $opt = false;
-				
-				$res .= '<input type="checkbox" name="wp_screen_options[value][post_types]['. $post_type->name .']" value="1" '. checked('1', $opt, false) .' '. $disabled .'/> '.$post_type->labels->name;
+				$res .= '<input type="checkbox" name="wp_screen_options[value][post_types]['. $post_type->name .']" value="1" '. checked('1', $settings['post_types'][$post_type->name], false) .' '. $disabled .'/> '.$post_type->labels->name;
 				
 				$res .= '</span>';
 												
@@ -429,32 +427,13 @@ class q2w3_post_order {
 	 */
 	public static function help_section($help_content) {
 		
-		$help = '<h5>'. __('How to enable custom taxonomies and custom post types?', self::ID) . '</h5>';
+		$help = '<h5>'. __('How to remove posts from Sorted group?', self::ID) .'</h5>';
 		
-		$help .= '<p>'. __('Open plugin setting page. Look in upper right corner of the screen, there is a Screen Options dropdown panel. 
-There you can enable/disable custom taxonomies and post types.', self::ID) .'</p>';
- 
-		$help .= '<h5>'. __('How to stylize ordered posts?', self::ID) .'</h5>';
-
-		$help .= '<p>'. __('For each ordered post two css classes are set: <em>q2w3-post-order</em> and <em>q2w3-post-order-{n}</em>, where <em>{n}</em> is post position number.<br/> 
-Use <em>q2w3-post-order</em> css class to set general style for ordered posts.<br/> 
-Use <em>q2w3-post-order-{n}</em> to set unique style for specific post position.<br/> 
-Note! You have to use <em>&lt;?php post_class(); ?&gt;</em> template tag in your theme.', self::ID) .'</p>';
- 
-		$help .= '<h5>'. __('How to remove posts from sorted list?', self::ID) .'</h5>';
-	
-		$help .= '<p>'. __('Enter position number 0 for selected post, then click Update Sorted.', self::ID) .'</p>';
-
-		$help .= '<h5>'. __('How to disable plugin for feeds, pages and custom queries?', self::ID) .'</h5>';
-
-		$help .= '<p>'. __("You can add a parameter <em>q2w3-post-order=disable</em> to the url.<br/> 
-For example <em>test.com/feed/?q2w3-post-order=disable</em> - your main feed post order will not be modified.<br/>
-If you use custom queries: <em>query_posts('cat=13&showposts=10&q2w3-post-order=disable');</em>.<br/>
-Array style: <em>query_posts(array('cat'=>13,'showposts'=> 10,'q2w3-post-order'=>'disable'));</em>.", self::ID) .'</p>';
-
-		$help .= '<h5>'. __('Any problems, questions, ideas?', self::ID) .'</h5>';
+		$help .= '<p>'. __('Set position number 0 for selected posts and then they\'ll return to Unsorted group.', self::ID) .'</p>';
 		
-		$help .= '<p><a href="http://www.q2w3.ru/q2w3-post-order-wordpress-plugin/" target="_blank">'.__('Visit Plugin Home Page', self::ID).'</a></p>';
+		$help .= '<h5>---</h5>';
+		
+		$help .= '<p>'. __('Problems, questions, ideas?', self::ID).' <a href="http://www.q2w3.ru/q2w3-post-order-wordpress-plugin/" target="_blank">'.__('Visit Plugin Home Page', self::ID).'</a>'.'</p>';
 		
 		$help_content[self::$page_id] = $help;
 		
@@ -755,21 +734,15 @@ Array style: <em>query_posts(array('cat'=>13,'showposts'=> 10,'q2w3-post-order'=
 		
 		$query_number++;
 		
-		if (isset($_REQUEST['aspo'])) $aspo = $_REQUEST['aspo']; else $aspo = false; // aspo=vanilla : don't use astickypostorderer for this listing 
+		$aspo = $_REQUEST['aspo']; // aspo=vanilla : don't use astickypostorderer for this listing 
 		
-		if (isset($_REQUEST['q2w3-post-order'])) $q2w3_post_order = $_REQUEST['q2w3-post-order']; else $q2w3_post_order = false; // the same thing as a string above
+		$q2w3_post_order = $_REQUEST['q2w3-post-order']; // the same thing as a string above
 		
-		if (isset($wp_query->query_vars['aspo'])) $aspo_query = $wp_query->query_vars['aspo']; else $aspo_query = false;
-		
-		if (isset($wp_query->query_vars['q2w3-post-order'])) $q2w3_post_order_query = $wp_query->query_vars['q2w3-post-order']; else $q2w3_post_order_query = false;
-		
-		if ($aspo == 'vanilla' || $aspo_query == 'vanilla' || $q2w3_post_order == 'disable' || $q2w3_post_order_query == 'disable') {
+		if ($aspo == 'vanilla' || $wp_query->query_vars['aspo'] == 'vanilla' || $q2w3_post_order == 'disable' || $wp_query->query_vars['q2w3-post-order'] == 'disable') {
 
-			return $the_wp_query; 
+			return $the_wp_query;
 						
 		}
-		
-		$post_type = NULL;
 
 		if (is_category() || is_tag() || is_tax()) { // Taxonomy
 			
@@ -829,7 +802,7 @@ Array style: <em>query_posts(array('cat'=>13,'showposts'=> 10,'q2w3-post-order'=
 			
 			$post_type = $wp_query->query_vars['post_type'];
 			
-		} 
+		}
 		
 		if ($post_type) {
 			
@@ -879,7 +852,7 @@ Array style: <em>query_posts(array('cat'=>13,'showposts'=> 10,'q2w3-post-order'=
 			
 			$c_query = substr_replace($c_query, $left_join,  $c_into, 0);
 		
-			$c_into = strpos($c_query, 'ORDER BY') + 9; // $wpdb->posts.'.post_date DESC' // Compatibility with ClassiPress
+			$c_into = strpos($c_query, $wpdb->posts.'.post_date DESC');
 		
 			$c_query = substr_replace($c_query, $inject_sql_order, $c_into, 0);
 		
@@ -895,7 +868,7 @@ Array style: <em>query_posts(array('cat'=>13,'showposts'=> 10,'q2w3-post-order'=
 		
 		$options = get_option(self::ID);
 		
-		if ( isset($options['debug_mode']) && $options['debug_mode'] && current_user_can('activate_plugins') ) {
+		if ( $options['debug_mode'] && current_user_can('activate_plugins') ) {
 			
 			echo "<p>Query Number: $query_number</p>";
 			
@@ -1161,10 +1134,6 @@ Array style: <em>query_posts(array('cat'=>13,'showposts'=> 10,'q2w3-post-order'=
 		
 		if ($term_id && $tax_name) {
 			
-			global $wp_taxonomies;
-			
-			$tax_post_type_main = $wp_taxonomies[$tax_name]->object_type[0];
-						
 			$child_ids = get_term_children($term_id, $tax_name);
 		
 			$child_ids[] = $term_id;
@@ -1174,7 +1143,6 @@ Array style: <em>query_posts(array('cat'=>13,'showposts'=> 10,'q2w3-post-order'=
 			$sql = "SELECT $fields ".
 			"FROM $wpdb->posts ".
 			"WHERE ID IN (SELECT tr.object_id FROM $wpdb->term_relationships as tr, $wpdb->term_taxonomy as tt WHERE tr.term_taxonomy_id = tt.term_taxonomy_id AND tt.taxonomy = '$tax_name' AND tt.term_id IN ($child_ids)) ".
-			"AND post_type = '$tax_post_type_main'".
 			"AND post_status = 'publish' $exclude $search ";
 			
 		} elseif ($post_type) {

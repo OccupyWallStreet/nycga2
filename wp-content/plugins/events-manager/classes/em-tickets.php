@@ -12,10 +12,9 @@ class EM_Tickets extends EM_Object implements Iterator{
 	 */
 	var $tickets = array();
 	/**
-	 * Event ID
-	 * @var EM_Event
+	 * @var int
 	 */
-	var $event;
+	var $event_id;
 	/**
 	 * @var EM_Booking
 	 */
@@ -30,32 +29,22 @@ class EM_Tickets extends EM_Object implements Iterator{
 	 */
 	function EM_Tickets( $object = false ){
 		global $wpdb;
-		if( is_object($object) && get_class($object) == "EM_Event" ){ //Creates a blank tickets object if needed
-			$this->event = $object;
-			$sql = "SELECT * FROM ". EM_TICKETS_TABLE ." WHERE event_id ='{$this->event->id}' ORDER BY ".get_option('dbem_bookings_tickets_orderby');
+		if( is_numeric($object) || (is_object($object) && in_array(get_class($object), array("EM_Event","EM_Booking"))) ){
+			$this->event_id = (is_object($object)) ? $object->event_id:$object;
+			$sql = "SELECT * FROM ". EM_TICKETS_TABLE ." WHERE event_id ='{$this->event_id}' ORDER BY ".get_option('dbem_bookings_tickets_orderby');
 			$tickets = $wpdb->get_results($sql, ARRAY_A);
 			foreach ($tickets as $ticket){
 				$EM_Ticket = new EM_Ticket($ticket);
-				$EM_Ticket->event = $this->event;
+				$EM_Ticket->event_id = $this->event_id;
 				$this->tickets[] = $EM_Ticket;
 			}
-		}elseif( is_object($object) && get_class($object) == "EM_Booking"){
-			$this->booking = $object;
-			$this->event = $this->booking->get_event();
-			$sql = "SELECT * FROM ". EM_TICKETS_TABLE ." WHERE event_id ='{$this->event->id}' ORDER BY ".get_option('dbem_bookings_tickets_orderby');
-			$tickets = $wpdb->get_results($sql, ARRAY_A);
-			foreach ($tickets as $ticket){
-				$EM_Ticket = new EM_Ticket($ticket);
-				$EM_Ticket->event = $this->event;
-				$this->tickets[] = $EM_Ticket;
-			}
-		}elseif( is_array($object) ){
+		}elseif( is_array($object) ){ //expecting an array of EM_Ticket objects or ticket db array
 			if( is_object(current($object)) && get_class(current($object)) == 'EM_Ticket' ){
 				$this->tickets = $object;
 			}else{
 				foreach($object as $ticket){
 					$EM_Ticket = new EM_Ticket($ticket);
-					$EM_Ticket->event = $this->event;
+					$EM_Ticket->event_id = $this->event_id;
 					$this->tickets[] = $EM_Ticket;				
 				}
 			}
@@ -67,7 +56,25 @@ class EM_Tickets extends EM_Object implements Iterator{
 	 * @return EM_Event
 	 */
 	function get_event(){
-		return $this->event;
+		global $EM_Event;
+		if( is_object($EM_Event) && $EM_Event->event_id == $this->event_id ){
+			return $EM_Event;
+		}else{
+			return new EM_Event($this->event_id);
+		}
+	}
+
+	/**
+	 * does this ticket exist?
+	 * @return bool 
+	 */
+	function has_ticket($ticket_id){
+		foreach( $this->tickets as $EM_Ticket){
+			if($EM_Ticket->ticket_id == $ticket_id){
+				return apply_filters('em_tickets_has_ticket',true, $EM_Ticket, $this);
+			}
+		}
+		return apply_filters('em_tickets_has_ticket',false, false,$this);
 	}
 	
 	/**
@@ -94,7 +101,7 @@ class EM_Tickets extends EM_Object implements Iterator{
 		$result = false;
 		$ticket_ids = array();
 		foreach( $this->tickets as $EM_Ticket ){
-			$ticket_ids[] = $EM_Ticket->id;
+			$ticket_ids[] = $EM_Ticket->ticket_id;
 		}
 		//check that tickets don't have bookings
 		if(count($ticket_ids) > 0){
@@ -119,14 +126,17 @@ class EM_Tickets extends EM_Object implements Iterator{
 		$this->tickets = array(); //clean current tickets out
 		if( !empty($_POST['em_tickets']) && is_array($_POST['em_tickets']) ){
 			//get all ticket data and create objects
+			global $allowedposttags;
 			foreach($_POST['em_tickets'] as $ticket_data){
+				$ticket_data['ticket_name'] = ( !empty($ticket_data['ticket_name']) ) ? wp_kses_data(stripslashes($ticket_data['ticket_name'])):'';
+				$ticket_data['ticket_description'] = ( !empty($ticket_data['ticket_description']) ) ? wp_kses(stripslashes($ticket_data['ticket_description']), $allowedposttags):'';
 				$EM_Ticket = new EM_Ticket($ticket_data);
 				$this->tickets[] = $EM_Ticket;
 			}
-		}elseif( is_object($this->event) ){
+		}else{
 			//we create a blank standard ticket
 			$EM_Ticket = new EM_Ticket(array(
-				'event_id' => $this->event->id,
+				'event_id' => $this->event_id,
 				'ticket_name' => __('Standard','dbem')
 			));
 			$this->tickets[] = $EM_Ticket;
@@ -138,11 +148,13 @@ class EM_Tickets extends EM_Object implements Iterator{
 	 * Go through the tickets in this object and validate them 
 	 */
 	function validate(){
-		$errors = array();
+		$this->errors = array();
 		foreach($this->tickets as $EM_Ticket){
-			$errors[] = $EM_Ticket->validate();
+			if( !$EM_Ticket->validate() ){
+				$this->add_error($EM_Ticket->get_errors());
+			} 
 		}
-		return apply_filters('em_tickets_validate', !in_array(false, $errors), $this);
+		return apply_filters('em_tickets_validate', count($this->errors) == 0, $this);
 	}
 	
 	/**
@@ -151,7 +163,8 @@ class EM_Tickets extends EM_Object implements Iterator{
 	function save(){
 		$errors = array();
 		foreach( $this->tickets as $EM_Ticket ){
-			$EM_Ticket->event = $this->event; //pass on saved event_data
+			/* @var $EM_Ticket EM_Ticket */
+			$EM_Ticket->event_id = $this->event_id; //pass on saved event_data
 			$errors[] = $EM_Ticket->save();
 		}
 		return apply_filters('em_tickets_save', !in_array(false, $errors), $this);
@@ -181,42 +194,17 @@ class EM_Tickets extends EM_Object implements Iterator{
 			$this->spaces = $spaces;
 		}
 		return apply_filters('em_booking_get_spaces',$this->spaces,$this);
-	}	
-	
-	/* Overrides EM_Object method to apply a filter to result
-	 * @see wp-content/plugins/events-manager/classes/EM_Object#build_sql_conditions()
-	 */
-	function build_sql_conditions( $args = array() ){
-		$conditions = apply_filters( 'em_tickets_build_sql_conditions', parent::build_sql_conditions($args), $args );
-		if( is_numeric($args['ticket_status']) ){
-			$conditions['ticket_status'] = 'ticket_status='.$args['status'];
-		}
-		return apply_filters('em_tickets_build_sql_conditions', $conditions, $args);
 	}
 	
-	/* Overrides EM_Object method to apply a filter to result
-	 * @see wp-content/plugins/events-manager/classes/EM_Object#build_sql_orderby()
+	/**
+	 * Returns the collumns used in ticket public pricing tables/forms
+	 * @param unknown_type $EM_Event
 	 */
-	function build_sql_orderby( $args, $accepted_fields, $default_order = 'ASC' ){
-		return apply_filters( 'em_tickets_build_sql_orderby', parent::build_sql_orderby($args, $accepted_fields, get_option('dbem_events_default_order')), $args, $accepted_fields, $default_order );
-	}
-	
-	/* 
-	 * Adds custom Events search defaults
-	 * @param array $array
-	 * @return array
-	 * @uses EM_Object#get_default_search()
-	 */
-	function get_default_search( $array = array() ){
-		$defaults = array(
-			'ticket_status' => false,
-			'person' => true //to add later, search by person's tickets...
-		);	
-		if( is_admin() ){
-			//figure out default owning permissions
-			$defaults['owner'] = !current_user_can('manage_others_bookings') ? get_current_user_id():false;
-		}
-		return apply_filters('em_tickets_get_default_search', parent::get_default_search($defaults,$array), $array, $defaults);
+	function get_ticket_collumns($EM_Event = false){
+		if( !$EM_Event ) $EM_Event = $this->get_event();
+		$collumns = array( 'type' => __('Ticket Type','dbem'), 'price' => __('Price','dbem'), 'spaces' => __('Spaces','dbem'));
+		if( $EM_Event->is_free() ) unset($collumns['price']); //add event price
+		return apply_filters('em_booking_form_tickets_cols', $collumns, $EM_Event );
 	}
 	
 	//Iterator Implementation

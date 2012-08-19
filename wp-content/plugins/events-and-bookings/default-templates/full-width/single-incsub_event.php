@@ -9,13 +9,15 @@ get_header();
 	the_post();
 	$start_day = date_i18n('m', strtotime(get_post_meta($post->ID, 'incsub_event_start', true)));
 ?>
-	<div id="primary">
+	<div id="primary" class="full-width">
 		<div id="content" role="main">
 			
 <div class="event <?php echo Eab_Template::get_status_class($post); ?>" id="wpmudevevents-wrapper">
 	<div id="wpmudevents-single">
 		<div class="wpmudevevents-header">
 			<h2><?php echo $event->get_title(); ?></h2><br />
+         <div id="event-bread-crumbs" ><?php Eab_Template::get_breadcrumbs($event); ?></div>
+
 			<div class="wpmudevevents-contentmeta" style="clear:both">
 				<?php echo Eab_Template::get_event_details($event); ?>
 			</div>

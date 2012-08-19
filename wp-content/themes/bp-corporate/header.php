@@ -41,9 +41,9 @@
 
 <?php do_action( 'bp_head' ) ?>
 
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php// bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 
-<?php if( function_exists('font_show')) { font_show(); } ?>
+<?php// if( function_exists('font_show')) { font_show(); } ?>
 
 <?php if($bp_existed == 'true') { ?>
 <?php print "<style type=\"text/css\" media=\"all\">"; ?>

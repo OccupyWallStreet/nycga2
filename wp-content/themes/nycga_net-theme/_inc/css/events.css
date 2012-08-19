@@ -650,9 +650,12 @@ div#wpmudevevents-wrapper a.new {
 }
 
 /* Event detail */
-div.wpmudevevents-boxinner div.event-thumbnail {
+div.wpmudevevents-boxinner div.event-thumbnail,
+div.wpmudevevents-boxinner img.attachment-event-thumbnail {
 	float: left;
 	padding-right: 10px;
+	max-width: 300px;
+	height: auto;
 }
 
 div.wpmudevevents-box div.event-thumbnail img {
@@ -700,6 +703,10 @@ div.wpmudevevents-attendees div#event-bookings {
 div#wpmudevevents-wrapper div.rvsp-buttons div.wpmudevevents-buttons {
 	float: left;
 	padding-left: 10px;
+}
+
+div.agm_google_maps div.agm_upgrade_link {
+	display: none;
 }
 
 /* Related group events */

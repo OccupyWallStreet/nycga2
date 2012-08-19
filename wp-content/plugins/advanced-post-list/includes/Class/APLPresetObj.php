@@ -13,7 +13,7 @@ class APLPresetObj
      * @since 0.1.0
      * @version 0.3.0 - changed (string) to (array) => (string)
      */
-    public $_postParent;
+    public $_postParents;
     
     /**
      * @var object
@@ -26,7 +26,7 @@ class APLPresetObj
      * @since 0.1.0
      * @version 0.3.0  - changed (string) to (int)
      */
-    public $_listAmount;
+    public $_listCount;
     
     /**
      * @var string
@@ -42,16 +42,65 @@ class APLPresetObj
     
     /**
      * @var string
+     * @since 0.1.0
+     */
+    public $_postVisibility;
+    
+    /**
+     * @var array
      * @since 0.3.0
+     * @version 0.3.b5 - Change from (string) to (array) => (string)
      */
     public $_postStatus;
+    
+    /**
+     * @var string
+     * @since 0.3.0 
+     */
+    public $_userPerm;
+    
+    /**
+     * @var string
+     * @since 0.3.0 
+     */
+    public $_postAuthorOperator;
+    
+    /**
+     * @var array
+     * @since 0.3.0 
+     */
+    public $_postAuthorIDs;
+    
+    /**
+     * @var boolean
+     * @since 0.3.0 
+     */
+    public $_listIgnoreSticky;
+    
+    /**
+     * @var array
+     * @since 0.3.0 
+     */
+    public $_listExcludePosts;
+
+    /**
+     * @var boolean
+     * @since 0.3.0 
+     */
+    public $_listExcludeDuplicates;
     
     /**
      * @var boolean
      * @since 0.1.0
      * @version 0.3.0 - changed (string) to (boolean)
      */
-    public $_postExcludeCurrent; 
+    public $_listExcludeCurrent; 
+    
+    /**
+     * @var string
+     * @since 0.3.0 
+     */
+    public $_exit;
     
     /**
      * @var string
@@ -72,21 +121,30 @@ class APLPresetObj
     public $_after;
     
     
+    
+    
 
     function __construct()
     {
-        $this->_postParent = (array) array();
+        $this->_postParents = (array) array();
         $this->_postTax = (object) new stdClass();
         
-        $this->_listAmount = (int) 5;
+        $this->_listCount = (int) 5;
         
         $this->_listOrderBy = (string)'';
         $this->_listOrder = (string) '';
         
-        $this->_postStatus = (string) '';
+        $this->_postVisibility = (array) array('public');
+        $this->_postStatus = (array) array('publish');//Changed
+        $this->_userPerm = (string) 'readable';//Added
+        $this->_postAuthorOperator = (string) 'none';//Added
+        $this->_postAuthorIDs = (array) array();//Added
+        $this->_listIgnoreSticky = (bool) FALSE;//Added
+        $this->_listExcludeCurrent = (bool) TRUE;
+        $this->_listExcludeDuplicates = (bool) FALSE;//Added
+        $this->_listExcludePosts = array();//Added
         
-        $this->_postExcludeCurrent = (bool) true;
-        
+        $this->_exit = (string) '';
         $this->_before = (string) '';
         $this->_content = (string) '';
         $this->_after = (string) '';

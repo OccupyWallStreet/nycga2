@@ -23,7 +23,7 @@ h4.activity-subscription-settings-title {
 	padding:8px;
 }
 
-#ass-admin-notice-textarea, #ass-welcome-email-content {
+#ass-admin-notice-textarea {
 	height: 250px;
 	margin-bottom: 10px;
 }
@@ -58,20 +58,17 @@ h4.activity-subscription-settings-title {
 	z-index: 1;
 }
 
-#groups-dir-list .group-subscription-options,
-#groups-list .group-subscription-options {
+#groups-dir-list .group-subscription-options {
 	position: relative;	
 	z-index: 1;
 	right: 0;
 	text-align: left;
 }
-#groups-dir-list .group-subscription-div,
-#groups-list .group-subscription-div {
+#groups-dir-list .group-subscription-div {
 	padding-top: 6px;
 	font-size: 11px;
 }
-#groups-dir-list .group-subscription-status-desc,
-#groups-list .group-subscription-status-desc {
+#groups-dir-list .group-subscription-status-desc {
 	display: none;
 }
 
@@ -104,10 +101,4 @@ h4.activity-subscription-settings-title {
 
 .ass_members_status { font-size:11px; color:#aaa; margin-top:5px; } /* only admins see this */
 
-/* only admins see this */
-.ass_manage_members_links {
-	display:block;
-	padding-top: 8px;
-	font-size:11px; 
-	color:#888; 
-}
+.ass_manage_members_links { font-size:11px; color:#888; } /* only admins see this */

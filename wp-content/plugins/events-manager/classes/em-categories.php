@@ -7,27 +7,43 @@ class EM_Categories extends EM_Object implements Iterator{
 	 */
 	var $categories = array();
 	/**
-	 * @var EM_Event
+	 * Event ID of this set of categories
+	 * @var int
 	 */
-	var $event;	
+	var $event_id;
+	/**
+	 * Post ID of this set of categories
+	 * @var int
+	 */
+	var $post_id;
 	
 	/**
 	 * Creates an EM_Categories instance, currently accepts an EM_Event object (gets all Categories for that event) or array of any EM_Category objects, which can be manipulated in bulk with helper functions.
-	 * @param EM_Event $event
+	 * @param mixed $data
 	 * @return null
 	 */
 	function EM_Categories( $data = false ){
-		if( is_object($data) && get_class($data) == "EM_Event" ){ //Creates a blank categories object if needed
-			global $wpdb;
-			$this->event = $data;
-			$sql = "SELECT meta_value FROM ". EM_META_TABLE ." WHERE meta_key='event-category' AND object_id ='{$this->event->id}'";
-			$categories = $wpdb->get_results($sql, ARRAY_A);
-			foreach ($categories as $category_data){
-				$this->categories[] = new EM_Category($category_data['meta_value']);
+		global $wpdb;
+		$this->ms_global_switch();
+		if( is_object($data) && get_class($data) == "EM_Event" && !empty($data->post_id) ){ //Creates a blank categories object if needed
+			$this->event_id = $data->event_id;
+			$this->post_id = $data->post_id;
+			if( EM_MS_GLOBAL && !is_main_site($data->blog_id) ){
+				$cat_ids = $wpdb->get_col('SELECT meta_value FROM '.EM_META_TABLE." WHERE object_id='{$this->event_id}' AND meta_key='event-category'");
+				foreach($cat_ids as $cat_id){
+					$this->categories[$cat_id] = new EM_Category($cat_id);
+				}
+			}else{
+				$results = get_the_terms( $data->post_id, EM_TAXONOMY_CATEGORY );
+				if( is_array($results) ){
+					foreach($results as $result){
+						$this->categories[$result->term_id] = new EM_Category($result);
+					}
+				}
 			}
 		}elseif( is_array($data) && $this->array_is_numeric($data) ){
 			foreach($data as $category_id){
-				$this->categories[] =  new EM_Category($category_id);
+				$this->categories[$category_id] =  new EM_Category($category_id);
 			}
 		}elseif( is_array($data) ){
 			foreach( $data as $EM_Category ){
@@ -35,94 +51,88 @@ class EM_Categories extends EM_Object implements Iterator{
 					$this->categories[] = $EM_Category;
 				}
 			}
-			$this->get_event();
 		}
-	}
-		
-	function get( $args = array() ) {
-		global $wpdb;
-		$categories_table = EM_CATEGORIES_TABLE;
-		$events_table = EM_EVENTS_TABLE;
-		
-		//Quick version, we can accept an array of IDs, which is easy to retrieve
-		if( self::array_is_numeric($args) ){ //Array of numbers, assume they are event IDs to retreive
-			//We can just get all the events here and return them
-			$sql = "SELECT * FROM $categories_table WHERE category_id=".implode(" OR category_id=", $args);
-			$results = $wpdb->get_results(apply_filters('em_categories_get_sql',$sql),ARRAY_A);
-			$categories = array();
-			foreach($results as $result){
-				$categories[$result['category_id']] = new EM_Category($result);
-			}
-			return apply_filters('em_categories_get', $categories, $args); //We return all the categories matched as an EM_Event array. 
-		}
-		
-		//We assume it's either an empty array or array of search arguments to merge with defaults			
-		$args = self::get_default_search($args);
-		$limit = ( $args['limit'] && is_numeric($args['limit'])) ? "LIMIT {$args['limit']}" : '';
-		$offset = ( $limit != "" && is_numeric($args['offset']) ) ? "OFFSET {$args['offset']}" : '';
-		
-		//Get the default conditions
-		$conditions = self::build_sql_conditions($args);
-		//Put it all together
-		$where = ( count($conditions) > 0 ) ? " WHERE " . implode ( " AND ", $conditions ):'';
-		
-		//Get ordering instructions
-		$EM_Category = new EM_Category();
-		$accepted_fields = $EM_Category->get_fields(true);
-		$orderby = self::build_sql_orderby($args, $accepted_fields, get_option('dbem_categories_default_order'));
-		//Now, build orderby sql
-		$orderby_sql = ( count($orderby) > 0 ) ? 'ORDER BY '. implode(', ', $orderby) : '';
-		
-		//Create the SQL statement and execute
-		$sql = "
-			SELECT * FROM $categories_table
-			$where
-			GROUP BY category_id
-			$orderby_sql
-			$limit $offset
-		";
-		$results = $wpdb->get_results( apply_filters('em_categories_get_sql',$sql, $args), ARRAY_A);
-		//If we want results directly in an array, why not have a shortcut here?
-		if( $args['array'] == true ){
-			return apply_filters('em_categories_get_array', $results, $args);
-		}
-		
-		//Make returned results EM_Event objects
-		$results = (is_array($results)) ? $results:array();
-		$categories = array();
-		foreach ( $results as $category_array ){
-			$categories[$category_array['category_id']] = new EM_Category($category_array);
-		}
-		
-		return apply_filters('em_categories_get', $categories, $args);
+		$this->ms_global_switch_back();
+		do_action('em_categories', $this);
 	}
 	
-	/**
-	 * Will delete given an array of category_ids or EM_Event objects
-	 * @param unknown_type $id_array
-	 */
-	function delete( $array ){
+	function get_post(){
+		$this->ms_global_switch();
+		$this->categories = array();
+		if(!empty($_POST['event_categories']) && $this->array_is_numeric($_POST['event_categories'])){
+			foreach( $_POST['event_categories'] as $term ){
+				$this->categories[$term] = new EM_Category($term);
+			}
+		}
+		$this->ms_global_switch_back();
+		do_action('em_categories_get_post', $this);
+	}
+	
+	function save(){
+		$term_slugs = array();
+		foreach($this->categories as $EM_Category){
+			/* @var $EM_Category EM_Category */
+			if( !empty($EM_Category->slug) ) $term_slugs[] = $EM_Category->slug; //save of category will soft-fail if slug is empty
+		}
+		if( count($term_slugs) == 0 && get_option('dbem_default_category') > 0 ){
+			$default_term = get_term_by('id',get_option('dbem_default_category'), EM_TAXONOMY_CATEGORY);
+			if($default_term) $term_slugs[] = $default_term->slug;
+		}
+		if( count($term_slugs) > 0 ){
+			if( is_multisite() ){
+				//In MS Global mode, we also save category meta information for global lookups
+				if( EM_MS_GLOBAL && !empty($this->event_id) ){
+					//delete categories
+					$this->save_index();
+				}
+				if( !EM_MS_GLOBAL || is_main_site() ){
+					wp_set_object_terms($this->post_id, $term_slugs, EM_TAXONOMY_CATEGORY);
+				}
+			}else{
+				wp_set_object_terms($this->post_id, $term_slugs, EM_TAXONOMY_CATEGORY);
+			}			
+		}
+		do_action('em_categories_save', $this);
+	}
+	
+	function save_index(){
 		global $wpdb;
-		//Detect array type and generate SQL for event IDs
-		$category_ids = array();
-		if( @get_class(current($array)) == 'EM_Category' ){
-			foreach($array as $EM_Category){
-				$category_ids[] = $EM_Category->id;
+		$wpdb->query('DELETE FROM '.EM_META_TABLE." WHERE object_id='{$this->event_id}' AND meta_key='event-category'");
+		foreach($this->categories as $EM_Category){
+			$wpdb->insert(EM_META_TABLE, array('meta_value'=>$EM_Category->term_id,'object_id'=>$this->event_id,'meta_key'=>'event-category'));
+		}
+	}
+		
+	function get( $args = array() ) {		
+		//Quick version, we can accept an array of IDs, which is easy to retrieve
+		self::ms_global_switch();
+		if( self::array_is_numeric($args) ){ //Array of numbers, assume they are event IDs to retreive
+			$results = get_terms( EM_TAXONOMY_CATEGORY );
+			$categories = array();
+			foreach($results as $result){
+				if( in_array($result->term_id, $args) ){
+					$categories[$result->term_id] = new EM_Category($result);
+				}
 			}
 		}else{
-			$category_ids = $array;
+			//We assume it's either an empty array or array of search arguments to merge with defaults
+			$term_args = self::get_default_search($args);		
+			$results = get_terms( EM_TAXONOMY_CATEGORY, $term_args);		
+		
+			//If we want results directly in an array, why not have a shortcut here? We don't use this in code, so if you're using it and filter the em_categories_get hook, you may want to do this one too.
+			if( !empty($args['array']) ){
+				return apply_filters('em_categories_get_array', $results, $args);
+			}
+			
+			//Make returned results EM_Category objects
+			$results = (is_array($results)) ? $results:array();
+			$categories = array();
+			foreach ( $results as $category ){
+				$categories[$category->term_id] = new EM_Category($category);
+			}
 		}
-		if(self::array_is_numeric($category_ids)){
-			apply_filters('em_categories_delete', $category_ids);
-			$condition = implode(" OR category_id=", $category_ids);
-			//Delete all the categories
-			$result_categories = $wpdb->query("DELETE FROM ". EM_CATEGORIES_TABLE ." WHERE category_id=$condition;");
-			//Now delete the categories
-			$result = $wpdb->query ( "DELETE FROM ". EM_CATEGORIES_TABLE ." WHERE category_id=$condition;" );
-			do_action('em_categories_delete', $category_ids);
-		}
-		//TODO add error detection on categories delete fails
-		return apply_filters('em_categories_delete', true, $category_ids);
+		self::ms_global_switch_back();	
+		return apply_filters('em_categories_get', $categories, $args);
 	}
 
 	function output( $args ){
@@ -174,8 +184,8 @@ class EM_Categories extends EM_Object implements Iterator{
 			//Pagination (if needed/requested)
 			if( !empty($args['pagination']) && !empty($limit) && $categories_count >= $limit ){
 				//Show the pagination links (unless there's less than 10 events, or the custom limit)
-				$page_link_template = preg_replace('/(&|\?)page=\d+/i','',$_SERVER['REQUEST_URI']);
-				$page_link_template = em_add_get_params($page_link_template, array('page'=>'%PAGE%'));
+				$page_link_template = preg_replace('/(&|\?)pno=\d+/i','',$_SERVER['REQUEST_URI']);
+				$page_link_template = em_add_get_params($page_link_template, array('pno'=>'%PAGE%'), false); //don't html encode, so em_paginate does its thing
 				$output .= apply_filters('em_events_output_pagination', em_paginate( $page_link_template, $categories_count, $limit, $page), $page_link_template, $categories_count, $limit, $page);
 			}
 		} else {
@@ -186,44 +196,31 @@ class EM_Categories extends EM_Object implements Iterator{
 		return apply_filters('em_categories_output', $output, $categories, $args);		
 	}
 	
-	/**
-	 * If these categories collection are connected with an existing EM_Event object, then we can add categories to this event.  
-	 */
-	function save(){
-		if( !empty($this->get_event()->id) ){
-			global $wpdb;
-			$event_id = $this->event->id;
-			//remove old cats
-			$wpdb->query('DELETE FROM '.EM_META_TABLE." WHERE object_id='$event_id' AND meta_key='event-category'");
-			//Now add new ones
-			$inserts = array();
-			foreach($this->get_ids() as $id){
-				$inserts[] = "($event_id,'event-category',$id)";
-			}
-			if( count($inserts) > 0 ){
-				$result = $wpdb->query("INSERT INTO ".EM_META_TABLE." (`object_id`,`meta_key`,`meta_value`) VALUES ".implode(',',$inserts));
-				if( $result === false ){
-					$this->add_error( sprintf(__('Could not save the %s details due to a database error.', 'dbem'),__('category','dbem') ));
-				}
-			}
-		}
-		return apply_filters('em_categories_save', count($this->errors) == 0, $this);
-	}
-	
 	function has( $search ){
 		if( is_numeric($search) ){
 			foreach($this->categories as $EM_Category){
-				if($EM_Category->id == $search) return apply_filters('em_categories_has', true, $search, $this);
+				if($EM_Category->term_id == $search) return apply_filters('em_categories_has', true, $search, $this);
 			}
+		}else{
+			foreach($this->categories as $EM_Category){
+				if($EM_Category->slug == $search) return apply_filters('em_categories_has', true, $search, $this);
+			}			
 		}
 		return apply_filters('em_categories_has', false, $search, $this);
+	}
+	
+	function get_first(){
+		foreach($this->categories as $EM_Category){
+			return $EM_Category;
+		}
+		return false;
 	}
 	
 	function get_ids(){
 		$ids = array();
 		foreach($this->categories as $EM_Category){
-			if( !empty($EM_Category->id) ){
-				$ids[] = $EM_Category->id;
+			if( !empty($EM_Category->term_id) ){
+				$ids[] = $EM_Category->term_id;
 			}
 		}
 		return $ids;	
@@ -234,10 +231,11 @@ class EM_Categories extends EM_Object implements Iterator{
 	 * @return EM_Event
 	 */
 	function get_event(){
-		if( !( is_object($this->event) && get_class($this->event) == 'EM_Event' ) ){
-			$this->event = new EM_Event();
+		if( is_numeric($this->event_id) ){
+			return em_get_event($this->event_id);
+		}else{
+			return new EM_Event();
 		}
-		return apply_filters('em_categories_get_event', $this->event, $this);
 	}
 
 	/* Overrides EM_Object method to apply a filter to result. Categories won't accept many arguments as you tend to search with events for much else.
@@ -270,7 +268,15 @@ class EM_Categories extends EM_Object implements Iterator{
 	 * @uses EM_Object#get_default_search()
 	 */
 	function get_default_search( $array = array() ){
-		return apply_filters('em_categories_get_default_search', parent::get_default_search(array(),$array), $array, array());
+		$defaults = array(
+			//added from get_terms, so they don't get filtered out
+			'orderby' => 'name', 'order' => 'ASC',
+			'hide_empty' => false, 'exclude' => array(), 'exclude_tree' => array(), 'include' => array(),
+			'number' => '', 'fields' => 'all', 'slug' => '', 'parent' => '',
+			'hierarchical' => true, 'child_of' => 0, 'get' => '', 'name__like' => '',
+			'pad_counts' => false, 'offset' => '', 'search' => '', 'cache_domain' => 'core'		
+		);
+		return apply_filters('em_categories_get_default_search', parent::get_default_search($defaults,$array), $array, $defaults);
 	}	
 	
 	/**

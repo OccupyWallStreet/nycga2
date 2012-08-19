@@ -18,6 +18,7 @@ abstract class WpmuDev_Collection {
 	public function __construct ($args) {
 		$query = $this->build_query_args($args);
 		$this->_query = new WP_Query($query);
+//echo '<pre>';die(var_Export($this->_query));
 	}
 	
 	/**
@@ -80,6 +81,30 @@ abstract class Eab_TimedCollection extends Eab_Collection {
  * Upcoming events time-restricted collection implementation.
  */
 class Eab_UpcomingCollection extends Eab_TimedCollection {
+
+	public function __construct ($timestamp=false, $args=array()) {
+		add_filter('posts_where', array($this, 'posts_where'));
+		add_filter('posts_join', array($this, 'join_postmeta'));
+		add_filter('posts_orderby', array($this, 'order_by_date'));
+		parent::__construct($timestamp, $args);
+		remove_filter('posts_where', array($this, 'posts_where'));
+		remove_filter('posts_join', array($this, 'join_postmeta'));
+		remove_filter('posts_orderby', array($this, 'order_by_date'));
+	}
+
+	public function order_by_date ($q) {
+		global $wpdb;
+		return "eab_meta.meta_value ASC"; // @TODO: SET UP EVENT ORDERING DIRECTION!!
+	}
+
+	public function join_postmeta ($q) {
+		global $wpdb;
+		return "{$q} JOIN {$wpdb->postmeta} AS eab_meta ON ({$wpdb->posts}.ID = eab_meta.post_id)";
+	}
+
+	public function posts_where ($q) {
+		return "{$q} AND eab_meta.meta_key='incsub_event_start'";
+	}
 	
 	public function build_query_args ($args) {
 		$time = $this->get_timestamp();
@@ -112,13 +137,13 @@ class Eab_UpcomingCollection extends Eab_TimedCollection {
 				'meta_query' => array(
 					array(
 		    			'key' => 'incsub_event_start',
-		    			'value' => "{$end_year}-{$end_month}-01 00:00",
+		    			'value' => apply_filters('eab-collection-upcoming-end_timestamp', "{$end_year}-{$end_month}-01 00:00"),
 		    			'compare' => '<',
 		    			'type' => 'DATETIME'
 					),
 					array(
 		    			'key' => 'incsub_event_end',
-		    			'value' => "{$year}-{$start_month}-01 00:00",
+		    			'value' => apply_filters('eab-collection-upcoming-start_timestamp', "{$year}-{$start_month}-01 00:00"),
 		    			'compare' => '>=',
 		    			'type' => 'DATETIME'
 					),
@@ -140,6 +165,30 @@ class Eab_UpcomingCollection extends Eab_TimedCollection {
  * @author: Hakan Evin
  */
 class Eab_UpcomingWeeksCollection extends Eab_TimedCollection {
+
+	public function __construct ($timestamp=false, $args=array()) {
+		add_filter('posts_where', array($this, 'posts_where'));
+		add_filter('posts_join', array($this, 'join_postmeta'));
+		add_filter('posts_orderby', array($this, 'order_by_date'));
+		parent::__construct($timestamp, $args);
+		remove_filter('posts_where', array($this, 'posts_where'));
+		remove_filter('posts_join', array($this, 'join_postmeta'));
+		remove_filter('posts_orderby', array($this, 'order_by_date'));
+	}
+
+	public function order_by_date ($q) {
+		global $wpdb;
+		return "eab_meta.meta_value ASC"; // @TODO: SET UP EVENT ORDERING DIRECTION!!
+	}
+
+	public function join_postmeta ($q) {
+		global $wpdb;
+		return "{$q} JOIN {$wpdb->postmeta} AS eab_meta ON ({$wpdb->posts}.ID = eab_meta.post_id)";
+	}
+
+	public function posts_where ($q) {
+		return "{$q} AND eab_meta.meta_key='incsub_event_start'";
+	}
 	
 	public function build_query_args ($args) {
 		// Changes by Hakan

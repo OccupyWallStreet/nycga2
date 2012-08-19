@@ -136,6 +136,7 @@ function send_save_request () {
 		"venue": $("#eab-events-fpe-venue").val(),
 		"status": $("#eab-events-fpe-status").val(),
 		"is_premium": $("#eab-events-fpe-is_premium").val(),
+		"category": $("#eab-events-fpe-categories").val(),
 		"fee": $("#eab-events-fpe-event_fee").val()
 	};
 	$(document).trigger('eab-events-fpe-save_request', [data]);

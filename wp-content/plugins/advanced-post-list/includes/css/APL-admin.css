@@ -7,8 +7,7 @@
 
 /*OPTION SECTION ON APL_admin PAGE*/
 #containerOptions {
-	width: inherit;
-	height: 360px;
+	height: 416px;
 	max-width: 800px;
 	min-width: 720px;
 }
@@ -17,34 +16,37 @@
 	width: auto;
 	min-height: 20px;
 }
-
-#options1 {
+#optionL {
 	float: left;
-	width: auto;
-	/* [disabled]margin-right: 5px; */
-	/* [disabled]margin-left: 5px; */
-	/* [disabled]clear: none; */
+	width: 48%;
+    height: 100%;
 	margin: 5px;
 }
+#optionR {
+	float: right;
+	width: 48%;
+    height: 100%;
+	margin: 5px;
+}
+.optionL-row {
+    width: available;
+    height: 26px;
+}
+#options1 {
+	width: 335px;
+	margin-right: 25px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
 #options2 {
-	float: right;
-	width: 335px;
-	/* [disabled]height: inherit; */
-	margin-right: 25px;
-	clear: right;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 5px;
-}
-#options3 {
-	width: 335px;
-	float: right;
-	clear: right;
+    width: 335px;
 	margin-right: 25px;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	margin-left: 5px;
 }
+
 .info-icon {
     cursor: help;
 }

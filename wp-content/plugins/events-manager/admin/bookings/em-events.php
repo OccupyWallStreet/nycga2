@@ -35,9 +35,9 @@ function em_bookings_events_table() {
 			$title = __ ( 'Future Events', 'dbem' );
 			$scope = "future";
 	}
-	$owner = !current_user_can('edit_others_events') ? get_current_user_id() : false;
-	$events = EM_Events::get( array('scope'=>$scope, 'limit'=>0, 'order'=>$order, 'bookings'=>true, 'owner' => $owner ) );
-	$events_count = count ( $events );
+	$owner = !current_user_can('manage_others_bookings') ? get_current_user_id() : false;
+	$events = EM_Events::get( array('scope'=>$scope, 'limit'=>$limit, 'offset' => $offset, 'order'=>$order, 'bookings'=>true, 'owner' => $owner ) );
+	$events_count = EM_Events::count( array('scope'=>$scope, 'limit'=>0, 'order'=>$order, 'bookings'=>true, 'owner' => $owner ) );
 	
 	$use_events_end = get_option ( 'dbem_use_event_end' );
 	?>
@@ -46,10 +46,7 @@ function em_bookings_events_table() {
 			<input type="hidden" name="em_obj" value="em_bookings_events_table" />
 			<?php if(!empty($_GET['page'])): ?>
 			<input type='hidden' name='page' value='events-manager-bookings' />
-			<?php endif; ?>
-			<ul class="subsubsub">
-				<li><a href='#' class="current"><?php _e ( 'Total', 'dbem' ); ?> <span class="count">(<?php echo (count ( $events )); ?>)</span></a></li>
-			</ul>			
+			<?php endif; ?>		
 			<div class="tablenav">			
 				<div class="alignleft actions">
 					<!--
@@ -105,51 +102,47 @@ function em_bookings_events_table() {
 				<tbody>
 					<?php 
 					$rowno = 0;
-					$event_count = 0;
 					foreach ( $events as $event ) {
 						/* @var $event EM_Event */
-						if( ($rowno < $limit || empty($limit)) && ($event_count >= $offset || $offset === 0) ) {
-							$rowno++;
-							$class = ($rowno % 2) ? ' class="alternate"' : '';
-							// FIXME set to american
-							$localised_start_date = date_i18n(get_option('date_format'), $event->start);
-							$localised_end_date = date_i18n(get_option('date_format'), $event->end);
-							$style = "";
-							$today = date ( "Y-m-d" );
-							
-							if ($event->start_date < $today && $event->end_date < $today){
-								$style = "style ='background-color: #FADDB7;'";
-							}							
-							?>
-							<tr <?php echo "$class $style"; ?>>
-				
-								<td>
-									<input type='checkbox' class='row-selector' value='<?php echo $event->id; ?>' name='events[]' />
-								</td>
-								<td>
-									<strong>
-										<?php echo $event->output('#_BOOKINGSLINK'); ?>
-									</strong>
-									&ndash; 
-									<?php _e("Booked Spaces",'dbem') ?>: <?php echo $event->get_bookings()->get_booked_spaces()."/".$event->get_spaces() ?>
-									<?php if( get_option('dbem_bookings_approval') == 1 ) : ?>
-										| <?php _e("Pending",'dbem') ?>: <?php echo $event->get_bookings()->get_pending_spaces(); ?>
-									<?php endif; ?>
-								</td>
+						$rowno++;
+						$class = ($rowno % 2) ? ' class="alternate"' : '';
+						// FIXME set to american
+						$localised_start_date = date_i18n(get_option('date_format'), $event->start);
+						$localised_end_date = date_i18n(get_option('date_format'), $event->end);
+						$style = "";
+						$today = date ( "Y-m-d" );
 						
-								<td>
-									<?php echo $localised_start_date; ?>
-									<?php echo ($localised_end_date != $localised_start_date) ? " - $localised_end_date":'' ?>
-									&ndash;
-									<?php
-										//TODO Should 00:00 - 00:00 be treated as an all day event? 
-										echo substr ( $event->start_time, 0, 5 ) . " - " . substr ( $event->end_time, 0, 5 ); 
-									?>
-								</td>
-							</tr>
-							<?php
-						}
-						$event_count++;
+						if ($event->start_date < $today && $event->end_date < $today){
+							$style = "style ='background-color: #FADDB7;'";
+						}							
+						?>
+						<tr <?php echo "$class $style"; ?>>
+			
+							<td>
+								<input type='checkbox' class='row-selector' value='<?php echo $event->event_id; ?>' name='events[]' />
+							</td>
+							<td>
+								<strong>
+									<?php echo $event->output('#_BOOKINGSLINK'); ?>
+								</strong>
+								&ndash; 
+								<?php _e("Booked Spaces",'dbem') ?>: <?php echo $event->get_bookings()->get_booked_spaces()."/".$event->get_spaces() ?>
+								<?php if( get_option('dbem_bookings_approval') == 1 ) : ?>
+									| <?php _e("Pending",'dbem') ?>: <?php echo $event->get_bookings()->get_pending_spaces(); ?>
+								<?php endif; ?>
+							</td>
+					
+							<td>
+								<?php echo $localised_start_date; ?>
+								<?php echo ($localised_end_date != $localised_start_date) ? " - $localised_end_date":'' ?>
+								&ndash;
+								<?php
+									//TODO Should 00:00 - 00:00 be treated as an all day event? 
+									echo substr ( $event->start_time, 0, 5 ) . " - " . substr ( $event->end_time, 0, 5 ); 
+								?>
+							</td>
+						</tr>
+						<?php
 					}
 					?>
 				</tbody>

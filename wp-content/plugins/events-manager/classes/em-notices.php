@@ -28,6 +28,7 @@
         }
         
         function destruct($redirect = false){
+        	//die('destructing');
         	$_SESSION['events-manager']['notices'] = serialize($this->notices);
         	return $redirect;
         }
@@ -87,19 +88,30 @@
                 return false;
             }
         }
+        function remove_all(){
+        	$this->notices = array('errors'=>array(), 'infos'=>array(), 'alerts'=>array(), 'confirms'=>array());
+        }
         function get($type){
             if( isset($this->notices[$type]) ){
         		$string = '';
                 foreach ($this->notices[$type] as $key => $error){
                     $class = substr($type, 0, (strlen($type)-1));
                     $string .= "<p>{$error['string']}</p>";
+                    /* Disabled for now, pending review due to issues in the_content firing x times e.g. in SFC
                     if( empty($error['static']) || $error['static'] !== true){
                         $this->remove($key, $type);
                     }
+                    */
                 }
                 return $string;
             }
             return false;
+        }
+        function count($type){
+       		if( isset($this->notices[$type]) ){
+        		return count($this->notices[$type]);
+            }
+            return 0;
         }
         
         /* Errors */
@@ -112,6 +124,9 @@
         function get_errors(){
             return $this->get('errors');
         }
+        function count_errors(){
+            return $this->count('errors');
+        }
 
         /* Alerts */
         function add_alert($string, $static=false){
@@ -122,6 +137,9 @@
         }
         function get_alerts(){
             return $this->get('alerts');
+        }
+        function count_alerts(){
+            return $this->count('alerts');
         }
         
         /* Info */
@@ -134,6 +152,9 @@
         function get_infos(){
             return $this->get('infos');
         }
+        function count_infos(){
+            return $this->count('infos');
+        }
         
         /* Confirms */
         function add_confirm($string, $static=false){
@@ -144,7 +165,10 @@
         }
         function get_confirms(){
             return $this->get('confirms');
-        }    
+        }  
+        function count_confirms(){
+            return $this->count('confirms');
+        }  
 
 		//Iterator Implementation
 	    function rewind(){
@@ -169,6 +193,9 @@
 	    }        
         
     }
-    global $EM_Notices;
-    $EM_Notices = new EM_Notices();
+    function em_notices_init(){
+	    global $EM_Notices;
+	    $EM_Notices = new EM_Notices();	
+    }
+    add_action('plugins_loaded', 'em_notices_init');
 ?>

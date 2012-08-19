@@ -1,3 +1,8 @@
+<?php
+/* 
+ * This file generates the default login form within the booking form (if enabled in options).
+ */
+?>
 <div class="em-booking-login">
 	<form class="em-booking-login-form" action="<?php echo site_url('wp-login.php', 'login_post'); ?>" method="post">
 	<p><?php _e('Log in if you already have an account with us.','dbem'); ?></p>

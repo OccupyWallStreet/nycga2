@@ -243,23 +243,7 @@ var BpfbPhotoHandler = function () {
 			"params": {
 				"action": "bpfb_preview_photo"
 			},
-			"onSubmit": function (id) {
-				if (!parseInt(l10nBpfb._max_images)) return true; // Skip check
-				id = parseInt(id);
-				if (!id) id = $("img.bpfb_preview_photo_item").length;
-				if (!id) return true;
-				if (id < parseInt(l10nBpfb._max_images)) return true;
-				if (!$("#bpfb-too_many_photos").length) $("#bpfb_tmp_photo").append(
-					'<p id="bpfb-too_many_photos">' + l10nBpfb.images_limit_exceeded + '</p>'
-				);
-				return false;
-			},
-			"onComplete": createPhotoPreview,
-			template: '<div class="qq-uploader">' + 
-                '<div class="qq-upload-drop-area"><span>' + l10nBpfb.drop_files + '</span></div>' +
-                '<div class="qq-upload-button">' + l10nBpfb.upload_file + '</div>' +
-                '<ul class="qq-upload-list"></ul>' + 
-             '</div>'
+			"onComplete": createPhotoPreview
 		});
 		
 		$("#bpfb_remote_image_preview").hide();
@@ -439,9 +423,7 @@ function init () {
 
 
 // Only initialize if we're supposed to.
-if (!('ontouchstart' in document.documentElement)) {
-	if ($("#whats-new-form").is(":visible")) init();
-}
+if ($("#whats-new-form").is(":visible")) init();
 
 
 /**

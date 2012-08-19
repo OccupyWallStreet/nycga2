@@ -3,7 +3,7 @@ global $blog_id, $wp_query, $booking, $post, $current_user;
 $event = new Eab_EventModel($post);
 get_header( );
 ?>
-	<div id="primary">
+	<div id="primary" class="default">
 		<div id="content" role="main">
             <div class="event <?php echo Eab_Template::get_status_class($post); ?>" id="wpmudevevents-wrapper">
 		<div id="wpmudevents-single">
@@ -16,7 +16,7 @@ get_header( );
                     
                     <div class="wpmudevevents-header">
                         <h2><?php echo $event->get_title(); ?></h2>
-                        <div class="eab-needtomove"><div id="event-bread-crumbs" ><?php Eab_Template::get_breadcrumbs($event); ?></div></div>
+                        <div id="event-bread-crumbs" ><?php Eab_Template::get_breadcrumbs($event); ?></div>
                         <?php
                         echo Eab_Template::get_rsvp_form($post);
 						echo Eab_Template::get_inline_rsvps($post);

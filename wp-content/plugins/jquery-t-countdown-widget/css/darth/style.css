@@ -1,0 +1,72 @@
+/*above the dashboard*/
+.darth-tophtml {
+	margin: 0;
+	padding: 0;
+}
+
+/*above the dashboard*/
+.darth-dashboard {
+	height: 100px;
+	width: 250px;
+	margin: 0 auto;
+	background: transparent;
+	padding-left: 0px;
+}
+
+.darth-dash {
+	width: 62px;
+	height: 44px;
+	float: left;
+	margin-left: 2px;
+	padding-left: 10px;
+	padding-top: 5px;
+	position: relative;
+	color: #333;
+}
+
+.darth-tripdash {
+	width: 93px;
+	height: 44px;
+	float: left;
+	margin-left: 2px;
+	padding-left: 10px;
+	padding-top: 5px;
+	position: relative;
+	color: #333;
+}
+
+.darth-weeks_dash, .darth-days_dash, .darth-minutes_dash, .darth-seconds_dash  {
+	background: transparent url('images/dark_bg_dash.png') 0 0 no-repeat;
+}
+
+.darth-weeks_trip_dash, .darth-days_trip_dash {
+	background: transparent url('images/dark_bg_trip_dash.png') 0 0 no-repeat;
+}
+
+.darth-hours_dash {
+	clear: left;
+	background: transparent url('images/dark_bg_dash.png') 0 0 no-repeat;
+}
+
+.darth-digit {
+	font: bold 20pt Verdana;
+	font-weight: bold;
+	float: left;
+	width: 22px;
+	text-align: center;
+	position: relative;
+}
+
+.darth-dash_title {
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	display: block;
+	position: absolute;
+	left: -15px;
+	top: 18px;
+	width:28px;
+	color: #fff;
+	text-align: left;
+	font-size: 9px;
+}

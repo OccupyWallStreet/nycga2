@@ -31,9 +31,12 @@ class Eab_Events_FrontPageEditing {
 	}
 	
 	private function _add_hooks () {
+		/*
 		if (!$this->_options['id']) {
 			add_action('wp', array($this, 'check_page_location'));
 		}
+		*/
+		add_action('wp', array($this, 'check_page_location'));
 		
 		add_action('eab-settings-after_plugin_settings', array($this, 'show_settings'));
 		add_filter('eab-settings-before_save', array($this, 'save_settings'));
@@ -108,7 +111,7 @@ class Eab_Events_FrontPageEditing {
 		bp_core_new_subnav_item(array(
 			'name' => __('Add Event', Eab_EventsHub::TEXT_DOMAIN),
 			'slug' => 'edit-event',
-			'parent_url' => $bp->displayed_user->domain . 'my-events' . '/',
+			'parent_url' => trailingslashit(trailingslashit($bp->displayed_user->domain) . 'my-events'),
 			'parent_slug' => 'my-events',
 			'screen_function' => array($this, 'bind_bp_add_event_page'),
 		));
@@ -130,8 +133,8 @@ class Eab_Events_FrontPageEditing {
 		return 
 			$content .
 			'<p>' .
-				'<a href="' . $this->_get_front_editor_link($event->get_id()) . ' " class="button">' . 
-					__('Edit Event', Eab_EventsHub::TEXT_DOMAIN) . 
+				'<a href="' . $this->_get_front_editor_link($event->get_id()) . '">' . 
+					__('Edit event', Eab_EventsHub::TEXT_DOMAIN) . 
 				'</a>' .
 			'</p>' .
 		'';
@@ -145,8 +148,8 @@ class Eab_Events_FrontPageEditing {
 		
 		echo '' . 
 			'<p>' .
-				'<a href="' . $this->_get_front_editor_link() . '" class="button">' . 
-					__('Add Event', Eab_EventsHub::TEXT_DOMAIN) . 
+				'<a href="' . $this->_get_front_editor_link() . '">' . 
+					__('Add event', Eab_EventsHub::TEXT_DOMAIN) . 
 				'</a>' .
 			'</p>' .
 		'';
@@ -193,7 +196,13 @@ class Eab_Events_FrontPageEditing {
 	
 	function check_page_location () {
 		global $wp_query;
-		if (self::SLUG != $wp_query->query_vars['pagename']) return false;
+		$qobj = get_queried_object();
+		//if (self::SLUG != $wp_query->query_vars['pagename']) return false;
+		if (
+			($this->_options['id'] && is_object($qobj) && isset($qobj->ID) && $this->_options['id'] != $qobj->ID)
+			||
+			(!$this->_options['id'] && self::SLUG != $wp_query->query_vars['name'])
+		) return false;
 		
 		add_filter('the_content', array($this, 'the_editor_content'), 99);
 		status_header( 200 );
@@ -244,7 +253,7 @@ class Eab_Events_FrontPageEditing {
 		update_post_meta($post_id, 'incsub_event_status', strip_tags($data['status']));
 		
 		$venue_map = get_post_meta($post_id, 'agm_map_created', true);
-		if (!$venue_map && $data['venue']) {
+		if (!$venue_map && $data['venue'] && class_exists('AgmMapModel')) {
 			$model = new AgmMapModel;
 			$model->autocreate_map($post_id, false, false, $data['venue']);
 		} 
@@ -256,6 +265,8 @@ class Eab_Events_FrontPageEditing {
 		update_post_meta($post_id, 'incsub_event_paid', ($is_paid ? '1' : ''));
 		update_post_meta($post_id, 'incsub_event_fee', $fee);
 		do_action('eab-events-fpe-save_meta', $post_id, $data);
+
+		wp_set_post_terms($post_id, array((int)$data['category']), 'eab_events_category', false);
 		
 		$message = current_user_can($post_type->cap->publish_posts)
 			? __('Event saved and published', Eab_EventsHub::TEXT_DOMAIN)
@@ -322,7 +333,7 @@ class Eab_Events_FrontPageEditing {
 		add_action('get_footer', array($this, 'enqueue_dependency_data'));
 		$post = $event_id ? get_post($event_id) : false;
 		$event = new Eab_EventModel($post);
-		
+
 		$this->_enqueue_dependencies();
 		
 		$style = $event->get_id() ? '' : 'style="display:none"';
@@ -410,6 +421,28 @@ class Eab_Events_FrontPageEditing {
 		$ret .= '<br /><input type="text" name="" id="eab-events-fpe-venue" value="' . esc_attr($event->get_venue_location()) . '" />';
 		$ret .= '</div>';
 		// End venue
+		$ret .= '</div>';
+		
+		$ret .= '</div>'; // eab-events-fpe-col_wrapper
+		$ret .= '<div class="eab-events-fpe-col_wrapper">';
+
+		// Start Categories
+		$event_cat_ids = $event->get_category_ids();
+		$event_cat_ids = $event_cat_ids ? $event_cat_ids : array();
+		$all_cats = get_terms('eab_events_category');
+		$all_cats = $all_cats ? $all_cats : array();
+		$ret .= '<div class="eab-events-fpe-meta_box" id="eab-events-fpe-meta_box-categories">';
+		// Categories
+		$ret .= '<div>';
+		$ret .= '<label>' . __('Category', Eab_EventsHub::TEXT_DOMAIN) . '</label>';
+		$ret .= '<br /><select id="eab-events-fpe-categories"><option value=""></option>';
+		foreach ($all_cats as $cat) {
+			$selected = in_array($cat->term_id, $event_cat_ids) ? "selected='selected'" : '';
+			$ret .= "<option value='{$cat->term_id}' {$selected}>{$cat->name}</option>";
+		}
+		$ret .= "</select>";
+		$ret .= '</div>';
+		// End Categories
 		$ret .= '</div>';
 		
 		$ret .= '</div>'; // eab-events-fpe-col_wrapper

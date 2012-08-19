@@ -91,7 +91,5 @@ class BpfbCodec {
 
 		// A fix for Ray's "oEmbed for BuddyPress" and similar plugins
 		add_filter('bp_get_activity_content_body', 'do_shortcode', 1);
-		// RSS feed processing
-		add_filter('bp_get_activity_feed_item_description', 'do_shortcode');
 	}
 }

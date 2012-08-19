@@ -1,0 +1,48 @@
+.fb-events-container {
+    overflow: auto;
+    overflow-x: hidden;
+    height: 300px;
+}
+.fb-event {
+    background-color: #E3E3E3;
+    border: 1px solid;
+    overflow: hidden;
+    margin: 0 0 5px 0;
+    padding: 5px;
+    font-family: arial, verdana, courier;
+    height: 120px;
+    font-size: 11px;
+    line-height: 22px;
+}
+.fb-event a {
+    text-decoration: none;
+    color: inherit;
+}
+.fb-event:hover {
+    background-color: #CCC;
+}
+.fb-event img {
+    float: left;
+}
+.fb-event-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+.fb-event-time {
+    line-height: 10px;
+}
+.fb-event-location {
+}
+.fb-event-description {
+    line-height: 10px;
+}
+.fb-event-cal-head {
+    font-size: 11px;
+    color: #333;
+    background-color: #F2F2F2;
+    border-top: solid 1px #E2E2E2;
+    padding: 4px 6px 5px;
+    border-bottom: none;
+    font-weight: bold;
+    line-height: 1.28;
+}

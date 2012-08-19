@@ -64,6 +64,12 @@ class APLCore
      * @var string
      */
     var $_APL_OPTION_NAME = "APL_Options";
+    
+    /**
+     * @since 0.3.0
+     * @var array 
+     */
+    var $_remove_duplicates = array();
 
     // SAMPLE OF PHPDOC DESCRIPTION
     /**
@@ -140,17 +146,26 @@ class APLCore
                                 $oldversion,
                                 '>'))
             {
-                $this->APL_upgrade_to_030();
+                $this->APL_upgrade_to_03a();
+            }
+            
+            if (version_compare('0.3.b5',
+                                $oldversion,
+                                '>'))
+            {
+                $this->APL_upgrade_to_03b5();
             }
 
             ////// UPDATE VERSION NUMBER //////
+            $APLOptions = $this->APL_options_load();
             if (version_compare(APL_VERSION,
                                 $oldversion,
                                 '>'))
             {
                 $APLOptions['version'] = APL_VERSION;
+                $this->APL_options_save($APLOptions);
             }
-            $this->APL_options_save($APLOptions);
+            
         }
 
         //////// ACTION & FILTERS HOOKS ////////
@@ -202,7 +217,7 @@ class APLCore
      * <li value="7">Save Preset Database Options.</li>
      * </ol>
      */
-    private function APL_upgrade_to_030()
+    private function APL_upgrade_to_03a()
     {
         // STEP 1
         //////// UPDATE ADMIN OPTIONS ////////
@@ -310,6 +325,98 @@ class APLCore
         $presetDbObj->_preset_db = $tmp_preset_db;
         $presetDbObj->options_save_db();
     }
+    private function APL_upgrade_to_03b5()
+    {
+        $APLOptions = $this->APL_options_load();
+        $APLOptions['default_exit'] = FALSE;
+        $APLOptions['default_exit_msg'] = '<p>Sorry, but no content is available at this time.</p>';
+        $this->APL_options_save($APLOptions);
+
+        // Step 2
+        //////// UPDATE PRESET DATABASE OPTIONS ////////
+        $presetDbObj = new APLPresetDbObj('default');
+        $tmp_preset_db = new stdClass();
+        // Step 3
+        foreach ($presetDbObj->_preset_db as $presetObj_name => $presetObj_value)
+        {
+            // Step 4
+            //// SET PARENT SETTING ////
+            $tmp_presetObj = new APLPresetObj();
+            $tmp_presetObj->_postParents = (array) array();
+            if (isset($presetObj_value->_postParent))
+            {
+                $tmp_presetObj->_postParents = $presetObj_value->_postParent;
+            }
+            $tmp_presetObj->_postTax = (object) new stdClass();
+            if (isset($presetObj_value->_postTax))
+            {
+                $tmp_presetObj->_postTax = $presetObj_value->_postTax;
+            }
+            
+            $tmp_presetObj->_listCount = (int) 5;
+            if (isset($presetObj_value->_listAmount))
+            {
+                $tmp_presetObj->_listCount = $presetObj_value->_listAmount;
+            }
+            
+            $tmp_presetObj->_listOrderBy = (string)'';
+            if (isset($presetObj_value->_listOrderBy))
+            {
+                $tmp_presetObj->_listOrderBy = $presetObj_value->_listOrderBy;
+            }
+            $tmp_presetObj->_listOrder = (string) '';
+            if (isset($presetObj_value->_listOrder))
+            {
+                $tmp_presetObj->_listOrder = $presetObj_value->_listOrder;
+            }
+            
+            $tmp_presetObj->_postVisibility = array('public');//Added
+            if ($presetObj_value->_postStatus === 'private')
+            {
+                $tmp_presetObj->_postVisibility = array('private');
+            }
+            $tmp_presetObj->_postStatus = (array) array('publish');//Changed
+            if (isset($presetObj_value->_postStatus) && $presetObj_value->_postStatus !== 'private')
+            {
+                $tmp_presetObj->_postStatus = array($presetObj_value->_postStatus);
+            }
+            $tmp_presetObj->_userPerm = (string) 'readable';//Added
+            $tmp_presetObj->_postAuthorOperator = (string) 'none';//Added
+            $tmp_presetObj->_postAuthorIDs = (array) array();//Added
+            $tmp_presetObj->_listIgnoreSticky = (bool) FALSE;//Added
+            $tmp_presetObj->_listExcludeCurrent = (bool) TRUE;
+            if (isset($presetObj_value->_listExcludeCurrent))
+            {
+                $tmp_presetObj->_listExcludeCurrent = array($presetObj_value->_postExcludeCurrent);
+            }
+            $tmp_presetObj->_listExcludeDuplicates = (bool) FALSE;//Added
+            $tmp_presetObj->_listExcludePosts = array();//Added
+
+            $tmp_presetObj->_exit = (string) ''; //Added
+            $tmp_presetObj->_before = (string) '';
+            if (isset($presetObj_value->_before))
+            {
+                $tmp_presetObj->_before = $presetObj_value->_before;
+            }
+            $tmp_presetObj->_content = (string) '';
+            if (isset($presetObj_value->_content))
+            {
+                $tmp_presetObj->_content = $presetObj_value->_content;
+            }
+            $tmp_presetObj->_after = (string) '';
+            if (isset($presetObj_value->_after))
+            {
+                $tmp_presetObj->_after = $presetObj_value->_after;
+            }
+            
+            $tmp_preset_db->$presetObj_name = $tmp_presetObj;
+        }
+        // Step 7
+        //// STORE AND SAVE THE PRESET DATABASE OPTIONS ////
+        $presetDbObj->_preset_db = $tmp_preset_db;
+        $presetDbObj->options_save_db();
+        
+    }
 
     /**
      * <p><b>Desc: </b>Stores all the file (dir/path) values for defining 
@@ -393,9 +500,9 @@ class APLCore
         /*         * ************************************************************
          * ************** REMOVE SCRIPTS & STYLES ********************** 
          * ************************************************************ */
-        wp_deregister_script('apl-jquery');
+        //wp_deregister_script('apl-jquery');
         wp_deregister_script('apl-admin');
-        wp_deregister_script('apl-jquery-ui');
+        //wp_deregister_script('apl-jquery-ui');
         wp_deregister_script('apl-admin-ui');
         wp_deregister_script('apl-jquery-ui-multiselect');
 
@@ -415,39 +522,41 @@ class APLCore
         /*         * ************************************************************
          * ************** REGISTER SCRIPTS ***************************** 
          * ************************************************************ */
-        $script_deps = array();
-        wp_register_script('apl-jquery',
-                           'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js',
-                           $script_deps,
-                           APL_VERSION,
-                           false);
-        $script_deps = array('apl-jquery');
+//        $script_deps = array();
+//        wp_register_script('apl-jquery',
+//                           'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js',
+//                           $script_deps,
+//                           APL_VERSION,
+//                           false);
+        $script_deps = array('jquery', 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-dialog');
         wp_register_script('apl-admin',
                            plugins_url() . '/advanced-post-list/includes/js/APL-admin.js',
                            $script_deps,
                            APL_VERSION,
                            false);
 
-        $script_deps = array('apl-jquery');
-        wp_register_script('apl-jquery-ui',
-                           'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js',
-                           $script_deps,
-                           APL_VERSION,
-                           false);
+//        $script_deps = array('apl-jquery');
+//        wp_register_script('apl-jquery-ui',
+//                           'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js',
+//                           $script_deps,
+//                           APL_VERSION,
+//                           false);
 
-        $script_deps = array('apl-jquery', 'apl-jquery-ui');
+        $script_deps = array('jquery', 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-accordion', 'jquery-ui-button','jquery-ui-dialog', 'jquery-ui-tabs');
         wp_register_script('apl-admin-ui',
                            plugins_url() . '/advanced-post-list/includes/js/APL-admin_ui.js',
                            $script_deps,
                            APL_VERSION,
                            false);
-        $script_deps = array('apl-jquery', 'apl-jquery-ui');
+        
+        
+        $script_deps = array('jquery', 'jquery-ui-core', 'jquery-ui-widget');
         wp_register_script('apl-jquery-ui-multiselect',
                            plugins_url() . '/advanced-post-list/includes/js/jquery.multiselect.min.js',
                            $script_deps,
                            APL_VERSION,
                            false);
-        $script_deps = array('apl-jquery', 'apl-jquery-ui');
+        $script_deps = array('jquery', 'jquery-ui-core', 'jquery-ui-widget');
         wp_register_script('apl-jquery-ui-multiselect-filter',
                            plugins_url() . '/advanced-post-list/includes/js/jquery.multiselect.filter.min.js',
                            $script_deps,
@@ -465,7 +574,7 @@ class APLCore
                          false);
 
         wp_enqueue_style('apl-admin-ui-css',
-                         'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/' . $APLOptions['jquery_ui_theme'] . '/jquery-ui.css',
+                         'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/' . $APLOptions['jquery_ui_theme'] . '/jquery-ui.css',
                          false,
                          APL_VERSION,
                          false);
@@ -587,7 +696,6 @@ class APLCore
         delete_option('APL_preset_db-default');
     }
 
-    //// FIX SET TO DEFAULT THEN OVERWRITE AND RETURN
     /**
      * <p><b>Desc:</b>Gets APLOptions from wordpress database and 
      *                 send the option data back if any.</p>
@@ -668,6 +776,10 @@ class APLCore
         $APLOptions['delete_core_db'] = true;
         // Step 4
         $APLOptions['jquery_ui_theme'] = 'overcast';
+        
+        $APLOptions['default_exit'] = FALSE;
+        
+        $APLOptions['default_exit_msg'] = '<p>Sorry, but no content is available at this time.</p>';
         // Step 5
         $APLOptions['error'] = '';
 
@@ -716,7 +828,7 @@ class APLCore
                                                 "advanced-post-list",
                                                 array($this, 'APL_admin_page'));
         //STEP 2
-        add_action('admin_print_scripts-' . $APL_admin_page_hook,
+        add_action('admin_print_styles-' . $APL_admin_page_hook,
                    array($this, 'APL_admin_head'));
         //add_filter('contextual_help', 'kalinsPost_contextual_help', 10, 3);
     }
@@ -751,9 +863,7 @@ class APLCore
     {
         // Step 1
         //////// ADD SCRIPTS TO QUEUE LIST ////////
-        wp_enqueue_script('apl-jquery');
         wp_enqueue_script('apl-admin');
-        wp_enqueue_script('apl-jquery-ui');
         wp_enqueue_script('apl-admin-ui');
         wp_enqueue_script('apl-jquery-ui-multiselect');
         wp_enqueue_script('apl-jquery-ui-multiselect-filter');
@@ -774,7 +884,7 @@ class APLCore
         // Step 6
         $postTax_parent_selector = $this->APL_get_post_types(array('hierarchical'));
         
-        $post_types = $this->APL_get_post_types();
+        //$post_types = $this->APL_get_post_types();
         
         // Step 7
         $apl_admin_settings = array(
@@ -792,7 +902,9 @@ class APLCore
         $apl_admin_ui_settings = array(
             //'post_type_amount' => sizeof((array) $post_taxonomies),
             'post_types' => $post_types, //issue may arise
-            'postTax_parent_selector' => $postTax_parent_selector
+            'postTax_parent_selector' => $postTax_parent_selector,
+            'postTax' => $postTax,
+            'taxTerms' => $taxTerms
         );
 
         // Step 8
@@ -818,20 +930,20 @@ class APLCore
       (
       [labels] => stdClass Object
       (
-      [name] => string
-      [singular_name] => string
-      [add_new] => string
-      [add_new_item] => string
-      [edit_item] => string
-      [new_item] => string
-      [view_item] => string
-      [search_items] => string
-      [not_found] => string
-      [not_found_in_trash] => string
-      [parent_item_colon] =>
-      [all_items] => string
-      [menu_name] => string
-      [name_admin_bar] => string
+        [name] => string
+        [singular_name] => string
+        [add_new] => string
+        [add_new_item] => string
+        [edit_item] => string
+        [new_item] => string
+        [view_item] => string
+        [search_items] => string
+        [not_found] => string
+        [not_found_in_trash] => string
+        [parent_item_colon] =>
+        [all_items] => string
+        [menu_name] => string
+        [name_admin_bar] => string
       )
       [description] => string
       [publicly_queryable] => boolean
@@ -858,20 +970,20 @@ class APLCore
       [name] => string
       [cap] => stdClass Object
       (
-      [edit_post] => string
-      [read_post] => string
-      [delete_post] => string
-      [edit_posts] => string
-      [edit_others_posts] => string
-      [publish_posts] => string
-      [read_private_posts] => string
-      [read] => string
-      [delete_posts] => string
-      [delete_private_posts] => string
-      [delete_published_posts] => string
-      [delete_others_posts] => string
-      [edit_private_posts] => string
-      [edit_published_posts] => string
+        [edit_post] => string
+        [read_post] => string
+        [delete_post] => string
+        [edit_posts] => string
+        [edit_others_posts] => string
+        [publish_posts] => string
+        [read_private_posts] => string
+        [read] => string
+        [delete_posts] => string
+        [delete_private_posts] => string
+        [delete_published_posts] => string
+        [delete_others_posts] => string
+        [edit_private_posts] => string
+        [edit_published_posts] => string
       )
       [label] => string
       )
@@ -1030,31 +1142,31 @@ class APLCore
       [_builtin] => boolean
       [labels] => stdClass Object
       (
-      [name] =>  string
-      [singular_name] => string
-      [search_items] => string
-      [popular_items] =>
-      [all_items] => string
-      [parent_item] => string
-      [parent_item_colon] => string
-      [edit_item] => string
-      [view_item] => string
-      [update_item] => string
-      [add_new_item] => string
-      [new_item_name] => string
-      [separate_items_with_commas] =>
-      [add_or_remove_items] =>
-      [choose_from_most_used] =>
-      [menu_name] =>  string
-      [name_admin_bar] => string
+        [name] =>  string
+        [singular_name] => string
+        [search_items] => string
+        [popular_items] =>
+        [all_items] => string
+        [parent_item] => string
+        [parent_item_colon] => string
+        [edit_item] => string
+        [view_item] => string
+        [update_item] => string
+        [add_new_item] => string
+        [new_item_name] => string
+        [separate_items_with_commas] =>
+        [add_or_remove_items] =>
+        [choose_from_most_used] =>
+        [menu_name] =>  string
+        [name_admin_bar] => string
       )
       [show_in_nav_menus] => boolean
       [cap] => stdClass Object
       (
-      [manage_terms] => string
-      [edit_terms] => string
-      [delete_terms] => string
-      [assign_terms] => string
+        [manage_terms] => string
+        [edit_terms] => string
+        [delete_terms] => string
+        [assign_terms] => string
       )
       [name] => string
       [object_type] => Array()
@@ -1521,7 +1633,7 @@ class APLCore
     public function APL_handler_save_settings()
     {
         // Step 1
-        $check_ajax_referer0 = check_ajax_referer("APL_handler_save_settings");
+        $check_ajax_referer = check_ajax_referer("APL_handler_save_settings");
 
         $rtnData = new stdClass();
         $rtnData->error = '';
@@ -1540,11 +1652,19 @@ class APLCore
         // Step 4
         $APLOptions['jquery_ui_theme'] = $_POST['theme'];
         wp_enqueue_style('apl-admin-ui-css',
-                         'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/' . $APLOptions['jquery_ui_theme'] . '/jquery-ui.css',
+                         'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/' . $APLOptions['jquery_ui_theme'] . '/jquery-ui.css',
                          false,
                          APL_VERSION,
                          false);
-
+        
+        $APLOptions['default_exit'] = FALSE;
+        if ($_POST['defaultExit'] === 'true')
+        {
+            $APLOptions['default_exit'] = TRUE;
+        }
+        $APLOptions['default_exit_msg'] = stripslashes($_POST['defaultExitMsg']);
+        
+        
         // Step 5
         $this->APL_options_save($APLOptions);
 
@@ -1607,8 +1727,8 @@ class APLCore
         $presetObj = new APLPresetObj();
 
         // Step 3
-        $presetObj->_postParent = json_decode(stripslashes($_POST['postParent']));
-        $presetObj->_postParent = array_unique($presetObj->_postParent);
+        $presetObj->_postParents = json_decode(stripslashes($_POST['postParents']));
+        $presetObj->_postParents = array_unique($presetObj->_postParents);
 
         // Step 4
         $presetObj->_postTax = json_decode(stripslashes($_POST['postTax']));
@@ -1631,25 +1751,51 @@ class APLCore
         $presetObj->_postTax = $tmp_postTax;
 
         // Step 5
-        $presetObj->_listAmount = intval($_POST['numberPosts']); //(int) howmany to display
+        $presetObj->_listCount = intval($_POST['count']); //(int) howmany to display
         // Step 6
         $presetObj->_listOrder = $_POST['order']; //(string)
         $presetObj->_listOrderBy = $_POST['orderBy']; //(string)
         // Step 7
-        $presetObj->_postStatus = $_POST['postStatus']; //(string)
-//        $presetObj->_ignoreStickyPosts = true; //(boolean)
-//        if ($_POST['ignoreStickyPosts'] === 'false')
-//        {
-//            $presetObj->_ignoreStickyPosts = false;
-//        }
+        $presetObj->_postVisibility = json_decode(stripslashes($_POST['postVisibility']));//(array) => (string)
+        $presetObj->_postStatus = json_decode(stripslashes($_POST['postStatus']));//(array) => (string) //MODIFIED 
+        $presetObj->_userPerm = $_POST['userPerm']; //(string) //ADDED
+        
+        $presetObj->_postAuthorOperator = $_POST['authorOperator'];//(string) //Added
+        $presetObj->_postAuthorIDs = json_decode(stripslashes($_POST['authorIDs']));//(array) => (int) //Added
+        
+        $presetObj->_listIgnoreSticky = true; //(boolean) //ADDED
+        if ($_POST['ignoreSticky'] === 'false')
+        {
+            $presetObj->_listIgnoreSticky = false;
+        }
         // Step 8
-        $presetObj->_postExcludeCurrent = true; //(boolean)
+        $presetObj->_listExcludeCurrent = true; //(boolean)
         if ($_POST['excludeCurrent'] === 'false')
         {
-            $presetObj->_postExcludeCurrent = false;
+            $presetObj->_listExcludeCurrent = false;
         }
-
+        $presetObj->_listExcludeDuplicates = true; //(boolean) //ADDED
+        if ($_POST['excludeDuplicates'] === 'false')
+        {
+            $presetObj->_listExcludeDuplicates = false;
+        }
+        
+        $tmp_listExcludePosts = array();
+        $presetObj->_listExcludePosts = json_decode(stripslashes($_POST['excludePosts'])); //(array) => (int) /ADDED
+        foreach ($presetObj->_listExcludePosts as $postID)
+        {
+            $tmp_listExcludePosts[] = intval($postID);
+        }
+        $presetObj->_listExcludePosts = array_unique($tmp_listExcludePosts);
+        $tmp_listExcludePosts = array();
+        foreach ($presetObj->_listExcludePosts as $postID)
+        {
+            $tmp_listExcludePosts[] = $postID;
+        }
+        $presetObj->_listExcludePosts = $tmp_listExcludePosts;
+        
         // Step 9
+        $presetObj->_exit = stripslashes($_POST['exit']);
         $presetObj->_before = stripslashes($_POST['before']); //(string)
         $presetObj->_content = stripslashes($_POST['content']); //(string)
         $presetObj->_after = stripslashes($_POST['after']); //(string)
@@ -1913,9 +2059,16 @@ class APLCore
 
         // Step 4
         //// EXCLUDE CURRENT POST FROM DISPLAYING ON THE POST LIST
-        if ($presetObj->_postExcludeCurrent == true)
+        if ($presetObj->_listExcludeCurrent === TRUE)
         {
-            $presetObj->_postExcludeCurrent = $post_obj->ID;
+            $presetObj->_listExcludePosts[] = $post_obj->ID;
+        }
+        if ($presetObj->_listExcludeDuplicates === TRUE)
+        {
+            foreach ($this->_remove_duplicates as $postID)
+            {
+                $presetObj->_listExcludePosts[] = $postID;
+            }
         }
         //TODO
         //$presetObj->before = APLInternalShortcodeReplace($presetObj->before, $post, 0);
@@ -1924,28 +2077,28 @@ class APLCore
         //// IF POSTPARENT IS NOT SET THEN CREATE AN EMPTY DEFAULT. OR IF THERE'S  
         ////  ONE OR MORE PARENT IDS, THEN ADD THOSE PAGE IDS TO THE PARENT ARRAY 
         ////  AND IF CURRENT PAGE IS SELECTED THEN ADD CURRENT PAGE ID IF. 
-        $count = count($presetObj->_postParent);
-        if (!isset($presetObj->_postParent))
+        $count = count($presetObj->_postParents);
+        if (!isset($presetObj->_postParents))
         {
-            $presetObj->_postParent = array();
-            $count = count($presetObj->_postParent);
+            $presetObj->_postParents = array();
+            $count = count($presetObj->_postParents);
         }
         else if ($count > 0)
         {
-            foreach ($presetObj->_postParent as $index => $value)
+            foreach ($presetObj->_postParents as $index => $value)
             {
                 // Zero is a ID representation of the current page ID
                 if ($value === "0")
                 {
-                    $presetObj->_postParent[$index] = strval($post_obj->ID);
+                    $presetObj->_postParents[$index] = strval($post_obj->ID);
                 }
                 else
                 {
-                    $presetObj->_postParent[$index] = $value;
+                    $presetObj->_postParents[$index] = $value;
                 }
             }
 
-            $presetObj->_postParent = array_unique($presetObj->_postParent);
+            $presetObj->_postParents = array_unique($presetObj->_postParents);
         }
 
         // Step 6
@@ -1983,9 +2136,23 @@ class APLCore
         //STEP 8
         //TODO create a custom message for the dev to use
         //return nothing if no results
-        if (count($APLQuery->_posts) == 0)
+        if (count($APLQuery->_posts) === 0)
         {
-            return "";
+            $APL_options = $this->APL_options_load();
+            if (!empty($presetObj->_exit))
+            {
+                return $presetObj->_exit;
+            }
+            else if ($APL_options['default_exit'] === TRUE && !empty($APL_options['default_exit_msg']))
+            {
+                return $APL_options['default_exit_msg'];
+            }
+            else
+            {
+                return "";
+            }
+            
+            
         }
         //STEP 9
 ////// BEFORE //////////////////////////////////////////////////////////////////
@@ -1997,6 +2164,7 @@ class APLCore
         foreach ($APLQuery->_posts as $APL_post)
         {
             //STEP 8
+            $this->_remove_duplicates[] = $APL_post->ID;
             $output = $output . APLInternalShortcodeReplace($presetObj->_content,
                                                             $APL_post,
                                                             $count);

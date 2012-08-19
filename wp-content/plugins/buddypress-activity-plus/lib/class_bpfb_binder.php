@@ -43,16 +43,12 @@ class BpfbBinder {
 			$thumb_w = (int)$tw ? (int)$tw : $thumb_w;
 			$thumb_h = (int)$th ? (int)$th : $thumb_h;
 		}
-		
-		$processed = 0;
+
 		foreach ($imgs as $img) {
-			$processed++;
-			if (BPFB_IMAGE_LIMIT && $processed > BPFB_IMAGE_LIMIT) break; // Do not even bother to process more.
-			if (preg_match('!^https?:\/\/!i', $img)) { // Just add remote images
+			if (preg_match('!^' . preg_quote('http://') . '!i', $img)) { // Just add remote images
 				$ret[] = $img;
 				continue;
 			}
-			
 			$pfx = $bp->loggedin_user->id . '_' . preg_replace('/ /', '', microtime());
 			$tmp_img = realpath(BPFB_TEMP_IMAGE_DIR . $img);
 			$new_img = BPFB_BASE_IMAGE_DIR . "{$pfx}_{$img}";
@@ -101,9 +97,7 @@ class BpfbBinder {
 	function js_load_scripts () {
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('thickbox');
-		if (!current_theme_supports('bpfb_file_uploader')) {
-			wp_enqueue_script('file_uploader', BPFB_PLUGIN_URL . '/js/external/fileuploader.js', array('jquery'));
-		}
+		wp_enqueue_script('file_uploader', BPFB_PLUGIN_URL . '/js/external/fileuploader.js', array('jquery'));
 		wp_enqueue_script('bpfb_interface_script', BPFB_PLUGIN_URL . '/js/bpfb_interface.js', array('jquery'));
 		wp_localize_script('bpfb_interface_script', 'l10nBpfb', array(
 			'add_photos' => __('Add photos', 'bpfb'),
@@ -116,15 +110,10 @@ class BpfbBinder {
 			'add' => __('Add', 'bpfb'),
 			'cancel' => __('Cancel', 'bpfb'),
 			'preview' => __('Preview', 'bpfb'),
-			'drop_files' => __('Drop files here to upload', 'bpfb'),
-			'upload_file' => __('Upload a file', 'bpfb'),
 			'choose_thumbnail' => __('Choose thumbnail', 'bpfb'),
 			'no_thumbnail' => __('No thumbnail', 'bpfb'),
 			'paste_video_url' => __('Paste video URL here', 'bpfb'),
 			'paste_link_url' => __('Paste link here', 'bpfb'),
-			'images_limit_exceeded' => sprintf(__("You tried to add too many images, only %d will be posted.", 'bpfb'), BPFB_IMAGE_LIMIT),
-			// Variables
-			'_max_images' => BPFB_IMAGE_LIMIT,
 		));
 	}
 
@@ -324,7 +313,6 @@ class BpfbBinder {
 	 * This is where the plugin registers itself.
 	 */
 	function add_hooks () {
-		
 		add_action('init', array($this, '_add_js_css_hooks'));
 
 		// Step2: Add AJAX request handlers
@@ -336,7 +324,7 @@ class BpfbBinder {
 		add_action('wp_ajax_bpfb_update_activity_contents', array($this, 'ajax_update_activity_contents'));
 
 		do_action('bpfb_add_ajax_hooks');
-		
+
 		// Step 3: Register and process shortcodes
 		BpfbCodec::register();
 	}

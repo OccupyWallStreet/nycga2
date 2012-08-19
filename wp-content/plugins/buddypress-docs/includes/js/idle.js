@@ -110,8 +110,10 @@ function _initJQuery()
 { 
     _api = _API_JQUERY;
     var doc = jQuery(document);
+    var iframe = jQuery('#doc[content]_ifr');
     
-   	doc.mousemove(_active);
+    iframe.ready(function(){
+	doc.mousemove(_active);
 	try {
 		doc.mouseenter(_active);
 	} catch (err) { }
@@ -127,6 +129,12 @@ function _initJQuery()
 	try {
 		doc.dblclick(_active);
 	} catch (err) { }
+        try {
+        	iframe.keydown(_active);
+        } catch (err) { }
+    });
+
+
 }
  
 function _initPrototype()
@@ -143,6 +151,15 @@ function _initPrototype()
 	    Event.observe(window, 'dblclick', _active);
 	});
 }
+ 
+// Detect the API
+try {
+    if (Prototype) _initPrototype();
+} catch (err) { }
+ 
+try {
+    if (jQuery) _initJQuery();
+} catch (err) { }
 
  
  

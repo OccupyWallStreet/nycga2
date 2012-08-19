@@ -10,22 +10,14 @@ function bp_em_my_events() {
 	
 	do_action( 'bp_em_my_events' );
 	
-	//plug into EM admin code (at least for now)
-	include_once(EM_DIR.'/admin/em-admin.php');
-	em_admin_load_scripts();
-	add_action('wp_head','em_admin_general_script');
-	
 	$template_title = 'bp_em_my_events_title';
 	$template_content = 'bp_em_my_events_content';
 
-	if( count($bp->action_variables) > 0 ){
-		if( !empty($bp->action_variables[0]) ){
-			switch($bp->action_variables[0]){
-				case 'edit':
-					$template_title = 'bp_em_my_events_editor_title';
-					$template_content = 'bp_em_my_events_editor';
-					break;
-			}
+	if( !empty($_GET['action']) ){
+		switch($_GET['action']){
+			case 'edit':
+				$template_title = 'bp_em_my_events_editor_title';
+				break;
 		}
 	}
 
@@ -51,14 +43,13 @@ function bp_em_my_events_content() {
 function bp_em_my_events_editor_title() {
 	global $EM_Event;
 	if( is_object($EM_Event) ){
-		_e( 'Edit Event', 'dbem' );	
+		if($EM_Event->is_recurring()){
+			_e( "Reschedule Events", 'dbem' )." '{$EM_Event->event_name}'";
+		}else{
+			_e ( "Edit Event", 'dbem' ) . " '" . $EM_Event->event_name . "'";
+		}
 	}else{
 		_e( 'Add Event', 'dbem' );
 	}
 }
-
-function bp_em_my_events_editor(){
-	em_locate_template('forms/event-editor.php', true);
-}
-
 ?>

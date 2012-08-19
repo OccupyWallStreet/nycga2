@@ -1,0 +1,119 @@
+Plugin Name: WPMU DEV Dashboard
+Author: Aaron Edwards
+
+Change Log:
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+3.1.5 - 8/9/2012
+----------------------------------------------------------------------
+- Add no WPMUDEV_NO_AUTOACTIVATE define to be able to prevent activation in single site
+- Fix errors on plugin upgrade
+- Make 133 theme pack filtering more efficient
+
+3.1.4 - 8/6/2012 - Mohanjith
+----------------------------------------------------------------------
+- Filter out unofficial update notifications for 133 theme pack
+
+3.1.3 - 7/31/2012
+----------------------------------------------------------------------
+- Fix Installed & Activated message confusion on installing themes
+- Fix some CSS compatibility issues in the plugin, props @Daniel
+- Filter incompatible plugins from autosuggest list
+
+3.1.2 - 6/23/2012
+----------------------------------------------------------------------
+- Added filter logic to convert images and JS to use https when admin area is using ssl.
+- Modify permissions logic for admin menus. This should work correctly when the site has blocked install/update perms on plugins and themes. Like when setting DISALLOW_FILE_MODES in wp-config.php the Plugins and Themes sections are not displayed to the user. 
+- Improve handling of reset API keys
+- Fix permissions bug for some foreign language WP distributions
+
+3.1.1 - 5/24/2012
+----------------------------------------------------------------------
+- Fix bug where not showing themes as installed in Themes listings
+- Limit Dashboard plugin to first admin user by default, and actually hide from all others
+- Ability to use define("WPMUDEV_LIMIT_TO_USER", "1, 10"); to limit the entire plugin to certain admin users
+- Change api url back to HTTP from HTTPS for compatibility with non CURL systems
+
+3.1 - 5/20/2012
+----------------------------------------------------------------------
+- HUGE Update! Complete rewrite
+- Redesign of everything
+- Dashboard page view with reputation and history
+- Plugin/Theme browsing pages
+- Instant one-click plugin/theme installs from the dashboard
+- Slideup product info/screenshots
+- Instant searching, filtering, and ordering of listings
+- Community page with forum activity
+- Support page with instant support topic creation/monitoring from dashboard
+- Membership and payment info in dashboard
+- New dashboard widgets: News, quick links
+- Support for central view of updates for all sites on WPMU DEV
+- Ability to limit functionality to a specific user on client sites
+
+3.0 - 2/25/2012
+----------------------------------------------------------------------
+- Beta release only
+
+2.2 - 9/25/2011
+----------------------------------------------------------------------
+- Fix notices
+- Stylize the admin notices to be prettier
+- Gracefully handle permanent connection errors to the API server
+- Add in a WPMU DEV plugin browser for finding and installing new plugins
+
+2.1.3 - 7/16/2011
+----------------------------------------------------------------------
+- Added extra error checks and redundancy in case of API server problems
+
+2.1.2 - 7/04/2011
+----------------------------------------------------------------------
+- WP 3.2 Compatibility
+
+2.1.1 - 6/04/2011
+----------------------------------------------------------------------
+- Ajaxified dismiss links
+
+2.1 - 3/03/2011
+----------------------------------------------------------------------
+- Added support for free WPMU DEV projects hosted on WordPress.org
+
+2.0.2 - 3/03/2011
+----------------------------------------------------------------------
+- Fixed bug with api key saving
+
+2.0.1 - 12/30/2010
+----------------------------------------------------------------------
+- Major rewrite! Required for the latest versions of WPMU DEV plugins.
+- 3.1 compatibility
+- Auto-updates for compatible themes/plugins. Bulk auto-upgrades as well.
+- New release notices
+- Optional special offer notices
+- More admin notice control
+- Transparent integration into the WordPress update system: Counts, plugin/theme pages with sorting
+- Quick links to instructions and support
+- Instant preview of changelogs
+
+1.0.4 - 11/17/2010
+----------------------------------------------------------------------
+Switched to ms-admin.php from wpmu-admin.php
+Updated API to support newer versions
+
+1.0.3 - 03/31/2010
+----------------------------------------------------------------------
+Added ability to update data manually
+Fixed version comparison
+
+1.0.2 - 03/29/2010
+----------------------------------------------------------------------
+Fixed bug that kept all items (plugins/themes) from being discovered
+
+1.0.1 - 02/17/2010
+----------------------------------------------------------------------
+Added option to disable admin notices.
+
+1.0.0 - 12/15/2009
+----------------------------------------------------------------------
+Initial Release.
+
+85361-1345240765

@@ -138,31 +138,87 @@ jQuery(document).ready(function($){
     }
     function loadPreset(id)
     {
-      
-        var newValues = presetObj[id];
-      
-        set_postTax(newValues._postTax);
-        set_parent(newValues._postParent);
-        
-        $('#txtNumberPosts').val(newValues["_listAmount"]);
-        
-        
-        $('#cboOrderBy option[value=' + newValues["_listOrderBy"] + ']').attr('selected','selected');
-        $('#cboOrder option[value=' + newValues["_listOrder"] + ']').attr('selected','selected');
-        
-        $('#cboPostStatus option[value=' + newValues["_postStatus"] + ']').attr('selected','selected');
-        
-        $('#chkExcludeCurrent').attr('checked', newValues["_postExcludeCurrent"]);
-        
-        $('#txtBeforeList').val(newValues["_before"]);
-        $('#txtContent').val(newValues["_content"]);
-        $('#txtAfterList').val(newValues["_after"]);
-      
-      
-        $('#txtPresetName').val(id);
-      
+      ////////////////////////////////////////////////////////////////////////////
+      /////////////////////////////////////////////////////////////////////////////
         $('#divPreview').html("");
+        var newValues = presetObj[id];
+        $("#txtPresetName").val(id);
+
+        set_postTax(newValues._postTax);
+        set_parent(newValues._postParents);
+
+        $("#txtDisplayAmount").val(newValues["_listCount"]);
+        $("#slctOrderBy").val(newValues["_listOrderBy"]);
+        $('#slctOrderBy').multiselect('refresh');
+        $("#slctOrder").val(newValues["_listOrder"]);
+        $('#slctOrder').multiselect('refresh');
+        
+        var postVisibilityArr = jQuery.makeArray(newValues._postVisibility);
+        $('#cboPostVisibility').val(postVisibilityArr);
+        $('#cboPostVisibility').multiselect('refresh');
+        var postStatusArr = jQuery.makeArray(newValues._postStatus);
+        $('#cboPostStatus').val(postStatusArr);
+        $('#cboPostStatus').multiselect('refresh');
+
+        $("#slctUserPerm").val(newValues["_userPerm"]);//ADDED //string
+        $('#slctUserPerm').multiselect('refresh');
+        $("#chkIgnoreSticky").attr('checked', newValues["_listIgnoreSticky"]);//ADDED //boolean
+        $("#chkExcldCurrent").attr('checked', newValues["_listExcludeCurrent"]); //boolean
+        $("#chkExcldDuplicates").attr('checked', newValues["_listExcludeDuplicates"]);//ADDED //boolean
+
+        var tmpString = '';
+        for (var i in newValues["_listExcludePosts"])
+        {
+            if (newValues["_listExcludePosts"][i] != 0)
+            {
+                tmpString += newValues["_listExcludePosts"][i];
+                if( i < (newValues["_listExcludePosts"].length - 1) )
+                {
+                    tmpString += ',';
+                }
+            }
+                
+        }
+        $("#txtExcldPosts").val(tmpString);//ADDED //string
+        
+        var postAuthorIDs = new Array();
+        if (newValues["_postAuthorOperator"] === 'include' || newValues["_postAuthorOperator"] === 'exclude')
+        {
+            $("#slctAuthorOperator").val(newValues["_postAuthorOperator"])
+            $("#cboAuthorIDs").multiselect("enable");
+            
+            if (newValues["_postAuthorIDs"].length > 0)
+            {
+                postAuthorIDs = newValues["_postAuthorIDs"];
+            }
+            $("#cboAuthorIDs").val(postAuthorIDs);//ADDED //array
+            $('#cboAuthorIDs').multiselect('refresh');
+            
+            
+        }
+        else if (newValues["_postAuthorOperator"] === 'none')
+        {
+            $("#slctAuthorOperator").val(newValues["_postAuthorOperator"])
+            $("#cboAuthorIDs").val(postAuthorIDs);
+            $("#cboAuthorIDs").multiselect("disable");
+            $('#cboAuthorIDs').multiselect('refresh');
+        }
+        else
+        {
+            $("#slctAuthorOperator").val('none')
+            $("#cboAuthorIDs").val(postAuthorIDs);
+            $("#cboAuthorIDs").multiselect("disable");
+            $('#cboAuthorIDs').multiselect('refresh');
+        }
+        $('#slctAuthorOperator').multiselect('refresh');
+
+        $("#txtExitMsg").val(newValues["_exit"]);
+        $("#txtBeforeList").val(newValues["_before"]);
+        $("#txtContent").val(newValues["_content"]);
+        $("#txtAfterList").val(newValues["_after"]);
       
+      ////////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////////
       
         setPHPOutput(id);
       
@@ -192,7 +248,6 @@ jQuery(document).ready(function($){
     }
     function reset_postTax()
     {
-        
         for (var post_type_name in postTax)
         {
             for (var taxonomy_name in postTax[post_type_name].taxonomies)
@@ -201,25 +256,15 @@ jQuery(document).ready(function($){
                 $("#chkReqTerms-" + post_type_name + "-" + taxonomy_name).attr('checked', false);
                 $("#chkIncldTerms-" + post_type_name + "-" + taxonomy_name).attr('checked', false);
                 
-//                var a1 = taxTerms[taxonomy_name];
-//                var a2 = taxTerms[taxonomy_name]['terms'];
                 var terms = taxTerms[taxonomy_name].terms;
                 
-//                for (var i = 0; i < taxTerms[taxonomy_name].terms; i++)
-//                {
-//                    $("#chkTerm-" + post_type_name + "-" + taxonomy_name + '-' + term).attr('checked',false)
-//                }
+                $("#chkTerm-" + post_type_name + "-" + taxonomy_name + '-0').attr('checked',false)
                 for (var term in terms)
                 {
-                    
                     $("#chkTerm-" + post_type_name + "-" + taxonomy_name + '-' + terms[term]).attr('checked',false)
-                    
                 }
-                
             }
-            
         }
-        
     }
     function set_parent(parentArr)
     {
@@ -431,17 +476,49 @@ jQuery(document).ready(function($){
         data.presetName = $("#txtPresetName").val();
         
         
-        data.postParent = JSON.stringify(get_parent());
+        data.postParents = JSON.stringify(get_parent());
         data.postTax = JSON.stringify(get_postTax());
         
-        data.numberPosts = $("#txtNumberPosts").val();
-        data.orderBy = $("#cboOrderby").val();
-        data.order = $("#cboOrder").val();
         
-        data.postStatus = $("#cboPostStatus").val();
-        //data.ignoreStickyPosts = $("#chkIgnoreStickyPosts").is(':checked');
-        data.excludeCurrent = $("#chkExcludeCurrent").is(':checked');
+        data.count = $("#txtDisplayAmount").val();
+        data.orderBy = $("#slctOrderBy").val();
+        data.order = $("#slctOrder").val();
         
+        data.postVisibility = $('#cboPostVisibility').val();//array
+        data.postVisibility = JSON.stringify(data.postVisibility);
+        data.postStatus = $("#cboPostStatus").val();//MODIFIED //array
+        if (data.postStatus == null)
+        {
+            data.postStatus = new Array('any');
+        }
+        data.postStatus = JSON.stringify(data.postStatus);
+        
+        data.userPerm = $("#slctUserPerm").val();//ADDED //string
+        data.ignoreSticky = $("#chkIgnoreSticky").is(':checked');//ADDED //boolean
+        data.excludeCurrent = $("#chkExcldCurrent").is(':checked'); //boolean
+        data.excludeDuplicates = $("#chkExcldDuplicates").is(':checked');//ADDED //boolean
+        
+        data.excludePosts = $("#txtExcldPosts").val();//ADDED //string - needs to be changed to an array and json string
+        if (data.excludePosts === "")
+        {
+            data.excludePosts = new Array();
+        }
+        else
+        {
+            data.excludePosts = data.excludePosts.split(",");
+        }
+        data.excludePosts = JSON.stringify(data.excludePosts);
+        
+        data.authorOperator = $("#slctAuthorOperator").val();//ADDED //string
+        
+        data.authorIDs = $("#cboAuthorIDs").val();//ADDED //array
+        if (data.authorIDs == null)
+        {
+            data.authorIDs =  new Array();
+        }
+        data.authorIDs = JSON.stringify(data.authorIDs);
+        
+        data.exit = $("#txtExitMsg").val();
         data.before = $("#txtBeforeList").val();
         data.content = $("#txtContent").val();
         data.after = $("#txtAfterList").val();
@@ -494,14 +571,23 @@ jQuery(document).ready(function($){
                 var tmp_terms = new Array();
                 var i = 0;
                 var terms = taxTerms[taxonomy_name].terms;
-                for (var term in terms)
+                if ($("#chkTerm-" + post_type_name + "-" + taxonomy_name + '-' + 0).is(':checked'))
                 {
-                    if ($("#chkTerm-" + post_type_name + "-" + taxonomy_name + '-' + terms[term]).is(':checked'))
+                    tmp_terms[i] = 0;
+                    i++;
+                }
+                else
+                {
+                    for (var term in terms)
                     {
-                        tmp_terms[i] = terms[term];
-                        i++;
+                        if ($("#chkTerm-" + post_type_name + "-" + taxonomy_name + '-' + terms[term]).is(':checked'))
+                        {
+                            tmp_terms[i] = terms[term];
+                            i++;
+                        }
                     }
                 }
+                
                 if (i > 0 || $("#chkIncldTerms-" + post_type_name + "-" + taxonomy_name).is(':checked'))
                 {
                     tmp_taxonomies[taxonomy_name] = new Object();
@@ -527,9 +613,8 @@ jQuery(document).ready(function($){
     }
     function get_parent()
     {
-        
-        var parentIDs = new Array();
-        var rtnArray = new Array();
+        //Custom unique array function to remove any duplicates, especially
+        // the current page setting.
         var unique = function(origArr) 
         {  
             var newArr = [],  
@@ -553,6 +638,9 @@ jQuery(document).ready(function($){
             return newArr;  
         };
         
+        var parentIDs = new Array();
+        var rtnArray = new Array();
+        
         var i = 0;
         for (var post_type_name in postTax)
         {
@@ -566,7 +654,6 @@ jQuery(document).ready(function($){
                 }
             }
         }
-        //TODO make array unique
         rtnArray = unique(rtnArray);
         return rtnArray;
     }
@@ -582,13 +669,13 @@ jQuery(document).ready(function($){
         
     }
     
-    $('#frmSettings').submit(function()
-    {
+    
+    $('#btnSaveSettings').click(function(){
+        
         save_settings();
-        ////Cancels default action of form after applying jQuery.get/post
-        // 
-        return false;
+        
     });
+    
     function save_settings()
     {
         var data = {
@@ -596,16 +683,31 @@ jQuery(document).ready(function($){
             _ajax_nonce : saveSettingsNonce
         }
       
-        //Delete Database Yes/No
-        var rdoDeleteDb = document.frmSettings.rdoDeleteDb;
-        for (var i = 0; i < rdoDeleteDb.length; i++)
+        var deleteDB = false;
+        if ($("#rdoDeleteDbTRUE").is(':checked'))
         {
-            if (rdoDeleteDb[i].checked)
-            {
-                data.deleteDb = rdoDeleteDb[i].value;
-            }
+            deleteDB = true;
         }
+        else if ($("#rdoDeleteDbFALSE").is(':checked'))
+        {
+            deleteDB = false;
+        }
+        data.deleteDB = deleteDB;
+        
         data.theme = $('#slctUITheme').val();
+        
+        var defaultExit = false;
+        if ($("#rdoDefaultExitMsgTRUE").is(':checked'))
+        {
+            defaultExit = true;
+        }
+        else if ($("#rdoDefaultExitMsgFALSE").is(':checked'))
+        {
+            defaultExit = false;
+        }
+        data.defaultExit = defaultExit;
+        data.defaultExitMsg = $("#txtDefaultExitMsg").val();
+        
         
         jQuery.post(ajaxurl, data, function(response)
         {
@@ -615,23 +717,24 @@ jQuery(document).ready(function($){
             
             
             optionsHeader('Options Saved');
-            loadjscssfile('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/' + newFileData.theme + '/jquery-ui.css', 'css');
+            loadjscssfile('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/' + newFileData.theme + '/jquery-ui.css', 'css');
         });
         
     }
     function loadjscssfile(filename, filetype)
     {
+        var fileref;
         //if filename is a external JavaScript file
         if (filetype === "js")
         { 
-            var fileref=document.createElement('script');
+            fileref=document.createElement('script');
             fileref.setAttribute("type","text/javascript");
             fileref.setAttribute("src", filename);
         }
         //if filename is an external CSS file
         else if (filetype === "css")
         { 
-            var fileref=document.createElement("link");
+            fileref = document.createElement("link");
             fileref.setAttribute("rel", "stylesheet");
             fileref.setAttribute("type", "text/css");
             fileref.setAttribute("href", filename);

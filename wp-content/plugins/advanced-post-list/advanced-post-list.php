@@ -2,9 +2,9 @@
 
 /*
   Plugin Name: Advanced Post List
-  Version: 0.3.b4
+  Version: 0.3.b5
   Plugin URI: http://ekojr.com/advanced-post-list/
-  Description: Create highly customizable post lists with dynamic features. 
+  Description: Create highly customizable post lists to display to your users and visitors. Provides a wide array of static settings and dynamic features. Also supports Custom Post Types and Taxonomies. 
   Author: EkoJr
 
   == Copyright ==
@@ -60,7 +60,7 @@ else
 //Define constant varibles
 define('APL_NAME',      'Advanced Post List');
 //FIX ALWAYS - Update version number
-define('APL_VERSION',   '0.3.b4');
+define('APL_VERSION',   '0.3.b5');
 //APL_DIR = C:\xampp\htdocs\wordpress\wp-content\plugins\advanced-post-list/
 define('APL_DIR',       plugin_dir_path(__FILE__));
 //APL_URL = http://localhost/wordpress/wp-content/plugins/advanced-post-list/

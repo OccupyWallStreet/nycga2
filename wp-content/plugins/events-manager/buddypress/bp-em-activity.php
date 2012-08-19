@@ -1,33 +1,11 @@
 <?php
+// This file handles hooks/filter requiring activity stream publications
+
 /**
  * bp_em_record_activity()
  *
  * If the activity stream component is installed, this function will record activity items for your
  * component.
- *
- * You must pass the function an associated array of arguments:
- *
- *     $args = array(
- *	 	 REQUIRED PARAMS
- *		 'action' => For em: "Andy high-fived John", "Andy posted a new update".
- *       'type' => The type of action being carried out, for em 'new_friendship', 'joined_group'. This should be unique within your component.
- *
- *		 OPTIONAL PARAMS
- *		 'id' => The ID of an existing activity item that you want to update.
- * 		 'content' => The content of your activity, if it has any, for em a photo, update content or blog post excerpt.
- *       'component' => The slug of the component.
- *		 'primary_link' => The link for the title of the item when appearing in RSS feeds (defaults to the activity permalink)
- *       'item_id' => The ID of the main piece of data being recorded, for em a group_id, user_id, forum_post_id - useful for filtering and deleting later on.
- *		 'user_id' => The ID of the user that this activity is being recorded for. Pass false if it's not for a user.
- *		 'recorded_time' => (optional) The time you want to set as when the activity was carried out (defaults to now)
- *		 'hide_sitewide' => Should this activity item appear on the site wide stream?
- *		 'secondary_item_id' => (optional) If the activity is more complex you may need a second ID. For em a group forum post may need the group_id AND the forum_post_id.
- *     )
- *
- * Events usage would be:
- *
- *   bp_em_record_activity( array( 'type' => 'new_highfive', 'action' => 'Andy high-fived John', 'user_id' => $bp->loggedin_user->id, 'item_id' => $bp->displayed_user->id ) );
- *
  */
 function bp_em_record_activity( $args = '' ) {
 	if ( !function_exists( 'bp_activity_add' ) )
@@ -49,7 +27,6 @@ function bp_em_record_activity( $args = '' ) {
 
 	$r = wp_parse_args( $args, $defaults );
 	extract( $r );
-
 	return bp_activity_add( array( 'id' => $id, 'user_id' => $user_id, 'action' => $action, 'content' => $content, 'primary_link' => $primary_link, 'component' => $component, 'type' => $type, 'item_id' => $item_id, 'secondary_item_id' => $secondary_item_id, 'recorded_time' => $recorded_time, 'hide_sitewide' => $hide_sitewide ) );
 }
 
@@ -60,25 +37,28 @@ function bp_em_record_activity( $args = '' ) {
  * @return unknown
  */
 function bp_em_record_activity_event_save( $result, $EM_Event ){
-	if( $result && $EM_Event->status == 1 && ($EM_Event->previous_status == 0 || !empty($EM_Event->is_new)) ){
-		$user = get_userdata($EM_Event->owner);
-		bp_em_record_activity( array(
-			'user_id' => $user->ID,
-			'action' => sprintf(__('%s added the event %s','dbem'), "<a href='".get_bloginfo('wpurl').'/'.BP_MEMBERS_SLUG.'/'.$user->user_login."/'>".$user->display_name."</a>", $EM_Event->output('#_EVENTLINK') ),
-			'primary_link' => $EM_Event->output('#_EVENTURL'),
-			'type' => 'new_event',
-			'item_id' => $EM_Event->id,
-		));
-		//group activity
-		if( !empty($EM_Event->group_id) ){
+	if( $result && $EM_Event->event_status == 1 && empty($EM_Event->previous_status) ){
+		$user = get_userdata($EM_Event->event_owner);
+		$member_link = bp_core_get_user_domain($user->ID);
+		if( empty($EM_Event->group_id) ){
+			bp_em_record_activity( array(
+				'user_id' => $user->ID,
+				'action' => sprintf(__('%s added the event %s','dbem'), "<a href='".$member_link."'>".$user->display_name."</a>", $EM_Event->output('#_EVENTLINK') ),
+				'primary_link' => $EM_Event->output('#_EVENTURL'),
+				'type' => 'new_event',
+				'item_id' => $EM_Event->event_id,
+				'hide_sitewide' => $EM_Event->event_private
+			));
+		}else{
 			//tis a group event
 			$group = new BP_Groups_Group($EM_Event->group_id);
 			bp_em_record_activity( array(
 				'user_id' => $user->ID,
-				'action' => sprintf(__('%s added the event %s of the %s group.','dbem'), "<a href='".get_bloginfo('wpurl').'/'.BP_MEMBERS_SLUG.'/'.$user->user_login."/'>".$user->display_name."</a>", $EM_Event->output('#_EVENTLINK'), '<a href="'.bp_get_group_permalink($group).'">'.bp_get_group_name($group).'</a>' ),
+				'action' => sprintf(__('%s added the event %s to %s.','dbem'), "<a href='".$member_link."'>".$user->display_name."</a>", $EM_Event->output('#_EVENTLINK'), '<a href="'.bp_get_group_permalink($group).'">'.bp_get_group_name($group).'</a>' ),
 				'component' => 'groups',
 				'type' => 'new_event',
 				'item_id' => $EM_Event->group_id,
+				'hide_sitewide' => $EM_Event->event_private
 			));
 		}
 	}
@@ -93,22 +73,26 @@ add_filter('em_event_save','bp_em_record_activity_event_save', 10, 2);
  */
 function bp_em_record_activity_booking_save( $result, $EM_Booking ){
 	if( $result ){
+		$rejected_statuses = array(0,2,3); //these statuses apply to rejected/cancelled bookings
 		$user = $EM_Booking->person;
-		$user_link = "<a href='".get_bloginfo('wpurl').'/'.BP_MEMBERS_SLUG.'/'.$user->user_login."/'>".$user->display_name."</a>";
+		$member_slug = function_exists( 'bp_get_members_root_slug' ) ? bp_get_members_root_slug() : BP_MEMBERS_SLUG;
+		$member_link = trailingslashit(bp_get_root_domain()) . $member_slug . '/' . $user->user_login;
+		$user_link = "<a href='".$member_link."/'>".$user->display_name."</a>";
 		$event_link = $EM_Booking->get_event()->output('#_EVENTLINK');
-		$status = $EM_Booking->status;
-		if( $status == 1 || (!get_option('dbem_bookings_approval') && $status < 2) ){
-			$action = sprintf(__('%s is attending %s.','dbem'), $user_link, $event_link );
-		}elseif( ($EM_Booking->previous_status == 1 || (!get_option('dbem_bookings_approval') && $EM_Booking->previous_status < 2)) && ($status > 1 || empty($status) || (!get_option('dbem_bookings_approval') && $status != 1)) ){
-			$action = sprintf(__('%s will not be attending %s anymore.','dbem'), $user_link, $event_link );
-		}
+		$status = $EM_Booking->booking_status;
 		$EM_Event = $EM_Booking->get_event();
-		if( !empty($EM_Event->group_id) ){
+		if( empty($EM_Event->group_id) ){
+			if( $status == 1 || (!get_option('dbem_bookings_approval') && $status < 2) ){
+				$action = sprintf(__('%s is attending %s.','dbem'), $user_link, $event_link );
+			}elseif( ($EM_Booking->previous_status == 1 || (!get_option('dbem_bookings_approval') && $EM_Booking->previous_status < 2)) && in_array($status, $rejected_statuses) ){
+				$action = sprintf(__('%s will not be attending %s anymore.','dbem'), $user_link, $event_link );
+			}
+		}else{
 			$group = new BP_Groups_Group($EM_Event->group_id);
 			$group_link = '<a href="'.bp_get_group_permalink($group).'">'.bp_get_group_name($group).'</a>';
 			if( $status == 1 || (!get_option('dbem_bookings_approval') && $status < 2) ){
 				$action = sprintf(__('%s is attending %s of the group %s.','dbem'), $user_link, $event_link, $group_link );
-			}elseif( ($EM_Booking->previous_status == 1 || (!get_option('dbem_bookings_approval') && $EM_Booking->previous_status < 2)) && ($status > 1 || empty($status) || (!get_option('dbem_bookings_approval') && $status != 1)) ){
+			}elseif( ($EM_Booking->previous_status == 1 || (!get_option('dbem_bookings_approval') && $EM_Booking->previous_status < 2)) && in_array($status, $rejected_statuses) ){
 				$action = sprintf(__('%s will not be attending %s of group %s anymore.','dbem'), $user_link, $event_link, $group_link );
 			}
 		}
@@ -118,8 +102,9 @@ function bp_em_record_activity_booking_save( $result, $EM_Booking ){
 				'action' => $action,
 				'primary_link' => $EM_Event->output('#_EVENTURL'),
 				'type' => 'new_booking',
-				'item_id' => $EM_Event->id,
-				'secondary_item_id' => $EM_Booking->id
+				'item_id' => $EM_Event->event_id,
+				'secondary_item_id' => $EM_Booking->booking_id,
+				'hide_sitewide' => $EM_Event->event_private
 			));
 			//group activity
 			if( !empty($EM_Event->group_id) ){
@@ -131,12 +116,14 @@ function bp_em_record_activity_booking_save( $result, $EM_Booking ){
 					'action' => $action,
 					'primary_link' => $EM_Event->output('#_EVENTURL'),
 					'type' => 'new_booking',
-					'secondary_item_id' => $EM_Booking->id
+					'secondary_item_id' => $EM_Booking->booking_id,
+					'hide_sitewide' => $EM_Event->event_private
 				));
 			}
 		}
 	}
 	return $result;
 }
-add_filter('em_booking_save','bp_em_record_activity_booking_save', 10, 2);
-add_filter('em_booking_delete','bp_em_record_activity_booking_save', 10, 2);
+add_filter('em_booking_set_status','bp_em_record_activity_booking_save', 100, 2);
+add_filter('em_booking_save','bp_em_record_activity_booking_save', 100, 2);
+add_filter('em_booking_delete','bp_em_record_activity_booking_save', 100, 2);

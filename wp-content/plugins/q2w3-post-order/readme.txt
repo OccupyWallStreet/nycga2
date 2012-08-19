@@ -1,11 +1,11 @@
 === Q2W3 Post Order ===
 Contributors: Max Bond, AndreSC 
-Tags: q2w3, astickypostorderer, post order, order, posts, category, tag, custom taxonomy, custom post type archive, english, russian 
+Tags: q2w3, astickypostorderer, post order, order, posts, category, tag, custom taxonomy, custom post type archive, english 
 Requires at least: 3.1
-Tested up to: 3.4.1
-Stable tag: 1.2.4
+Tested up to: 3.3.1
+Stable tag: 1.2.2
 
-Lets you manipulate the order in which posts are displayed.
+Lets you manipulate the order in which posts are displayed. Requires WP 3.1 or higher!
 
 == Description ==
 
@@ -27,7 +27,6 @@ The main changes are:
 Supported languages: 
 
 * English
-* Russian (ver 1.2.4)
 
 == Installation ==
 
@@ -55,10 +54,6 @@ Use `q2w3-post-order` css class to set general style for ordered posts.
 Use `q2w3-post-order-{n}` to set unique style for specific post position. 
 Note! You have to use `<?php post_class(); ?>` template tag in your theme. 
 
-= How to remove posts from sorted list? =
-
-Enter position number 0 for selected post, then click Update Sorted.
-
 = How to disable plugin for feeds, pages and custom queries? =
 
 You can add a parameter `q2w3-post-order=disable` to the url. 
@@ -80,17 +75,8 @@ Q2W3 Plugins:
 
 == Changelog ==
 
-= 1.2.4 =
-* Fixed a few non critical bugs
-* Updated help section
-* Added russian translation
-* Tested compatibility with WP 3.4.1
-
-= 1.2.3 =
-* Fixed bug when installed with ClassiPress theme
-
 = 1.2.2 =
-* Fixed php warnings and notices
+* Fixed php warnings nad notices
 * Post order number now can contain up to 6 digits
 
 = 1.2.1 =

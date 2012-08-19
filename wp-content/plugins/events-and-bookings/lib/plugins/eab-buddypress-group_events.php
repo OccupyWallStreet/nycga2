@@ -136,7 +136,7 @@ class Eab_BuddyPress_GroupEvents {
 		'</label></div>';
 		
 		$ret .= __('This is a group event for', Eab_EventsHub::TEXT_DOMAIN);
-		$ret .= ' <select name="eab_event-bp-group_event" id="eab_event-bp-group_event" class="chzn-select">';
+		$ret .= ' <select name="eab_event-bp-group_event" id="eab_event-bp-group_event">';
 		$ret .= '<option value="">' . __('Not a group event', Eab_EventsHub::TEXT_DOMAIN) . '&nbsp;</option>';
 		foreach ($groups as $group) {
 			$selected = ($group->id == $group_id) ? 'selected="selected"' : '';
@@ -158,7 +158,7 @@ class Eab_BuddyPress_GroupEvents {
 		
 		$ret .= '<div class="eab-events-fpe-meta_box">';
 		$ret .= __('This is a group event for', Eab_EventsHub::TEXT_DOMAIN);
-		$ret .= ' <select name="eab_event-bp-group_event" id="eab_event-bp-group_event" class="chzn-select" >';
+		$ret .= ' <select name="eab_event-bp-group_event" id="eab_event-bp-group_event">';
 		$ret .= '<option value="">' . __('Not a group event', Eab_EventsHub::TEXT_DOMAIN) . '&nbsp;</option>';
 		foreach ($groups as $group) {
 			$selected = ($group->id == $group_id) ? 'selected="selected"' : '';
@@ -189,12 +189,17 @@ class Eab_BuddyPress_GroupEvents {
 	}
 	
 	function add_tab () {
-		global $bp;
+		global $bp, $current_user;
 		if (!function_exists('groups_get_groups')) return false;
 		if (!$bp->is_single_item) return false;
+
+		// Don't show groups tab for non-members if Events are private to groups
+		if ($this->_data->get_option('bp-group_event-private_events')) {
+			if (!groups_is_user_member($current_user->id, $bp->groups->current_group->id)) return false; 
+		}
 		
 		$name = __('Group Events', Eab_EventsHub::TEXT_DOMAIN);
-		$groups_link = $bp->root_domain . '/' . $bp->groups->slug . '/' . $bp->groups->current_group->slug . '/';
+		$groups_link = bp_get_group_permalink($bp->groups->current_group);//$bp->root_domain . '/' . $bp->groups->slug . '/' . $bp->groups->current_group->slug . '/';
 		
 		bp_core_new_subnav_item(array(
 			'name' => $name,
@@ -291,3 +296,31 @@ class Eab_BuddyPress_GroupEventsCollection extends Eab_UpcomingCollection {
 }
 
 Eab_BuddyPress_GroupEvents::serve();
+
+
+/**
+ * Group events add-on template extension.
+ */
+class Eab_GroupEvents_Template extends Eab_Template {
+
+	public static function get_group ($event_id=false) {
+		if (!$event_id) {
+			global $post;
+			$event_id = $post->ID;
+		}
+		if (!$event_id) return false;
+		
+		$group_id = get_post_meta($event_id, 'eab_event-bp-group_event', true);
+		if (!$group_id) return false;
+		
+		$group = groups_get_group(array('group_id' => $group_id));
+		if (!$group) return false;
+
+		return $group;
+	}
+
+	public static function get_group_name ($event_id=false) {
+		$group = self::get_group($event_id);
+		return $group->name;
+	}
+}

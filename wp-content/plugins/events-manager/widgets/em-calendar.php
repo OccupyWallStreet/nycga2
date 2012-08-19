@@ -36,9 +36,7 @@ class EM_Widget_Calendar extends WP_Widget {
 		}
 	    
 	    //Our Widget Content  
-		echo '<div id="em-calendar-'.rand(100,200).'" class="em-calendar-wrapper">';
 	    echo EM_Calendar::output(apply_filters('em_widget_calendar_get_args',$instance));
-		echo '</div>';
 	    
 	    echo $args['after_widget'];
     }
@@ -58,7 +56,7 @@ class EM_Widget_Calendar extends WP_Widget {
         ?>
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'dbem'); ?>: </label>
-			<input type="text" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" />
+			<input type="text" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo esc_attr($instance['title']); ?>" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('long_events'); ?>"><?php _e('Show Long Events?', 'dbem'); ?>: </label>
@@ -66,7 +64,7 @@ class EM_Widget_Calendar extends WP_Widget {
 		</p>
 		<p>
             <label for="<?php echo $this->get_field_id('category'); ?>"><?php _e('Category IDs','dbem'); ?>: </label>
-            <input type="text" id="<?php echo $this->get_field_id('category'); ?>" name="<?php echo $this->get_field_name('category'); ?>" size="3" value="<?php echo $instance['category']; ?>" /><br />
+            <input type="text" id="<?php echo $this->get_field_id('category'); ?>" name="<?php echo $this->get_field_name('category'); ?>" size="3" value="<?php echo esc_attr($instance['category']); ?>" /><br />
             <em><?php _e('1,2,3 or 2 (0 = all)','dbem'); ?> </em>
         </p>
         <?php 

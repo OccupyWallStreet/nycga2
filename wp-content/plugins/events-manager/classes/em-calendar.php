@@ -12,6 +12,7 @@ class EM_Calendar extends EM_Object {
 		$calendar_array = array();
 		$calendar_array['cells'] = array();
 	 	
+		$original_args = $args;
 		$args = self::get_default_search($args);
 		$full = $args['full']; //For ZDE, don't delete pls
 		$month = $args['month']; 
@@ -129,8 +130,8 @@ class EM_Calendar extends EM_Object {
 		//Get an array of arguments that don't include default valued args
 		$link_args = self::get_link_args($args);
 
-		$previous_url = "?ajaxCalendar=1&amp;month={$month_last}&amp;year={$year_last}&amp;{$link_args}";
-		$next_url = "?ajaxCalendar=1&amp;month={$month_next}&amp;year={$year_next}&amp;{$link_args}";
+		$previous_url = "?ajaxCalendar=1&amp;mo={$month_last}&amp;yr={$year_last}&amp;{$link_args}";
+		$next_url = "?ajaxCalendar=1&amp;mo={$month_next}&amp;yr={$year_next}&amp;{$link_args}";
 		
 	 	$weekdays = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
 	   $n = 0 ;
@@ -208,49 +209,73 @@ class EM_Calendar extends EM_Object {
 				$event = apply_filters('em_calendar_output_loop_start', $event);
 				if( $long_events ){
 					//If $long_events is set then show a date as eventful if there is an multi-day event which runs during that day
-					$event_start_date = mktime(0,0,0,$month_pre,1,$year_pre);
+					$event_start_date = strtotime($event->start_date);
 					$event_end_date = mktime(0,0,0,$month_post,date('t', $event_start_date),$year_post );
 					if( $event_end_date == '' ) $event_end_date = $event_start_date;
 					while( $event_start_date <= $event->end ){
 						//Ensure date is within event dates, if so add to eventful days array
-						if( $event_start_date > $event->start - (86400) ){ //subtract a day since start may be later in day
-							$event_eventful_date = date('Y-m-d', $event_start_date);
-							if( array_key_exists($event_eventful_date, $eventful_days) && is_array($eventful_days[$event_eventful_date]) ){
-								$eventful_days[$event_eventful_date][] = $event; 
-							} else {
-								$eventful_days[$event_eventful_date] = array($event);  
-							}	
-						}	
+						$event_eventful_date = date('Y-m-d', $event_start_date);
+						if( array_key_exists($event_eventful_date, $eventful_days) && is_array($eventful_days[$event_eventful_date]) ){
+							$eventful_days[$event_eventful_date][] = $event; 
+						} else {
+							$eventful_days[$event_eventful_date] = array($event);  
+						}
 						$event_start_date += (86400); //add a day		
 					}
 				}else{
 					//Only show events on the day that they start
-					if( isset($eventful_days[$event->start_date]) && is_array($eventful_days[$event->start_date]) ){
-						$eventful_days[$event->start_date][] = $event; 
+					if( isset($eventful_days[$event->event_start_date]) && is_array($eventful_days[$event->event_start_date]) ){
+						$eventful_days[$event->event_start_date][] = $event; 
 					} else {
-						$eventful_days[$event->start_date] = array($event);  
+						$eventful_days[$event->event_start_date] = array($event);  
 					}
 				}
-				$event = apply_filters('em_calendar_output_loop_end', $event);
 			}
 		}
+		//generate a link argument string containing event search only
+		$day_link_args = self::get_link_args( array_intersect_key($original_args, EM_Events::get_post_search($args, true) ));
 		foreach($eventful_days as $day_key => $events) {
 			if( array_key_exists($day_key, $calendar_array['cells']) ){
 				//Get link title for this date
 				$events_titles = array();
-				foreach($events as $event) { 
-					$events_titles[] = $event->output($event_title_format);
+				foreach($events as $event) {
+					if( !get_option('dbem_display_calendar_events_limit') || count($events_titles) < get_option('dbem_display_calendar_events_limit') ){
+						$events_titles[] = $event->output($event_title_format);
+					}else{
+						$events_titles[] = get_option('dbem_display_calendar_events_limit_msg');
+						break;
+					}
 				}   
 				$calendar_array['cells'][$day_key]['link_title'] = implode( $event_title_separator_format, $events_titles);
 							
 				//Get the link to this calendar day
 				global $wp_rewrite;
-				$event_page_link = trailingslashit(get_permalink(get_option('dbem_events_page'))); //don't use EM_URI here, since ajax calls this before EM_URI is defined.
-				if( $wp_rewrite->using_permalinks() && !defined('EM_DISABLE_PERMALINKS') ){
-					$calendar_array['cells'][$day_key]['link'] = $event_page_link.$day_key."/";
+				if( count($events) > 1 || !get_option('dbem_calendar_direct_links') ){
+					if( get_option("dbem_events_page") > 0 ){
+						$event_page_link = trailingslashit(get_permalink(get_option("dbem_events_page"))); //PAGE URI OF EM
+					}else{
+						if( $wp_rewrite->using_permalinks() ){
+							$event_page_link = trailingslashit(home_url()).EM_POST_TYPE_EVENT_SLUG.'/'; //don't use EM_URI here, since ajax calls this before EM_URI is defined.
+						}else{
+							$event_page_link = trailingslashit(home_url()).'?post_type='.EM_POST_TYPE_EVENT; //don't use EM_URI here, since ajax calls this before EM_URI is defined.
+						}
+					}
+					if( $wp_rewrite->using_permalinks() && !defined('EM_DISABLE_PERMALINKS') ){
+						$calendar_array['cells'][$day_key]['link'] = $event_page_link.$day_key."/";
+						if( !empty($day_link_args) ){
+							$calendar_array['cells'][$day_key]['link'] .= '?'.$day_link_args;
+						}
+					}else{
+						$joiner = (stristr($event_page_link, "?")) ? "&amp;" : "?";				
+						$calendar_array['cells'][$day_key]['link'] = $event_page_link.$joiner."calendar_day=".$day_key;
+						if( !empty($day_link_args) ){
+							$calendar_array['cells'][$day_key]['link'] .= 'amp;'.$day_link_args;
+						}
+					}
 				}else{
-					$joiner = (stristr($event_page_link, "?")) ? "&amp;" : "?";				
-					$calendar_array['cells'][$day_key]['link'] = $event_page_link.$joiner."calendar_day=".$day_key;
+					foreach($events as $EM_Event){
+						$calendar_array['cells'][$day_key]['link'] = $EM_Event->get_permalink();
+					}
 				}
 				//Add events to array
 				$calendar_array['cells'][$day_key]['events'] = $events;
@@ -259,12 +284,23 @@ class EM_Calendar extends EM_Object {
 		return apply_filters('em_calendar_get',$calendar_array, $args);
 	}
 	
-	function output($args = array()) {	
-		$calendar_array  = self::get($args);	
+	function output($args = array(), $wrapper = true) {
+		//Let month and year REQUEST override for non-JS users
+		if( !empty($_REQUEST['mo']) || !empty($args['mo']) ){
+			$args['month'] = ($_REQUEST['mo']) ? $_REQUEST['mo']:$args['mo'];	
+		}
+		if( !empty($_REQUEST['yr']) || !empty($args['yr']) ){
+			$args['year'] = (!empty($_REQUEST['yr'])) ? $_REQUEST['yr']:$args['yr'];
+		}
+		$calendar_array  = self::get($args);
 		$template = (!empty($args['full'])) ? 'templates/calendar-full.php':'templates/calendar-small.php';
 		ob_start();
 		em_locate_template($template, true, array('calendar'=>$calendar_array,'args'=>$args));
-		$calendar = '<div id="em-calendar-'.rand(100,200).'" class="em-calendar-wrapper">'.ob_get_clean().'</div>';
+		if($wrapper){
+			$calendar = '<div id="em-calendar-'.rand(100,200).'" class="em-calendar-wrapper">'.ob_get_clean().'</div>';
+		}else{
+			$calendar = ob_get_clean();
+		}
 		return apply_filters('em_calendar_output', $calendar, $args);
 	}
 
@@ -309,8 +345,24 @@ class EM_Calendar extends EM_Object {
 			'full' => 0, //Will display a full calendar with event names
 			'long_events' => 0, //Events that last longer than a day
 			'scope' => 'future',
-			'owner' => false
+			'status' => 1, //approved events only
+			'town' => false,
+			'state' => false,
+			'country' => false,
+			'region' => false,
+			'blog' => get_current_blog_id(),
+			'orderby' => get_option('dbem_display_calendar_orderby'),
+			'order' => get_option('dbem_display_calendar_order')
 		);
+		if(is_multisite()){
+			global $bp;
+			if( !is_main_site() && !array_key_exists('blog',$array) ){
+				//not the main blog, force single blog search
+				$array['blog'] = get_current_blog_id();
+			}elseif( empty($array['blog']) && get_site_option('dbem_ms_global_events') ) {
+				$array['blog'] = false;
+			}
+		}
 		$atts = parent::get_default_search($defaults, $array);
 		$atts['full'] = ($atts['full']==true) ? 1:0;
 		$atts['long_events'] = ($atts['long_events']==true) ? 1:0;
