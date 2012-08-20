@@ -1,0 +1,170 @@
+#wp-social-toolbar
+{
+width:100%;
+display:block;
+position:fixed;
+bottom:0px;
+left:0px;
+text-align:left;
+margin:0px;
+overflow:hidden;
+z-index:9999;
+text-shadow:none !important;
+}
+#wp-social-toolbar,#wp-social-toolbar-show-box
+{
+display:none;
+}
+#wps-toolbar-content
+{
+width:100%;
+display:block;
+padding:0px;
+margin:0px;
+overflow:hidden;
+}
+#wps-toolbar-content #wps-toolbar-top
+{
+width:100%;
+display:block;
+overflow:hidden;
+position:relative;
+min-height:28px;
+}
+#wps-toolbar-content #wps-toolbar-top #wps-close-button,#wps-toolbar-show
+{
+bottom:0px;
+padding:0px 0px 0px 3px;
+margin:0px 0px 0px 0px;
+background:#999;
+width:24px;
+border-radius: 0px 7px 0px 0px;
+-moz-border-radius: 0px 7px 0px 0px;
+-webkit-border-radius:0px 7px 0px 0px;
+line-height:0px !important;
+}
+#wps-toolbar-content #wps-toolbar-top #wps-close-button
+{
+position:absolute;
+bottom:0;
+left:0;
+}
+#wps-toolbar-content #wps-toolbar-top #wps-close-button,#wps-toolbar-show
+{
+margin:10px 0px 0px 0px !important;
+padding:3px 3px 0px 0px !important;
+text-align:center;
+overflow:hidden;
+}
+#wps-toolbar-content #wps-toolbar-top #wps-close-button
+{
+padding:3px 3px 0px 0px;
+}
+#wps-toolbar-content #wps-toolbar-top #wps-close-button img
+{
+margin:2px 0px 0px 0px !important;
+border:0px !important;
+}
+#wps-toolbar-show img
+{
+border:0px !important;
+}
+
+#wp-social-toolbar-show-box
+{
+border-bottom:5px solid #999999;
+width:100%;
+overflow:hidden;
+}
+.wpcs-border
+{
+height:5px;
+width:100%;
+display:none;
+background:#999999;
+}
+#wps-toolbar-content #wps-toolbar-top #wps-close-button img,#wps-toolbar-show img
+{
+cursor:pointer;
+border:0px !important;
+}
+#wps-toolbar-content #wps-toolbar-top #wps-twitter-status
+{
+float:right;
+padding:10px 20px 10px 45px;
+border-radius: 10px 0px 0px 0px;
+-moz-border-radius: 10px 0px 0px 0px;
+-webkit-border-radius: 10px 0px 0px 0px;
+background:#999 url(../images/tweet_bird.png) no-repeat 9px 1px;
+font-size:13px;
+line-height:16px;
+color:#ffffff;
+max-width:80%;
+position:relative;
+}
+#wps-toolbar-content #wps-toolbar-top #wps-twitter-status-no
+{
+float:right;
+padding:10px 20px 10px 45px;
+position:relative;
+height:10px;
+}
+#wps-toolbar-content #wps-toolbar-bottom
+{
+width:100%;
+display:block;
+height:40px;
+padding:0px;
+margin:0px;
+background:#000;
+border-top:5px solid #999;
+overflow:hidden;
+}
+#wps-toolbar-content #wps-toolbar-bottom #wpsc-social-accounts
+{
+float:left;
+}
+#wps-toolbar-content #wps-toolbar-bottom #wpsc-social-accounts img
+{
+border:0px;
+padding:0px;
+margin:0px;
+border-right:1px solid #999;
+float:left;
+overflow:hidden;
+}
+
+#wps-toolbar-content #wps-toolbar-bottom #wpsc-social-counts
+{
+float:right;
+}
+.wpcs-share-icons
+{
+float:right;
+height:30px;
+text-align:center;
+padding:10px 5px 0px 5px;
+border-left:1px solid #999;
+}
+.wpcs-share-icons-twitter
+{
+padding-right:0px !important;
+}
+.daddydesign
+{
+float:right;
+height:40px;
+text-align:center;
+padding:0px 0px 0px 0px;
+}
+#twitter_update_list
+{
+list-style:none;
+padding:0px;
+margin:0px;
+}
+#wpsc-social-counts .daddydesign img
+{
+border:0px !important;
+}
+

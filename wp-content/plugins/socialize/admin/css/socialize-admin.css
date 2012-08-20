@@ -1,0 +1,128 @@
+.ui-socialize-highlight {
+	height:15px;
+	width:120px;
+	background:#eaf2fa;
+	border:2px dashed #ccdff3;
+}
+.socialize-icon{
+    background:url('../../images/openshareicon-32x32.png') top center no-repeat;
+}
+#socialize-div1, #socialize-div2 {
+	width:50%;
+	float: left;
+}
+#inline-sortable, #alert-sortable {
+	padding:0;
+}
+.socialize-sm-icon {
+	background-image:url('../../images/sm-icons.png');
+	background-position:-80px -16px;
+	padding: 0px;
+	margin:0px 5px 0 0;
+	height: 16px;
+	width:0px;
+	overflow: hidden;
+	float: left;
+}
+.socialize-sm-icon-list {
+	background-image:url('../../images/sm-icons.png');
+	background-position:-80px -16px;
+	padding: 0px;
+	margin:0 5px 0 0;
+	height: 16px;
+	width:0px;
+	overflow: hidden;
+	float: left;
+}
+.socialize-table {
+        border:1px solid #ccdff3;
+        background:#eaf2fa;
+        margin: 0;
+        padding: 0;
+        width: 0;
+        width: 100%;
+}
+.socialize-table td,.socialize-table th{
+        margin: 0;
+        padding: 10px;
+        border:1px solid #ccdff3;
+        vertical-align: top;
+        text-align: left;
+}
+#socialize-settings-buttons-facebook div.socialize-sm-icon, .socialize-settings-buttons-facebook-icon {
+	width:16px;
+	background-position:-32px 0px; /* works */
+}
+#socialize-settings-buttons-twitter div.socialize-sm-icon, .socialize-settings-buttons-twitter-icon{
+	width:16px;
+	background-position:0px 0px; /* works */
+}
+#socialize-settings-buttons-reddit div.socialize-sm-icon, .socialize-settings-buttons-reddit-icon{
+	width:16px;
+	background-position:-64px 0px; /* works */
+}
+#socialize-settings-buttons-stumbleupon div.socialize-sm-icon, .socialize-settings-buttons-stumbleupon-icon{
+	width:16px;
+	background-position:-16px -16px; /* works */
+}
+#socialize-settings-buttons-pinterest div.socialize-sm-icon, .socialize-settings-buttons-pinterest-icon{
+	width:16px;
+	background-position:-64px -16px; /* works */
+}
+#socialize-settings-buttons-google-plusone div.socialize-sm-icon, .socialize-settings-buttons-google-plus1-icon{
+	width:16px;
+	background-position:-80px -16px; /* works */
+}
+#socialize-settings-buttons-buffer div.socialize-sm-icon, .socialize-settings-buttons-buffer-icon{
+	width:16px;
+	background-position:-32px -16px; /* works */
+}
+#socialize-settings-buttons-linkedin div.socialize-sm-icon, .socialize-settings-buttons-linkedin-icon{
+	width:16px;
+	background-position:-48px 0px; /* works */
+}
+#socialize-settings-buttons-digg div.socialize-sm-icon, .socialize-settings-buttons-digg-icon{
+	width:16px;
+	background-position:-16px 0px; /* works */
+}
+#socialize-settings-buttons-delicious div.socialize-sm-icon, .socialize-settings-buttons-delicious-icon{
+	width:16px;
+	background-position:0px -16px; /* works */
+}
+#socialize-settings-buttons-sphinn div.socialize-sm-icon, .socialize-settings-buttons-sphinn-icon{
+	width:16px;
+	background-position:-80px -0px; /* works */
+}
+#socialize-settings-buttons-dzone div.socialize-sm-icon, .socialize-settings-buttons-dzone-icon{
+	width:16px;
+	background-position:-48px -16px; /* works */
+}
+table#metrics-table {
+    border: #000 1px solid;
+}
+table#metrics-table tr:first-child { 
+    font-weight: bold;
+    border: #000 1px solid;
+}
+table#metrics-table tr td {
+    border: #ccc 1px solid;
+}
+table#metrics-table tr:nth-child(2n){
+    background-color: #eee;
+}
+.socialize-warning{
+    background-color: #FFEBE8;
+    border-color: #C00;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+    margin-left: 20px;
+}
+.socialize-admin p label {
+    margin: 0px 20px 0px 0px;
+}
+.socialize-admin p label input {
+    margin-left: 10px;
+}

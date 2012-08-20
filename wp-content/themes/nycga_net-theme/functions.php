@@ -142,7 +142,7 @@ function register_announcement() {
         'show_ui' => true,
         'show_in_menu' => true,
         'menu_position' => 20,
-        'menu_icon' => '/wp-admin/images/saw-menu-icon.png',
+        //'menu_icon' => '/wp-admin/images/saw-menu-icon.png',
         'show_in_nav_menus' => true,
         'publicly_queryable' => false,
         'exclude_from_search' => true,

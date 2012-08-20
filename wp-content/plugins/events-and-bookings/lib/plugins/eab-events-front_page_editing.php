@@ -133,7 +133,7 @@ class Eab_Events_FrontPageEditing {
 		return 
 			$content .
 			'<p>' .
-				'<a href="' . $this->_get_front_editor_link($event->get_id()) . '">' . 
+				'<a href="' . $this->_get_front_editor_link($event->get_id()) . '" class="button">' . 
 					__('Edit event', Eab_EventsHub::TEXT_DOMAIN) . 
 				'</a>' .
 			'</p>' .

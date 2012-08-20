@@ -1,0 +1,30 @@
+#basic-modal-content {display:none;}
+/* Overlay */
+#simplemodal-overlay {background-color:#000; cursor:wait;}
+/* Container */
+#simplemodal-container {width:800px; background-color:#fff; height:140px;  border:4px solid #444; padding:0px;}
+#simplemodal-container .simplemodal-data {padding:8px;}
+#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
+#simplemodal-container a.modalCloseImg {background:url(../images/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
+#wpsocial-toolbar-go-pro { display:block; clear:both; padding:10px; margin:0px 8px 15px 5px; border:1px solid #e1e1e1; background:#f9f9f9; overflow:hidden; }
+#wpsocial-toolbar-go-pro .wpsocial-toolbar-go-pro-left { float:left; }
+#wpsocial-toolbar-go-pro .wpsocial-toolbar-go-pro-right { float:right; margin:10px 0px 0px 0px;}
+#wpsocial-toolbar-go-pro p,#wpsocial-toolbar-go-pro h2,#wpsocial-toolbar-go-pro h4 { padding:0px !important; margin:0px 0px 5px 0px !important; }
+#wpsocial-toolbar-go-pro h2 { font-weight:bold; }
+#wpsocial-toolbar-go-pro h2 span { font-size:15px;}
+#wpsocial-toolbar-go-pro h2 span a { color:#000; text-decoration:none; font-weight:normal;}
+.wpst_pro_only
+{
+color:red !important;
+padding:0px 0px 0px 20px;
+}
+.wpst_pro_only a
+{
+color:red !important;
+font-size:8px !important;
+text-transform:uppercase;
+font-weight:normal !important;
+font-family:Arial;
+word-spacing:normal;
+letter-spacing:1px;
+}

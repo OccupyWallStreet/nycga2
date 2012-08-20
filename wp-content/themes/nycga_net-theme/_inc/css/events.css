@@ -434,6 +434,18 @@ event-image {}
 
 /* Table */
 
+div.wpmudevevents-list table tbody tr.event td.event_date,
+div.wpmudevevents-list table tbody tr.event td.event_date span.wpmudevevents-date_format-start {
+	text-transform: uppercase;
+	font-family: "Oswald", helvetica, arial, sans-serif;
+}
+
+div.wpmudevevents-list table tbody tr.event td.event_date span.wpmudevevents-date_format-start {
+	text-transform: uppercase;
+	font-family: "Oswald", helvetica, arial, sans-serif;
+	font-size: 1.5em;
+}
+
 td.event_date span.wpmudevevents-date_format-end,
 tr.event td.event_address div.wpmudevevents-date,
 tr.event td.event_address div.wpmudevevents-price {
@@ -488,6 +500,12 @@ div.wpmudevevents-list tr.event td.event_title {
 div.wpmudevevents-list div.wpmudevevents-location {
 	padding:0;
 	font-size: 1.1em;
+}
+
+div.wpmudevevents-list table tbody tr.event td.event_date {
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	border: none;
 }
 
 /*

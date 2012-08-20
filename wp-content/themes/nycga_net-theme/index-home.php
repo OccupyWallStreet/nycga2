@@ -18,7 +18,7 @@ $home_featured_block_style = get_option('tn_buddycorp_home_featured_block_style'
 <?php if($home_featured_block_style != 'slideshow') { ?>
 
 
-<?php locate_template( array( 'lib/templates/wp-template/featured_events.php'), true ); ?>
+<?php locate_template( array( 'lib/templates/wp-template/main-column.php'), true ); ?>
 
 
 <?php } else { ?>

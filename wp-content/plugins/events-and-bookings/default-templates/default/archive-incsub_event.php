@@ -3,7 +3,7 @@ global $booking, $wpdb, $wp_query;
 get_header( 'event' );
 ?>
 	<div id="primary">
-		<div id="content" role="main">
+		<div id="content" role="main" class="default">
             <div id="wpmudevevents-wrapper">
                 <h2><?php _e('Events', Eab_EventsHub::TEXT_DOMAIN); ?></h2>
                 <hr/>

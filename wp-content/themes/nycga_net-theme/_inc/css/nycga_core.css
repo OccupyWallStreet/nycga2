@@ -334,7 +334,8 @@ a.like,
 a.group-button,
 div#item-buttons div.generic-button a.group-button,
 div.generic-button a,
-div.activity-content a.like {
+div.activity-content a.like,
+a span.eab_export {
 	color:#666666 !important;
 	text-transform: none;
 }
@@ -612,4 +613,29 @@ div.padder div#item-body div#subnav.item-list-tabs a:hover,
 div.padder div#item-body div#subnav.item-list-tabs ul li.current a {
 	background-color: #ffcc00;
 	color: #000;
+}
+
+/* Footer */
+
+div#footer {
+	background-image: none;
+	background-color: #efefef;
+}
+div#footer div.footer-inner div.footer-inner-class div.fbox {
+	color: #333;
+}
+
+div.fbox a,
+div#footer div.footer-inner div.footer-inner-class div.fbox li a {
+	color: #1FB3DD !important;
+}
+
+div#footer div.footer-inner div.footer-inner-class div.fbox li,
+div.footer-inner div.footer-inner-class div.fbox ul.activity-list li {
+	border-bottom: 1px solid #fefefe !important;
+}
+
+div#footer div.footer-inner div.footer-inner-class div.fbox li:last-child,
+div.footer-inner div.footer-inner-class div.fbox ul.activity-list li:last-child {
+	border:none;
 }

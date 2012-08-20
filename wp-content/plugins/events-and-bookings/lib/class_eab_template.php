@@ -497,12 +497,12 @@ class Eab_Template {
 			$content .= $key ? __(' and ', Eab_EventsHub::TEXT_DOMAIN) : '';
 
 			$start_string = $event->has_no_start_time($key)
-				? sprintf(__('On <span class="wpmudevevents-date_format-start">%s</span>', Eab_EventsHub::TEXT_DOMAIN), date_i18n(get_option('date_format'), $start))
-				: sprintf(__('On %s <span class="wpmudevevents-date_format-start">from %s</span>', Eab_EventsHub::TEXT_DOMAIN), date_i18n(get_option('date_format'), $start), date_i18n(get_option('time_format'), $start))
+				? sprintf(__('<span class="wpmudevevents-date_format-start">%s</span>', Eab_EventsHub::TEXT_DOMAIN), date_i18n(get_option('date_format'), $start))
+				: sprintf(__('%s <span class="wpmudevevents-date_format-start"> - %s</span>', Eab_EventsHub::TEXT_DOMAIN), date_i18n(get_option('date_format'), $start), date_i18n(get_option('time_format'), $start))
 			;
 			$end_string = $event->has_no_end_time($key)
-				? sprintf(__('<span class="wpmudevevents-date_format-end">to %s</span><br />', Eab_EventsHub::TEXT_DOMAIN), '<span class="wpmudevevents-date_format-end_date">' . $end_date_str . '</span>')
-				: sprintf(__('<span class="wpmudevevents-date_format-end">to %s</span><br />', Eab_EventsHub::TEXT_DOMAIN), '<span class="wpmudevevents-date_format-end_date">' . $end_date_str . '</span> <span class="wpmudevevents-date_format-end_time">' . date_i18n(get_option('time_format'), $end) . '</span>')
+				? sprintf(__('<span class="wpmudevevents-date_format-end"> - %s</span><br />', Eab_EventsHub::TEXT_DOMAIN), '<span class="wpmudevevents-date_format-end_date">' . $end_date_str . '</span>')
+				: sprintf(__('<span class="wpmudevevents-date_format-end"> - %s</span><br />', Eab_EventsHub::TEXT_DOMAIN), '<span class="wpmudevevents-date_format-end_date">' . $end_date_str . '</span> <span class="wpmudevevents-date_format-end_time">' . date_i18n(get_option('time_format'), $end) . '</span>')
 			;
 			$content .= apply_filters('eab-events-event_date_string', "{$start_string} {$end_string}", $event->get_id(), $start, $end);
 			/*

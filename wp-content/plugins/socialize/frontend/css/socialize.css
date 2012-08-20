@@ -1,0 +1,161 @@
+@charset "utf-8";
+/* CSS Document
+
+.socialize-in-content
+    .socialize-in-button .socialize-in-button-right
+
+.socialize-containter
+    .socialize-buttons
+        .socialize-button
+    .socialize-text
+
+*/
+/*Buttons In Content */
+.socialize-in-content{
+
+}
+.socialize-in-content-left{
+    float: left;
+}
+.socialize-in-content-right{
+    float: right;
+}
+.socialize-in-button{
+    text-align: center;
+    display: block;
+    margin: 5px;
+    min-height: 0;
+    width: auto;
+}
+.socialize-in-button-left{
+    padding: 0 5px 5px 0;
+}
+.socialize-in-button-right{
+    padding: 0 0 5px 5px;
+}
+.socialize-in-button-vertical{
+    float: left;
+}
+/*Bottom box with buttons */
+.socialize-containter{
+    clear: both;
+    margin: 20px 0;
+    width:auto;
+    padding:10px;
+    vertical-align:top;
+    min-height: 70px;
+}
+.socialize-buttons{
+    float:left;
+    vertical-align:top;
+}
+.socialize-button{
+    display: block;
+    height:65px;
+    width:60px;
+    padding:0 3px 0 0;
+    float:left;
+}
+.socialize-text{
+
+}
+/* Facebook Fix */
+.socialize-in-button iframe {
+    /*    max-width: 60px !important;*/
+}
+
+.socialize-in-button .fb_edge_comment_widget iframe {
+    width: 330px !important;
+}
+
+/*Delicious Code*/
+.delicious-button{
+    margin: 0 !important;
+    padding: 0 !important;
+    height:60px;
+    width: 50px;
+    color:#000000;
+    line-height: 10px !important;
+    background: url('../../images/delicous.png') center top no-repeat;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.del-top{
+    margin: 0 !important;
+    padding: 0 !important;
+    height:44px;
+    font-size: 10px !important;
+    text-align:center !important;
+    line-height: 10px !important;
+}
+.delicious-button span{
+    padding: 4px 0 0 0;
+    display: block;
+    height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align:center;
+    line-height: 20px;
+}
+.del-bot {
+    line-height: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.del-bot a{
+    padding: 0 0 0 17px !important;
+    height:16px;
+    color: #2B2BFF;
+    font-weight: bold;
+    font-size: 12px !important;
+    text-align: left !important;
+    text-decoration:none !important;
+    line-height: 12px;
+}
+.del-bot a:hover {
+    color:#000000;
+}
+.socialize-floating{
+    border: none;
+    background: none;
+    z-index: 9999;
+    float: left;
+    margin: 0;
+    display: none;
+    position: absolute;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.socialize-floating-bg{
+    border: 1px solid #CCC;
+    background: #fff;
+}
+.socialize-floating .socialize-in-button{
+    text-align: center;
+    display: block;
+    margin: 5px;
+    min-height: 0;
+    width: auto;
+    padding: 0;
+    float: none;
+}
+.socialize-email-button { 
+    font-size: 11px; 
+    font-family: Verdana, Arial; 
+    padding: 2px 4px; 
+    background: #f7f7f7; 
+    color: #444; 
+    border: 1px solid #ddd; 
+    display: block;
+    margin: 0 0 5px; 
+}
+.socialize-print-button{
+    font-size: 11px; 
+    font-family: Verdana, Arial; 
+    padding: 2px 4px; 
+    background: #f7f7f7; 
+    color: #444; 
+    border: 1px solid #ddd; 
+    display: block;
+    margin: 0 0 5px; 
+}
