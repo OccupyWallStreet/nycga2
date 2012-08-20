@@ -621,12 +621,14 @@ div#footer {
 	background-image: none;
 	background-color: #efefef;
 }
-div#footer div.footer-inner div.footer-inner-class div.fbox {
+div#footer div.footer-inner div.footer-inner-class div.fbox,
+div#footer div.footer-inner div#footer-cb.footer-inner-class {
 	color: #333;
 }
 
 div.fbox a,
-div#footer div.footer-inner div.footer-inner-class div.fbox li a {
+div#footer div.footer-inner div.footer-inner-class div.fbox li a,
+div#footer div.footer-inner div#footer-cb.footer-inner-class a {
 	color: #1FB3DD !important;
 }
 

@@ -64,12 +64,9 @@
 
 <div id="footer-cb" class="footer-inner-class">
 
-<div class="alignleft">&copy;<?php echo gmdate('Y'); ?> <a title="<?php bloginfo('description'); ?>" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
-<br /><?php echo wp_network_footer(); ?><?php do_action( 'bp_footer' ) ?>
-</div>
-
-<div class="alignright"><?php _e('Provided by', TEMPLATE_DOMAIN); ?> <a href="http://premium.wpmudev.org" title="WordPress plugins, themes and support"><?php _e("WPMU DEV - The WordPress Experts",TEMPLATE_DOMAIN); ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#top-header"><?php _e('Go back to top &uarr;', TEMPLATE_DOMAIN); ?></a></div>
-
+<div>
+<a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a><br />
+						<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">nycga.net</span> Created in <a href="'http://wordpress.org" target="_blank">Wordpress</a> and <a href="http://buddypress.org" target="_blank">BuddyPress</a> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://nycga.net" property="cc:attributionName" rel="cc:attributionURL">OWS Tech Ops</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.<br />Source code is available at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/OccupyWallStreet/nycga2" rel="dct:source">https://github.com/OccupyWallStreet/nycga2</a>.
 </div>
 
 <?php do_action( 'bp_after_footer' ) ?>

@@ -346,7 +346,8 @@ a:hover.wpmudevevents-no-submit, a.active.wpmudevevents-no-submit{
 
 .wpmudevevents-boxinner{
 	padding: 5px 10px;
-	background-color: #fdffff;
+	/*
+background-color: #fdffff;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(253, 255, 255)), to(rgb(252, 252, 252)));
 	background-image: -webkit-linear-gradient(top, rgb(253, 255, 255), rgb(252, 252, 252));
 	background-image: -moz-linear-gradient(top, rgb(253, 255, 255), rgb(252, 252, 252));
@@ -354,6 +355,7 @@ a:hover.wpmudevevents-no-submit, a.active.wpmudevevents-no-submit{
 	background-image: -ms-linear-gradient(top, rgb(253, 255, 255), rgb(252, 252, 252));
 	background-image: linear-gradient(top, rgb(253, 255, 255), rgb(252, 252, 252));
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#fdffff', EndColorStr='#fcfcfc');
+*/
 }
 
 #wpmudevevents-left{
@@ -604,8 +606,98 @@ div.wpmudevevents-list div#create-event {
 	float: left;
 }
 
-/* Event share */
+/* Event detail */
+div.wpmudevevents-boxinner div.event-thumbnail,
+div.wpmudevevents-boxinner img.attachment-event-thumbnail {
+	float: left;
+	padding-right: 10px;
+	max-width: 300px;
+	height: auto;
+}
+
+html.js body#custom.logged-in div#wrapper.activity_not_front div#container div.content div#wpmudevevents-wrapper.event div#wpmudevents-single div#wpmudevevents-left div.wpmudevevents-boxinner img.attachment-event-thumbnail
+
+div.wpmudevevents-box div.event-thumbnail img {
+	overflow: auto;
+}
+
+div#wpmudevevents-wrapper div.wpmudevevents-contentmeta,
+div#wpmudevevents-wrapper div.wpmudevevents-contentmeta div.wpmudevevents-date,
+div#wpmudevevents-wrapper  div.wpmudevevents-contentmeta div.wpmudevevents-location,
+div#wpmudevevents-wrapper div.wpmudevevents-contentmeta p
+ {
+	font-size: 14px ;
+	line-height: 1.8em;
+	background-image: none;
+}
+
+div.wpmudevevents-date span.wpmudevevents-date_format-start_date,
+div#wpmudevevents-wrapper  div.wpmudevevents-contentmeta div.wpmudevevents-location:before {
+		font-family: Oswald, helvetica, arial, sans-serif;
+		text-transform: uppercase;
+		font-size: 1.2em;
+		color: #000;
+}
+
+div#wpmudevevents-wrapper div.wpmudevevents-contentmeta div.wpmudevevents-date {
+	padding-left: 0;
+}
+
+div#wpmudevevents-wrapper  div.wpmudevevents-contentmeta div.wpmudevevents-location:before {
+	content: "Location: ";
+}
+
+div.wpmudevevents-boxinner ul {
+	clear: both;
+}
+
+div.wpmudevevents-attendees div#event-bookings {
+	padding: 10px;
+}
+
+#wpmudevevents-wrapper p,
+div#wpmudevents-single div#wpmudevevents-left div.wpmudevevents-boxinner {
+	font-size: 1.2em;
+}
+
+div#wpmudevevents-wrapper div.rvsp-buttons div.wpmudevevents-buttons {
+	float: left;
+	padding-left: 10px;
+}
+
+div.agm_google_maps div.agm_upgrade_link {
+	display: none;
+}
+
+div#wpmudevents-single div#wpmudevevents-left div.wpmudevevents-boxinner div.wdpv_voting,
+div#wpmudevents-single div#wpmudevevents-left div.wpmudevevents-boxinner div.wdpv_clear {
+	display: none;
+}
+
+div.wpmudevevents-contentmeta div.wpmudevevents-additional_details p a.button {
+	display: none;
+}
+
+/* Related group events */
+div#wpmudevevents-wrapper div.wpmudevevents-box ul.related-group-events div,
+div#wpmudevevents-wrapper div.wpmudevevents-box ul.related-group-events span {
+	display: inline;
+}
+
+div#wpmudevevents-wrapper.event div.wpmudevevents-box ul.related-group-events li span.wpmudevevents-date_format-end,
+div#wpmudevevents-wrapper.event div.wpmudevevents-box ul.related-group-events li br {
+	display: none;
+}
+
+/* Event management buttons */
+div#wpmudevents-single div.wpmudevevents-header div.wpmudevevents-contentmeta div#event-management {
+	float:right;
+	margin-bottom: 10px;
+}
+
+/* Event share buttons */
 div#event-share {
+	clear: right;
 	float:right;
 	margin-bottom: 10px;
 }
@@ -664,77 +756,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', end
 }
 
 div#wpmudevevents-wrapper a.new {
-	display: none;
-}
-
-/* Event detail */
-div.wpmudevevents-boxinner div.event-thumbnail,
-div.wpmudevevents-boxinner img.attachment-event-thumbnail {
-	float: left;
-	padding-right: 10px;
-	max-width: 300px;
-	height: auto;
-}
-
-div.wpmudevevents-box div.event-thumbnail img {
-	overflow: auto;
-}
-
-div#wpmudevevents-wrapper div.wpmudevevents-contentmeta,
-div#wpmudevevents-wrapper div.wpmudevevents-contentmeta div.wpmudevevents-date,
-div#wpmudevevents-wrapper  div.wpmudevevents-contentmeta div.wpmudevevents-location,
-div#wpmudevevents-wrapper div.wpmudevevents-contentmeta p
- {
-	font-size: 14px ;
-	line-height: 1.8em;
-	background-image: none;
-}
-
-div.wpmudevevents-date span.wpmudevevents-date_format-start_date,
-div#wpmudevevents-wrapper  div.wpmudevevents-contentmeta div.wpmudevevents-location:before {
-		font-family: Oswald, helvetica, arial, sans-serif;
-		text-transform: uppercase;
-		font-size: 1.2em;
-		color: #000;
-}
-
-div#wpmudevevents-wrapper div.wpmudevevents-contentmeta div.wpmudevevents-date {
-	padding-left: 0;
-}
-
-div#wpmudevevents-wrapper  div.wpmudevevents-contentmeta div.wpmudevevents-location:before {
-	content: "Location: ";
-}
-
-div.wpmudevevents-boxinner ul {
-	clear: both;
-}
-
-div.wpmudevevents-attendees div#event-bookings {
-	padding: 10px;
-}
-
-#wpmudevevents-wrapper p {
-	font-size: 1.2em;
-}
-
-div#wpmudevevents-wrapper div.rvsp-buttons div.wpmudevevents-buttons {
-	float: left;
-	padding-left: 10px;
-}
-
-div.agm_google_maps div.agm_upgrade_link {
-	display: none;
-}
-
-/* Related group events */
-div#wpmudevevents-wrapper div.wpmudevevents-box ul.related-group-events div,
-div#wpmudevevents-wrapper div.wpmudevevents-box ul.related-group-events span {
-	display: inline;
-}
-
-div#wpmudevevents-wrapper.event div.wpmudevevents-box ul.related-group-events li span.wpmudevevents-date_format-end,
-div#wpmudevevents-wrapper.event div.wpmudevevents-box ul.related-group-events li br {
 	display: none;
 }
 

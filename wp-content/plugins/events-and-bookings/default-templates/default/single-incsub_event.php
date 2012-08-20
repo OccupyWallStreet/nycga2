@@ -15,15 +15,30 @@ get_header();
 			<h2><?php echo $event->get_title(); ?></h2>
 			<div class="wpmudevevents-contentmeta" style="clear:both">
 			<div id="event-bread-crumbs" ><?php Eab_Template::get_breadcrumbs($event); ?></div>
-					<!-- Buttons should be styled -->
-					<div id="event-share">
-						<a class="button iCal" href="<?php echo get_permalink($post); ?>?eab_format=ical&attachment">iCal</a>
-						<a class="button tweet" href="">Tweet</a>
-						<a class="button like" href="">Like</a>
-						<a class="button share" href="">Share</a>					
-					</div>
-				 <?php echo Eab_Template::get_event_details($event); ?>
+			<div id="event-management">
+			<!-- If user can edit this event, show button -->
+			<?php
+				if ( current_user_can('edit_post', $post->ID) ) {
+				 echo '<a href="http://www.nycga.net/edit-event?event_id=' . $post->ID . '" class="edit-event button">Edit Event</a>';
+				}
+			?>
+			<!-- If user can create an event, show button -->
+			<?php
+				if ( current_user_can('create_events') ) {
+				 echo '<a href="http://www.nycga.net/edit-event" class="add-event button">Create Event</a>';
+				}
+			?>
+			</div>
+			<!-- Buttons should be styled -->
+			<div id="event-share">
+				<a class="button iCal" href="<?php echo get_permalink($post); ?>?eab_format=ical&attachment">iCal</a>
+				<a class="button tweet" href="">Tweet</a>
+				<a class="button like" href="">Like</a>
+				<a class="button share" href="">Share</a>					
+			</div>
+			<?php echo Eab_Template::get_event_details($event); ?>
       <p style="clear:both;">
+      <!-- Show the categories -->
 		  <?php
 		  $categories = get_terms('eab_events_category');
 		  $output_categories = array();
@@ -31,7 +46,6 @@ get_header();
 			  echo '<a href="/events/' . $category->slug . '">' . $category->name . '</a> ';
 		  endforeach; ?>
 		  </p>
-			 
 			</div>
 		</div>
 		<?php echo Eab_Template::get_error_notice(); ?>
@@ -53,6 +67,7 @@ get_header();
 						remove_filter('agm_google_maps-options', 'eab_autoshow_map_off');
 					?>
 				</div>
+				<?php wdpv_vote(); ?>
 			<!-- </div> -->
 			<!-- Attending Buttons -->
 			<div id="wpmudevevents-attending" class="wpmudevevents-box">
@@ -70,8 +85,9 @@ get_header();
 					<h3>Contact</h3>			
 				</div>
 				<div class="wpmudevevents-boxinner">
-					<p><a href="<?php echo bp_core_get_user_domain( get_the_author_meta( 'ID' ) ) ?>" title="<?php echo bp_core_get_user_displayname( get_the_author_meta( 'ID' ) ) ?>"><?php the_author_meta('display_name'); ?></a> 
-					 <?php
+					<p><a href="<?php echo bp_core_get_user_domain( get_the_author_meta( 'ID' ) ) ?>" title="<?php echo bp_core_get_user_displayname( get_the_author_meta( 'ID' ) ) ?>"><?php the_author_meta('display_name'); ?></a>
+					<!-- If it's a group event, show the group -->
+					<?php
 					global $post;
 					$group_id = get_post_meta($post->ID, 'eab_event-bp-group_event', true);
 					if ($group_id) {

@@ -56,7 +56,7 @@ get_header( 'event' );
 									<input type="submit" class="button">
 								</form>
 							</div>
-
+            
             <table>
 	            <tbody>
                 <?php while ( have_posts() ) : the_post(); ?>
@@ -99,7 +99,7 @@ get_header( 'event' );
           </div>
       <?php endif; ?>
   </div>
-  
+    
   <script type="text/javascript">
     $(".chzn-select").chosen();
     $(".chzn-select-deselect").chosen({allow_single_deselect:true});
