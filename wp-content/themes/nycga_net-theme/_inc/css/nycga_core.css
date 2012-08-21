@@ -113,7 +113,8 @@ div.feat-post div.feat-post-content img.feat-post-thumbnail {
 	height: auto;
 }
 
-div.feat-post h3 {
+div.feat-post h3,
+div#homepage-features.featured ul#featured-items li h2.title {
 	font-size: 1.2em;
 }
 
@@ -126,6 +127,14 @@ div.feat-post ul.more-article span.wpmudevevents-date_format-end {
 
 div#feat-content div.feat-articles div.feat-post div.feat-post-content {
 	padding: 5px 0;
+}
+
+div#homepage-features.featured ul#featured-items li h2.title span.date {
+	float: right;
+}
+
+div#homepage-features.featured ul#featured-items li div.detail div.event-image {
+	float: left;
 }
 
 /* Hover */

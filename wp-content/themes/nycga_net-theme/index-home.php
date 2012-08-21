@@ -5,29 +5,87 @@ get_header();
 <div id="post-entry" class="home-column">
 
 <?php if ( is_active_sidebar( __('top-left-column', TEMPLATE_DOMAIN ) ) ) : ?>
+<div >
 <?php dynamic_sidebar( __('top-left-column', TEMPLATE_DOMAIN ) ); ?>
+</div>
 <?php endif; ?>
 
 <?php
-$home_featured_block = get_option('tn_buddycorp_home_featured_block');
-$home_featured_block_style = get_option('tn_buddycorp_home_featured_block_style');
+
+global $post;
+
+$myquery = new WP_Query('post_type=incsub_event'); 
+
 ?>
 
-<?php if($home_featured_block != 'hide') { ?>
+<?php if ($myquery->have_posts()) : ?> 
 
-<?php if($home_featured_block_style != 'slideshow') { ?>
+<div id="homepage-features" class="featured">
+		<h2>Featured Events</h2>
+	
+		<ul id="featured-items">
+				
+			<?php foreach( $myquery as $post ) :	setup_postdata($post); ?>
+			
+			<li>
+			<h2 class="title"><?php echo Eab_Template::get_event_link($post); ?>
+			<span class="date"><?php echo Eab_Template::get_event_dates($post); ?></span></h2>
+			<div class="detail">
+				<div class="event-image"><?php the_post_thumbnail(); ?></div>
+				<div class="event-summary"><?php the_excerpt(); ?></div>
+				<div class="event-date"><?php echo Eab_Template::get_event_dates($post); ?></div>
+			</div>
+			</li>
+			
+			<?php endforeach; ?>
+		
+		</ul>	
+			
+</div>
 
+<?php else : ?>
 
-<?php locate_template( array( 'lib/templates/wp-template/featured_events.php'), true ); ?>
+<!-- No announcements -->
 
+<?php endif; ?>
 
-<?php } else { ?>
+<!-- Second query -->
+<?php
 
-<?php locate_template( array( 'lib/templates/wp-template/slideshow.php'), true ); ?>
+global $post;
 
-<?php } ?>
+$myquery2 = new WP_Query('post_type=incsub_event'); 
 
-<?php } ?>
+?>
+
+<?php if ($myquery2->have_posts()) : ?>
+
+<div id="homepage-features" class="featured">
+		<h2>Featured Events</h2>
+	
+		<ul id="featured-items">
+			<?php while (have_posts()) : the_post(); ?> 
+			
+			<li>
+			<h2 class="title"><?php echo Eab_Template::get_event_link($post); ?>
+			<span class="date"><?php echo Eab_Template::get_event_dates($post); ?></span></h2>
+			<div class="detail">
+				<div class="event-image"><?php the_post_thumbnail(); ?></div>
+				<div class="event-summary"><?php the_excerpt(); ?></div>
+				<div class="event-date"><?php echo Eab_Template::get_event_dates($post); ?></div>
+			</div>
+			</li>
+			<?php endwhile; ?>
+					
+		</ul>	
+			
+</div>
+
+<?php else : ?>
+
+<!-- No announcements -->
+
+<?php endif; ?>
 
 <?php if ( is_active_sidebar( __('left-column', TEMPLATE_DOMAIN ) ) ) : ?>
 <?php dynamic_sidebar( __('left-column', TEMPLATE_DOMAIN ) ); ?>
