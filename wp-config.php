@@ -20,6 +20,7 @@ if ( !file_exists( $env_path ) ) {
 	die( 'You must create an env.php file to continue! Use env-sample.php as a template.' );
 } else {
 	require( dirname(__FILE__) . '/env.php' );
+//	require( dirname(__FILE__) . '/env-old.php' );
 }
 
 ini_set('post_max_size', '50M');

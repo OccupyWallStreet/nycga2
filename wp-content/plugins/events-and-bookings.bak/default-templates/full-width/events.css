@@ -1,0 +1,362 @@
+#wpmudevevents-wrapper{
+	font:100%/1.7em Arial, serif;
+}
+
+#wpmudevevents-wrapper p{
+	font-size: 0.9em;
+}
+
+#wpmudevevents-single{
+	overflow: hidden;
+}
+
+.wpmudevevents-list{
+	overflow: hidden;
+	padding-top: 10px;
+}
+
+.wpmudevevents-header{
+	overflow: hidden;
+}
+
+.wpmudevevents-buttons{
+	text-align: center;
+	padding: 10px 0;
+	overflow: hidden;
+}
+
+.wpmudevevents-list .wpmudevevents-buttons{
+	float: none;
+	padding: 10px 0;
+	margin-bottom: 10px;
+}
+
+#wpmudevevents-payment{
+	background: #ffffe8;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #efef1a;
+	clear: both;
+}
+
+.wpmudevevents-content{
+	overflow: hidden;
+}
+
+#wpmudevevents-contentheader{
+	overflow: hidden;	
+}
+
+#wpmudevevents-user{
+	float: right;
+	background: url('../images/131.png') 0 5px no-repeat;
+	padding: 0 0 0 20px;
+}
+
+.wpmudevevents-contentmeta{
+	overflow: hidden;
+	padding: 0 0 10px 0;
+	color: #666;
+	font-size: 1em;
+}
+
+#wpmudevevents-contentbody{
+	overflow: hidden;
+	padding: 0 0 10px 0;	
+}
+
+#wpmudevevents-wrapper h2{
+	font-size: 2em;
+	margin: 10px 0;
+	padding: 0;
+}
+
+#wpmudevevents-wrapper h3{
+	font-size: 1.2em;
+	margin: 0;
+	padding: 0;
+}
+
+#wpmudevevents-wrapper h3 a{
+	color: #75ab24;
+}
+
+a.wpmudevevents-viewevent{
+	float: right;	
+	color: #75ab24;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #e6e6e6;
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+    padding: 5px 14px 6px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    line-height: normal;
+    border: 1px solid #ccc;
+    border-bottom-color: #bbb;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -webkit-transition: 0.1s linear all;
+    -moz-transition: 0.1s linear all;
+    -ms-transition: 0.1s linear all;
+    -o-transition: 0.1s linear all;
+    transition: 0.1s linear all;
+	text-decoration:none;
+}
+
+a:hover.wpmudevevents-viewevent{
+    background-position: 0 -15px;
+    text-decoration: none;
+}
+
+a.wpmudevevents-book{
+	float: right;	
+    cursor: pointer;
+    display: inline-block;
+    background-color: #e6e6e6;
+	color: #75ab24;
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+    padding: 5px 14px 6px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    line-height: normal;
+    border: 1px solid #ccc;
+    border-bottom-color: #bbb;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -webkit-transition: 0.1s linear all;
+    -moz-transition: 0.1s linear all;
+    -ms-transition: 0.1s linear all;
+    -o-transition: 0.1s linear all;
+    transition: 0.1s linear all;
+	text-decoration:none;
+}
+
+a.wpmudevevents-yes-submit, input.wpmudevevents-yes-submit{
+	float: center;	
+	color: #75ab24;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #e6e6e6;
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+    padding: 5px 9px 6px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    line-height: normal;
+    border: 1px solid #ccc;
+    border-bottom-color: #bbb;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -webkit-transition: 0.1s linear all;
+    -moz-transition: 0.1s linear all;
+    -ms-transition: 0.1s linear all;
+    -o-transition: 0.1s linear all;
+    transition: 0.1s linear all;
+	text-decoration:none;
+}
+
+a:hover.wpmudevevents-book{
+    background-position: 0 -15px;
+    text-decoration: none;
+}
+
+a:hover.wpmudevevents-yes-submit, a.active.wpmudevevents-yes-submit{
+    background-position: 0 -15px;
+    text-decoration: none;
+}
+
+.wpmudevevents-list a.wpmudevevents-yes-submit{
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+a.wpmudevevents-maybe-submit, input.wpmudevevents-maybe-submit{
+	float: center;	
+	color: #bd8728;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #e6e6e6;
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+    padding: 5px 9px 6px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    line-height: normal;
+    border: 1px solid #ccc;
+    border-bottom-color: #bbb;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -webkit-transition: 0.1s linear all;
+    -moz-transition: 0.1s linear all;
+    -ms-transition: 0.1s linear all;
+    -o-transition: 0.1s linear all;
+    transition: 0.1s linear all;
+	text-decoration:none;
+}
+
+a:hover.wpmudevevents-maybe-submit, a.active.wpmudevevents-maybe-submit{
+    background-position: 0 -15px;
+    text-decoration: none;
+}
+
+.wpmudevevents-list a.wpmudevevents-maybe-submit{
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+a.wpmudevevents-no-submit, input.wpmudevevents-no-submit{
+	float: center;		
+	color: #bd3328;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #e6e6e6;
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+    padding: 5px 9px 6px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    line-height: normal;
+    border: 1px solid #ccc;
+    border-bottom-color: #bbb;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -webkit-transition: 0.1s linear all;
+    -moz-transition: 0.1s linear all;
+    -ms-transition: 0.1s linear all;
+    -o-transition: 0.1s linear all;
+    transition: 0.1s linear all;
+	text-decoration:none;
+}
+
+a:hover.wpmudevevents-no-submit, a.active.wpmudevevents-no-submit{
+    background-position: 0 -15px;
+    text-decoration: none;
+}
+
+.wpmudevevents-list a.wpmudevevents-no-submit{
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+#wpmudevevents-wrapper a.wpmudevevents-notpaid-submit{
+	color: #75ab24;
+	font-weight: bold;
+}
+
+#wpmudevevents-wrapper hr{
+	display:block;
+	height:1px;
+	border:0;
+	border-top:1px dashed #aaaaaa;
+	margin:0;
+	padding:0;
+	clear: both;
+}
+
+.wpmudevevents-box{
+	border-right: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	border-top: 1px solid #eeeeee;
+	border-left: 1px solid #eeeeee;
+	overflow:hidden;
+	-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;
+	margin-bottom: 10px;
+}
+
+.wpmudevevents-boxheader{
+	background-color: #EFEFEF;
+	border-bottom: 1px solid #dddddd;
+	padding: 10px 10px 0 10px;
+	overflow: hidden;
+}
+
+.wpmudevevents-boxinner{
+	padding: 5px 10px;
+	background-color: #fdffff;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(253, 255, 255)), to(rgb(252, 252, 252)));
+	background-image: -webkit-linear-gradient(top, rgb(253, 255, 255), rgb(252, 252, 252));
+	background-image: -moz-linear-gradient(top, rgb(253, 255, 255), rgb(252, 252, 252));
+	background-image: -o-linear-gradient(top, rgb(253, 255, 255), rgb(252, 252, 252));
+	background-image: -ms-linear-gradient(top, rgb(253, 255, 255), rgb(252, 252, 252));
+	background-image: linear-gradient(top, rgb(253, 255, 255), rgb(252, 252, 252));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#fdffff', EndColorStr='#fcfcfc');
+}
+
+#wpmudevevents-left{
+	width: 68%;
+	float: left;
+}
+
+#wpmudevevents-right{
+	width: 30%;
+	float: right;
+}
+
+table.wpmudevevents-tickets{
+	width: 100%;
+	text-align: left;
+	padding: 10px 0;
+	background: white;
+}
+
+.wpmudevevents-tickets th{
+	font-weight: 700;
+}
+
+.wpmudevevents-tickets td{
+	border-top: 1px solid #dddddd;
+}
+
+.wpmudevevents-buttons {
+	margin-bottom: 0px !important;
+}
+
+/* 65047-1345424028 */

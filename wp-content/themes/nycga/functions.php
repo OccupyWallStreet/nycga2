@@ -44,18 +44,31 @@ function my_bp_search_form_type_select() {
 }
 add_filter('bp_search_form_type_select','my_bp_search_form_type_select');
 
-
+/* Register scripts */
 function add_script() {
    if (!is_admin()) {
        // comment out the next two lines to load the local copy of jQuery
-       	// wp_deregister_script('jquery');
-       	wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js', false, '1.5.2');
-		wp_enqueue_script('jquery');
-		wp_enqueue_script('toggler', get_bloginfo('url') . '/wp-content/js/hide-form/toggler.js');
+     	// wp_deregister_script('jquery');
+     	wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js', false, '1.5.2');
+			wp_enqueue_script('jquery');
+			wp_enqueue_script('toggler', get_bloginfo('url') . '/wp-content/js/hide-form/toggler.js');
 		}
 	}
 
 add_action('init', 'add_script');
+
+/* Register styles */
+function add_styles()  
+{ 
+  wp_register_style( 'custom-style', get_stylesheet_directory_uri() . '/_inc/custom.css');
+  wp_register_style( 'social-style', get_stylesheet_directory_uri() . '/_inc/social-buttons.css');
+
+  // enqueing:
+  wp_enqueue_style( 'custom-style' );
+  wp_enqueue_style( 'social-style' );
+}
+add_action('wp_enqueue_scripts', 'add_styles');
+
 
 add_action('wp_footer', 'add_search_form_script');
 

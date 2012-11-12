@@ -1,0 +1,2605 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Events Manager 5.1.8.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-07-14 12:01+0800\n"
+"PO-Revision-Date: 2012-09-25 09:31-0000\n"
+"Last-Translator: David Hunt <davidhunt@gmail.com>\n"
+"Language-Team: David Hunt and Fang Lin <davidhunt@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: C:\\Users\\David\\Dropbox\\Webby business\\Resources"
+"\\events-manager (n admin files)\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 1.5.3\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: em-actions.php:31
+msgid "No ticket id provided"
+msgstr "未输入票的ID"
+
+#: em-actions.php:102 em-install.php:356 em-install.php:402 em-install.php:458
+#: em-install.php:459 em-install.php:485 em-install.php:743 em-posts.php:137
+#: em-posts.php:140 em-posts.php:142 em-template-tags.php:179
+msgid "Events"
+msgstr "活动"
+
+#: em-actions.php:102 em-install.php:409 em-install.php:441 em-posts.php:141
+#: classes/em-bookings-table.php:77
+msgid "Event"
+msgstr "活动"
+
+#: em-actions.php:104
+#, php-format
+msgid "%s successfully deleted."
+msgstr "%s成功删除。"
+
+#: em-actions.php:107
+#, php-format
+msgid "%s could not be deleted."
+msgstr "%s不能被删除。"
+
+#: em-actions.php:180 em-install.php:409 em-install.php:410 em-install.php:756
+#: em-install.php:803 em-posts.php:230 em-posts.php:233 em-posts.php:235
+msgid "Locations"
+msgstr "地点"
+
+#: em-actions.php:180 em-posts.php:234
+msgid "Location"
+msgstr "地点"
+
+#: em-actions.php:181
+#, php-format
+msgid "%s successfully deleted"
+msgstr "%s成功删除。"
+
+#: em-actions.php:283 em-functions.php:329
+msgid "<strong>ERROR</strong>: Please type your e-mail address."
+msgstr "<strong>错误</strong>：请输入您的邮箱地址。"
+
+#: em-actions.php:286 em-functions.php:331
+msgid "<strong>ERROR</strong>: The email address isn&#8217;t correct."
+msgstr "<strong>错误</strong>：邮箱地址不正确。"
+
+#: em-actions.php:388 em-bookings.php:77
+msgid "You must log in to cancel your booking."
+msgstr "退订请登陆。"
+
+#: em-actions.php:441 em-actions.php:460 classes/em-booking.php:460
+msgid "Mail Sent."
+msgstr "邮件已发送。"
+
+#: em-actions.php:443 em-actions.php:466 classes/em-booking.php:463
+#: classes/em-booking.php:464
+msgid "ERROR : Mail Not Sent."
+msgstr "错误：邮件未发送。"
+
+#: em-actions.php:618
+#, php-format
+msgid "Exported booking on %s"
+msgstr "在%s上导出的预定信息"
+
+#: em-bookings.php:74
+msgid "Booking cancelled"
+msgstr "取消预定。"
+
+#: em-bookings.php:97
+msgid "Book now!"
+msgstr "现在预定！"
+
+#: em-bookings.php:114
+msgid "Ticket Type"
+msgstr "票类"
+
+#: em-bookings.php:115
+msgid "Price"
+msgstr "价格"
+
+#: em-bookings.php:116 em-bookings.php:144 classes/em-bookings-table.php:82
+msgid "Spaces"
+msgstr "空间"
+
+#: em-bookings.php:129 em-bookings.php:151
+msgid "N/A"
+msgstr "以上选项皆不正确。"
+
+#: em-bookings.php:158
+msgid "Comment"
+msgstr "评论"
+
+#: em-bookings.php:162 em-install.php:526
+msgid "Send your booking"
+msgstr "发送预定信息"
+
+#: em-bookings.php:169
+msgid "No more tickets available at this time."
+msgstr "目前无票。"
+
+#: em-bookings.php:171
+#, php-format
+msgid ""
+"You must <a href=\"%s\">register</a> or <a href=\"%s\">log in</a> in order "
+"to create and manage your bookings."
+msgstr ""
+"需<a href=\"%s\">注册</a> 或者 <a href=\"%s\">登陆</a> 以创建或管理您的预定。"
+
+#: em-bookings.php:219 em-bookings.php:233
+msgid "Cancel your booking"
+msgstr "取消预定"
+
+#: em-debug.php:18 em-install.php:429
+msgid "<li>No events in this location</li>"
+msgstr "<li>此地无活动</li>"
+
+#: em-debug.php:44
+#, php-format
+msgid ""
+"You are in Events Manager debug mode. To turn debug mode off, go to the <a "
+"href=\"%s\">settings</a> page."
+msgstr "您正处在活动管理调试模式。请到<a href=\"%s\">设置</a>页以关掉此模式。"
+
+#: em-events.php:129
+#, php-format
+msgid "My %s"
+msgstr "我的%s"
+
+#: em-events.php:129
+msgid "Bookings"
+msgstr "预定"
+
+#: em-events.php:151
+msgid "Reschedule Events"
+msgstr "改期的活动"
+
+#: em-events.php:153 em-posts.php:146
+msgid "Edit Event"
+msgstr "编辑活动"
+
+#: em-events.php:156 em-posts.php:143
+msgid "Add Event"
+msgstr "添加活动"
+
+#: em-events.php:164 em-posts.php:236
+msgid "Add Location"
+msgstr "添加地点"
+
+#: em-events.php:166 em-posts.php:239
+msgid "Edit Location"
+msgstr "编辑地点"
+
+#: em-functions.php:75
+#, php-format
+msgid "Displaying %s&#8211;%s of %s"
+msgstr "显示%s的%s&#8211;%s"
+
+#: em-functions.php:180
+msgid "All events"
+msgstr "所有活动"
+
+#: em-functions.php:181
+msgid "Future events"
+msgstr "即将举办的活动"
+
+#: em-functions.php:182
+msgid "Past events"
+msgstr "已举办活动"
+
+#: em-functions.php:183
+msgid "Today's events"
+msgstr "今日活动"
+
+#: em-functions.php:184
+msgid "Tomorrow's events"
+msgstr "明日活动"
+
+#: em-functions.php:185
+msgid "Events this month"
+msgstr "本月活动"
+
+#: em-functions.php:186
+msgid "Events next month"
+msgstr "下月活动"
+
+#: em-functions.php:187
+msgid "Events current and next month"
+msgstr "本月与下月活动"
+
+#: em-functions.php:188
+msgid "Events within 2 months"
+msgstr "未来两个月内活动"
+
+#: em-functions.php:189
+msgid "Events within 3 months"
+msgstr "未来三个月内活动"
+
+#: em-functions.php:190
+msgid "Events within 6 months"
+msgstr "未来六个月内活动"
+
+#: em-functions.php:191
+msgid "Events within 12 months"
+msgstr "未来一年内活动"
+
+#: em-functions.php:231
+msgid "Mon"
+msgstr "周一"
+
+#: em-functions.php:231
+msgid "Tue"
+msgstr "周二"
+
+#: em-functions.php:231
+msgid "Wed"
+msgstr "周三"
+
+#: em-functions.php:231
+msgid "Thu"
+msgstr "周四"
+
+#: em-functions.php:231
+msgid "Fri"
+msgstr "周五"
+
+#: em-functions.php:231
+msgid "Sat"
+msgstr "周六"
+
+#: em-functions.php:231
+msgid "Sun"
+msgstr "周日"
+
+#: em-functions.php:242
+msgid "Trying to perform an illegal action."
+msgstr "试图进行一个无效的指令。"
+
+#: em-functions.php:319
+msgid "<strong>ERROR</strong>: Please enter a username."
+msgstr "<strong>错误</strong>：请输入用户名。"
+
+#: em-functions.php:321
+msgid ""
+"<strong>ERROR</strong>: This username is invalid because it uses illegal "
+"characters. Please enter a valid username."
+msgstr ""
+"<strong>错误</strong>：此用户名因包含不合规字符而无效。请输入有效用户名。"
+
+#: em-functions.php:324
+msgid ""
+"<strong>ERROR</strong>: This username is already registered, please choose "
+"another one."
+msgstr "<strong>错误</strong>：用户名已存在，请输入其他的用户名。"
+
+#: em-functions.php:334
+msgid ""
+"<strong>ERROR</strong>: This email is already registered, please choose "
+"another one."
+msgstr "<strong>错误</strong>：邮箱地址已被注册，请使用其他的邮箱地址。"
+
+#: em-functions.php:354
+#, php-format
+msgid ""
+"<strong>ERROR</strong>: Couldn&#8217;t register you... please contact the <a "
+"href=\"mailto:%s\">webmaster</a> !"
+msgstr ""
+"<strong>错误</strong>：无法注册，请联系<a href=\"mailto:%s\">管理员</a>。"
+
+#: em-functions.php:389
+#, php-format
+msgid "New user registration on your blog %s:"
+msgstr "在您的博客%s上显示新用户注册。"
+
+#: em-functions.php:390
+#, php-format
+msgid "Username: %s"
+msgstr "用户名：%s"
+
+#: em-functions.php:391
+#, php-format
+msgid "E-mail: %s"
+msgstr "邮箱地址：%s"
+
+#: em-functions.php:392
+#, php-format
+msgid "[%s] New User Registration"
+msgstr "[%s]注册新用户"
+
+#: em-functions.php:404
+#, php-format
+msgid "[%s] Your username and password"
+msgstr "[%s]您的用户名与密码"
+
+#: em-functions.php:497
+msgid "No"
+msgstr "不是"
+
+#: em-functions.php:497
+msgid "Yes"
+msgstr "是"
+
+#: em-install.php:302
+msgid ""
+"<br/><br/>-------------------------------<br/>Powered by Events Manager - "
+"http://wp-events-plugin.com"
+msgstr ""
+"<br/><br/>-------------------------------<br/>由活动管理者运作- http://wp-"
+"events-plugin.com"
+
+#: em-install.php:303
+msgid ""
+"#_BOOKINGNAME (#_BOOKINGEMAIL) will attend #_EVENTNAME on #_EVENTDATES. He "
+"wants to reserve #_BOOKINGSPACES spaces.<br/> Now there are #_BOOKEDSPACES "
+"spaces reserved, #_AVAILABLESPACES are still available.<br/>Yours faithfully,"
+"<br/>Events Manager - http://wp-events-plugin.com"
+msgstr ""
+"#_BOOKINGNAME (#_BOOKINGEMAIL)将出席在#_EVENTDATES的#_EVENTNAME 。他想要预定"
+"#_BOOKINGSPACES 个.<br/> 现在已预约座位#_BOOKEDSPACES个，剩下 "
+"#_AVAILABLESPACES 。<br/>谨启，<br/>活动管理者 - http://wp-events-plugin.com"
+
+#: em-install.php:304
+msgid ""
+"#_BOOKINGNAME (#_BOOKINGEMAIL) cancelled his booking at #_EVENTNAME on "
+"#_EVENTDATES. He wanted to reserve #_BOOKINGSPACES spaces.<br/> Now there "
+"are #_BOOKEDSPACES spaces reserved, #_AVAILABLESPACES are still available."
+"<br/>Yours faithfully,<br/>Events Manager - http://wp-events-plugin.com"
+msgstr ""
+"#_BOOKINGNAME (#_BOOKINGEMAIL) 取消对在#_EVENTDATES举办的 #_EVENTNAME 的预"
+"定。他预定了#_BOOKINGSPACES个座位。<br/> 现有预定座位#_BOOKEDSPACES个，仍有 "
+"#_AVAILABLESPACES个座位可供预定。<br/>谨启，<br/>活动管理者 - http://wp-"
+"events-plugin.com"
+
+#: em-install.php:305
+msgid ""
+"Dear #_BOOKINGNAME, <br/>you have successfully reserved #_BOOKINGSPACES "
+"space/spaces for #_EVENTNAME.<br/>When : #_EVENTDATES @ #_EVENTTIMES<br/"
+">Where : #_LOCATIONNAME - #_LOCATIONFULLLINE<br/>Yours faithfully,<br/"
+">#_CONTACTNAME"
+msgstr ""
+"尊敬的#_BOOKINGNAME， <br/>您已成功预定了#_EVENTNAME中的座位#_BOOKINGSPACES "
+"个。<br/>时间： #_EVENTDATES @ #_EVENTTIMES<br/>地点 : #_LOCATIONNAME - "
+"#_LOCATIONFULLLINE<br/>谨启，<br/>#_CONTACTNAME"
+
+#: em-install.php:306
+msgid ""
+"Dear #_BOOKINGNAME, <br/>You have requested #_BOOKINGSPACES space/spaces for "
+"#_EVENTNAME.<br/>When : #_EVENTDATES @ #_EVENTTIMES<br/>Where : "
+"#_LOCATIONNAME - #_LOCATIONFULLLINE<br/>Your booking is currently pending "
+"approval by our administrators. Once approved you will receive an automatic "
+"confirmation.<br/>Yours faithfully,<br/>#_CONTACTNAME"
+msgstr ""
+"尊敬的 #_BOOKINGNAME, <br/> 您刚申请了#_EVENTNAME活动中的座位#_BOOKINGSPACES"
+"个。<br/>时间： #_EVENTDATES @ #_EVENTTIMES<br/>地点：#_LOCATIONNAME - "
+"#_LOCATIONFULLLINE<br/>您的申请正待管理员的批准。一旦批准你将收到我们自动回复"
+"邮件。<br/>谨启，<br/>#_CONTACTNAME"
+
+#: em-install.php:307
+msgid ""
+"Dear #_BOOKINGNAME, <br/>Your requested booking for #_BOOKINGSPACES spaces "
+"at #_EVENTNAME on #_EVENTDATES has been rejected.<br/>Yours faithfully,<br/"
+">#_CONTACTNAME"
+msgstr ""
+"尊敬的 #_BOOKINGNAME, <br/>您对#_EVENTDATES活动#_BOOKINGSPACES个座位的申请已"
+"被拒绝。<br/>谨启，<br/>#_CONTACTNAME"
+
+#: em-install.php:308
+msgid ""
+"Dear #_BOOKINGNAME, <br/>Your requested booking for #_BOOKINGSPACES spaces "
+"at #_EVENTNAME on #_EVENTDATES has been cancelled.<br/>Yours faithfully,<br/"
+">#_CONTACTNAME"
+msgstr ""
+"尊敬的#_BOOKINGNAME，<br/>您对#_EVENTDATES #_EVENTDATES 的#_BOOKINGSPACES个座"
+"位的申请已被取消。<br/>谨启，<br/>#_CONTACTNAME"
+
+#: em-install.php:309
+msgid ""
+"Dear #_CONTACTNAME, <br/>Your event #_EVENTNAME on #_EVENTDATES has been "
+"approved.<br/>You can view your event here: #_EVENTURL"
+msgstr ""
+"尊敬的 #_CONTACTNAME， <br/>您的#_EVENTDATES#_EVENTNAME活动申请已通过。<br/>"
+"查看请点击： #_EVENTURL"
+
+#: em-install.php:310
+msgid ""
+"A new event has been submitted by #_CONTACTNAME.<br/>Name : #_EVENTNAME <br/"
+">Date : #_EVENTDATES <br/>Time : #_EVENTTIMES <br/>Please visit "
+"#_EDITEVENTURL to review this event for approval."
+msgstr ""
+" #_CONTACTNAME提交了一个新的活动申请。<br/>活动名称： #_EVENTNAME <br/>日"
+"期： #_EVENTDATES <br/>时间： #_EVENTTIMES <br/>请进入#_EDITEVENTURL以查看和"
+"批准。"
+
+#: em-install.php:330 events-manager.php:227
+msgid "Search"
+msgstr "搜索"
+
+#: em-install.php:333
+msgid "All Categories"
+msgstr "所有类别"
+
+#: em-install.php:335
+msgid "All Countries"
+msgstr "所有国家"
+
+#: em-install.php:337
+msgid "All Regions"
+msgstr "所有地区"
+
+#: em-install.php:339
+msgid "All States"
+msgstr "所有州"
+
+#: em-install.php:341
+msgid "All Cities/Towns"
+msgstr "所有城市/镇"
+
+#: em-install.php:345 em-install.php:348
+msgid ""
+"You have successfully submitted your event, which will be published pending "
+"approval."
+msgstr "已成功提交活动信息，活动批准后将予以发布。"
+
+#: em-install.php:351
+msgid "Submitted Event Awaiting Approval"
+msgstr "待批准活动"
+
+#: em-install.php:353
+msgid "Event Approved"
+msgstr "已批准的活动"
+
+#: em-install.php:401
+msgid "All Day"
+msgstr "整天"
+
+#: em-install.php:402 em-install.php:410 em-install.php:443
+#, php-format
+msgid "No %s"
+msgstr "没有%s"
+
+#: em-install.php:441 em-install.php:443 em-install.php:768 em-install.php:818
+msgid "Categories"
+msgstr "类别"
+
+#: em-install.php:444
+msgid "<li>No events in this category</li>"
+msgstr "<li>此类别下无活动信息</li>"
+
+#: em-install.php:451
+msgid "<li>No events in this tag</li>"
+msgstr "<li>没有带此标签的活动信息</li>"
+
+#: em-install.php:494
+msgid "more..."
+msgstr "更多..."
+
+#: em-install.php:531
+msgid "Online bookings are not available for this event."
+msgstr "此活动不可网上订票。"
+
+#: em-install.php:532
+msgid "Bookings are closed for this event."
+msgstr "此活动已停止网上订票。"
+
+#: em-install.php:533
+msgid "This event is fully booked."
+msgstr "此活动票已订满。"
+
+#: em-install.php:534
+msgid "You are currently attending this event."
+msgstr "您将参与此项活动。"
+
+#: em-install.php:535
+msgid "Manage my bookings"
+msgstr "管理我的预定"
+
+#: em-install.php:537
+msgid "Are you sure you want to cancel your booking?"
+msgstr "您确定要取消此次预定吗？"
+
+#: em-install.php:538
+#, php-format
+msgid "Booking %s"
+msgstr "预定%s"
+
+#: em-install.php:538 classes/em-booking.php:93
+#: classes/em-bookings-table.php:56
+msgid "Cancelled"
+msgstr "取消"
+
+#: em-install.php:539
+msgid ""
+"Booking successful, pending confirmation (you will also receive an email "
+"once confirmed)."
+msgstr "预定成功，等待确认（一旦确认，您将收到我们的一份确认邮件）。"
+
+#: em-install.php:540
+msgid "Booking successful."
+msgstr "预定成功。"
+
+#: em-install.php:541
+msgid "Booking cannot be made, not enough spaces available!"
+msgstr "座位不足，无法预定。"
+
+#: em-install.php:542
+msgid "You must log in or register to make a booking."
+msgstr "需登陆或注册以预定。"
+
+#: em-install.php:543
+msgid ""
+"However, there were some problems whilst sending confirmation emails to you "
+"and/or the event contact person. You may want to contact them directly and "
+"letting them know of this error."
+msgstr ""
+"然而，确认信在发送给您或其他联系人的过程中出现了一些问题。请直接与他们联系，"
+"告知产生错误。"
+
+#: em-install.php:544
+msgid "Booking could not be created"
+msgstr "无法预定。"
+
+#: em-install.php:545
+msgid ""
+"This email already exists in our system, please log in to register to "
+"proceed with your booking."
+msgstr "此邮件已存在于系统中，请登陆完成您的预定。"
+
+#: em-install.php:546
+msgid ""
+"A new user account has been created for you. Please check your email for "
+"access details."
+msgstr "新用户已生成，更多细节请查看您的邮箱。"
+
+#: em-install.php:547
+msgid ""
+"There was a problem creating a user account, please contact a website "
+"administrator."
+msgstr "在创建新用户时产生了一个问题，请联系管理员。"
+
+#: em-install.php:548
+msgid "You already have booked a seat at this event."
+msgstr "您已在此活动中预定了一个座位。"
+
+#: em-install.php:549
+msgid "You must request at least one space to book an event."
+msgstr "请至少选择一个座位以预定。"
+
+#: em-install.php:554
+msgid "New Booking"
+msgstr "新的预定"
+
+#: em-install.php:556 em-install.php:564
+msgid "Booking Cancelled"
+msgstr "已取消预定"
+
+#: em-install.php:558
+msgid "Booking Pending"
+msgstr "待确定的预定"
+
+#: em-install.php:560
+msgid "Booking Rejected"
+msgstr "已被拒绝的预定"
+
+#: em-install.php:562
+msgid "Booking Confirmed"
+msgstr "已确认的预定"
+
+#: em-install.php:574 em-install.php:780 em-install.php:833
+msgid "My Bookings"
+msgstr "我的预定"
+
+#: em-install.php:581
+msgid "No Events"
+msgstr "无活动"
+
+#: em-posts.php:50 em-posts.php:53
+msgid "Event Tags"
+msgstr "活动标签"
+
+#: em-posts.php:51 em-posts.php:54
+msgid "Event Tag"
+msgstr "活动标签"
+
+#: em-posts.php:55
+msgid "Search Event Tags"
+msgstr "搜索活动标签"
+
+#: em-posts.php:56
+msgid "Popular Event Tags"
+msgstr "常用活动标签"
+
+#: em-posts.php:57
+msgid "All Event Tags"
+msgstr "所有活动标签"
+
+#: em-posts.php:58
+msgid "Parent Event Tags"
+msgstr "上一级活动标签"
+
+#: em-posts.php:59
+msgid "Parent Event Tag:"
+msgstr "上一级活动标签"
+
+#: em-posts.php:60
+msgid "Edit Event Tag"
+msgstr "编辑活动标签"
+
+#: em-posts.php:61
+msgid "Update Event Tag"
+msgstr "更新活动标签"
+
+#: em-posts.php:62
+msgid "Add New Event Tag"
+msgstr "添加活动标签"
+
+#: em-posts.php:63
+msgid "New Event Tag Name"
+msgstr "新活动标签名称"
+
+#: em-posts.php:64
+msgid "Seperate event tags with commas"
+msgstr "请用逗号分隔活动标签"
+
+#: em-posts.php:65 em-posts.php:102
+msgid "Add or remove events"
+msgstr "添加或删除活动"
+
+#: em-posts.php:66
+msgid "Choose from most used event tags"
+msgstr "在最常用活动标签中选择"
+
+#: em-posts.php:87 em-posts.php:90
+msgid "Event Categories"
+msgstr "活动类别"
+
+#: em-posts.php:88 em-posts.php:91
+msgid "Event Category"
+msgstr "活动类别"
+
+#: em-posts.php:92
+msgid "Search Event Categories"
+msgstr "搜索活动类别"
+
+#: em-posts.php:93
+msgid "Popular Event Categories"
+msgstr "常用活动类别"
+
+#: em-posts.php:94
+msgid "All Event Categories"
+msgstr "所有活动类别"
+
+#: em-posts.php:95
+msgid "Parent Event Categories"
+msgstr "上一级活动目录"
+
+#: em-posts.php:96
+msgid "Parent Event Category:"
+msgstr "上一级活动目录"
+
+#: em-posts.php:97
+msgid "Edit Event Category"
+msgstr "编辑活动类别"
+
+#: em-posts.php:98
+msgid "Update Event Category"
+msgstr "更新活动类别"
+
+#: em-posts.php:99
+msgid "Add New Event Category"
+msgstr "添加新的活动类别"
+
+#: em-posts.php:100
+msgid "New Event Category Name"
+msgstr "新的活动类别名称"
+
+#: em-posts.php:101
+msgid "Seperate event categories with commas"
+msgstr "请用逗号分隔活动类别"
+
+#: em-posts.php:103
+msgid "Choose from most used event categories"
+msgstr "在最常见活动类别中选择"
+
+#: em-posts.php:138
+msgid "Display events on your blog."
+msgstr "在您的博客中显示活动信息。"
+
+#: em-posts.php:144
+msgid "Add New Event"
+msgstr "添加新的活动"
+
+#: em-posts.php:145 em-posts.php:191 em-posts.php:238
+msgid "Edit"
+msgstr "编辑"
+
+#: em-posts.php:147
+msgid "New Event"
+msgstr "新的活动"
+
+#: em-posts.php:148 em-posts.php:194 em-posts.php:241
+msgid "View"
+msgstr "查看"
+
+#: em-posts.php:149
+msgid "View Event"
+msgstr "查看活动"
+
+#: em-posts.php:150
+msgid "Search Events"
+msgstr "搜索活动"
+
+#: em-posts.php:151
+msgid "No Events Found"
+msgstr "未找到相关活动"
+
+#: em-posts.php:152
+msgid "No Events Found in Trash"
+msgstr "在垃圾箱中未找到相关活动"
+
+#: em-posts.php:153
+msgid "Parent Event"
+msgstr "上一级活动"
+
+#: em-posts.php:183 em-posts.php:186 em-posts.php:188
+msgid "Recurring Events"
+msgstr "定期举办的活动"
+
+#: em-posts.php:184
+msgid "Recurring Events Template"
+msgstr "定期举办活动模板"
+
+#: em-posts.php:187
+msgid "Recurring Event"
+msgstr "定期举办的活动"
+
+#: em-posts.php:189 em-posts.php:195
+msgid "Add Recurring Event"
+msgstr "添加定期举办的活动"
+
+#: em-posts.php:190
+msgid "Add New Recurring Event"
+msgstr "添加新的定期举办的活动"
+
+#: em-posts.php:192
+msgid "Edit Recurring Event"
+msgstr "编辑定期举办的活动"
+
+#: em-posts.php:193
+msgid "New Recurring Event"
+msgstr "新的定期举办的活动"
+
+#: em-posts.php:196
+msgid "Search Recurring Events"
+msgstr "搜索定期举办的活动"
+
+#: em-posts.php:197
+msgid "No Recurring Events Found"
+msgstr "找不到定期举办的活动"
+
+#: em-posts.php:198
+msgid "No Recurring Events Found in Trash"
+msgstr "垃圾箱里找不到定期举办的活动"
+
+#: em-posts.php:199
+msgid "Parent Recurring Event"
+msgstr "定期举办活动的上一级目录"
+
+#: em-posts.php:231
+msgid "Display locations on your blog."
+msgstr "在您的博客显示地点"
+
+#: em-posts.php:237
+msgid "Add New Location"
+msgstr "添加新的地点"
+
+#: em-posts.php:240
+msgid "New Location"
+msgstr "新的地点"
+
+#: em-posts.php:242
+msgid "View Location"
+msgstr "查看地点"
+
+#: em-posts.php:243
+msgid "Search Locations"
+msgstr "搜索地点"
+
+#: em-posts.php:244
+msgid "No Locations Found"
+msgstr "未找到相关地点"
+
+#: em-posts.php:245
+msgid "No Locations Found in Trash"
+msgstr "在垃圾箱中未找到相关地点"
+
+#: em-posts.php:246
+msgid "Parent Location"
+msgstr "上一级地址"
+
+#: em-template-tags.php:299
+msgid "You must log in to view and manage your events."
+msgstr "需登陆以查看或管理您的活动"
+
+#: em-template-tags.php:390
+msgid "You must log in to view and manage your locations."
+msgstr "需登陆以查看或管理您的地点"
+
+#: em-template-tags.php:408
+msgid "You must log in to view and manage your bookings."
+msgstr "需登陆以查看或管理您的预定"
+
+#: events-manager.php:218
+msgid "Please wait while the booking is being submitted."
+msgstr "预约请求正在提交中，请稍后……"
+
+#: events-manager.php:222
+msgid "Save Ticket"
+msgstr "保留票"
+
+#: events-manager.php:223 classes/em-bookings-table.php:277
+msgid "Export Bookings"
+msgstr "预约生成"
+
+#: events-manager.php:224
+msgid "Save Settings"
+msgstr "保存设置"
+
+#: events-manager.php:225
+msgid "Are you sure you want to delete?"
+msgstr "您确定要删除吗？"
+
+#: events-manager.php:228
+msgid "Searching..."
+msgstr "搜索……"
+
+#: events-manager.php:229
+msgid "Loading..."
+msgstr "载入中……"
+
+#: events-manager.php:232
+msgid ""
+"Are you sure you want to reschedule this recurring event? If you do this, "
+"you will lose all booking information and the old recurring events will be "
+"deleted."
+msgstr ""
+"确定要重新安排这个定期举办的活动？如果是，将丢失所有的预约信息，旧的活动信息"
+"将被删除。"
+
+#: events-manager.php:233
+msgid ""
+"Are you sure you want to disable bookings? If you do this and save, you will "
+"lose all previous bookings. If you wish to prevent further bookings, reduce "
+"the number of spaces available to the amount of bookings you currently have"
+msgstr ""
+"确定要使预约失效？如确定，您将丢失之前所有的预约信息。如果您希望避免更多的预"
+"约，请调低可预订座位数。"
+
+#: events-manager.php:234
+msgid ""
+"Are you sure you want to detach this event? By doing so, this event will be "
+"independent of the recurring set of events."
+msgstr ""
+"确定要将此次活动从定期举办的活动中分出？如果确定，这个活动将独立于其他定期举"
+"办的活动。"
+
+#: events-manager.php:235
+msgid "This cannot be undone."
+msgstr "不可复原。"
+
+#: events-manager.php:235
+msgid "All events will be moved to trash."
+msgstr "所有活动将被移入垃圾箱。"
+
+#: events-manager.php:236
+msgid "Are you sure you want to delete all recurrences of this event?"
+msgstr "确定要停止重复这个活动？"
+
+#: events-manager.php:268
+#, php-format
+msgid "You do not have permission to manage others %s"
+msgstr "您没有权限管理其他%s"
+
+#: events-manager.php:268 events-manager.php:269
+msgid "bookings"
+msgstr "预定"
+
+#: events-manager.php:269
+#, php-format
+msgid "You do not have permission to manage %s"
+msgstr "您没有权限管理%s"
+
+#: events-manager.php:271 events-manager.php:279 events-manager.php:285
+#, php-format
+msgid "You do not have permission to publish %s"
+msgstr "您没有权限发布%s"
+
+#: events-manager.php:271 events-manager.php:272 events-manager.php:273
+#: events-manager.php:274 events-manager.php:275 events-manager.php:276
+msgid "events"
+msgstr "活动"
+
+#: events-manager.php:272 events-manager.php:280 events-manager.php:286
+#, php-format
+msgid "You do not have permission to delete others %s"
+msgstr "您没有权限删除其他%s"
+
+#: events-manager.php:273 events-manager.php:281 events-manager.php:287
+#: events-manager.php:294
+#, php-format
+msgid "You do not have permission to delete %s"
+msgstr "您没有权限删除%s"
+
+#: events-manager.php:274 events-manager.php:282 events-manager.php:288
+#, php-format
+msgid "You do not have permission to edit others %s"
+msgstr "您没有权限编辑其他%s"
+
+#: events-manager.php:275 events-manager.php:283 events-manager.php:289
+#: events-manager.php:295
+#, php-format
+msgid "You do not have permission to edit %s"
+msgstr "您没有权限编辑%s"
+
+#: events-manager.php:276 events-manager.php:290
+#, php-format
+msgid "You cannot read private %s"
+msgstr "您不能阅读私人的%s"
+
+#: events-manager.php:279 events-manager.php:280 events-manager.php:281
+#: events-manager.php:282 events-manager.php:283
+msgid "recurring events"
+msgstr "定期举办的活动"
+
+#: events-manager.php:285 events-manager.php:286 events-manager.php:287
+#: events-manager.php:288 events-manager.php:289 events-manager.php:290
+#: events-manager.php:291
+msgid "locations"
+msgstr "地点"
+
+#: events-manager.php:291
+#, php-format
+msgid "You cannot view others %s"
+msgstr "您不能浏览他人的%s"
+
+#: events-manager.php:294 events-manager.php:295
+msgid "categories"
+msgstr "类别"
+
+#: events-manager.php:297
+msgid "You do not have permission to upload images"
+msgstr "您没有权限上传图片"
+
+#: events-manager.php:538
+msgid "Events Manager"
+msgstr "活动管理者"
+
+#: classes/em-booking.php:90 classes/em-bookings-table.php:54
+msgid "Pending"
+msgstr "等待"
+
+#: classes/em-booking.php:91
+msgid "Approved"
+msgstr "批准"
+
+#: classes/em-booking.php:92 classes/em-bookings-table.php:57
+msgid "Rejected"
+msgstr "拒绝"
+
+#: classes/em-booking.php:94
+msgid "Awaiting Online Payment"
+msgstr "等待在线支付"
+
+#: classes/em-booking.php:95
+msgid "Awaiting Payment"
+msgstr "等待支付"
+
+#: classes/em-booking.php:138
+msgid "Changes saved"
+msgstr "修改已保存"
+
+#: classes/em-booking.php:143
+msgid "Your booking has been recorded"
+msgstr "您的预约已生成"
+
+#: classes/em-booking.php:147 classes/em-booking.php:148
+#: classes/em-booking.php:156 classes/em-booking.php:167
+#: classes/em-booking.php:173
+msgid "There was a problem saving the booking."
+msgstr "在保存预约时出现了一个问题。"
+
+#: classes/em-booking.php:169 classes/em-booking.php:175
+#, php-format
+msgid "You cannot manage this %s."
+msgstr "你无法管理这个%s"
+
+#: classes/em-booking.php:169 classes/em-booking.php:175
+#: classes/em-booking.php:401 classes/em-booking.php:403
+msgid "Booking"
+msgstr "预约"
+
+#: classes/em-booking.php:226
+msgid "You are trying to book a non-existent ticket for this event."
+msgstr "您试图预约的票不存在。"
+
+#: classes/em-booking.php:363 classes/em-booking.php:371
+msgid "Guest User"
+msgstr "游客"
+
+#: classes/em-booking.php:367
+msgid "Not Supplied"
+msgstr "无法提供"
+
+#: classes/em-booking.php:401
+#, php-format
+msgid "%s deleted"
+msgstr "%s已删除"
+
+#: classes/em-booking.php:403
+#, php-format
+msgid "%s could not be deleted"
+msgstr "%s不能被删除"
+
+#: classes/em-booking.php:449
+msgid "Not approved, spaces full."
+msgstr "座位已满。"
+
+#: classes/em-booking.php:457
+#, php-format
+msgid "Booking %s."
+msgstr "预约%s。"
+
+#: classes/em-booking.php:470 classes/em-booking.php:471
+#, php-format
+msgid "Booking could not be %s."
+msgstr "预约无法被%s"
+
+#: classes/em-booking.php:487
+msgid "Booking note successfully added."
+msgstr "成功添加预约记录。"
+
+#: classes/em-booking.php:653
+msgid ""
+"Confirmation email could not be sent to contact person. Registrant should "
+"have gotten their email (only admin see this warning)."
+msgstr ""
+"确认邮件无法发至联系人。注册用户应该已经收到邮件（只有管理员看到此警告）。"
+
+#: classes/em-booking.php:662
+msgid ""
+"Confirmation email could not be sent to admin. Registrant should have gotten "
+"their email (only admin see this warning)."
+msgstr ""
+"确认邮件无法发至管理员。注册用户应该已经收到邮件（只有管理员看到此警告）。"
+
+#: classes/em-bookings-table.php:53
+msgid "All"
+msgstr "所有"
+
+#: classes/em-bookings-table.php:55
+msgid "Confirmed"
+msgstr "确认"
+
+#: classes/em-bookings-table.php:58
+msgid "Needs Attention"
+msgstr "需出席"
+
+#: classes/em-bookings-table.php:59
+msgid "Incomplete Bookings"
+msgstr "未完成的预约"
+
+#: classes/em-bookings-table.php:76
+msgid "Name"
+msgstr "姓名"
+
+#: classes/em-bookings-table.php:78
+msgid "Event Date(s)"
+msgstr "活动日期"
+
+#: classes/em-bookings-table.php:79
+msgid "Event Time(s)"
+msgstr "活动时间"
+
+#: classes/em-bookings-table.php:80
+msgid "E-mail"
+msgstr "邮箱"
+
+#: classes/em-bookings-table.php:81
+msgid "Phone Number"
+msgstr "电话号码"
+
+#: classes/em-bookings-table.php:83
+msgid "Status"
+msgstr "状态"
+
+#: classes/em-bookings-table.php:84
+msgid "Booking Date"
+msgstr "预定的日期"
+
+#: classes/em-bookings-table.php:85
+msgid "Total"
+msgstr "总共"
+
+#: classes/em-bookings-table.php:86
+msgid "Booking ID"
+msgstr "预定的ID"
+
+#: classes/em-bookings-table.php:89
+msgid "Ticket Name"
+msgstr "票名"
+
+#: classes/em-bookings-table.php:90
+msgid "Ticket Description"
+msgstr "票的描述"
+
+#: classes/em-bookings-table.php:91
+msgid "Ticket Price"
+msgstr "票价"
+
+#: classes/em-bookings-table.php:92
+msgid "Ticket ID"
+msgstr "票的ID"
+
+#: classes/em-bookings-table.php:100
+msgid "Actions"
+msgstr "操作"
+
+#: classes/em-bookings-table.php:248
+msgid "Bookings Table Settings"
+msgstr "预约表格设置"
+
+#: classes/em-bookings-table.php:250
+msgid "Modify what information is displayed in this booking table."
+msgstr "调整预约表格中的内容"
+
+#: classes/em-bookings-table.php:253
+msgid "Collumns to show"
+msgstr "将显示的栏"
+
+#: classes/em-bookings-table.php:254
+msgid "Drag items to or from the left collumn to add or remove them."
+msgstr "拖动左栏里的条目以添加或删除"
+
+#: classes/em-bookings-table.php:279
+msgid ""
+"Select the options below and export all the bookings you have currently "
+"filtered (all pages) into a CSV spreadsheet format."
+msgstr "勾选下述选项以用CSV格式导出您刚筛选的预约信息。"
+
+#: classes/em-bookings-table.php:281
+msgid "Split bookings by ticket type"
+msgstr "根据票类进行划分"
+
+#: classes/em-bookings-table.php:282
+msgid ""
+"If your events have multiple tickets, enabling this will show a seperate row "
+"for each ticket within a booking."
+msgstr "如果您的活动有多种票，激活这个可在不同行显示不同的票。"
+
+#: classes/em-bookings-table.php:285
+msgid "Collumns to export"
+msgstr "将导出的栏"
+
+#: classes/em-bookings-table.php:361
+msgid "Export these bookings."
+msgstr "导出这些预定"
+
+#: classes/em-bookings-table.php:376
+#, php-format
+msgid "%s Rows"
+msgstr "%s 排"
+
+#: classes/em-bookings-table.php:393
+msgid "Filter"
+msgstr "筛选"
+
+#: classes/em-bookings-table.php:395
+msgid "Displaying Event"
+msgstr "显示的活动"
+
+#: classes/em-bookings-table.php:397
+msgid "Displaying User"
+msgstr "显示的用户"
+
+#: classes/em-bookings-table.php:449
+msgid "No bookings."
+msgstr "没有预定"
+
+#: classes/em-bookings-table.php:573 classes/em-bookings-table.php:591
+#: classes/em-bookings-table.php:599
+msgid "Approve"
+msgstr "同意"
+
+#: classes/em-bookings-table.php:574 classes/em-bookings-table.php:583
+msgid "Reject"
+msgstr "拒绝"
+
+#: classes/em-bookings-table.php:575 classes/em-bookings-table.php:584
+#: classes/em-bookings-table.php:592 classes/em-bookings-table.php:600
+#: classes/em-bookings-table.php:606 classes/em-bookings-table.php:611
+msgid "Delete"
+msgstr "删除"
+
+#: classes/em-bookings-table.php:576 classes/em-bookings-table.php:585
+#: classes/em-bookings-table.php:593 classes/em-bookings-table.php:601
+msgid "Edit/View"
+msgstr "编辑/查看"
+
+#: classes/em-bookings-table.php:582 classes/em-bookings-table.php:590
+#: classes/em-bookings-table.php:598
+msgid "Unpprove"
+msgstr "未验证"
+
+#: classes/em-bookings.php:110
+#, php-format
+msgid "%s created."
+msgstr "%s 已创建"
+
+#: classes/em-bookings.php:278 classes/em-bookings.php:284
+#, php-format
+msgid "Bookings %s. Mails Sent."
+msgstr "预定 %s。邮件已发送。"
+
+#: classes/em-bookings.php:288
+msgid "An error occurred."
+msgstr "产生了一个错误。"
+
+#: classes/em-categories-taxonomy.php:19
+msgid "ID"
+msgstr "ID"
+
+#: classes/em-categories-taxonomy.php:55
+#, php-format
+msgid ""
+"Choose a color for your category. You can access this using the %s "
+"placeholder."
+msgstr "使用%s占位符为您的归类选择一个颜色。"
+
+#: classes/em-categories-taxonomy.php:66
+msgid "Choose/Upload Image"
+msgstr "选择/上传照片"
+
+#: classes/em-categories-taxonomy.php:67
+#, php-format
+msgid ""
+"Choose an image for your category, which can be displayed using the %s "
+"placeholder."
+msgstr "使用%s占位符为您的归类选择一张照片。"
+
+#: classes/em-event-post-admin.php:37
+msgid "WARNING: This is a recurring event."
+msgstr "警告：这是一项定期举办的活动。"
+
+#: classes/em-event-post-admin.php:38
+msgid ""
+"Modifications to this event will cause all recurrences of this event to be "
+"deleted and recreated and previous bookings will be deleted! You can edit "
+"individual recurrences and disassociate them with this recurring event."
+msgstr ""
+"对此活动的调整可导致所有此项活动的所有循环被删除和重新创建，之前的预定将被删"
+"除！可编辑其中某期具体活动，将其与整个活动取消关联。"
+
+#: classes/em-event-post-admin.php:41
+msgid "WARNING: This is a recurrence in a set of recurring events."
+msgstr "警告：这是循环活动中的其中一期。"
+
+#: classes/em-event-post-admin.php:42
+#, php-format
+msgid ""
+"If you update this event data and save, it could get overwritten if you edit "
+"the recurring event template. To make it an independent, <a href=\"%s"
+"\">detach it</a>."
+msgstr ""
+"如果您更新此项活动信息并保存，当您编辑循环举办项目模板时，将导致重复设置。为"
+"独立此项具体活动，<a href=\"%s\">detach it</a>。"
+
+#: classes/em-event-post-admin.php:43
+#, php-format
+msgid ""
+"To manage the whole set, <a href=\"%s\">edit the recurring event template</"
+"a>."
+msgstr "为管理整个系列，a href=\"%s\">标记循环活动模板</a>."
+
+#: classes/em-event-post-admin.php:48
+#, php-format
+msgid ""
+"WARNING: This is a event belonging to the group \"%s\". Other group admins "
+"can also modify this event."
+msgstr "警告：这是\"%s\"群中的一个活动 。其他群的管理者也可以调整此项活动。"
+
+#: classes/em-event-post-admin.php:83
+msgid ""
+"Your event details are incorrect and recurrences cannot be created, please "
+"correct these errors first:"
+msgstr "活动细节错误，请更正，否者无法创建循环项目。"
+
+#: classes/em-event-post-admin.php:85 classes/em-location-post-admin.php:59
+#, php-format
+msgid ""
+"Your %s details are incorrect and cannot be published, please correct these "
+"errors first:"
+msgstr "您的%s详细信息有误，无法发表，请先修改这些错误："
+
+#: classes/em-event-post-admin.php:85 classes/em-event.php:665
+#: classes/em-event.php:678
+msgid "event"
+msgstr "活动"
+
+#: classes/em-event-post-admin.php:183
+msgid "Anonymous Submitter Info"
+msgstr "匿名提交者信息"
+
+#: classes/em-event-post-admin.php:185
+msgid "When"
+msgstr "时间"
+
+#: classes/em-event-post-admin.php:187 classes/em-event-post-admin.php:366
+#: classes/em-location-post-admin.php:113
+msgid "Where"
+msgstr "地点"
+
+#: classes/em-event-post-admin.php:193 classes/em-event-post-admin.php:368
+msgid "Bookings/Registration"
+msgstr "预定/注册"
+
+#: classes/em-event-post-admin.php:195
+msgid "Bookings Stats"
+msgstr "预约状态"
+
+#: classes/em-event-post-admin.php:199 classes/em-event-post-admin.php:371
+#: classes/em-location-post-admin.php:116
+msgid "Attributes"
+msgstr "属性"
+
+#: classes/em-event-post-admin.php:202 classes/em-event-post-admin.php:374
+msgid "Site Categories"
+msgstr "地点类别"
+
+#: classes/em-event-post-admin.php:214
+msgid ""
+"This event was submitted by a guest. You will find their details in the "
+"<em>Anonymous Submitter Info</em> box"
+msgstr ""
+"此活动由一位游客提供。可以在<em>匿名提交者信息</em>箱里找到他们的细节。"
+
+#: classes/em-event-post-admin.php:258
+#, php-format
+msgid "No categories available, <a href=\"%s\">create one here first</a>"
+msgstr "<a href=\"%s\">不存在此类</a>。"
+
+#: classes/em-event-post-admin.php:364
+msgid "Recurrences"
+msgstr "定期举办活动"
+
+#: classes/em-event-post.php:89 classes/em-event-post.php:92
+#: classes/em-event-post.php:97 classes/em-event-post.php:108
+#: classes/em-event-post.php:111 classes/em-event-post.php:116
+#, php-format
+msgid "View all posts in %s"
+msgstr "查看%s中的所有帖子。"
+
+#: classes/em-event-posts-admin.php:81
+msgid "View all categories"
+msgstr "查看所有的分类"
+
+#: classes/em-event-posts-admin.php:103 classes/em-event-posts-admin.php:105
+#: classes/em-event-posts-admin.php:240 classes/em-event-posts-admin.php:242
+#: classes/em-location-posts-admin.php:47
+#: classes/em-location-posts-admin.php:49
+#, php-format
+msgid "%s ID"
+msgstr "%s ID"
+
+#: classes/em-event-posts-admin.php:112 classes/em-event-posts-admin.php:249
+msgid "Date and Time"
+msgstr "日期和时间"
+
+#: classes/em-event-posts-admin.php:113 classes/em-event-posts-admin.php:250
+msgid "Owner"
+msgstr "所有者"
+
+#: classes/em-event-posts-admin.php:136 classes/em-event-posts-admin.php:270
+msgid "None"
+msgstr "无"
+
+#: classes/em-event-posts-admin.php:156
+msgid "Booked"
+msgstr "已预定"
+
+#: classes/em-event-posts-admin.php:163
+msgid ""
+"WARNING! You will delete ALL recurrences of this event, including booking "
+"history associated with any event in this recurrence. To keep booking "
+"information, go to the relevant single event and save it to detach it from "
+"this recurrence series."
+msgstr ""
+"警告！您将取消此项活动的循环，包括预约历史以及循环中的活动。为保留预约信息，"
+"请到相关活动页面，取消与此项循环活动的关联。"
+
+#: classes/em-event-posts-admin.php:169
+msgid "Edit Recurring Events"
+msgstr "编辑定期举办的活动信息"
+
+#: classes/em-event-posts-admin.php:169
+msgid "Detach"
+msgstr "取消关联"
+
+#: classes/em-event-posts-admin.php:182
+#, php-format
+msgid "Duplicate %s"
+msgstr "复制%s"
+
+#: classes/em-event-posts-admin.php:182
+msgid "Duplicate"
+msgstr "复制"
+
+#: classes/em-event-posts-admin.php:214
+#, php-format
+msgid ""
+"Modifications to these events will cause all recurrences of each event to be "
+"deleted and recreated and previous bookings will be deleted! You can edit "
+"individual recurrences and detach them from recurring events by visiting the "
+"<a href=\"%s\">events page</a>."
+msgstr ""
+"对此活动的调整可导致所有此项活动的所有循环被删除和重新创建，之前的预定将被删"
+"除！可到<a href=\"%s\">活动页面</a>页面，编辑其中的具体活动，将其与整个活动取"
+"消关联。"
+
+#: classes/em-event.php:466 classes/em-event.php:471 classes/em-event.php:474
+#, php-format
+msgid "%s is required."
+msgstr "需要%s。"
+
+#: classes/em-event.php:466
+msgid "Event name"
+msgstr "活动名称"
+
+#: classes/em-event.php:471
+msgid "A valid email"
+msgstr "一个有效的邮箱"
+
+#: classes/em-event.php:474
+msgid "Your name"
+msgstr "您的名字"
+
+#: classes/em-event.php:490 classes/em-event.php:492
+msgid "Events cannot start after they end."
+msgstr "活动已结束。"
+
+#: classes/em-event.php:492
+msgid ""
+"For recurring events that end the following day, ensure you make your event "
+"last 1 or more days."
+msgstr "对于第二天结束的定期举办活动，确保您的活动持续多于一天。"
+
+#: classes/em-event.php:497 classes/em-event.php:504
+msgid ""
+"Dates must have correct formatting. Please use the date picker provided."
+msgstr "请从表中选择日期以确保正确的格式。"
+
+#: classes/em-event.php:516
+msgid "Missing fields: "
+msgstr "未知领域："
+
+#: classes/em-event.php:519
+msgid ""
+"Since the event is repeated, you must specify an event end date greater than "
+"the start date."
+msgstr "此活动将重复，因此所设定结束日期应后于开始日期。"
+
+#: classes/em-event.php:614 classes/em-event.php:617
+msgid "There were some errors saving your location."
+msgstr "在保存地点时出现了一些错误。"
+
+#: classes/em-event.php:614
+#, php-format
+msgid ""
+"It will not be displayed on the website listings, to correct this you must "
+"<a href=\"%s\">edit your location</a> directly."
+msgstr "这将不会在网页列表中显示，如将修改，请直接<a href=\"%s\">编辑地点</a>"
+
+#: classes/em-event.php:665 classes/em-location.php:361
+#, php-format
+msgid ""
+"Something went wrong saving your %s to the index table. Please inform a site "
+"administrator about this."
+msgstr "在将%s保存至您的索引表格时出现错误，请告知网站管理员。"
+
+#: classes/em-event.php:670 classes/em-event.php:685
+#: classes/em-location.php:366 classes/em-location.php:373
+#, php-format
+msgid "Successfully saved %s"
+msgstr "成功保存%s。"
+
+#: classes/em-event.php:678 classes/em-location.php:371
+#, php-format
+msgid ""
+"Something went wrong updating your %s to the index table. Please inform a "
+"site administrator about this."
+msgstr "在将%s更新至您的索引表格时出现错误，请告知网站管理员。"
+
+#: classes/em-event.php:706
+msgid "Something went wrong with the recurrence update..."
+msgstr "在更新定期举办的活动时出现了错误。"
+
+#: classes/em-event.php:706
+msgid "There was a problem saving the recurring events."
+msgstr "在保存定期举办的活动时出现了一个问题。"
+
+#: classes/em-event.php:746
+#, php-format
+msgid "%s successfully duplicated."
+msgstr "%s已成功复制。"
+
+#: classes/em-event.php:1310 classes/em-location.php:671
+#, php-format
+msgid "Edit %s"
+msgstr "编辑%s."
+
+#: classes/em-event.php:1461
+msgid "Profile"
+msgstr "档案"
+
+#: classes/em-event.php:1646
+msgid "Event detached."
+msgstr "活动已取消关联"
+
+#: classes/em-event.php:1646
+msgid "Undo"
+msgstr "撤销"
+
+#: classes/em-event.php:1650
+msgid "Event could not be detached."
+msgstr "活动无法取消关联。"
+
+#: classes/em-event.php:1664
+msgid "Event re-attached to recurrence."
+msgstr "活动已重新设置为循环举办。"
+
+#: classes/em-event.php:1667
+msgid "Event could not be attached."
+msgstr "活动无法被关联。"
+
+#: classes/em-event.php:1980
+msgid "Sunday"
+msgstr "周日"
+
+#: classes/em-event.php:1980
+msgid "Monday"
+msgstr "周一"
+
+#: classes/em-event.php:1980
+msgid "Tuesday"
+msgstr "周二"
+
+#: classes/em-event.php:1980
+msgid "Wednesday"
+msgstr "周三"
+
+#: classes/em-event.php:1980
+msgid "Thursday"
+msgstr "周四"
+
+#: classes/em-event.php:1980
+msgid "Friday"
+msgstr "周五"
+
+#: classes/em-event.php:1980
+msgid "Saturday"
+msgstr "周六"
+
+#: classes/em-event.php:1981
+#, php-format
+msgid "the first %s of the month"
+msgstr "每月第一个%s。"
+
+#: classes/em-event.php:1981
+#, php-format
+msgid "the second %s of the month"
+msgstr "每月第二个%s。"
+
+#: classes/em-event.php:1981
+#, php-format
+msgid "the third %s of the month"
+msgstr "每月第三个%s。"
+
+#: classes/em-event.php:1981
+#, php-format
+msgid "the fourth %s of the month"
+msgstr "每月第四个%s。"
+
+#: classes/em-event.php:1981
+#, php-format
+msgid "the last %s of the month"
+msgstr "每月最后一个%s。"
+
+#: classes/em-event.php:1982
+#, php-format
+msgid "From %1$s to %2$s"
+msgstr "从%1$s 至 %2$s"
+
+#: classes/em-event.php:1984
+msgid "everyday"
+msgstr "每天"
+
+#: classes/em-event.php:1986
+#, php-format
+msgid "every %s days"
+msgstr "每个%s天"
+
+#: classes/em-event.php:1995
+msgid "every week"
+msgstr "每个星期"
+
+#: classes/em-event.php:1997
+#, php-format
+msgid "every %s weeks"
+msgstr "每个%s星期"
+
+#: classes/em-event.php:2008
+#, php-format
+msgid "every %s months"
+msgstr "每个%s月"
+
+#: classes/em-event.php:2011
+msgid "every year"
+msgstr "每个年"
+
+#: classes/em-event.php:2013
+#, php-format
+msgid "every %s years"
+msgstr "每个%s年"
+
+#: classes/em-location-post-admin.php:59 classes/em-location.php:361
+#: classes/em-location.php:371
+msgid "location"
+msgstr "地点"
+
+#: classes/em-location-posts-admin.php:55
+msgid "Address"
+msgstr "地址"
+
+#: classes/em-location-posts-admin.php:56
+msgid "Town"
+msgstr "城镇"
+
+#: classes/em-location-posts-admin.php:57
+msgid "State"
+msgstr "州"
+
+#: classes/em-location-posts-admin.php:58
+msgid "Country"
+msgstr "国家"
+
+#: classes/em-location.php:106
+msgid "The location address"
+msgstr "地址"
+
+#: classes/em-location.php:106
+msgid "The location town"
+msgstr "所在的城镇"
+
+#: classes/em-location.php:106
+msgid "The country"
+msgstr "国家"
+
+#: classes/em-location.php:243
+msgid "Location name"
+msgstr "城镇名称"
+
+#: classes/em-location.php:243 classes/em-location.php:259
+#: classes/em-location.php:261
+msgid " is required."
+msgstr "必须的。"
+
+#: classes/em-location.php:377
+#, php-format
+msgid "You do not have permission to create/edit %s."
+msgstr "您无权创建或者编辑%s。"
+
+#: classes/em-mailer.php:56
+msgid "Could not send email."
+msgstr "无法发送邮件。"
+
+#: classes/em-mailer.php:103
+msgid "Please supply a valid email format."
+msgstr "请提供有效的邮件格式。"
+
+#: classes/em-object.php:1196
+msgid "The image file is too big! Maximum size:"
+msgstr "图像太大！最大的尺寸为："
+
+#: classes/em-object.php:1203
+msgid "The image is too big! Maximum size allowed:"
+msgstr "图像太大！最大的尺寸要求为："
+
+#: classes/em-object.php:1206
+msgid "The image is too small! Minimum size allowed:"
+msgstr "图像太小！最小的尺寸要求为："
+
+#: classes/em-object.php:1209
+msgid "The image is in a wrong format!"
+msgstr "图片格式错误！"
+
+#: classes/em-people.php:19
+msgid "User deleted by administrators"
+msgstr "用户已被注销"
+
+#: classes/em-people.php:28 classes/em-person.php:78
+msgid "Phone"
+msgstr "电话"
+
+#: classes/em-person.php:77
+msgid "Email"
+msgstr "邮箱"
+
+#: classes/em-ticket-booking.php:78
+msgid "Ticket booking created"
+msgstr "订票已生成"
+
+#: classes/em-ticket-booking.php:85 classes/em-ticket-booking.php:86
+#: classes/em-ticket-booking.php:91 classes/em-ticket-booking.php:92
+msgid "There was a problem saving the ticket booking."
+msgstr "保存时发生了一个问题。"
+
+#: classes/em-ticket.php:47
+msgid "Standard Ticket"
+msgstr "标准的票"
+
+#: classes/em-ticket.php:110
+msgid "Ticket created"
+msgstr "已生成的票"
+
+#: classes/em-ticket.php:113 classes/em-ticket.php:114
+#: classes/em-ticket.php:119 classes/em-ticket.php:120
+msgid "There was a problem saving the ticket."
+msgstr "在保存票时出现了一个问题。"
+
+#: classes/em-ticket.php:165
+msgid "Please enter a valid ticket price e.g. 10.50 (no currency signs)"
+msgstr "请输入一个有效的票价，例如10、50（无需货币符号）"
+
+#: classes/em-ticket.php:286
+msgid "You cannot delete a ticket that has a booking on it."
+msgstr "您无法删除带有预约的票。"
+
+#: classes/em-tickets-bookings.php:165
+#, php-format
+msgid "You do not have the rights to manage this %s."
+msgstr "您无权进行%s的操作。"
+
+#: classes/em-tickets.php:111
+msgid ""
+"You cannot delete tickets if there are any bookings associated with them. "
+"Please delete these bookings first."
+msgstr "您无法删除这些票。如要删除，请先撤销与之相关的预定。"
+
+#: classes/em-tickets.php:140
+msgid "Standard"
+msgstr "标准"
+
+#: templates/buddypress/group-events.php:45
+#: templates/buddypress/my-group-events.php:45
+msgid "Date and time"
+msgstr "日期和时间"
+
+#: templates/buddypress/group-events.php:106
+#: templates/buddypress/my-group-events.php:100
+msgid "Duplicate this event"
+msgstr "复制这个活动"
+
+#: templates/buddypress/group-events.php:113
+#: templates/buddypress/my-group-events.php:107
+msgid "Category"
+msgstr "类别"
+
+#: templates/buddypress/profile.php:7
+msgid "My Events"
+msgstr "我的活动"
+
+#: templates/buddypress/profile.php:25
+msgid "Events I'm Attending"
+msgstr "我将参加的活动"
+
+#: templates/buddypress/profile.php:38
+msgid "Not attending any events yet."
+msgstr "还未参加任何活动。"
+
+#: templates/forms/event-editor.php:12 templates/forms/location-editor.php:11
+msgid "Unauthorized Access"
+msgstr "未授权的操作"
+
+#: templates/forms/event-editor.php:31
+msgid "Your Details"
+msgstr "您的详细信息"
+
+#: templates/forms/event-editor.php:44
+msgid "Event Name"
+msgstr "活动名称"
+
+#: templates/forms/event-editor.php:48
+msgid "The event name. Example: Birthday party"
+msgstr "活动名称，如：生日派对"
+
+#: templates/forms/event-editor.php:74 templates/forms/event/group.php:23
+msgid ""
+"Select a group you admin to attach this event to it. Note that all other "
+"admins of that group can modify the booking, and you will not be able to "
+"unattach the event without deleting it."
+msgstr ""
+"选择一个组以将这个活动归入。注意所有组中所有的管理员都可以修改预定，并且除非"
+"删除活动，您无法撤销归属关系。"
+
+#: templates/forms/event-editor.php:113 templates/forms/location-editor.php:44
+msgid "Details"
+msgstr "细节"
+
+#: templates/forms/event-editor.php:121
+msgid "Details about the event."
+msgstr "活动细节"
+
+#: templates/forms/event-editor.php:121 templates/forms/location-editor.php:52
+msgid "HTML Allowed."
+msgstr "允许HTML链接。"
+
+#: templates/forms/event-editor.php:130
+msgid "Category:"
+msgstr "类别："
+
+#: templates/forms/event-editor.php:173
+msgid "Event Image"
+msgstr "活动图片"
+
+#: templates/forms/event-editor.php:178
+msgid "No image uploaded for this event yet"
+msgstr "此活动还未上传图片。"
+
+#: templates/forms/event-editor.php:181 templates/forms/location-editor.php:93
+msgid "Upload/change picture"
+msgstr "上传/改变图片。"
+
+#: templates/forms/event-editor.php:183 templates/forms/location-editor.php:95
+msgid "Delete Image?"
+msgstr "删除图片？"
+
+#: templates/forms/event-editor.php:199
+msgid "Submit Event"
+msgstr "提交活动"
+
+#: templates/forms/location-editor.php:17
+msgid "required"
+msgstr "要求"
+
+#: templates/forms/location-editor.php:28
+msgid "Location Name"
+msgstr "地点名称"
+
+#: templates/forms/location-editor.php:33
+msgid "The name of the location"
+msgstr "地点名称"
+
+#: templates/forms/location-editor.php:52
+msgid "Details about the location."
+msgstr "地点细节"
+
+#: templates/forms/location-editor.php:85
+msgid "Location Image"
+msgstr "地点图片"
+
+#: templates/forms/location-editor.php:90
+msgid "No image uploaded for this location yet"
+msgstr "还未上传地点图片"
+
+#: templates/forms/location-editor.php:104
+msgid "Update location"
+msgstr "更新地点"
+
+#: templates/forms/ticket-form.php:14
+msgid "Enter a ticket name."
+msgstr "输入一个票名"
+
+#: templates/forms/ticket-form.php:19
+msgid "Enter a maximum number of spaces (required)."
+msgstr "输入最大座位数（必须）"
+
+#: templates/forms/ticket-form.php:22
+msgid "Available from"
+msgstr "预订"
+
+#: templates/forms/ticket-form.php:25
+#: templates/forms/event/recurring-when.php:51
+#: templates/forms/event/recurring-when.php:58
+#: templates/forms/event/when-with-recurring.php:17
+#: templates/forms/event/when-with-recurring.php:18
+#: templates/forms/event/when-with-recurring.php:26
+msgid "to"
+msgstr "给"
+
+#: templates/forms/ticket-form.php:28
+msgid ""
+"Add a start or end date (or both) to impose time constraints on ticket "
+"availability. Leave either blank for no upper/lower limit."
+msgstr "请为购票时间添加开始或结束时间（或两者）限制。如无限制则无需填写。"
+
+#: templates/forms/ticket-form.php:31
+msgid "Bookings must order between"
+msgstr "预定票需在"
+
+#: templates/forms/ticket-form.php:33
+msgid "and"
+msgstr "和"
+
+#: templates/forms/ticket-form.php:35
+msgid "spaces."
+msgstr "座位"
+
+#: templates/forms/ticket-form.php:36
+msgid "Leave either blank for no upper/lower limit."
+msgstr "如果没有最多或最少限制则无需填写。"
+
+#: templates/forms/ticket-form.php:39 templates/forms/tickets-form.php:10
+msgid "Description"
+msgstr "描述"
+
+#: templates/forms/tickets-form.php:6
+msgid "Create a ticket"
+msgstr "生成一张票"
+
+#: templates/forms/tickets-form.php:13
+msgid "Available ticket spaces"
+msgstr "可预订的座位"
+
+#: templates/forms/tickets-form.php:16
+msgid "Start date of ticket availability"
+msgstr "开始订票的日期"
+
+#: templates/forms/tickets-form.php:20
+msgid "End date of ticket availability"
+msgstr "结束订票的日期"
+
+#: templates/forms/tickets-form.php:24
+msgid "Minimum tickets required per booking"
+msgstr "每次可预定的最少票数"
+
+#: templates/forms/tickets-form.php:25
+msgid "Maximum tickets required per booking"
+msgstr "每次可预定的最多票数"
+
+#: templates/forms/bookingform/login.php:8
+msgid "Log in if you already have an account with us."
+msgstr "如有账户，请直接登陆。"
+
+#: templates/forms/bookingform/login.php:10
+msgid "Username"
+msgstr "用户名"
+
+#: templates/forms/bookingform/login.php:14
+msgid "Password"
+msgstr "密码"
+
+#: templates/forms/bookingform/login.php:18
+msgid "Log In"
+msgstr "登陆"
+
+#: templates/forms/bookingform/login.php:19
+msgid "Remember Me"
+msgstr "记住我"
+
+#: templates/forms/bookingform/login.php:34
+msgid "Sign Up"
+msgstr "报名"
+
+#: templates/forms/bookingform/login.php:38
+msgid "Password Lost and Found"
+msgstr "找回密码"
+
+#: templates/forms/bookingform/login.php:38
+msgid "Lost your password?"
+msgstr "忘记您的密码？"
+
+#: templates/forms/event/attributes.php:43
+#, php-format
+msgid ""
+"You don't have any custom attributes defined in any of your Events Manager "
+"template settings. Please add them the <a href='%s'>settings page</a>"
+msgstr ""
+"在您的活动管理模板设定中没有任何自定义属性，请在<a href='%s'>设置页</a>中进行"
+"添加。"
+
+#: templates/forms/event/attributes.php:50
+msgid "Depreciated Attributes"
+msgstr "待用属性"
+
+#: templates/forms/event/attributes.php:51
+msgid ""
+"If you see any attributes under here, that means they're not used in Events "
+"Manager formats. To add them, you need to add the custom attribute again to "
+"a formatting option in the settings page. To remove any of these depreciated "
+"attributes, give it a blank value and save."
+msgstr ""
+"如果您在此下看到任何属性，说明它们并没有在活动管理员格式下被使用。如想添加，"
+"您应该在设置页面中将此自定义属性再次添加到格式选择。如想移除，请将其值设置为"
+"空并保存。"
+
+#: templates/forms/event/attributes.php:83
+msgid ""
+"In order to use attributes, you must define some in your templates, "
+"otherwise they'll never show. Go to Events > Settings > General to add "
+"attribute placeholders."
+msgstr ""
+"为使用属性，您需在模板进行定义，否则将无法显示。请到 活动> 设置 > 通用 进行添"
+"加"
+
+#: templates/forms/event/booking-stats.php:12
+msgid "Available Spaces"
+msgstr "可预订的座位"
+
+#: templates/forms/event/booking-stats.php:13
+msgid "Confirmed Spaces"
+msgstr "确认的座位"
+
+#: templates/forms/event/booking-stats.php:14
+msgid "Pending Spaces"
+msgstr "待定的座位"
+
+#: templates/forms/event/booking-stats.php:21
+msgid "manage bookings"
+msgstr "管理预定"
+
+#: templates/forms/event/booking-stats.php:22
+msgid "printable view"
+msgstr "打印预览"
+
+#: templates/forms/event/booking-stats.php:24
+msgid "export csv"
+msgstr "导出csv"
+
+#: templates/forms/event/booking-stats.php:34
+msgid "No responses yet!"
+msgstr "还没有回复！"
+
+#: templates/forms/event/bookings.php:7
+msgid "Enable registration for this event"
+msgstr "此活动允许注册"
+
+#: templates/forms/event/bookings.php:23
+msgid "Tickets"
+msgstr "票"
+
+#: templates/forms/event/bookings.php:24
+msgid ""
+"You can have single or multiple tickets, where certain tickets become "
+"availalble under certain conditions, e.g. early bookings, group discounts, "
+"maximum bookings per ticket, etc."
+msgstr ""
+"您可设置一种或多种票，不同的条件下使用不同的票。比如，提前预定、团体折扣票、"
+"每种票最多可预约多少张等。"
+
+#: templates/forms/event/bookings.php:24
+msgid "Basic HTML is allowed in ticket labels and descriptions."
+msgstr "票的标签和描述中允许出现基本的HTML。"
+
+#: templates/forms/event/bookings.php:31
+msgid "Min/Max"
+msgstr "最少/最多"
+
+#: templates/forms/event/bookings.php:32
+msgid "Start/End"
+msgstr "开始/结束"
+
+#: templates/forms/event/bookings.php:33
+msgid "Avail. Spaces"
+msgstr "可预订的座位"
+
+#: templates/forms/event/bookings.php:34
+msgid "Booked Spaces"
+msgstr "预定座位"
+
+#: templates/forms/event/bookings.php:41
+msgid "Add new ticket"
+msgstr "添加新的票"
+
+#: templates/forms/event/bookings.php:56
+msgid "Free"
+msgstr "免费"
+
+#: templates/forms/event/bookings.php:90
+msgid "View Bookings"
+msgstr "查看预定"
+
+#: templates/forms/event/bookings.php:114
+msgid "Total Spaces"
+msgstr "总做总数"
+
+#: templates/forms/event/bookings.php:116
+msgid ""
+"Individual tickets with remaining spaces will not be available if total "
+"booking spaces reach this limit. Leave blank for no limit."
+msgstr "如果预定座位总数达到限制将无法继续预定。如果不设上限，则无需填写。"
+
+#: templates/forms/event/bookings.php:119
+msgid "Booking Cut-Off Date"
+msgstr "预定截止日期"
+
+#: templates/forms/event/bookings.php:126
+msgid ""
+"This is the definite date after which bookings will be closed for this "
+"event, regardless of individual ticket settings above. Default value will be "
+"the event start date."
+msgstr ""
+"无论个人票如何设置，此日期之后将停止票的预定。活动开始日期将为系统设定值。"
+
+#: templates/forms/event/group.php:13
+msgid "Not a Group Event"
+msgstr "非群体活动"
+
+#: templates/forms/event/group.php:26
+msgid "No groups defined yet."
+msgstr "未明确群"
+
+#: templates/forms/event/location.php:9
+msgid "This event does not have a physical location."
+msgstr "此活动没有地址。"
+
+#: templates/forms/event/location.php:32
+msgid "Location:"
+msgstr "地点"
+
+#: templates/forms/event/location.php:35
+msgid "No Location"
+msgstr "没有地点"
+
+#: templates/forms/event/location.php:61
+msgid "Location Name:"
+msgstr "地点名称："
+
+#: templates/forms/event/location.php:65
+msgid ""
+"Create a location or start typing to search a previously created location."
+msgstr "创建一个地点或者输入查找已创建的地点"
+
+#: templates/forms/event/location.php:66
+msgid "You cannot edit saved locations here."
+msgstr "您无法在这里编辑已保存的地点。"
+
+#: templates/forms/event/location.php:66
+msgid "Reset this form to create a location."
+msgstr "为创建一个地点重设此表格"
+
+#: templates/forms/event/location.php:70
+msgid "Address:"
+msgstr "地址："
+
+#: templates/forms/event/location.php:76
+msgid "City/Town:"
+msgstr "城市/镇："
+
+#: templates/forms/event/location.php:82
+msgid "State/County:"
+msgstr "国家："
+
+#: templates/forms/event/location.php:88
+msgid "Postcode:"
+msgstr "邮编："
+
+#: templates/forms/event/location.php:94
+msgid "Region:"
+msgstr "地区："
+
+#: templates/forms/event/location.php:100
+msgid "Country:"
+msgstr "国家："
+
+#: templates/forms/event/location.php:103
+msgid "none selected"
+msgstr "未选择"
+
+#: templates/forms/event/location.php:115
+msgid "Location not found"
+msgstr "未找到此地点"
+
+#: templates/forms/event/recurring-when.php:10
+#: templates/forms/event/when-with-recurring.php:32
+msgid "This event repeats"
+msgstr "这个活动重复"
+
+#: templates/forms/event/recurring-when.php:13
+#: templates/forms/event/when-with-recurring.php:35
+msgid "Daily"
+msgstr "每天一次"
+
+#: templates/forms/event/recurring-when.php:13
+#: templates/forms/event/when-with-recurring.php:35
+msgid "Weekly"
+msgstr "每个星期一次"
+
+#: templates/forms/event/recurring-when.php:13
+#: templates/forms/event/when-with-recurring.php:35
+msgid "Monthly"
+msgstr "每个月一次"
+
+#: templates/forms/event/recurring-when.php:13
+#: templates/forms/event/when-with-recurring.php:35
+msgid "Yearly"
+msgstr "每个年一次"
+
+#: templates/forms/event/recurring-when.php:17
+#: templates/forms/event/when-with-recurring.php:39
+msgid "every"
+msgstr "每"
+
+#: templates/forms/event/recurring-when.php:19
+#: templates/forms/event/when-with-recurring.php:41
+msgid "day"
+msgstr "天"
+
+#: templates/forms/event/recurring-when.php:20
+#: templates/forms/event/when-with-recurring.php:42
+msgid "days"
+msgstr "天"
+
+#: templates/forms/event/recurring-when.php:21
+#: templates/forms/event/when-with-recurring.php:43
+msgid "week on"
+msgstr "周在"
+
+#: templates/forms/event/recurring-when.php:22
+#: templates/forms/event/when-with-recurring.php:44
+msgid "weeks on"
+msgstr "周在"
+
+#: templates/forms/event/recurring-when.php:23
+#: templates/forms/event/when-with-recurring.php:45
+msgid "month on the"
+msgstr "月"
+
+#: templates/forms/event/recurring-when.php:24
+#: templates/forms/event/when-with-recurring.php:46
+msgid "months on the"
+msgstr "月"
+
+#: templates/forms/event/recurring-when.php:25
+#: templates/forms/event/when-with-recurring.php:47
+msgid "year"
+msgstr "年"
+
+#: templates/forms/event/recurring-when.php:26
+#: templates/forms/event/when-with-recurring.php:48
+msgid "years"
+msgstr "年"
+
+#: templates/forms/event/recurring-when.php:36
+#: templates/forms/event/when-with-recurring.php:59
+msgid "first"
+msgstr "第一"
+
+#: templates/forms/event/recurring-when.php:36
+#: templates/forms/event/when-with-recurring.php:59
+msgid "second"
+msgstr "第二"
+
+#: templates/forms/event/recurring-when.php:36
+#: templates/forms/event/when-with-recurring.php:59
+msgid "third"
+msgstr "第三"
+
+#: templates/forms/event/recurring-when.php:36
+#: templates/forms/event/when-with-recurring.php:59
+msgid "fourth"
+msgstr "第四"
+
+#: templates/forms/event/recurring-when.php:36
+#: templates/forms/event/when-with-recurring.php:59
+msgid "last"
+msgstr "最后"
+
+#: templates/forms/event/recurring-when.php:43
+#: templates/forms/event/when-with-recurring.php:66
+msgid "of each month"
+msgstr "每月"
+
+#: templates/forms/event/recurring-when.php:48
+#: templates/forms/event/when-with-recurring.php:13
+msgid "Recurrences span from "
+msgstr "循环周期从"
+
+#: templates/forms/event/recurring-when.php:56
+#: templates/forms/event/when-with-recurring.php:23
+msgid "Events start from"
+msgstr "活动开始于"
+
+#: templates/forms/event/recurring-when.php:60
+#: templates/forms/event/when-with-recurring.php:28
+msgid "All day"
+msgstr "全天"
+
+#: templates/forms/event/recurring-when.php:63
+#: templates/forms/event/when-with-recurring.php:69
+msgid "Each event lasts"
+msgstr "每个活动持续"
+
+#: templates/forms/event/recurring-when.php:65
+#: templates/forms/event/when-with-recurring.php:71
+msgid "day(s)"
+msgstr "天"
+
+#: templates/forms/event/recurring-when.php:67
+#: templates/forms/event/when-with-recurring.php:73
+msgid ""
+"For a recurring event, a one day event will be created on each recurring "
+"date within this date range."
+msgstr "对于定期举办活动而言，日期范围中的每个活动日将生成一个活动。"
+
+#: templates/forms/event/when-with-recurring.php:11
+msgid "This is a recurring event."
+msgstr "这是一个定期举办的活动。"
+
+#: templates/forms/event/when-with-recurring.php:14
+msgid "From "
+msgstr "从"
+
+#: templates/forms/event/when-with-recurring.php:24
+msgid "Event starts at"
+msgstr "活动开始于"
+
+#: templates/forms/event/when.php:23
+msgid ""
+"This event spans every day between the beginning and end date, with start/"
+"end times applying to each day."
+msgstr "此活动贯穿开始至结束的每一天，贯穿每一天的起止时间。"
+
+#: templates/forms/location/attributes.php:43
+#, php-format
+msgid ""
+"You don't have any custom attributes defined in any of your Locations "
+"Manager template settings. Please add them the <a href='%s'>settings page</a>"
+msgstr ""
+"在您的活动管理模板设定中没有任何自定义属性，请在<a href='%s'>设置页</a>中进行"
+"添加。"
+
+#: templates/forms/location/attributes.php:51
+msgid ""
+"If you see any attributes under here, that means they're not used in "
+"Locations Manager formats. To add them, you need to add the custom attribute "
+"again to a formatting option in the settings page. To remove any of these "
+"depreciated attributes, give it a blank value and save."
+msgstr ""
+"如果您在此下看到任何属性，说明它们并没有在活动管理员格式下被使用。如想添加，"
+"您应该在设置页面中将此自定义属性再次添加到格式选择。如想移除，请将其值设置为"
+"空并保存。"
+
+#: templates/forms/location/where.php:5
+msgid ""
+"If you're using the Google Maps, the more detail you provide, the more "
+"accurate Google can be at finding your location. If your address isn't being "
+"found, please <a='http://maps.google.com'>try it on maps.google.com</a> by "
+"adding all the fields below seperated by commas."
+msgstr ""
+"您提供的细节越多，就越能帮助Google地图找到您的位置。如果找不到您的地址，请在"
+"下面添加多个领域，并用逗号分隔<a='http://maps.google.com'>maps.google.com</"
+"a> 。"
+
+#: templates/placeholders/bookingbutton.php:6
+msgid "Book Now"
+msgstr "现在预定"
+
+#: templates/placeholders/bookingbutton.php:7
+msgid "Booking..."
+msgstr "预定中……"
+
+#: templates/placeholders/bookingbutton.php:8
+#, php-format
+msgid "%s Submitted"
+msgstr "%s已提交"
+
+#: templates/placeholders/bookingbutton.php:9
+#: templates/placeholders/bookingbutton.php:13
+#, php-format
+msgid "%s Error. Try again?"
+msgstr "%s错误。再试一次？"
+
+#: templates/placeholders/bookingbutton.php:10
+msgid "Cancel"
+msgstr "取消"
+
+#: templates/placeholders/bookingbutton.php:11
+msgid "Canceling..."
+msgstr "取消中……"
+
+#: templates/placeholders/bookingbutton.php:13
+msgid "Cancellation"
+msgstr "取消"
+
+#: templates/placeholders/locationmap.php:15
+msgid "Loading Map...."
+msgstr "地图正在下载"
+
+#: templates/placeholders/locationmap.php:27
+msgid "Map Unavailable"
+msgstr "地图无法显示"
+
+#: templates/tables/events.php:11
+msgid "Add New"
+msgstr "添加新的"
+
+#: templates/tables/events.php:17
+msgid "Upcoming"
+msgstr "即将开始"
+
+#: templates/tables/events.php:21
+msgid "Past Events"
+msgstr "已完成的活动"
+
+#: templates/tables/locations.php:13
+#, php-format
+msgid "All %s"
+msgstr "所有%s"
+
+#: templates/tables/locations.php:20
+msgid "Bulk Actions"
+msgstr "批量操作"
+
+#: templates/tables/locations.php:21
+msgid "Delete selected"
+msgstr "删除已选的"
+
+#: templates/tables/locations.php:23
+msgid "Apply"
+msgstr "应用"
+
+#: templates/tables/locations.php:76
+msgid "No locations have been inserted yet!"
+msgstr "还未输入地址！"
+
+#: templates/templates/bookings-event-printable.php:21
+msgid "Bookings data"
+msgstr "预定资料"
+
+#: templates/templates/bookings-event-printable.php:26
+msgid "Phone number"
+msgstr "电话号码"
+
+#: templates/templates/bookings-event-printable.php:47
+msgid "Available"
+msgstr " 可购买的"
+
+#: templates/templates/events-search.php:35
+msgid "between"
+msgstr "之间"
+
+#: templates/templates/ical-event.php:13 templates/templates/ical.php:15
+#: widgets/em-calendar.php:13
+msgid "Calendar"
+msgstr "日程表"
+
+#: templates/templates/my-bookings.php:40
+msgid "Date"
+msgstr "日期"
+
+#: templates/templates/my-bookings.php:85
+msgid "You do not have any bookings."
+msgstr "您还未预约。"
+
+#: templates/templates/my-bookings.php:95
+#, php-format
+msgid "Please <a href=\"%s\">Log In</a> to view your bookings."
+msgstr "请<a href=\"%s\">登陆</a>以查看您的预定。 "
+
+#: widgets/em-calendar.php:17
+msgid "Display your events in a calendar widget."
+msgstr "在活动日程表中显示活动。"
+
+#: widgets/em-calendar.php:18
+msgid "Events Calendar"
+msgstr "活动日程表"
+
+#: widgets/em-calendar.php:58
+msgid "Title"
+msgstr "标题"
+
+#: widgets/em-calendar.php:62
+msgid "Show Long Events?"
+msgstr "显示长的活动？"
+
+#: widgets/em-calendar.php:66
+msgid "Category IDs"
+msgstr "目录ID"
+
+#: widgets/em-calendar.php:68
+msgid "1,2,3 or 2 (0 = all)"
+msgstr "1，2，3 或者 2 （0 = 全部）"
+
+#: widgets/em-events.php:22 widgets/em-events.php:74 widgets/em-events.php:160
+msgid "all events"
+msgstr "所有活动"
+
+#: widgets/em-events.php:23 widgets/em-events.php:164
+msgid "No events"
+msgstr "没有活动"
+
+#: widgets/em-events.php:26
+msgid "start date, start time, event name"
+msgstr "开始日期，开始时间，活动名称"
+
+#: widgets/em-events.php:27
+msgid "name, start date, start time"
+msgstr "名称，开始日期，开始时间"
+
+#: widgets/em-events.php:28
+msgid "name, end date, end time"
+msgstr "名称，结束日期，结束时间"
+
+#: widgets/em-events.php:29
+msgid "end date, end time, event name"
+msgstr "结束日期，结束时间，活动名称。"
+
+#: widgets/em-events.php:31
+msgid "Display a list of events on Events Manager."
+msgstr "在活动管理里显示活动列表。"
+
+#: widgets/em-events.php:102
+msgid "Number of events"
+msgstr "活动数量"
+
+#: widgets/em-events.php:107
+msgid "Scope"
+msgstr "范围"
+
+#: widgets/em-events.php:117 widgets/em-locations.php:90
+msgid "Order By"
+msgstr "排序"
+
+#: widgets/em-events.php:130
+msgid "Order"
+msgstr "排序"
+
+#: widgets/em-events.php:134 widgets/em-locations.php:105
+msgid "Ascending"
+msgstr "升序"
+
+#: widgets/em-events.php:135 widgets/em-locations.php:106
+msgid "Descending"
+msgstr "降序"
+
+#: widgets/em-events.php:151 widgets/em-locations.php:110
+msgid "List item format"
+msgstr "列表的格式"
+
+#: widgets/em-events.php:155
+msgid "Show all events link at bottom?"
+msgstr "是否在下方显示所有活动的链接？"
+
+#: widgets/em-events.php:159
+msgid "All events link text?"
+msgstr "是否所有活动都链接到原文？"
+
+#: widgets/em-events.php:163
+msgid "No events text"
+msgstr "没有活动文本"
+
+#: widgets/em-locations.php:13
+msgid "Event Locations"
+msgstr "活动地点"
+
+#: widgets/em-locations.php:21
+msgid "Event start date/time, location name"
+msgstr "活动开始日期/时间，地点"
+
+#: widgets/em-locations.php:24
+msgid "Display a list of event locations on Events Manager."
+msgstr "在活动管理显示活动地点列表。"
+
+#: widgets/em-locations.php:49
+msgid "No locations"
+msgstr "没有地点。"
+
+#: widgets/em-locations.php:76
+msgid "Show number of locations"
+msgstr "显示地点数量"
+
+#: widgets/em-locations.php:80
+msgid "Scope of the locations"
+msgstr "地点范围"
+
+#: widgets/em-locations.php:103
+msgid "Order of the locations"
+msgstr "地点的顺序。"

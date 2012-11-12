@@ -1,0 +1,32 @@
+/* Tutorial by WebDesignAndSuch.com */
+
+html, body, div, ul {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+    color: #262626;
+	background:#999;
+	font: normal 12px/18px Verdana, sans-serif;
+}
+
+#content {
+	width: 500px;
+	margin: 0 auto;
+	padding: 0 60px 60px 60px;
+	background: #fafafa;
+	text-align:center;
+	-webkit-box-shadow: 0px 0px 10px #000; 
+	-moz-box-shadow: 0px 0px 10px #000;
+	box-shadow: 0px 0px 10px #000; 
+}
+
+img {border:2px solid #eee; margin:0px 10px;}
+img:hover {border:2px solid #ccc}
+
+
+
+
+.sm {font-size:10px; color:#000; margin-bottom:2px}
+body {background:url(images/back.jpg);}

@@ -1,0 +1,4385 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Events Manager 4.0.9\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/events-manager\n"
+"POT-Creation-Date: 2011-06-30 14:49:00+00:00\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Marcus Sykes <marcus@netweblogic.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: em-template-tags.php:74
+#: events-manager.php:319
+#: admin/em-options.php:303
+#: buddypress/screens/profile.php:27
+#: buddypress/bp-em-core.php:55
+#: buddypress/bp-em-core.php:117
+#: buddypress/bp-em-core.php:128
+#: buddypress/bp-em-notifications.php:44
+#: widgets/em-events.php:13
+#: em-install.php:301
+#: em-install.php:344
+#: em-install.php:381
+#: em-install.php:382
+#: em-install.php:388
+#: em-install.php:408
+#: em-install.php:508
+#: em-actions.php:107
+msgid "Events"
+msgstr "Események"
+
+#: events-manager.php:208
+msgid "You do not have permission to publish %s"
+msgstr "Nincs jogosultságod %s publikálni"
+
+#: events-manager.php:208
+#: events-manager.php:210
+#: events-manager.php:214
+#: events-manager.php:216
+#: events-manager.php:221
+#: admin/em-options.php:355
+#: admin/em-options.php:356
+msgid "events"
+msgstr "eseményeket"
+
+#: events-manager.php:209
+#: events-manager.php:217
+#: events-manager.php:220
+#: events-manager.php:221
+msgid "You do not have permission to edit %s"
+msgstr "Nincs jogosultságod %s szerkeszteni"
+
+#: events-manager.php:209
+#: admin/em-options.php:369
+#: admin/em-options.php:370
+#: admin/em-options.php:371
+#: admin/em-options.php:372
+#: admin/em-options.php:373
+#: classes/em-category.php:100
+msgid "categories"
+msgstr "kategoriak"
+
+#: events-manager.php:210
+#: events-manager.php:211
+msgid "You do not have permission to delete others %s"
+msgstr "Nincs jogosultságod mások %s törölni"
+
+#: events-manager.php:211
+#: events-manager.php:212
+#: events-manager.php:215
+#: events-manager.php:217
+#: events-manager.php:219
+#: admin/em-options.php:344
+#: admin/em-options.php:345
+#: admin/em-options.php:346
+#: admin/em-options.php:347
+#: admin/em-options.php:348
+#: classes/em-location.php:157
+#: classes/em-location.php:199
+msgid "locations"
+msgstr "helyszinek"
+
+#: events-manager.php:212
+#: events-manager.php:214
+msgid "You do not have permission to edit others %s"
+msgstr "Nincs jogosultságod mások %s szerkeszteni"
+
+#: events-manager.php:213
+msgid "You do not have permission to manage others %s"
+msgstr "Nincs jogosultságod mások %s menedzselni"
+
+#: events-manager.php:213
+#: events-manager.php:218
+msgid "bookings"
+msgstr "foglalasok"
+
+#: events-manager.php:215
+#: events-manager.php:216
+msgid "You do not have permission to delete %s"
+msgstr "Nincs jogosultságod %s törölni"
+
+#: events-manager.php:218
+msgid "You do not have permission to manage %s"
+msgstr "Nincs jogosultságod %s menedzselni"
+
+#: events-manager.php:219
+msgid "You cannot to view others %s"
+msgstr "Nem nézheted meg mások %s"
+
+#: events-manager.php:220
+msgid "recurrences"
+msgstr "ismétlődések"
+
+#: events-manager.php:322
+#: admin/em-event.php:573
+#: templates/forms/event-editor.php:367
+#: buddypress/bp-em-core.php:179
+#: classes/em-event.php:793
+msgid "Edit"
+msgstr "Szerkesztés"
+
+#: events-manager.php:323
+msgid "Add new"
+msgstr "Új hozzáadása"
+
+#: events-manager.php:324
+#: admin/em-locations.php:41
+#: admin/em-locations.php:52
+#: admin/em-locations.php:55
+#: admin/em-options.php:342
+#: admin/em-options.php:344
+#: admin/em-options.php:345
+#: admin/em-options.php:346
+#: admin/em-options.php:347
+#: admin/em-options.php:348
+#: templates/buddypress/my-locations.php:27
+#: templates/buddypress/my-locations.php:30
+#: em-install.php:348
+#: em-install.php:349
+#: em-actions.php:169
+msgid "Locations"
+msgstr "Helyszínek"
+
+#: events-manager.php:325
+#: admin/em-events.php:163
+#: templates/buddypress/my-events.php:115
+#: em-events.php:130
+msgid "Bookings"
+msgstr "Foglalások"
+
+#: events-manager.php:326
+msgid "Event Categories"
+msgstr "Esemény kategóriák"
+
+#: events-manager.php:326
+#: admin/em-categories.php:57
+#: admin/em-options.php:367
+#: admin/em-options.php:369
+#: admin/em-options.php:370
+#: admin/em-options.php:371
+#: admin/em-options.php:372
+#: admin/em-options.php:373
+#: em-install.php:373
+#: em-install.php:375
+msgid "Categories"
+msgstr "Kategóriák"
+
+#: events-manager.php:327
+msgid "Events Manager Settings"
+msgstr "Events Manager beállítások"
+
+#: events-manager.php:327
+#: events-manager.php:473
+msgid "Settings"
+msgstr "Beállítások"
+
+#: events-manager.php:328
+#: admin/em-help.php:10
+msgid "Getting Help for Events Manager"
+msgstr "Segítség az Events Managerhez"
+
+#: events-manager.php:328
+msgid "Help"
+msgstr "Súgó"
+
+#: events-manager.php:456
+msgid "Add an event"
+msgstr "Új esemény létrehozása"
+
+#: admin/em-docs.php:15
+msgid "Do a search for this string within event name, details and location address."
+msgstr "Keresés indítása az események nevei, adatai és címek között."
+
+#: admin/em-docs.php:16
+msgid "See the events lists limit option on the settings page."
+msgstr "Lásd az események listájának limit opcióját a beállítások oldalon."
+
+#: admin/em-docs.php:17
+#: admin/em-docs.php:23
+msgid "Choose what fields to order your results by. You can supply a single field or multiple comma-seperated fields (e.g. \"start_date,name\")."
+msgstr "Válassza ki, milyen mezők alapján sorrendezzük az eredményeket. Egy vagy több mezőt megadhat, vesszővel elválasztva (pl.: \"start_date, name\")."
+
+#: admin/em-docs.php:17
+#: admin/em-docs.php:18
+msgid "See the event lists ordering option on the settings page."
+msgstr "Lásd az esemény lista rendezési lehetőségét a beállítások oldalon."
+
+#: admin/em-docs.php:21
+msgid "If set to 1 will only show locations that have at least one event occurring during the scope."
+msgstr "Ha 1 akkor csak azok a helyszínek jelennek meg, ahol legalább egy esemény lesz."
+
+#: admin/em-docs.php:22
+msgid "If set to 1 will only show locations that have no events occurring during the scope."
+msgstr "Ha 1 akkor csak azok a helyszínek jelennek meg, ahol nincs esemény."
+
+#: admin/em-docs.php:25
+msgid "Search for locations in this town (no partial matches, case sensitive)."
+msgstr "Keresés helyszínek után ebben a városban (nincs részleges egyezés, kis-és nagybetű érzékeny)."
+
+#: admin/em-docs.php:25
+#: admin/em-docs.php:26
+#: admin/em-docs.php:27
+#: admin/em-docs.php:28
+#: admin/em-docs.php:29
+msgid "none"
+msgstr "egyik sem"
+
+#: admin/em-docs.php:26
+msgid "Search for locations in this state (no partial matches, case sensitive)."
+msgstr "Keresés helyszínek után ebben a megyében (nincs részleges egyezés, kis-és nagybetű érzékeny)."
+
+#: admin/em-docs.php:27
+msgid "Search for locations in this region (no partial matches, case sensitive)."
+msgstr "Keresés helyszínek után ebben a térségben (nincs részleges egyezés, kis-és nagybetű érzékeny)."
+
+#: admin/em-docs.php:28
+msgid "Search for locations in this country (no partial matches, case sensitive)."
+msgstr "Keresés helyszínek után ebben az országban (nincs részleges egyezés, kis-és nagybetű érzékeny)."
+
+#: admin/em-docs.php:29
+msgid "Search for locations in this postcode (no partial matches, case sensitive)."
+msgstr "Keresés helyszínek után az irányítószám alapján (nincs részleges egyezés, kis-és nagybetű érzékeny)."
+
+#: admin/em-docs.php:32
+msgid "If set to 1 it will display a full calendar that shows event names."
+msgstr "Ha 1 akkor egy teljes naptár jelenik meg, ami mutatja az események neveit."
+
+#: admin/em-docs.php:33
+msgid "If set to 1, will show events that last longer than a day."
+msgstr "Ha 1 akkor látszódnak az egy napnál hosszabb események is"
+
+#: admin/em-docs.php:34
+msgid "Same as for events."
+msgstr "Ugyanaz, mint az eseményeknél."
+
+#: admin/em-docs.php:39
+#, fuzzy
+msgid "Limits the amount of values returned to this number."
+msgstr "Korlátozza az értékek vissza ezt a számot."
+
+#: admin/em-docs.php:40
+#, fuzzy
+msgid "Choose the time frame of events to show. Accepted values are \"future\", \"past\" or \"all\" events. Additionally you can supply dates (in format of YYYY-MM-DD), either single for events on a specific date or two dates seperated by a comma (e.g. 2010-12-25,2010-12-31) for events ocurring between these dates."
+msgstr "Válassza ki a időkeretet, melyben az események megjelenjenek. Elfogadott értékek \"future\", \"past\" vagy \"all\" eseményt. Ezen kívül tud biztosítani dátumok (a formátuma ÉÉÉÉ-HH-NN), vagy egyedi rendezvények egy adott napon, vagy két dátum vesszővel elválasztva (pl. 2010-12-25,2010-12-31) rendezvények ocurring között dátumokat."
+
+#: admin/em-docs.php:41
+msgid "Indicates the order of the events. Choose between ASC (ascending) and DESC (descending)."
+msgstr "Jelzi az események sorrendjét. Válasszon az ASC (növekvő) és a DESC (csökkenő) között."
+
+#: admin/em-docs.php:42
+msgid "Choose what fields to order your results by. You can supply a single field or multiple comma-seperated fields (e.g. \"start_date,name\"). See specific instances (e.g. events, locations, etc.) for field names."
+msgstr "Válassza ki, milyen mezők alapján sorrendezzük az eredményeket. Egy vagy több mezőt megadhat, vesszővel elválasztva (pl.: \"start_date, name\"). Lásd konkrét mezőneveket a típusoknál (pl. események, helyszínek, stb)."
+
+#: admin/em-docs.php:43
+msgid "If you are displaying some information with the shortcode or function (e.g. listing events), you can supply the html and placeholders here."
+msgstr "Ha valamilyen információt jelenít meg rövidkóddal vagy egy függvénnyel (pl. események listázása), akkor itt adhatja meg a HTMLt és a placeholdereket."
+
+#: admin/em-docs.php:43
+msgid "The relevant default format will be taken from the settings page."
+msgstr "A vonatkozó alapértelmezett formátum a beállítások oldalról kerül használatra."
+
+#: admin/em-docs.php:44
+msgid "Supply a single id or comma-seperated ids (e.g. \"1,2,3\") to limit the search to events with these id(s)."
+msgstr "Adjon megy ez azonosítot vagy vesszővel elválasztott azonosítókat (pl.: \"1,2,3\"), hogy korlátozza a keresést ezen azonosítójú esemény(ek)re."
+
+#: admin/em-docs.php:45
+msgid "Supply a single id or comma-seperated ids (e.g. \"1,2,3\") to limit the search to events in these categories."
+msgstr "Adjon megy ez azonosítot vagy vesszővel elválasztott azonosítókat (pl.: \"1,2,3\"), hogy korlátozza a keresést ezen azonosítójú kategóriá(k)ban lévő eseményekre."
+
+#: admin/em-docs.php:46
+msgid "Supply a single id or comma-seperated ids to limit the search to these locations (or events in these locations)."
+msgstr "Adjon megy ez azonosítot vagy vesszővel elválasztott azonosítókat (pl.: \"1,2,3\"), hogy korlátozza a keresést ezeken a helyszíneken (vagy eseményeket ezeken a helyszíneken)."
+
+#: admin/em-docs.php:47
+msgid "For example, if you have ten results, if you set this to 5, only the last 5 results will be returned. Useful for pagination."
+msgstr "Például, ha 10 darab találat van és ezt 5-re állítja, akkor az utolsó 5 találat fog látszódni. Hasznos lapozáshoz."
+
+#: admin/em-docs.php:48
+#, fuzzy
+msgid "If set to 1, will show only events that are recurring (i.e. events that are repeated over different dates)."
+msgstr "Ha 1, akkor csak azokat eseményeket, amelyek ismétlődő (azaz esemény, amely megismételni különböző időpontokban)."
+
+#: admin/em-docs.php:49
+#, fuzzy
+msgid "If set to 1, will only show recurring event templates. Only useful if you know what you're doing, use recurrence if you want events that are recurrences."
+msgstr "Ha 1, akkor csak azt mutatják, visszatérő esemény sablonokat. Csak akkor hasznos, ha tudod, mit csinálsz, használja kiújulásának ha szeretné események, amelyek kiújulás."
+
+#: admin/em-docs.php:50
+#, fuzzy
+msgid "If set to a month (1 to 12) only events that start or end during this month/year will be retured. Must be used in conjunction with year and does not work as intended if used with scope."
+msgstr "Ha be van állítva egy hónap (1-12) csak a rendezvények kezdete vagy vége ez alatt az év / hónap lesz retured. Kell együtt használják évben, és nem működik megfelelően, ha használt hatálya alá."
+
+#: admin/em-docs.php:51
+#, fuzzy
+msgid "If set to a year (e.g. 2010) only events that start or end during this year/month will be returned. Does not work as intended if used with scope."
+msgstr "Ha meg egy évben (pl. 2010) csak a rendezvények kezdete vagy vége ez alatt az év / hónap vissza. Nem működik megfelelően, ha használt hatálya alá."
+
+#: admin/em-docs.php:52
+#, fuzzy
+msgid "If you supply this as an argument, the returned data will be in an array, no objects (only useful wen using PHP, not shortcodes)"
+msgstr "Ha a kínálat ezt az érvet, a visszakapott adatokat egy tömbbe, nem tárgy (csak akkor hasznos, Wen PHP, nem shortcodes)"
+
+#: admin/em-docs.php:53
+#, fuzzy
+msgid "When using a function or shortcode that outputs items (e.g. [events_list] for events, [locations_list] for locations), if the number of items supercede the limit of items to show, setting this to 1 will show page links under the list."
+msgstr "Amikor egy funkciót vagy érvényesítőkód, hogy a kimeneti elem (pl. [events_list] rendezvényekre, [locations_list] a helyszínen), ha az elemek száma supercede határ tételek mutatják, amelyben ez az 1 jelenik meg az oldalon linkeket a listán."
+
+#: admin/em-docs.php:60
+msgid "Displays the name of the event."
+msgstr "Megjeleníti az esemény nevét."
+
+#: admin/em-docs.php:61
+msgid "Shows the description of the event."
+msgstr "Megmutatja az esemény leírását."
+
+#: admin/em-docs.php:62
+#, fuzzy
+msgid "If you added a <a href=\"http://en.support.wordpress.com/splitting-content/more-tag/\">more tag</a> to your event description, only the content before this tag will show (currently, no read more link is added)."
+msgstr "Ha hozzáadott egy <a href=\"http://en.support.wordpress.com/splitting-content/more-tag/\">további tag</a> a rendezvény leírását, csak a tartalmát, mielőtt ezt a címkét mutatja (jelenleg nincs tovább link hozzá.)"
+
+#: admin/em-docs.php:63
+#, fuzzy
+msgid "Shows the event corresponding ID number in the database table."
+msgstr "Megmutatja megfelelő esemény azonosító száma az adatbázis tábla."
+
+#: admin/em-docs.php:64
+#: admin/em-docs.php:133
+msgid "Shows the event image, if available."
+msgstr "Megmutatja az esemény képét, ha van."
+
+#: admin/em-docs.php:70
+#, fuzzy
+msgid "Displays the start time in a 24 hours format (e.g. 16:30)."
+msgstr "Megjeleníti a kezdési időpontot egy 24 órás formátumban (pl. 16:30)."
+
+#: admin/em-docs.php:71
+#, fuzzy
+msgid "Displays the end time in a 24 hours format (e.g. 18:30)."
+msgstr "Megjeleníti a végén időt a 24 órás formátumban (pl. 18:30)."
+
+#: admin/em-docs.php:72
+#, fuzzy
+msgid "Displays the start time in a 12 hours format (e.g. 4:30 PM)."
+msgstr "Megjeleníti a kezdési időpontot a 12 órás formátumban (pl. 04:30)."
+
+#: admin/em-docs.php:73
+#, fuzzy
+msgid "Displays the end time in a 12 hours format (e.g. 6:30 PM)."
+msgstr "Megjeleníti a végén időt 12 órás formátumban (pl. 06:30)."
+
+#: admin/em-docs.php:77
+#, fuzzy
+msgid "Events Manager allows extremely flexible date formatting by using <a href=\"http://www.php.net/manual/en/function.date.php\">PHP date syntax format characters</a> along with placeholders."
+msgstr "Események Manager segítségével rendkívül rugalmas dátumformázási segítségével <a href=\"http://www.php.net/manual/en/function.date.php\">PHP szintaxis dátum formátumot karakterek</a> mellett helyőrzők."
+
+#: admin/em-docs.php:79
+#, fuzzy
+msgid "Prepend <code>#</code> or <code>#@</code> before a valid PHP date syntax format character to show start and end date/time information respectively (e.g. <code>#F</code> will show the starting month name like \"January\", #@h shows the end hour)."
+msgstr "Neve elé <code>#</code> vagy <code>#@</code> előtt érvényes PHP date szintaktikai formában karaktert mutat kezdési és befejezési dátum / idő adatokat, illetve (pl. <code>#F</code> megmutatja a kezdő hónap neve, mint a \"január\", # @ h mutatja a vége óra)."
+
+#: admin/em-docs.php:80
+msgid ""
+"You can also create a date format without prepending # to each character by wrapping a valid php date() format in <code>#{}</code> or <code>#@{}</code> (e.g. <code>#_{d/m/Y}</code>). If there is no end date (or is same as start date), the value is not shown. This is useful if you want to show event end dates only on events that are longer than on day, e.g. <code>#j #M #Y #@_{ \\u\\n"
+"\\t\\i\\l j M Y}</code>."
+msgstr ""
+
+#: admin/em-docs.php:85
+#, fuzzy
+msgid "Simply prints the event URL. You can use this placeholder to build your own customised links."
+msgstr "Egyszerűen kiírja az esemény URL-t. Ezzel az helyőrzőt készítsd el a saját személyre szabott linkeket."
+
+#: admin/em-docs.php:86
+#: admin/em-docs.php:134
+msgid "Shows the event image url, if available."
+msgstr "Megmutatja az esemény képének urljét, ha van."
+
+#: admin/em-docs.php:87
+msgid "Displays the event name with a link to the event page."
+msgstr "Megjeleníti a rendezvény nevét egy linkkel az esemény oldalára."
+
+#: admin/em-docs.php:88
+#, fuzzy
+msgid "Inserts a link to the admin  or buddypress (if activated) edit event page, only if a user is logged in and is allowed to edit the event."
+msgstr "Beszúr egy linket az admin vagy a buddypress (ha aktív) esemény szerkesztése oldalon, ha a felhasználó bejelentkezett, és lehetővé tette, hogy módosítsuk az eseményt."
+
+#: admin/em-docs.php:89
+#, fuzzy
+msgid "Inserts a url to the admin or buddypress (if activated) edit event page, only if a user is logged in and is allowed to edit the event."
+msgstr "Beszúr egy url az admin vagy buddypress (ha aktív) esemény szerkesztése oldalon, ha a felhasználó bejelentkezett, és lehetővé tette, hogy módosítsuk az eseményt."
+
+#: admin/em-docs.php:93
+#, fuzzy
+msgid "Events Manager allows you to create dynamic attributes to your events, which act as extra information fields for your events (e.g. \"Dress Code\"). For more information see <a href=\"http://wp-events-plugin.com/documentation/categories-and-attributes/\">our online documentation</a> for more info on attributes."
+msgstr "Események Manager lehetővé teszi, hogy dinamikus jellemzőket az események, amik extra információk mezőket az események (pl.: \"Dress Code\"). További információkért lásd <a href=\"http://wp-events-plugin.com/documentation/categories-and-attributes/\">az online dokumentációt</a> a További információk a jellemzők."
+
+#: admin/em-docs.php:95
+#, fuzzy
+msgid "This key will appear as an option when adding attributes to your event."
+msgstr "Ez a gomb jelenik meg, mint lehetőséget, ha hozzá tulajdonít az esemény."
+
+#: admin/em-docs.php:96
+#, fuzzy
+msgid "This key will appear as an option when adding attributes to your event. The text in the second braces will appear if the attribute is not defined or left blank for that event."
+msgstr "Ez a gomb jelenik meg, mint lehetőséget, ha hozzá tulajdonít az esemény. A szöveg a második zárójelek jelenik meg, ha az attribútum nem határozza meg, vagy üres az eseményre."
+
+#: admin/em-docs.php:97
+#, fuzzy
+msgid "This key will appear as an option when adding attributes to your event. The second braces are optional and will use a select box with these values as input. If no valid value is defined, the first option is used."
+msgstr "Ez a gomb jelenik meg, mint lehetőséget, ha hozzá tulajdonít az esemény. A második zárójelek opcionális, és használja a legördülő lista az ezeket az értékeket, mint bemenet. Ha nincs érvényes érték meghatározása, az első opciót használjuk."
+
+#: admin/em-docs.php:101
+#, fuzzy
+msgid "These placeholders will only show if RSVP is enabled for the given event and in the events manager settings page. Spaces placeholders will default to 0"
+msgstr "Ezek a helyőrzőket csak azt mutatják, ha RSVP engedélyezve van az adott eseményt, és az események-beállítások oldalt. Spaces helyőrzőket alapértelmezés 0"
+
+#: admin/em-docs.php:103
+#, fuzzy
+msgid "Adds a booking forms for this event."
+msgstr "Hozzáad egy foglalás formáját erre az eseményre."
+
+#: admin/em-docs.php:104
+#, fuzzy
+msgid "Shows available spaces for the event."
+msgstr "Mutatja áll terek esetén."
+
+#: admin/em-docs.php:105
+#, fuzzy
+msgid "Shows the amount of currently booked spaces for the event."
+msgstr "Megjeleníti a jelenleg foglalt terek esetén."
+
+#: admin/em-docs.php:106
+#, fuzzy
+msgid "Shows the amount of pending spaces for the event."
+msgstr "Megjeleníti a függőben lévő terek esetén."
+
+#: admin/em-docs.php:107
+#, fuzzy
+msgid "Shows the total spaces for the event."
+msgstr "Megmutatja az összes terek esetén."
+
+#: admin/em-docs.php:108
+#, fuzzy
+msgid "Shows the list of user avatars attending events."
+msgstr "Listáját jeleníti meg a felhasználói avatarok részt rendezvényeken."
+
+#: admin/em-docs.php:109
+#, fuzzy
+msgid "A single button that will appear to logged in users, if they click on it, they apply for a booking. This button will only display if there is one ticket."
+msgstr "Egyetlen gomb jelenik meg a bejelentkezett felhasználók, ha kattintson rá, alkalmazzák a foglalás. Ez a gomb csak akkor jelenik meg, ha van egy jegy."
+
+#: admin/em-docs.php:110
+#, fuzzy
+msgid "Shows the url to the admin or buddypress (if activated) bookings management page for this event. Only shown if user is logged in and able to manage bookings."
+msgstr "Megmutatja az URL-t az admin, vagy buddypress (ha aktív) foglalások kezelése oldalon erre az eseményre. Csak akkor jelenik meg, ha a felhasználó bejelentkezett, és képes kezelni foglalások."
+
+#: admin/em-docs.php:111
+#, fuzzy
+msgid "Shows a link to the admin or buddypress (if activated) bookings management page for this event. Only shown if user is logged in and able to manage bookings."
+msgstr "Megmutatja egy linket az admin vagy a buddypress (ha aktív) foglalások kezelése oldalon erre az eseményre. Csak akkor jelenik meg, ha a felhasználó bejelentkezett, és képes kezelni foglalások."
+
+#: admin/em-docs.php:115
+#, fuzzy
+msgid "The values here are taken from the chosen contact for the specific event, or the default contact in the settings page."
+msgstr "Az értékek itt venni a kiválasztott forduljon az adott esemény, vagy az alapértelmezett kapcsolatot a beállítások oldalon."
+
+#: admin/em-docs.php:117
+#, fuzzy
+msgid "Name of the contact person for this event (as shown in the dropdown when adding an event)."
+msgstr "Neve a kapcsolattartó személy erre az eseményre (amint azt a legördülő, amikor hozzá egy eseményt.)"
+
+#: admin/em-docs.php:118
+msgid "Contact person's username."
+msgstr "Kapcsolattartó személy felhasználóneve."
+
+#: admin/em-docs.php:119
+msgid "E-mail of the contact person for this event."
+msgstr "A kapcsolattartó személy e-mail címe."
+
+#: admin/em-docs.php:120
+#, fuzzy
+msgid "Phone number of the contact person for this event. Can be set in the user profile page."
+msgstr "Telefonszám a kapcsolattartó személy erre az eseményre. Lehet beállítani a felhasználói profil oldalon."
+
+#: admin/em-docs.php:121
+msgid "Contact person's avatar."
+msgstr "Kapcsolattartó személy avatárja."
+
+#: admin/em-docs.php:122
+msgid "Contact person's \"Profile\" link. Only works with BuddyPress enabled."
+msgstr "Kapcsolattartó személy \"Adatlap\" linkje. Csak akkor működik, ha a BuddyPress engedélyezve van."
+
+#: admin/em-docs.php:123
+msgid "Contact person's profile url. Only works with BuddyPress enabled."
+msgstr "Kapcsolattartó személy adatlapjának URL-je. Csak akkor működik, ha a BuddyPress engedélyezve van."
+
+#: admin/em-docs.php:124
+#, fuzzy
+msgid "Contact person's wordpress user ID."
+msgstr "Kapcsolattartó személy wordpress felhasználói azonosítót."
+
+#: admin/em-docs.php:131
+msgid "Shows the category name of the event."
+msgstr "Megmutatja az esemény kategóriájának a nevét."
+
+#: admin/em-docs.php:132
+msgid "Shows the category ID of the event."
+msgstr "Megmutatja az esemény kategória ID-ját."
+
+#: admin/em-docs.php:135
+#: admin/em-docs.php:151
+msgid "Shows the location description."
+msgstr "Megmutatja a helyszín leírását."
+
+#: admin/em-docs.php:143
+msgid "Displays the location name."
+msgstr "Megjeleníti a helyszín nevét."
+
+#: admin/em-docs.php:144
+msgid "Displays the address."
+msgstr "Megjeleníti a címet."
+
+#: admin/em-docs.php:145
+msgid "Displays the town."
+msgstr "Megjeleníti a várost."
+
+#: admin/em-docs.php:146
+msgid "Displays the state/county."
+msgstr "Megjeleníti a megyét."
+
+#: admin/em-docs.php:147
+msgid "Displays the postcode."
+msgstr "Megjeleníti a irányítószámot."
+
+#: admin/em-docs.php:148
+msgid "Displays the region."
+msgstr "Megjeleníti a régiót."
+
+#: admin/em-docs.php:149
+msgid "Displays the country."
+msgstr "Megjeleníti az országot."
+
+#: admin/em-docs.php:150
+msgid "Displays a google map showing where the event is located (Will not show if maps are disabled in the settings page)"
+msgstr "Megjeleníti a google térképet, ahol az esemény található (nem jelenik meg, ha térkép le van tiltva a beállítások oldalon)"
+
+#: admin/em-docs.php:152
+msgid "If you added a <a href=\"http://en.support.wordpress.com/splitting-content/more-tag/\">more tag</a> to your location description, only the content before this tag will show (currently, no read more link is added)."
+msgstr "Ha hozzáadott egy <a href=\"http://en.support.wordpress.com/splitting-content/more-tag/\">\"Tovább\" vonalat</a> a helyszín leírásához, akkor csak a vonal feletti rész fog látszódni (jelenleg nincs tovább link hozzá.)"
+
+#: admin/em-docs.php:153
+msgid "Shows the location image."
+msgstr "Megmutatja a helyszín képét."
+
+#: admin/em-docs.php:154
+msgid "Displays the location ID number."
+msgstr "Megjeleníti a helyszín azonosítószámát."
+
+#: admin/em-docs.php:159
+msgid "Simply prints the location URL. You can use this placeholder to build your own customised links."
+msgstr "Egyszerűen kiírja a helyszín URL-jét. Ezzel a placeholderrel készíthet el egy saját személyre szabott linket."
+
+#: admin/em-docs.php:160
+msgid "Displays the location name with a link to the location page."
+msgstr "Megjeleníti a helyszín nevét egy linket a helyszín oldalára."
+
+#: admin/em-docs.php:164
+#, fuzzy
+msgid "You can show lists of other events that are being held at this location. The formatting of the list is the same as a normal events list."
+msgstr "Ön tudja mutatni listáját egyéb események kerülnek megrendezésre ezen a helyen. A formázás a lista ugyanaz, mint a normál események listáját."
+
+#: admin/em-docs.php:166
+msgid "Will show a list of all past events at this location."
+msgstr "Kilistázza az összes múltbeli eseményeket ezen a helyszínen."
+
+#: admin/em-docs.php:167
+msgid "Will show a list of all future events at this location."
+msgstr "Kilistázza az összes jövőbeli eseményeket ezen a helyszínen."
+
+#: admin/em-docs.php:168
+msgid "Will show a list of all events at this location."
+msgstr "Kilistázza az összes eseményt ezen a helyszínen."
+
+#: admin/em-docs.php:174
+#, fuzzy
+msgid "When a specific booking is displayed (on screen and on email), you can use these placeholders to show specific information about the booking. For contact details of the contact of this event, see the events placeholders."
+msgstr "Amikor egy bizonyos foglalás jelenik meg (a képernyőn és e-mail), akkor ezeket a helyőrzőket mutatni konkrét információkat a foglalás. Az elérhetőségeit a kapcsolat ezen esemény, lásd az eseményeket helyőrzőket."
+
+#: admin/em-docs.php:176
+msgid "Name of person who made the booking."
+msgstr "A foglaló személy neve."
+
+#: admin/em-docs.php:177
+msgid "Email of person who made the booking."
+msgstr "A foglaló személy e-mail címe."
+
+#: admin/em-docs.php:178
+msgid "Phone number of person who made the booking."
+msgstr "A foglaló személy telefonszáma."
+
+#: admin/em-docs.php:179
+msgid "Number of spaces the person has booked."
+msgstr "A foglaló által foglalt helyek száma."
+
+#: admin/em-docs.php:180
+msgid "Any specific comments made by the person who made the booking."
+msgstr "A foglaláshoz fűzött megjegyzés."
+
+#: admin/em-docs.php:181
+msgid "Name of the ticket booked. Useful in single ticket mode, if multiple tickets are booked a random ticket is used."
+msgstr "A foglalt jegy neve. Hasznos egy-jegy módban, ha több jegy lett foglalva, akkor véletlenül választunk egyet."
+
+#: admin/em-docs.php:182
+#, fuzzy
+msgid "Description of the ticket booked. Useful in single ticket mode, if multiple tickets are booked a random ticket is used."
+msgstr "Leírása a jegyet foglalt. Hasznos vonaljegy módban, ha több jegyek foglalt egy véletlen jegyet használ."
+
+#: admin/em-docs.php:183
+#, fuzzy
+msgid "Booked ticket price with currency symbol (e.g. $ 10.00). Useful in single ticket mode, if multiple tickets are booked a random ticket is used."
+msgstr "Foglalt jegy ára a deviza jel (pl. $ 10.00). Hasznos vonaljegy módban, ha több jegyek foglalt egy véletlen jegyet használ."
+
+#: admin/em-docs.php:184
+#, fuzzy
+msgid "A list of booked tickets. You can modify this by using template files and modifying templates/emails/bookingtickets.php"
+msgstr "A listát a lefoglalt jegyeket. Lehet módosítani ezt a sablont fájlok és módosítása sablonok / e-mail / bookingtickets.php"
+
+#: admin/em-docs.php:188
+#, fuzzy
+msgid "People are able to manage their bookings. Below are some placeholder which automatically provides correctly formatted urls"
+msgstr "Az emberek képesek kezelni a foglalásokat. Az alábbiakban néhány betűjele, amely automatikusan biztosítja a megfelelő URL-eket formázott"
+
+#: admin/em-docs.php:190
+#, fuzzy
+msgid "URL to page showing that users booked events."
+msgstr "URL oldalt mutatja, hogy a felhasználók foglalt eseményeket."
+
+#: admin/em-help.php:15
+#, fuzzy
+msgid "Placeholders for customizing event pages"
+msgstr "Helyőrzőket testreszabási rendezvény oldalak"
+
+#: admin/em-help.php:16
+#, fuzzy
+msgid "In the <a href='%s'>settings page</a>, you'll find various textboxes where you can edit how event information looks, such as for event and location lists. Using the placeholders below, you can choose what information should be displayed."
+msgstr "A <a href='%s'>beállítások oldalon</a> , megtalálod a különböző szövegdobozok, ahol lehet szerkeszteni, hogy amennyiben információk néz ki, mint az esemény és a helyszín listáját. A helyőrzőket alábbi megadhatja, milyen információkat kell megjeleníteni."
+
+#: admin/em-help.php:17
+#: admin/em-options.php:58
+msgid "Event Related Placeholders"
+msgstr "Eseményekkel kapcsolatos placeholderek"
+
+#: admin/em-help.php:19
+#: admin/em-options.php:61
+msgid "Category Related Placeholders"
+msgstr "Kategóriákkal kapcsolatos placeholderek"
+
+#: admin/em-help.php:21
+#: admin/em-options.php:59
+msgid "Location Related Placeholders"
+msgstr "Helyszínnel kapcsolatos placeholderek"
+
+#: admin/em-help.php:23
+#: admin/em-options.php:60
+msgid "Booking Related Placeholders"
+msgstr "Foglalással kapcsolatos placeholderek"
+
+#: admin/em-categories.php:21
+msgid "The category has been added."
+msgstr "A kategória hozzá lett adva."
+
+#: admin/em-categories.php:23
+msgid "The category has been updated."
+msgstr "A kategória frissítve lett."
+
+#: admin/em-categories.php:39
+msgid "Categories Deleted"
+msgstr "Törölt kategóriák"
+
+#: admin/em-categories.php:58
+#: admin/em-locations.php:42
+#: admin/em-events.php:43
+#: templates/buddypress/my-events.php:37
+#: templates/buddypress/my-locations.php:25
+msgid "Add New"
+msgstr "Új hozzáadása"
+
+#: admin/em-categories.php:71
+#: admin/em-categories.php:78
+msgid "ID"
+msgstr "ID"
+
+#: admin/em-categories.php:72
+#: admin/em-categories.php:79
+#: admin/em-locations.php:78
+#: admin/em-locations.php:88
+#: admin/em-events.php:121
+#: admin/em-event.php:291
+#: admin/em-bookings.php:180
+#: admin/em-bookings.php:240
+#: admin/em-people.php:30
+#: templates/buddypress/group-events.php:12
+#: templates/buddypress/my-events.php:73
+#: templates/buddypress/my-group-events.php:12
+#: templates/buddypress/my-locations.php:53
+#: templates/buddypress/my-locations.php:62
+#: templates/placeholders/bookingform.php:98
+#: templates/forms/tickets-form.php:4
+#: classes/em-person.php:60
+msgid "Name"
+msgstr "Név"
+
+#: admin/em-categories.php:102
+msgid "No categories have been inserted yet!"
+msgstr "Nem lett még kategória hozzáadva!"
+
+#: admin/em-categories.php:118
+#: admin/em-locations.php:125
+#: admin/em-event.php:14
+#: admin/em-bookings.php:107
+#: admin/em-bookings.php:163
+#: admin/em-bookings.php:213
+#: admin/em-bookings.php:351
+#: admin/em-people.php:9
+#: templates/templates/event-form.php:16
+#: templates/forms/location-editor.php:7
+#: templates/forms/event-editor.php:6
+msgid "Unauthorized Access"
+msgstr "Nem engedélyezett hozzáférés"
+
+#: admin/em-categories.php:128
+msgid "Edit category"
+msgstr "Kategória szerkesztése"
+
+#: admin/em-categories.php:145
+msgid "Category name"
+msgstr "Kategória név"
+
+#: admin/em-categories.php:149
+msgid "The name of the category"
+msgstr "A kategória neve"
+
+#: admin/em-categories.php:150
+#: admin/em-locations.php:162
+#: admin/em-event.php:297
+msgid "View Slug"
+msgstr "Keresőbarát név megtekintése"
+
+#: admin/em-categories.php:157
+#: admin/em-locations.php:169
+#: admin/em-event.php:304
+msgid "Hide Slug"
+msgstr "Keresőbarát név elrejtése"
+
+#: admin/em-categories.php:166
+#: admin/em-locations.php:178
+msgid "%s Slug"
+msgstr "%s keresőbarát neve"
+
+#: admin/em-categories.php:166
+#: admin/em-event.php:265
+#: admin/em-options.php:375
+#: templates/buddypress/my-events.php:136
+#: classes/em-category.php:90
+#: classes/em-category.php:96
+#: em-actions.php:239
+msgid "Category"
+msgstr "Kategória"
+
+#: admin/em-categories.php:168
+#: admin/em-locations.php:180
+#: admin/em-event.php:315
+msgid "The event slug. If the event slug already exists, a random number will be appended to the end."
+msgstr "Ha már létezik ilyen, akkor egy véletlen szám lesz a végére fűzve."
+
+#: admin/em-categories.php:175
+#: admin/em-locations.php:274
+#: admin/em-event.php:464
+#: templates/templates/event-form.php:326
+#: templates/forms/location-editor.php:95
+#: templates/forms/event-editor.php:221
+msgid "Details"
+msgstr "Részletek"
+
+#: admin/em-categories.php:182
+msgid "Details about the category"
+msgstr "Kategória részletei"
+
+#: admin/em-categories.php:188
+msgid "Category image"
+msgstr "Kategória képe"
+
+#: admin/em-categories.php:194
+msgid "No image uploaded for this category yet"
+msgstr "Még nincs feltöltve kép a kategóriához"
+
+#: admin/em-categories.php:197
+#: admin/em-locations.php:296
+#: admin/em-event.php:486
+#: templates/forms/location-editor.php:112
+msgid "Upload/change picture"
+msgstr "Kép feltöltése/változtatása"
+
+#: admin/em-categories.php:202
+msgid "Update category"
+msgstr "Kategória frissítése"
+
+#: admin/em-locations.php:52
+#: templates/buddypress/my-locations.php:27
+#: em-events.php:130
+msgid "My %s"
+msgstr "Saját %s"
+
+#: admin/em-locations.php:55
+#: templates/buddypress/my-locations.php:30
+msgid "All %s"
+msgstr "Összes %s"
+
+#: admin/em-locations.php:62
+#: admin/em-events.php:78
+#: admin/bookings/em-cancelled.php:49
+#: admin/bookings/em-rejected.php:49
+#: admin/bookings/em-events.php:57
+#: admin/bookings/em-confirmed.php:50
+#: admin/bookings/em-pending.php:64
+#: admin/bookings/em-person.php:51
+#: templates/buddypress/my-locations.php:37
+msgid "Bulk Actions"
+msgstr "Csoportművelet"
+
+#: admin/em-locations.php:63
+#: admin/em-events.php:79
+#: admin/bookings/em-events.php:58
+#: templates/buddypress/my-locations.php:38
+msgid "Delete selected"
+msgstr "Kiválasztott(ak) törlése"
+
+#: admin/em-locations.php:65
+#: admin/em-events.php:81
+#: admin/bookings/em-events.php:60
+#: templates/buddypress/my-locations.php:40
+msgid "Apply"
+msgstr "Alkalmaz"
+
+#: admin/em-locations.php:79
+#: admin/em-locations.php:89
+#: templates/buddypress/my-locations.php:54
+#: templates/buddypress/my-locations.php:63
+msgid "Address"
+msgstr "Cím"
+
+#: admin/em-locations.php:80
+#: admin/em-locations.php:90
+msgid "Town"
+msgstr "Város"
+
+#: admin/em-locations.php:81
+#: admin/em-locations.php:91
+#: templates/buddypress/my-locations.php:55
+#: templates/buddypress/my-locations.php:64
+msgid "State"
+msgstr "Megye"
+
+#: admin/em-locations.php:82
+#: admin/em-locations.php:92
+#: templates/buddypress/my-locations.php:56
+#: templates/buddypress/my-locations.php:65
+msgid "Country"
+msgstr "Ország"
+
+#: admin/em-locations.php:113
+#: templates/buddypress/my-locations.php:85
+msgid "No venues have been inserted yet!"
+msgstr "Nincs még helyszín hozzaádva!"
+
+#: admin/em-locations.php:125
+msgid "You do not have the rights to manage this location."
+msgstr "Nincs joga ezt a helyszínt szerkeszteni!"
+
+#: admin/em-locations.php:130
+#: templates/forms/location-editor.php:12
+msgid "Add location"
+msgstr "Új helyszín hozzaádása"
+
+#: admin/em-locations.php:133
+#: templates/forms/location-editor.php:15
+msgid "Edit location"
+msgstr "Helyszín szerkesztése"
+
+#: admin/em-locations.php:135
+#: templates/forms/location-editor.php:17
+msgid "required"
+msgstr "kötelező"
+
+#: admin/em-locations.php:156
+#: templates/forms/location-editor.php:32
+msgid "Location Name"
+msgstr "Helyszín név"
+
+#: admin/em-locations.php:161
+#: templates/forms/location-editor.php:37
+msgid "The name of the location"
+msgstr "A helyszín neve"
+
+#: admin/em-locations.php:178
+#: admin/em-locations.php:211
+#: admin/em-events.php:123
+#: admin/em-event.php:366
+#: admin/em-bookings.php:135
+#: admin/em-options.php:350
+#: templates/buddypress/group-events.php:13
+#: templates/buddypress/my-events.php:75
+#: templates/buddypress/my-group-events.php:13
+#: templates/forms/location-editor.php:41
+#: classes/em-location.php:142
+#: classes/em-location.php:150
+#: classes/em-location.php:194
+#: classes/em-location.php:196
+#: em-actions.php:169
+msgid "Location"
+msgstr "Helyszín"
+
+#: admin/em-locations.php:187
+msgid "Location Owner"
+msgstr "Helyszín tulajdonosa"
+
+#: admin/em-locations.php:192
+#: admin/em-event.php:165
+msgid "Select..."
+msgstr "Válasszon..."
+
+#: admin/em-locations.php:201
+#: admin/em-event.php:356
+msgid "Coordinates"
+msgstr "Koordináták"
+
+#: admin/em-locations.php:214
+#: templates/forms/location-editor.php:44
+msgid "If you're using the Google Maps, the more detail you provide, the more accurate Google can be at finding your location. If your address isn't being found, please <a='http://maps.google.com'>try it on maps.google.com</a> by adding all the fields below seperated by commas."
+msgstr "Ha Google Maps-et használsz akkor annál részletesebb a térkép, minél több adatot adsz meg. Ha a cím nem található, kérlek <a='http://maps.google.com'>próbáld ki a  maps.google.com oldalon</a> úgy, hogy a lenti mezők tartalmát egymás mellé írod vesszővel elválasztva."
+
+#: admin/em-locations.php:218
+#: admin/em-event.php:403
+#: templates/templates/event-form.php:267
+#: templates/forms/location-editor.php:48
+msgid "Address:"
+msgstr "Cím:"
+
+#: admin/em-locations.php:224
+#: admin/em-event.php:409
+#: templates/templates/event-form.php:273
+#: templates/forms/location-editor.php:54
+msgid "City/Town:"
+msgstr "Város:"
+
+#: admin/em-locations.php:230
+#: admin/em-event.php:416
+#: templates/templates/event-form.php:280
+#: templates/forms/location-editor.php:60
+msgid "State/County:"
+msgstr "Megye:"
+
+#: admin/em-locations.php:236
+#: admin/em-event.php:423
+#: templates/templates/event-form.php:287
+#: templates/forms/location-editor.php:66
+msgid "Postcode:"
+msgstr "Irányítószám:"
+
+#: admin/em-locations.php:242
+#: admin/em-event.php:429
+#: templates/templates/event-form.php:293
+msgid "Region:"
+msgstr "Régió:"
+
+#: admin/em-locations.php:249
+#: admin/em-event.php:436
+#: templates/templates/event-form.php:300
+#: templates/forms/location-editor.php:72
+msgid "Country:"
+msgstr "Ország:"
+
+#: admin/em-locations.php:252
+#: admin/em-event.php:439
+#: templates/templates/event-form.php:303
+#: templates/forms/location-editor.php:75
+msgid "none selected"
+msgstr "nincs kiválasztva"
+
+#: admin/em-locations.php:262
+#: admin/em-event.php:453
+#: templates/templates/event-form.php:316
+#: templates/forms/location-editor.php:85
+#: templates/forms/event-editor.php:214
+msgid "Location not found"
+msgstr "A helyszín nem található"
+
+#: admin/em-locations.php:281
+#: templates/forms/location-editor.php:99
+msgid "Details about the location"
+msgstr "Részletek a helyszínről"
+
+#: admin/em-locations.php:287
+#: templates/forms/location-editor.php:103
+msgid "Location image"
+msgstr "Kép a helyszínről"
+
+#: admin/em-locations.php:293
+#: templates/forms/location-editor.php:109
+msgid "No image uploaded for this location yet"
+msgstr "Még nincs feltöltve kép a helyszínhez."
+
+#: admin/em-locations.php:304
+#: templates/forms/location-editor.php:115
+msgid "Update location"
+msgstr "Helyszín frissítése"
+
+#: admin/em-events.php:47
+#: admin/bookings/em-events.php:13
+#: em-functions.php:141
+msgid "Past events"
+msgstr "Múltbeli események"
+
+#: admin/em-events.php:48
+#: admin/bookings/em-events.php:14
+#: em-functions.php:139
+msgid "All events"
+msgstr "Összes esemény"
+
+#: admin/em-events.php:49
+#: admin/bookings/em-events.php:15
+#: em-functions.php:140
+msgid "Future events"
+msgstr "Jövőbeli események"
+
+#: admin/em-events.php:63
+#: admin/bookings/em-events.php:51
+msgid "Total"
+msgstr "Összes"
+
+#: admin/em-events.php:65
+#: classes/em-event.php:208
+#: classes/em-booking.php:97
+msgid "Approved"
+msgstr "Elfogadott"
+
+#: admin/em-events.php:66
+#: admin/em-events.php:166
+#: admin/bookings/em-events.php:136
+#: templates/buddypress/my-events.php:41
+#: templates/buddypress/my-events.php:118
+#: classes/em-event.php:207
+#: classes/em-booking.php:96
+msgid "Pending"
+msgstr "Függőben"
+
+#: admin/em-events.php:70
+#: admin/em-events.php:72
+#: templates/templates/events-search.php:10
+#: templates/buddypress/my-events.php:46
+#: templates/buddypress/my-events.php:48
+msgid "Search Events"
+msgstr "Események keresése"
+
+#: admin/em-events.php:92
+#: admin/bookings/em-events.php:72
+msgid "Filter"
+msgstr "Szürő"
+
+#: admin/em-events.php:111
+#: admin/bookings/em-events.php:91
+#: templates/buddypress/my-events.php:63
+msgid "no events"
+msgstr "nincs esemény"
+
+#: admin/em-events.php:124
+#: admin/bookings/em-events.php:102
+#: templates/buddypress/group-events.php:14
+#: templates/buddypress/my-events.php:76
+#: templates/buddypress/my-group-events.php:14
+msgid "Date and time"
+msgstr "Időpont"
+
+#: admin/em-events.php:164
+#: admin/em-people.php:48
+#: templates/buddypress/my-events.php:116
+msgid "Booked"
+msgstr "Lefoglalt"
+
+#: admin/em-events.php:171
+#: admin/em-events.php:203
+#: admin/bookings/em-cancelled.php:113
+#: admin/bookings/em-rejected.php:113
+#: admin/bookings/em-confirmed.php:118
+#: admin/bookings/em-pending.php:134
+#: admin/bookings/em-person.php:127
+#: admin/em-event.php:575
+#: templates/buddypress/my-events.php:124
+#: templates/buddypress/my-events.php:167
+#: templates/buddypress/my-events.php:169
+#: templates/forms/event-editor.php:369
+msgid "Delete"
+msgstr "Töröl"
+
+#: admin/em-events.php:173
+#: admin/bookings/em-cancelled.php:52
+#: admin/bookings/em-rejected.php:52
+#: admin/bookings/em-rejected.php:111
+#: admin/bookings/em-confirmed.php:53
+#: admin/bookings/em-pending.php:67
+#: admin/bookings/em-pending.php:132
+#: admin/bookings/em-person.php:54
+#: admin/bookings/em-person.php:115
+msgid "Approve"
+msgstr "Elfogad"
+
+#: admin/em-events.php:178
+#: templates/buddypress/my-events.php:129
+msgid "Duplicate this event"
+msgstr "Esemény duplikálása"
+
+#: admin/em-events.php:198
+#: templates/buddypress/my-events.php:162
+#, fuzzy
+msgid "WARNING! You will delete ALL recurrences of this event, including booking history associated with any event in this recurrence. To keep booking information, go to the relevant single event and save it to detach it from this recurrence series."
+msgstr "FIGYELEM! Ön törli az összes kiújulás az az esemény, beleértve a foglalás történelem kapcsolatos Mindenesetre ebben a megismétlődését. Annak érdekében, hogy foglalás információkért látogassa meg a vonatkozó egyszeri esemény, és mentse le azt a kiújulás sorozat."
+
+#: admin/em-events.php:202
+#: admin/em-event.php:23
+#: admin/em-event.php:145
+#: templates/templates/event-form.php:23
+#: templates/templates/event-form.php:184
+#: templates/buddypress/my-events.php:155
+#: templates/buddypress/my-events.php:166
+#: templates/forms/event-editor.php:13
+#: templates/forms/event-editor.php:174
+msgid "Reschedule"
+msgstr "Átütemezés"
+
+#: admin/bookings/em-cancelled.php:38
+#: admin/bookings/em-cancelled.php:40
+#: admin/bookings/em-rejected.php:38
+#: admin/bookings/em-rejected.php:40
+#: admin/bookings/em-confirmed.php:39
+#: admin/bookings/em-confirmed.php:41
+#: admin/bookings/em-pending.php:53
+#: admin/bookings/em-pending.php:55
+#: admin/bookings/em-person.php:40
+#: admin/bookings/em-person.php:42
+#: templates/templates/events-search.php:88
+#: templates/templates/events-search.php:138
+msgid "Search"
+msgstr "Keresés"
+
+#: admin/bookings/em-cancelled.php:55
+#: admin/bookings/em-rejected.php:55
+#: admin/bookings/em-confirmed.php:56
+#: admin/bookings/em-pending.php:70
+#: admin/bookings/em-person.php:57
+msgid "Decline"
+msgstr "Elutasít"
+
+#: admin/bookings/em-cancelled.php:111
+#: admin/bookings/em-person.php:121
+msgid "Restore"
+msgstr "Visszaállít"
+
+#: admin/bookings/em-cancelled.php:112
+#: admin/bookings/em-rejected.php:112
+#: admin/bookings/em-confirmed.php:119
+#: admin/bookings/em-pending.php:135
+#: admin/bookings/em-person.php:126
+msgid "Edit/View"
+msgstr "Szerkeszt/Megtekint"
+
+#: admin/bookings/em-cancelled.php:125
+msgid "No cancelled bookings."
+msgstr "Nincs lemondott foglalás."
+
+#: admin/bookings/em-rejected.php:125
+msgid "No rejected bookings."
+msgstr "Nincs visszautasított foglalás."
+
+#: admin/bookings/em-events.php:29
+#: templates/buddypress/my-events.php:43
+msgid "Past Events"
+msgstr "Múltbeli események"
+
+#: admin/bookings/em-events.php:32
+msgid "All Events"
+msgstr "Összes esemény"
+
+#: admin/bookings/em-events.php:35
+msgid "Future Events"
+msgstr "Jövőbeli események"
+
+#: admin/bookings/em-events.php:101
+#: admin/em-event.php:14
+#: admin/em-options.php:312
+#: templates/templates/event-form.php:16
+#: templates/forms/event-editor.php:6
+#: buddypress/bp-em-core.php:179
+#: classes/em-event.php:553
+#: classes/em-event.php:793
+#: em-install.php:348
+#: em-install.php:373
+#: em-actions.php:107
+msgid "Event"
+msgstr "Esemény"
+
+#: admin/bookings/em-events.php:134
+#: admin/em-event.php:524
+#: templates/forms/event-editor.php:318
+msgid "Booked Spaces"
+msgstr "Lefoglalt helyek"
+
+#: admin/bookings/em-confirmed.php:114
+#: admin/bookings/em-person.php:118
+msgid "Unapprove"
+msgstr "Függőbe"
+
+#: admin/bookings/em-confirmed.php:116
+#: admin/bookings/em-pending.php:133
+#: admin/bookings/em-person.php:124
+msgid "Reject"
+msgstr "Visszautasít"
+
+#: admin/bookings/em-confirmed.php:131
+#: admin/bookings/em-person.php:139
+msgid "No confirmed bookings."
+msgstr "Nincs megerősített foglalás."
+
+#: admin/bookings/em-pending.php:147
+msgid "No pending bookings."
+msgstr "Nincs függőben lévő foglalás."
+
+#: admin/em-event.php:14
+#: templates/templates/event-form.php:16
+#: templates/forms/location-editor.php:7
+#: templates/forms/event-editor.php:6
+#: classes/em-tickets-bookings.php:141
+msgid "You do not have the rights to manage this %s."
+msgstr "Nincs jogod ezt a(z) %s kezelni!"
+
+#: admin/em-event.php:25
+#: templates/templates/event-form.php:25
+#: templates/forms/event-editor.php:15
+#: buddypress/screens/my-events.php:54
+msgid "Edit Event"
+msgstr "Esemény szerkesztése"
+
+#: admin/em-event.php:29
+#: templates/templates/event-form.php:29
+#: templates/forms/event-editor.php:19
+msgid "Insert New Event"
+msgstr "Új esemény hozzáadása"
+
+#: admin/em-event.php:56
+msgid "Mon"
+msgstr "h"
+
+#: admin/em-event.php:56
+msgid "Tue"
+msgstr "k"
+
+#: admin/em-event.php:56
+msgid "Wed"
+msgstr "sze"
+
+#: admin/em-event.php:56
+msgid "Thu"
+msgstr "cs"
+
+#: admin/em-event.php:56
+msgid "Fri"
+msgstr "p"
+
+#: admin/em-event.php:56
+msgid "Sat"
+msgstr "szo"
+
+#: admin/em-event.php:56
+msgid "Sun"
+msgstr "v"
+
+#: admin/em-event.php:81
+msgid "Recurrence"
+msgstr "Ismétlődés"
+
+#: admin/em-event.php:88
+msgid "Repeated event"
+msgstr "Ismételt esemény"
+
+#: admin/em-event.php:95
+#: templates/templates/event-form.php:137
+#: templates/forms/event-editor.php:127
+msgid "Daily"
+msgstr "Napi"
+
+#: admin/em-event.php:95
+#: templates/templates/event-form.php:137
+#: templates/forms/event-editor.php:127
+msgid "Weekly"
+msgstr "Heti"
+
+#: admin/em-event.php:95
+#: templates/templates/event-form.php:137
+#: templates/forms/event-editor.php:127
+msgid "Monthly"
+msgstr "Havi"
+
+#: admin/em-event.php:101
+#: admin/em-event.php:124
+msgid "Every"
+msgstr "Minden"
+
+#: admin/em-event.php:104
+#: templates/templates/event-form.php:144
+#: templates/forms/event-editor.php:134
+msgid "day"
+msgstr "nap"
+
+#: admin/em-event.php:106
+#: templates/templates/event-form.php:146
+#: templates/forms/event-editor.php:136
+msgid "days"
+msgstr "nap"
+
+#: admin/em-event.php:108
+msgid "week"
+msgstr "hét"
+
+#: admin/em-event.php:110
+msgid "weeks"
+msgstr "hét"
+
+#: admin/em-event.php:112
+msgid "month"
+msgstr "hónap"
+
+#: admin/em-event.php:114
+msgid "months"
+msgstr "hónap"
+
+#: admin/em-event.php:127
+#: templates/templates/event-form.php:165
+#: templates/forms/event-editor.php:155
+msgid "first"
+msgstr "első"
+
+#: admin/em-event.php:127
+#: templates/templates/event-form.php:165
+#: templates/forms/event-editor.php:155
+msgid "second"
+msgstr "második"
+
+#: admin/em-event.php:127
+#: templates/templates/event-form.php:165
+#: templates/forms/event-editor.php:155
+msgid "third"
+msgstr "harmadik"
+
+#: admin/em-event.php:127
+#: templates/templates/event-form.php:165
+#: templates/forms/event-editor.php:155
+msgid "fourth"
+msgstr "negyedik"
+
+#: admin/em-event.php:127
+#: templates/templates/event-form.php:165
+#: templates/forms/event-editor.php:155
+msgid "last"
+msgstr "utolsó"
+
+#: admin/em-event.php:138
+#: templates/templates/event-form.php:177
+#: templates/forms/event-editor.php:167
+msgid "Check if your event happens more than once according to a regular pattern"
+msgstr "Jelölje be, ha az esemény többször kerül megrendezésre egy szabályos minta alapján"
+
+#: admin/em-event.php:150
+#: templates/templates/event-form.php:189
+#: templates/forms/event-editor.php:179
+msgid "This is't a recurrent event"
+msgstr "Ez nem ismétlődő esemény"
+
+#: admin/em-event.php:161
+msgid "Event Owner/Contact Person"
+msgstr "Esemény tulajdonos/Kapcsolattartó"
+
+#: admin/em-event.php:192
+msgid "Group Ownership"
+msgstr "Csoport tulajdonosa"
+
+#: admin/em-event.php:206
+#: templates/templates/event-form.php:97
+#: templates/forms/event-editor.php:87
+msgid "Select a group you admin to attach this event to it. Note that all other admins of that group can modify the booking, and you will not be able to unattach the event without deleting it."
+msgstr "Válasszon ki egy csoportot, akihez az eseményt rendeli. Ne feledje, hogy az összes csoportadminisztrátor módosíthatja és nem lehet a csoport-összerendelést megszüntetni törlés nélkül!"
+
+#: admin/em-event.php:218
+msgid "Bookings Stats"
+msgstr "Foglalás statisztika"
+
+#: admin/em-event.php:229
+msgid "Available Spaces"
+msgstr "Rendelkezésre álló helyek"
+
+#: admin/em-event.php:230
+msgid "Confirmed Spaces"
+msgstr "Megerősített helyek"
+
+#: admin/em-event.php:231
+msgid "Pending Spaces"
+msgstr "Függőben lévő helyek"
+
+#: admin/em-event.php:238
+#: templates/forms/event-editor.php:288
+msgid "manage bookings"
+msgstr "foglalások menedzselése"
+
+#: admin/em-event.php:239
+#: templates/forms/event-editor.php:289
+msgid "printable view"
+msgstr "nyomtatható nézet"
+
+#: admin/em-event.php:240
+#: admin/em-bookings.php:124
+#: templates/forms/event-editor.php:290
+msgid "export csv"
+msgstr "exportálás CSV-be"
+
+#: admin/em-event.php:249
+msgid "No responses yet!"
+msgstr "Nincs válasz még!"
+
+#: admin/em-event.php:276
+msgid "No categories available, <a href=\"%s\">create one here first</a>"
+msgstr "Nem áll rendelkezésre kategória, <a href=\"%s\">hozzon létre egyet itt</a>"
+
+#: admin/em-event.php:296
+#: templates/templates/event-form.php:71
+#: templates/forms/event-editor.php:61
+msgid "The event name. Example: Birthday party"
+msgstr "Az esemény neve. Például: Születésnapi buli"
+
+#: admin/em-event.php:313
+msgid "Event Slug"
+msgstr "Esemény keresőbarát-név"
+
+#: admin/em-event.php:320
+msgid "Event date"
+msgstr "Esemény dátuma"
+
+#: admin/em-event.php:321
+msgid "Recurrence dates"
+msgstr "Ismétlődés dátumok"
+
+#: admin/em-event.php:330
+msgid "The event date."
+msgstr "Az esemény dátuma."
+
+#: admin/em-event.php:333
+msgid "When not reoccurring, this event spans between the beginning and end date."
+msgstr "Ha nem ismétlődő, az esemény a két dátum között kerül megrendezésre."
+
+#: admin/em-event.php:338
+msgid "The recurrence beginning and end date."
+msgstr "Az ismétlés kezdete és vége."
+
+#: admin/em-event.php:344
+msgid "Event time"
+msgstr "Esemény ideje"
+
+#: admin/em-event.php:351
+msgid "The time of the event beginning and end"
+msgstr "Az esemény kezdete és vége"
+
+#: admin/em-event.php:373
+#: templates/templates/event-form.php:237
+msgid "Location:"
+msgstr "Helyszín:"
+
+#: admin/em-event.php:389
+#: templates/templates/event-form.php:253
+msgid "The name of the location where the event takes place. You can use the name of a venue, a square, etc"
+msgstr "A helszín neve, ahol az esemény lesz. Ahogy könnyebben hivatkozik rá."
+
+#: admin/em-event.php:394
+#: templates/templates/event-form.php:258
+msgid "Name:"
+msgstr "Név:"
+
+#: admin/em-event.php:398
+#: templates/templates/event-form.php:262
+msgid "Create a location or start typing to search a previously created location."
+msgstr "Hozz létre egy új helyszínt, vagy kezdj el gépelni, hogy a már létrehozott helyszínek közül válassz."
+
+#: admin/em-event.php:399
+#: templates/templates/event-form.php:263
+msgid "You cannot edit saved locations here."
+msgstr "Itt nem lehet szerkeszteni az elmentett helyszíneket."
+
+#: admin/em-event.php:399
+#: templates/templates/event-form.php:263
+msgid "Reset this form to create a location."
+msgstr "Űrlap törlése egy új helyszín létrehozásához."
+
+#: admin/em-event.php:444
+#: templates/templates/event-form.php:308
+#, fuzzy
+msgid "Filling this in first will allow you to quickly find previously filled states and regions for the country."
+msgstr "A kitöltés az első lehetővé teszi, hogy gyorsan megtalálja a korábban kitöltött államok és régiók az országban."
+
+#: admin/em-event.php:471
+msgid "Details about the event"
+msgstr "Részletek az eseményről"
+
+#: admin/em-event.php:477
+msgid "Event image"
+msgstr "Esemény képe"
+
+#: admin/em-event.php:483
+msgid "No image uploaded for this event yet"
+msgstr "Még nincs feltöltve kép az eseményhez"
+
+#: admin/em-event.php:492
+#: templates/forms/event-editor.php:282
+msgid "Bookings/Registration"
+msgstr "Foglalások/regisztrációk"
+
+#: admin/em-event.php:498
+#: templates/forms/event-editor.php:286
+msgid "Enable registration for this event"
+msgstr "Foglalás engedélyezése ehhez az eseményhez"
+
+#: admin/em-event.php:513
+#: templates/forms/event-editor.php:307
+msgid "Tickets"
+msgstr "Jegyek"
+
+#: admin/em-event.php:514
+#: templates/forms/event-editor.php:308
+#, fuzzy
+msgid "You have single or multiple tickets, where certain tickets become availalble under certain conditions, e.g. early bookings, group discounts, maximum bookings per ticket, etc."
+msgstr "Van egy vagy több jegyet, ahol bizonyos jegyek válnak availalble bizonyos körülmények között, például a korai foglalás, csoportos kedvezmények, maximum foglalások száma jegy, stb"
+
+#: admin/em-event.php:519
+#: templates/forms/event-editor.php:313
+msgid "Ticket Name"
+msgstr "Jegy elnevezése"
+
+#: admin/em-event.php:520
+#: admin/em-bookings.php:182
+#: admin/em-bookings.php:276
+#: templates/placeholders/bookingform.php:40
+#: templates/placeholders/bookingform.php:76
+#: templates/forms/ticket-form.php:9
+#: templates/forms/tickets-form.php:6
+#: templates/forms/event-editor.php:314
+#: em-bookings.php:115
+msgid "Price"
+msgstr "Ár"
+
+#: admin/em-event.php:521
+#: templates/forms/event-editor.php:315
+msgid "Min/Max"
+msgstr "Min/max"
+
+#: admin/em-event.php:522
+#: templates/forms/event-editor.php:316
+msgid "Start/End"
+msgstr "Kezdés/befejezés"
+
+#: admin/em-event.php:523
+#: templates/forms/event-editor.php:317
+msgid "Avail. Spaces"
+msgstr "Elérhető helyek"
+
+#: admin/em-event.php:531
+#: templates/forms/event-editor.php:325
+msgid "Add new ticket"
+msgstr "Új jegy hozzáadása"
+
+#: admin/em-event.php:544
+#: templates/forms/event-editor.php:338
+msgid "Free"
+msgstr "Ingyenes"
+
+#: admin/em-event.php:577
+#: templates/forms/event-editor.php:371
+msgid "View Bookings"
+msgstr "Foglalások megtekintése"
+
+#: admin/em-event.php:609
+msgid "Attributes"
+msgstr "Attribútumok"
+
+#: admin/em-event.php:635
+#: templates/templates/event-form.php:367
+#: templates/forms/event-editor.php:262
+msgid "No Value"
+msgstr "Nincs érték"
+
+#: admin/em-event.php:654
+msgid "You don't have any custom attributes defined in any of your Events Manager template settings. Please add them the <a href='%s'>settings page</a>"
+msgstr "Nem hozott létre egyéni attribútumot a sablonok beállításainál. Kérjük a <a href='%s'>beállítások oldalon</a> adjon hozzá."
+
+#: admin/em-event.php:661
+msgid "Depreciated Attributes"
+msgstr "Nem használt tulajdonságok"
+
+#: admin/em-event.php:662
+msgid "If you see any attributes under here, that means they're not used in Events Manager anymore. To add them, you need to add the custom attribute again to a formatting option in the settings page. To remove any of these depreciated attributes, give it a blank value and save."
+msgstr "Ha megjelenik ezalatt attribútum, az azt jelenti, hogy azokat már nem használja a rendszer. Hozzáadni őket bármelyik formázási opcióhoz a beállításoknál tudja, eltávolításhoz írjon be üres szöveget és mentse el."
+
+#: admin/em-event.php:693
+msgid "In order to use attributes, you must define some in your templates, otherwise they'll never show. Go to Events > Settings to add attribute placeholders."
+msgstr "Ahhoz, hogy használhasson attribútumokat, definiálnia kell őket a sablonokban, különben nem jelennek meg. Menjen az Események > Beállítások oldalra attrubútum placeholderek hozzáadásához."
+
+#: admin/em-event.php:708
+msgid "WARNING! You are about to re-create all your recurrent events including erasing your old booking data! Are you sure you want to do this?"
+msgstr "FIGYELEM! Arra készül, hogy újra létrehozza az összes ismétlődő eseményt, ezzel törölve az összes eddigi foglalást! Biztos ezt akarja?"
+
+#: admin/em-event.php:712
+#: templates/templates/event-form.php:388
+#: templates/forms/event-editor.php:403
+msgid "Submit Event"
+msgstr "Esemény mentése"
+
+#: admin/em-event.php:733
+#: templates/forms/event-editor.php:415
+msgid "Are you sure you want to reschedule this recurring event? If you do this, you will lose all booking information and the old recurring events will be deleted."
+msgstr "Biztos benne, hogy szeretné átütemezni az ismétlődő eseményt? Ha ezt megteszi, akkor elveszti az összes eddig foglalást és a régi ismétlődő események törlődnek."
+
+#: admin/em-event.php:743
+#: templates/forms/event-editor.php:424
+msgid "Are you sure you want to disable bookings? If you do this and save, you will lose all previous bookings. If you wish to prevent further bookings, reduce the number of spaces available to the amount of bookings you currently have"
+msgstr "Biztos benne, hogy le szeretné tiltani a foglalásokat? Ha ezt megteszi az összes eddigi foglalást elveszti. Amennyiben korlátozni szeretné a további foglalásokat, csökkentse az elérhető jegyek számát."
+
+#: admin/em-bookings.php:85
+msgid "Event Bookings Dashboard"
+msgstr "Foglalások kezelése"
+
+#: admin/em-bookings.php:89
+#: admin/em-bookings.php:140
+#: admin/em-bookings.php:191
+msgid "Pending Bookings"
+msgstr "Függő foglalások"
+
+#: admin/em-bookings.php:92
+msgid "Events With Bookings Enabled"
+msgstr "Események, ahol lehet foglalni"
+
+#: admin/em-bookings.php:107
+#: admin/em-bookings.php:213
+#: admin/em-bookings.php:351
+#: admin/em-people.php:9
+msgid "You do not have the rights to manage this event."
+msgstr "Nincs jogod ezt az eseményt kezelni!"
+
+#: admin/em-bookings.php:119
+msgid "Manage %s Bookings"
+msgstr "%s esemény foglalásainak kezelése"
+
+#: admin/em-bookings.php:120
+#: admin/em-bookings.php:174
+msgid "View/Edit Event"
+msgstr "Esemény megtekintése/szerkesztése"
+
+#: admin/em-bookings.php:126
+#: templates/templates/event-form.php:67
+#: templates/forms/event-editor.php:57
+msgid "Event Name"
+msgstr "Esemény neve"
+
+#: admin/em-bookings.php:127
+msgid "Spaces confirmed"
+msgstr "hely megerősítve"
+
+#: admin/em-bookings.php:129
+msgid "Date"
+msgstr "Időpont"
+
+#: admin/em-bookings.php:143
+#: admin/em-bookings.php:194
+msgid "Confirmed Bookings"
+msgstr "Megerősített foglalások"
+
+#: admin/em-bookings.php:145
+#: admin/em-bookings.php:196
+msgid "Rejected Bookings"
+msgstr "Visszautasított foglalások"
+
+#: admin/em-bookings.php:147
+#: admin/em-bookings.php:198
+msgid "Cancelled Bookings"
+msgstr "Lemondott foglalások"
+
+#: admin/em-bookings.php:163
+msgid "You do not have the rights to manage this ticket."
+msgstr "Nincs joga, hogy ezt a jegyet kezelje."
+
+#: admin/em-bookings.php:173
+msgid "Ticket for %s"
+msgstr "Jegy a(z) %s eseményre"
+
+#: admin/em-bookings.php:175
+msgid "View Event Bookings"
+msgstr "Esemény foglalásainak megtekintése"
+
+#: admin/em-bookings.php:181
+#: templates/forms/ticket-form.php:32
+#: templates/forms/tickets-form.php:5
+msgid "Description"
+msgstr "Leírás"
+
+#: admin/em-bookings.php:183
+#: admin/em-bookings.php:275
+#: admin/em-people.php:33
+#: templates/placeholders/bookingform.php:42
+#: templates/placeholders/bookingform.php:80
+#: templates/forms/ticket-form.php:11
+#: em-bookings.php:116
+#: em-bookings.php:144
+msgid "Spaces"
+msgstr "Helyek"
+
+#: admin/em-bookings.php:184
+msgid "Min"
+msgstr "Min"
+
+#: admin/em-bookings.php:185
+msgid "Max"
+msgstr "Max"
+
+#: admin/em-bookings.php:186
+msgid "Start"
+msgstr "Kezdés"
+
+#: admin/em-bookings.php:187
+msgid "End"
+msgstr "Befejezés"
+
+#: admin/em-bookings.php:223
+msgid "Edit Booking"
+msgstr "Foglalás szerkesztése"
+
+#: admin/em-bookings.php:231
+msgid "Event Details"
+msgstr "Esemény részletei"
+
+#: admin/em-bookings.php:242
+msgid "Date/Time"
+msgstr "Időpont"
+
+#: admin/em-bookings.php:254
+#: admin/em-bookings.php:373
+msgid "Personal Details"
+msgstr "Személyes adatok"
+
+#: admin/em-bookings.php:262
+msgid "Booking Details"
+msgstr "Foglalás részletei"
+
+#: admin/em-bookings.php:270
+msgid "Status"
+msgstr "Állapot"
+
+#: admin/em-bookings.php:274
+#: templates/placeholders/bookingform.php:38
+#: em-bookings.php:114
+msgid "Ticket Type"
+msgstr "Jegy típusa"
+
+#: admin/em-bookings.php:290
+msgid "Totals"
+msgstr "Összesítés"
+
+#: admin/em-bookings.php:297
+#: admin/em-people.php:34
+#: templates/placeholders/bookingform.php:112
+#: em-bookings.php:158
+msgid "Comment"
+msgstr "Megjegyzés"
+
+#: admin/em-bookings.php:307
+msgid "Booking Notes"
+msgstr "Foglaláshoz kapcsolódó jegyzetek"
+
+#: admin/em-bookings.php:310
+msgid "You can add private notes below for internal reference that only event managers will see."
+msgstr "Ide írhat megjegyzéseket belső hasznáaltra, amiket csak az esemény-szervezők láthatnak."
+
+#: admin/em-bookings.php:315
+msgid "wrote"
+msgstr "írt"
+
+#: admin/em-bookings.php:361
+msgid "Manage Person's Booking"
+msgstr "A személy foglalásainak kezelése"
+
+#: admin/em-bookings.php:363
+msgid "Edit User"
+msgstr "Személy szerkesztése"
+
+#: admin/em-bookings.php:384
+msgid "Past And Present Bookings"
+msgstr "Régebbi és jelenlegi foglalások"
+
+#: admin/em-admin.php:20
+#, fuzzy
+msgid ""
+"<p>Hey, <strong>%s</strong>, welcome to <strong>Events Manager</strong>! We hope you like it around here.</p> \r\n"
+"\t\t\t<p>Now it's time to insert events lists through  <a href='%s' title='Widgets page'>widgets</a>, <a href='%s' title='Template tags documentation'>template tags</a> or <a href='%s' title='Shortcodes documentation'>shortcodes</a>.</p>\r\n"
+"\t\t\t<p>By the way, have you taken a look at the <a href='%s' title='Change settings'>Settings page</a>? That's where you customize the way events and locations are displayed.</p>\r\n"
+"\t\t\t<p>What? Tired of seeing this advice? I hear you, <a href='%s' title='Don't show this advice again'>click here</a> and you won't see this again!</p>"
+msgstr "<p> <strong>Hé,%s,</strong> szívesen <strong>események menedzser!</strong> Reméljük, tetszik itt. </p><p> Most itt az ideje, hogy helyezze események listáját a <a href='%s' title=\"Widgets oldalon\">kütyü</a> , <a href='%s' title=\"Sablon címkék dokumentáció\">template tag</a> vagy <a href='%s' title=\"Shortcodes dokumentáció\">shortcodes</a> . </p><p> By the way, már akkor tett egy pillantást a <a href='%s' title=\"Beállítások módosítása\">beállítások oldal</a> ? Ez az, ahol testreszabhatja az utat események és helyszínek jelennek meg. </p><p> Mi az? Unod már látni ezt a tanácsot? Hallom, <a href='%s' title=\"Don\"t show this advice again'>kattintson ide</a> , és nem jelenik meg még egyszer! </p>"
+
+#: admin/em-admin.php:57
+#, fuzzy
+msgid "<strong>Events Manager has some new features!</strong><ul><li>Bookings can now be approved before they count towards your event's space allocations.</li><li>Events now have owners, and you can restrict users so they can only manage events/locations/categories they create.<br/><br/>These new permissions are enabled by default, but since you upgraded it has been disabled to maintain the previous plugin behaviour. You can re-enable it from the <a href=\"%s\">settings page</a>. <a href=\"%s\">Dismiss</a>"
+msgstr "<strong>Események Manager néhány új funkciókat!</strong> <ul><li> Foglalás most jóvá kell hagyni, mielőtt azok beleszámítanak a rendezvény helyet források. </li><li> Események most már a tulajdonosok, és korlátozhatja a felhasználók, akik így csak kezelni esemény / hely / kategóriák hoznak létre. <br/><br/> Ezek az új engedélyek alapértelmezés szerint engedélyezve vannak, de mivel frissített azt tiltva fenntartani a korábbi plugin-viselkedést. Akkor újra lehetővé teszi a <a href=\"%s\">beállítások oldalon</a> . <a href=\"%s\">elvetése</a>"
+
+#: admin/em-admin.php:70
+#, fuzzy
+msgid "Uh Oh! For some reason wordpress could not create an events page for you (or you just deleted it). Not to worry though, all you have to do is create an empty page, name it whatever you want, and select it as your events page in your <a href=\"%s\">settings page</a>. Sorry for the extra step! If you know what you are doing, you may have done this on purpose, if so <a href=\"%s\">ignore this message</a>"
+msgstr "Uh Oh! Valamilyen oknál fogva wordpress nem hoz létre események az oldalon az Ön számára (vagy éppen most törölte azt). Nem kell aggódni azonban, mindössze annyit kell tennie, hogy hozzon létre egy üres oldalt, nevet, amit csak akarsz, és válassza ki azt az eseményt oldalt a <a href=\"%s\">beállítások oldalon</a> . Elnézést a plusz lépést! Ha tudod, mit csinálsz, akkor megtette ezt célra, ha igen, <a href=\"%s\">hagyja figyelmen kívül ezt az üzenetet</a>"
+
+#: admin/em-admin.php:82
+#, fuzzy
+msgid "A <strong>LOT</strong> has changed since Events Manager 3. We recommend you take a look at the <a href=\"%s\">settings page</a> for new features and upgrade instructions, and you may particualarly be interested in modifying permissions. <a href=\"%s\">Dismiss</a>"
+msgstr "A <strong>LOT</strong> óta változott Events Manager 3. Javasoljuk, hogy vessen egy pillantást a <a href=\"%s\">beállítások oldalon</a> az új funkciók és frissítési utasításokat, és lehet, particualarly érdekelt engedélyek módosítása. <a href=\"%s\">elvetése</a>"
+
+#: admin/em-admin.php:94
+#, fuzzy
+msgid "If you upgraded from 3.x to the RC2 and the update did not go so well, <a href=\"%s\">try reimporting old settings</a>. Warning! Re-importing will rename all event slugs, re-import your old category settings from events, and recreate all tickets, so changes to these areas will be lost. <a href=\"%s\">Dismiss</a>"
+msgstr "Ha a frissítés 3.x az RC2, és a frissítés nem ment olyan jól, <a href=\"%s\">próbáld újrabehozatalának régi beállításokat</a> . Figyelem! Re-importáló majd nevezze át az összes eseményt meztelen csigák, újra importálni a régi kategória beállításokat eseményeket, és újra az összes jegyet, így változik ezeken a területeken el fog veszni. <a href=\"%s\">elvetése</a>"
+
+#: admin/em-admin.php:118
+#, fuzzy
+msgid "This page corresponds to <strong>Events Manager</strong> events page. Its content will be overriden by Events Manager, although if you include the word CONTENTS (exactly in capitals) and surround it with other text, only CONTENTS will be overwritten. If you want to change the way your events look, go to the <a href='%s'>settings</a> page. "
+msgstr "Ez az oldal megfelel a <strong>Rendezvények vezető</strong> események az oldalon. A tartalmat átállításával az Events Manager, de ha szó szerepel TARTALOM (pontosan betűvel) és az őt körülvevő más szöveg, csak a tartalma felülíródik. Ha szeretné megváltoztatni a rendezvények meg, menj a <a href='%s'>beállítások</a> oldalon."
+
+#: admin/em-admin.php:145
+#, fuzzy
+msgid "Displaying %s&#8211;%s of %s"
+msgstr "Megjelenítve %s-%s%s"
+
+#: admin/em-options.php:42
+msgid "Changes saved."
+msgstr "Változások mentve."
+
+#: admin/em-options.php:62
+msgid "This accepts %s and %s placeholders."
+msgstr "Ez %s és %s placeholdereket fogad."
+
+#: admin/em-options.php:63
+#: admin/em-options.php:64
+msgid "This accepts %s placeholders."
+msgstr "Ez %s placeholdereket fogad."
+
+#: admin/em-options.php:65
+msgid "This accepts %s, %s and %s placeholders."
+msgstr "Ez %s,%s és %s placeholdereket fogad."
+
+#: admin/em-options.php:67
+#: admin/em-options.php:626
+msgid "Save Changes"
+msgstr "Változtatások mentése"
+
+#: admin/em-options.php:67
+msgid "All"
+msgstr "Minden"
+
+#: admin/em-options.php:69
+msgid "Only Network Admins see this"
+msgstr "Csak Network Adminok látja ezt"
+
+#: admin/em-options.php:73
+msgid "Collapse All"
+msgstr "Az összes összecsukása"
+
+#: admin/em-options.php:74
+msgid "Expand All"
+msgstr "Az összes kibontása"
+
+#: admin/em-options.php:102
+msgid "Event Manager Options"
+msgstr "Event Manager beállításai"
+
+#: admin/em-options.php:152
+#: admin/em-options.php:168
+#: admin/em-options.php:210
+#: admin/em-options.php:300
+#: admin/em-options.php:323
+#: admin/em-options.php:339
+#: admin/em-options.php:364
+#: admin/em-options.php:386
+#: admin/em-options.php:401
+#: admin/em-options.php:422
+#: admin/em-options.php:444
+#: admin/em-options.php:496
+#: admin/em-options.php:515
+#: admin/em-options.php:529
+#: admin/em-options.php:593
+msgid "Click to toggle"
+msgstr "Kattintson váltáshoz"
+
+#: admin/em-options.php:152
+msgid "Multi Site Options"
+msgstr "Multi Site beállítások"
+
+#: admin/em-options.php:156
+msgid "Enable global tables mode?"
+msgstr "Engedélyezi a globális táblázatok módot?"
+
+#: admin/em-options.php:156
+#, fuzzy
+msgid "Setting this to yes will make all events save in the main site event tables (EM must also be activated). This allows you to share events across different blogs, such as showing events in your network whilst allowing users to display and manage their events within their own blog. Bear in mind that activating this will mean old events created on the sub-blogs will not be accessible anymore, and if you switch back they will be but new events created during global events mode will only remain on the main site."
+msgstr "Ha ezt a yes teszi minden eseményt kivéve a főoldalra esemény táblák (EM kell aktiválni). Ez lehetővé teszi, hogy ossza meg az eseményeket a különböző blogokat, mint a bemutató rendezvények a hálózathoz, miközben lehetővé teszi a felhasználók számára megjeleníteni és kezelni eseményeket a saját blog. Ne feledjük, hogy aktiválja ez azt jelenti, a régi események létrehozott al-blogok nem lesznek elérhetők már, és ha visszavált lesznek, hanem új események során keletkezett globális események mód csak is a fő oldalon."
+
+#: admin/em-options.php:157
+msgid "Display global events on main blog?"
+msgstr "Megjeleníti a globális eseményeket a fő blogon?"
+
+#: admin/em-options.php:157
+#, fuzzy
+msgid "Displays events from all sites on the network by default. You can still restrict events by blog using shortcodes and template tags coupled with the <code>blog</code> attribute. Requires global tables to be turned on."
+msgstr "Megjeleníti események minden területen a hálózat alapértelmezés szerint. Továbbra is korlátozhatja események blog segítségével shortcodes és a sablon címkék párosul a <code>blog</code> attribútum. Szükség van a globális táblázatokat kell kapcsolni."
+
+#: admin/em-options.php:158
+#, fuzzy
+msgid "Link sub-site events directly to sub-site?"
+msgstr "Kapcsolat aloldal események közvetlenül aloldal?"
+
+#: admin/em-options.php:158
+#, fuzzy
+msgid "When displaying global events on the main site you have the option of users viewing the event details on the main site or being directed to the sub-site."
+msgstr "Megjelenítésekor a globális események fő helyszínen lehetőség van a megtekintő felhasználók az esemény részleteit a fő oldalon, vagy utasítása, hogy az al-site."
+
+#: admin/em-options.php:168
+msgid "General options"
+msgstr "Általános beállítások"
+
+#: admin/em-options.php:172
+msgid "Use dropdown for locations?"
+msgstr "Használjunk legördülő menüt a helszínek megadásához?"
+
+#: admin/em-options.php:172
+#, fuzzy
+msgid "Select yes to select location from a drow-down menu; location selection will be faster, but you will lose the ability to insert locations with events"
+msgstr "Válassza az Igen gombot helyet az drow-down menüben helyet kiválasztás gyorsabb lesz, de elveszti a képességét, hogy helyezze helyek események"
+
+#: admin/em-options.php:173
+msgid "Use recurrence?"
+msgstr "Használjunk ismétlődést?"
+
+#: admin/em-options.php:173
+msgid "Select yes to enable the recurrence features feature"
+msgstr "Válassza az igent, hogy engedélyezze az ismétlődés funkciót"
+
+#: admin/em-options.php:174
+msgid "Enable bookings?"
+msgstr "Foglalások engedélyezése?"
+
+#: admin/em-options.php:174
+msgid "Select yes to allow bookings and tickets for events."
+msgstr "Válassza az igent, ha engedélyezni szeretnénk a foglalásokat és jegyeket az eseményekhez."
+
+#: admin/em-options.php:175
+msgid "Use categories?"
+msgstr "Használjunk kategóriákat?"
+
+#: admin/em-options.php:175
+msgid "Select yes to enable the category features"
+msgstr "Válassza az igent, ha szeretne kategorizálást"
+
+#: admin/em-options.php:176
+msgid "Use event attributes?"
+msgstr "Használjunk esemény attribútumokat?"
+
+#: admin/em-options.php:176
+#, fuzzy
+msgid "Select yes to enable the attributes feature"
+msgstr "Válasszon igen, hogy az attribútumok funkciót"
+
+#: admin/em-options.php:180
+msgid "no default category"
+msgstr "nincs alapértelmezett kategória"
+
+#: admin/em-options.php:185
+msgid "Default Category"
+msgstr "Alapértelmezett kategória"
+
+#: admin/em-options.php:185
+#, fuzzy
+msgid "This option allows you to select the default category when adding an event."
+msgstr "Ez az opció lehetővé teszi, hogy válassza ki az alapértelmezett kategóriát, amikor hozzá egy eseményt."
+
+#: admin/em-options.php:185
+#: admin/em-options.php:194
+#, fuzzy
+msgid "(not applicable with event ownership on presently, coming soon!)"
+msgstr "(Nem alkalmazható az esemény tulajdon jelenleg, hamarosan!)"
+
+#: admin/em-options.php:189
+msgid "no default location"
+msgstr "nincs alapértelmezett helyszín"
+
+#: admin/em-options.php:194
+msgid "Default Location"
+msgstr "Alapértelmezett helyszín"
+
+#: admin/em-options.php:194
+#, fuzzy
+msgid "This option allows you to select the default location when adding an event."
+msgstr "Ez az opció lehetővé teszi, hogy válassza ki az alapértelmezett helyet, ha hozzá egy eseményt."
+
+#: admin/em-options.php:197
+msgid "Default Location Country"
+msgstr "Alapértelmezett ország"
+
+#: admin/em-options.php:197
+msgid "no default country"
+msgstr "nincs alapértelmezett ország"
+
+#: admin/em-options.php:197
+#, fuzzy
+msgid "If you select a default country, that will be pre-selected when creating a new location."
+msgstr "Ha kiválaszt egy alapértelmezett ország, hogy lesz előre kiválasztott létrehozása során új helyre."
+
+#: admin/em-options.php:199
+msgid "Event Attributes"
+msgstr "Esemény attribútumai"
+
+#: admin/em-options.php:199
+#, fuzzy
+msgid "You can also add event attributes here, one per line in this format <code>#_ATT{key}</code>. They will not appear on event pages unless you insert them into another template below, but you may want to store extra information about an event for other uses. <a href='%s'>More information on placeholders.</a>"
+msgstr "Azt is hozzá esemény attribútumok itt, soronként egyet ebben a formátumban <code>#_ATT{key}</code> . Nem fognak megjelenni a rendezvény oldalakon ha be őket egy másik sablon alatt, de érdemes tárolni extra információt egy esemény más célokra. <a href='%s'>További információ a helyőrzőket.</a>"
+
+#: admin/em-options.php:201
+msgid "Show some love?"
+msgstr "Mutatassunk szeretet?"
+
+#: admin/em-options.php:201
+#, fuzzy
+msgid "Hundreds of free hours have gone into making this free plugin, show your support and add a small link to the plugin website at the bottom of your event pages."
+msgstr "Több száz ingyenes órát mentek bele, hogy ezt az ingyenes plugin, mutatják a támogatást, és adjunk hozzá egy kis linket a plugin honlapján alján rendezvény oldalakon."
+
+#: admin/em-options.php:210
+#: admin/em-options.php:224
+msgid "Events page"
+msgstr "Események oldal"
+
+#: admin/em-options.php:219
+msgid "[No Events Page]"
+msgstr "[Nincs esemény oldal]"
+
+#: admin/em-options.php:224
+#, fuzzy
+msgid "This option allows you to select which page to use as an events page"
+msgstr "Ez az opció lehetővé teszi, hogy válassza ki melyik oldalon használható, mint egy esemény oldalon"
+
+#: admin/em-options.php:227
+#, fuzzy
+msgid "Show events page in lists?"
+msgstr "Események megjelenítése az oldalon a lista?"
+
+#: admin/em-options.php:227
+#, fuzzy
+msgid "Check this option if you want the events page to appear together with other pages in pages lists."
+msgstr "Jelölje be ezt az opciót, ha szeretné, hogy az események oldalon jelennek meg együtt, más oldalak oldalak listáját."
+
+#: admin/em-options.php:228
+#, fuzzy
+msgid "Display calendar in events page?"
+msgstr "Naptár az események az oldalon?"
+
+#: admin/em-options.php:228
+#, fuzzy
+msgid "This options allows to display the calendar in the events page, instead of the default list. It is recommended not to display both the calendar widget and a calendar page."
+msgstr "Ez az opció lehetővé teszi, hogy megjelenítse a naptár az eseményeket oldal helyett az alapértelmezett listából. Nem ajánlott megjeleníteni mind a naptár widget vagy naptári oldalt."
+
+#: admin/em-options.php:228
+#, fuzzy
+msgid "If you would like to show events that span over more than one day, see the Calendar section on this page."
+msgstr "Ha szeretné megmutatni események span több mint egy nap, lásd a naptár részben ezen az oldalon."
+
+#: admin/em-options.php:229
+#, fuzzy
+msgid "Disable title rewriting?"
+msgstr "Tiltása cím átírása?"
+
+#: admin/em-options.php:229
+#, fuzzy
+msgid "Some wordpress themes don't follow best practices when generating navigation menus, and so the automatic title rewriting feature may cause problems, if your menus aren't working correctly on the event pages, try setting this to 'Yes', and provide an appropriate HTML title format below."
+msgstr "Néhány wordpress téma nem követik a legjobb gyakorlatokat, amikor generáló navigációs menük, és így az automatikus cím átírása funkció problémákat okozhat, ha a menük nem működnek megfelelően a rendezvény oldalakon, próbáljuk meg a \"Yes\", és biztosítson megfelelő HTML formátumú cím alatt."
+
+#: admin/em-options.php:230
+#, fuzzy
+msgid "Event Manager titles"
+msgstr "Event Manager címek"
+
+#: admin/em-options.php:230
+#, fuzzy
+msgid "This only setting only matters if you selected 'Yes' to above. You will notice the events page titles aren't being rewritten, and you have a new title underneath the default page name. This is where you control the HTML of this title. Make sure you keep the #_PAGETITLE placeholder here, as that's what is rewritten by events manager. To control what's rewritten in this title, see settings further down for page titles."
+msgstr "Ez csak beállítás csak kérdések, ha a kiválasztott \"Igen\" fent. Észre fogja venni az események címszót nem is átírt, és van egy új címet alatt az alapértelmezett oldal neve. Itt ellenőrzik a HTML e cím. Győződjön meg róla, hogy tartsa a # _PAGETITLE helyőrző itt, mint amit az újraírt az események vezetője. A kontroll mi átírt ebben a címben, lásd beállítások lejjebb a címszót."
+
+#: admin/em-options.php:231
+#, fuzzy
+msgid "Event List Limits"
+msgstr "Eseménylista határértékek"
+
+#: admin/em-options.php:231
+#, fuzzy
+msgid "This will control how many events are shown on one list by default."
+msgstr "Ez szabályozhatjuk, hány esemény látható egy lista alapértelmezés szerint."
+
+#: admin/em-options.php:232
+#, fuzzy
+msgid "Are current events past events?"
+msgstr "Vannak aktuális események múltbeli események?"
+
+#: admin/em-options.php:232
+#, fuzzy
+msgid "By default, events that are have an end date later than today will be included in searches, set this to yes to consider events that started 'yesterday' as past."
+msgstr "Alapértelmezés szerint, eseményeket, amelyek már a záró dátum későbbi, mint ma, szerepelni fog a keresést, állítsa ezt yes figyelembe venni eseményeket kezdődött \"tegnap\", mint korábban."
+
+#: admin/em-options.php:233
+msgid "Show events search?"
+msgstr "Legyen esemény kereső?"
+
+#: admin/em-options.php:233
+#, fuzzy
+msgid "If set to yes, a search form will appear just above your list of events."
+msgstr "Ha be van állítva, hogy igen, egy kereső jelenik meg, éppen csak meghaladja a listát az események."
+
+#: admin/em-options.php:236
+msgid "Default event list ordering"
+msgstr "Az eseménylista alapértelmezett rendezése"
+
+#: admin/em-options.php:241
+msgid "Order by start date, start time, then event name"
+msgstr "Rendezés: kezdő dátum, kezdési időpont, majd az esemény neve"
+
+#: admin/em-options.php:242
+msgid "Order by name, start date, then start time"
+msgstr "Rendezés: név, kezdő dátum, majd a kezdési időpont"
+
+#: admin/em-options.php:243
+msgid "Order by name, end date, then end time"
+msgstr "Rendezés: név, záró dátum, majd a befejezési idő"
+
+#: admin/em-options.php:244
+msgid "Order by end date, end time, then event name"
+msgstr "Rendezés: záró dátum, befejezés időpontja, majd az esemény neve"
+
+#: admin/em-options.php:255
+#: widgets/em-events.php:116
+msgid "Ascending"
+msgstr "növekvő"
+
+#: admin/em-options.php:256
+#: widgets/em-events.php:117
+msgid "Descending"
+msgstr "csökkenő"
+
+#: admin/em-options.php:258
+msgid "All Ascending"
+msgstr "Minden növekvő"
+
+#: admin/em-options.php:261
+msgid "All Descending"
+msgstr "Minden csökkenő"
+
+#: admin/em-options.php:275
+#, fuzzy
+msgid "When Events Manager displays lists of events the default behaviour is ordering by start date in ascending order. To change this, modify the values above."
+msgstr "Amikor Events igazgatója mutatja felsorolja az események az alapértelmezett viselkedés Rendezés kezdő dátum szerint növekvő sorrendben. Ennek megváltoztatásához módosítsa az értékeket a fenti."
+
+#: admin/em-options.php:279
+msgid "Event list scope"
+msgstr "Eseménynaptár köre"
+
+#: admin/em-options.php:289
+#, fuzzy
+msgid "Only show events starting within a certain time limit on the events page. Default is future events with no end time limit."
+msgstr "Csak események kezdve egy bizonyos határidőn az események oldalon. Alapértelmezett jövőbeli események nélkül vége a határidő."
+
+#: admin/em-options.php:300
+msgid "Events format"
+msgstr "Események formátuma"
+
+#: admin/em-options.php:303
+#: admin/em-options.php:342
+#: admin/em-options.php:367
+msgid "%s Page"
+msgstr "%s oldal"
+
+#: admin/em-options.php:305
+msgid "Events page title"
+msgstr "Események oldal címe"
+
+#: admin/em-options.php:305
+#, fuzzy
+msgid "The title on the multiple events page."
+msgstr "A cím a többszörös események oldalon."
+
+#: admin/em-options.php:306
+#, fuzzy
+msgid "Default event list format header"
+msgstr "Alapértelmezett eseménylista formátumban fejléc"
+
+#: admin/em-options.php:306
+#, fuzzy
+msgid "This content will appear just above your code for the default event list format. Default is blank"
+msgstr "Ez a tartalom jelenik meg, éppen a fenti kódot az alapértelmezett esemény lista formátumban. Az alapértelmezett üres"
+
+#: admin/em-options.php:307
+msgid "Default event list format"
+msgstr "Alapértelmezett eseménylista formátuma"
+
+#: admin/em-options.php:307
+#, fuzzy
+msgid "The format of any events in a list."
+msgstr "A formátum olyan események listáját."
+
+#: admin/em-options.php:308
+#, fuzzy
+msgid "Default event list format footer"
+msgstr "Alapértelmezett eseménylista formátumban lábléc"
+
+#: admin/em-options.php:308
+#, fuzzy
+msgid "This content will appear just below your code for the default event list format. Default is blank"
+msgstr "Ez a tartalom jelenik alatt a kódot az alapértelmezett esemény lista formátumban. Az alapértelmezett üres"
+
+#: admin/em-options.php:309
+msgid "No events message"
+msgstr "Nincs esemény üzenet"
+
+#: admin/em-options.php:309
+msgid "The message displayed when no events are available."
+msgstr "Ez az üzenet jelenik meg, ha nincs bejegyzett esemény."
+
+#: admin/em-options.php:310
+#, fuzzy
+msgid "List events by date title"
+msgstr "Lista események dátum cím"
+
+#: admin/em-options.php:310
+#, fuzzy
+msgid "If viewing a page for events on a specific date, this is the title that would show up. To insert date values, use <a href=\"http://www.php.net/manual/en/function.date.php\">PHP time format characters</a>  with a <code>#</code> symbol before them, i.e. <code>#m</code>, <code>#M</code>, <code>#j</code>, etc.<br/>"
+msgstr "Ha megtekintése oldalt események egy adott napon, ez a cím, ami megjelenik. A dátum beírása értékek használata <a href=\"http://www.php.net/manual/en/function.date.php\">PHP időformátum karakter</a> egy <code>#</code> jelet előttük, azaz <code>#m</code> , <code>#M</code> , <code>#j</code> , stb <br/>"
+
+#: admin/em-options.php:312
+#: admin/em-options.php:350
+#: admin/em-options.php:375
+msgid "Single %s Page"
+msgstr "Egyetlen %s oldal"
+
+#: admin/em-options.php:314
+#, fuzzy
+msgid "Single event page title format"
+msgstr "Egyetlen esemény oldal címe formátumban"
+
+#: admin/em-options.php:314
+#, fuzzy
+msgid "The format of a single event page title."
+msgstr "A formátum egy egységes esemény oldal címét."
+
+#: admin/em-options.php:315
+#, fuzzy
+msgid "Default single event format"
+msgstr "Alapértelmezett egyszeri esemény formátumban"
+
+#: admin/em-options.php:315
+#, fuzzy
+msgid "The format of a single event page."
+msgstr "A formátum az egyetlen esemény oldalára."
+
+#: admin/em-options.php:323
+msgid "Calendar format"
+msgstr "Naptár formátum"
+
+#: admin/em-options.php:327
+msgid "Small calendar title"
+msgstr "Kis naptár címe"
+
+#: admin/em-options.php:327
+#, fuzzy
+msgid "The format of the title, corresponding to the text that appears when hovering on an eventful calendar day."
+msgstr "A formátum az a cím, amely megfelel a szöveg jelenik meg, ha lebeg egy eseménydús naptári nap."
+
+#: admin/em-options.php:328
+#, fuzzy
+msgid "Small calendar title separator"
+msgstr "Kis naptár címe elválasztó"
+
+#: admin/em-options.php:328
+#, fuzzy
+msgid "The separator appearing on the above title when more than one events are taking place on the same day."
+msgstr "Az elválasztó megjelenik a fenti címet, ha egynél több esemény zajlik ugyanazon a napon."
+
+#: admin/em-options.php:329
+msgid "Full calendar events format"
+msgstr "Teljes naptár eseményeinek formátuma"
+
+#: admin/em-options.php:329
+#, fuzzy
+msgid "The format of each event when displayed in the full calendar. Remember to include <code>li</code> tags before and after the event."
+msgstr "A formátum az egyes események, amikor megjelenik a teljes naptári. Ne felejtsen el <code>li</code> tag előtt és az esemény után."
+
+#: admin/em-options.php:330
+#, fuzzy
+msgid "Show long events on calendar pages?"
+msgstr "Mutatja a hosszú eseményeket a naptárban oldalon?"
+
+#: admin/em-options.php:330
+#, fuzzy
+msgid "If you are showing a calendar on the events page (see Events format section on this page), you have the option of showing events that span over days on each day it occurs."
+msgstr "Ha mutat a naptár az esemény oldalon (lásd Events formátumban részben ezen az oldalon), akkor azt a lehetőséget, hogy megmutassa események span át napig minden nap előfordul."
+
+#: admin/em-options.php:331
+#, fuzzy
+msgid "Show list on day with single event?"
+msgstr "Mutasd listát naponta egyszeri esemény?"
+
+#: admin/em-options.php:331
+#, fuzzy
+msgid "By default, if a calendar day only has one event, it display a single event when clicking on the link of that calendar date. If you select Yes here, you will get always see a list of events."
+msgstr "Alapértelmezés szerint, ha egy naptári napra csak egy eseményt, akkor megjelenik egy egyszeri esemény, ha rákattint a linkre az adott naptári napra. Az Igen itt, akkor kap mindig látni egy listát az események."
+
+#: admin/em-options.php:339
+msgid "Locations format"
+msgstr "Helyszínek formátuma"
+
+#: admin/em-options.php:344
+#: admin/em-options.php:369
+msgid "%s page title"
+msgstr "%s oldal címe"
+
+#: admin/em-options.php:344
+#: admin/em-options.php:369
+msgid "The title on the multiple %s page."
+msgstr "A cím a többszörös %s oldalon."
+
+#: admin/em-options.php:345
+#: admin/em-options.php:370
+msgid "%s list header format"
+msgstr "%s lista fejlécének formátuma"
+
+#: admin/em-options.php:345
+#: admin/em-options.php:370
+#, fuzzy
+msgid "This content will appear just above your code for the %s list format below. Default is blank"
+msgstr "Ez a tartalom jelenik meg, éppen a fenti kódot a%s lista formátumot az alábbiakban. Az alapértelmezett üres"
+
+#: admin/em-options.php:346
+#: admin/em-options.php:371
+msgid "%s list item format"
+msgstr "%s listaelem formátuma"
+
+#: admin/em-options.php:346
+#: admin/em-options.php:371
+msgid "The format of a single %s in a list."
+msgstr "Egy %s elem formátuma a listában."
+
+#: admin/em-options.php:347
+#: admin/em-options.php:372
+#, fuzzy
+msgid "%s list footer format"
+msgstr "%s lista lábléc formátuma"
+
+#: admin/em-options.php:347
+#: admin/em-options.php:372
+#, fuzzy
+msgid "This content will appear just below your code for the %s list format above. Default is blank"
+msgstr "Ez a tartalom jelenik alatt a kódot a%s lista formátumban fent. Az alapértelmezett üres"
+
+#: admin/em-options.php:348
+#: admin/em-options.php:356
+#: admin/em-options.php:373
+msgid "No %s message"
+msgstr "Nincs %s üzenet"
+
+#: admin/em-options.php:348
+#: admin/em-options.php:373
+#, fuzzy
+msgid "The message displayed when no %s are available."
+msgstr "Az üzenet jelenik meg, ha nincs%s nem állnak rendelkezésre."
+
+#: admin/em-options.php:352
+#: admin/em-options.php:377
+msgid "Single %s title format"
+msgstr "Egyetlen %s címének a formátuma"
+
+#: admin/em-options.php:352
+#: admin/em-options.php:353
+#: templates/forms/location-editor.php:7
+#: classes/em-location.php:144
+#: classes/em-location.php:152
+msgid "location"
+msgstr "helyszín"
+
+#: admin/em-options.php:352
+#, fuzzy
+msgid "The format of a single location page title."
+msgstr "A formátum egy helyen oldal címét."
+
+#: admin/em-options.php:353
+#: admin/em-options.php:378
+msgid "Single %s page format"
+msgstr "Egyetlen %s oldal formátuma"
+
+#: admin/em-options.php:353
+msgid "The format of a single location page."
+msgstr "Egy helyszínt megjelenítő oldal formátuma."
+
+#: admin/em-options.php:354
+#, fuzzy
+msgid "Default location balloon format"
+msgstr "Alapértelmezett helyre léggömb formátumban"
+
+#: admin/em-options.php:354
+#, fuzzy
+msgid "The format of of the text appearing in the baloon describing the location a single location map."
+msgstr "A formátum az a szöveg jelenik meg a ballonnal leírja a helyét egy térkép."
+
+#: admin/em-options.php:355
+#, fuzzy
+msgid "Default %s list format"
+msgstr "Alapértelmezett%s lista formátumban"
+
+#: admin/em-options.php:355
+#, fuzzy
+msgid "The format of the events the list inserted in the location page through the <code>#_NEXTEVENTS</code>, <code>#_PASTEVENTS</code> and <code>#_ALLEVENTS</code> element."
+msgstr "A formátum az események a lista be a helyét oldalon keresztül <code>#_NEXTEVENTS</code> , <code>#_PASTEVENTS</code> és <code>#_ALLEVENTS</code> elem."
+
+#: admin/em-options.php:356
+#, fuzzy
+msgid "The message to be displayed in the list generated by <code>#_NEXTEVENTS</code>, <code>#_PASTEVENTS</code> and <code>#_ALLEVENTS</code> when no events are available."
+msgstr "Az üzenet megjelenik a listában által generált <code>#_NEXTEVENTS</code> , <code>#_PASTEVENTS</code> és <code>#_ALLEVENTS</code> ha nincs bejegyzett esemény."
+
+#: admin/em-options.php:364
+msgid "Categories format"
+msgstr "Kategóriák formátuma"
+
+#: admin/em-options.php:377
+#: admin/em-options.php:378
+#: classes/em-categories.php:206
+msgid "category"
+msgstr "kategória"
+
+#: admin/em-options.php:377
+#, fuzzy
+msgid "The format of a single category page title."
+msgstr "A formátum az egyetlen kategóriába oldal címét."
+
+#: admin/em-options.php:378
+#, fuzzy
+msgid "The format of a single category page."
+msgstr "A formátum egy egységes kategória oldalon."
+
+#: admin/em-options.php:386
+msgid "RSS feed format"
+msgstr "RSS folyam formátuma"
+
+#: admin/em-options.php:390
+msgid "RSS main title"
+msgstr "RSS főcím"
+
+#: admin/em-options.php:390
+msgid "The main title of your RSS events feed."
+msgstr "Az RSS események folyamának főcíme"
+
+#: admin/em-options.php:391
+msgid "RSS main description"
+msgstr "RSS fő leírása"
+
+#: admin/em-options.php:391
+msgid "The main description of your RSS events feed."
+msgstr "Az RSS események folamának fő leírása."
+
+#: admin/em-options.php:392
+msgid "RSS title format"
+msgstr "RSS cím formátuma"
+
+#: admin/em-options.php:392
+#, fuzzy
+msgid "The format of the title of each item in the events RSS feed."
+msgstr "A formátum a cím minden egyes elem az eseményeket RSS feed."
+
+#: admin/em-options.php:393
+msgid "RSS description format"
+msgstr "RSS leírás formátuma"
+
+#: admin/em-options.php:393
+#, fuzzy
+msgid "The format of the description of each item in the events RSS feed."
+msgstr "A formátum leírásának egyes elemeit az eseményeket RSS feed."
+
+#: admin/em-options.php:401
+msgid "Maps and geotagging"
+msgstr "Térképek és geotagging"
+
+#: admin/em-options.php:406
+msgid "Enable Google Maps integration?"
+msgstr "Engedélyezi a Google Maps integráció?"
+
+#: admin/em-options.php:408
+#: buddypress/bp-em-notifications.php:45
+#: em-functions.php:436
+msgid "Yes"
+msgstr "Igen"
+
+#: admin/em-options.php:409
+#: buddypress/bp-em-notifications.php:46
+#: em-functions.php:437
+msgid "No"
+msgstr "Nem"
+
+#: admin/em-options.php:410
+msgid "Check this option to enable Goggle Map integration."
+msgstr "Jelölje be, ha engedélyezi a Google Maps integrációt."
+
+#: admin/em-options.php:414
+msgid "Map text format"
+msgstr "Térkép szöveges formátuma"
+
+#: admin/em-options.php:414
+msgid "The text format inside the map balloons."
+msgstr "A szöveg formátuma a buborékokban."
+
+#: admin/em-options.php:422
+msgid "Booking and Ticketing Options"
+msgstr "Foglalások és jegyek beállításai"
+
+#: admin/em-options.php:426
+msgid "Approval Required?"
+msgstr "Jóváhagyás szükséges?"
+
+#: admin/em-options.php:426
+#, fuzzy
+msgid "Bookings will not be confirmed until the event administrator approves it."
+msgstr "Foglalás nem kell megerősíteni, amíg az esemény rendszergazda hagyja jóvá."
+
+#: admin/em-options.php:427
+msgid "Currency"
+msgstr "Valuta"
+
+#: admin/em-options.php:427
+msgid "Choose your currency for displaying event pricing."
+msgstr "Válassza ki a pénznemet az események áraihoz."
+
+#: admin/em-options.php:428
+msgid "Single ticket mode?"
+msgstr "Egy-jegy mód?"
+
+#: admin/em-options.php:428
+msgid "In single ticket mode, users can only create one ticket per booking (and will not see options to add more tickets)."
+msgstr "Az egy-jegy módban egy felhasználó csak egy jegyet foglalhat."
+
+#: admin/em-options.php:429
+msgid "Show ticket table in single ticket mode?"
+msgstr "Mutassunk jegy táblázatot egy-jegy módban?"
+
+#: admin/em-options.php:429
+#, fuzzy
+msgid "If you prefer a ticket table like with multiple tickets, even for single ticket events, enable this."
+msgstr "Ha inkább egy jegyet asztalra, mint a több jegyet, még a vonaljegy események lehetővé teszik ezt."
+
+#: admin/em-options.php:430
+#, fuzzy
+msgid "Show unavailable tickets?"
+msgstr "Mutassuk az nem elérhető jegyeket?"
+
+#: admin/em-options.php:430
+#, fuzzy
+msgid "You can choose whether or not to show unavailable tickets to visitors."
+msgstr "Választhat-e vagy sem megmutatni nem érhető el jegyet a látogatók."
+
+#: admin/em-options.php:431
+#, fuzzy
+msgid "Reserved unconfirmed spaces?"
+msgstr "Fenntartva erősített tereket?"
+
+#: admin/em-options.php:431
+#, fuzzy
+msgid "By default, event spaces become unavailable once there are enough CONFIRMED bookings. To reserve spaces even if unnapproved, choose yes."
+msgstr "Alapértelmezés szerint, ha terek váltak elérhetetlenné, ha van elég CONFIRMED foglalások. A tartalék helyek akkor is, ha unnapproved válassza igen."
+
+#: admin/em-options.php:432
+#, fuzzy
+msgid "Show multiple tickets if logged out?"
+msgstr "Mutasd több jegyet, ha bejelentkezett ki?"
+
+#: admin/em-options.php:432
+#, fuzzy
+msgid "If logged out, a user will be asked to register in order to book. However, we can show available tickets if you have more than one ticket."
+msgstr "Ha kijelentkezett a felhasználó fogják kérni, hogy regisztrálj, hogy könyv. Azonban tudjuk mutatni elérhető jegyeket, ha egynél több jegyet."
+
+#: admin/em-options.php:433
+#, fuzzy
+msgid "Allow overbooking when approving?"
+msgstr "Hagyjuk túlfoglalás jóváhagyásakor?"
+
+#: admin/em-options.php:433
+#, fuzzy
+msgid "If you get a lot of pending bookings and you decide to allow more bookings than spaces allow, setting this to yes will allow you to override the event space limit when manually approving."
+msgstr "Ha kapsz egy csomó függőben lévő foglalások, és úgy dönt, hogy több foglalást, mint a terek teszik lehetővé, ha ezt yes lehetővé teszi, hogy felülírja az esemény térben határ, amikor kézzel jóváhagyása."
+
+#: admin/em-options.php:434
+msgid "Allow guest bookings?"
+msgstr "Endedélyezi, hogy vendégek is foglalhassanak?"
+
+#: admin/em-options.php:434
+#, fuzzy
+msgid "If enabled, guest visitors can supply an email address and a user account will automatically be created for them along with their booking. They will be also be able to log back in with that newly created account."
+msgstr "Ha engedélyezve van, vendég látogatók ellátás az e-mail címet és egy felhasználói fiókot automatikusan létre számukra együtt a foglalás. Azt is meg kell adni tudnak bejelentkezni vissza az, hogy az újonnan létrehozott fiókot."
+
+#: admin/em-options.php:435
+msgid "Display login form?"
+msgstr "Mutassuk a bejelentkező űrlapot?"
+
+#: admin/em-options.php:435
+#, fuzzy
+msgid "Choose whether or not to display a login form in the booking form area to remind your members to log in before booking."
+msgstr "Válasszon-e vagy sem, hogy megjelenjen a login űrlap a foglalási űrlap területet, hogy emlékeztesse a tagokat, hogy jelentkezzen be foglalás előtt."
+
+#: admin/em-options.php:444
+msgid "Booking Email Templates"
+msgstr "Foglalás e-mailek sablonjai"
+
+#: admin/em-options.php:448
+msgid "Default contact person"
+msgstr "Alapértelmezett kapcsolattartó személy"
+
+#: admin/em-options.php:448
+#, fuzzy
+msgid "Select the default contact person. This user will be employed whenever a contact person is not explicitly specified for an event"
+msgstr "Válassza ki az alapértelmezett kapcsolattartó személy. Ez a felhasználó lesz vállalkozó, ha a kapcsolattartó személy nem kifejezetten meghatározott esemény"
+
+#: admin/em-options.php:449
+msgid "Email events admin?"
+msgstr "Küldjünk emailt az eseményszervezőnek?"
+
+#: admin/em-options.php:449
+#, fuzzy
+msgid "If you would like every event booking confirmation email sent to an administrator write their email here (leave blank to not send an email)."
+msgstr "Ha szeretné minden esetben foglalás megerősítő e-mailt küldött a rendszergazda írja az e-mail van (hagyja üresen, hogy ne küldjön egy e-mailt)."
+
+#: admin/em-options.php:450
+msgid "Email contact person?"
+msgstr "Küldjük emailt a kapcsolattartónaj?"
+
+#: admin/em-options.php:450
+#, fuzzy
+msgid "Check this option if you want the event contact to receive an email when someone books places. An email will be sent when a booking is first made (regardless if confirmed or pending)"
+msgstr "Jelölje be ezt az opciót, ha azt szeretnénk, ha kapcsolatba kap egy e-mailt, ha valaki könyvet helyeken. Egy e-mailt küldünk, ha a foglalás először (függetlenül attól, hogy igazolt vagy folyamatban)"
+
+#: admin/em-options.php:451
+#, fuzzy
+msgid "Disable new registration email?"
+msgstr "Letiltása új regisztrációs e-mail?"
+
+#: admin/em-options.php:451
+#, fuzzy
+msgid "Check this option if you want to prevent the wordpress registration email from going out when a user anonymously books an event."
+msgstr "Jelölje be ezt az opciót, ha meg szeretné akadályozni a WordPress regisztrációs e-mailt fog, amikor a felhasználó anonim könyveket esemény."
+
+#: admin/em-options.php:453
+#, fuzzy
+msgid "Contact person booking confirmed"
+msgstr "Kapcsolattartó személy foglalás megerősítette"
+
+#: admin/em-options.php:454
+#, fuzzy
+msgid "An email will be sent to the event contact when a booking is first made."
+msgstr "Egy e-mailt fog küldeni az esemény kapcsolatot, ha a foglalás az első sor."
+
+#: admin/em-options.php:456
+#, fuzzy
+msgid "Contact person email subject"
+msgstr "Kapcsolattartó személy e-mail tárgya"
+
+#: admin/em-options.php:457
+#, fuzzy
+msgid "Contact person email"
+msgstr "Kapcsolattartó személy e-mail"
+
+#: admin/em-options.php:459
+#, fuzzy
+msgid "Contact person booking cancelled"
+msgstr "Kapcsolattartó személy foglalás lemondás"
+
+#: admin/em-options.php:460
+#, fuzzy
+msgid "An email will be sent to the event contact if someone cancels their booking."
+msgstr "Egy e-mailt fog küldeni az esemény kapcsolatot, ha valaki lemondja a foglalást."
+
+#: admin/em-options.php:462
+#, fuzzy
+msgid "Contact person cancellation subject"
+msgstr "Kapcsolattartó személy megsemmisítése"
+
+#: admin/em-options.php:463
+#, fuzzy
+msgid "Contact person cancellation email"
+msgstr "Kapcsolattartó személy törlését e-mailben"
+
+#: admin/em-options.php:465
+#, fuzzy
+msgid "Confirmed booking email"
+msgstr "Megerősített foglalás e-mailben"
+
+#: admin/em-options.php:466
+#, fuzzy
+msgid "This is sent when a person's booking is confirmed. This will be sent automatically if approvals are required and the booking is approved. If approvals are disabled, this is sent out when a user first submits their booking."
+msgstr "Ez küldeni, ha egy személy foglalás megerősítik. Ez automatikusan elküldi, ha a jóváhagyások van szükség, és a foglalás jóvá. Ha jóváhagyások le vannak tiltva, ezt küldte el, amikor egy felhasználó először is arra hivatkozik, hogy foglalás."
+
+#: admin/em-options.php:468
+#, fuzzy
+msgid "Booking confirmed email subject"
+msgstr "Foglalás megerősítette, e-mail tárgya"
+
+#: admin/em-options.php:469
+#, fuzzy
+msgid "Booking confirmed email"
+msgstr "Foglalás megerősítette, e-mail"
+
+#: admin/em-options.php:471
+#, fuzzy
+msgid "Pending booking email"
+msgstr "Függőben lévő foglalás e-mailben"
+
+#: admin/em-options.php:472
+#, fuzzy
+msgid "This will be sent to the person when they first submit their booking. Not relevant if bookings don't require approval."
+msgstr "Ezt meg kell küldeni az a személy, amikor először benyújtják foglalás. Nem releváns, ha foglalások nem igényelnek jóváhagyást."
+
+#: admin/em-options.php:474
+#, fuzzy
+msgid "Booking pending email subject"
+msgstr "Foglalás folyamatban e-mail tárgya"
+
+#: admin/em-options.php:475
+#, fuzzy
+msgid "Booking pending email"
+msgstr "Foglalás folyamatban email"
+
+#: admin/em-options.php:477
+#, fuzzy
+msgid "Rejected booking email"
+msgstr "Elutasított foglalás e-mailben"
+
+#: admin/em-options.php:478
+#, fuzzy
+msgid "This will be sent automatically when a booking is rejected. Not relevant if bookings don't require approval."
+msgstr "Ez automatikusan elküldi, ha a foglalás elutasítja. Nem releváns, ha foglalások nem igényelnek jóváhagyást."
+
+#: admin/em-options.php:480
+#, fuzzy
+msgid "Booking rejected email subject"
+msgstr "Foglalás elutasította e-mail tárgya"
+
+#: admin/em-options.php:480
+#, fuzzy
+msgid "The subject of the email sent to the person making a booking that is awaiting administrator approval. Not relevant if bookings don't require approval."
+msgstr "A tárgy az e-mail küldeni a személy, aki olyan foglalás, amely várja a rendszergazda jóváhagyása. Nem releváns, ha foglalások nem igényelnek jóváhagyást."
+
+#: admin/em-options.php:481
+msgid "Booking rejected email"
+msgstr "Foglalás elutasítva e-mail"
+
+#: admin/em-options.php:481
+#, fuzzy
+msgid "The body of the email which will be sent to the person if the booking is rejected. Not relevant if bookings don't require approval."
+msgstr "A szervezet az e-mail, amelyet megküldenek a személynek, ha a foglalást elutasítja. Nem releváns, ha foglalások nem igényelnek jóváhagyást."
+
+#: admin/em-options.php:484
+#: em-bookings.php:74
+msgid "Booking cancelled"
+msgstr "Foglalás lemondva"
+
+#: admin/em-options.php:485
+msgid "This will be sent when a user cancels their booking."
+msgstr "Ez lesz elküldve, ha a felhasználó lemondja a foglalását."
+
+#: admin/em-options.php:487
+#, fuzzy
+msgid "Booking cancelled email subject"
+msgstr "Foglalás törölt e-mail tárgya"
+
+#: admin/em-options.php:488
+msgid "Booking cancelled email"
+msgstr "Foglalás lemondva e-mail"
+
+#: admin/em-options.php:496
+msgid "Email Settings"
+msgstr "E-mail beállítások"
+
+#: admin/em-options.php:500
+#, fuzzy
+msgid "Notification sender name"
+msgstr "Értesítés feladó nevét"
+
+#: admin/em-options.php:500
+#, fuzzy
+msgid "Insert the display name of the notification sender."
+msgstr "Helyezze be a megjelenítési nevét a bejelentés feladónak."
+
+#: admin/em-options.php:501
+#, fuzzy
+msgid "Notification sender address"
+msgstr "Értesítés feladó címét"
+
+#: admin/em-options.php:501
+#, fuzzy
+msgid "Insert the address of the notification sender."
+msgstr "Helyezze be a címet az értesítés feladónak."
+
+#: admin/em-options.php:502
+#, fuzzy
+msgid "The port through which you e-mail notifications will be sent. Make sure the firewall doesn't block this port"
+msgstr "A port, amelyen keresztül az e-mail értesítést küldünk. Ellenőrizze, hogy a tűzfal nem blokkolja ezt a portot"
+
+#: admin/em-options.php:503
+#, fuzzy
+msgid "Mail sending method"
+msgstr "Mail küldési módszer"
+
+#: admin/em-options.php:503
+msgid "PHP mail function"
+msgstr "PHP mail funkció"
+
+#: admin/em-options.php:503
+msgid "Select the method to send email notification."
+msgstr "Válassza ki az e-mail értesítés küldésének módját."
+
+#: admin/em-options.php:504
+msgid "Use SMTP authentication?"
+msgstr "SMTP hitelesítés használata?"
+
+#: admin/em-options.php:504
+msgid "SMTP authentication is often needed. If you use GMail, make sure to set this parameter to Yes"
+msgstr "SMTP hitelesítésre gyakran van szükség. Ha GMailt használ, győződjön meg arról, hogy ez igenre van állítva"
+
+#: admin/em-options.php:505
+msgid "The SMTP host. Usually it corresponds to 'localhost'. If you use GMail, set this value to 'ssl://smtp.gmail.com:465'."
+msgstr "Az SMTP hoszt. Ez általában \"localhost\". Ha GMailt használ, állítsa ezt az értéket erre: 'ssl://smtp.gmail.com:465'."
+
+#: admin/em-options.php:506
+msgid "SMTP username"
+msgstr "SMTP felhasználónév"
+
+#: admin/em-options.php:506
+#, fuzzy
+msgid "Insert the username to be used to access your SMTP server."
+msgstr "Helyezze be a felhasználónevet kell használni hozzáférést az SMTP szervert."
+
+#: admin/em-options.php:507
+msgid "SMTP password"
+msgstr "SMTP jelszó"
+
+#: admin/em-options.php:507
+#, fuzzy
+msgid "Insert the password to be used to access your SMTP server"
+msgstr "Helyezze be a jelszót kell használni, hogy hozzáférjen a SMTP szerver"
+
+#: admin/em-options.php:515
+msgid "Images size"
+msgstr "Képek mérete"
+
+#: admin/em-options.php:519
+msgid "Maximum width (px)"
+msgstr "Legnagyobb szélessége (px)"
+
+#: admin/em-options.php:519
+msgid "The maximum allowed width for images uploades"
+msgstr "A megengedett legnagyobb szélessége a feltöltött képeknek"
+
+#: admin/em-options.php:520
+msgid "Maximum height (px)"
+msgstr "Maximális magasság (px)"
+
+#: admin/em-options.php:520
+msgid "The maximum allowed height for images uploaded, in pixels"
+msgstr "A maximális megengedett magassága a feltöltött képeknek pixelben"
+
+#: admin/em-options.php:521
+msgid "Maximum size (bytes)"
+msgstr "Maximális méret (bájtok)"
+
+#: admin/em-options.php:521
+msgid "The maximum allowed size for images uploaded, in bytes"
+msgstr "A legnagyobb megengedett mérete a feltöltött képeknek bájtban"
+
+#: admin/em-options.php:529
+msgid "User Capabilities"
+msgstr "Felhasználói jogosultságok"
+
+#: admin/em-options.php:533
+#, fuzzy
+msgid "Warning: Changing these values may result in exposing previously hidden information to all users."
+msgstr "Figyelem: Az értékek megváltoztatása vezethet tegye a korábban elrejtett információkat minden felhasználó számára."
+
+#: admin/em-options.php:540
+#, fuzzy
+msgid "You can now give fine grained control with regards to what your users can do with events. Each user role can have perform different sets of actions."
+msgstr "Most hogy finomszemcsés szabályozás tekintetében, amit a felhasználók nem az eseményekkel. Minden felhasználó szerepe lehet végezni a különböző intézkedési csomagot."
+
+#: admin/em-options.php:548
+#, fuzzy
+msgid "Users can publish events and skip any admin approval."
+msgstr "A felhasználók közzé eseményeket, és ugorjon minden admin jóváhagyásra."
+
+#: admin/em-options.php:549
+msgid "User can edit the global categories."
+msgstr "A felhasználó szerkesztheti a globális kategóriákat."
+
+#: admin/em-options.php:550
+msgid "User can delete other users events."
+msgstr "A felhasználó törölheti a többi felhasználó eseményét."
+
+#: admin/em-options.php:551
+msgid "User can delete other users locations."
+msgstr "A felhasználó törölheti a többi felhasználó helyszíneit."
+
+#: admin/em-options.php:552
+msgid "User can edit other users locations."
+msgstr "A felhasználó szerkesztheti a többi felhasználó helyszíneit."
+
+#: admin/em-options.php:553
+#, fuzzy
+msgid "User can manage other users individual bookings and event booking settings."
+msgstr "A felhasználó kezelheti más felhasználók egyéni foglalások és az esemény foglalás beállításokat."
+
+#: admin/em-options.php:554
+msgid "User can edit other users events."
+msgstr "A felhasználó szerkesztheti a többi felhasználó eseményeit."
+
+#: admin/em-options.php:555
+msgid "User can delete their own locations."
+msgstr "A felhasználó törölheti a saját helyszíneit."
+
+#: admin/em-options.php:556
+msgid "User can delete their events."
+msgstr "A felhasználó törölheti az eseményeit."
+
+#: admin/em-options.php:557
+msgid "User can edit their locations."
+msgstr "A felhasználó szerkesztheti a helyszíneit."
+
+#: admin/em-options.php:558
+msgid "User can use and manage bookings with their events."
+msgstr "A felhasználó használhatja és kezelheti a foglalásolat az eseményein."
+
+#: admin/em-options.php:559
+#, fuzzy
+msgid "User can view other users locations, to make locations shared by all users allow all event user roles to view all locations."
+msgstr "A felhasználó megtekintheti a többi felhasználó helyeken, hogy a helyszín, amely minden felhasználó számára lehetővé teszi az összes esemény felhasználói szerepkörök megtekintheti az összes helyszínen."
+
+#: admin/em-options.php:560
+msgid "User can create recurrent events."
+msgstr "A felhasználó létrehozhat ismétlődő eseményeket."
+
+#: admin/em-options.php:561
+msgid "User can create and edit their events."
+msgstr "A felhasználó létrehozhat és szerkeszheti a saját eseményeti."
+
+#: admin/em-options.php:593
+msgid "Anonymous Event Submission"
+msgstr "Névtelen esemény beküldése"
+
+#: admin/em-options.php:597
+#, fuzzy
+msgid "You can allow users to publicly submit events on your blog by using the [event_form] shortcode, and enabling anonymous submissions below."
+msgstr "Tudod, hogy a felhasználók nyilvánosan be eseményeket a blog segítségével [event_form] érvényesítőkód, és lehetővé teszi névtelen bejelentések alatt."
+
+#: admin/em-options.php:600
+msgid "Allow anonymous event submissions?"
+msgstr "Engedélyezi a névtelen esemény beküldését?"
+
+#: admin/em-options.php:600
+#, fuzzy
+msgid "Would you like to allow users to submit bookings anonymously? If so, you can use the new [event_form] shortcode or <code>em_event_form()</code> template tag with this enabled."
+msgstr "Szeretné, hogy a felhasználók be foglalások névtelenül? Ha igen, akkor az új [event_form] érvényesítőkód vagy <code>em_event_form()</code> sablon tag ezzel engedélyezve van."
+
+#: admin/em-options.php:601
+msgid "Guest Default User"
+msgstr "Vendég alapértelmezett felhasználó"
+
+#: admin/em-options.php:601
+#, fuzzy
+msgid "Events require a user to own them. In order to allow events to be submitted anonymously you need to assign that event a specific user. We recommend you create a \"Anonymous\" subscriber with a very good password and use that."
+msgstr "Események igényel a felhasználó saját őket. Annak érdekében, hogy eseményeket kell benyújtani névtelenül meg kell rendelni, hogy ha egy adott felhasználó. Javasoljuk, hogy hozzon létre egy \"Anonymous\" előfizető egy nagyon jó jelszó, és azt használd."
+
+#: admin/em-options.php:602
+msgid "Success Message"
+msgstr "Üzenet a sikerességről"
+
+#: admin/em-options.php:602
+#, fuzzy
+msgid "Anonymous submitters cannot see or modify their event once submitted. You can customize the success message they see here."
+msgstr "Anonymous elküldő nem látja, vagy módosíthatja a rendezvény után benyújtott. A testre a siker üzenetet látnak itt."
+
+#: admin/em-people.php:27
+msgid "Bookings data"
+msgstr "Foglalási adatok"
+
+#: admin/em-people.php:31
+#: templates/placeholders/bookingform.php:106
+msgid "E-mail"
+msgstr "E-mail"
+
+#: admin/em-people.php:32
+msgid "Phone number"
+msgstr "Telefonszám"
+
+#: admin/em-people.php:53
+msgid "Available"
+msgstr "Elérhető"
+
+#: admin/em-people.php:72
+#: templates/placeholders/bookingform.php:102
+#: classes/em-person.php:62
+msgid "Phone"
+msgstr "Telefonszám"
+
+#. #-#-#-#-#  plugin.pot (Events Manager 4.0.83)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/em-people.php:72
+msgid "Events Manager"
+msgstr "Esemény szervező"
+
+#: templates/templates/map-global.php:15
+#: templates/placeholders/locationmap.php:15
+msgid "Loading Map...."
+msgstr "Térkép betöltése..."
+
+#: templates/templates/events-search.php:22
+msgid "between"
+msgstr "között"
+
+#: templates/templates/events-search.php:25
+#: templates/forms/ticket-form.php:26
+msgid "and"
+msgstr "és"
+
+#: templates/templates/events-search.php:31
+msgid "All Categories"
+msgstr "Összes kategória"
+
+#: templates/templates/events-search.php:39
+msgid "All Countries"
+msgstr "Összes ország"
+
+#: templates/templates/events-search.php:53
+#: em-actions.php:452
+msgid "All Regions"
+msgstr "Összes régió"
+
+#: templates/templates/events-search.php:70
+#: em-actions.php:429
+msgid "All States"
+msgstr "Összes megye"
+
+#: templates/templates/events-search.php:94
+#: templates/templates/events-search.php:95
+#: templates/templates/events-search.php:109
+msgid "Loading..."
+msgstr "Töltés..."
+
+#: templates/templates/events-search.php:135
+msgid "Searching..."
+msgstr "Keresés..."
+
+#: templates/templates/ical.php:9
+#: widgets/em-calendar.php:13
+msgid "Calendar"
+msgstr "Naptár"
+
+#: templates/templates/event-form.php:103
+#: templates/forms/event-editor.php:93
+msgid "When"
+msgstr "Időpont"
+
+#: templates/templates/event-form.php:106
+#: templates/forms/event-editor.php:96
+msgid "Starts on "
+msgstr "Kezdődik"
+
+#: templates/templates/event-form.php:109
+#: templates/forms/event-editor.php:99
+msgid "from"
+msgstr ""
+
+#: templates/templates/event-form.php:111
+#: templates/forms/ticket-form.php:18
+#: templates/forms/event-editor.php:101
+msgid "to"
+msgstr ""
+
+#: templates/templates/event-form.php:113
+#: templates/forms/event-editor.php:103
+msgid "and ends on"
+msgstr "és befejeződik:"
+
+#: templates/templates/event-form.php:119
+#: templates/forms/event-editor.php:109
+msgid "This event spans every day between the beginning and end date, with start/end times applying to each day."
+msgstr "Az esemény a kezdési és befejezési dátum közötti napokon van, minden nap a megadott időben."
+
+#: templates/templates/event-form.php:122
+#: templates/forms/event-editor.php:112
+#, fuzzy
+msgid "For a recurring event, a one day event will be created on each recurring date within this date range."
+msgstr "A visszatérő esemény, egy napos rendezvény jön létre az egyes ismétlődő időpontja belül erre az időszakra."
+
+#: templates/templates/event-form.php:130
+#: templates/forms/event-editor.php:120
+#: classes/em-event.php:1239
+msgid "Monday"
+msgstr "hétfő"
+
+#: templates/templates/event-form.php:130
+#: templates/forms/event-editor.php:120
+#: classes/em-event.php:1239
+msgid "Tuesday"
+msgstr "kedd"
+
+#: templates/templates/event-form.php:130
+#: templates/forms/event-editor.php:120
+#: classes/em-event.php:1239
+msgid "Wednesday"
+msgstr "szerda"
+
+#: templates/templates/event-form.php:130
+#: templates/forms/event-editor.php:120
+#: classes/em-event.php:1239
+msgid "Thursday"
+msgstr "csütörtök"
+
+#: templates/templates/event-form.php:130
+#: templates/forms/event-editor.php:120
+#: classes/em-event.php:1239
+msgid "Friday"
+msgstr "péntek"
+
+#: templates/templates/event-form.php:130
+#: templates/forms/event-editor.php:120
+#: classes/em-event.php:1239
+msgid "Saturday"
+msgstr "szombat"
+
+#: templates/templates/event-form.php:130
+#: templates/forms/event-editor.php:120
+#: classes/em-event.php:1239
+msgid "Sunday"
+msgstr "vasárnap"
+
+#: templates/templates/event-form.php:134
+#: templates/forms/event-editor.php:124
+msgid "This event repeats"
+msgstr "Ez az esemény ismétlődik"
+
+#: templates/templates/event-form.php:141
+#: templates/forms/event-editor.php:131
+msgid "every"
+msgstr "minden"
+
+#: templates/templates/event-form.php:148
+#: templates/forms/event-editor.php:138
+msgid "week on"
+msgstr "hét"
+
+#: templates/templates/event-form.php:150
+#: templates/forms/event-editor.php:140
+msgid "weeks on"
+msgstr "hét"
+
+#: templates/templates/event-form.php:152
+#: templates/forms/event-editor.php:142
+msgid "month on the"
+msgstr "hónapban az"
+
+#: templates/templates/event-form.php:154
+#: templates/forms/event-editor.php:144
+msgid "months on the"
+msgstr "hónapban a"
+
+#: templates/templates/event-form.php:172
+#: templates/forms/event-editor.php:162
+msgid "of each month"
+msgstr "minden hónap"
+
+#: templates/templates/event-form.php:196
+#: templates/forms/event-editor.php:186
+msgid "Where"
+msgstr "Helyszín"
+
+#: templates/templates/event-form.php:230
+#: templates/forms/event-editor.php:210
+msgid "Choose from one of your locations"
+msgstr "Válassz egyet a helyszínek közül"
+
+#: templates/templates/event-form.php:230
+#: templates/forms/event-editor.php:210
+msgid "or <a href=\"%s\">add a new location</a>"
+msgstr "vagy <a href=\"%s\">hozz létre újat</a>"
+
+#: templates/templates/event-form.php:331
+#: templates/forms/event-editor.php:226
+msgid "Details about the event."
+msgstr "Részletek az eseményről. "
+
+#: templates/templates/event-form.php:331
+#: templates/forms/event-editor.php:226
+msgid "HTML Allowed."
+msgstr "HTML engedélyezett."
+
+#: templates/templates/event-form.php:338
+#: templates/forms/event-editor.php:233
+msgid "Category:"
+msgstr "Kategória:"
+
+#: templates/templates/my-bookings.php:73
+msgid "Are you sure you want to cancel your booking?"
+msgstr "Biztos, hogy lemondod a foglalást?"
+
+#: templates/templates/my-bookings.php:73
+msgid "Cancel"
+msgstr "Lemond"
+
+#: templates/templates/my-bookings.php:85
+msgid "You do not have any bookings."
+msgstr "Önnek még nincs foglalása."
+
+#: templates/templates/my-bookings.php:95
+msgid "Please <a href=\"%s\">Log In</a> to view your bookings."
+msgstr "Kérjük <a href=\"%s\">jelentkezzen be</a> a foglalásainak megtekintéséhez."
+
+#: templates/buddypress/group-events.php:25
+#: templates/buddypress/my-group-events.php:25
+msgid "edit"
+msgstr "Szerkesztés"
+
+#: templates/buddypress/group-events.php:35
+#: templates/buddypress/my-group-events.php:35
+#: buddypress/screens/profile.php:47
+#: em-install.php:463
+msgid "No Events"
+msgstr "Nincsenek események"
+
+#: templates/buddypress/my-events.php:39
+msgid "Upcoming"
+msgstr "Közelgő"
+
+#: templates/placeholders/bookingbutton.php:2
+msgid "Book Now"
+msgstr "Foglalja le most"
+
+#: templates/placeholders/bookingbutton.php:3
+msgid "Booking..."
+msgstr "Foglalás..."
+
+#: templates/placeholders/bookingbutton.php:4
+msgid "Booking Submitted"
+msgstr "Foglalás beküldve"
+
+#: templates/placeholders/bookingbutton.php:5
+msgid "Booking Error. Try again?"
+msgstr "Foglalás hiba. Próbálja újra?"
+
+#: templates/placeholders/locationmap.php:27
+msgid "Map Unavailable"
+msgstr "Térkép nem érhető el"
+
+#: templates/placeholders/bookingform.php:15
+msgid "You are currently attending this event. <a href=\"%s\">Manage my bookings</a>"
+msgstr "Már részt veszel az eseményen. <a href=\"%s\">Foglalásaim kezelése</a>"
+
+#: templates/placeholders/bookingform.php:17
+msgid "Online bookings are not available for this event."
+msgstr "Online foglalás nem lehetsége ehhez az eseményhez."
+
+#: templates/placeholders/bookingform.php:19
+msgid "Bookings are closed for this event."
+msgstr "Foglalás zárva erre az eseményre."
+
+#: templates/placeholders/bookingform.php:57
+#: templates/placeholders/bookingform.php:86
+#: classes/em-event.php:866
+#: em-bookings.php:129
+#: em-bookings.php:151
+msgid "N/A"
+msgstr "Ismeretlen"
+
+#: templates/placeholders/bookingform.php:117
+#: em-bookings.php:162
+msgid "Send your booking"
+msgstr "Foglalás elküldése"
+
+#: templates/placeholders/bookingform.php:124
+#: em-actions.php:408
+msgid "You must log in before you make a booking."
+msgstr "Be kell jelentkeznie, mielőtt foglalna."
+
+#: templates/placeholders/bookingform.php:130
+msgid "Log in if you already have an account with us."
+msgstr "Lépj be, ha már van felhasználói neved!"
+
+#: templates/placeholders/bookingform.php:132
+msgid "Username"
+msgstr "Felhasználónév"
+
+#: templates/placeholders/bookingform.php:136
+msgid "Password"
+msgstr "Jelszó"
+
+#: templates/placeholders/bookingform.php:140
+msgid "Log In"
+msgstr "Bejelentkezés"
+
+#: templates/placeholders/bookingform.php:141
+msgid "Remember Me"
+msgstr "Megjegyez"
+
+#: templates/placeholders/bookingform.php:156
+msgid "Sign Up"
+msgstr "Regisztráció"
+
+#: templates/placeholders/bookingform.php:160
+msgid "Password Lost and Found"
+msgstr "Jelszó elfelejtve és megtalálva"
+
+#: templates/placeholders/bookingform.php:160
+msgid "Lost your password?"
+msgstr "Elfelejtett jelszó?"
+
+#: templates/placeholders/bookingform.php:166
+#: em-bookings.php:169
+msgid "No more tickets available at this time."
+msgstr "Jelenleg nincs több jegy."
+
+#: templates/placeholders/bookingform.php:183
+msgid "Please wait while the booking is being submitted."
+msgstr "Kérem várjon, amíg a foglalás beküldésre kerül."
+
+#: templates/forms/ticket-form.php:12
+msgid "If blank, there's no space limit."
+msgstr "Ha üres, nincs hely limit."
+
+#: templates/forms/ticket-form.php:15
+msgid "Available from"
+msgstr "Elérhető"
+
+#: templates/forms/ticket-form.php:21
+#, fuzzy
+msgid "Add a start or end date (or both) to impose time constraints on ticket availability. Leave either blank for no upper/lower limit."
+msgstr "Add a kezdési és befejezési időpontját (vagy mindkettő) előírni idő rövidsége a jegy rendelkezésre. Hagyj üresen nincs felső / alsó határérték."
+
+#: templates/forms/ticket-form.php:24
+#, fuzzy
+msgid "Bookings must order between"
+msgstr "Foglalás kell ahhoz között"
+
+#: templates/forms/ticket-form.php:28
+msgid "spaces."
+msgstr "helyek."
+
+#: templates/forms/ticket-form.php:29
+msgid "Leave either blank for no upper/lower limit."
+msgstr "Hagyja üresen, ha nincs felső/alsó határ."
+
+#: templates/forms/tickets-form.php:2
+msgid "Create a ticket"
+msgstr "Jegy létrehozása"
+
+#: templates/forms/tickets-form.php:8
+msgid "Available ticket spaces"
+msgstr "Elérhető helyek"
+
+#: templates/forms/tickets-form.php:10
+msgid "Start date of ticket availability"
+msgstr "Jegy elérhetőségének kezdete"
+
+#: templates/forms/tickets-form.php:11
+msgid "End date of ticket availability"
+msgstr "Jegy elérhetőségének vége"
+
+#: templates/forms/tickets-form.php:12
+msgid "Minimum tickets required per booking"
+msgstr "Foglalásonkénti minimum mennyiség"
+
+#: templates/forms/tickets-form.php:13
+msgid "Maximum tickets required per booking"
+msgstr "Foglalásonkénti maximum mennyiség"
+
+#: templates/forms/tickets-form.php:18
+msgid "Add Ticket"
+msgstr "Jegy hozzáadása"
+
+#: buddypress/bp-em-admin.php:33
+msgid "Events Admin"
+msgstr "Események szerkesztése"
+
+#: buddypress/bp-em-admin.php:36
+msgid "Settings Updated."
+msgstr "Beállítások frissítve."
+
+#: buddypress/bp-em-admin.php:42
+msgid "Option One"
+msgstr "1-es opció"
+
+#: buddypress/bp-em-admin.php:47
+msgid "Option Two"
+msgstr "2-es opció"
+
+#: buddypress/bp-em-admin.php:54
+#: buddypress/screens/settings.php:46
+msgid "Save Settings"
+msgstr "Beállítások mentése"
+
+#: buddypress/bp-em-activity.php:67
+msgid "%s added the event %s"
+msgstr "%s létrehozta a(z) %s eseményt."
+
+#: buddypress/bp-em-activity.php:89
+msgid "%s is attending %s."
+msgstr "%s részt vesz a(z) %s eseményen."
+
+#: buddypress/bp-em-activity.php:91
+msgid "%s will not be attending %s anymore."
+msgstr "%s már nem vesz részt a(z) %s eseményen."
+
+#: buddypress/screens/attending.php:23
+#: buddypress/screens/profile.php:51
+#: buddypress/bp-em-core.php:76
+msgid "Events I'm Attending"
+msgstr "Részvétel"
+
+#: buddypress/screens/profile.php:11
+msgid "You are currently viewing your public page, this is what other users will see."
+msgstr "Jelenleg a publikus lapját nézi, ezt látja a többi felhasználó."
+
+#: buddypress/screens/profile.php:34
+#: buddypress/screens/my-events.php:40
+#: buddypress/bp-em-core.php:86
+msgid "My Events"
+msgstr "Saját események"
+
+#: buddypress/screens/group-events.php:17
+#: buddypress/screens/my-group-events.php:17
+msgid "Group Events"
+msgstr "Csoport események"
+
+#: buddypress/screens/my-events.php:56
+msgid "Add Event"
+msgstr "Esemény hozzáadása"
+
+#: buddypress/screens/my-locations.php:47
+#: buddypress/bp-em-core.php:96
+msgid "My Locations"
+msgstr "Helyszíneim"
+
+#: buddypress/screens/my-locations.php:61
+msgid "Edit Location"
+msgstr "Helyszín szerkesztése"
+
+#: buddypress/screens/my-locations.php:63
+msgid "Add Location"
+msgstr "Helyszín hozzáadása"
+
+#: buddypress/screens/my-bookings.php:32
+#: buddypress/bp-em-core.php:106
+msgid "My Event Bookings"
+msgstr "Foglalások"
+
+#: buddypress/screens/settings.php:26
+msgid "Events Settings Header"
+msgstr "Események beállítások fejléc"
+
+#: buddypress/screens/settings.php:30
+msgid "Events Settings"
+msgstr "Események beállításai"
+
+#: buddypress/screens/settings.php:38
+msgid "Changes Saved."
+msgstr "Változások mentve."
+
+#: buddypress/screens/settings.php:44
+msgid "Do you love clicking checkboxes?"
+msgstr "Szeret checkboxokat pipálgatni?"
+
+#: buddypress/bp-em-core.php:66
+msgid "My Profile"
+msgstr "Profilom"
+
+#: buddypress/bp-em-core.php:149
+msgid "Events (%s)"
+msgstr "Események (%s)"
+
+#: buddypress/bp-em-notifications.php:50
+msgid "Action One"
+msgstr "1-es akció"
+
+#: buddypress/bp-em-notifications.php:56
+msgid "Action Two"
+msgstr "2-es akció"
+
+#: buddypress/bp-em-notifications.php:87
+#: buddypress/bp-em-notifications.php:89
+#: buddypress/bp-em-notifications.php:96
+#: buddypress/bp-em-notifications.php:98
+#: buddypress/bp-em-notifications.php:104
+#: buddypress/bp-em-notifications.php:106
+#: em-install.php:456
+msgid "My Bookings"
+msgstr "Foglalásaim"
+
+#: buddypress/bp-em-notifications.php:87
+msgid "You have a pending booking"
+msgstr "Van egy függő foglalásod"
+
+#: buddypress/bp-em-notifications.php:89
+msgid "You have %s pending bookings"
+msgstr "%s függő foglalásod van"
+
+#: buddypress/bp-em-notifications.php:96
+msgid "You have a confirmed booking"
+msgstr "Van egy elfogadott foglalásod"
+
+#: buddypress/bp-em-notifications.php:98
+msgid "You have %s confirmed bookings"
+msgstr "%s megerősített foglalásod van"
+
+#: buddypress/bp-em-notifications.php:104
+msgid "A user cancelled a booking"
+msgstr "Egy felhasználó lemondta a foglalását"
+
+#: buddypress/bp-em-notifications.php:106
+msgid "%s users cancelled bookings."
+msgstr "%s felhasználó lemondta a foglalását."
+
+#: widgets/em-locations.php:13
+msgid "Event Locations"
+msgstr "Rendezvény helyszínek"
+
+#: widgets/em-locations.php:19
+#, fuzzy
+msgid "Display a list of event locations on Events Manager."
+msgstr "Listájának megjelenítése rendezvény helyszínek az Események parancsra."
+
+#: widgets/em-locations.php:44
+msgid "No locations"
+msgstr "Nincs helyszín"
+
+#: widgets/em-locations.php:67
+#: widgets/em-events.php:76
+#: widgets/em-calendar.php:58
+msgid "Title"
+msgstr "Cím"
+
+#: widgets/em-locations.php:71
+#, fuzzy
+msgid "Show number of locations"
+msgstr "Mutasd számú helyen"
+
+#: widgets/em-locations.php:75
+#, fuzzy
+msgid "Scope of the locations"
+msgstr "Terjedelme a helyszínek"
+
+#: widgets/em-locations.php:85
+msgid "Order of the locations"
+msgstr "A helyszínek sorrendje"
+
+#: widgets/em-locations.php:87
+msgid "Ascendant"
+msgstr "Növekvő"
+
+#: widgets/em-locations.php:88
+msgid "Descendant"
+msgstr "Csökkenő"
+
+#: widgets/em-locations.php:92
+#: widgets/em-events.php:128
+msgid "List item format"
+msgstr "Listaelem formátuma"
+
+#: widgets/em-events.php:21
+#: widgets/em-events.php:52
+#: widgets/em-events.php:137
+msgid "all events"
+msgstr "az összes esemény"
+
+#: widgets/em-events.php:23
+#, fuzzy
+msgid "Display a list of events on Events Manager."
+msgstr "Listájának megjelenítése események Events Manager."
+
+#: widgets/em-events.php:49
+msgid "No events"
+msgstr "Nincs esemény"
+
+#: widgets/em-events.php:80
+msgid "Number of events"
+msgstr "Események száma"
+
+#: widgets/em-events.php:84
+msgid "Scope"
+msgstr "Láthatóság"
+
+#: widgets/em-events.php:94
+msgid "Order By"
+msgstr "Rendezés"
+
+#: widgets/em-events.php:98
+msgid "start date, start time, event name"
+msgstr "kezdő dátum, kezdési időpont, esemény neve"
+
+#: widgets/em-events.php:99
+msgid "name, start date, start time"
+msgstr "név, kezdő dátum, kezdési időpont"
+
+#: widgets/em-events.php:100
+msgid "name, end date, end time"
+msgstr "név, záró dátum, befejezési idő"
+
+#: widgets/em-events.php:101
+msgid "end date, end time, event name"
+msgstr "záró dátuma, befejezési idő, az esemény neve"
+
+#: widgets/em-events.php:112
+msgid "Order"
+msgstr "Rendezés"
+
+#: widgets/em-events.php:132
+#, fuzzy
+msgid "Show all events link at bottom?"
+msgstr "Összes események link alján?"
+
+#: widgets/em-events.php:136
+#, fuzzy
+msgid "All events link text?"
+msgstr "Minden esemény hivatkozás szövege?"
+
+#: widgets/em-calendar.php:16
+#, fuzzy
+msgid "Display your events in a calendar widget."
+msgstr "Kijelző az események a naptárban widget."
+
+#: widgets/em-calendar.php:17
+msgid "Events Calendar"
+msgstr "Esemény-naptár"
+
+#: widgets/em-calendar.php:62
+msgid "Show Long Events?"
+msgstr "Hosszú események megjelenítése?"
+
+#: classes/em-tickets-bookings.php:69
+#: classes/em-tickets-bookings.php:70
+#: classes/em-booking.php:133
+#: classes/em-booking.php:134
+#: classes/em-booking.php:143
+#: classes/em-booking.php:152
+#: classes/em-booking.php:158
+msgid "There was a problem saving the booking."
+msgstr "Hiba történt a foglalás mentésekor."
+
+#: classes/em-tickets-bookings.php:91
+#: classes/em-bookings.php:89
+msgid "Booking cannot be made, not enough spaces available!"
+msgstr "Nem lehet foglalni, nincs elérhető hely!"
+
+#: classes/em-tickets-bookings.php:141
+#: classes/em-bookings.php:106
+#: classes/em-booking.php:154
+#: classes/em-booking.php:160
+#: classes/em-booking.php:370
+#: classes/em-booking.php:372
+msgid "Booking"
+msgstr "Foglalás"
+
+#: classes/em-tickets-bookings.php:169
+#: classes/em-tickets.php:130
+msgid "Standard"
+msgstr "Szabványos"
+
+#: classes/em-categories.php:206
+#: classes/em-location.php:144
+#: classes/em-location.php:152
+msgid "Could not save the %s details due to a database error."
+msgstr "Nem sikerült menteni a(z) %s adatait egy adatbázis hiba miatt."
+
+#: classes/em-mailer.php:67
+msgid "Please supply a valid email format."
+msgstr "Kérjük érvényes e-mail formátumot adjon meg."
+
+#: classes/em-ticket.php:51
+msgid "Standard Ticket"
+msgstr "Általános jegy"
+
+#: classes/em-ticket.php:101
+#: classes/em-ticket-booking.php:67
+#: classes/em-booking.php:125
+msgid "Changes saved"
+msgstr "Változások mentve."
+
+#: classes/em-ticket.php:106
+msgid "Ticket created"
+msgstr "Jegy létrehozva."
+
+#: classes/em-ticket.php:109
+#: classes/em-ticket.php:110
+#: classes/em-ticket.php:114
+#: classes/em-ticket.php:115
+msgid "There was a problem saving the ticket."
+msgstr "Hiba történt a jegy mentése közben."
+
+#: classes/em-ticket.php:159
+#: classes/em-ticket-booking.php:102
+#: classes/em-event.php:578
+msgid "Missing fields: "
+msgstr "Hiányzó mezők:"
+
+#: classes/em-ticket.php:276
+msgid "You cannot delete a ticket that has a booking on it."
+msgstr "Nem lehet törölni egy jegyet, amin foglalás van."
+
+#: classes/em-ticket-booking.php:72
+msgid "Ticket booking created"
+msgstr "Jegyfoglalás létrehozva"
+
+#: classes/em-ticket-booking.php:75
+#: classes/em-ticket-booking.php:76
+#: classes/em-ticket-booking.php:80
+#: classes/em-ticket-booking.php:81
+msgid "There was a problem saving the ticket booking."
+msgstr "Hiba történt a jegyfoglalás mentése közben."
+
+#: classes/em-tickets.php:104
+msgid "You cannot delete tickets if there are any bookings associated with them. Please delete these bookings first."
+msgstr "Nem törölhet jegyeket, amíg van hozzájuk kapcsol foglalás. Először törlje ezeket a foglalásokat."
+
+#: classes/em-location.php:50
+msgid "The location name"
+msgstr "A helyszín neve"
+
+#: classes/em-location.php:50
+msgid "The location address"
+msgstr "A helyszín címe"
+
+#: classes/em-location.php:50
+msgid "The location town"
+msgstr "A helyszín városa"
+
+#: classes/em-location.php:50
+msgid "The country"
+msgstr "Az ország"
+
+#: classes/em-location.php:111
+#: classes/em-location.php:113
+#: classes/em-category.php:70
+msgid " is required."
+msgstr " nincs megadva."
+
+#: classes/em-location.php:142
+#: classes/em-category.php:90
+msgid "%s successfully updated."
+msgstr "%s sikeresen frissítve."
+
+#: classes/em-location.php:150
+#: classes/em-category.php:96
+msgid "%s successfully added."
+msgstr "%s sikeresen hozzáadva."
+
+#: classes/em-location.php:157
+#: classes/em-category.php:100
+msgid "You do not have permission to create/edit %s."
+msgstr "Nincs engedélye létrehozni/szerkeszteni %s."
+
+#: classes/em-location.php:194
+#: em-actions.php:109
+msgid "%s successfully deleted."
+msgstr "%s sikeresen törölve."
+
+#: classes/em-location.php:196
+#: em-actions.php:112
+msgid "%s could not be deleted."
+msgstr "%s nem törölhető."
+
+#: classes/em-location.php:199
+msgid "You do not have permission to delete %s."
+msgstr "Nincs engedélye %s törölni."
+
+#: classes/em-event.php:213
+msgid "WARNING: This is a recurring event."
+msgstr "FIGYELEM: Ez egy ismétlődő esemény."
+
+#: classes/em-event.php:213
+#, fuzzy
+msgid "Modifications to this event will cause all recurrences of this event to be deleted and recreated and previous bookings will be deleted! You can edit individual recurrences and disassociate them with this recurring event."
+msgstr "Módosításai az esemény hatására az összes kiújulás az esemény, hogy el kell hagyni és újra, és az előző foglalás törlésre kerül! Bármikor módosíthatja az egyes kiújulás és kettéválasztja őket a visszatérő esemény."
+
+#: classes/em-event.php:215
+#, fuzzy
+msgid "WARNING: This is a recurrence in a set of recurring events."
+msgstr "FIGYELEM: Ez a visszaesés egy sor ismétlődő események."
+
+#: classes/em-event.php:215
+#, fuzzy
+msgid "If you update this event data and save, it will become an independent event, and will not be deleted or modified automatically if you reschedule the original recurring event details."
+msgstr "Ha frissíti az esemény adatait, és mentse, akkor lesz független esemény, és nem törlődik, vagy módosítani automatikusan, ha átütemezni az eredeti visszatérő esemény részleteit."
+
+#: classes/em-event.php:218
+msgid "WARNING: This is a event belonging to the group \"%s\". Other group admins can also modify this event."
+msgstr "FIGYELEM: Ez az esemény a(z) \"%s\" csoporthoz tartozik. A többi csoport adminisztrátor is szerkesztheti ezt az eseményt!"
+
+#: classes/em-event.php:339
+#, fuzzy
+msgid "There was a problem saving the location so event was not saved."
+msgstr "Hiba történt mentés helyét, így ha nem volt mentve."
+
+#: classes/em-event.php:380
+#: classes/em-event.php:431
+#, fuzzy
+msgid "Something went wrong with creating tickets."
+msgstr "Valami elromlott létrehozásával jegyeket."
+
+#: classes/em-event.php:392
+#: classes/em-event.php:442
+#, fuzzy
+msgid "Something went wrong with the recurrence update..."
+msgstr "Valami elromlott a kiújulás frissítést ..."
+
+#: classes/em-event.php:393
+#: classes/em-event.php:443
+#, fuzzy
+msgid "There was a problem saving the recurring events."
+msgstr "Hiba megtakarítás az ismétlődő eseményeket."
+
+#: classes/em-event.php:398
+msgid "New recurrent event inserted!"
+msgstr "Új ismétlődő esemény lett beszúrva!"
+
+#: classes/em-event.php:402
+msgid "New event successfully inserted!"
+msgstr "Új esemény lett sikeresen beszúrva!"
+
+#: classes/em-event.php:405
+#: classes/em-event.php:450
+msgid "Could not save the event details due to a database error."
+msgstr "Nem lehetett elmenteni az esemény részleteit egy adatbázis hiba miatt."
+
+#: classes/em-event.php:429
+#: classes/em-event.php:454
+msgid "updated"
+msgstr "frissítve"
+
+#: classes/em-event.php:446
+msgid "Recurrence updated!"
+msgstr "Ismétlődés frissítve!"
+
+#: classes/em-event.php:531
+msgid "Event %s."
+msgstr "Esemény %s."
+
+#: classes/em-event.php:535
+#: classes/em-booking.php:437
+#: classes/em-booking.php:438
+msgid "Booking could not be %s."
+msgstr "Foglalást nem lehet %s"
+
+#: classes/em-event.php:553
+msgid "%s successfully duplicated."
+msgstr "%s sikeresen duplikálva."
+
+#: classes/em-event.php:557
+msgid "You are not allowed to manage this %s."
+msgstr "Ön nem jogosult kezelni ezt a(z) %s."
+
+#: classes/em-event.php:557
+#: em-actions.php:93
+msgid "event"
+msgstr "esemény"
+
+#: classes/em-event.php:581
+msgid "Since the event is repeated, you must specify an event date."
+msgstr "Mivel az esemény ismétlődik, meg kell adnia az esemény időpontját."
+
+#: classes/em-event.php:585
+msgid "Events cannot start after they end."
+msgstr "Események nem kezdődhetnek el miután véget értek."
+
+#: classes/em-event.php:588
+#, fuzzy
+msgid "Dates must have correct formatting. Please use the date picker provided."
+msgstr "Időpontok kell helyes formázást. Kérjük, használja a Dátumválasztó biztosított."
+
+#: classes/em-event.php:876
+#: classes/em-event.php:885
+msgid "Profile"
+msgstr "Profil"
+
+#: classes/em-event.php:1240
+msgid "the first %s of the month"
+msgstr "A hónap első %s"
+
+#: classes/em-event.php:1240
+msgid "the second %s of the month"
+msgstr "A hónap második %s"
+
+#: classes/em-event.php:1240
+msgid "the third %s of the month"
+msgstr "A hónap harmadik %s"
+
+#: classes/em-event.php:1240
+msgid "the fourth %s of the month"
+msgstr "A hónap negyedik %s"
+
+#: classes/em-event.php:1240
+msgid "the last %s of the month"
+msgstr "A hónap utolsó %s"
+
+#: classes/em-event.php:1241
+msgid "From %1$s to %2$s"
+msgstr "%1$s-tól %2$s-ig"
+
+#: classes/em-event.php:1243
+msgid "everyday"
+msgstr "mindennap"
+
+#: classes/em-event.php:1245
+msgid "every %s days"
+msgstr "minden %s nap"
+
+#: classes/em-event.php:1254
+msgid "every week"
+msgstr "minden héten"
+
+#: classes/em-event.php:1256
+msgid "every %s weeks"
+msgstr "minden %s héten"
+
+#: classes/em-event.php:1267
+msgid "every %s months"
+msgstr "minden %s hónapban"
+
+#: classes/em-person.php:61
+msgid "Email"
+msgstr "E-mail"
+
+#: classes/em-bookings.php:69
+msgid "Booking successful, pending confirmation (you will also receive an email once confirmed)."
+msgstr "Sikeres foglalás! A visszaigazolás folyamatban (amint véglegesítettük a foglalást, e-mailt küldünk!)..."
+
+#: classes/em-bookings.php:71
+msgid "Booking successful."
+msgstr "Foglalás sikeres."
+
+#: classes/em-bookings.php:74
+msgid "However, there were some problems whilst sending confirmation emails to you and/or the event contact person. You may want to contact them directly and letting them know of this error."
+msgstr "Azonban problémák adódtak az értesítő emailek küldésével, vagy neked vagy a kapcsolattartónak. Kérjük vegye fel velünk a kapcsolatok személyesen, hogy biztos legyen a foglalása!"
+
+#: classes/em-bookings.php:86
+msgid "Booking could not be created"
+msgstr "Foglalás nem hozható létre"
+
+#: classes/em-bookings.php:106
+msgid "%s created."
+msgstr "%s létrehotva."
+
+#: classes/em-bookings.php:249
+#: classes/em-bookings.php:255
+msgid "Bookings %s. Mails Sent."
+msgstr "Foglalás %s. Levelek elküldve."
+
+#: classes/em-bookings.php:259
+msgid "An error occurred."
+msgstr "Hiba történt."
+
+#: classes/em-bookings.php:528
+msgid "Booking details for \"%s\" as of %s"
+msgstr "Foglalási adatok a \"%s\", mint %s"
+
+#: classes/em-category.php:31
+msgid "The category name"
+msgstr "A kategória neve"
+
+#: classes/em-booking.php:98
+msgid "Rejected"
+msgstr "Visszautasítva"
+
+#: classes/em-booking.php:99
+#: em-actions.php:354
+msgid "Cancelled"
+msgstr "Lemondva"
+
+#: classes/em-booking.php:100
+msgid "Awaiting Online Payment"
+msgstr "Online fizetésre vár"
+
+#: classes/em-booking.php:101
+msgid "Awaiting Payment"
+msgstr "Fizetésre vár"
+
+#: classes/em-booking.php:130
+msgid "Your booking has been recorded"
+msgstr "Az Ön foglalása felvételre került"
+
+#: classes/em-booking.php:154
+#: classes/em-booking.php:160
+msgid "You cannot manage this %s."
+msgstr "Nem tudja kezelni ezt a %s."
+
+#: classes/em-booking.php:210
+msgid "You are trying to book a non-existent ticket for this event."
+msgstr "Nem létező jegyet próbálsz meg lefoglalni!"
+
+#: classes/em-booking.php:231
+msgid "You must request at least one space to book an event."
+msgstr "Legalább egy helyet le kell foglalnod!"
+
+#: classes/em-booking.php:370
+msgid "%s deleted"
+msgstr "%s törölve"
+
+#: classes/em-booking.php:372
+msgid "%s could not be deleted"
+msgstr "%s nem törölhető"
+
+#: classes/em-booking.php:416
+msgid "Not approved, spaces full."
+msgstr "Nem engedélyezett, mindegyik hely betelt."
+
+#: classes/em-booking.php:424
+msgid "Booking %s."
+msgstr "Foglalás %s."
+
+#: classes/em-booking.php:427
+msgid "Mail Sent."
+msgstr "Levél kiküldve."
+
+#: classes/em-booking.php:430
+#: classes/em-booking.php:431
+msgid "ERROR : Mail Not Sent."
+msgstr "HIBA : Levél nem lett elküldve."
+
+#: classes/em-booking.php:453
+msgid "Booking note successfully added."
+msgstr "Foglalás megjegyzés sikeresen hozzáadva."
+
+#: classes/em-booking.php:538
+#, fuzzy
+msgid "Confirmation email could not be sent to contact person. Registrant should have gotten their email (only admin see this warning)."
+msgstr "Megerősítő e-mailt nem lehet elküldeni a kapcsolattartó személy. Bejegyzést kell ütött az e-mail (csak az admin látja ezt a figyelmeztetést)."
+
+#: classes/em-booking.php:545
+#, fuzzy
+msgid "Confirmation email could not be sent to admin. Registrant should have gotten their email (only admin see this warning)."
+msgstr "Megerősítő e-mailt nem lehet elküldeni admin. Bejegyzést kell ütött az e-mail (csak az admin látja ezt a figyelmeztetést)."
+
+#: classes/em-object.php:731
+msgid "However, the image could not be saved."
+msgstr "A képet azonban nem lehet menteni."
+
+#: classes/em-object.php:733
+msgid "The image could not be saved"
+msgstr "A kép nem menthető"
+
+#: classes/em-object.php:737
+msgid "However, the image could not be saved:"
+msgstr "A képet azonban nem lehet menteni:"
+
+#: classes/em-object.php:754
+msgid "The image file is too big! Maximum size:"
+msgstr "A kép fájl túl nagy! Maximális méret:"
+
+#: classes/em-object.php:759
+msgid "The image is too big! Maximum size allowed:"
+msgstr "A kép túl nagy! Maximális megengedett méret:"
+
+#: classes/em-object.php:762
+msgid "The image is in a wrong format!"
+msgstr "A képnek rossz a formátuma!"
+
+#: classes/em-people.php:81
+msgid "User deleted by administrators"
+msgstr "A felhasználót egy adminisztrátor törölte"
+
+#: em-install.php:225
+msgid "Uncategorized"
+msgstr "Nincs kategorizálva"
+
+#: em-install.php:280
+#, fuzzy
+msgid "#_BOOKINGNAME (#_BOOKINGEMAIL) will attend #_NAME on #F #j, #Y. He wants to reserve #_BOOKINGSPACES spaces.<br/> Now there are #_BOOKEDSPACES spaces reserved, #_AVAILABLESPACES are still available.<br/>Yours faithfully,<br/>Events Manager - http://wp-events-plugin.com"
+msgstr "# _BOOKINGNAME (# _BOOKINGEMAIL) Vesz részt # _NAME a # F # j # Y. Azt akarja foglalni # _BOOKINGSPACES terek. <br/> Most van # _BOOKEDSPACES fenntartott helyek, # _AVAILABLESPACES még mindig áll. <br/> Tisztelettel: <br/> Események Manager - http://wp-events-plugin.com"
+
+#: em-install.php:280
+#: em-install.php:281
+#: em-install.php:282
+#: em-install.php:283
+#: em-install.php:284
+#: em-install.php:285
+msgid "<br/><br/>-------------------------------<br/>Powered by Events Manager - http://wp-events-plugin.com"
+msgstr "<br/><br/> ------------------------------- <br/> Powered by Events Manager - http://wp-events-plugin.com"
+
+#: em-install.php:281
+msgid "#_BOOKINGNAME (#_BOOKINGEMAIL) cancelled his booking at #_NAME on #F #j, #Y. He wanted to reserve #_BOOKINGSPACES spaces.<br/> Now there are #_BOOKEDSPACES spaces reserved, #_AVAILABLESPACES are still available.<br/>Yours faithfully,<br/>Events Manager - http://wp-events-plugin.com"
+msgstr "#_BOOKINGNAME (#_BOOKINGEMAIL) lemondta a foglalását a(z) #_NAME eseményre on #Y. #F #j. Eredetileg #_BOOKINGSPACES helyet foglalt le.<br/> Így már csak #_BOOKEDSPACES hely van lefoglalva, #_AVAILABLESPACES még továbbra is elérhető.<br/>Üdvözlettel,<br/>Rendezvényszervező"
+
+#: em-install.php:282
+msgid "Dear #_BOOKINGNAME, <br/>you have successfully reserved #_BOOKINGSPACES space/spaces for #_NAME.<br/>Yours faithfully,<br/>#_CONTACTNAME"
+msgstr "Kedves #_BOOKINGNAME, <br/> Ön sikeresen lefoglalt #_BOOKINGSPACES helyet a(z) # _NAME eseményre. <br/>Tisztelettel: <br/> #_CONTACTNAME"
+
+#: em-install.php:283
+msgid "Dear #_BOOKINGNAME, <br/>You have requested #_BOOKINGSPACES space/spaces for #_NAME.<br/>Your booking is currently pending approval by our administrators. Once approved you will receive an automatic confirmation.<br/>Yours faithfully,<br/>#_CONTACTNAME"
+msgstr "Kedves # _BOOKINGNAME, <br/> Ön # _BOOKINGSPACES helyet igényelt a(z) #_NAME eseményre. <br/> A foglalás jelenleg függőben van. A jóváhagyást követően kap egy automatikus visszaigazolást. <br/> Tisztelettel: <br/> #_CONTACTNAME"
+
+#: em-install.php:284
+msgid "Dear #_BOOKINGNAME, <br/>Your requested booking for #_BOOKINGSPACES spaces at #_NAME on #F #j, #Y has been rejected.<br/>Yours faithfully,<br/>#_CONTACTNAME"
+msgstr "Kedves #_BOOKINGNAME, <br/>A(z) #_BOOKINGSPACES foglalásodat #Y. #F #j-án/én megrendezésre kerülő #_NAME eseményre visszautasítottuk.<br/>Üdvözlettel,<br/>#_CONTACTNAME"
+
+#: em-install.php:285
+msgid "Dear #_BOOKINGNAME, <br/>Your requested booking for #_BOOKINGSPACES spaces at #_NAME on #F #j, #Y has been cancelled.<br/>Yours faithfully,<br/>#_CONTACTNAME"
+msgstr "Kedves #_BOOKINGNAME, <br/>Tudomásul vettük, hogy #_BOOKINGSPACES foglalásodat #Y. #F #j-án/én megrendezésre kerülő #_NAME eseményre lemondtad.<br/>Üdvözlettel,<br/>#_CONTACTNAME"
+
+#: em-install.php:344
+#: em-install.php:349
+#: em-install.php:375
+msgid "No %s"
+msgstr "Nincs %s"
+
+#: em-install.php:368
+#: em-debug.php:18
+msgid "<li>No events in this location</li>"
+msgstr "<li>Nincs esemény ezen a helyszínen</li>"
+
+#: em-install.php:434
+msgid "New booking"
+msgstr "Új foglalás"
+
+#: em-install.php:436
+#: em-install.php:444
+msgid "Booking Cancelled"
+msgstr "Foglalás lemondva"
+
+#: em-install.php:438
+msgid "Booking Pending"
+msgstr "Foglalás függőben"
+
+#: em-install.php:440
+msgid "Booking Rejected"
+msgstr "Foglalás visszautasítva"
+
+#: em-install.php:442
+msgid "Booking Confirmed"
+msgstr "Foglalás megerősítve"
+
+#: em-install.php:447
+msgid "Powered by"
+msgstr "Powered by"
+
+#: em-install.php:448
+msgid "Bookings - #_NAME"
+msgstr "Foglalások - #_NAME"
+
+#: em-template-tags-depreciated.php:146
+msgid "Ach, some problems here:"
+msgstr "Ahh, néhány probléma van:"
+
+#: em-actions.php:31
+msgid "No ticket id provided"
+msgstr "Nincs jegy azonosító megadva"
+
+#: em-actions.php:93
+msgid "You are now viewing the duplicated %s."
+msgstr "Most a duplikált %s nézi."
+
+#: em-actions.php:170
+#: em-actions.php:240
+msgid "%s successfully deleted"
+msgstr "%s sikeresen törölve"
+
+#: em-actions.php:239
+msgid "EM_Categories"
+msgstr "EM_Categories"
+
+#: em-actions.php:286
+#, fuzzy
+msgid "A new user account has been created for you. Please check your email for access details."
+msgstr "Egy új felhasználói fiókot hozott létre az Ön számára. Kérjük, ellenőrizze az e-mail hozzáférési részleteket."
+
+#: em-actions.php:293
+#, fuzzy
+msgid "This email already exists in our system, please log in to register to proceed with your booking."
+msgstr "Az email már létezik a rendszerben, kérjük jelentkezzen be a regisztráció folytatásához a foglalás."
+
+#: em-actions.php:298
+#, fuzzy
+msgid "There was a problem creating a user account, please contact a website administrator."
+msgstr "Hiba létre egy felhasználói fiókot, kérjük lépjen kapcsolatba a honlap adminisztrátorával."
+
+#: em-actions.php:303
+msgid "You must log in or register to make a booking."
+msgstr "Be kell jelentkeznie, vagy regisztrálnia a foglaláshoz."
+
+#: em-actions.php:343
+msgid "You already have booked a seat at this event."
+msgstr "Már foglalt helyet erre az eseményre."
+
+#: em-actions.php:354
+msgid "Booking %s"
+msgstr "Foglalás %s"
+
+#: em-actions.php:366
+#: em-bookings.php:77
+msgid "You must log in to cancel your booking."
+msgstr "Be kell jelentkeznie, hogy lemondhassa a foglalást."
+
+#: em-bookings.php:97
+msgid "Book now!"
+msgstr "Foglaljon most!"
+
+#: em-bookings.php:171
+#, fuzzy
+msgid "You must <a href=\"%s\">register</a> or <a href=\"%s\">log in</a> in order to create and manage your bookings."
+msgstr "Be kell <a href=\"%s\">regisztrálni</a> , vagy <a href=\"%s\">jelentkezzen be</a> annak érdekében, hogy létrehozni és kezelni a foglalásokat."
+
+#: em-bookings.php:219
+#: em-bookings.php:233
+msgid "Cancel your booking"
+msgstr "Foglalás lemondása"
+
+#: em-debug.php:44
+#, fuzzy
+msgid "You are in Events Manager debug mode. To turn debug mode off, go to the <a href=\"%s\">settings</a> page."
+msgstr "Ön Events Manager-debug módban. A be debug módban ki, menj a <a href=\"%s\">beállítások</a> oldalon."
+
+#: em-functions.php:9
+#, fuzzy
+msgid ""
+"<p>Hey, <strong>%s</strong>, welcome to <strong>Events Manager</strong>! We hope you like it around here.</p> \r\n"
+"\t\t<p>Now it's time to insert events lists through  <a href='%s' title='Widgets page'>widgets</a>, <a href='%s' title='Template tags documentation'>template tags</a> or <a href='%s' title='Shortcodes documentation'>shortcodes</a>.</p>\r\n"
+"\t\t<p>By the way, have you taken a look at the <a href='%s' title='Change settings'>Settings page</a>? That's where you customize the way events and locations are displayed.</p>\r\n"
+"\t\t<p>What? Tired of seeing this advice? I hear you, <a href='%s' title='Don't show this advice again'>click here</a> and you won't see this again!</p>"
+msgstr "<p> <strong>Hé,%s,</strong> szívesen <strong>események menedzser!</strong> Reméljük, tetszik itt. </p><p> Most itt az ideje, hogy helyezze események listáját a <a href='%s' title=\"Widgets oldalon\">kütyü</a> , <a href='%s' title=\"Sablon címkék dokumentáció\">template tag</a> vagy <a href='%s' title=\"Shortcodes dokumentáció\">shortcodes</a> . </p><p> By the way, már akkor tett egy pillantást a <a href='%s' title=\"Beállítások módosítása\">beállítások oldal</a> ? Ez az, ahol testreszabhatja az utat események és helyszínek jelennek meg. </p><p> Mi az? Unod már látni ezt a tanácsot? Hallom, <a href='%s' title=\"Don\"t show this advice again'>kattintson ide</a> , és nem jelenik meg még egyszer! </p>"
+
+#: em-functions.php:142
+msgid "Today's events"
+msgstr "Mai események"
+
+#: em-functions.php:143
+msgid "Tomorrow's events"
+msgstr "Holnapi események"
+
+#: em-functions.php:144
+msgid "Events this month"
+msgstr "Ehavi események"
+
+#: em-functions.php:145
+msgid "Events next month"
+msgstr "Jövő havi események"
+
+#: em-functions.php:146
+msgid "Events within 2 months"
+msgstr "2 hónapon belüli események"
+
+#: em-functions.php:147
+msgid "Events within 3 months"
+msgstr "3 hónapon belüli események"
+
+#: em-functions.php:148
+msgid "Events within 6 months"
+msgstr "Féléven belüli események"
+
+#: em-functions.php:149
+msgid "Events within 12 months"
+msgstr "12 hónapon belüli események"
+
+#: em-functions.php:181
+msgid "Trying to perform an illegal action."
+msgstr "Illegális műveletet próbál végrehajtani."
+
+#: em-functions.php:252
+msgid "<strong>ERROR</strong>: Please enter a username."
+msgstr "<strong>HIBA</strong>: Kérjük, adjon meg egy felhasználónevet."
+
+#: em-functions.php:254
+msgid "<strong>ERROR</strong>: This username is invalid because it uses illegal characters. Please enter a valid username."
+msgstr "<strong>HIBA</strong>: Ez a felhasználónév érvénytelen, mert van benne illegális karakter. Kérjük, adjon meg egy érvényes felhasználónevet."
+
+#: em-functions.php:257
+msgid "<strong>ERROR</strong>: This username is already registered, please choose another one."
+msgstr "<strong>HIBA</strong>: Ez a felhasználónév már regisztrálva van, kérjük válasszon másikat."
+
+#: em-functions.php:262
+msgid "<strong>ERROR</strong>: Please type your e-mail address."
+msgstr "<strong>HIBA</strong>: Kérjük, írja be e-mail címét."
+
+#: em-functions.php:264
+msgid "<strong>ERROR</strong>: The email address isn&#8217;t correct."
+msgstr "<strong>HIBA</strong>: Az email cím nem helyes."
+
+#: em-functions.php:267
+msgid "<strong>ERROR</strong>: This email is already registered, please choose another one."
+msgstr "<strong>HIBA</strong>: Az email már regisztrálva van, kérjük válasszon másikat."
+
+#: em-functions.php:285
+msgid "<strong>ERROR</strong>: Couldn&#8217;t register you... please contact the <a href=\"mailto:%s\">webmaster</a> !"
+msgstr "<strong>HIBA</strong>: Nem sikerült a regisztráci... kérjük, forduljon a <a href=\"mailto:%s\">webmesterhez</a>!"
+
+#: em-functions.php:320
+msgid "New user registration on your blog %s:"
+msgstr "Új felhasználó a blogon %s:"
+
+#: em-functions.php:321
+msgid "Username: %s"
+msgstr "Felhasználónév: %s"
+
+#: em-functions.php:322
+msgid "E-mail: %s"
+msgstr "E-mail: %s"
+
+#: em-functions.php:323
+msgid "[%s] New User Registration"
+msgstr "[%s] Új felhasználó regisztrációja"
+
+#: em-functions.php:334
+msgid "[%s] Your username and password"
+msgstr "[%s] A felhasználóneve és jelszava"
+
+#. #-#-#-#-#  plugin.pot (Events Manager 4.0.83)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  plugin.pot (Events Manager 4.0.83)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "http://wp-events-plugin.com"
+msgstr "http://wp-events-plugin.com"
+
+#. Description of the plugin/theme
+msgid "Event registration and booking management for Wordpress. Recurring events, locations, google maps, rss, ical, booking registration and more!"
+msgstr "Esemény regisztráció és foglalás menedzsment Wordpresshez. Ismétlődő események, helyszínek, Google Maps, rss, iCal, foglalás regisztráció és még sok egyéb!"
+
+#. Author of the plugin/theme
+msgid "Marcus Sykes"
+msgstr "Marcus Sykes"
+
+msgid "Availability"
+msgstr "Elérhetőség"
+
+msgid "Events current and next month"
+msgstr "Ehavi és következő havi események"
+
+msgid "Booker"
+msgstr "Foglaló"
+

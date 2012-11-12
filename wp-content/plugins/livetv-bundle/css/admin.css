@@ -1,0 +1,48 @@
+@charset utf-8;  span.livetv_help { height:16px; width:16px; background:url(../images/help.gif) no-repeat; float:right; cursor:help }  .success { background-color:#DFF2BF!important; border:1px solid #BCDF7D!important; color:#4F8A10!important }  .error { background-color:#FFBABA!important; border:solid 1px #dd3c10!important; color:#D8000C!important }  span.mini-own3d { background:url(../images/owned.png) no-repeat; height:90px; width:130px }  span.mini-justin { background:url(../images/justin.png) no-repeat; height:90px; width:130px }  span.mini-livestream { background:url(../images/livestream.png) no-repeat; height:90px; width:130px }  span.mini-twitch { background:url(../images/twitch.png) no-repeat; height:90px; width:130px }  .livetv-admin-td { text-align:right }  .livetv-admin-td span { margin-left:200px }
+.livetv-holder-twitch, .livetv-holder-justin, .livetv-holder-own3d {
+	margin: 0;
+}
+.livetv-holder-twitch a, .livetv-holder-justin a, .livetv-holder-own3d a {
+	width: auto;
+	padding:1px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #EBEBEB;
+	height: auto;
+	text-decoration: none;
+	margin: 2px;
+	background: #FFF;
+	-webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+	background-color: #F8F8F8;
+	background-image: -webkit-linear-gradient(top, #F8F8F8, #F1F1F1);
+	background-image: -moz-linear-gradient(top, #F8F8F8, #F1F1F1);
+	background-image: -ms-linear-gradient(top, #F8F8F8, #F1F1F1);
+	background-image: -o-linear-gradient(top, #F8F8F8, #F1F1F1);
+	background-image: linear-gradient(top, #F8F8F8, #F1F1F1);
+}
+
+.livetv-holder-twitch a:hover, .livetv-holder-justin a:hover, .livetv-holder-own3d a:hover{
+	border: 1px solid #C6C6C6;
+	cursor: pointer;
+}
+
+.livetv-holder-twitch a.jp-previous, .livetv-holder-justin a.jp-previous, .livetv-holder-own3d a.jp-previous { margin-right: 5px; }
+.livetv-holder-twitch a.jp-next, .livetv-holder-justin a.jp-next, .livetv-holder-own3d a.jp-next { margin-left: 5px; }
+
+.livetv-holder-twitch a.jp-current, .livetv-holder-justin a.jp-current, .livetv-holder-own3d a.jp-current, a.jp-current:hover {
+	color: #FF4242;
+	font-weight: bold;
+}
+.livetv-holder-twitch a.jp-disabled, .livetv-holder-justin a.jp-disabled, .livetv-holder-own3d a.jp-disabled, a.jp-disabled:hover{
+	color: #bbb;
+}
+
+.livetv-holder-twitch a.jp-current, .livetv-holder-justin a.jp-current, .livetv-holder-own3d a.jp-current, a.jp-current:hover, .livetv-holder-twitch a.jp-disabled, .livetv-holder-justin a.jp-disabled, .livetv-holder-own3d a.jp-disabled, a.jp-disabled:hover {
+	cursor: default; 
+	background: none;
+}
+
+.livetv-holder-twitch span, .livetv-holder-justin span, .livetv-holder-own3d span { margin: 2px; }

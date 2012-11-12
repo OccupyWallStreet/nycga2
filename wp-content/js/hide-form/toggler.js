@@ -22,5 +22,10 @@ jQuery(document).ready(function() {
 	jQuery("h2.trigger").click(function(){
 		jQuery(this).toggleClass("active").next().slideToggle("slow");
 		return false; //Prevent the browser jump to the link anchor
-	});	
+	});
+	
+    jQuery("button").click(function () {
+      jQuery(".event-map").slideToggle("fast");
+    });
+    
 });

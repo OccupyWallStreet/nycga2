@@ -1,0 +1,235 @@
+/*
+ * Admin Page CSS for Shortcoder plugin
+ * Author : Aakash Chakravarthy
+ * Version : 3.1
+*/
+.wrap{
+	margin: 015px auto 15px;
+	width: 630px;
+	padding: 0px;
+}
+.wrap #content{
+	background: #FFFFFF;
+	padding: 15px;
+	border: 1px solid #dfdfdf;
+	margin: 10px 0px 0px;
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.wrap h3{
+	margin: 0px -15px 15px;
+	padding: 0px 15px 10px;
+	border-bottom: 1px solid #dfdfdf;
+	background: url(images/grey-bg.png) repeat-x 0px 10px;
+}
+.wrap h3 small{
+	color: #666666;
+	font-size: 11px;
+	margin: 0px 0px 0px 5px;
+}
+#sc_form{
+	margin: 0px -15px 10px;
+	padding: 0px 15px 20px;
+	border-bottom: 1px solid #dfdfdf;
+}
+#sc_name{
+	padding: 5px;
+	width: 100%;
+	margin: 0px 0px 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+#sc_content{
+	width: 100%;
+	font: 11.5px/2em "Courier New", Courier, monospace;
+	resize: vertical;
+}
+#sc_list li{
+	background: #F5F5F5 url(images/grey-bg.png) repeat-x;
+	float: left;
+	cursor: pointer;
+	color: #454545;
+	margin: 0px 5px 6px 0px;
+	padding: 3px 10px;
+	border: 1px solid #dfdfdf;
+	border-radius: 10px;
+}
+#sc_list li:hover{
+	border-color: #0099CC;
+}
+#sc_list li:active{
+	background: #f2f2f2;
+}
+#sc_settings{
+	margin-bottom: 10px;
+	display: block;
+	margin-top: 10px;
+}
+#sc_submit{
+	float: right;
+	background: whiteSmoke url(images/grey-bg.png) repeat-x;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 15px 15px;
+	margin: -35px 0px 0px;
+	border-color: #0C0;
+}
+#sc_submit:hover{
+	border-color: #009900;
+}
+.sc_btdisabled{
+	opacity: 0.5;
+}
+#sc_code{
+	font-size: 10px;
+	color: #666666;
+	border: 1px solid #dfdfdf;
+	display: none;
+	background: #FCFCFC;
+	float: right;
+	margin-top: -57px;
+	padding: 0px 5px;
+}
+#sc_delete{
+	background: #F7F7F7 url(images/trash-can.png) no-repeat;
+	height: 48px;
+	width: 48px;
+	border: 1px solid #FF0000;
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin-right: 35px;
+	margin-bottom: 55px;
+	opacity: 0.2;
+}
+#sc_editor{
+	clear: both !important;
+}
+.sc_trashHover{
+	opacity: 1 !important;
+	-moz-box-shadow: 0px 0px 5px 1px #ff0000 !important;
+	box-shadow: 0px 0px 5px 1px #ff0000 !important;
+}
+.sc_back{
+	margin: -45px 0px 0px;
+	float: right;
+	font-weight: bold;
+	cursor: pointer;
+}
+.sc_back:hover{
+	color: #666666;
+}
+.sc_switch_editor{
+	float:right;
+	margin: 0px;
+}
+.sc_switch_editor li{
+	float:left;
+	background: #CC3300;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	margin-right: 3px;
+	background: #F5F5F5 url(images/grey-bg.png) repeat-x;
+	border: 1px solid #dfdfdf;
+	padding: 3px 8px;
+	cursor: pointer;
+}
+.sc_editor_active{
+	border-color: #666666!important;
+}
+
+.sc_share_wrap{
+	margin-left: -65px;
+	position: absolute;
+	top: 20%;
+}
+.sc_share_wrap li{
+	padding: 7px;
+	background: white url(images/grey-bg.png) repeat-x bottom;
+	border: 1px solid #dfdfdf;
+	margin: 0px 0px 7px;
+	opacity: 0.6;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.sc_share_wrap a{
+	background-repeat: no-repeat;
+	height: 32px;
+	width: 32px;
+	display: block;
+}
+.sc_donate a{ background-image: url(images/donate.png); }
+.sc_share a{ background-image: url(images/share.png); }
+.sc_share_iframe{
+	background: #FFFFFF;
+	border: 1px solid #dfdfdf;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sc_hidden_text{
+	display: none;
+}
+.sc_credits{
+	background: url(images/aw.png) no-repeat;
+	padding-left: 23px;
+	color: #8B8B8B;
+	margin-left: -5px;
+	font-size: 13px;
+	text-decoration: none;
+}
+.sc_edit_note{
+	opacity: 0.2;
+	margin: 10px 0 20px 0;
+	font-size: 10px;
+}
+.sc_edit_note:hover{
+	opacity: 1;
+}
+.smallText{
+	font-size: 11px;
+	color: #333333;
+	font-weight: none;
+}
+.grey{
+	color: #999;
+}
+.nicEdit-main {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 14px;
+}
+
+* html .clearfix{
+  height: 1%;
+  overflow: visible;
+}
+
+/* float clearing for IE7 */
+*+html .clearfix{
+  min-height: 1%;
+}
+
+/* float clearing for everyone else */
+.clearfix:after{
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  font-size: 0;
+}

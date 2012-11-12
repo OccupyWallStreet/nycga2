@@ -1,0 +1,59 @@
+#ui-datepicker-div {
+	display: none;
+}
+
+/* ----- Meta boxes setup ----- */
+.eab-events-fpe-col_wrapper {
+	overflow: hidden;
+	margin: .4% 0;
+}
+.eab-events-fpe-meta_box {
+	width: 47%;
+	padding: .4%;
+	/*border: 1px solid #ddd;*/
+	float: left;
+}
+#eab-events-fpe-status_type {
+	float: right;
+}
+#eab-events-fpe-rsvps, #eab-events-fpe-meta_box-venue {
+	float: none;
+	width: auto;
+}
+#eab-events-fpe-rsvps {
+	border: none;
+}
+
+/* ----- General meta box elements ----- */
+.eab-events-fpe-meta_box label {
+	display: inline-block;
+	width: 10em;
+}
+#eab-events-fpe-date_time label {
+	width: 6em;
+}
+#eab-events-fpe-waiting_indicator {
+	margin-left: 1em;
+	margin-right: 1.5em;
+}
+
+/* ----- Form elements setup ----- */
+#eab-events-fpe-event_title {
+	width: 99%;
+	font-size: 2em;
+}
+
+/* ----- Date/time metabox ----- */
+#eab-events-fpe-venue {
+	width: 99%;
+}
+
+/* ----- Messages ----- */
+.eab-events-fpe-error, #eab-events-fpe-date_time-error {
+	color: #A00;
+}
+.eab-events-fpe-success {
+	color: #060;
+}
+
+/* 65047-1345424028 */

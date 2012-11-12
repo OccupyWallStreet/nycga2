@@ -1,0 +1,51 @@
+.su-jcarousel {
+	position: relative;
+	margin: 0 0 1.5em 0;
+	padding: 15px 40px;
+	background: #f0f0f0;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+.su-jcarousel .jcarousel-container {
+	position: relative;
+}
+.su-jcarousel .jcarousel-clip {
+	position: relative;
+	overflow: hidden;
+}
+.su-jcarousel li {
+	float: left;
+	display: block;
+	margin-right: 10px;
+	overflow: hidden;
+	list-style-type: none;
+	text-align: center;
+}
+
+.su-jcarousel .jcarousel-prev {
+	position: absolute;
+	left: -32px;
+	top: 0;
+	width: 25px;
+	height: 100%;
+	background: 0 50% url(../images/jcarousel/arrows.png) no-repeat;
+	cursor: pointer;
+}
+.su-jcarousel .jcarousel-next {
+	position: absolute;
+	right: -32px;
+	top: 0;
+	width: 25px;
+	height: 100%;
+	background: 100% 50% url(../images/jcarousel/arrows.png) no-repeat;
+	cursor: pointer;
+}
+.su-jcarousel .jcarousel-prev:hover,
+.su-jcarousel .jcarousel-next:hover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	filter: alpha(opacity=70);
+	-moz-opacity: 0.7;
+	-khtml-opacity: 0.7;
+	opacity: 0.7;
+}

@@ -1,0 +1,28 @@
+@charset utf-8;
+#full-view-irc {
+	background-color:#000
+}
+#full-view-irc h4 img {
+	border:1px solid #333
+}
+.minithumb-own3d:hover, .minithumb-twitch:hover, .minithumb-justin:hover {
+	opacity:1
+}
+.livetv-info {
+	background-color:#000!important
+}
+.minithumb-own3d, .minithumb-justin, .minithumb-twitch {
+	border:1px solid #333;
+	background-color:#000;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-khtml-border-radius:5px;
+	-moz-box-shadow:0 1px 4px #000;
+	-webkit-box-shadow:0 1px 4px #000;
+	box-shadow:0 1px 4px #000;
+	opacity:0.7;
+}
+.minithumb-own3d-info, .minithumb-justin-info, .minithumb-twitch-info {
+	color:#FFF;
+}

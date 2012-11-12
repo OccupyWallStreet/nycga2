@@ -2,6 +2,8 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} nycga.cc [NC]
 RewriteRule ^(.*)$ http://www.nycga.net/$1 [R,L]
 
+redirect 301 /groups/alternative-bankin%E2%80%98g/ http://www.nycga.net/groups/alternative-banking/
+redirect 301 /groups/alternative-bankin‘g/ http://www.nycga.net/groups/alternative-banking/
 redirect 301 /donate http://www.nycga.net/how-to-help
 redirect 301 /2011/09/30/declaration-of-the-occupation-of-new-york-city/ http://www.nycga.net/resources/declaration
 redirect 301 /who-we-are http://www.nycga.net/about/

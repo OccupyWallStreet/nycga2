@@ -1,0 +1,113 @@
+
+/*
+	Style sheet Shortcode Exec PHP WordPress Plugin
+*/
+
+/* Admin panel */
+#scep_admin_panel {
+	float: left;
+}
+
+/* Resources info panel */
+#scep_resources_panel {
+	float: right;
+	padding: 10px;
+	width: 180px;
+	margin-top: 30px;
+	border: 1px solid #CCCCCC;
+	background-color: #FFFEEB;
+}
+
+/* Heading info panel */
+#scep_resources_panel h3 {
+	margin: 0.5em 0 1em 0;
+}
+
+/* Donate form info panel */
+#scep_resources_panel form {
+	margin: 1em 0 0.5em 0;
+}
+
+/* Shortcuts */
+#scep_shortcuts {
+	display: block;
+	margin: 20px 0 0;
+}
+
+/* Option titles */
+#scep_option_table th {
+	width: 500px;
+	padding: 0px;
+	vertical-align: middle;
+}
+
+/* Option checkboxes */
+#scep_option_table input[type="checkbox"] {
+	margin: 0;
+}
+
+/* Option table cell with input */
+#scep_option_table .scep_cell_input {
+	padding: 0 6px 4px;
+}
+
+/* Option inputs */
+#scep_option_table input[type="text"] {
+	width: 75px;
+	text-align: right;
+}
+
+.scep_shortcode_name {
+	width: 150px;
+}
+
+.scep_shortcode_description {
+	width: 400px;
+}
+
+/* Code box height */
+#scep_option_width, #scep_option_height {
+	width: 50px;
+}
+
+.scep_message {
+	float: left;
+	font-weight: bold;
+	color: red;
+}
+
+.scep_explanation {
+	font-size: 9px;
+	text-decoration: italic;
+	display: block;
+	padding-bottom: 10px;
+}
+
+.scep_parameters {
+	font-size: 9px;
+}
+
+/* Shortcode examples */
+#scep_example_table {
+	width: auto;
+	margin: 20px 0;
+}
+
+#scep_example_table td {
+	padding: 0 5px;
+}
+
+.scep_example_title {
+	font-weight: bold;
+}
+
+.scep_example_explanation {
+	font-family: monospace;
+}
+
+#scep_pro {
+	border: black solid 1px;
+	padding: 0 10px 10px 10px;
+	margin: 10px 0 20px 0;
+	display: inline-block;
+}

@@ -1,0 +1,186 @@
+# WP-Piwik 0.3.0 - Belorussian language file
+# Copyright (C) 2009 Andre Braekling
+# This file is distributed under the same license as the WP-Piwik package.
+# Andre Braekling <webmaster@braekling.de>, 2009.
+# FatCow http://www.fatcow.com, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.3.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-piwik\n"
+"POT-Creation-Date: 2009-06-09 19:05+0000\n"
+"PO-Revision-Date: 2009-11-14 16:25+0200\n"
+"Last-Translator: Fat Cow <zhr@tut.by>\n"
+"Language-Team: FatCow <zhr@tut.by>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Belarusian\n"
+"X-Poedit-Country: BELARUS\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: dashboard/browsers.php:8
+#: dashboard/browsers.php:37
+msgid "Browser"
+msgstr "Браузер"
+
+msgid "Resolution"
+msgstr "Разрешение"
+
+msgid "Operating System"
+msgstr "Операционная система"
+
+#: dashboard/browsers.php:37
+#: dashboard/keywords.php:13
+#: dashboard/visitors.php:56
+#: dashboard/websites.php:13
+msgid "Unique"
+msgstr "Уникальность"
+
+#: dashboard/browsers.php:37
+msgid "Percent"
+msgstr "Процентов"
+
+#: dashboard/keywords.php:8
+msgid "Keywords"
+msgstr "Ключевые слова"
+
+#: dashboard/keywords.php:13
+msgid "Keyword"
+msgstr "Ключевое слово"
+
+#: dashboard/overview.php:8
+msgid "Overview"
+msgstr "Описание"
+
+#: dashboard/overview.php:16
+#: dashboard/visitors.php:21
+msgid "Visitors"
+msgstr "Посетителей"
+
+#: dashboard/overview.php:17
+msgid "Unique visitors"
+msgstr "Уникальных посетителей"
+
+#: dashboard/overview.php:18
+msgid "Page views"
+msgstr "Просмотров страницы"
+
+#: dashboard/overview.php:19
+msgid "Max. page views in one visit"
+msgstr "Макс. страниц просмтрено за один визит"
+
+#: dashboard/overview.php:20
+msgid "Total time spent by visitors"
+msgstr "Всего времени, проведенного посетителем"
+
+#: dashboard/overview.php:21
+msgid "Bounce count"
+msgstr "Количество отказов"
+
+#: dashboard/visitors.php:56
+msgid "Date"
+msgstr "Дата"
+
+#: dashboard/visitors.php:56
+msgid "Visits"
+msgstr "Визитов"
+
+#: dashboard/visitors.php:56
+msgid "Bounced"
+msgstr "Отказов"
+
+#: dashboard/websites.php:8
+msgid "Websites"
+msgstr "Сайтов"
+
+#: dashboard/websites.php:13
+msgid "Website"
+msgstr "Вебсайт"
+
+#: wp-piwik.php:49
+#: wp-piwik.php:147
+msgid "Piwik Statistics"
+msgstr "Piwik статистика"
+
+#. #-#-#-#-#  plugin.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Plugin Name of an extension
+#: wp-piwik.php:49
+msgid "WP-Piwik"
+msgstr "WP-Piwik"
+
+#: wp-piwik.php:53
+#: wp-piwik.php:185
+msgid "WP-Piwik Settings"
+msgstr "WP-Piwik настройки"
+
+#: wp-piwik.php:59
+msgid "Settings"
+msgstr "Настройки"
+
+#: wp-piwik.php:112
+msgid "Remote access to Piwik not possible. Enable allow_url_fopen or CURL."
+msgstr "Удаленный доступ к Piwik невозможен. Включите allow_url_fopen или CURL."
+
+#: wp-piwik.php:190
+msgid "Account settings"
+msgstr "Настройки аккаунта"
+
+#: wp-piwik.php:192
+msgid "Piwik URL"
+msgstr "Piwik URL"
+
+#: wp-piwik.php:196
+msgid "Auth token"
+msgstr "Авто token"
+
+#: wp-piwik.php:200
+msgid "To enable Piwik statistics, please enter your Piwik base URL (like http://mydomain.com/piwik) and your personal authentification token. You can get the token on the API page inside your Piwik interface. It looks like &quot;1234a5cd6789e0a12345b678cd9012ef&quot;."
+msgstr "Для того чтобы Piwik статистике, пожалуйста, введите Ваш Piwik Базовый URL (например, http://mydomain.com/piwik), и ваш личный знак подлинности. Вы можете получить знак на странице API внутри интерфейса Piwik. It looks like &quot;1234a5cd6789e0a12345b678cd9012ef&quot;."
+
+#: wp-piwik.php:205
+#: wp-piwik.php:207
+msgid "An error occured"
+msgstr "Произошла ошибка"
+
+#: wp-piwik.php:205
+msgid "Please check URL and auth token. You need at least view access to one site."
+msgstr "Пожалуйста, проверьте URL и AUTH маркера. Вам потребуется минимум открыть доступ к одному сайту."
+
+#: wp-piwik:php:215
+msgid "Choose site"
+msgstr "Выбрать сайт"
+
+#: wp-piwik.php:221
+msgid "If your template uses wp_footer(), WP-Piwik can automatically add the Piwik javascript code to your blog."
+msgstr "Если в шаблоне используются wp_footer (), РГ-Piwik может автоматически добавить Piwik кода JavaScript в вашем блоге."
+
+#: wp-piwik.php:226
+msgid "Add script to wp_footer()"
+msgstr "Добавить скрипт в wp_footer()"
+
+msgid "Tracking filter"
+msgstr "Следящий фильтр"
+
+msgid "Choose users by user role you do <strong>not</strong> want to track. Requires enabled &quot;Add script to wp_footer()&quot;-functionality."
+msgstr "W&auml;hle Nutzer anhand ihrer Nutzerrolle, die <strong>nicht</strong> erfasst werden sollen. Die Funktion &quot;Skript zu wp_footer() hinzuf&uuml;gen&quot; muss dazu verwendet werden."
+
+#: wp-piwik.php:229
+msgid "Save settings"
+msgstr "Сохранить настройки"
+
+#. Plugin URI of an extension
+msgid "http://dev.braekling.de/wordpress-plugins/dev/wp-piwik/index.html"
+msgstr "http://dev.braekling.de/wordpress-plugins/dev/wp-piwik/index.html"
+
+#. Description of an extension
+msgid "Adds Piwik stats to your dashboard menu and Piwik code to your wordpress footer."
+msgstr "Добавляет Piwik статистику по меню и панели инструментов Piwik кода на WordPress колонтитула."
+
+#. Author of an extension
+msgid "Andr&eacute; Br&auml;kling"
+msgstr "Andr&eacute; Br&auml;kling"
+
+#. Author URI of an extension
+msgid "http://www.braekling.de"
+msgstr "http://www.braekling.de"
+

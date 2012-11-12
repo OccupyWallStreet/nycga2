@@ -1,0 +1,28 @@
+/**
+ * Theme Name: Gamma
+ * Theme URI: http://time.ly/
+ * Author: Timely
+ * Author URI: http://time.ly/
+ * Description: A skeleton theme. Copy these files to a new theme directory to build a new calendar theme.
+ * Version: 1.8
+ * Tags: light, white, gray, blue
+ */
+
+/*****************************************************************************
+
+NOTE: BY DEFAULT, STYLES DEFINED IN THIS FILE ARE NOT USED.
+
+To have styles defined in here included in the front-end, create functions.php
+and add these lines to it (replacing "mytheme" with your new theme's name):
+
+function mytheme_styles() {
+	$mytheme_url = apply_filters(
+		'ai1ec_template_root_url',
+		apply_filters( 'ai1ec_template', 'mytheme' )
+	);
+
+	wp_enqueue_style( 'mytheme-style', "$mytheme_url/style.css" );
+}
+add_action( 'wp_print_styles', 'mytheme_styles' );
+
+*****************************************************************************/

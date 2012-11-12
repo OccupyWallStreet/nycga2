@@ -47,10 +47,10 @@ do_action( 'bp_before_group_header' );
 
 	<div id="item-meta">
 		<div id="desc-container">
-		<div id="top-group-desc-excerpt">
-		<?php bp_group_description_excerpt(); ?>
-		</div>
-		<div id="top-group-desc">
+		<!-- <div id="top-group-desc-excerpt"> -->
+		<?php// bp_group_description_excerpt(); ?>
+		<!-- </div> -->
+		<div id="top-group-description">
 				<?php bp_group_description(); ?>
 		</div>
 		</div>

@@ -1,16 +1,3 @@
-<?php
-/*
-logged in / logged out redirect kludge
-
-if logged in, and page is "welcome" (as denoted by the page slug, slug) show activity stream.  "http://www.nycga.net/activity/"
-this will always redirect logged in users to /activty as their default page.  dynamically changing what content is shown on http://www.nycga.net/ would be a much more complex change than redirecting.
-if not logged in, show normal homepage (http://www.nycga.net)
-*/
-if (is_user_logged_in() && $post->post_name=="welcome") {
-  wp_redirect('http://www.nycga.net/activity');
-}
-echo "<!--".$post->post_name."-->";
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
@@ -22,6 +9,11 @@ echo "<!--".$post->post_name."-->";
 
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ) ?>" />
 
+		<?php 
+			wp_enqueue_script('jquery-ui-accordion');
+			wp_enqueue_script('jquery-ui-tabs');
+		?>	
+
 		<?php
 			if ( is_singular() && bp_is_blog_page() && get_option( 'thread_comments' ) )
 				wp_enqueue_script( 'comment-reply' );
@@ -29,6 +21,8 @@ echo "<!--".$post->post_name."-->";
 			wp_head();
 		?>
 	</head>
+
+	<!-- TEST -->
 
 	<body <?php body_class() ?> id="bp-default">
 		<div id="header-section">
@@ -75,7 +69,7 @@ echo "<!--".$post->post_name."-->";
 		</div><!-- #header -->
 		</div> <!-- header-section -->
 
-		<?php if( is_user_logged_in() && is_dynamic_sidebar( 'Hero-login' ) ){ 
+		<?php if(is_dynamic_sidebar( 'Hero-login' ) ){ 
 		do_action( 'bp_before_sidebar' ); ?>
         
     <!-- NO LOGIN -->
@@ -83,19 +77,6 @@ echo "<!--".$post->post_name."-->";
 		<div id="hero-login" role="complementary" class="hero">
 		
 			<?php dynamic_sidebar( 'Hero-login' ) ?>
-		</div><!-- #sidebar -->
-
-		<?php do_action( 'bp_after_sidebar' );
-		} ?>
-
-		<?php if( ! is_user_logged_in() && is_dynamic_sidebar( 'Hero-no-login' ) ){ 
-		do_action( 'bp_before_sidebar' ); ?>
-        
-    <!-- LOGIN -->
-
-		<div id="hero-no-login" role="complementary" class="hero">
-		
-			<?php dynamic_sidebar( 'Hero-no-login' ) ?>
 		</div><!-- #sidebar -->
 
 		<?php do_action( 'bp_after_sidebar' );

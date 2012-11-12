@@ -1,0 +1,262 @@
+# WP-Piwik 0.3.0 - German language file
+# Copyright (C) 2009 Andre Braekling
+# This file is distributed under the same license as the WP-Piwik package.
+# Andre Braekling <webmaster@braekling.de>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-Piwik 0.7.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-piwik\n"
+"POT-Creation-Date: 2009-06-09 19:05+0000\n"
+"PO-Revision-Date: 2010-04-18 11:16+0100\n"
+"Last-Translator: Rene - WordPressPluginGuide.com <info@wppg.me>\n"
+"Language-Team: wppg.me <info@wppg.me>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: dashboard/browsers.php:8
+#: dashboard/browsers.php:37
+msgid "Browser"
+msgstr "Browser"
+
+msgid "Others"
+msgstr "Andere"
+
+msgid "Resolution"
+msgstr "Resolutie"
+
+msgid "Operating System"
+msgstr "Besturingssysteem"
+
+msgid "Shortcut"
+msgstr "Snelkoppeling"
+
+msgid "Advertisement"
+msgstr "Advertentie"
+
+msgid "Looking for premium themes? Visit "
+msgstr "Zoek je premium thema's? Bezoek"
+
+msgid "Avg"
+msgstr "Gemiddeld"
+
+msgid "Sum"
+msgstr "Som"
+
+msgid "Unique TOTAL"
+msgstr "Uniek TOTAAL"
+
+#: dashboard/browsers.php:37
+#: dashboard/keywords.php:13
+#: dashboard/visitors.php:56
+#: dashboard/websites.php:13
+msgid "Unique"
+msgstr "Uniek"
+
+#: dashboard/browsers.php:37
+msgid "Percent"
+msgstr "Procent"
+
+#: dashboard/keywords.php:8
+msgid "Keywords"
+msgstr "Keywords"
+
+#: dashboard/keywords.php:13
+msgid "Keyword"
+msgstr "Keyword"
+
+#: dashboard/overview.php:8
+msgid "Overview"
+msgstr "Overzicht"
+
+#: dashboard/overview.php:16
+#: dashboard/visitors.php:21
+msgid "Visitors"
+msgstr "Bezoekers"
+
+#: dashboard/overview.php:17
+msgid "Unique visitors"
+msgstr "Unieke bezoekers"
+
+#: dashboard/overview.php:18
+msgid "Page views"
+msgstr "Pageviews"
+
+#: dashboard/overview.php:19
+msgid "Max. page views in one visit"
+msgstr "Max. Pageviews/Bezoek"
+
+#: dashboard/overview.php:20
+msgid "Total time spent by visitors"
+msgstr "Totale tijd besteed door bezoekers"
+
+#: dashboard/overview.php:21
+msgid "Bounce count"
+msgstr "Aantal weigeringen"
+
+#: dashboard/visitors.php:56
+msgid "Date"
+msgstr "Datum"
+
+#: dashboard/visitors.php:56
+msgid "Visits"
+msgstr "Bezoeken"
+
+#: dashboard/visitors.php:56
+msgid "Bounced"
+msgstr "Bounced"
+
+#: dashboard/websites.php:8
+msgid "Websites"
+msgstr "Websites"
+
+#: dashboard/websites.php:13
+msgid "Website"
+msgstr "Website"
+
+#: wp-piwik.php:49
+#: wp-piwik.php:147
+msgid "Piwik Statistics"
+msgstr "Piwik Statistieken"
+
+#. #-#-#-#-#  plugin.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Plugin Name of an extension
+#: wp-piwik.php:49
+msgid "WP-Piwik"
+msgstr "WP-Piwik"
+
+#: wp-piwik.php:53
+#: wp-piwik.php:185
+msgid "WP-Piwik Settings"
+msgstr "WP-Piwik Instellingen"
+
+#: wp-piwik.php:59
+msgid "Settings"
+msgstr "Instellingen"
+
+#: wp-piwik.php:112
+msgid "Remote access to Piwik not possible. Enable allow_url_fopen or CURL."
+msgstr "Externe toegang tot Piwik niet mogelijk. Activeer allow_url_fopen of CURL."
+
+#: wp-piwik.php:190
+msgid "Account settings"
+msgstr "Account instellingen"
+
+#: wp-piwik.php:192
+msgid "Piwik URL"
+msgstr "Piwik URL"
+
+#: wp-piwik.php:196
+msgid "Auth token"
+msgstr "Auth token"
+
+#: wp-piwik.php:200
+msgid "To enable Piwik statistics, please enter your Piwik base URL (like http://mydomain.com/piwik) and your personal authentification token. You can get the token on the API page inside your Piwik interface. It looks like &quot;1234a5cd6789e0a12345b678cd9012ef&quot;."
+msgstr "Om Piwik statistieken te activeren voer je je Piwik basis URL in (zoals http://mydomain.com/piwik) en uw persoonlijk authenticatie token. U kunt dit token verkrijgen op de API pagina binnen uw Piwik interface. Het lijkt op  \"1234a5cd6789e0a12345b678cd9012ef\"."
+
+#: wp-piwik.php:205
+#: wp-piwik.php:207
+msgid "An error occured"
+msgstr "Een fout is opgetreden"
+
+#: wp-piwik.php:205
+msgid "Please check URL and auth token. You need at least view access to one site."
+msgstr "Gelieve de URL en auth token te controleren. Je hebt tenminste leesrechten nodig voor een site."
+
+#: wp-piwik:php:215
+msgid "Choose site"
+msgstr "Kies website"
+
+#: wp-piwik.php:221
+msgid "If your template uses wp_footer(), WP-Piwik can automatically add the Piwik javascript code to your blog."
+msgstr "Als je template wp_footer() gebruikt kan WP-Piwik automatisch de Piwik javascript code toevoegen aan je blog."
+
+#: wp-piwik.php:226
+msgid "Add script to wp_footer()"
+msgstr "Voeg script toe aan wp_footer()"
+
+msgid "Tracking filter"
+msgstr "Tracking filter"
+
+msgid "Choose users by user role you do <strong>not</strong> want to track. Requires enabled &quot;Add script to wp_footer()&quot;-functionality."
+msgstr "Selecteer gebruikers op basis van het gebruikersniveau die je <strong>niet</ strong> wilt bijhouden. Hiervoor dient de \"Toevoegen script wp_footer()\" functionaliteit ingeschakeld te zijn."
+
+msgid "Choose users by user role you do <strong>not</strong> want to track."
+msgstr "Selecteer gebruikers op basis van het gebruikersniveau die je <strong>niet</ strong> wilt bijhouden."
+
+msgid "Display statistics to"
+msgstr "Laat statistieken zien aan"
+
+msgid "or above"
+msgstr "of erboven"
+
+msgid "Minimum user level required to display statistics page."
+msgstr "Minimaal benodigd gebruikersniveau om de statistieken pagina te laten zien."
+
+#: wp-piwik.php:229
+msgid "Save settings"
+msgstr "Instellingen opslaan"
+
+msgid "Currently shown stats:"
+msgstr "Momenteel weergegeven statistieken:"
+
+msgid "Change"
+msgstr "Wijzigen"
+
+msgid "WPMU-Piwik Settings"
+msgstr "WPMU-Piwik Instellingen"
+
+msgid "<strong>Important note:</strong> You have to choose a token which provides administration access. WPMU-Piwik will create new Piwik sites for each blog if it is shown the first time and it is not added yet. All users can access their own statistics only, while site admins can access all statistics. To avoid conflicts, you should use a clean Piwik installation without other sites added. The provided themes should use wp_footer, because it adds the Piwik javascript code to each page."
+msgstr "<strong>Belangrijke opmerking:</ strong> Je moet een token kiezen met admin rechten. WPMU-Piwik zal nieuwe Piwik sites creeëren voor elke blog wanneer het de eerste keer wordt getoond en nog niet is toegevoegd. Alle gebruikers hebben toegang  tot hun eigen statistieken, terwijl de site admins toegang hebben tot alle statistieken. Om conflicten te vermijden moet je een schone Piwik installatie gebruiken zonder dat andere sites toegevoegd zijn. De bijgeleverde thema's moeten wp_footer  gebruiken omdat dan de Piwik javascript code toegevoegd wordt aan elke pagina."
+
+msgid "<strong>Important note:</strong> If you do not host this blog on your own, your site admin is able to get your auth token from the database. So he is able to access your statistics. You should never use an auth token with more than simple view access!"
+msgstr "<strong>Belangrijke opmerking:</ strong>Als je niet deze blog zelf host kan je site admin je auth token uit de database verkrijgen. Dus hij is in staat om toegang te verkijgen tot je statistieken. Je moet nooit een auth token gebruiken wanneer je meer dan eenvoudige leesrechten bezit!"
+
+msgid "WP-Piwik uses the Google Chart API to create graphs. To avoid this, just check this box."
+msgstr "WP-Piwik maakt gebruik van de Google Chart API om grafieken te creëren. Om dit te vermijden, vinkt u dit vakje aan."
+
+msgid "Disable Google Chart API"
+msgstr "Google Chart API uitschakelen"
+
+#. Plugin URI of an extension
+msgid "http://dev.braekling.de/wordpress-plugins/dev/wp-piwik/index.html"
+msgstr "http://dev.braekling.de/wordpress-plugins/dev/wp-piwik/index.html"
+
+#. Description of an extension
+msgid "Adds Piwik stats to your dashboard menu and Piwik code to your wordpress footer."
+msgstr "Voegt Piwik statistieken toe aan je dashboard menu en Piwik code aan je WordPress footer."
+
+#. Author of an extension
+msgid "Andr&eacute; Br&auml;kling"
+msgstr "Andr&eacute; Br&auml;kling"
+
+#. Author URI of an extension
+msgid "http://www.braekling.de"
+msgstr "http://www.braekling.de"
+
+msgid "last 30 days"
+msgstr "laatste 30 dagen"
+
+msgid "today"
+msgstr "vandaag"
+
+msgid "yesterday"
+msgstr "gisteren"
+
+msgid "No"
+msgstr "Nee"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "Show overview on WordPress dashboard"
+msgstr "Toon het overzicht in het WordPress dashboard"
+
+msgid "Show Piwik link in overview"
+msgstr "Toon Piwik link in het overzicht"
+

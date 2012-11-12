@@ -1,0 +1,193 @@
+
+/*  global elements and typographic styles 
+ --------------------------------------------------------------------------------------- */
+.post-content li,
+ul#topic-post-list .post-content li {
+	padding: 0;
+	border: none;
+}
+.post-content hr {
+	display: block;
+}
+.post-content ul {
+	list-style: square;
+}
+.post-content ol {
+	list-style: decimal;
+}
+.post-content ol ol {
+	list-style: upper-alpha;
+}
+.post-content ol ol ol {
+	list-style: lower-roman;
+}
+.post-content ol ol ol ol {
+	list-style: lower-alpha;
+}
+.post-content ul ul,
+.post-content ol ol,
+.post-content ul ol,
+.post-content ol ul {
+	margin-bottom: 0;
+}
+.post-content dt {
+	font-weight: bold;
+}
+.post-content strong,
+.post-content b {
+	font-weight: bold;
+}
+.post-content cite,
+.post-content em,
+.post-content i {
+	font-style: italic;
+}
+.post-content big {
+	font-size: larger;
+}
+.post-content small {
+	font-size: smaller;
+}
+.post-content blockquote,
+.post-content pre,
+.post-content fieldset {
+	padding: 16px 20px;
+}
+.post-content blockquote {
+	font-style: italic;
+	background: whitesmoke;
+}
+.post-content pre {
+	background: whitesmoke;
+	font-family: monospace;
+}
+.post-content fieldset {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding-top: 10px;
+}
+.post-content fieldset legend {
+	background: #fff;
+	font-weight: bold;
+	padding: 0 1em;
+}
+.post-content code {
+	background: #ddd;
+	font-family: monospace;
+}
+.post-content abbr,
+.post-content acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+.post-content sup {
+	vertical-align: super;
+	font-size: smaller;
+}
+.post-content sub {
+	vertical-align: sub;
+	font-size: smaller;
+}
+.post-content address {
+	font-style: italic;
+	display: block;
+}
+.post-content img {
+	max-width: 100%;
+}
+
+/* block-level elements
+--------------------------------------------------------------------------------------- */
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+ul#topic-post-list .post-content h4,
+.post-content h5,
+.post-content h6 {
+	font-weight: bold;
+	margin: 0;
+}
+.post-content h1 {
+	font-size: 2em; 
+	margin-bottom: 0.7em; 
+}
+.post-content h2 {
+	font-size: 1.6em; 
+	margin-bottom: 0.8em; 
+}
+.post-content h3 {
+	font-size: 1.2em; 
+	margin-bottom: 1.0em; 
+}
+.post-content h4,
+ul#topic-post-list .post-content h4,
+.post-content h5,
+.post-content h6 {
+	font-size: 1em; 
+	margin-bottom: 1.2em; 
+}
+.post-content hr { 
+	margin: 2em 0; 
+}
+.post-content p, 
+.post-content ul, 
+.post-content ol,
+.post-content dl,
+.post-content dd, 
+.post-content pre, 
+.post-content blockquote,
+.post-content table,
+.post-content fieldset {
+	margin-bottom: 2em;
+}
+.post-content ul, 
+.post-content ol,
+.post-content dl {
+	margin-left: 2em;
+}
+.post-content table {
+	border: 1px solid #eee;
+	text-align: left;
+}
+.post-content th {
+	font-weight: bold;
+	padding: 6px 10px;
+	background: #eee;
+}
+.post-content td {
+	padding: 4px 10px;
+}
+.post-content tr.even td {
+	background: whitesmoke;
+}
+
+.post-content p:last-child {
+	margin-bottom: 0;
+}
+
+/* wordPress styles
+--------------------------------------------------------------------------------------- */
+.post-content .aligncenter,
+.post-content dl.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.post-content .alignleft { 
+	float: left;
+}
+.post-content .alignright {
+	float: right;
+}
+.post-content img.alignleft {
+	margin-right:2em; 
+	margin-bottom: 1em;
+}
+.post-content img.alignright {
+	margin-left:2em; 
+	margin-bottom: 1em;
+}
+.post-content img.aligncenter {
+	margin-bottom:2em; 
+}

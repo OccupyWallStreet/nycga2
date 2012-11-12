@@ -1,0 +1,88 @@
+/**
+ * Theme Name: Plana
+ * Theme URI: http://time.ly/
+ * Author: Timely
+ * Author URI: http://time.ly/
+ * Description: A flat calendar theme, based on Vortex.
+ * Version: 1.8
+ * Tags: light, white, gray, blue, flat
+ */
+
+
+@import "../vortex/style.css";
+
+.timely .btn {
+  border: 1px solid #ddd;
+  background-image: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.timely .btn.active,
+.timely .btn:active,
+.timely .btn-group .dropdown-toggle,
+.timely .btn-group.open .dropdown-toggle,
+.timely .dropdown-menu,
+.ai1ec-filter-selector,
+.ai1ec-agenda-view .ai1ec-event.ai1ec-expanded,
+.ai1ec-month-view .ai1ec-event:hover,
+.ai1ec-popup-summary,
+.ai1ec-agenda-widget-view .ai1ec-popup-summary,
+.ai1ec-week-view .ai1ec-event-popup,
+.ai1ec-oneday-view .ai1ec-event-popup,
+.ai1ec-month-view .ai1ec-event-summary,
+.ai1ec-week-view .ai1ec-event-summary,
+.ai1ec-oneday-view .ai1ec-event-summary {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ai1ec-posterboard-view .ai1ec-event .ai1ec-event-wrap {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ai1ec-month-view .ai1ec-event-summary,
+.ai1ec-week-view .ai1ec-event-summary,
+.ai1ec-oneday-view .ai1ec-event-summary {
+  background-image: none;
+}
+.ai1ec-month-view .ai1ec-event-popup-bg,
+.ai1ec-week-view .ai1ec-event-popup-bg,
+.ai1ec-oneday-view .ai1ec-event-popup-bg {
+  background: #fefef9;
+}
+.ai1ec-agenda-view .ai1ec-event {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.ai1ec-agenda-view .ai1ec-date,
+.ai1ec-agenda-widget-view .ai1ec-date {
+  background: none;
+  border-top: 1px dotted #ccc !important;
+}
+.ai1ec-agenda-view .ai1ec-date.ai1ec-today,
+.ai1ec-agenda-widget-view .ai1ec-date.ai1ec-today {
+  background: rgba(244, 244, 191, 0.5);
+  border-top: 1px dotted #dd8 !important;
+}
+.ai1ec-agenda-view .ai1ec-date-title,
+.ai1ec-agenda-widget-view .ai1ec-date-title,
+.ai1ec-agenda-view .ai1ec-event.ai1ec-allday .ai1ec-allday-label,
+.ai1ec-agenda-widget-view .ai1ec-event.ai1ec-allday .ai1ec-allday-label,
+.ai1ec-week-view .ai1ec-week a.ai1ec-event-container,
+.ai1ec-oneday-view .ai1ec-oneday a.ai1ec-event-container {
+  background-image: none !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ai1ec-agenda-view .ai1ec-event-overlay {
+  background: #fff;
+  border-top: 1px solid #ddd;
+}
+.ai1ec-full-event th,
+.ai1ec-excerpt .ai1ec-label {
+  background: rgba(0,0,0,0.05);
+}

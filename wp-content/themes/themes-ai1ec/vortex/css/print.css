@@ -1,0 +1,106 @@
+body {
+  background: white;
+  color: black;
+  margin: 0;
+}
+#header,
+#navigation,
+#comments,
+#sidebar,
+#subcontent,
+#footer {
+  display: none;
+}
+#wpadminbar,
+footer {
+  display: none;
+}
+#page > header {
+  display: none;
+}
+#content {
+  margin-top: -60px !important;
+}
+*,
+.ai1ec-agenda-view .ai1ec-date {
+  background: white !important;
+  color: black !important;
+}
+.timely {
+  /* Agenda event description */
+
+  /* Hide the buttons */
+
+}
+.timely table.ai1ec-calendar-toolbar {
+  display: none;
+}
+.timely .ai1ec-agenda-view .ai1ec-event.ai1ec-expanded {
+  box-shadow: none;
+  border: 2px solid gray !important;
+  background: none !important;
+}
+.timely .ai1ec-agenda-view h3.ai1ec-date-title {
+  border: 2px solid gray !important;
+}
+.timely ol.ai1ec-agenda-view h3.ai1ec-date-title {
+  margin-top: 0.5em !important;
+  border-radius: 0;
+}
+.timely h3.ai1ec-date-title {
+  width: 5em;
+  color: black;
+}
+.timely h3.ai1ec-date-title .ai1ec-month {
+  display: inline;
+  float: right;
+  color: black;
+}
+.timely h3.ai1ec-date-title .ai1ec-day {
+  padding: 0 !important;
+  font-size: 1em !important;
+  color: black;
+}
+.timely h3.ai1ec-date-title .ai1ec-weekday {
+  display: inline;
+  float: left;
+  color: black;
+}
+.timely div.ai1ec-event-click,
+.timely div.ai1ec-categories {
+  display: none;
+}
+.timely div.ai1ec-event-summary,
+.timely div.ai1ec-event-summary div.ai1ec-event-click,
+.timely div.ai1ec-event-description {
+  display: block !important;
+}
+.timely ol.ai1ec-agenda-view div.ai1ec-event-summary div.ai1ec-event-title {
+  display: inline;
+}
+.timely ol.ai1ec-agenda-view div.ai1ec-event-summary div.ai1ec-event-time {
+  display: inline;
+}
+.timely a.ai1ec-button {
+  display: none;
+}
+.timely ol.ai1ec-agenda-view div.ai1ec-event-description {
+  padding: 0 !important;
+}
+.timely ol.ai1ec-agenda-view div.ai1ec-event-overlay {
+  display: none;
+}
+.timely .entry-meta {
+  display: none;
+}
+.timely #ai1ec-today,
+.timely #ai1ec-expand-all,
+.timely #ai1ec-collapse-all,
+.timely #ai1ec-prev-page,
+.timely #ai1ec-next-page {
+  display: none;
+}
+.timely .ai1ec-subscribe,
+.timely .ai1ec-subscribe-google {
+  display: none;
+}

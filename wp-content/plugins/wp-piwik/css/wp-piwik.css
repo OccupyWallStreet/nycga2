@@ -1,0 +1,118 @@
+span.wp-piwik-details {
+	font-size:0.8em;
+	font-weight:normal;
+}
+
+#wp-piwik_stats_vistors_graph{margin: 0 0 0 0}
+
+p.wp-piwik-eyecatcher {
+	border:1px solid #c00;
+	background:#ff0;
+	padding:5px;
+}
+
+table.wp-piwik-table th.n, td.n {
+	text-align: right;
+}
+
+table.wp-piwik-table tr:hover {
+	background-color:#ccc;
+}
+
+form.wp-piwik-settings {
+	margin-right:270px;
+}
+
+table.wp-piwik-form-table {
+	clear:none !important;
+}
+table.wp-piwik-form-table-hide, label.wp-piwik-input-hide {
+	display:none;
+}
+
+input.wp-piwik-input-hide {
+	visibility:hidden;	
+}
+
+div.wp-piwik-donate {
+	float:right;
+	width:220px;
+	background:#ffc;
+	padding:10px;
+	border:1px solid black;
+	margin-bottom:10px;
+	margin-top:10px;
+}
+
+div.wp-piwik-donate div {
+	width:190px;
+	text-align:center;
+	border:solid black;
+	border-width:1px 0 0 0 ;
+	padding:5px
+}
+
+div.wp-piwik-settings h4 {
+	float:left;
+	font-family:"Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif !important;
+	font-size:12px !important;
+	font-weight:normal;
+	padding-top:0px !important;
+	text-align:right;
+	width:160px;
+}
+div.wp-piwik-settings h4 label {
+	margin-right:10px;
+	vertical-align:middle;
+}
+div.wp-piwik-settings .input-text-wrap input, 
+div.wp-piwik-settings .input-text-wrap select,
+div.wp-piwik-settings .input-text-wrap textarea {
+	border:0 none;
+	color:#333333;
+	outline:medium none;
+	padding:0;
+	width:99%;
+}
+
+div.wp-piwik-settings .input-wrap {
+	padding-top:0px;
+}
+
+div.wp-piwik-settings .input-wrap input {	
+	border:0 none;
+	color:#333333;
+	padding:0;
+}
+
+div.wp-piwik-settings .input-text-wrap {
+	margin:0 0 1em 160px;
+	border:1px solid #CCCCCC;
+}
+
+div.wp-piwik_desc {
+	font-size:11px;
+	margin:0 0 10px 160px;
+	padding:0;
+}
+
+div.wp-piwik_desc strong {
+	color:#f00;
+}
+
+strong.wp-piwik-error {color:#f00}
+
+.wp-list-table .column-id {width:20%}
+.wp-list-table .column-name {width:30%}
+.wp-list-table .column-siteurl {width:30%}
+.wp-list-table .column-piwikid {width:20%}
+
+.wp-piwik_dynbar canvas {padding-top:5px !important}
+
+.wp-piwik-wide-content {
+	width:512px !important;
+}
+
+.wp-piwik-graph-wide {
+	overflow:hidden;
+}

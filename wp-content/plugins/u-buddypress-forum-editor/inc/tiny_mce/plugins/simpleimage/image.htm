@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{#simpleimage_dlg.dialog_title}</title>
+<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+<script type="text/javascript" src="../../utils/form_utils.js"></script>
+<script type="text/javascript" src="js/image.js"></script>
+<style type="text/css">
+table * {  font-size: 11px; }
+table { width: 99%; margin-bottom: 10px; }
+table input  { width: 99%; padding: 3px;}
+table td.column1 { width: 120px; }
+#insert { float: right;}
+</style>
+</head>
+<body id="simpleimage" style="display: none" role="application" aria-labelledby="app_title">
+	<span id="app_title" style="display:none">{#simpleimage_dlg.dialog_title}</span>
+	<form onsubmit="ImageDialog.insert();return false;" action="#">
+		<table >
+			<tr>
+				<td class="column1"><label id="srclabel" for="src">{#simpleimage_dlg.src}</label></td>
+				<td><input name="src" type="text" id="src" value="" /></td>
+			</tr>
+			<tr> 
+				<td class="column1"><label id="altlabel" for="alt">{#simpleimage_dlg.alt}</label></td> 
+				<td><input id="alt" name="alt" type="text" value="" /></td> 
+			</tr> 
+			<tr> 
+				<td class="column1"><label id="titlelabel" for="title">{#simpleimage_dlg.title}</label></td> 
+				<td><input id="title" name="title" type="text" value="" /></td> 
+			</tr>
+		</table>
+		
+		<div class="mceActionPanel">
+			<input type="submit" id="insert" name="insert" value="{#insert}" />
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+		</div>
+	</form>
+</body> 
+</html> 

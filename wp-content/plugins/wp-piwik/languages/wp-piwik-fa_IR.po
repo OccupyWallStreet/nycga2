@@ -1,0 +1,408 @@
+# Translation of the WordPress plugin WP-Piwik 0.8.0 by Andr&eacute; Br&auml;kling.
+# Copyright (C) 2010 Andr&eacute; Br&auml;kling
+# This file is distributed under the same license as the WP-Piwik package.
+# Andr&eacute; Br&auml;kling <webmaster@braekling.de>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-Piwik 0.8.4\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-piwik\n"
+"POT-Creation-Date: 2010-07-19 18:06+0000\n"
+"PO-Revision-Date: 2011-11-16 11:13+0330\n"
+"Last-Translator: hossein <hossein@email.com>\n"
+"Language-Team: Persian <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-Country: IRAN, ISLAMIC REPUBLIC OF\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: dashboard/browsers.php:12
+#: dashboard/browsers.php:33
+msgid "Browser"
+msgstr "مرورگر"
+
+#: dashboard/browsers.php:22
+#: dashboard/pages.php:43
+#: dashboard/screens.php:22
+#: dashboard/systems.php:22
+msgid "Others"
+msgstr "غیره"
+
+#: dashboard/browsers.php:34
+#: dashboard/keywords.php:17
+#: dashboard/pages.php:22
+#: dashboard/screens.php:33
+#: dashboard/systems.php:35
+#: dashboard/visitors.php:53
+#: dashboard/websites.php:19
+#: wp-piwik.php:305
+msgid "Unique"
+msgstr "یکتا"
+
+#: dashboard/browsers.php:35
+#: dashboard/plugins.php:33
+#: dashboard/screens.php:34
+#: dashboard/systems.php:36
+msgid "Percent"
+msgstr "درصد"
+
+#: dashboard/keywords.php:12
+msgid "Keywords"
+msgstr "کلمات کلیدی"
+
+#: dashboard/keywords.php:17
+msgid "Keyword"
+msgstr "کلمه کلیدی"
+
+#: dashboard/overview.php:12
+msgid "Overview"
+msgstr "نمای کلی"
+
+#: dashboard/overview.php:42
+#: dashboard/visitors.php:24
+msgid "Visitors"
+msgstr "بازدید کنندگان"
+
+#: dashboard/overview.php:43
+msgid "Unique visitors"
+msgstr "بازدیدکنندگان یکتا"
+
+#: dashboard/overview.php:44
+msgid "Page views"
+msgstr "نمایش صفحه"
+
+#: dashboard/overview.php:45
+msgid "Max. page views in one visit"
+msgstr "حداکثر تعداد نمایش صفحه در یک بازدید"
+
+#: dashboard/overview.php:46
+msgid "Total time spent"
+msgstr "زمان سپری شده"
+
+msgid "Time/visit"
+msgstr "زمان/بازدید"
+
+#: dashboard/overview.php:47
+msgid "Bounce count"
+msgstr "تعداد بازگشت"
+
+#: dashboard/overview.php:49
+#: wp-piwik.php:563
+msgid "Shortcut"
+msgstr "میان‌بر"
+
+#: dashboard/pages.php:13
+msgid "Pages"
+msgstr "صفحه"
+
+#: dashboard/pages.php:21
+msgid "Page"
+msgstr "صفحه"
+
+#: dashboard/pages.php:23
+#: dashboard/plugins.php:32
+#: dashboard/visitors.php:52
+msgid "Visits"
+msgstr "بازدید"
+
+#: dashboard/plugins.php:12
+#: dashboard/plugins.php:31
+msgid "Plugins"
+msgstr "افزونه"
+
+#: dashboard/screens.php:12
+#: dashboard/screens.php:32
+msgid "Resolution"
+msgstr "وضوح"
+
+#: dashboard/systems.php:12
+#: dashboard/systems.php:34
+msgid "Operating System"
+msgstr "سیستم عامل"
+
+#: dashboard/visitors.php:51
+msgid "Date"
+msgstr "تاریخ"
+
+#: dashboard/visitors.php:54
+msgid "Bounced"
+msgstr "بازگشت"
+
+#: dashboard/visitors.php:67
+msgid "Unique TOTAL"
+msgstr "مجموع  یکتا"
+
+#: dashboard/visitors.php:67
+msgid "Sum"
+msgstr "مجموع"
+
+#: dashboard/visitors.php:67
+msgid "Avg"
+msgstr "میانگین"
+
+#: dashboard/websites.php:12
+msgid "Websites"
+msgstr "سایت"
+
+#: dashboard/websites.php:18
+msgid "Website"
+msgstr "سایت"
+
+#: wp-piwik.php:110
+#: wp-piwik.php:365
+msgid "Piwik Statistics"
+msgstr "آمارگیر"
+
+#. #-#-#-#-#  plugin.pot (WP-Piwik 0.8.0)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: wp-piwik.php:111
+#: wp-piwik.php:122
+#: wp-piwik.php:123
+#: wp-piwik.php:146
+msgid "WP-Piwik"
+msgstr "آمار"
+
+#: wp-piwik.php:130
+#: wp-piwik.php:131
+msgid "WPMU-Piwik"
+msgstr "آمارگیر چندکاربره"
+
+#: wp-piwik.php:142
+#: wp-piwik.php:557
+msgid "yesterday"
+msgstr "دیروز"
+
+#: wp-piwik.php:143
+#: wp-piwik.php:558
+msgid "today"
+msgstr "امروز"
+
+#: wp-piwik.php:144
+#: wp-piwik.php:559
+msgid "last 30 days"
+msgstr "30 روز اخیر"
+
+#: wp-piwik.php:179
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: wp-piwik.php:381
+msgid "Change"
+msgstr "تغییر"
+
+#: wp-piwik.php:382
+msgid "Currently shown stats:"
+msgstr "آمار نمایش جاری:"
+
+#: wp-piwik.php:383
+msgid "Current shown stats: <strong>Overall</strong>"
+msgstr "آمار نمایش جاری: <strong>مجموع</strong>"
+
+#: wp-piwik.php:448
+msgid "WP-Piwik Settings"
+msgstr "تنظیمات آمار"
+
+#: wp-piwik.php:455
+#: wp-piwik.php:617
+msgid "Account settings"
+msgstr "تنظیمات حساب"
+
+#: wp-piwik.php:457
+#: wp-piwik.php:619
+msgid "Piwik URL"
+msgstr "آدرس پیویک"
+
+#: wp-piwik.php:461
+#: wp-piwik.php:623
+msgid "Auth token"
+msgstr "نشانه اعتبارسنجی"
+
+#: wp-piwik.php:467
+#: wp-piwik.php:628
+msgid "To enable Piwik statistics, please enter your Piwik base URL (like http://mydomain.com/piwik) and your personal authentification token. You can get the token on the API page inside your Piwik interface. It looks like &quot;1234a5cd6789e0a12345b678cd9012ef&quot;."
+msgstr "برای فعال کردن آمار پیویک، لطفاً آدرس نصب پایه پیویک (مانند http://mydomain.com/piwik) و نشانه اعتبارسنجی خود را وارد کنید. شما می‌توانید در بخش API رابط کاربری پیویک، آن را به دست بیاورید. این نشانه چیزی مانند این است:&quot;1234a5cd6789e0a12345b678cd9012ef&quot;."
+
+#: wp-piwik.php:477
+msgid "<strong>Important note:</strong> If you do not host this blog on your own, your site admin is able to get your auth token from the database. So he is able to access your statistics. You should never use an auth token with more than simple view access!"
+msgstr "<strong>نکته مهم:</strong> اگر شما وبلاگ را خود میزبانی نکنید، مدیر سایت شما نیز می‌تواند با دسترسی به پایگاه داده نشانه اعتبارسنجی شما را به دست آورد. بنابراین شما نباید هرگز از نشانه اعتبارسنجی با دسترسی بالاتر از نمایش ساده استفاده کنید."
+
+#: wp-piwik.php:485
+#: wp-piwik.php:489
+msgid "An error occured"
+msgstr "خطائی رخ داده است"
+
+#: wp-piwik.php:486
+msgid "Please check URL and auth token. You need at least view access to one site."
+msgstr "لطفاً آدرس نصب پیویک و نشانه اعتبارسنجی را بررسی کنید. شما باید حداقل دسترسی نمایش به یک سایت داشته باشید."
+
+#: wp-piwik.php:492
+msgid "Choose site"
+msgstr "انتخاب سایت"
+
+#: wp-piwik.php:511
+#: wp-piwik.php:547
+#: wp-piwik.php:584
+#: wp-piwik.php:658
+msgid "Save settings"
+msgstr "ذخیره تنظیمات"
+
+#: wp-piwik.php:515
+#: wp-piwik.php:643
+msgid "Tracking settings"
+msgstr "تنظیمات ره‌گیری"
+
+#: wp-piwik.php:521
+msgid "Add script"
+msgstr "افزودن اسکریپت"
+
+#: wp-piwik.php:525
+msgid "If your template uses wp_footer(), WP-Piwik can automatically add the Piwik javascript code to your blog."
+msgstr "اگر از قالبی استفاده می‌کنید که از wp_footer() بهره می‌گیرد، آن‌گاه افزونه می‌تواند به طور خودکار کد جاوااسکریپت را به وبلاگ شما اضافه کند."
+
+#: wp-piwik.php:528
+msgid "Track 404"
+msgstr "ره‌گیری 404 (صفحه یافت نشد)"
+
+#: wp-piwik.php:532
+msgid "If you add the Piwik javascript code by wp_footer(), WP-Piwik can automatically add a 404-category to track 404-page-visits."
+msgstr "اگر جاواسکریپت پیویک را با wp_footer() استفاده می‌کنید، آن‌گاه افزونه می‌تواند به طور خودکار دسته 404 را به برای رهگیری بازدیدهای صفحات ناموجود اضافه کند."
+
+#: wp-piwik.php:536
+#: wp-piwik.php:644
+msgid "Tracking filter"
+msgstr "پالایه ره‌گیری"
+
+msgid "Choose users by user role you do <strong>not</strong> want to track."
+msgstr "کاربرانی را که <strong>نمی‌خواهید</strong> ره‌گیری شوند با توجه به وظیفه انتخاب کنید."
+
+msgid "Choose users by user role you do <strong>not</strong> want to track. Requires enabled &quot;Add script&quot;-functionality."
+msgstr "کاربرانی را که <strong>نمی‌خواهید</strong> ره‌گیری شوند با توجه به وظیفه انتخاب کنید: باید قابلیت &quot;افزودن اسکریپت&quot; فعال باشد."
+
+#: wp-piwik.php:551
+msgid "Statistic view settings"
+msgstr "تنظیمات نمایش آمار"
+
+#: wp-piwik.php:554
+msgid "Dashboard"
+msgstr "پیشخوان"
+
+#: wp-piwik.php:556
+msgid "No"
+msgstr "خیر"
+
+#: wp-piwik.php:557
+#: wp-piwik.php:558
+#: wp-piwik.php:559
+msgid "Yes"
+msgstr "بله"
+
+#: wp-piwik.php:562
+msgid "Display a dashboard widget to your WordPress dashboard."
+msgstr "نمایش یک ویدجت در پیشخوان وردپرس شما."
+
+#: wp-piwik.php:567
+msgid "Display a shortcut to Piwik itself."
+msgstr "نمایش یک میان‌بر به پیویک اصلی."
+
+#: wp-piwik.php:568
+msgid "Display to"
+msgstr "نمایش در"
+
+#: wp-piwik.php:579
+msgid "Choose user roles allowed to see the statistics page."
+msgstr "انتخاب کاربرانی که مجازند صفحه آمار ر اببینند."
+
+#: wp-piwik.php:612
+msgid "WPMU-Piwik Settings"
+msgstr "تنظیمات پیویک چندکاربره"
+
+#: wp-piwik.php:636
+msgid "<strong>Important note:</strong> You have to choose a token which provides administration access. WPMU-Piwik will create new Piwik sites for each blog if it is shown the first time and it is not added yet. All users can access their own statistics only, while site admins can access all statistics. To avoid conflicts, you should use a clean Piwik installation without other sites added. The provided themes should use wp_footer, because it adds the Piwik javascript code to each page."
+msgstr " <strong>نکته مهم:</strong> شما باید نشانه‌ای با دسترسی مدیریتی انتخاب کنید. پیویک چندکاربره برای هر وبلاگ، اگر اولی نمایش باشد یا اضافه نشده باشد، یک سایت جدید ایجاد می‌کند. کاربران تنها می‌توانند به آمار خود دسترسی داشته باشند، اما مدیر سایت می‌تواند به همه آمار دسترسی داشته باشد. برای جلوگیری از تعارض، باید یک پیویک نصب شده تمیز بدون هیچ سایت افزوده شده استفاده شود. قالب استفاده شده باید از wp_footer بهره بگیرد، چون پیویک کد جاوااسکریپت را به هر صفحه اضافه می‌کند."
+
+#: wp-piwik.php:671
+msgid "If you like WP-Piwik, you can support its development by a donation:"
+msgstr "اگر افزونه پیویک برای وردپرس را دوست دارید، با کمک مالی از آن حمایت کنید:"
+
+#: wp-piwik.php:687
+msgid "My Amazon.de wishlist (German)"
+msgstr "مورد علاقه‌های من در آمازون (آلمانی)"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.braekling.de/wp-piwik-wpmu-piwik-wordpress/"
+msgstr "http://www.braekling.de/wp-piwik-wpmu-piwik-wordpress/"
+
+#. Description of the plugin/theme
+msgid "Adds Piwik stats to your dashboard menu and Piwik code to your wordpress footer."
+msgstr "آمار پیویک را به منوی پیشخوان و کد پیویک به پانویس وردپرس اضافه می‌کند."
+
+#. Author of the plugin/theme
+msgid "Andr&eacute; Br&auml;kling"
+msgstr "آندرکوت بروملینگ"
+
+#. Author URI of the plugin/theme
+msgid "http://www.braekling.de"
+msgstr "http://www.braekling.de"
+
+msgid "Credits"
+msgstr "سازندگان"
+
+msgid "Thank you very much for your donation"
+msgstr "از شما به خاطر هدایایتان تشکر می‌کنم"
+
+msgid "and all people flattering this"
+msgstr "و تمام افرادی که تشکر کردند"
+
+msgid "Graphs powered by <a href=\"http://www.jqplot.com/\">jqPlot</a>, an open source project by Chris Leonello. Give it a try! (License: GPL 2.0 and MIT)"
+msgstr "نمودارها توسط <a href=\"http://www.jqplot.com/\">jqPlot</a> ایجاد شده‌اند, که یک پروژه کدباز است که توسط کریس لئونلو ایجاد شده است. امتحانش کنید (اجازه‌نامه: GPL 2.0 und MIT)"
+
+msgid "Thank you very much"
+msgstr "از شما بسیار متشکریم"
+
+msgid ", and"
+msgstr "، و"
+
+msgid "for your translation work"
+msgstr "برای فعالیت شما در ترجمه"
+
+msgid "Thank you very much, all users who send me mails containing criticism, commendation, feature requests and bug reports! You help me to make WP-Piwik much better."
+msgstr "از شما بسیار متشکریم، تمام کاربرانی که به من ایمیل زدند، تشکر کردند، و درخواست ویژگی یا گزارش باگ انجام دادند. ش ما کمک کردید که پیویک وردپرس بسیار بهتر شود."
+
+msgid "Thank <strong>you</strong> for using my plugin. It is the best commendation if my piece of code is really used!"
+msgstr "از <strong>شما</strong> به خاطر استفاده از این افزونه متشکریم. بهترین تقدیر این است که کدی که من نوشتم واقعاً استفاده شود."
+
+msgid "Changes saved"
+msgstr "تغییرات ذخیره شد"
+
+msgid "installed"
+msgstr "نصب شده"
+
+msgid "Next you should connect to Piwik"
+msgstr "سپس باید به پیویک متصل شوید"
+
+msgid "Please validate your configuration"
+msgstr "لطفاً صحت تنظیمات خود را بررسی کنید"
+
+msgid "Default date"
+msgstr "تاریخ پیش‌گزیده"
+
+msgid "Default date shown on statistics page."
+msgstr "داده‌های پیش‌گزیده نمایش داده شده در صفحه آمار"
+
+msgid "Dashboard data"
+msgstr "داده پیشخوان"
+
+msgid "Display an overview widget to your WordPress dashboard."
+msgstr "نمایش آمار کلی در پیشخوان وردپرس شما."
+
+msgid "Boad chart"
+msgstr "صفحه آمار"
+
+msgid "Display a visitor graph widget to your WordPress dashboard."
+msgstr "نمایش نمودار بازدید کنندگان در پیشخوان وردپرس شما."
+
+msgid "No data available."
+msgstr "داده‌ای در دسترس نیست"
+

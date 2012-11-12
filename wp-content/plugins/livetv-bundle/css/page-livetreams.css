@@ -1,0 +1,276 @@
+@charset utf-8;
+#full-view-irc {
+	width:100%;
+	height:auto;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-khtml-border-radius:10px;
+	cursor:move;
+	margin:0 auto;
+	padding:5px 0 20px;
+}
+div.clear{
+	clear: both;
+	height: 0;
+	overflow: hidden;
+}
+h5.widget-title {
+	text-indent:5px;
+	margin:0 0 20px;
+}
+img.bubble {
+	padding:3px;
+}
+#full-view-irc h4 {
+	text-transform:uppercase;
+	cursor:pointer;
+	text-align:left;
+}
+#full-view-irc img {
+	border:none!important;
+	opacity:0.5;
+	margin:0 0 0 5px;
+}
+.livetv-irc-wrap {
+	height:auto;
+	text-align:center;
+}
+.livetv-irc-content {
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-khtml-border-radius:5px;
+	border:3px solid #FFF;
+}
+#full-view-irc h4:hover, #full-view-irc h4:hover img, #full-view-irc h4:focus, #full-view-irc h4:focus img {
+	opacity:1;
+}
+#full-view-switcher {
+	margin-top:2.5%;
+}
+li#livetv-recent-posts.livetv-widget-container {
+	width:50%;
+	display:inline-block!important;
+	list-style-type:none!important;
+	float:left;
+	margin:0 auto;
+	padding:0;
+}
+ul#container-sub-live {
+	margin:0 auto !important;
+	padding:0;
+}
+.entry-content li.livetv-widget-container ul {
+	margin: 0 auto 18px auto !important;
+	padding:0;
+}
+h4.share-social {
+	display:inline-table!important;
+}
+li.news-single {
+	margin-left:30px;
+}
+.twitter-share-button {
+	float:left;
+	text-align:right;
+	cursor:pointer;
+	margin-top:1px;
+	padding:0;
+}
+.facebook-share-button {
+	float:left;
+	width:85px;
+	margin:1px 10px 0 5px;
+	padding:0;
+}
+.widgettitle a {
+	color:#FFF!important;
+}
+.gplusone {
+	float:left;
+	margin:1px 0 0 5px;
+}
+.msn-share-button {
+	text-transform:lowercase;
+	float:left;
+	margin-right:20px;
+	background:url('../images/blt8.png') no-repeat scroll 2px 3px #e7f8ff;
+	color:#03C!important;
+	border-radius:3px 3px 3px 3px;
+	-webkit-border-radius:3px 3px 3px 3px;
+	-khtml-border-radius:3px 3px 3px 3px;
+	-moz-border-radius:3px;
+	text-decoration:none;
+	font:11px verdana;
+	height:12px!important;
+	margin-top:0;
+	border-color:#b2e8fe #9cd1e8 #9cd1e8 #b2e8fe;
+	border-style:solid;
+	border-width:1px;
+	padding:3px 3px 4px 20px;
+}
+.msn-share-button:hover, .msn-share-button:focus {
+	opacity:.9;
+	color:#03C!important;
+}
+.minithumb-twitch a.button, .minithumb-own3d a.button, .minithumb-justin a.button {
+	white-space:nowrap;
+	line-height:1em;
+	position:relative;
+	outline:none;
+	overflow:visible;
+	cursor:pointer;
+	border:rgba(0,0,0,.2) 1px solid;
+	border-bottom:rgba(0,0,0,.4) 1px solid;
+	-webkit-box-shadow:0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow:0 1px 2px rgba(0,0,0,.2);
+	box-shadow:0 1px 2px rgba(0,0,0,.2);
+	background:0 to(rgba(255,255,255,.1)) );
+filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#19FFFFFF', EndColorStr='#19000000');
+	-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#19FFFFFF', EndColorStr='#19000000')";
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	-khtml-user-select:none;
+	user-select:none;
+	margin-bottom:0!important;
+	padding:3px;
+}
+.livetv-info {
+	background-color:#000;
+	border:2px solid #C30;
+	border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	-khtml-border-radius:8px;
+	width:90%;
+	margin:10px auto!important;
+	padding:10px!important;
+}
+li.widget_livetv_widget span.minithumb-own3d, li.widget_livetv_widget span.minithumb-twitch, li.widget_livetv_widget span.minithumb-justin {
+	padding:1%;
+}
+#normal-view-content div, .full-view-content {
+	width:100%;
+	height:auto;
+	margin:0 auto!important;
+}
+h2.livetv-h2, .livetv-nxt {
+	margin:0!important;
+	text-align: center;
+}
+#normal-view-content, li.widget_livetv_widget span.minithumb-own3d, li.widget_livetv_widget span.minithumb-justin, li.widget_livetv_widget span.minithumb-twitch {
+	width:100%!important;
+}
+#normal-view-content h2 img, #full-view-content h2 img, #minithumb-own3d-content h3 img, #minithumb-justin-content h3 img, #minithumb-twitch-content h3 img {
+	border:0 none!important;
+}
+#minithumb-own3d-content, #minithumb-justin-content, #minithumb-twitch-content {
+	margin-top:1%;
+	width:100%;
+}
+.minithumb-own3d, .minithumb-justin, .minithumb-twitch {
+	display:inline-table!important;
+	width:100%;
+}
+.minithumb-own3d-info span, .minithumb-justin-info span, .minithumb-twitch-info span {
+	margin:0 auto;
+	padding:0;
+	width:100%;
+	display: block;
+	margin-top:1%;
+}
+li.widget_livetv_widget span.minithumb-own3d-info span, li.widget_livetv_widget span.minithumb-justin-info span, li.widget_livetv_widget span.minithumb-twitch-info span {
+	margin-top:3%;
+}
+p.hide-on-page {
+	display: none;
+	overflow: hidden;
+}
+li.widget_livetv_widget p.hide-on-page {
+	display:block !important;
+}
+.minithumb-own3d-splash, .minithumb-justin-splash, .minithumb-twitch-splash, .minithumb-own3d-splash img, .minithumb-justin-splash img, .minithumb-twitch-splash img {
+	position:absolute;
+	border:0 none!important;
+	margin-left: 3px;
+}
+
+.livetv-holder-twitch, .livetv-holder-justin, .livetv-holder-own3d {
+	margin: 10px;
+}
+.livetv-holder-twitch a, .livetv-holder-justin a, .livetv-holder-own3d a {
+	width: auto;
+	padding:1px;
+	height: auto;
+	text-decoration: none;
+	margin: 2px;
+}
+
+.livetv-holder-twitch a:hover, .livetv-holder-justin a:hover, .livetv-holder-own3d a:hover{
+	cursor: pointer;
+}
+
+.livetv-holder-twitch a.jp-previous, .livetv-holder-justin a.jp-previous, .livetv-holder-own3d a.jp-previous { margin-right: 5px; }
+.livetv-holder-twitch a.jp-next, .livetv-holder-justin a.jp-next, .livetv-holder-own3d a.jp-next { margin-left: 5px; }
+
+.livetv-holder-twitch a.jp-current, .livetv-holder-justin a.jp-current, .livetv-holder-own3d a.jp-current, a.jp-current:hover {
+	font-weight: bold;
+}
+.livetv-holder-twitch a.jp-disabled, .livetv-holder-justin a.jp-disabled, .livetv-holder-own3d a.jp-disabled, a.jp-disabled:hover{
+	color: #bbb;
+}
+
+.livetv-holder-twitch a.jp-current, .livetv-holder-justin a.jp-current, .livetv-holder-own3d a.jp-current, a.jp-current:hover, .livetv-holder-twitch a.jp-disabled, .livetv-holder-justin a.jp-disabled, .livetv-holder-own3d a.jp-disabled, a.jp-disabled:hover {
+	cursor: default; 
+	background: none;
+}
+
+.livetv-holder-twitch span, .livetv-holder-justin span, .livetv-holder-own3d span { margin: 2px; }
+
+/* CSS HACK FOR FIREFOX */
+@-moz-document url-prefix()
+{
+	.minithumb-own3d-splash, .minithumb-justin-splash, .minithumb-twitch-splash
+	{
+		display: inherit;
+	}
+}
+
+/*Width of text @ right side of each img */
+.minithumb-own3d-info, .minithumb-justin-info, .minithumb-twitch-info {
+	float:left;
+	width:100%;
+	text-align:left;
+}
+/*Width of thumbnail img */
+.minithumb-justin-thumb img, .minithumb-twitch-thumb img, .minithumb-own3d-thumb img {
+	height:auto;
+	float:left;
+	border:none !important;
+}
+#livetv-container-own3d, #livetv-container-twitch, #livetv-container-justin
+{
+	width:100%;
+	margin:0px auto;
+	padding:0;
+}
+#livetv-container-own3d li, #livetv-container-twitch li, #livetv-container-justin li
+{
+	list-style-type:none !important;
+	margin:5px;
+	padding:0;
+	display: inline-table;
+}
+
+
+/*Width of thumbnail img */
+li.widget_livetv_widget span.minithumb-own3d-thumb img, li.widget_livetv_widget span.minithumb-justin-thumb img, li.widget_livetv_widget span.minithumb-twitch-thumb img {
+	height:auto;
+	border:0 none !important;
+}
+/*Width of text @ right side of each img */	
+li.widget_livetv_widget span.minithumb-own3d-info, li.widget_livetv_widget span.minithumb-justin-info, li.widget_livetv_widget span.minithumb-twitch-info {
+	width:100%;
+}
+/*END EDIT for widget*/
