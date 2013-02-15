@@ -1,0 +1,674 @@
+/*
+ * Network Latest Posts v3.0
+ *
+ * Copyright 2012  L'Elite
+ * Licensed under the GPL v2.0
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Great and ugly things aren't as good
+ * as great and beautiful things ;)
+ */
+/*
+ * Main Wrapper
+ */
+.nlposts-container {
+
+}
+.nlposts-container a:focus {
+    outline: thin dotted #333;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+.nlposts-container a:hover,
+.nlposts-container a:active {
+    outline: 0;
+}
+.nlposts-container img {
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+.nlposts-container button,
+.nlposts-container input,
+.nlposts-container select,
+.nlposts-container textarea {
+    margin: 0;
+    font-size: 100%;
+    vertical-align: middle;
+}
+.nlposts-container button,
+.nlposts-container input {
+    *overflow: visible;
+    line-height: normal;
+}
+.nlposts-container button::-moz-focus-inner,
+.nlposts-container input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+.nlposts-container button,
+.nlposts-container input[type="button"],
+.nlposts-container input[type="reset"],
+.nlposts-container input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+.nlposts-container input[type="search"] {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-appearance: textfield;
+}
+.nlposts-container input[type="search"]::-webkit-search-decoration,
+.nlposts-container input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+.nlposts-container textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+/*
+ * Unordered Lists <<<<<<<<<<<<<<<<<<<<
+ *
+ * container 'div'
+ */
+.nlposts-ulist-container .nlposts-wrapper {}
+.nlposts-ulist-container .nlposts-ulist-wtitle {
+    color: #666;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    line-height: 2.6em;
+    text-transform: uppercase;
+}
+.nlposts-ulist-container .nlposts-ulist {}
+.nlposts-ulist-container .nav {
+    margin-left: 0;
+    margin-bottom: 18px;
+    list-style: none;
+}
+.nlposts-ulist-container .nav > li > a {
+    display: block;
+}
+.nlposts-ulist-container .nav > li > a:hover {
+    text-decoration: none;
+    background-color: #eeeeee;
+}
+.nlposts-ulist-container .nav li {
+    margin-top: 9px;
+}
+.nlposts-ulist-container .nav-tabs {
+    *zoom: 1;
+}
+.nlposts-ulist-container .nav-tabs:before,
+.nlposts-ulist-container .nav-tabs:after {
+    display: table;
+    content: "";
+}
+.nlposts-ulist-container .nav-tabs:after {
+    clear: both;
+}
+.nlposts-ulist-container .nav-tabs > li {
+    float: left;
+}
+.nlposts-ulist-container .nav-tabs > li > a {
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-right: 2px;
+    line-height: 14px;
+}
+.nlposts-ulist-container .nav-tabs {
+    border-bottom: 1px solid #ddd;
+}
+.nlposts-ulist-container .nav-tabs > li {
+    margin-bottom: -1px;
+}
+.nlposts-ulist-container .nav-tabs > li > a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    line-height: 18px;
+    border: 1px solid transparent;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+.nlposts-ulist-container .nav-tabs > li > a:hover {
+    border-color: #eeeeee #eeeeee #dddddd;
+}
+.nlposts-ulist-container .nav-tabs > .active > a,
+.nlposts-ulist-container .nav-tabs > .active > a:hover {
+    color: #555555;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
+}
+.nlposts-ulist-container .nav-pills > li > a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.nlposts-ulist-container .nav-pills > .active > a,
+.nlposts-ulist-container .nav-pills > .active > a:hover {
+    color: #ffffff;
+    background-color: #333333;
+}
+.nlposts-ulist-container .nav-stacked > li {
+    float: none;
+}
+.nlposts-ulist-container .nav-stacked > li > a {
+    margin-right: 0;
+}
+.nlposts-ulist-container .nav-tabs.nav-stacked {
+    border-bottom: 0;
+}
+.nlposts-ulist-container .nav-tabs.nav-stacked > li > a {
+    border: 1px solid #ddd;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.nlposts-ulist-container .nav-tabs.nav-stacked > li:first-child > a {
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+.nlposts-ulist-container .nav-tabs.nav-stacked > li:last-child > a {
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+}
+.nlposts-ulist-container .nav-tabs.nav-stacked > li > a:hover {
+    border-color: #ddd;
+    z-index: 2;
+}
+.nlposts-ulist-container .nlposts-ulist-meta {
+    font-style: italic;
+}
+.nlposts-ulist-container .thumbnails {
+    margin-left: -20px;
+    list-style: none;
+    *zoom: 1;
+}
+.nlposts-ulist-container .thumbnails:before,
+.nlposts-ulist-container .thumbnails:after {
+    display: table;
+    content: "";
+}
+.nlposts-ulist-container .thumbnails:after {
+    clear: both;
+}
+.nlposts-ulist-container .thumbnails {
+    margin-left: 0;
+}
+.nlposts-ulist-container .thumbnails > li {
+    float: left;
+    margin-bottom: 18px;
+}
+.nlposts-ulist-container .nlposts-ulist-thumbnail-litem a:hover {
+    border-color: #333333;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+.nlposts-ulist-container .nlposts-ulist-thumbnail-litem a > img {
+    display: block;
+    padding: 4px;
+    line-height: 1;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    max-width: 100%;
+    margin-left:auto;
+    margin-right: auto;
+    /* filter: url(filters.svg#grayscale); /* Firefox, keeping it here in case they fix this bug (transparent image) */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
+    opacity: 0.7;
+}
+.nlposts-ulist-container .nlposts-ulist-thumbnail-litem a > img:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    opacity: 1;
+}
+.nlposts-ulist-container .nlposts-ulist-thumbnail-litem .caption {
+    padding: 9px;
+}
+.nlposts-ulist-container .nlposts-ulist-litem .nlposts-ulist-excerpt {
+    margin:0 !important;
+    padding:0 !important;
+    list-style: none;
+}
+.nlposts-ulist-container .pagination {
+    height: 36px;
+    margin: 18px 0;
+    text-align: center;
+}
+.nlposts-ulist-container .pagination ul {
+    display: inline-block;
+    *display: inline;
+    /* IE7 inline-block hack */
+    *zoom: 1;
+    margin-left: 0;
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.nlposts-ulist-container .pagination li {
+    display: inline;
+}
+.nlposts-ulist-container .pagination a, .nlposts-ulist-container .pagination span {
+    float: left;
+    padding: 0 14px;
+    line-height: 34px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-left-width: 0;
+}
+.nlposts-ulist-container .pagination a:hover,
+.nlposts-ulist-container .pagination .current {
+    background-color: #f5f5f5;
+}
+.nlposts-ulist-container .pagination .current {
+    color: #999999;
+    cursor: default;
+}
+.nlposts-ulist-container .pagination span,
+.nlposts-ulist-container .pagination .disabled a,
+.nlposts-ulist-container .pagination .disabled a:hover {
+    color: #999999;
+    background-color: transparent;
+    cursor: default;
+}
+.nlposts-ulist-container .pagination li:first-child a, .nlposts-ulist-container .pagination li:first-child span {
+    border-left-width: 1px;
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+}
+.nlposts-ulist-container .pagination li:last-child a, .nlposts-ulist-container .pagination li:last-child span {
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+}
+/*
+ * Unordered Lists <<<<<<<<<<<<<<<<<<<<<<
+ */
+/*
+ * Ordered Lists <<<<<<<<<<<<<<<<<<<<
+ */
+.nlposts-olist-container .nlposts-wrapper {}
+.nlposts-olist-container .nlposts-olist-wtitle {
+    color: #666;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    line-height: 2.6em;
+    text-transform: uppercase;
+}
+.nlposts-olist-container .nav {
+    margin-left: 0;
+    margin-bottom: 18px;
+    /*list-style: none;*/
+}
+.nlposts-olist-container .nav > li > a {
+    display: block;
+}
+.nlposts-olist-container .nav > li > a:hover {
+    text-decoration: none;
+    background-color: #eeeeee;
+}
+.nlposts-olist-container .nav li {
+    margin-top: 9px;
+}
+.nlposts-olist-container .nav-tabs {
+    *zoom: 1;
+}
+.nlposts-olist-container .nav-tabs:before,
+.nlposts-olist-container .nav-tabs:after {
+    display: table;
+    content: "";
+}
+.nlposts-olist-container .nav-tabs:after {
+    clear: both;
+}
+.nlposts-olist-container .nav-tabs > li {
+    float: left;
+}
+.nlposts-olist-container .nav-tabs > li > a {
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-right: 2px;
+    line-height: 14px;
+}
+.nlposts-olist-container .nav-tabs {
+    border-bottom: 1px solid #ddd;
+}
+.nlposts-olist-container .nav-tabs > li {
+    margin-bottom: -1px;
+}
+.nlposts-olist-container .nav-tabs > li > a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    line-height: 18px;
+    border: 1px solid transparent;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+.nlposts-olist-container .nav-tabs > li > a:hover {
+    border-color: #eeeeee #eeeeee #dddddd;
+}
+.nlposts-olist-container .nav-tabs > .active > a,
+.nlposts-olist-container .nav-tabs > .active > a:hover {
+    color: #555555;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
+}
+.nlposts-olist-container .nav-pills > li > a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.nlposts-olist-container .nav-pills > .active > a,
+.nlposts-olist-container .nav-pills > .active > a:hover {
+    color: #ffffff;
+    background-color: #333333;
+}
+.nlposts-olist-container .nav-stacked > li {
+    float: none;
+}
+.nlposts-olist-container .nav-stacked > li > a {
+    margin-right: 0;
+}
+.nlposts-olist-container .nav-tabs.nav-stacked {
+    border-bottom: 0;
+}
+.nlposts-olist-container .nav-tabs.nav-stacked > li > a {
+    border: 1px solid #ddd;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.nlposts-olist-container .nav-tabs.nav-stacked > li:first-child > a {
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+.nlposts-olist-container .nav-tabs.nav-stacked > li:last-child > a {
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+}
+.nlposts-olist-container .nav-tabs.nav-stacked > li > a:hover {
+    border-color: #ddd;
+    z-index: 2;
+}
+.nlposts-olist-container .nlposts-olist-meta {
+    font-style: italic;
+}
+.nlposts-olist-container .thumbnails {
+    margin-left: -20px;
+    list-style: none;
+    *zoom: 1;
+}
+.nlposts-olist-container .thumbnails:before,
+.nlposts-olist-container .thumbnails:after {
+    display: table;
+    content: "";
+}
+.nlposts-olist-container .thumbnails:after {
+    clear: both;
+}
+.nlposts-olist-container .thumbnails {
+    margin-left: 0;
+}
+.nlposts-olist-container .thumbnails > li {
+    float: left;
+    margin-bottom: 18px;
+}
+.nlposts-olist-container .nlposts-olist-thumbnail-litem a:hover {
+    border-color: #333333;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+.nlposts-olist-container .nlposts-olist-thumbnail-litem a > img {
+    display: block;
+    padding: 4px;
+    line-height: 1;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    max-width: 100%;
+    margin-left:auto;
+    margin-right: auto;
+    /* filter: url(filters.svg#grayscale); /* Firefox, keeping it here in case they fix this bug (transparent image) */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
+    opacity: 0.7;
+}
+.nlposts-olist-container .nlposts-olist-thumbnail-litem a > img:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    opacity: 1;
+}
+.nlposts-olist-container .nlposts-olist-thumbnail-litem .caption {
+    padding: 9px;
+}
+.nlposts-olist-container .nlposts-olist-litem .nlposts-olist-excerpt {
+    margin:0 !important;
+    padding:0 !important;
+    list-style: none;
+}
+.nlposts-olist-container .pagination {
+    height: 36px;
+    margin: 18px 0;
+    text-align: center;
+}
+.nlposts-olist-container .pagination ul {
+    display: inline-block;
+    *display: inline;
+    /* IE7 inline-block hack */
+    *zoom: 1;
+    margin-left: 0;
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.nlposts-olist-container .pagination li {
+    display: inline;
+}
+.nlposts-olist-container .pagination a, .nlposts-olist-container .pagination span {
+    float: left;
+    padding: 0 14px;
+    line-height: 34px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-left-width: 0;
+}
+.nlposts-olist-container .pagination a:hover,
+.nlposts-olist-container .pagination .current {
+    background-color: #f5f5f5;
+}
+.nlposts-olist-container .pagination .current {
+    color: #999999;
+    cursor: default;
+}
+.nlposts-olist-container .pagination span,
+.nlposts-olist-container .pagination .disabled a,
+.nlposts-olist-container .pagination .disabled a:hover {
+    color: #999999;
+    background-color: transparent;
+    cursor: default;
+}
+.nlposts-olist-container .pagination li:first-child a, .nlposts-olist-container .pagination li:first-child span {
+    border-left-width: 1px;
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+}
+.nlposts-olist-container .pagination li:last-child a, .nlposts-olist-container .pagination li:last-child span {
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+}
+/*
+ * Ordered Lists <<<<<<<<<<<<<<<<<<<<<<
+ */
+/*
+ * Block
+ */
+.nlposts-block-container .nlposts-block-item {
+    float:left;
+    display:block;
+    width:45%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-right: 5px;
+}
+.nlposts-block-container .nlposts-block-meta {
+    font-style: italic;
+    padding-left: 18px;
+    background: transparent url("../img/calendar_icon.png") no-repeat;
+    color: #444;
+    border-bottom: 1px dotted #ddd;
+    margin-bottom: 5px;
+}
+.nlposts-block-container .thumbnails {
+    /*margin-left: -20px;*/
+    list-style: none;
+    *zoom: 1;
+}
+.nlposts-block-container .thumbnails:before,
+.nlposts-block-container .thumbnails:after {
+    display: table;
+    content: "";
+}
+.nlposts-block-container .thumbnails:after {
+    clear: both;
+}
+.nlposts-block-container .thumbnails {
+    margin-left: 0;
+}
+.nlposts-block-container .thumbnails > li {
+    float: left;
+    margin-bottom: 18px;
+}
+.nlposts-block-container .nlposts-block-thumbnail-litem a:hover {
+
+}
+.nlposts-block-container .nlposts-block-thumbnail-litem a > img {
+    display: block;
+    padding: 4px;
+    line-height: 1;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    max-width: 100%;
+    margin-left:auto;
+    margin-right: auto;
+    /* filter: url(filters.svg#grayscale); /* Firefox, keeping it here in case they fix this bug (transparent image) */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
+    opacity: 0.7;
+}
+.nlposts-block-container .nlposts-block-thumbnail-litem a > img:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    opacity: 1;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+.nlposts-block-container .nlposts-block-thumbnail-litem .caption {
+    padding: 9px;
+}
+.nlposts-block-container .pagination {
+    height: 36px;
+    margin: 18px 0;
+    text-align: center;
+    clear:both;
+}
+.nlposts-block-container .pagination ul {
+    display: inline-block;
+    *display: inline;
+    /* IE7 inline-block hack */
+    *zoom: 1;
+    margin-left: 0;
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.nlposts-block-container .pagination li {
+    display: inline;
+}
+.nlposts-block-container .pagination a, .nlposts-block-container .pagination span {
+    float: left;
+    padding: 0 14px;
+    line-height: 34px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-left-width: 0;
+}
+.nlposts-block-container .pagination a:hover,
+.nlposts-block-container .pagination .current {
+    background-color: #f5f5f5;
+}
+.nlposts-block-container .pagination .current {
+    color: #999999;
+    cursor: default;
+}
+.nlposts-block-container .pagination span,
+.nlposts-block-container .pagination .disabled a,
+.nlposts-block-container .pagination .disabled a:hover {
+    color: #999999;
+    background-color: transparent;
+    cursor: default;
+}
+.nlposts-block-container .pagination li:first-child a, .nlposts-block-container .pagination li:first-child span {
+    border-left-width: 1px;
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+}
+.nlposts-block-container .pagination li:last-child a, .nlposts-block-container .pagination li:last-child span {
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+}

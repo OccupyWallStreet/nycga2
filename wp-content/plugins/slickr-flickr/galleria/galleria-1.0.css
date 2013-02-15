@@ -1,0 +1,35 @@
+/* Slickr Flickr Galleria */
+.slickr-flickr-galleria { margin: 0px auto; overflow: auto;  visibility:hidden}
+.slickr-flickr-galleria.landscape { width: 560px; }
+.slickr-flickr-galleria.portrait { width: 500px; }
+.slickr-flickr-galleria.landscape.small { width: 260px; }
+.slickr-flickr-galleria.portrait.small { width: 200px; }
+.slickr-flickr-galleria.landscape.m640 { width: 660px; }
+.slickr-flickr-galleria.portrait.m640 { width: 500px; }
+.slickr-flickr-galleria.landscape.m800 { width: 820px; }
+.slickr-flickr-galleria.portrait.m800 { width: 620px; }
+.slickr-flickr-galleria.landscape.s320 { width: 340px; }
+.slickr-flickr-galleria.portrait.s320 { width: 320px; }
+.slickr-flickr-galleria.landscape.large { width: 1044px; max-height : 960px; }
+.slickr-flickr-galleria.portrait.large { width: 788px; max-height: 1280px; }
+.slickr-flickr-galleria.small .galleria-image-nav {display:none;}
+.slickr-flickr-galleria span.caption{font-style:italic;color:#887;text-align:center;}
+.slickr-flickr-galleria div.description p {text-align: center;}
+.slickr-flickr-galleria p.slickr-flickr-attribution { font-style: italic; margin-bottom: 0px;text-align:center;}
+.slickr-flickr-galleria p.nav{padding-top:15px;clear:both;font:80% 'helvetica neue',sans-serif;letter-spacing:3px;text-transform:uppercase;text-align:center;}
+.slickr-flickr-galleria.small .galleria li{width:55px;height:55px;margin:1px;}
+.slickr-flickr-galleria p.nav.s320 {padding: 5px;letter-spacing:0px;text-transform:lowercase;}
+.slickr-flickr-galleria p.nav.small{padding: 5px;letter-spacing:0px;text-transform:lowercase;}
+.slickr-flickr-galleria p.nav a{color:#348;text-decoration:none;outline:none;}
+.slickr-flickr-galleria p.nav a:hover{color:#67a;}
+.galleria_container {background-color:transparent; margin-bottom: 15px; text-align:center; }
+.galleria_container img {margin-bottom: 5px;}
+.galleria {list-style:none; }
+.galleria li{display:block;width:80px;height:80px;overflow:hidden;float:left;margin:0 10px 10px 0}
+.galleria li a{display:none}
+.galleria li div{position:absolute;display:none;top:0;left:180px}
+.galleria li div img{cursor:pointer}
+.galleria li.active div img,.galleria li.active div{display:block}
+.galleria li img.thumb{cursor:pointer;top:auto;left:auto;display:block;width:auto;height:auto; margin:auto;}
+.galleria li .caption{display:block;padding-top:.5em}
+* html .galleria li div span{width:400px} /* MSIE bug */

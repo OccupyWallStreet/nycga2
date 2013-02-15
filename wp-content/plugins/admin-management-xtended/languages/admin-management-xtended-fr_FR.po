@@ -1,0 +1,267 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-01 12:06+0100\n"
+"PO-Revision-Date: 2009-11-01 12:17+0100\n"
+"Last-Translator: Denis Rebaud <denis@rebaud.fr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+": \n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;__ngettext_noop:1,2;_c\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin-management-xtended.php:221
+msgid "Admin Management Xtended requires at least WordPress 2.5!"
+msgstr "Admin Management Xtended nécessite au moins WordPress 2.5 !"
+
+#: admin-management-xtended.php:233
+#, php-format
+msgid "<strong>Admin Management Xtended</strong> plugin version 2.0 requires at least WordPress 2.7! If you're still using a WP version prior to 2.7, please <a href='%s'>use Admin Management Xtended version 1.9.1</a>! Consider updating to the latest WP version for your own safety!"
+msgstr "L’extension <strong>Admin Management Xtended</strong> version 2.0 nécessite au moins WordPress 2.7 ! Si vous utilisez une version plus ancienne, merci d’<a href='%s'>utiliser Admin Management Xtended version 1.9.1</a> ! Considérez la mise à jour à la dernière version de WP à vos propres risques !"
+
+#: admin-management-xtended.php:245
+msgid "You seem using the <em>Better Tags Manager</em> plugin, which collides with the <em>Admin Management Xtended</em> plugin since both extend the tags column. Please deactivate one of both to make this message disappear."
+msgstr "Il semble que vous utilisiez l’extension <em>Better Tags Manager</em>, qui entre en conflit avec l’extension <em>Admin Management Xtended</em> car les deux étendent la colonne des tags. Veuillez désactiver l’une des deux pour faire disparaître ce message."
+
+#: admin-management-xtended.php:245
+msgid "(This message was created by Admin Management Xtended plugin)"
+msgstr "(Ce message a été créé par l’extension Admin Management Xtended)"
+
+#: general-functions.php:142
+#: general-functions.php:227
+#: general-functions.php:710
+#: link-functions.php:62
+#: link-functions.php:111
+#: media-functions.php:99
+#: post-functions.php:75
+#: post-functions.php:150
+msgid "Edit"
+msgstr "Modifier"
+
+#: general-functions.php:166
+#: general-functions.php:170
+#: page-functions.php:92
+#: post-functions.php:209
+msgid "Toggle comment status open/closed"
+msgstr "Commentaires autorisés / interdits"
+
+#: general-functions.php:224
+#: post-functions.php:70
+msgid "No Tags"
+msgstr "Aucun tag"
+
+#: general-functions.php:261
+#: post-functions.php:128
+msgid "Uncategorized"
+msgstr "Non classé"
+
+#: general-functions.php:328
+#: general-functions.php:369
+#: general-functions.php:710
+#: link-functions.php:118
+#: post-functions.php:143
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: general-functions.php:328
+#: general-functions.php:369
+#: general-functions.php:710
+#: link-functions.php:118
+#: post-functions.php:143
+msgid "Cancel"
+msgstr "Annuler"
+
+#: general-functions.php:345
+#: general-functions.php:360
+msgid "You are not allowed to change the post author as this user."
+msgstr "Vous n’êtes pas autorisé à changer l’auteur de cet article par cet utilisateur."
+
+#: general-functions.php:348
+#: general-functions.php:363
+msgid "You are not allowed to change the page author as this user."
+msgstr "Vous n’êtes pas autorisé à changer l’auteur de cette page par cet utilisateur."
+
+#: general-functions.php:474
+#: general-functions.php:483
+msgid "Y/m/d"
+msgstr "A/m/j"
+
+#: general-functions.php:477
+msgid "You are not allowed to edit this post."
+msgstr "Vous n’êtes pas autorisé à modifier cet article."
+
+#: general-functions.php:502
+msgid "Sorry, you do not have the right to publish this post."
+msgstr "Désolé, vous n’avez pas le droit de publier cet article."
+
+#: general-functions.php:513
+#: general-functions.php:518
+#: link-functions.php:62
+#: page-functions.php:79
+#: page-functions.php:82
+#: post-functions.php:196
+#: post-functions.php:199
+msgid "Toggle visibility"
+msgstr "Changer la visibilité"
+
+#: general-functions.php:567
+msgid "Change page order"
+msgstr "Changer l’ordre des pages"
+
+#: general-functions.php:649
+#: general-functions.php:655
+#: general-functions.php:661
+msgid "Edit Page Order:"
+msgstr "Modifier l'ordre des pages :"
+
+#: general-functions.php:649
+#: general-functions.php:655
+#: general-functions.php:661
+msgid "Off"
+msgstr "Désactivé"
+
+#: general-functions.php:649
+#: general-functions.php:655
+#: general-functions.php:661
+msgid "Direct input"
+msgstr "Saisie directe"
+
+#: general-functions.php:649
+#: general-functions.php:655
+msgid "Drag & Drop"
+msgstr "Glisser& déposer"
+
+#: general-functions.php:661
+msgid "Drag & Drop <a href='http://www.schloebe.de/wordpress/admin-management-xtended-plugin/#pageorder' target='_blank'>[?]</a>"
+msgstr "Glisser & déposer <a href='http://www.schloebe.de/wordpress/admin-management-xtended-plugin/#pageorder' target='_blank'>[?]</a>"
+
+#: general-functions.php:670
+msgid "Hide invisible Posts"
+msgstr "Cacher les articles invisibles"
+
+#: general-functions.php:676
+msgid "Show invisible Posts"
+msgstr "Montrer les articles invisibles"
+
+#: general-functions.php:704
+msgid "Post Revisions"
+msgstr "Historique des modifications de l’article"
+
+#: general-functions.php:704
+msgid "Page Revisions"
+msgstr "Historique des modification de la page"
+
+#: general-functions.php:710
+msgid "Post"
+msgstr "Article"
+
+#: general-functions.php:710
+msgid "Please wait..."
+msgstr "Veuillez patienter..."
+
+#: general-functions.php:710
+msgid "Slug may not be empty!"
+msgstr "Le permalien ne peut être vide !"
+
+#: general-functions.php:710
+msgid "Insert time"
+msgstr "Insérer l’heure"
+
+#: general-functions.php:774
+msgid "Change image set"
+msgstr "Modifier le jeu d'image"
+
+#: link-functions.php:44
+#: link-functions.php:82
+#: media-functions.php:43
+#: media-functions.php:60
+#: page-functions.php:43
+#: page-functions.php:59
+#: post-functions.php:44
+#: post-functions.php:101
+#: post-functions.php:176
+msgid "Enhanced by Admin Management Xtended Plugin"
+msgstr "Amélioré par Admin Management Xtended Plugin"
+
+#: link-functions.php:44
+msgid "Visible"
+msgstr "Visible"
+
+#: link-functions.php:61
+#: link-functions.php:142
+msgid "Yes"
+msgstr "Oui"
+
+#: link-functions.php:61
+#: link-functions.php:142
+msgid "No"
+msgstr "Non"
+
+#: link-functions.php:82
+#: post-functions.php:101
+msgid "Categories"
+msgstr "Catégories"
+
+#: media-functions.php:43
+msgid "Media Order"
+msgstr "Ordre des médias"
+
+#: media-functions.php:60
+msgid "Description"
+msgstr "Description"
+
+#: page-functions.php:43
+#: post-functions.php:176
+msgid "Actions"
+msgstr "Actions"
+
+#: page-functions.php:59
+msgid "Page Order"
+msgstr "Ordre des pages"
+
+#: page-functions.php:85
+#: post-functions.php:202
+msgid "Change Publication Date"
+msgstr "Changer la date de publication"
+
+#: page-functions.php:87
+msgid "Edit Page Slug"
+msgstr "Changer l'identifiant de la page"
+
+#: post-functions.php:44
+msgid "Tags"
+msgstr "Tags"
+
+#: post-functions.php:204
+msgid "Edit Post Slug"
+msgstr "Changer l'identifiant de l’article"
+
+#~ msgid ""
+#~ "The <strong>Admin Management Xtended</strong> plugin wasnt developed for "
+#~ "WordPress 2.7 and higher, which has a QuickEdit feature already built-in. "
+#~ "Please deactivate Admin Management Xtended plugin and use WordPress' "
+#~ "QuickEdit feature."
+#~ msgstr ""
+#~ "L'extension <strong>Admin Management Xtended</strong> n'a pas été "
+#~ "développée pour WordPress 2.7 et supérieur, qui a une fonction QuickEdit "
+#~ "déjà intégrée. Veuillez désactiver l'extension Admin Management Xtended "
+#~ "et utiliser la fonctionnalité WordPress QuickEdit."
+#~ msgid ""
+#~ "You seem using the \"Better Tags Manager\" plugin, which collides with "
+#~ "the \"Admin Management Xtended\" plugin since both extend the tags "
+#~ "column. Please <a href=\"plugins.php\">deactivate</a> one of both to make "
+#~ "this message disappear."
+#~ msgstr ""
+#~ "Il semble que vous utilisiez l'extension \"Better Tags Manager\", qui "
+#~ "entre en conflit avec l'extension \"Admin Management Xtended\" car les "
+#~ "deux étendent la colonne des tags. Veuillez <a href=\"plugins.php"
+#~ "\">désactiver</a> l'une des deux pour faire disparaître ce message."
+

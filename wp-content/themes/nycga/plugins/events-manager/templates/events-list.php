@@ -158,7 +158,9 @@ if( $events_count > 0 ){ ?>
 										
 										<!-- Delete event -->
 										<?php if ((groups_is_user_admin(get_current_user_id(), $event->group_id) || groups_is_user_mod(get_current_user_id(), $event->group_id)) || get_current_user_id() == $event->id || current_user_can('delete_others_events')) : ?>
-											<span class="trash"><a href="<?php echo esc_url(add_query_arg(array('action'=>'event_delete', 'event_id'=>$event->recurrence_id, '_wpnonce'=> wp_create_nonce('event_delete_'.$event->recurrence_id)))); ?>" class="button event-delete em-event-rec-delete" onclick ="if( !confirm('<?php echo $recurrence_delete_confirm; ?>') ){ return false; }"><?php _e('X Delete','dbem'); ?></a></span>
+											
+											<span class="trash"><a class="button event-delete em-event-rec-delete" href="<?php echo $url ?>?action=event_delete&amp;event_id=<?php echo $event->id ?>" class="button event-delete em-event-rec-delete"  title="<?php _e ( 'Delete this event', 'dbem' ); ?>" onclick ="if( !confirm('Are you sure? This cannot be undone.') ){ return false; }"><?php _e('X Delete','dbem'); ?></a></span>
+
 										<?php if ( $event->is_recurrence() && $event->can_manage('edit_events','edit_others_events') ) : $recurrence_delete_confirm = __('WARNING! You will delete ALL recurrences of this event.','dbem'); ?>
 											<span class="trash">&nbsp;<a class="button bp-secondary-action" href="<?php echo $url ?>?action=event_delete&amp;event_id=<?php echo $event->recurrence_id ?>&scope=future" class="em-event-rec-delete" title="<?php _e ( 'Delete this series', 'dbem' ); ?>" onclick ="if( !confirm('<?php echo $recurrence_delete_confirm; ?>') ){ return false; }"><?php _e('Delete Series','dbem'); ?></a></span>
 										<?php endif; ?>

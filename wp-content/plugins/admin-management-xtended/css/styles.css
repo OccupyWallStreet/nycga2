@@ -1,0 +1,47 @@
+.status-draft, .status-future, .cannotdrop {
+	-moz-opacity: 0.4;
+	filter:Alpha(opacity=40, finishopacity=40, style=1);
+}
+.ondragrow {
+	background: #328AB2;
+	color: #fff;
+}
+
+.ondragrow a {
+	color: #fff;
+}
+
+ul#categorychecklist {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+ul#categorychecklist ul {
+	list-style: none;
+	margin-left: 15px;
+	padding: 0;
+}
+
+ul#categorychecklist ul ul {
+	list-style: none;
+	margin-left: 30px;
+	padding: 0;
+}
+
+th#ame_post_actions, th#ame_page_actions {
+	width: 125px;
+}
+
+th#ame_page_order {
+	width: 160px;
+}
+
+.widefat th#ame_sort {
+	width: 20px;
+}
+
+.widefat td.ame_sort {
+	cursor: move;
+	background: url(../img/set1/draghandle.gif) center no-repeat;
+}
