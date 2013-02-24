@@ -152,15 +152,15 @@ class WP_Widget {
 	}
 
 	function _get_display_callback() {
-		return array(&$this, 'display_callback');
+		return array($this, 'display_callback');
 	}
 
 	function _get_update_callback() {
-		return array(&$this, 'update_callback');
+		return array($this, 'update_callback');
 	}
 
 	function _get_form_callback() {
-		return array(&$this, 'form_callback');
+		return array($this, 'form_callback');
 	}
 
 	/** Generate the actual widget content.
@@ -317,7 +317,7 @@ class WP_Widget_Factory {
 	var $widgets = array();
 
 	function WP_Widget_Factory() {
-		add_action( 'widgets_init', array( &$this, '_register_widgets' ), 100 );
+		add_action( 'widgets_init', array( $this, '_register_widgets' ), 100 );
 	}
 
 	function register($widget_class) {
@@ -680,7 +680,6 @@ function wp_sidebar_description( $id ) {
 	if ( isset($wp_registered_sidebars[$id]['description']) )
 		return esc_html( $wp_registered_sidebars[$id]['description'] );
 }
-
 
 /**
  * Remove widget from sidebar.
@@ -1149,7 +1148,7 @@ function _get_widget_id_base($id) {
  * Handle sidebars config after theme change
  *
  * @access private
- * @since 3.3
+ * @since 3.3.0
  */
 function _wp_sidebars_changed() {
 	global $sidebars_widgets;

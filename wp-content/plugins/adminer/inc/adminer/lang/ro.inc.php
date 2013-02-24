@@ -244,7 +244,7 @@ $translations = array(
 	'Alter type' => 'Modifică tip',
 	'Type has been dropped.' => 'Tiipul a fost șters.',
 	'Type has been created.' => 'Crează tip nou.',
-	'Double click on a value to modify it.' => 'Dublu click pe o valoare pentru a o modifica.',
+	'Ctrl+click on a value to modify it.' => 'Ctrl+click pe o valoare pentru a o modifica.',
 	'Use edit link to modify this value.' => 'Valoare poate fi modificată cu ajutorul butonului «modifică».',
 	'last' => 'ultima',
 	'From server' => 'De pe server',
@@ -268,6 +268,5 @@ $translations = array(
 	'Copy' => 'Copiază',
 	'Permanent link' => 'Adresă permanentă',
 	'Edit all' => 'Editează tot',
-	'Resend POST data?' => 'Retrimite datele POST?',
 	'HH:MM:SS' => 'HH:MM:SS',
 );

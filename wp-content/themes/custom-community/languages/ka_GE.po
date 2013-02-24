@@ -1,0 +1,2347 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Community Pro v1.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2012-08-29 20:02:37+0000\n"
+"Last-Translator: admin <georgianprogress@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Georgian\n"
+"X-Poedit-Country: KAZAKHSTAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: 404.php:7
+#@ cc
+msgid "Page not found"
+msgstr "გვერდი ვერ მოიძებნა"
+
+#: 404.php:9
+#@ cc
+msgid "We're sorry, but we can't find the page that you're looking for. Perhaps searching will help."
+msgstr "ვწუხვართ, თქვენს მიერ მოთხოვნილი გვერდი ვერ ვიპოვეთ. შეიძლება დაგეხმაროთ ძიება."
+
+#: _inc/ajax.php:147
+#@ cc
+msgid "Please enter some content to post."
+msgstr "გთხოვთ შეიყვანეთ ტექსტი გამოსაქვეყნებლად."
+
+#: _inc/ajax.php:164
+#@ cc
+msgid "There was a problem posting your update, please try again."
+msgstr "თქვენი განახლების გამოსაქვეყნებისას წარმოიშვა პრობლემა, ცადეთ თავიდან."
+
+#: _inc/ajax.php:189
+#@ cc
+msgid "Please do not leave the comment area blank."
+msgstr "გთხოვთ არ დატოვოთ კომენტარების არე შეუვსებელი."
+
+#: _inc/ajax.php:194
+#: _inc/ajax.php:205
+#@ cc
+msgid "There was an error posting that reply, please try again."
+msgstr "პასუხის გამოქვეყნებისას დაფიქსირდა შეცდომა, ცადეთ თავიდან."
+
+#: _inc/ajax.php:262
+#: _inc/ajax.php:297
+#@ cc
+msgid "There was a problem when deleting. Please try again."
+msgstr "წაშლის მცდელობისას წარმოიქმნა პრობლემა. ცადეთ თავიდან."
+
+#: _inc/ajax.php:312
+#: activity/entry.php:72
+#@ cc
+msgid "Remove Favorite"
+msgstr "ფავორიტებიდან მოცილება"
+
+#: _inc/ajax.php:321
+#: activity/entry.php:68
+#@ cc
+msgid "Favorite"
+msgstr "ფავორიტი"
+
+#: _inc/ajax.php:380
+#: groups/create.php:234
+#: groups/single/send-invites.php:42
+#@ cc
+msgid "Remove Invite"
+msgstr "მოცილება მოწვევა"
+
+#: _inc/ajax.php:406
+#@ cc
+msgid "Friendship could not be canceled."
+msgstr "მეგობრობის გაუქმება შეუძლებელია."
+
+#: _inc/ajax.php:408
+#@ cc
+msgid "Add Friend"
+msgstr "მეგობრებში დამატება"
+
+#: _inc/ajax.php:416
+#@ cc
+msgid "Friendship could not be requested."
+msgstr "მეგობრობის თხოვნა შეუძლებელია."
+
+#: _inc/ajax.php:418
+#@ cc
+msgid "Friendship Requested"
+msgstr "მეგობრობის თხოვნა გაგზავნილია"
+
+#: _inc/ajax.php:421
+#@ cc
+msgid "Request Pending"
+msgstr "თხოვნა ელოდება დადასტურებას"
+
+#: _inc/ajax.php:433
+#@ cc
+msgid "There was a problem accepting that request. Please try again."
+msgstr "თხოვნის მიღებისას წარმოიქმნა პრობლემა. ცადეთ თავიდან."
+
+#: _inc/ajax.php:444
+#@ cc
+msgid "There was a problem rejecting that request. Please try again."
+msgstr "თხოვნაზე უარის თქმისას წარმოიქმნა პრობლემა. ცადეთ თავიდან."
+
+#: _inc/ajax.php:467
+#@ cc
+msgid "Error joining group"
+msgstr "ჯგუფში გაწევრიანებისას დაფიქსირდა შეცდომა"
+
+#: _inc/ajax.php:469
+#@ cc
+msgid "Leave Group"
+msgstr "ჯგუფის დატოვება"
+
+#: _inc/ajax.php:477
+#@ cc
+msgid "Error requesting membership"
+msgstr "წევრობის თხოვნისას დაფიქსირდა შეცდომა"
+
+#: _inc/ajax.php:479
+#@ cc
+msgid "Membership Requested"
+msgstr "წევრობის თხოვნა გაგზავნილია"
+
+#: _inc/ajax.php:488
+#@ cc
+msgid "Error leaving group"
+msgstr "ჯგუფის დატოვების მცდელობისას დაფიქსირდა შეცდომა"
+
+#: _inc/ajax.php:491
+#@ cc
+msgid "Join Group"
+msgstr "ჯგუფში გაწევრიანება"
+
+#: _inc/ajax.php:493
+#@ cc
+msgid "Request Membership"
+msgstr "წევრობის თხოვნა"
+
+#: _inc/ajax.php:505
+#@ cc
+msgid "There was a problem closing the notice."
+msgstr "შენიშვნის დახურვის მცდელობისას წარმოიქმნა პრობლემა."
+
+#: _inc/ajax.php:530
+#, php-format
+#@ cc
+msgid "Sent %s"
+msgstr "გაგზავნილია %s"
+
+#: _inc/ajax.php:547
+#@ cc
+msgid "There was a problem sending that reply. Please try again."
+msgstr "პასუხის გაგზავნისას წარმოიქმნა პრობლემა. ცადეთ თავიდან."
+
+#: _inc/ajax.php:557
+#@ cc
+msgid "There was a problem marking messages as unread."
+msgstr "შეტყობინებების \\\"წაუკითხავად\\\" მონიშვნის მცდელობისას წარმოიქმნა პრობლემა."
+
+#: _inc/ajax.php:573
+#@ cc
+msgid "There was a problem marking messages as read."
+msgstr "შეტყობინებების \\\"წაკითხულად\\\" მონიშვნის მცდელობისას წარმოიქმნა პრობლემა."
+
+#: _inc/ajax.php:589
+#@ cc
+msgid "There was a problem deleting messages."
+msgstr "შეტყობინებების წაშლის მცდელობისას წარმოიქმნა პრობლემა."
+
+#: _inc/ajax.php:596
+#@ cc
+msgid "Messages deleted."
+msgstr "შეტყობინებები წაშლილია."
+
+#: activity/activity-loop.php:41
+#@ cc
+msgid "Load More"
+msgstr "მეტის ჩატვირთვა."
+
+#: activity/activity-loop.php:55
+#@ cc
+msgid "Sorry, there was no activity found. Please try a different filter."
+msgstr "ვწუხვართ, ვერაფერი მოიძებნა. ცადეთ განსხვავებული ფილტრი."
+
+#. translators: 1: user profile link, 2: user name, 3: activity permalink, 3: activity timestamp
+#: activity/comment.php:28
+#, php-format
+#@ cc
+msgid "<a href=\"%1$s\">%2$s</a> replied <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\">%2$s</a> უპასუხა <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+
+#: activity/comment.php:33
+#: forums/single/edit.php:10
+#: groups/single/forum/edit.php:10
+#@ cc
+msgid "Reply"
+msgstr "პასუხი"
+
+#: activity/comment.php:39
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/single.php:24
+#@ cc
+msgid "Delete"
+msgstr "წაშლა"
+
+#: activity/entry.php:37
+#@ cc
+msgid "In reply to: "
+msgstr "პასუხად: "
+
+#: activity/entry.php:37
+#@ cc
+msgid "View Thread / Permalink"
+msgstr "ძაფის / პერმალინკის ნახვა"
+
+#: activity/entry.php:37
+#: core/includes/bp/templatetags.php:89
+#@ cc
+msgid "View"
+msgstr "ნახვა"
+
+#: activity/entry.php:60
+#, php-format
+#@ cc
+msgid "Comment <span>%s</span>"
+msgstr "კომენტარი <span>%s</span>"
+
+#: activity/entry.php:68
+#@ cc
+msgid "Mark as Favorite"
+msgstr "ფავორიტებში დამატება"
+
+#: activity/entry.php:104
+#@ cc
+msgid "Post"
+msgstr "პოსტი"
+
+#: activity/entry.php:104
+#@ cc
+msgid "or press esc to cancel."
+msgstr "ან დააჭირეთ esc გასაუქმებლად."
+
+#: activity/index.php:23
+#@ cc
+msgid "Site Activity"
+msgstr "საიტის აქტივობა."
+
+#: activity/index.php:41
+#@ cc
+msgid "The public activity for everyone on this site."
+msgstr "საჯარო აქტივობა ყველასთვის ამ საიტზე."
+
+#: activity/index.php:41
+#: members/index.php:35
+#, php-format
+#@ cc
+msgid "All Members <span>%s</span>"
+msgstr "ყველა წევრი <span>%s</span>"
+
+#: activity/index.php:51
+#@ cc
+msgid "The activity of my friends only."
+msgstr "მხოლოდ ჩემი მეგობრების აქტივობა."
+
+#: activity/index.php:51
+#: members/index.php:39
+#, php-format
+#@ cc
+msgid "My Friends <span>%s</span>"
+msgstr "ჩემი მეგობრები <span>%s</span>"
+
+#: activity/index.php:63
+#@ cc
+msgid "The activity of groups I am a member of."
+msgstr "იმ ჯგუფების აქტივობა, რომელთა წევრიცა ვარ."
+
+#: activity/index.php:63
+#: groups/index.php:41
+#, php-format
+#@ cc
+msgid "My Groups <span>%s</span>"
+msgstr "ჩემი ჯგუფები <span>%s</span>"
+
+#: activity/index.php:73
+#@ cc
+msgid "The activity I've marked as a favorite."
+msgstr "აქტივობა, რომელიც ფავორიტებში დავამატე."
+
+#: activity/index.php:73
+#, php-format
+#@ cc
+msgid "My Favorites <span>%s</span>"
+msgstr "ჩემი ფავორიტები <span>%s</span>"
+
+#: activity/index.php:79
+#@ cc
+msgid "Activity that I have been mentioned in."
+msgstr "აქტივობა, რომელშიც მომნიშნეს."
+
+#: activity/index.php:79
+#@ cc
+msgid "Public Mentions"
+msgstr "საჯარო მონიშვნები"
+
+#: activity/index.php:79
+#, php-format
+#@ cc
+msgid "<span>%s new</span>"
+msgstr "<span>%s ახალი</span>"
+
+#: activity/index.php:89
+#: groups/single/activity.php:3
+#@ cc
+msgid "RSS Feed"
+msgstr "RSS არხი"
+
+#: activity/index.php:89
+#: groups/single/activity.php:3
+#@ cc
+msgid "RSS"
+msgstr "RSS"
+
+#: activity/index.php:94
+#: groups/single/activity.php:8
+#: members/single/activity.php:18
+#@ cc
+msgid "Show:"
+msgstr "ჩვენება:"
+
+#: activity/index.php:96
+#: groups/single/activity.php:10
+#: members/single/activity.php:20
+#@ cc
+msgid "Everything"
+msgstr "ყველაფერი"
+
+#: activity/index.php:97
+#: groups/single/activity.php:11
+#: members/single/activity.php:21
+#@ cc
+msgid "Updates"
+msgstr "განახლებები"
+
+#: activity/index.php:101
+#: forums/forums-loop.php:31
+#: members/single/activity.php:27
+#@ cc
+msgid "Posts"
+msgstr "პოსტები"
+
+#: activity/index.php:102
+#: members/single/activity.php:28
+#@ cc
+msgid "Comments"
+msgstr "კომენტარები"
+
+#: activity/index.php:108
+#: groups/single/activity.php:14
+#: members/single/activity.php:43
+#@ cc
+msgid "Forum Topics"
+msgstr "ფორუმის თემები"
+
+#: activity/index.php:109
+#: groups/single/activity.php:15
+#: members/single/activity.php:44
+#@ cc
+msgid "Forum Replies"
+msgstr "ფორუმის პასუხები"
+
+#: activity/index.php:115
+#: members/single/activity.php:50
+#@ cc
+msgid "New Groups"
+msgstr "ახალი ჯგუფები"
+
+#: activity/index.php:116
+#: groups/single/activity.php:18
+#: members/single/activity.php:51
+#@ cc
+msgid "Group Memberships"
+msgstr "ჯგუფის წევრობები"
+
+#: activity/index.php:122
+#: members/single/activity.php:35
+#@ cc
+msgid "Friendships"
+msgstr "მეგობრები"
+
+#: activity/index.php:126
+#@ cc
+msgid "New Members"
+msgstr "ახალი წევრები"
+
+#: activity/post-form.php:23
+#, php-format
+#@ cc
+msgid "What's new in %s, %s?"
+msgstr "რა არის ახალი %s, %s-ში?"
+
+#: activity/post-form.php:25
+#, php-format
+#@ cc
+msgid "What's new, %s?"
+msgstr "რა არის ახალი, %s, %s?"
+
+#: activity/post-form.php:35
+#@ cc
+msgid "Post Update"
+msgstr "პოსტის განახლება"
+
+#: activity/post-form.php:42
+#@ cc
+msgid "Post in"
+msgstr "გამოქვეყნება"
+
+#: activity/post-form.php:45
+#: members/single/profile/profile-wp.php:8
+#@ cc
+msgid "My Profile"
+msgstr "ჩემი პროფილი"
+
+#: admin/get-pro.php:6
+#@ cc
+msgid "FAQ, Forum and Community at <a href=\"http://themekraft.com\" title=\"Themekraft - Beautiful Themes and Plugins for WordPress and BuddyPress.\" target=\"_blank\">themekraft.com</a>"
+msgstr "<a href=\"http://themekraft.com\" title=\"Themekraft - Beautiful Themes and Plugins for WordPress and BuddyPress.\" target=\"_blank\">themekraft.com</a> FAQ, ფორუმი და წევრები"
+
+#: admin/get-pro.php:9
+#@ cc
+msgid "For more information and help, please visit the <a href=\"http://themekraft.com/forums/\" target=\"_blank\">FORUM</a> and <a href=\"http://themekraft.com/faq/\" target=\"_blank\">FAQ</a>"
+msgstr "მეტი დახმარებისა და ინფორმაციისთვის, გთხოვთ ეწვიეთ <a href=\"http://themekraft.com/forums/\" target=\"_blank\">ფორუმსა</a> და <a href=\"http://themekraft.com/faq/\" target=\"_blank\">FAQ-ს</a>"
+
+#: admin/get-pro.php:11
+#@ cc
+msgid "See the <a href=\"http://custom-community-pro.themekraft.com/\" target=\"_blank\">demo</a> page with many examples."
+msgstr "იხილეთ <a href=\"http://custom-community-pro.themekraft.com/\" target=\"_blank\">დემო</a> გვერდი მეტი ნიმუშებისთვის."
+
+#: admin/get-pro.php:14
+#@ cc
+msgid "Your Themekraft Team."
+msgstr "თქვენი Themekraft ჯგუფი."
+
+#: admin/library.php:536
+#@ cc
+msgid "Save Options"
+msgstr "შენახვის ოპციები"
+
+#: admin/page-meta-box.php:65
+#: admin/post-meta-box.php:46
+#@ buddypress
+msgid "klick"
+msgstr ""
+
+#: admin/page-meta-box.php:68
+#: admin/post-meta-box.php:49
+#@ default
+msgid "Custom Community settings"
+msgstr ""
+
+#: admin/page-meta-box.php:72
+#@ default
+msgid "Slideshow on"
+msgstr ""
+
+#: admin/page-meta-box.php:74
+#@ cc
+msgid "Select a category to display in slideshow:"
+msgstr "აირჩიეთ სლაიდშოუში საჩვენებელი კატეგორია:"
+
+#: admin/page-meta-box.php:79
+#@ default
+msgid "Use Post Type: for Pages write \"page\""
+msgstr ""
+
+#: admin/page-meta-box.php:81
+#@ default
+msgid "post/page ids comma separated"
+msgstr ""
+
+#: admin/page-meta-box.php:83
+#@ cc
+msgid "Select a slideshow style:"
+msgstr "აირჩიეთ სლაიდშოუს სტილი:"
+
+#: admin/page-meta-box.php:88
+#@ default
+msgid "Caption off"
+msgstr ""
+
+#: admin/page-meta-box.php:90
+#@ default
+msgid "Define the sliding time in ms"
+msgstr ""
+
+#: admin/page-meta-box.php:92
+#@ default
+msgid "Order By"
+msgstr ""
+
+#: admin/page-meta-box.php:94
+#@ default
+msgid "Amount"
+msgstr ""
+
+#: admin/page-meta-box.php:97
+#@ cc
+msgid "Lists Posts under this Page"
+msgstr "ალაგებს პოსტებს ამ გვერდის ქვეშ"
+
+#: admin/page-meta-box.php:98
+#@ cc
+msgid "You can show your posts in a predefined template"
+msgstr "შეგიძლიათ თქვენი პოსტები წინასწარ შედგენილ ნიმუშში აჩვენოთ"
+
+#: admin/page-meta-box.php:99
+#: admin/post-meta-box.php:53
+#@ cc
+#@ default
+msgid "Post template on"
+msgstr "პოსტის ნიმუში"
+
+#: admin/page-meta-box.php:101
+#@ cc
+msgid "Select a template to use:"
+msgstr "აირჩიეთ სასურველი ნიმუში:"
+
+#: admin/page-meta-box.php:106
+#@ cc
+msgid "Select a category to display"
+msgstr "აირჩიეთ საჩვენებელი კატეგორია"
+
+#: admin/page-meta-box.php:111
+#@ cc
+msgid "How many posts to display?"
+msgstr "რამდენი პოსტი გამოჩნდეს?"
+
+#: admin/post-meta-box.php:51
+#@ cc
+msgid "Use a post template for this post"
+msgstr "ამ პოსტისთვის პოსტის ნიმუშის გამოყენება"
+
+#: admin/post-meta-box.php:52
+#@ cc
+msgid "You can select a predefined post template"
+msgstr "შეგიძლიათ წინასწარ შდგენილი პოსტის ნიმუში აირჩიოთ"
+
+#: admin/post-meta-box.php:55
+#@ cc
+msgid "Select a template to use"
+msgstr "აირჩიეთ გამოსაყენებელი ნიმუში"
+
+#: admin/post-meta-box.php:61
+#@ cc
+msgid "Show/hide meta info"
+msgstr "მეტა ინფოს ჩვენება/დამალვა"
+
+#: admin/post-meta-box.php:63
+#@ default
+msgid "Hide avatar"
+msgstr ""
+
+#: admin/post-meta-box.php:65
+#@ default
+msgid "Hide date/category"
+msgstr ""
+
+#: admin/post-meta-box.php:67
+#@ default
+msgid "Hide tags"
+msgstr ""
+
+#: admin/post-meta-box.php:70
+#@ default
+msgid "Hide comment-info"
+msgstr ""
+
+#: archive.php:13
+#, php-format
+#@ cc
+msgid "Daily Archives: %s"
+msgstr "ყოველდღიური არქივები: %s"
+
+#: archive.php:15
+#, php-format
+#@ cc
+msgid "Monthly Archives: %s"
+msgstr "ყოველთვიური არქივები: %s"
+
+#: archive.php:17
+#, php-format
+#@ cc
+msgid "Yearly Archives: %s"
+msgstr "ყოველწლიური არქივები: %s"
+
+#: archive.php:19
+#, php-format
+#@ cc
+msgid "You are browsing the Blog for %1$s."
+msgstr "თქვენ ათვალიერებთ ბლოგს %1$s-სთვის."
+
+#: archive.php:26
+#: archive.php:68
+#: core/includes/bp/templatetags.php:349
+#: index.php:50
+#: search-loop.php:45
+#: search.php:17
+#: search.php:53
+#@ cc
+msgid "&larr; Previous Entries"
+msgstr "&larr; წინა მონაცემები"
+
+#: archive.php:27
+#: archive.php:69
+#: core/includes/bp/templatetags.php:350
+#: index.php:51
+#: search-loop.php:46
+#: search.php:18
+#: search.php:54
+#@ cc
+msgid "Next Entries &rarr;"
+msgstr "მომდევნო მონაცემები &rarr;"
+
+#: archive.php:40
+#: archive.php:47
+#: index.php:20
+#: search.php:30
+#: search.php:37
+#: single.php:44
+#, php-format
+#@ cc
+msgid "by %s"
+msgstr "%s-ის მიერ"
+
+#: archive.php:45
+#: index.php:28
+#: search.php:35
+#: single.php:54
+#@ cc
+msgid "Permanent Link to"
+msgstr "მუდმივი ლინკი"
+
+#: archive.php:47
+#: index.php:30
+#: search.php:37
+#: single.php:56
+#@ cc
+msgid "in"
+msgstr "-ში"
+
+#: archive.php:54
+#: index.php:36
+#: search.php:43
+#: single.php:75
+#@ cc
+msgid "Tags: "
+msgstr "თეგები: "
+
+#: archive.php:54
+#: archive.php:56
+#: index.php:36
+#: index.php:38
+#: search-loop.php:35
+#: search.php:43
+#: single.php:80
+#@ cc
+msgid "No Comments &#187;"
+msgstr "კომენტარები არაა &#187;"
+
+#: archive.php:54
+#: archive.php:56
+#: index.php:36
+#: index.php:38
+#: search-loop.php:35
+#: search.php:43
+#: single.php:80
+#@ cc
+msgid "1 Comment &#187;"
+msgstr "1 კომენტარი &#187;"
+
+#: archive.php:54
+#: archive.php:56
+#: index.php:36
+#: index.php:38
+#: search-loop.php:35
+#: search.php:43
+#: single.php:80
+#@ cc
+msgid "% Comments &#187;"
+msgstr "% კომენტარები &#187;"
+
+#: archive.php:75
+#: index.php:57
+#@ cc
+msgid "Not Found"
+msgstr "ვერ მოიძებნა"
+
+#: attachment.php:9
+#: search.php:10
+#@ cc
+msgid "Blog"
+msgstr "ბლოგი"
+
+#: attachment.php:25
+#@ cc
+msgid "<p class=\"serif\">Read the rest of this entry &rarr;</p>"
+msgstr "<p class=\"serif\">წაიკითხეთ ეს მონაცემი ბოლომდე &rarr;</p>"
+
+#: attachment.php:27
+#: full-width.php:25
+#@ cc
+msgid "<p><strong>Pages:</strong> "
+msgstr "<p><strong>გვერდები:</strong>"
+
+#: attachment.php:38
+#@ cc
+msgid "Sorry, no attachments matched your criteria."
+msgstr "ვწუხვართ, თქვენს კრიტერიუმებს არცერთი მიმაგრებული ფაილი არ დაემთხვა."
+
+#: blogs/blogs-loop.php:90
+#@ cc
+msgid "Sorry, there were no sites found."
+msgstr "ვწუხვართ, საიტები ვერ მოიძებნა."
+
+#: blogs/create.php:21
+#: blogs/index.php:23
+#@ cc
+msgid "Create a Site"
+msgstr "საიტის შექმნა"
+
+#: blogs/create.php:21
+#: blogs/index.php:23
+#@ cc
+msgid "Site Directory"
+msgstr "საიტის დირექტორია"
+
+#: blogs/create.php:32
+#@ cc
+msgid "Site registration is currently disabled"
+msgstr "საიტზე რეგისტრაცია ამჟამად გაუქმებულია"
+
+#: blogs/index.php:35
+#, php-format
+#@ cc
+msgid "All Sites <span>%s</span>"
+msgstr "ყველა საიტი <span>%s</span>"
+
+#: blogs/index.php:39
+#, php-format
+#@ cc
+msgid "My Sites <span>%s</span>"
+msgstr "ჩემი საიტები <span>%s</span>"
+
+#: blogs/index.php:55
+#: forums/index.php:60
+#: forums/single/forum.php:34
+#: groups/index.php:57
+#: groups/single/forum.php:32
+#: groups/single/members.php:12
+#: members/index.php:55
+#: members/single/blogs.php:19
+#: members/single/forums.php:18
+#: members/single/friends.php:20
+#: members/single/groups.php:20
+#@ cc
+msgid "Order By:"
+msgstr "დალაგება:"
+
+#: blogs/index.php:57
+#: forums/index.php:62
+#: forums/single/forum.php:36
+#: groups/index.php:59
+#: groups/single/forum.php:34
+#: groups/single/members.php:14
+#: members/index.php:57
+#: members/single/blogs.php:21
+#: members/single/forums.php:20
+#: members/single/friends.php:22
+#: members/single/groups.php:22
+#@ cc
+msgid "Last Active"
+msgstr "ბოლოს აქტიური"
+
+#: blogs/index.php:58
+#: members/single/blogs.php:22
+#@ cc
+msgid "Newest"
+msgstr "უახლესი"
+
+#: blogs/index.php:59
+#: groups/index.php:62
+#: groups/single/members.php:19
+#: members/index.php:62
+#: members/single/blogs.php:23
+#: members/single/friends.php:24
+#: members/single/groups.php:25
+#@ cc
+msgid "Alphabetical"
+msgstr "ალფაბეტურად"
+
+#: comments.php:3
+#@ cc
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "ეს პოსტი დაცულია პაროლით. შეიყვანეთ პაროლი კომენტარების სანახავად."
+
+#: comments.php:19
+#, php-format
+#@ cc
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "ერთ აზრი &ldquo;%2$s&rdquo;-ზე"
+msgstr[1] "%1$s აზრები &ldquo;%2$s&rdquo;-ზე"
+
+#: comments.php:26
+#: comments.php:40
+#@ cc
+msgid "Comment navigation"
+msgstr "კომენტარების ნავიგაცია"
+
+#: comments.php:27
+#: comments.php:41
+#@ cc
+msgid "&larr; Older Comments"
+msgstr "&larr; უფრო ძველი კომენტარები"
+
+#: comments.php:28
+#: comments.php:42
+#@ cc
+msgid "Newer Comments &rarr;"
+msgstr "უფრო ახალი კომენტარები &rarr;"
+
+#: comments.php:52
+#@ cc
+msgid "Comments are closed."
+msgstr "კომენტარები დახურულია."
+
+#: core/includes/bp/buddydev-search.php:52
+#@ cc
+msgid "Search Page"
+msgstr "ძებნის გვერდი"
+
+#: core/includes/bp/templatetags.php:82
+#@ cc
+msgid "My Favorites"
+msgstr "ჩემი ფავორიტები"
+
+#: core/includes/bp/templatetags.php:83
+#@ cc
+msgid "Accepted"
+msgstr "მიღებულია"
+
+#: core/includes/bp/templatetags.php:84
+#@ cc
+msgid "Rejected"
+msgstr "უარყოფილია"
+
+#: core/includes/bp/templatetags.php:85
+#@ cc
+msgid "Show all comments for this thread"
+msgstr "აჩვენე ყველა კომენტარი ამ ლინკისთვის"
+
+#: core/includes/bp/templatetags.php:86
+#@ cc
+msgid "Show all"
+msgstr "ყველას ჩვენება"
+
+#: core/includes/bp/templatetags.php:87
+#@ cc
+msgid "comments"
+msgstr "კომენტარები"
+
+#: core/includes/bp/templatetags.php:88
+#: members/single/profile/edit.php:128
+#@ cc
+msgid "Close"
+msgstr "დახურვა"
+
+#. translators: 1: comment author url, 2: comment author name, 3: comment permalink, 4: comment date/timestamp
+#: core/includes/bp/templatetags.php:142
+#, php-format
+#@ cc
+msgid "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> said on <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> თქვა <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>-ზე"
+
+#: core/includes/bp/templatetags.php:149
+#@ cc
+msgid "Your comment is awaiting moderation."
+msgstr "თქვენი კომენტარი ელოდება მოდერაციას."
+
+#: core/includes/bp/templatetags.php:161
+#@ cc
+msgid "Edit comment"
+msgstr "კომენტარის რედაქტირება"
+
+#: core/includes/bp/templatetags.php:161
+#@ cc
+msgid "Edit"
+msgstr "რედაქტირება"
+
+#: core/includes/bp/templatetags.php:231
+#, php-format
+#@ cc
+msgid "Theme activated! This theme contains <a href=\"%s\">custom header image</a> support and <a href=\"%s\">sidebar widgets</a>."
+msgstr "თემა გააქტიურებულია! ეს თემა შეიცავს <a href=\"%s\">ჰედერის რედაქტირებად სურათს</a> მხარდაჭერასა და <a href=\"%s\">გვერდითა ვიჯეტებს</a>."
+
+#: core/includes/bp/templatetags.php:300
+#: members/single/profile/profile-wp.php:15
+#@ cc
+msgid "Name"
+msgstr "სახელი"
+
+#: core/includes/bp/templatetags.php:302
+#@ cc
+msgid "Email"
+msgstr "ელ-ფოსტა"
+
+#: core/includes/bp/templatetags.php:304
+#: members/single/profile/profile-wp.php:33
+#@ cc
+msgid "Website"
+msgstr "ვებსაიტი"
+
+#: core/includes/bp/templatetags.php:312
+#, php-format
+#@ cc
+msgid "You must be <a href=\"%1$s\">logged in</a> to post a comment."
+msgstr "თქვენ უნდა იყოთ <a href=\"%1$s\">შესული</a> კომენტარის გამოსაქვეყნებლად."
+
+#: core/includes/bp/templatetags.php:313
+#@ cc
+msgid "Leave a reply"
+msgstr "პასუხის დატოვება"
+
+#: core/includes/theme-generator/theme-generator.php:170
+#: searchform.php:5
+#@ cc
+msgid "Search"
+msgstr "ძებნა"
+
+#: core/includes/theme-generator/theme-generator.php:197
+#: core/includes/theme-generator/theme-generator.php:201
+#: core/includes/theme-generator/theme-generator.php:206
+#: core/includes/theme-generator/theme-generator.php:209
+#: core/includes/theme-generator/theme-generator.php:230
+#: core/includes/theme-generator/theme-generator.php:238
+#@ cc
+msgid "Home"
+msgstr "მთავარი"
+
+#: core/includes/theme-generator/theme-generator.php:243
+#: core/includes/wp/widgets.php:34
+#@ cc
+msgid "Community"
+msgstr "საზოგადოება"
+
+#: core/includes/theme-generator/theme-generator.php:247
+#: core/includes/wp/widgets.php:38
+#@ cc
+msgid "Activity"
+msgstr "აქტივობა"
+
+#: core/includes/theme-generator/theme-generator.php:252
+#: core/includes/wp/widgets.php:43
+#: groups/single/admin.php:229
+#@ cc
+msgid "Members"
+msgstr "წევრები"
+
+#: core/includes/theme-generator/theme-generator.php:257
+#: core/includes/wp/widgets.php:48
+#@ cc
+msgid "Groups"
+msgstr "ჯგუფები"
+
+#: core/includes/theme-generator/theme-generator.php:261
+#: core/includes/wp/widgets.php:53
+#@ cc
+msgid "Forums"
+msgstr "ფორუმები"
+
+#: core/includes/theme-generator/theme-generator.php:268
+#: core/includes/wp/widgets.php:59
+#@ cc
+msgid "Blogs"
+msgstr "ბლოგები"
+
+#: core/includes/theme-generator/theme-generator.php:370
+#@ cc
+msgid "20 widget areas all over the site"
+msgstr "20 ვიჯიტ არე მთე საიტზე"
+
+#: core/includes/theme-generator/theme-generator.php:383
+#: links.php:16
+#: sidebar.php:45
+#@ cc
+msgid "Links"
+msgstr "ლინკები"
+
+#: core/includes/theme-generator/theme-generator.php:396
+#: sidebar.php:39
+#@ cc
+msgid "Archives"
+msgstr "არქივები"
+
+#: core/includes/theme-generator/theme-generator.php:409
+#: sidebar.php:51
+#@ cc
+msgid "Meta"
+msgstr "მეტა"
+
+#: core/includes/theme-generator/theme-generator.php:424
+#, php-format
+#@ cc
+msgid "%s is proudly powered by <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> and <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
+msgstr "%s დიდი სიამაყითაა მხარდაჭერილი <a class=\"credits\" href=\"http://wordpress.org\">WordPress-ისა</a> და<a class=\"credits\" href=\"http://buddypress.org\">BuddyPress-ის მიერ</a>. "
+
+#: core/includes/theme-generator/theme-generator.php:577
+#: core/includes/theme-generator/theme-generator.php:579
+#: single.php:63
+#@ cc
+msgid "Read the rest of this entry &rarr;"
+msgstr "ამ მონაცემის ბოლომდე წაკითხვა &rarr;"
+
+#: core/includes/wp/shortcodes.php:641
+#@ cc
+msgid "read more"
+msgstr "ვრცლად"
+
+#: core/includes/wp/shortcodes.php:854
+#@ cc
+msgid "Empty Slideshow"
+msgstr "ცარიელი სლაიდშოუ"
+
+#: core/includes/wp/shortcodes.php:855
+#@ cc
+msgid "You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> for more."
+msgstr "თქვენ არ აგირჩევიათ პოსტები სლაიდშოუსათვის! <br>შეამოწმეტ თქვენი თემის პარამეტრები გლობალური სლაიდშოუსათვის ან გვერდის პარამეტრები გვერდის სლაიდშოუსათვის... <br>და დაწერეთ პოსტი! შეამოწმეთ <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> მეტი ინფორმაციისათვის."
+
+#: core/includes/wp/widgets.php:68
+#@ cc
+msgid "@ Group"
+msgstr "@ ჯგუფი"
+
+#: core/includes/wp/widgets.php:79
+#@ cc
+msgid "@ Member"
+msgstr "@ წევრი"
+
+#: core/includes/wp/widgets.php:111
+#@ cc
+msgid "Log Out"
+msgstr "გამოსვლა"
+
+#: core/includes/wp/widgets.php:128
+#@ cc
+msgid "To start connecting please log in first."
+msgstr "კავშირის დასაწყებად გთხოვთ გაიაროთ ავტორიზაცია."
+
+#: core/includes/wp/widgets.php:133
+#, php-format
+#@ cc
+msgid " You can also <a href=\"%s\" title=\"Create an account\">create an account</a>."
+msgstr "თქვენ ასევე შეგიძლიათ <a href=\"%s\" title=\"Create an account\">შექმნათ ანგარიში</a>."
+
+#: core/includes/wp/widgets.php:138
+#: registration/register.php:37
+#@ cc
+msgid "Username"
+msgstr "მომხმარებელი"
+
+#: core/includes/wp/widgets.php:141
+#@ cc
+msgid "Password"
+msgstr "პაროლი"
+
+#: core/includes/wp/widgets.php:144
+#@ cc
+msgid "Remember Me"
+msgstr "დამახსოვრება"
+
+#: core/includes/wp/widgets.php:147
+#@ cc
+msgid "Log In"
+msgstr "შესვლა"
+
+#: core/includes/wp/widgets.php:166
+#@ cc
+msgid "Forum Topic Tags"
+msgstr "ფორუმის თემის თეგები"
+
+#: forums/forums-loop.php:24
+#@ cc
+msgid "Topic Title"
+msgstr "ფორუმის სათაური"
+
+#: forums/forums-loop.php:25
+#@ cc
+msgid "Latest Poster"
+msgstr "ბოლო პოსტერი"
+
+#: forums/forums-loop.php:28
+#@ cc
+msgid "Posted In Group"
+msgstr "გამოქვეყნებულის ჯგუფში"
+
+#: forums/forums-loop.php:32
+#@ cc
+msgid "Freshness"
+msgstr "სიახლე"
+
+#: forums/forums-loop.php:45
+#@ cc
+msgid "Permalink"
+msgstr "პერმალინკი"
+
+#: forums/forums-loop.php:95
+#@ cc
+msgid "Sorry, there were no forum topics found."
+msgstr "ვწუხვართ, ფორუმის თემები ვერ მოიძებნა."
+
+#: forums/index.php:23
+#@ cc
+msgid "Forums Directory"
+msgstr "ფორუმების დირექტორია"
+
+#: forums/index.php:23
+#: forums/single/forum.php:19
+#: groups/single/forum.php:17
+#@ cc
+msgid "New Topic"
+msgstr "ახალი თემა"
+
+#: forums/index.php:40
+#, php-format
+#@ cc
+msgid "All Topics <span>%s</span>"
+msgstr "ყველა თემა <span>%s</span>"
+
+#: forums/index.php:44
+#, php-format
+#@ cc
+msgid "My Topics <span>%s</span>"
+msgstr "ჩემი თემები <span>%s</span>"
+
+#: forums/index.php:63
+#: forums/single/forum.php:37
+#: groups/single/forum.php:35
+#: members/single/forums.php:21
+#@ cc
+msgid "Most Posts"
+msgstr "ყველაზე მეტი პოსტები"
+
+#: forums/index.php:64
+#: forums/single/forum.php:38
+#: groups/single/forum.php:36
+#: members/single/forums.php:22
+#@ cc
+msgid "Unreplied"
+msgstr "პასუხგაუცემელი"
+
+#: forums/index.php:100
+#@ cc
+msgid "Create New Topic:"
+msgstr "ახალი თემის შექმნა:"
+
+#: forums/index.php:104
+#: forums/single/edit.php:49
+#: groups/single/forum/edit.php:49
+#: groups/single/forum.php:71
+#@ cc
+msgid "Title:"
+msgstr "სათაური:"
+
+#: forums/index.php:107
+#: forums/single/edit.php:52
+#: groups/single/forum/edit.php:52
+#: groups/single/forum.php:74
+#@ cc
+msgid "Content:"
+msgstr "შინაარსი:"
+
+#: forums/index.php:110
+#: groups/single/forum/edit.php:55
+#: groups/single/forum.php:77
+#@ cc
+msgid "Tags (comma separated):"
+msgstr "თეგები (გამოყავით მძიმეებით):"
+
+#: forums/index.php:113
+#@ cc
+msgid "Post In Group Forum:"
+msgstr "პოსტი ჯგუფის ფორუმში:"
+
+#. translators: no option picked in select box
+#: forums/index.php:116
+#@ cc
+msgid "----"
+msgstr "----"
+
+#: forums/index.php:133
+#: groups/single/forum.php:83
+#@ cc
+msgid "Post Topic"
+msgstr "პოსტის თემა"
+
+#: forums/index.php:134
+#@ cc
+msgid "Cancel"
+msgstr "გაუქმება"
+
+#: forums/index.php:145
+#, php-format
+#@ cc
+msgid "You are not a member of any groups so you don't have any group forums you can post in. To start posting, first find a group that matches the topic subject you'd like to start. If this group does not exist, why not <a href='%s'>create a new group</a>? Once you have joined or created the group you can post your topic in that group's forum."
+msgstr "თქვენ არ ხართ არცერთი ჯგუფის წევრი, ამდენად არ გაქვთ არანაირი ჯგუფური ფორუმი, სადაც დაპოსტვა შეგეძლებათ. დაპოსტვის დასაწყებად, პირველ რიგში იპოვეთ ჯგუფი, რომელიც პასუხობს ძირითად თემას, რომლის დაწყებაც გსურთ. თუკი ასეთი ჯგუფი არ არსებობს, რატომ არ  <a href='%s'>შექმნით ახალ ჯგუფს</a>? როგორც კი შექმნით ან შეუერთდებით რომელიმე ჯგუფს, შეგიძლიათ დაპოსტოთ თქვენი თემა იმ ჯგუფის ფორუმში."
+
+#: forums/single/edit.php:16
+#: forums/single/forum.php:25
+#: forums/single/topic.php:43
+#: groups/single/forum/edit.php:16
+#: groups/single/forum/topic.php:16
+#: groups/single/forum.php:23
+#@ cc
+msgid "Forum Directory"
+msgstr "ფორუმის ცნობარი"
+
+#: forums/single/edit.php:25
+#: groups/single/forum/edit.php:25
+#@ cc
+msgid "Edit:"
+msgstr "რედაქტირება:"
+
+#: forums/single/edit.php:57
+#: forums/single/edit.php:73
+#: groups/single/admin.php:32
+#: groups/single/admin.php:117
+#: groups/single/forum/edit.php:60
+#: groups/single/forum/edit.php:76
+#: members/single/profile/edit.php:146
+#: members/single/settings/general.php:69
+#: members/single/settings/notifications.php:62
+#@ cc
+msgid "Save Changes"
+msgstr "ცვლილებების შენახვა"
+
+#: forums/single/edit.php:88
+#: groups/single/forum/edit.php:91
+#@ cc
+msgid "This topic does not exist."
+msgstr "ეს თემა არ არსებობს."
+
+#: forums/single/forum-header.php:13
+#: groups/groups-loop.php:47
+#, php-format
+#@ cc
+msgid "active %s"
+msgstr "აქტიური %s"
+
+#: forums/single/topic.php:37
+#: groups/single/forum/topic.php:10
+#@ cc
+msgid "New Reply"
+msgstr "ახალი პასუხი"
+
+#: forums/single/topic.php:97
+#, php-format
+#@ cc
+msgid "%s said %s ago:"
+msgstr "%s თქვა %s-ის წინ:"
+
+#: forums/single/topic.php:117
+#: groups/single/forum/topic.php:81
+#@ cc
+msgid "Permanent link to this post"
+msgstr "პერმალინკი ამ პოსტისთვის"
+
+#: forums/single/topic.php:153
+#: groups/single/forum/topic.php:117
+#@ cc
+msgid "Add a reply:"
+msgstr "უპასუხე:"
+
+#: forums/single/topic.php:158
+#: groups/single/forum/topic.php:122
+#@ cc
+msgid "Post Reply"
+msgstr "პასუხის გამოქვეყნება"
+
+#: forums/single/topic.php:169
+#: groups/single/forum/topic.php:133
+#@ cc
+msgid "This topic is closed, replies are no longer accepted."
+msgstr "ეს თემა დახურულია, პასუხები არ მიიღება."
+
+#: forums/single/topic.php:184
+#: groups/single/forum/topic.php:147
+#@ cc
+msgid "There are no posts for this topic."
+msgstr "ამ თემაზე პოსტები არ არსებობს."
+
+#: full-width.php:23
+#: left-and-right-sidebar.php:22
+#: left-sidebar.php:22
+#: page.php:17
+#: right-sidebar.php:22
+#@ cc
+msgid "<p class=\"serif\">Read the rest of this page &rarr;</p>"
+msgstr "<p class=\"serif\">გვერდის დარჩენილი ნაწილის წაკითხვა &rarr;</p>"
+
+#: full-width.php:38
+#: single.php:92
+#@ cc
+msgid "Edit this entry."
+msgstr "მონაცემის რედაქტირება."
+
+#: functions.php:60
+#@ cc
+msgid "Header top menu"
+msgstr "ჰედერის ტოპ მენიუ"
+
+#: functions.php:61
+#@ cc
+msgid "Header bottom menu"
+msgstr "ჰედერის ქვედა მენიუ"
+
+#: functions.php:475
+#@ cc
+msgid "Members Results"
+msgstr "წევრების შედეგები"
+
+#: functions.php:489
+#@ cc
+msgid "Group Search"
+msgstr "ჯგუფის ძებნა"
+
+#: functions.php:492
+#@ cc
+msgid "View All matched Groups"
+msgstr "ყველა შესაბამისი ჯგუფის ნახვა"
+
+#: functions.php:510
+#@ cc
+msgid "Blog Search"
+msgstr "ბლოგის ძებნა"
+
+#: functions.php:513
+#@ cc
+msgid "View All matched Posts"
+msgstr "ყველა შესაბამისი პოსტის ნახვა"
+
+#: functions.php:525
+#@ cc
+msgid "Forums Search"
+msgstr "ფორუმების ძებნა"
+
+#: functions.php:527
+#@ cc
+msgid "View All matched forum posts"
+msgstr "ფორუმის ყველა შესაბამისი პოსტის ნახვა"
+
+#: functions.php:546
+#@ cc
+msgid "Blogs Search"
+msgstr "ბლოგების ძებნა"
+
+#: functions.php:548
+#@ cc
+msgid "View All matched Blogs"
+msgstr "ყველა შესაბამისი ბლოგის ნახვა"
+
+#: groups/create.php:18
+#: groups/index.php:23
+#@ cc
+msgid "Create a Group"
+msgstr "ჯგუფის შექმნა"
+
+#: groups/create.php:18
+#: groups/index.php:23
+#@ cc
+msgid "Groups Directory"
+msgstr "ჯგუფების ცნობარი"
+
+#: groups/create.php:39
+#: groups/single/admin.php:16
+#@ cc
+msgid "Group Name (required)"
+msgstr "ჯგუფის სახელი (აუცილებელია)"
+
+#: groups/create.php:42
+#: groups/single/admin.php:19
+#@ cc
+msgid "Group Description (required)"
+msgstr "ჯგუფის აღწერა (აუცილებელია)"
+
+#: groups/create.php:62
+#: groups/single/admin.php:47
+#@ cc
+msgid "Enable discussion forum"
+msgstr "დისკუსიების ფორუმის გააქტიურება"
+
+#: groups/create.php:69
+#, php-format
+#@ cc
+msgid "<strong>Attention Site Admin:</strong> Group forums require the <a href=\"%s\">correct setup and configuration</a> of a bbPress installation."
+msgstr "<strong>ყურადღება, საიტის ადმინისტრატორი:</strong> ჯგუფის ფორუმები მოითხოვს <a href=\"%s\">bbPress ინსტალაციის სწორ დაყენებასა და კონფიგურაციას</a>"
+
+#: groups/create.php:78
+#: groups/single/admin.php:56
+#@ cc
+msgid "Privacy Options"
+msgstr "უსაფრთხოების პარამეტრები"
+
+#: groups/create.php:82
+#: groups/single/admin.php:61
+#@ cc
+msgid "This is a public group"
+msgstr "ეს არის საჯარო ჯგუფი"
+
+#: groups/create.php:84
+#: groups/single/admin.php:63
+#@ cc
+msgid "Any site member can join this group."
+msgstr "საიტის ნებისმიერ წევრს შეუძლის ჯგუფში გაწევრიანება."
+
+#: groups/create.php:85
+#: groups/create.php:94
+#: groups/single/admin.php:64
+#: groups/single/admin.php:74
+#@ cc
+msgid "This group will be listed in the groups directory and in search results."
+msgstr "ეს ჯგუფი ჩაიწერება ჯგუფების ცნობარში და საძიებო შედეგებში. "
+
+#: groups/create.php:86
+#: groups/single/admin.php:65
+#@ cc
+msgid "Group content and activity will be visible to any site member."
+msgstr "ჯგუფის შინაარსისა და აქტივობის ნახვა საიტის ნებისმიერ წევრს შეეძლება."
+
+#: groups/create.php:91
+#: groups/single/admin.php:71
+#@ cc
+msgid "This is a private group"
+msgstr "ეს არის პირადი ჯგუფი"
+
+#: groups/create.php:93
+#: groups/single/admin.php:73
+#@ cc
+msgid "Only users who request membership and are accepted can join the group."
+msgstr "ჯგუფში გაწევრიანება მხოლოდ იმ მომხმარებლებს შეუძლიათ, რომელთა წევრობის თხოვნაც დაკმაყოფილდება."
+
+#: groups/create.php:95
+#: groups/create.php:104
+#: groups/single/admin.php:75
+#: groups/single/admin.php:85
+#@ cc
+msgid "Group content and activity will only be visible to members of the group."
+msgstr "ჯგუფის შინაარსსა და აქტივობას მხოლოდ ჯგუფის წევრები ნახავენ."
+
+#: groups/create.php:100
+#: groups/single/admin.php:81
+#@ cc
+msgid "This is a hidden group"
+msgstr "ეს არის ფარული ჯგუფი"
+
+#: groups/create.php:102
+#: groups/single/admin.php:83
+#@ cc
+msgid "Only users who are invited can join the group."
+msgstr "მხოლოდ მოწვეულ წევრებს შეუძლიათ შეუერთდნენ ჯგუფს."
+
+#: groups/create.php:103
+#: groups/single/admin.php:84
+#@ cc
+msgid "This group will not be listed in the groups directory or search results."
+msgstr "ეს ჯგუფი არ ჩაიწერება ჯგუფების ცნობარსა და საძიებო შედეგებში."
+
+#: groups/create.php:111
+#: groups/single/admin.php:92
+#@ cc
+msgid "Group Invitations"
+msgstr "ჯგუფის მოწვევები"
+
+#: groups/create.php:113
+#: groups/single/admin.php:94
+#@ cc
+msgid "Which members of this group are allowed to invite others?"
+msgstr "ჯგუფის რომელ წევრებს შეუძლიათ სხვების მოწვევა?"
+
+#: groups/create.php:118
+#: groups/single/admin.php:99
+#@ cc
+msgid "All group members"
+msgstr "ჯგუფის ყველა წევრს"
+
+#: groups/create.php:123
+#: groups/single/admin.php:104
+#@ cc
+msgid "Group admins and mods only"
+msgstr "მხოლოდ ჯგუფის ადმინებსა და მოდერატორებს"
+
+#: groups/create.php:128
+#: groups/single/admin.php:109
+#@ cc
+msgid "Group admins only"
+msgstr "მხოლოდ ჯგუფის ადმინებს"
+
+#: groups/create.php:154
+#: groups/single/admin.php:127
+#@ cc
+msgid "Upload an image to use as an avatar for this group. The image will be shown on the main group page, and in search results."
+msgstr "ატვირთეთ ჯგუფის ავატარად გამოსაყენებელი სურათი. ეს სურათი გამოჩნდება ჯგუფის მთავარ გვერდსა და საძიებო შედეგებში."
+
+#: groups/create.php:158
+#: groups/single/admin.php:131
+#: members/single/profile/change-avatar.php:18
+#@ cc
+msgid "Upload Image"
+msgstr "სურათის ატვირთვა"
+
+#: groups/create.php:162
+#@ cc
+msgid "To skip the avatar upload process, hit the \"Next Step\" button."
+msgstr "ავატარის ატვირთვის პროცესის გამოსატოვებლად, დააჭირეთ \"Next Step\" ღილაკს."
+
+#: groups/create.php:169
+#@ cc
+msgid "Crop Group Avatar"
+msgstr "ჯგუფის ავატარის რედაქტირება"
+
+#: groups/create.php:171
+#: groups/single/admin.php:151
+#: members/single/profile/change-avatar.php:33
+#@ cc
+msgid "Avatar to crop"
+msgstr "ავატარის რედაქტირება"
+
+#: groups/create.php:174
+#: groups/single/admin.php:154
+#: members/single/profile/change-avatar.php:36
+#@ cc
+msgid "Avatar preview"
+msgstr "ავატარის წინასწარ ნახვა"
+
+#: groups/create.php:177
+#: groups/single/admin.php:157
+#: members/single/profile/change-avatar.php:39
+#@ cc
+msgid "Crop Image"
+msgstr "სურათის რედაქტირება"
+
+#: groups/create.php:216
+#: groups/single/send-invites.php:22
+#@ cc
+msgid "Select people to invite from your friends list."
+msgstr "აირჩიეთ მოსაწვევი ადამიანები თქვენი მეგობრების სიიდან."
+
+#: groups/create.php:251
+#: groups/single/send-invites.php:73
+#@ cc
+msgid "Once you have built up friend connections you will be able to invite others to your group. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new group."
+msgstr "როგორც კი მეგობრების სიას შეადგენთ, შესაძლებლობა გექნებათ მოიწვიოთ სხვები თქვენს ჯგუფში. თქვენ შეგიძლიათ მოწვევების ნებისმიერ დროს გაგზავნა შემდეგი ოპციის მონიშვნით \"Send Invites\" როცა თქვენს ახალ ჯგუფს ეწვევით."
+
+#: groups/create.php:273
+#@ cc
+msgid "Back to Previous Step"
+msgstr "წინა ეტაპზე დაბრუნება"
+
+#: groups/create.php:280
+#@ cc
+msgid "Next Step"
+msgstr "შემდეგი ეტაპი"
+
+#: groups/create.php:287
+#@ cc
+msgid "Create Group and Continue"
+msgstr "ჯგუფის შექმნა და გაგრძელება"
+
+#: groups/create.php:294
+#@ cc
+msgid "Finish"
+msgstr "დამთავრება"
+
+#: groups/groups-loop.php:95
+#@ cc
+msgid "There were no groups found."
+msgstr "ჯგუფები ვერ მოიძებნა. "
+
+#: groups/index.php:37
+#, php-format
+#@ cc
+msgid "All Groups <span>%s</span>"
+msgstr "ყველა ჯგუფი <span>%s</span>"
+
+#: groups/index.php:60
+#: members/single/groups.php:23
+#@ cc
+msgid "Most Members"
+msgstr "ყველაზე მეტი წევრები"
+
+#: groups/index.php:61
+#: members/single/groups.php:24
+#@ cc
+msgid "Newly Created"
+msgstr "ახალშექმნილი"
+
+#: groups/single/admin.php:25
+#@ cc
+msgid "Notify group members of changes via email"
+msgstr "ჯგუფის წევრებისთვის ცვლილებების ელ-ფოსტით შეტყობინება"
+
+#: groups/single/admin.php:26
+#: registration/register.php:205
+#@ cc
+msgid "Yes"
+msgstr "დიახ"
+
+#: groups/single/admin.php:27
+#: registration/register.php:206
+#@ cc
+msgid "No"
+msgstr "არა"
+
+#: groups/single/admin.php:137
+#@ cc
+msgid "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button."
+msgstr "თუკი გსურთ, რომ მოაცილოთ არსებული ავატარი, მაგრამ არ აპირებთ ახლის ატვირთვას, გთხოვთ გამოიყენოთ ავატარის წაშლის ღილაკი."
+
+#: groups/single/admin.php:139
+#: members/single/profile/change-avatar.php:24
+#@ cc
+msgid "Delete Avatar"
+msgstr "ავატარის წაშლა"
+
+#: groups/single/admin.php:149
+#@ cc
+msgid "Crop Avatar"
+msgstr "ავატარის რედაქტირება"
+
+#: groups/single/admin.php:177
+#@ cc
+msgid "Administrators"
+msgstr "ადმინისტრატორები"
+
+#: groups/single/admin.php:185
+#: groups/single/admin.php:210
+#, php-format
+#@ cc
+msgid "Profile picture of %s"
+msgstr "%s-ის პროფილის სურათი"
+
+#: groups/single/admin.php:189
+#: groups/single/admin.php:215
+#@ cc
+msgid "Demote to Member"
+msgstr "წევრად ჩამოქვეითება"
+
+#: groups/single/admin.php:203
+#@ cc
+msgid "Moderators"
+msgstr "მოდერატორები"
+
+#: groups/single/admin.php:214
+#: groups/single/admin.php:270
+#@ cc
+msgid "Promote to Admin"
+msgstr "ადმინად დაწინაურება"
+
+#: groups/single/admin.php:258
+#@ cc
+msgid "(banned)"
+msgstr "(დაბლოკილია)"
+
+#: groups/single/admin.php:264
+#@ cc
+msgid "Unban this member"
+msgstr "ამ წევრზე ბლოკის მოხსნა"
+
+#: groups/single/admin.php:264
+#@ cc
+msgid "Remove Ban"
+msgstr "ბლოკის მოცილება"
+
+#: groups/single/admin.php:268
+#@ cc
+msgid "Kick and ban this member"
+msgstr "ამ წევრის გაგდება და დაბლოკვა"
+
+#: groups/single/admin.php:268
+#@ cc
+msgid "Kick &amp; Ban"
+msgstr "გაგდება &amp; დაბლოკვა"
+
+#: groups/single/admin.php:269
+#@ cc
+msgid "Promote to Mod"
+msgstr "მოდერატორად დაწინაურება"
+
+#: groups/single/admin.php:274
+#@ cc
+msgid "Remove this member"
+msgstr "ამ წევრის მოცილება"
+
+#: groups/single/admin.php:274
+#@ cc
+msgid "Remove from group"
+msgstr "ჯგუფიდან მოცილება"
+
+#: groups/single/admin.php:288
+#: groups/single/members.php:104
+#@ cc
+msgid "This group has no members."
+msgstr "ამ ჯგუფს არ ჰყავს წევრები."
+
+#: groups/single/admin.php:318
+#: members/single/friends/requests.php:37
+#: members/single/groups/invites.php:23
+#@ cc
+msgid "Accept"
+msgstr "მიღება"
+
+#: groups/single/admin.php:320
+#: members/single/friends/requests.php:38
+#: members/single/groups/invites.php:24
+#@ cc
+msgid "Reject"
+msgstr "უარყოფა"
+
+#: groups/single/admin.php:333
+#@ cc
+msgid "There are no pending membership requests."
+msgstr "წევრობის ახალი თხოვნები არ არის."
+
+#: groups/single/admin.php:350
+#@ cc
+msgid "WARNING: Deleting this group will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "გაფრთხილება: ამ ჯგუფის წაშლა მთლიანად მოაცილებს ყველა მასთან დაკავშირებულ მასალას. უკან დასაბრუნებელი გზა არ არსებობს, გთხოვთ, ამ ფუნქციასთან ყურადღებით იყოთ."
+
+#: groups/single/admin.php:353
+#@ cc
+msgid "I understand the consequences of deleting this group."
+msgstr "მე ვაცნობიერებ ამ ჯგუფის წაშლის შედეგებს."
+
+#: groups/single/admin.php:358
+#@ cc
+msgid "Delete Group"
+msgstr "ჯგუფის წაშლა"
+
+#: groups/single/forum/topic.php:67
+#, php-format
+#@ cc
+msgid "%1$s said %2$s:"
+msgstr "%1$s თქვა %2$s:"
+
+#: groups/single/forum/topic.php:112
+#@ cc
+msgid "You will auto join this group when you reply to this topic."
+msgstr "თქვენ ავტომატურად შეუერთდებით ამ ჯგუფს, როცა ამ თემას უპასუხებთ."
+
+#: groups/single/forum.php:65
+#@ cc
+msgid "You will auto join this group when you start a new topic."
+msgstr "თქვენ ავტომატურად შეუერთდებით ამ ჯგუფს, როცა ახალ თემას გახსნით."
+
+#: groups/single/forum.php:69
+#@ cc
+msgid "Post a New Topic:"
+msgstr "ახალი თემის გამოქვეყნება:"
+
+#: groups/single/group-header-sidebar.php:16
+#: groups/single/group-header.php:35
+#, php-format
+#@ cc
+msgid "active %s ago"
+msgstr "აქტიური %s-ის წინ"
+
+#: groups/single/group-header-sidebar.php:27
+#@ cc
+msgid "Description"
+msgstr "აღწერა"
+
+#: groups/single/group-header-sidebar.php:34
+#: groups/single/group-header.php:6
+#@ cc
+msgid "Group Admins"
+msgstr "ჯგუფის ადმინები"
+
+#: groups/single/group-header.php:14
+#@ cc
+msgid "Group Mods"
+msgstr "ჯგუფის მოდერატორები"
+
+#: groups/single/members.php:15
+#: members/index.php:58
+#: members/single/friends.php:23
+#@ cc
+msgid "Newest Registered"
+msgstr "ყველაზე ბოლოს დარეგისტრირებული"
+
+#: groups/single/request-membership.php:4
+#, php-format
+#@ cc
+msgid "You are requesting to become a member of the group '%s'."
+msgstr "თქვენ აგზავნით თხოვნას, გახდეთ '%s' ჯგუფის წევრი."
+
+#: groups/single/request-membership.php:7
+#@ cc
+msgid "Comments (optional)"
+msgstr "კომენტარები (არაა აუცილებელი)"
+
+#: groups/single/request-membership.php:12
+#@ cc
+msgid "Send Request"
+msgstr "თხოვნის გაგზავნა"
+
+#: groups/single/send-invites.php:60
+#@ cc
+msgid "Send Invites"
+msgstr "მოწვევების გაგზავნა"
+
+#: index.php:30
+#: single.php:56
+#, php-format
+#@ cc
+msgid " by %s"
+msgstr "%s-ის მიერ"
+
+#: index.php:58
+#@ cc
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr "ვწუხვართ, მაგრამ რაღაც ისეთს ეძებთ, რაც აქ აშკარად არაა."
+
+#: left-and-right-sidebar.php:24
+#: left-sidebar.php:24
+#: page.php:19
+#: right-sidebar.php:24
+#: single.php:68
+#@ cc
+msgid "<p class=\"cc_pagecount\"><strong>Pages:</strong> "
+msgstr "<p class=\"cc_pagecount\"><strong>გვერდები:</strong> "
+
+#: left-and-right-sidebar.php:39
+#: left-sidebar.php:39
+#: page.php:34
+#: right-sidebar.php:39
+#@ cc
+msgid "Edit this page."
+msgstr "ამ გვერდის რედაქტირება."
+
+#: members/index.php:23
+#@ cc
+msgid "Members Directory"
+msgstr "წევრების ცნობარი"
+
+#: members/members-loop.php:108
+#@ cc
+msgid "Sorry, no members were found."
+msgstr "ვწუხვართ, წევრები ვერ მოიძებნა."
+
+#: members/single/friends/requests.php:68
+#@ cc
+msgid "You have no pending friendship requests."
+msgstr "მეგობრობის მიმდინარე თხოვნები თქვენ არ გაქვთ."
+
+#: members/single/groups/invites.php:14
+#, php-format
+#@ cc
+msgid "%s members"
+msgstr "%s წევრი"
+
+#: members/single/groups/invites.php:37
+#@ cc
+msgid "You have no outstanding group invites."
+msgstr "ჯგუფში მოწვევის დაუდასტურებელი თხოვნები არ გაქვთ."
+
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+#@ cc
+msgid "Mention this user in a new public message, this will send the user a notification to get their attention."
+msgstr "ამ მომხმარებლის ახალ საჯარო შეტყობინებაში აღნიშვნა, რაც ამ მომხმარებლის ყურადღებას მიიპყრობს, როცა ცნობას მიიღებს."
+
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+#@ cc
+msgid "Mention this User"
+msgstr "ამ მომხმარებლის მონიშვნა"
+
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+#@ cc
+msgid "Send a private message to this user."
+msgstr "ამ მომხმარებლისთვის პირადი შეტყობინების გაგზავნა."
+
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+#@ cc
+msgid "Send Private Message"
+msgstr "პირადი შეტყობინების გაგზავნა"
+
+#: members/single/messages/compose.php:5
+#@ cc
+msgid "Send To (Username or Friend's Name)"
+msgstr "გაგზავნა (მომხმარებლის სახელი ან მეგობრის სახელი)"
+
+#: members/single/messages/compose.php:14
+#@ cc
+msgid "This is a notice to all users."
+msgstr "ეს არის ცნობა ყველა მომხმარებლისთვის."
+
+#: members/single/messages/compose.php:17
+#@ cc
+msgid "Subject"
+msgstr "თემა"
+
+#: members/single/messages/compose.php:20
+#@ cc
+msgid "Message"
+msgstr "შეტყობინება"
+
+#: members/single/messages/compose.php:28
+#@ cc
+msgid "Send Message"
+msgstr "შეტყობინების გაგზავნა"
+
+#: members/single/messages/messages-loop.php:31
+#@ cc
+msgid "From:"
+msgstr "ვისგან:"
+
+#: members/single/messages/messages-loop.php:36
+#@ cc
+msgid "To:"
+msgstr "ვის:"
+
+#: members/single/messages/messages-loop.php:42
+#@ cc
+msgid "View Message"
+msgstr "შეტყობინების ნახვა:"
+
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/notices-loop.php:38
+#: members/single/messages/single.php:24
+#@ cc
+msgid "Delete Message"
+msgstr "შეტყობინების წაშლა"
+
+#: members/single/messages/messages-loop.php:68
+#@ cc
+msgid "Sorry, no messages were found."
+msgstr "ვწუხვართ, შეტყობინებები ვერ მოიძებნა."
+
+#: members/single/messages/notices-loop.php:31
+#@ cc
+msgid "Sent:"
+msgstr "გაგზავნილია:"
+
+#: members/single/messages/notices-loop.php:49
+#@ cc
+msgid "Sorry, no notices were found."
+msgstr "ვწუხვართ, ცნობები ვერ მოიძებნა."
+
+#: members/single/messages/single.php:14
+#@ cc
+msgid "You are alone in this conversation."
+msgstr "თქვენ მარტო ხართ ამ საუბარში."
+
+#: members/single/messages/single.php:18
+#, php-format
+#@ cc
+msgid "Conversation between %s and you."
+msgstr "საუბარი %s-სა და თქვენს შორის."
+
+#: members/single/messages/single.php:75
+#@ cc
+msgid "Send a Reply"
+msgstr "პასუხის გაგზავნა"
+
+#: members/single/messages/single.php:91
+#@ cc
+msgid "Send Reply"
+msgstr "პასუხის გაგზავნა"
+
+#: members/single/profile/change-avatar.php:1
+#@ cc
+msgid "Change Avatar"
+msgstr "ავატარის შეცვლა"
+
+#: members/single/profile/change-avatar.php:7
+#@ cc
+msgid "Your avatar will be used on your profile and throughout the site. If there is a <a href=\"http://gravatar.com\">Gravatar</a> associated with your account email we will use that, or you can upload an image from your computer."
+msgstr "თქვენი ავატარი გამოყენებული იქნება თქვენს პროფილსა და მთელ საიტზე. თუკი მოიძებნა თქვენს ელ-ფოსტის ანგარიშთან დაკავშირებული <a href=\"http://gravatar.com\">Gravatar-ი</a> ჩვენ გამოვიყენებთ მას, თუ არადა შეგიძლიათ სურათის თქვენი კომპიუტერიდან ატვირთვა."
+
+#: members/single/profile/change-avatar.php:14
+#@ cc
+msgid "Click below to select a JPG, GIF or PNG format photo from your computer and then click 'Upload Image' to proceed."
+msgstr "დააჭირეთ ქვემოთ რათა აირჩიოთ JPG, GIF ან PNG ფორმატის ფოტო თქვენი კომპიუტერიდან, შემდეგ კი დააჭირეთ \\\"სურათის ატვირთვა\\\"-ს."
+
+#: members/single/profile/change-avatar.php:23
+#@ cc
+msgid "If you'd like to delete your current avatar but not upload a new one, please use the delete avatar button."
+msgstr "თუკი გსურთ წაშალოთ არსებული ავატარი, მაგრამ არ გსურთ ახლის ატვირთვა, გთხოვთ გამოიყენეთ ავატარის წაშლის ღილაკი."
+
+#: members/single/profile/change-avatar.php:24
+#@ cc
+msgid "Delete My Avatar"
+msgstr "ჩემი ავატარის წაშლა"
+
+#: members/single/profile/change-avatar.php:31
+#@ cc
+msgid "Crop Your New Avatar"
+msgstr "თქვენი ახალი ავატარის რედაქტირება"
+
+#: members/single/profile/change-avatar.php:55
+#@ cc
+msgid "Your avatar will be used on your profile and throughout the site. To change your avatar, please create an account with <a href=\"http://gravatar.com\">Gravatar</a> using the same email address as you used to register with this site."
+msgstr "თქვენი ავატარი გამოყენებული იქნება თქვენს პროფილსა და მთელ საიტზე. ავატარის შესაცვლელად, გთხოვთ შექმენით <a href=\"http://gravatar.com\">Gravatar</a> ანგარიში იმავე ელ-ფოსტის გამოყენებით, რომლითაც ამ საიტზე დარეგისტრირდით."
+
+#: members/single/profile/edit.php:10
+#, php-format
+#@ cc
+msgid "Editing '%s' Profile Group"
+msgstr "Editing '%s' Profile Group"
+
+#: members/single/profile/edit.php:26
+#: members/single/profile/edit.php:33
+#: members/single/profile/edit.php:40
+#: members/single/profile/edit.php:49
+#: members/single/profile/edit.php:67
+#: members/single/profile/edit.php:83
+#: members/single/profile/edit.php:93
+#: registration/register.php:37
+#: registration/register.php:41
+#: registration/register.php:45
+#: registration/register.php:49
+#: registration/register.php:76
+#: registration/register.php:84
+#: registration/register.php:92
+#: registration/register.php:102
+#: registration/register.php:113
+#: registration/register.php:128
+#: registration/register.php:139
+#: registration/register.php:189
+#: registration/register.php:198
+#@ cc
+msgid "(required)"
+msgstr "(აუცილებელია)"
+
+#: members/single/profile/edit.php:58
+#: members/single/profile/edit.php:73
+#: registration/register.php:119
+#@ cc
+msgid "Clear"
+msgstr "გასუფთავება"
+
+#: members/single/profile/edit.php:118
+#: members/single/profile/edit.php:132
+#, php-format
+#@ cc
+msgid "This field can be seen by: <span class=\"current-visibility-level\">%s</span>"
+msgstr "ეს ველი შეიძლება დაინახონ: <span class=\"current-visibility-level\">%s</span>"
+
+#: members/single/profile/edit.php:118
+#@ cc
+msgid "Change"
+msgstr "შეცვლა"
+
+#: members/single/profile/edit.php:123
+#@ cc
+msgid "Who can see this field?"
+msgstr "ვის შეუძლია ამ ველის დანახვა?"
+
+#: members/single/profile/profile-wp.php:8
+#, php-format
+#@ cc
+msgid "%s's Profile"
+msgstr "%s'-ის პროფილი"
+
+#: members/single/profile/profile-wp.php:24
+#@ cc
+msgid "About Me"
+msgstr "ჩემს შესახებ"
+
+#: members/single/profile/profile-wp.php:42
+#@ cc
+msgid "Jabber"
+msgstr "Jabber"
+
+#: members/single/profile/profile-wp.php:51
+#@ cc
+msgid "AOL Messenger"
+msgstr "AOL Messenger"
+
+#: members/single/profile/profile-wp.php:60
+#@ cc
+msgid "Yahoo Messenger"
+msgstr "Yahoo Messenger"
+
+#: members/single/settings/delete-account.php:50
+#@ cc
+msgid "Delete Account"
+msgstr "ანგარიშის წაშლა"
+
+#: members/single/settings/delete-account.php:55
+#@ cc
+msgid "WARNING: Deleting your account will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "გაფრთხილება: თქვენი ანგარიშის წაშლა მთლიანად მოაცილებს მასთან დაკავშირებულ ყველა მასალას. უკან დასაბრუნებელი გზა არ არსებობს, გთხოვთ ყურადღებით მოეკიდოთ ამ ფუნქციას."
+
+#: members/single/settings/delete-account.php:58
+#@ cc
+msgid "I understand the consequences of deleting my account."
+msgstr "მე ვაცნობიერებ ჩემი ანგარიშის წაშლის შედეგებს."
+
+#: members/single/settings/delete-account.php:63
+#@ cc
+msgid "Delete My Account"
+msgstr "ჩემი ანგარიშის წაშლა"
+
+#: members/single/settings/general.php:50
+#@ cc
+msgid "General Settings"
+msgstr "ზოგადი პარამეტრები"
+
+#: members/single/settings/general.php:56
+#@ cc
+msgid "Current Password <span>(required to update email or change current password)</span>"
+msgstr "მიმდინარე პაროლი <span>(აუცილებელია ელ-ფოსტის განახლებისათვის და მიმდინარე პაროლის შესაცვლელად</span>"
+
+#: members/single/settings/general.php:57
+#@ cc
+msgid "Password Lost and Found"
+msgstr "პაროლის დაკარგვა და აღდგენა"
+
+#: members/single/settings/general.php:57
+#@ cc
+msgid "Lost your password?"
+msgstr "დაგავიწყდათ პაროლი?"
+
+#: members/single/settings/general.php:59
+#@ cc
+msgid "Account Email"
+msgstr "ანგარიშის ელ-ფოსტა"
+
+#: members/single/settings/general.php:62
+#@ cc
+msgid "Change Password <span>(leave blank for no change)</span>"
+msgstr "პაროლის შეცვლა <span>(უცვლელად შენარჩუნებისთვის დატოვეთ ცარიელი)</span>"
+
+#: members/single/settings/general.php:63
+#@ cc
+msgid "New Password"
+msgstr "ახალი პაროლი"
+
+#: members/single/settings/general.php:64
+#@ cc
+msgid "Repeat New Password"
+msgstr "გაიმეორეთ ახალი პაროლი"
+
+#: members/single/settings/notifications.php:50
+#@ cc
+msgid "Email Notification"
+msgstr "ელ-ფოსტაზე შეტყობინება"
+
+#: members/single/settings/notifications.php:55
+#@ cc
+msgid "Send a notification by email when:"
+msgstr "შეტყობინების ელ-ფოსტით გაგზავნა, როცა:"
+
+#: registration/activate.php:12
+#@ cc
+msgid "Account Activated"
+msgstr "გააქტიურდა ანგარიში"
+
+#: registration/activate.php:17
+#@ cc
+msgid "Your account was activated successfully! Your account details have been sent to you in a separate email."
+msgstr "თქვენი ანგარიში წარმატებით გააქტიურდა! თქვენი ანგარიშის დეტალები ცალკე შეტყობინებად გამოიგზავნა თქვენს ელ-ფოსტაზე."
+
+#: registration/activate.php:19
+#@ cc
+msgid "Your account was activated successfully! You can now log in with the username and password you provided when you signed up."
+msgstr "თქვენი ანგარიში წარმატებით გააქტიურდა! უკვე შეგიძლიათ შეხვიდეთ თქვენს მიერ რეგისტრაციისას მითითებული მომხმარებლის სახელისა და პაროლის გამოყენებით."
+
+#: registration/activate.php:24
+#@ cc
+msgid "Activate your Account"
+msgstr "თქვენი ანგარიშის გააქტიურება"
+
+#: registration/activate.php:28
+#@ cc
+msgid "Please provide a valid activation key."
+msgstr "გთხოვთ შეიყვანოთ ნამდვილი აქტივაციის კოდი."
+
+#: registration/activate.php:32
+#@ cc
+msgid "Activation Key:"
+msgstr "აქტივაციის კოდი:"
+
+#: registration/activate.php:36
+#@ cc
+msgid "Activate"
+msgstr "გააქტიურება"
+
+#: registration/register.php:16
+#@ cc
+msgid "User registration is currently not allowed."
+msgstr "მომხმარებლების დარეგისტრირება ამჟამად გაუქმებულია"
+
+#: registration/register.php:23
+#@ cc
+msgid "Create an Account"
+msgstr "ანგარიშის შექმნა"
+
+#: registration/register.php:27
+#@ cc
+msgid "Registering for this site is easy, just fill in the fields below and we'll get a new account set up for you in no time."
+msgstr "ამ საიტზე დარეგისტრირება ადვილია, უბრალოდ შეავსეთ ქვემოთ მოცემული ველები და სულ რაღაც რამოდენიმე წუთში ჩვენ ახალ ანგარიშს გავხსნით თქვენთვის."
+
+#: registration/register.php:35
+#@ cc
+msgid "Account Details"
+msgstr "ანგარიშის დეტალები"
+
+#: registration/register.php:41
+#@ cc
+msgid "Email Address"
+msgstr "ელ-ფოსტა"
+
+#: registration/register.php:45
+#@ cc
+msgid "Choose a Password"
+msgstr "პაროლის არჩევა"
+
+#: registration/register.php:49
+#@ cc
+msgid "Confirm Password"
+msgstr "პაროლის დადასტურება"
+
+#: registration/register.php:65
+#@ cc
+msgid "Profile Details"
+msgstr "პროფილის დეტალები"
+
+#: registration/register.php:183
+#@ cc
+msgid "Blog Details"
+msgstr "ბლოგის დეტალები"
+
+#: registration/register.php:185
+#@ cc
+msgid "Yes, I'd like to create a new site"
+msgstr "დიახ, მე მსურს ახალი საიტის შექმნა"
+
+#: registration/register.php:189
+#@ cc
+msgid "Blog URL"
+msgstr "ბლოგის URL მისამართი"
+
+#: registration/register.php:198
+#@ cc
+msgid "Site Title"
+msgstr "საიტის სათაური"
+
+#: registration/register.php:202
+#@ cc
+msgid "I would like my site to appear in search engines, and in public listings around this network."
+msgstr "მე მინდა, რომ ჩემი საიტი გამოჩნდეს საძიებო სისტემებში და ქსელში არსებულ საჯარო ლისტინგებში."
+
+#: registration/register.php:219
+#@ cc
+msgid "Complete Sign Up"
+msgstr "რეგისტრაციის დასრულება"
+
+#: registration/register.php:230
+#@ cc
+msgid "Sign Up Complete!"
+msgstr "რეგისტრაცია დასრულებულია"
+
+#: registration/register.php:236
+#@ cc
+msgid "You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address."
+msgstr "თქვენ წარმატებით შექმენით ანგარიში! ამ საიტის გამოყენების დასაწყებად თქვენ დაგჭირდებათ ანგარიშის გააქტიურება ელ-ფოსტის მეშვეობით, სადაც ეს-ესაა წერილი გამოვგზავნეთ."
+
+#: registration/register.php:238
+#@ cc
+msgid "You have successfully created your account! Please log in using the username and password you have just created."
+msgstr "თქვენ წარმატებით შექმენით ანგარიში! გთხოვთ შეხვიდეთ თქვენს მიერ შექმნილი მომხმარებლის სახელისა და პაროლის გამოყენებით."
+
+#: search-loop.php:36
+#@ cc
+msgid "Read more..."
+msgstr "ვრცლად..."
+
+#: search-loop.php:53
+#, php-format
+#@ cc
+msgid "We are sorry, but we could not find anything for the search term '%s'"
+msgstr "ვწუხვართ, მაგრამ ვერაფრის პოვნა მოვახერხეთ საძიებო ტერმინისთვის '%s'"
+
+#: search.php:14
+#@ cc
+msgid "Search Results"
+msgstr "ძიების შედეგები"
+
+#: search.php:59
+#@ cc
+msgid "No posts found. Try a different search?"
+msgstr "პოსტები ვერ მოიძებნა. ვცადოთ განსხვავებული ძებნა?"
+
+#: sidebar.php:11
+#@ cc
+msgid "Recent Posts"
+msgstr "უახლესი პოსტები"
+
+#: sidebar.php:23
+#@ cc
+msgid "Random Posts"
+msgstr "შემთხვევითი პოსტები"
+
+#: sidebar.php:35
+#@ cc
+msgid "Search by Tags!"
+msgstr "ძიება თეგების მიხედვით!"
+
+#: single.php:87
+#@ cc
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#: single.php:88
+#@ cc
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"
+
+#: single.php:97
+#@ cc
+msgid "Sorry, no posts matched your criteria."
+msgstr "ვწუხვართ, თქვენს კრიტერიუმებს არცერთი პოსტი არ აკმაყოფილებს."
+

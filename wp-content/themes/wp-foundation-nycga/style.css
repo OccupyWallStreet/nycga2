@@ -1,0 +1,315 @@
+/*
+Theme Name: NYCGA Theme
+Theme URI: http://nycga.net
+Description: A bones/Zurb foundation based child theme.
+Version: 1.0
+Author: OWS
+Author URI: http://occupywallstreet.net
+Tags: bones, zurb, foundation, 320press, clean, basic
+Template:	wp-foundation
+*/
+
+/*button color*/
+
+
+/* layout */
+
+@import url("../wp-foundation/style.css");
+
+
+/* typography */
+h1, h2, h3, h4, h5 {
+	font-family: 'LeagueGothicRegular', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1, h2, h3,
+h4.subhead {
+	text-transform: uppercase;
+}
+
+.siteinfo h1{ font-weight: 300; }
+
+/*homepage slider*/
+
+div.slider-wrapper {
+	background-color: #F2F2F2;
+}
+
+#featured h3, 
+#featured p {
+	width: 75%;
+}
+
+#featured h3 {
+	margin-top: 1em;
+}
+
+/* events */
+/* home page featured events */
+body.home div.featured-events h3,
+body.home div.featured-events h4.event-title {
+	margin-top: 0;
+}
+
+body.home div.featured-events h4.event-title {
+	font-size: 20px;
+}
+
+body.home div.row div#content div#main.twelve div.top-row div.four section.row div.featured-events div.events-list div.events-row div.event-details h3.event-title {}
+
+body.home div.featured-events div.events-list span.edit-link {
+	display: none;
+}
+
+body.home div.featured-events table.event-table td {
+	border: none;
+	background: transparent;
+	background-color: none;
+}
+
+body.home div.featured-events div.events-list div.events-row {
+	border-bottom: 1px solid #ccc;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+body.home div.featured-events div.events-list div.events-row:last-child {
+	border-bottom: none;
+}
+
+body.home div.featured-events div.event-location a:before {
+	content: '@';
+}
+
+body.home div.featured-events div.event-start {
+
+}
+
+body.home div.featured-events div.event-thumbnail img {
+	width: 100px;
+	height: auto;
+}
+
+body.home div.featured-events div.events-row div.event-start {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+body.home div.featured-events div.events-list div.event-start div {
+	display: inline;
+}
+
+body.home div.featured-events div.events-list div.event-details {
+	float: left;
+	width: 70%;
+}
+body.home div.featured-events div.events-list div.event-meta {
+	float: right;
+	width: 25%;
+}
+
+/*Events Listing*/
+div#em-wrapper div.events-list div.events-row {
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+/*Columns*/
+div#em-wrapper div.events-list  div.event-start {
+	font-size: 1.75em;
+	font-weight: 700;
+	width: 125px;
+	float: left;
+	line-height: 1.25;
+	padding-right: 20px;
+
+}
+
+div#em-wrapper div.events-list div.event-details {
+	/*width: 50%;*/
+	float: left;
+	width: 50%;
+	/*width: auto;*/
+	padding-right: 20px;
+}
+
+div#em-wrapper div.events-list  div.event-meta {
+	width: 145px;
+	float: left;
+}
+
+
+div#em-wrapper div.events-list div.event-meta div.event-thumbnail img {
+	width: 95px;
+	height: auto;
+}
+
+div#em-wrapper div.events-list h3.event-title {
+	margin-top: 0;
+}
+
+div.em-events-search form.em-events-search-form input[type="text"],
+div.em-events-search form.em-events-search-form select#category.em-events-search-category {
+	width: 125px;
+	display: inline;
+}
+
+/* event details */
+
+body.single-event div.event-content {
+	float: right;
+}
+
+.em-location-map, .em-locations-map { 
+	width: 300px !important; 
+	height: 300px !important; 
+}
+
+html.js body.single-event div.event-content div.event-thumbnail img {
+	float: right;
+	width: 320px;
+	height: auto;
+}
+
+.button {
+    background: none repeat scroll 0 0 #fc0;
+    border: 1px solid #ccc;
+    color: #4d4d4d;
+}
+
+.button:hover {
+	background: none repeat scroll 0 0 #4d4d4d;
+	color: #fff;
+}
+
+/* widget s*/
+
+div.sidebar div.widget ul {
+	list-style: none;
+}
+
+div.sidebar div.widget ul ul {}
+
+div.sidebar div.widget ul li {
+	border-bottom: 1px solid #ccc;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+div.sidebar div.widget ul li:last-child,
+div.sidebar div.widget ul li li {
+	border-bottom: none;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+/*featured network posts*/
+body.home div.nlposts-container h2.nlposts-ulist-wtitle {
+	font-size: 24px;
+	margin-top: 0;
+	/*margin-bottom: 0;*/
+	line-height: inherit;
+	color: inherit;
+	font-weight: inherit;
+	letter-spacing: inherit;
+	text-transform: uppercase;
+}
+
+html.js body.home div.row div#content div#main.twelve div.middle-row div.five aside.widget div.nlposts-container ul.nlposts-wrapper li.nlposts-ulist-litem ul.nlposts-ulist-thumbnail li.nlposts-ulist-thumbnail-litem div.thumbnail h3.nlposts-ulist-title {
+	font-size: 18px;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: inherit;
+	color: inherit;
+	font-weight: inherit;
+	letter-spacing: inherit;
+	text-transform: inherit;
+}
+
+div.nlposts-container ul {
+	list-style: none;
+}
+
+body.home div.nlposts-container div.thumbnail a img{
+	float: right;
+	width: 130px;
+	height: auto;
+}
+
+body.home div.nlposts-container span.nlposts-ulist-meta {
+	color: #333;
+	font-size: .9em;
+}
+
+/*blogs*/
+ul.blogs-list li {
+	list-style: none;
+}
+ul.blogs-list li br {
+	display: none;
+}
+ul.blogs-list li p {
+	margin-bottom: 0;
+}
+.rss-date,
+.post-meta,
+ul.blogs-list li p.post-meta {
+	font-style: italic;
+}
+
+.rss-date {
+	display: block;
+}
+
+/*news*/
+body.category-news img.attachment-bones-thumb-300 {
+	width: 120px;
+	height: auto;
+	float: right;
+	border: 1px solid #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    display: block;
+    line-height: 1;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4px;
+}
+
+/*blogs directory*/
+html.js body.page div.row div#content div#main.eight article#post-13913.post-13913 header h1.page-title {}
+
+body.page section.post_content div {
+	float: none;
+}
+
+div.blogs-directory-wrapper table.blogs_directory_table {
+	width: 100%;
+}
+
+/*page list*/
+/*mimic p tag style*/
+div.page-list div.page-list-ext-item-content {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 17px;
+}
+
+div.really_simple_share div,
+div.really_simple_share div.really_simple_share_twitter,
+div.really_simple_share div.really_simple_share_facebook_like,
+div.really_simple_share div.really_simple_share_facebook_like_send {
+	display: inline-block;
+}
+
+div.really_simple_share div.really_simple_share_twitter,
+div.really_simple_share div.really_simple_share_facebook_like,
+div.really_simple_share div.really_simple_share_facebook_like_send
+
+
+
+
+
+

@@ -18,7 +18,7 @@
 		if (is_array($aryConf['data']))
 			foreach ($aryConf['data'] as $key => $aryValues) {
 				$intCount++;
-				if ($intCount <= 9) $strValues .= '["'.$aryValues['shortLabel'].'",'.$aryValues['nb_uniq_visitors'].'],';
+				if ($intCount <= 9) $strValues .= '["'.$aryValues['label'].'",'.$aryValues['nb_uniq_visitors'].'],';
 				else $intMore += $aryValues['nb_uniq_visitors'];
 				$intSum += $aryValues['nb_uniq_visitors'];
 			}
@@ -46,7 +46,7 @@
 		if ($intSum)
 			foreach ($aryConf['data'] as $aryValues)
 				echo '<tr><td>'.
-					$aryValues['shortLabel'].
+					$aryValues['label'].
 					'</td><td class="n">'.
 					$aryValues['nb_uniq_visitors'].
 					'</td><td class="n">'.

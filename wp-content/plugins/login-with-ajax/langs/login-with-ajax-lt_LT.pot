@@ -1,0 +1,412 @@
+# Copyright (C) 2010 NetWebLogic
+# This file is distributed under the same license as the Login With Ajax package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Login With Ajax 3.0a\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/login-with-ajax\n"
+"POT-Creation-Date: 2010-06-04 16:10+0000\n"
+"PO-Revision-Date: 2010-06-06 13:21+0100\n"
+"Last-Translator: Marcus Sykes <marcus@netweblogic.com>\n"
+"Language-Team: LWA <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: login-with-ajax-admin.php:43
+msgid "New features in Login With AJAX (including registration!), check out the settings and widget pages!"
+msgstr "Naujos galimybės prisijungti su AJAX (itraukta registracija!), patikrinknustatymus ir lauko puslapius"
+
+#: login-with-ajax-admin.php:45
+msgid "Dismiss"
+msgstr "Atsisakyti"
+
+#: login-with-ajax-admin.php:89
+msgid "Changes saved."
+msgstr "Pakeitimai išsaugoti"
+
+#: login-with-ajax-admin.php:93
+msgid "There were issues when saving your settings. Please try again."
+msgstr "Iškilo problemų išsaugant jūsų nustatymus. Prašome pabandyti dar kartą"
+
+#: login-with-ajax-admin.php:137
+msgid "General Settings"
+msgstr "Pagrindiniai nustatymai"
+
+#: login-with-ajax-admin.php:142
+msgid "Default Template"
+msgstr "Pagrindinė forma"
+
+#: login-with-ajax-admin.php:151
+msgid "Choose the default theme you'd like to use. This can be overriden in the widget, shortcode and template tags."
+msgstr "Pasirink pagrindinę dizaino formą, kurią norėtumei naudoti. Tai gali būti pakeista, lauke, trumpam kode, ir temos žymose."
+
+#: login-with-ajax-admin.php:152
+msgid "Further documentation for this feature coming soon..."
+msgstr "Neužilgo bus daugiau informacijos apie šią funkciją"
+
+#: login-with-ajax-admin.php:157
+msgid "Disable refresh upon login?"
+msgstr "Išjunkti perkrovimo funkciją po prisijungimo"
+
+#: login-with-ajax-admin.php:162
+msgid "If the user logs in and you check the button above, only the login widget will update itself without refreshing the page. Not a good idea if your site shows different content to users once logged in, as a refresh would be needed."
+msgstr "Jei įjunksite aukščiau esančią funkciją, vartotojams prisijungus priejūsų puslapio nebus perkraunamas visas puslapis, bus perkraunama tikprisijungimo sritis. Nesiūlome naudoti šios funkcijos, kai skirtingaskontekstas rodomas vartotojams prisijungus - šiuo atveju būtų reikalingapuslapio perkrova"
+
+#: login-with-ajax-admin.php:163
+msgid "<strong>Experimental and not fully tested!</strong> please test and report any bugs on our forum."
+msgstr "<strong>Eksperimentinė ir ne galutinai pratestuota!</strong> Prašome išbandyti ir pranešti apie bet kokias klaidas mūsų formume."
+
+#: login-with-ajax-admin.php:168
+msgid "Redirection Settings"
+msgstr "Peradresavimo nustatymai"
+
+#: login-with-ajax-admin.php:173
+msgid "Global Login Redirect"
+msgstr "Globalus peradresavimas po prisijungimo"
+
+#: login-with-ajax-admin.php:177
+msgid "If you'd like to send the user to a specific URL after login, enter it here (e.g. http://wordpress.org/)"
+msgstr "Jei norėtumėte, kad jūsų vartotjai būtų nukreipiami į kažkokį specifinį adresą po prisijungimo, įveskite jį čia (PVZ: http://wordpress.org/)"
+
+#: login-with-ajax-admin.php:178
+#: login-with-ajax-admin.php:188
+msgid "New!"
+msgstr "Naujiena!"
+
+#: login-with-ajax-admin.php:178
+msgid "Use %USERNAME% and it will be replaced with the username of person logging in."
+msgstr "Naudokite kode %USERNAME% ir visur tose vietose bus rodomas prisijungusio vartotojo vardas"
+
+#: login-with-ajax-admin.php:183
+msgid "Global Logout Redirect"
+msgstr "Globalus peradresavimas po atsijungimo"
+
+#: login-with-ajax-admin.php:187
+msgid "If you'd like to send the user to a specific URL after logout, enter it here (e.g. http://wordpress.org/)"
+msgstr "Jei norėtumėte, kad jūsų vartotjai būtų nukreipiami į kažkokį specifinį adresą po atsijungimo, įveskite jį čia (PVZ: http://wordpress.org/)"
+
+#: login-with-ajax-admin.php:188
+msgid "Enter %LASTURL% to send the user back to the page they were previously on."
+msgstr "Naudokite kode %LASTURL%, kad nukreipti prisijungusius vartotojus į prieš tai buvusį puslapį"
+
+#: login-with-ajax-admin.php:193
+msgid "Role-Based Custom Login Redirects"
+msgstr "Atskirų vartotojų tipų peradresavimas po prisijungimo"
+
+#: login-with-ajax-admin.php:196
+msgid "If you would like a specific user role to be redirected to a custom URL upon login, place it here (blank value will default to the global redirect)"
+msgstr "Jei norėtumėte, kad specifiniai vartotjai būtų nukreipiami į kažkokį specifinį adresą po prisijungimo, įveskite jį čia (PVZ: http://wordpress.org/)"
+
+#: login-with-ajax-admin.php:216
+msgid "Role-Based Custom Logout Redirects"
+msgstr "Atskirų vartotojų tipų peradresavimas po atsijungimo"
+
+#: login-with-ajax-admin.php:219
+msgid "If you would like a specific user role to be redirected to a custom URL upon logout, place it here (blank value will default to the global redirect)"
+msgstr "Jei norėtumėte, kad specifiniai vartotjai būtų nukreipiami į kažkokį specifinį adresą po atsijungimo, įveskite jį čia (PVZ: http://wordpress.org/)"
+
+#: login-with-ajax-admin.php:239
+msgid "Notification Settings"
+msgstr "Perspėjimų nustatymai"
+
+#: login-with-ajax-admin.php:241
+msgid "If you'd like to override the default Wordpress email users receive once registered, make sure you check the box below and enter a new email subject and message"
+msgstr "Jei norite pakeisti pagrindinį wordpress emailą iš kurio prisiregistravę nauji vartotojai gauna laiškus, įrašytkite jį čia ir pažymėnkite varnelę"
+
+#: login-with-ajax-admin.php:242
+msgid "If this feature doesn't work, please make sure that you don't have another plugin installed which also manages user registrations (e.g. BuddyPress and MU)."
+msgstr "Jei ši funkcija nveikia, įsitikinkite, kad nesate idiegę kokios norskitos programos, kuri valdo vartotojų registraciją (PVZ. BuddyPress andMU)."
+
+#: login-with-ajax-admin.php:248
+msgid "Override Default Email?"
+msgstr "Pakeisti pagrindinį elektroninį paštą?"
+
+#: login-with-ajax-admin.php:256
+msgid "Subject"
+msgstr "Antraštė"
+
+#: login-with-ajax-admin.php:261
+msgid "Your registration at %BLOGNAME%"
+msgstr "Jūsų registracija puslapyje %BLOGNAME%"
+
+#: login-with-ajax-admin.php:265
+msgid "<code>%USERNAME%</code> will be replaced with a username."
+msgstr "<code>%USERNAME%</code> bus pakeista vartotojo vardu"
+
+#: login-with-ajax-admin.php:266
+msgid "<code>%PASSWORD%</code> will be replaced with the user's password."
+msgstr "<code>%PASSWORD%</code> bus pakeista vartotojo slaptažodžiu"
+
+#: login-with-ajax-admin.php:267
+#: login-with-ajax-admin.php:291
+msgid "<code>%BLOGNAME%</code> will be replaced with the name of your blog."
+msgstr "<code>%BLOGNAME%</code> bus pakeista svetainės pavadinimu"
+
+#: login-with-ajax-admin.php:268
+#: login-with-ajax-admin.php:292
+msgid "<code>%BLOGURL%</code> will be replaced with the url of your blog."
+msgstr "<code>%BLOGURL%</code> bus pakeista svetainės adresu"
+
+#: login-with-ajax-admin.php:273
+msgid "Message"
+msgstr "Žinutė"
+
+#: login-with-ajax-admin.php:278
+msgid ""
+"Thanks for signing up to our blog. \r\n"
+"\r\n"
+"You can login with the following credentials by visiting %BLOGURL%\r\n"
+"\r\n"
+"Username : %USERNAME%\r\n"
+"Password : %PASSWORD%\r\n"
+"\r\n"
+"We look forward to your next visit!\r\n"
+"\r\n"
+"The team at %BLOGNAME%"
+msgstr ""
+"Ačiū už, kad prisiregistravote mūsų svetainėje. \r\n"
+"\r\n"
+"Vartotojo vardas : %USERNAME%\r\n"
+"Slaptažodis : %PASSWORD%\r\n"
+"\r\n"
+"Laukiame jūsų sekančio apsilankymo!\r\n"
+"\r\n"
+"%BLOGNAME% komanda"
+
+#: login-with-ajax-admin.php:301
+msgid "Save Changes"
+msgstr "Išsaugoti pakeitimus"
+
+#: login-with-ajax-widget.php:5
+msgid "Login widget with AJAX capabilities."
+msgstr "Prisijungimo su AJAX lauko galimybės"
+
+#: login-with-ajax-widget.php:28
+msgid "Show profile link?"
+msgstr "Rodyti profilio adresą?"
+
+#: login-with-ajax-widget.php:32
+msgid "AJAX Registration?"
+msgstr "AJAX Registracija?"
+
+#: login-with-ajax-widget.php:36
+msgid "Template"
+msgstr "Forma"
+
+#: login-with-ajax.php:149
+msgid "Login Successful, redirecting..."
+msgstr "Sėkmingai prisijungta, peradresuojama..."
+
+#: login-with-ajax.php:161
+msgid "Login successful, updating..."
+msgstr "Sėkmingai prisijungta, atnaujinama..."
+
+#: login-with-ajax.php:171
+#: login-with-ajax.php:219
+msgid "An undefined error has ocurred"
+msgstr "Įvyko klaida"
+
+#: login-with-ajax.php:190
+msgid "Registration complete. Please check your e-mail."
+msgstr "Registracija baigta. Prašome pasitikrinti elektroninį paštą"
+
+#: login-with-ajax.php:210
+msgid "We have sent you an email"
+msgstr "Mes jums atsiuntėme elektroninį laišką"
+
+#: pluggable.php:26
+#, php-format
+msgid "New user registration on your blog %s:"
+msgstr "Naujo vartotojo registracija jūsų svetainėje %s:"
+
+#: pluggable.php:27
+#: pluggable.php:41
+#, php-format
+msgid "Username: %s"
+msgstr "Vartotojo vardas: %s"
+
+#: pluggable.php:28
+#, php-format
+msgid "E-mail: %s"
+msgstr "E. paštas: %s"
+
+#: pluggable.php:30
+#, php-format
+msgid "[%s] New User Registration"
+msgstr "[%s] Naujo vartotojo registracija"
+
+#: pluggable.php:42
+#, php-format
+msgid "Password: %s"
+msgstr "Slaptažodis: %s"
+
+#: pluggable.php:45
+#, php-format
+msgid "[%s] Your username and password"
+msgstr "[%s] Jūsų vartotojo vardas ir slaptažodis"
+
+#: widget/default/register.php:9
+#: widget/ie7-friendly/widget_out.php:88
+#: widget/inline-registration/widget_out.php:94
+msgid "Register For This Site"
+msgstr "Registruotis į šią svetainę"
+
+#: widget/default/register.php:12
+#: widget/default/widget_out.php:19
+#: widget/ie7-friendly/widget_out.php:17
+#: widget/ie7-friendly/widget_out.php:93
+#: widget/inline-registration/widget_out.php:19
+#: widget/inline-registration/widget_out.php:99
+#: widget/widget_out.php:19
+msgid "Username"
+msgstr "Vartotojo vardas"
+
+#: widget/default/register.php:16
+#: widget/ie7-friendly/widget_out.php:99
+#: widget/inline-registration/widget_out.php:105
+msgid "E-mail"
+msgstr "E. paštas"
+
+#: widget/default/register.php:20
+#: widget/ie7-friendly/widget_out.php:113
+#: widget/inline-registration/widget_out.php:119
+msgid "A password will be e-mailed to you."
+msgstr "Slaptažodis bus atsiųstas jums į e. paštą"
+
+#: widget/default/register.php:21
+#: widget/default/widget_out.php:56
+#: widget/ie7-friendly/widget_out.php:53
+#: widget/ie7-friendly/widget_out.php:114
+#: widget/inline-registration/widget_out.php:55
+#: widget/inline-registration/widget_out.php:120
+#: widget/widget_out.php:56
+msgid "Register"
+msgstr "Registruotis"
+
+#: widget/default/widget_in.php:11
+#: widget/default/widget_in.php:14
+#: widget/ie7-friendly/widget_in.php:11
+#: widget/ie7-friendly/widget_in.php:14
+#: widget/inline-registration/widget_in.php:11
+#: widget/inline-registration/widget_in.php:14
+#: widget/widget_in.php:11
+#: widget/widget_in.php:14
+msgid "Hi"
+msgstr "Sveiki"
+
+#: widget/default/widget_in.php:33
+#: widget/ie7-friendly/widget_in.php:34
+#: widget/inline-registration/widget_in.php:33
+#: widget/widget_in.php:33
+msgid "Profile"
+msgstr "Profilis"
+
+#: widget/default/widget_in.php:38
+#: widget/ie7-friendly/widget_in.php:40
+#: widget/ie7-friendly/widget_in.php:44
+#: widget/inline-registration/widget_in.php:38
+#: widget/widget_in.php:38
+msgid "Log Out"
+msgstr "Atsijungti"
+
+#: widget/default/widget_in.php:43
+#: widget/inline-registration/widget_in.php:43
+#: widget/widget_in.php:43
+msgid "blog admin"
+msgstr "Svetainės administratorius"
+
+#: widget/default/widget_out.php:10
+#: widget/default/widget_out.php:35
+#: widget/ie7-friendly/widget_out.php:10
+#: widget/ie7-friendly/widget_out.php:32
+#: widget/inline-registration/widget_out.php:10
+#: widget/inline-registration/widget_out.php:35
+#: widget/widget_out.php:10
+#: widget/widget_out.php:35
+msgid "Log In"
+msgstr "Prisijungti"
+
+#: widget/default/widget_out.php:27
+#: widget/ie7-friendly/widget_out.php:25
+#: widget/inline-registration/widget_out.php:27
+#: widget/widget_out.php:27
+msgid "Password"
+msgstr "Slaptažodis"
+
+#: widget/default/widget_out.php:41
+#: widget/ie7-friendly/widget_out.php:38
+#: widget/inline-registration/widget_out.php:40
+#: widget/widget_out.php:41
+msgid "Remember Me"
+msgstr "Atsiminti mane"
+
+#: widget/default/widget_out.php:43
+#: widget/ie7-friendly/widget_out.php:40
+#: widget/inline-registration/widget_out.php:42
+#: widget/widget_out.php:43
+msgid "Password Lost and Found"
+msgstr "Pamestas ir rastas slaptažodis"
+
+#: widget/default/widget_out.php:43
+#: widget/ie7-friendly/widget_out.php:40
+#: widget/inline-registration/widget_out.php:42
+#: widget/widget_out.php:43
+msgid "Lost your password?"
+msgstr "Pamiršai slaptažodį?"
+
+#: widget/default/widget_out.php:68
+#: widget/ie7-friendly/widget_out.php:63
+#: widget/inline-registration/widget_out.php:67
+#: widget/widget_out.php:68
+msgid "Forgotten Password"
+msgstr "Pamirštas slaptažodis"
+
+#: widget/default/widget_out.php:73
+#: widget/ie7-friendly/widget_out.php:67
+#: widget/inline-registration/widget_out.php:72
+#: widget/widget_out.php:73
+msgid "Enter username or email"
+msgstr "Įveskite vartotojo vardą arba slaptažodį"
+
+#: widget/default/widget_out.php:79
+#: widget/ie7-friendly/widget_out.php:72
+#: widget/inline-registration/widget_out.php:78
+#: widget/widget_out.php:79
+msgid "Get New Password"
+msgstr "Gauk naują slaptažodį"
+
+#: widget/default/widget_out.php:80
+#: widget/ie7-friendly/widget_out.php:115
+#: widget/inline-registration/widget_out.php:79
+#: widget/inline-registration/widget_out.php:121
+#: widget/widget_out.php:80
+msgid "Cancel"
+msgstr "Atšaukti"
+
+#. Plugin Name of the plugin/theme
+msgid "Login With Ajax"
+msgstr "Prisijungti su AJAX"
+
+#. Plugin URI of the plugin/theme
+msgid "http://netweblogic.com/wordpress/plugins/login-with-ajax/"
+msgstr "http://netweblogic.com/wordpress/plugins/login-with-ajax/"
+
+#. Description of the plugin/theme
+msgid "Ajax driven login widget. Customisable from within your template folder, and advanced settings from the admin area."
+msgstr "Ajax paremtas prisijungimo laukas. Modifikuojamas iš jūsų temos aplanko ir ir papildomi nustatymai administratoriaus srityje."
+
+#. Author of the plugin/theme
+msgid "NetWebLogic"
+msgstr "NetWebLogic"
+
+#. Author URI of the plugin/theme
+msgid "http://netweblogic.com/"
+msgstr "http://netweblogic.com/"
+
+#. Tags of the plugin/theme
+msgid "Login, Ajax, Redirect, BuddyPress, MU, WPMU, sidebar, admin, widget"
+msgstr "Prisijungti, Ajax, Peradresuoti, BuddyPress, MU, WPMU, šoninis meniu, administratorius, laukas"
+

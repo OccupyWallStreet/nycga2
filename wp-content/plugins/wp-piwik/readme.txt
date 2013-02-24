@@ -1,9 +1,9 @@
 === WP-Piwik ===
 
 Contributors: Braekling
-Requires at least: 3.4
-Tested up to: 3.4.2
-Stable tag: 0.9.6.2
+Requires at least: 3.5
+Tested up to: 3.5.1
+Stable tag: 0.9.8.1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6046779
 Tags: statistics, stats, analytics, piwik, wpmu
 
@@ -13,7 +13,7 @@ This plugin adds a Piwik stats site to your WordPress or WordPress multisite das
 
 This plugin adds a Piwik stats site to your WordPress dashboard. It's also able to add the Piwik tracking code to your blog using wp_footer.
 
-**You need a running Piwik (at least 1.8.2) installation** and at least view access to your stats. Also PHP 5 or higher is strictly required.
+**You need a running Piwik (at least 1.9) installation** and at least view access to your stats. Also PHP 5 or higher is strictly required.
 
 Look at the [Piwik website](http://piwik.org/) to get further information about Piwik.
 
@@ -22,6 +22,20 @@ Look at the [Piwik website](http://piwik.org/) to get further information about 
 Languages: English, German, Albanian, Azerbaijani, Belorussian, Dutch, French, Greek, Lithuanian, Norwegian, Persian, Romanian, Russian, Spanish, Swedish, Ukrainian
 
 *Note: If you vote "It's broken", please tell me about your problem. It's hard to fix a bug I don't know about! ;-)*
+
+= Shortcodes =
+You can use following shortcodes if activated:
+
+    [wp-piwik module="overview" title="" period="day" date="yesterday"]
+Shows overview table like WP-Piwik's overview dashboard. See Piwik API documentation on VisitsSummary.get to get more information on period and day. Multiple data arrays will be cumulated. If you fill the title attribute, its content will be shown in the table's title.
+
+    [wp-piwik module="opt-out" language="en" width="100%" height="200px"]
+Shows the Piwik opt-out Iframe. You can change the Iframe's language by the language attribute (e.g. de for German language) and its width and height using the corresponding attributes.
+
+	[wp-piwik]
+is equal to *[wp-piwik module="overview" title="" period="day" date="yesterday"]*.
+
+More shortcodes will follow soon.
 
 = WP multisite =
 
@@ -32,7 +46,7 @@ See section "Installation".
 * Graphs powered by [jqPlot](http://www.jqplot.com/) (GPL 2.0 and MIT) and  and [jQuery Sparklines](http://omnipotent.net/jquery.sparkline/) (New BSD License).
 * Metabox support inspired by [Heiko Rabe's metabox demo plugin](http://www.code-styling.de/english/how-to-use-wordpress-metaboxes-at-own-plugins).
 * Translation credits see plugin settings
-* Donations: Marco L., Rolf W., Tobias U., Lars K., Donna F., Kevin D., Ramos S, the Piwik team itself, and all people flattering this.
+* Donations: Marco L., Rolf W., Tobias U., Lars K., Donna F., Kevin D., Ramos S, Thomas M., John C., Andreas G., Ben M., the Piwik team itself, and all people flattering this.
 * All users who send me mails containing criticism, commendation, feature requests and bug reports - you help me to make WP-Piwik much better!
 
 Thank you all!
@@ -44,6 +58,10 @@ Thank you all!
 WP-Piwik requires Piwik. If you did not install Piwik yet, first get it at the [Piwik website](http://www.piwik.org). 
 
 If Piwik works, you'll be able to configure WP-Piwik: The Piwik URL is the same URL you use to access your Piwik, e.g. for the demo site: http://demo.piwik.org. The auth token is some kind of secret password, which allows WP-Piwik to get the necessary data from Piwik. The super user's auth token, i.e. a full access password for your Piwik, can be found on Piwik's API site. You can find a detailed description [here](http://peepbo.de/board/viewtopic.php?f=5&t=10).
+
+= How to reset/remove all WP-Piwik settings without uninstalling? =
+
+Login to your admin dashboard and open http://YOUR_BLOG_URL/wp-admin/options-general.php?page=wp-piwik/wp-piwik.php&tab=support&mode=resetconfirmed&full=1
 
 = Tracking does not work on HostGator! =
 
@@ -92,9 +110,37 @@ Add WP-Piwik to your /wp-content/plugins folder and enable it as [Network Plugin
 
 == Upgrade Notice ==
 
-Bugfix: ["Create Piwik site" link (network dashboard)](http://wordpress.org/support/topic/plugin-wp-piwik-you-attempted-to-access-the-networks-dashboard-but-you-do-not)
+Please update Piwik if not done yet (Piwik 1.9 or higher is recommended)!
 
 == Changelog ==
+
+= 0.9.8.1 =
+* Warning on empty data removed (overview table)
+* Removed a possible deadlock
+* Bugfix: Apply tracking code settings everytime the tracking code is updated
+* Reset/uninstall script bugfix regarding network mode
+
+= 0.9.8 =
+* WordPress 3.5 compatibility fix: http://wordpress.org/support/topic/v35-errors-fix?replies=5 (Thanks Christian Foellmann!)
+* Advanced Search Result Analytics, see http://piwik.org/docs/javascript-tracking/#toc-tracking-internal-search-keywords-categories-and-no-result-search-keywords
+* Site Search stats added
+* Use js/index.php: Replaces piwik.js and piwik.php by js/ (instead of piwik.js only)
+* Connection timeout setting added
+* Full reset option added
+* Uninstall script added
+* Stats metaboxes: Date formatted
+* Use proxy settings defined in wp-config.php
+* Piwik.php proxy script added (see http://piwik.org/faq/how-to/#faq_132)
+* Bugfix: After upgrade, Piwik automatically places cookies again (http://wordpress.org/support/topic/after-upgrade-piwik-automatically-places-cookies-again)
+
+= 0.9.7 =
+* Shortcodes added
+* WP-Piwik will rename sites in Piwik if site name changes in WordPress
+* Bugfix: Tracking code changes should stay active after WP-Piwik updates
+
+= 0.9.6.3 =
+* Piwik 1.9+ compatibility fix (Piwik 1.9 required!)
+* Browser version details added
 
 = 0.9.6.2 =
 * Bugfix: ["Create Piwik site" link (network dashboard)](http://wordpress.org/support/topic/plugin-wp-piwik-you-attempted-to-access-the-networks-dashboard-but-you-do-not)

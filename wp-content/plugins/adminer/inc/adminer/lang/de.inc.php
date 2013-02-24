@@ -244,7 +244,7 @@ $translations = array(
 	'Alter type' => 'Typ ändern',
 	'Type has been dropped.' => 'Typ gelöscht.',
 	'Type has been created.' => 'Typ erstellt.',
-	'Double click on a value to modify it.' => 'Doppelklick zum Bearbeiten des Wertes.',
+	'Ctrl+click on a value to modify it.' => 'Ctrl+klick zum Bearbeiten des Wertes.',
 	'Use edit link to modify this value.' => 'Benutzen Sie den Link zum editieren dieses Wertes.',
 	'last' => 'letzte',
 	'From server' => 'Im Server',
@@ -268,6 +268,5 @@ $translations = array(
 	'Copy' => 'Kopieren',
 	'Permanent link' => 'Dauerhafter Link',
 	'Edit all' => 'Alle ändern',
-	'Resend POST data?' => 'POST data noch einmal senden ?',
 	'HH:MM:SS' => 'HH:MM:SS',
 );

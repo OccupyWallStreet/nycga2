@@ -26,7 +26,7 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 	<link><?php bloginfo_rss('url') ?></link>
 	<description><?php bloginfo_rss("description") ?></description>
 	<lastBuildDate><?php echo mysql2date('D, d M Y H:i:s +0000', get_lastpostmodified('GMT'), false); ?></lastBuildDate>
-	<language><?php echo get_option('rss_language'); ?></language>
+	<language><?php bloginfo_rss( 'language' ); ?></language>
 	<sy:updatePeriod><?php echo apply_filters( 'rss_update_period', 'hourly' ); ?></sy:updatePeriod>
 	<sy:updateFrequency><?php echo apply_filters( 'rss_update_frequency', '1' ); ?></sy:updateFrequency>
 	<?php do_action('rss2_head'); ?>
@@ -41,13 +41,14 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 
 		<guid isPermaLink="false"><?php the_guid(); ?></guid>
 <?php if (get_option('rss_use_excerpt')) : ?>
-		<description><![CDATA[<?php the_excerpt_rss() ?>]]></description>
+		<description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
 <?php else : ?>
-		<description><![CDATA[<?php the_excerpt_rss() ?>]]></description>
-	<?php if ( strlen( $post->post_content ) > 0 ) : ?>
-		<content:encoded><![CDATA[<?php the_content_feed('rss2') ?>]]></content:encoded>
+		<description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
+	<?php $content = get_the_content_feed('rss2'); ?>
+	<?php if ( strlen( $content ) > 0 ) : ?>
+		<content:encoded><![CDATA[<?php echo $content; ?>]]></content:encoded>
 	<?php else : ?>
-		<content:encoded><![CDATA[<?php the_excerpt_rss() ?>]]></content:encoded>
+		<content:encoded><![CDATA[<?php the_excerpt_rss(); ?>]]></content:encoded>
 	<?php endif; ?>
 <?php endif; ?>
 		<wfw:commentRss><?php echo esc_url( get_post_comments_feed_link(null, 'rss2') ); ?></wfw:commentRss>

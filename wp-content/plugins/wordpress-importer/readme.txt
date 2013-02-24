@@ -3,8 +3,8 @@ Contributors: wordpressdotorg
 Donate link: 
 Tags: importer, wordpress
 Requires at least: 3.0
-Tested up to: 3.3.1
-Stable tag: 0.5.2
+Tested up to: 3.4
+Stable tag: 0.6
 
 Import posts, pages, comments, custom fields, categories, tags and more from a WordPress export file.
 
@@ -37,6 +37,10 @@ If you would prefer to do things manually then follow these instructions:
 
 == Changelog ==
 
+= 0.6 =
+* Support for WXR 1.2 and multiple CDATA sections
+* Post aren't duplicates if their post_type's are different
+
 = 0.5.2 =
 * Double check that the uploaded export file exists before processing it. This prevents incorrect error messages when
 an export file is uploaded to a server with bad permissions and WordPress 3.3 or 3.3.1 is being used.
@@ -60,6 +64,9 @@ an export file is uploaded to a server with bad permissions and WordPress 3.3 or
 * Initial release
 
 == Upgrade Notice ==
+
+= 0.6 =
+Support for exports from WordPress 3.4.
 
 = 0.5.2 =
 Fix incorrect error message when the export file could not be uploaded.

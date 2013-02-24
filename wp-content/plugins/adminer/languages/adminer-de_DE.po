@@ -1,155 +1,184 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Adminer v0.1\n"
+"Project-Id-Version: Adminer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2010-07-20 13:17+0100\n"
+"POT-Creation-Date: 2012-11-09 15:18+0100\n"
+"PO-Revision-Date: 2012-11-09 15:20+0100\n"
 "Last-Translator: Frank Bueltge <frank@bueltge.de>\n"
 "Language-Team: \n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Poedit-Language: German\n"
-"X-Poedit-Country: GERMANY\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
-"X-Poedit-Basepath: ../\n"
-"X-Poedit-Bookmarks: \n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: c:\\xampp\\htdocs\\wp-plugins\\adminer\\\n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Textdomain-Support: yes"
 
-#. translators: plugin header field 'Description'
-#: adminer.php:0
-#@ adminer
-msgid "<a href=\"http://www.adminer.org/en/\">Adminer</a> (formerly phpMinAdmin) is a full-featured MySQL management tool written in PHP. This plugin include this tool in WordPress for a fast management of your database."
-msgstr "<a href=\"http://www.adminer.org/en/\">Adminer</a> (vorher phpMinAdmin) ist ein MySQL Verwaltungs-Werkzeug mit umfangreichen Funktionen, geschrieben in PHP. Im Gegensatz zu phpMyAdmin ist es eine einzige Datei für die Verwendung auf dem Server."
-
-#: inc/adminer/loader.php:30
-#@ default
-msgid "Cheatin&#8217; uh?"
-msgstr "Cheatin&#8217; uh?"
-
-#. translators: plugin header field 'Name'
-#: adminer.php:0
-#: adminer.php:115
-#: adminer.php:117
-#@ adminer
+# @ adminer
+#: adminer.php:129 adminer.php:131 adminer.php:148 adminer.php:151
+#: adminer.php:169
 msgid "Adminer"
 msgstr "Adminer"
 
-#: adminer.php:149
-#: adminer.php:154
-#@ adminer
-msgid "empty"
-msgstr "leer"
-
-#: adminer.php:161
-#@ adminer
-msgid "Adminer for WordPress"
-msgstr "Adminer für WordPress"
-
-#: adminer.php:163
-#@ adminer
-msgid "(formerly phpMinAdmin) is a full-featured MySQL management tool written in PHP. Conversely to phpMyAdmin, it consist of a single file ready to deploy to the target server."
-msgstr "(vorher phpMinAdmin) ist ein MySQL Verwaltungs-Werkzeug mit umfangreichen Funktionen, geschrieben in PHP. Im Gegensatz zu phpMyAdmin ist es eine einzige Datei für die Verwendung auf dem Server."
-
-#: adminer.php:199
-#@ adminer
-msgid "Your Datebase data"
-msgstr "Deine Datenbankdaten"
-
-#: adminer.php:209
-#@ adminer
-msgid "Server"
-msgstr "Server"
-
-#: adminer.php:213
-#@ adminer
-msgid "User"
-msgstr "User"
-
-#: adminer.php:217
-#@ adminer
-msgid "Password"
-msgstr "Passwort"
-
-#: adminer.php:195
-#@ adminer
-msgid "Your browser does not support embedded frames."
-msgstr "Sie lassen kein JavaScript zu und Ihr Browser kann leider keine eingebetteten Frames anzeigen."
-
-#: adminer.php:203
-#@ adminer
-msgid "Typ"
-msgstr "Typ"
-
-#: adminer.php:204
-#@ adminer
-msgid "Value"
-msgstr "Wert"
-
-#. translators: plugin header field 'PluginURI'
-#: adminer.php:0
-#@ adminer
-msgid "http://bueltge.de/adminer-fuer-wordpress/1014/"
+# @ adminer
+#: adminer.php:181
+msgid ""
+"Start the Thickbox inside the Adminer-tool with the button &rsaquo;<em>Start "
+"Adminer inside</em>&lsaquo;."
 msgstr ""
+"Starte das Werkzeug innerhalb dieser Seite mit dem Button &rsaquo;<em>Starte "
+"Adminer Inside</em>&lsaquo;."
 
-#. translators: plugin header field 'Author'
-#: adminer.php:0
-#@ adminer
-msgid "Frank B&uuml;ltge"
+# @ adminer
+#: adminer.php:183
+msgid ""
+"Alternatively, you can use the button for use &rsaquo;<em>Adminer in a new "
+"Tab</em>&lsaquo;."
 msgstr ""
+"Alternativ nutze den Button &rsaquo;<em>Starte Adminer in einem neuen Tab</"
+"em>&lsaquo;."
 
-#. translators: plugin header field 'AuthorURI'
-#: adminer.php:0
-#@ adminer
-msgid "http://bueltge.de/"
+# @ adminer
+#: adminer.php:185
+msgid ""
+"<a href=\"http://wordpress.org/extend/plugins/adminer/\">Documentation on "
+"Plugin Directory</a>"
 msgstr ""
-
-#: adminer.php:134
-#@ adminer
-msgid "Start the Thickbox inside the Adminer-tool with the button &rsaquo;<em>Start Adminer inside</em>&lsaquo;."
-msgstr "Starte das Werkzeug innerhalb dieser Seite mit dem Button &rsaquo;<em>Starte Adminer Inside</em>&lsaquo;."
-
-#: adminer.php:136
-#@ adminer
-msgid "Alternatively, you can use the button for use &rsaquo;<em>Adminer in a new Tab</em>&lsaquo;."
-msgstr "Alternativ nutze den Button &rsaquo;<em>Starte Adminer in einem neuen Tab</em>&lsaquo;."
-
-#: adminer.php:140
-#@ adminer
-msgid "<a href=\"http://www.adminer.org/\">Adminer website</a></p>"
-msgstr "<a href=\"http://www.adminer.org/\">Adminer website</a></p>"
+"<a href=\\\"http://wordpress.org/extend/plugins/adminer/\\\">Dokumentation "
+"im Plugin Directory</a>"
 
 #: adminer.php:186
-#@ adminer
-msgid "Start Adminer inside"
-msgstr "Starte Adminer Inside"
-
-#: adminer.php:189
-#@ adminer
-msgid "Start Adminer in a new tab"
-msgstr "Starte Adminer in einem neuen Tab"
-
-#. translators: plugin header field 'Version'
-#: adminer.php:0
-#@ adminer
-msgid "1.1.0"
+msgid ""
+"<a href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;"
+"hosted_button_id=6069955\">Donate</a>"
 msgstr ""
+"<a href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;"
+"hosted_button_id=6069955\">Spende</a>"
 
-#: adminer.php:138
-#@ adminer
-msgid "<a href=\"http://wordpress.org/extend/plugins/adminer/\">Documentation on Plugin Directory</a>"
-msgstr "<a href=\\\"http://wordpress.org/extend/plugins/adminer/\\\">Dokumentation im Plugin Directory</a>"
-
-#: adminer.php:139
-#@ adminer
+# @ adminer
+#: adminer.php:187
 msgid "<a href=\"http://bueltge.de/\">Blog of Plugin author</a>"
 msgstr "<a href=\\\"http://bueltge.de/\\\">Blog des Pluginautors</a>"
 
-#: adminer.php:163
-#@ adminer
+# @ adminer
+#: adminer.php:188
+msgid "<a href=\"http://www.adminer.org/\">Adminer website</a></p>"
+msgstr "<a href=\"http://www.adminer.org/\">Adminer website</a></p>"
+
+# @ adminer
+#: adminer.php:252 adminer.php:257
+msgid "empty"
+msgstr "leer"
+
+# @ adminer
+#: adminer.php:264
+msgid "Adminer for WordPress"
+msgstr "Adminer für WordPress"
+
+# @ adminer
+#: adminer.php:266
+msgid ""
+"(formerly phpMinAdmin) is a full-featured MySQL management tool written in "
+"PHP."
+msgstr ""
+"(vorher phpMinAdmin) ist ein MySQL Verwaltungs-Werkzeug mit umfangreichen "
+"Funktionen, geschrieben in PHP."
+
+# @ adminer
+#: adminer.php:266
 msgid "Current used version of Plugin"
 msgstr "Aktuell genutzte Version des Plugins"
 
+# @ adminer
+#: adminer.php:289
+msgid "Start Adminer inside"
+msgstr "Starte Adminer Inside"
+
+# @ adminer
+#: adminer.php:292
+msgid "Start Adminer in a new tab"
+msgstr "Starte Adminer in einem neuen Tab"
+
+# @ adminer
+#: adminer.php:298
+msgid "Your browser does not support embedded frames."
+msgstr ""
+"Sie lassen kein JavaScript zu und Ihr Browser kann leider keine "
+"eingebetteten Frames anzeigen."
+
+#: adminer.php:307
+msgid "Like this plugin?"
+msgstr "Du magst das Plugin?"
+
+#: adminer.php:310
+msgid "Here's how you can give back:"
+msgstr "Hier einige Möglichkeiten Feedback zu geben:"
+
+#: adminer.php:312
+msgid "Give the plugin a good rating."
+msgstr "Gib dem Plugin ein gutes Rating."
+
+#: adminer.php:313
+msgid "Write a review about the plugin."
+msgstr "Schreibe ein Review über das Plugin."
+
+#: adminer.php:314
+msgid "Donate a few euros."
+msgstr "Spende einige Euros."
+
+#: adminer.php:315
+msgid "Get me something from my wish list."
+msgstr "Sende mir etwas aus meiner Wunschliste."
+
+#: adminer.php:316
+msgid "Adminer website for more informations and versions without WordPress"
+msgstr "Adminer Website für mehr Informationen und Versionen ohne WordPress."
+
+#: adminer.php:316
+msgid "More about Adminer"
+msgstr "Mehr über Adminer"
+
+# @ adminer
+#: adminer.php:327
+msgid "Your Database Data"
+msgstr "Deine Datenbankdaten"
+
+# @ adminer
+#: adminer.php:333
+msgid "Typ"
+msgstr "Typ"
+
+# @ adminer
+#: adminer.php:334
+msgid "Value"
+msgstr "Wert"
+
+# @ adminer
+#: adminer.php:339
+msgid "Server"
+msgstr "Server"
+
+#: adminer.php:343
+msgid "Database"
+msgstr "Datenbank"
+
+# @ adminer
+#: adminer.php:347
+msgid "User"
+msgstr "User"
+
+# @ adminer
+#: adminer.php:351
+msgid "Password"
+msgstr "Passwort"
+
+# @ default
+#: inc/adminer/loader.php:45 inc/adminer-3.6.1-dev/loader.php:45
+#: inc/adminer-old/loader.php:45
+msgid "Cheatin&#8217; uh?"
+msgstr "Cheatin&#8217; uh?"

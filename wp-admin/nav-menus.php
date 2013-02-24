@@ -22,18 +22,10 @@ if ( ! current_theme_supports( 'menus' ) && ! current_theme_supports( 'widgets' 
 if ( ! current_user_can('edit_theme_options') )
 	wp_die( __( 'Cheatin&#8217; uh?' ) );
 
-// jQuery
-wp_enqueue_script( 'jquery-ui-draggable' );
-wp_enqueue_script( 'jquery-ui-droppable' );
-wp_enqueue_script( 'jquery-ui-sortable' );
-
-// Nav Menu functions
 wp_enqueue_script( 'nav-menu' );
 
-// Metaboxes
-wp_enqueue_script( 'common' );
-wp_enqueue_script( 'wp-lists' );
-wp_enqueue_script( 'postbox' );
+if ( wp_is_mobile() )
+	wp_enqueue_script( 'jquery-touch-punch' );
 
 // Container for any messages displayed to the user
 $messages = array();
@@ -117,7 +109,6 @@ switch ( $action ) {
 						wp_update_post($next_item_data);
 					}
 
-
 				// the item is last but still has a parent, so bubble up
 				} elseif (
 					! empty( $menu_item_data['menu_item_parent'] ) &&
@@ -151,7 +142,6 @@ switch ( $action ) {
 						}
 					}
 				}
-
 
 				// if this menu item is not first
 				if ( ! empty( $dbids_to_orders[$menu_item_id] ) && ! empty( $orders_to_dbids[$dbids_to_orders[$menu_item_id] - 1] ) ) {
@@ -227,7 +217,6 @@ switch ( $action ) {
 		$menu_item_id = (int) $_REQUEST['menu-item'];
 
 		check_admin_referer( 'delete-menu_item_' . $menu_item_id );
-
 
 		if ( is_nav_menu_item( $menu_item_id ) && wp_delete_post( $menu_item_id, true ) )
 			$messages[] = '<div id="message" class="updated"><p>' . __('The menu item has been successfully deleted.') . '</p></div>';
@@ -430,7 +419,7 @@ $_wp_nav_menu_max_depth = 0;
 
 // Calling wp_get_nav_menu_to_edit generates $_wp_nav_menu_max_depth
 if ( is_nav_menu( $nav_menu_selected_id ) )
-	$edit_markup = wp_get_nav_menu_to_edit( $nav_menu_selected_id  );
+	$edit_markup = wp_get_nav_menu_to_edit( $nav_menu_selected_id );
 
 function wp_nav_menu_max_depth($classes) {
 	global $_wp_nav_menu_max_depth;
@@ -450,14 +439,14 @@ get_current_screen()->add_help_tab( array(
 'title'		=> __('Overview'),
 'content'	=>
 	'<p>' . __('This feature allows you to use a custom menu in place of your theme&#8217;s default menus.') . '</p>' .
-	'<p>' . __('Custom menus may contain links to pages, categories, custom links or other content types (use the Screen Options tab to decide which ones to show on the screen). You can specify a different navigation label for a menu item as well as other attributes. You can create multiple menus. If your theme includes more than one menu, you can choose which custom menu to associate with each. You can also use custom menus in conjunction with the Custom Menus widget.') . '</p>' .
-	'<p>' . __('If your theme does not support the custom menus feature yet (the default themes, Twenty Eleven and Twenty Ten, do), you can learn about adding this support by following the Documentation link to the side.') . '</p>'
+	'<p>' . __('Custom menus may contain links to pages, categories, custom links or other content types (use the Screen Options tab to decide which ones to show on the screen). You can specify a different navigation label for a menu item as well as other attributes. You can create multiple menus. If your theme includes more than one menu location, you can choose which custom menu to associate with each. You can also use custom menus in conjunction with the Custom Menus widget.') . '</p>' .
+	'<p>' . sprintf( __('If your theme does not support the custom menus feature (the default themes, %1$s and %2$s, do), you can learn about adding this support by following the Documentation link to the side.'), 'Twenty Twelve', 'Twenty Eleven' ) . '</p>'
 ) );
 get_current_screen()->add_help_tab( array(
 'id'		=> 'create-menus',
 'title'		=> __('Create Menus'),
 'content'	=>
-	'<p>' . __('To create a new custom menu, click on the + tab, give the menu a name, and click Create Menu. Next, add menu items from the appropriate boxes. You&#8217;ll be able to edit the information for each menu item, and can drag and drop to put them in order. You can also drag a menu item a little to the right to make it a submenu, to create menus with hierarchy. Drop the item into its new nested placement when the dotted rectangle target shifts over, also a little to the right. Don&#8217;t forget to click Save when you&#8217;re finished.') . '</p>'
+	'<p>' . __('To create a new custom menu, click on the + tab, give the menu a name, and click Create Menu. Next, add menu items from the appropriate boxes. You&#8217;ll be able to edit the information for each menu item, and can drag and drop to change their order. You can also drag a menu item a little to the right to make it a submenu. Don&#8217;t forget to click Save Menu when you&#8217;re finished.') . '</p>'
 ) );
 
 get_current_screen()->set_help_sidebar(
@@ -545,7 +534,7 @@ require_once( './admin-header.php' );
 							<div class="major-publishing-actions">
 								<label class="menu-name-label howto open-label" for="menu-name">
 									<span><?php _e('Menu Name'); ?></span>
-									<input name="menu-name" id="menu-name" type="text" class="menu-name regular-text menu-item-textbox input-with-default-title" title="<?php esc_attr_e('Enter menu name here'); ?>" value="<?php echo esc_attr( $nav_menu_selected_title  ); ?>" />
+									<input name="menu-name" id="menu-name" type="text" class="menu-name regular-text menu-item-textbox input-with-default-title" title="<?php esc_attr_e('Enter menu name here'); ?>" value="<?php echo esc_attr( $nav_menu_selected_title ); ?>" />
 								</label>
 								<?php if ( !empty( $nav_menu_selected_id ) ) :
 									if ( ! isset( $auto_add ) ) {
@@ -614,6 +603,5 @@ require_once( './admin-header.php' );
 	</div><!-- /#menu-management-liquid -->
 	</div><!-- /#nav-menus-frame -->
 </div><!-- /.wrap-->
-
 
 <?php include( './admin-footer.php' ); ?>

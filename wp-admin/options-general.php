@@ -20,10 +20,9 @@ $timezone_format = _x('Y-m-d G:i:s', 'timezone date format');
 /**
  * Display JavaScript on the page.
  *
- * @package WordPress
- * @subpackage General_Settings_Screen
+ * @since 3.5.0
  */
-function add_js() {
+function options_general_add_js() {
 ?>
 <script type="text/javascript">
 //<![CDATA[
@@ -45,18 +44,18 @@ function add_js() {
 		});
 		$("input[name='date_format_custom'], input[name='time_format_custom']").change( function() {
 			var format = $(this);
-			format.siblings('img').css('visibility','visible');
+			format.siblings('.spinner').css('display', 'inline-block'); // show(); can't be used here
 			$.post(ajaxurl, {
 					action: 'date_format_custom' == format.attr('name') ? 'date_format' : 'time_format',
 					date : format.val()
-				}, function(d) { format.siblings('img').css('visibility','hidden'); format.siblings('.example').text(d); } );
+				}, function(d) { format.siblings('.spinner').hide(); format.siblings('.example').text(d); } );
 		});
 	});
 //]]>
 </script>
 <?php
 }
-add_action('admin_head', 'add_js');
+add_action('admin_head', 'options_general_add_js');
 
 $options_help = '<p>' . __('The fields on this screen determine some of the basics of your site setup.') . '</p>' .
 	'<p>' . __('Most themes display the site title at the top of every page, in the title bar of the browser, and as the identifying name for syndicated feeds. The tagline is also displayed by many themes.') . '</p>';
@@ -98,8 +97,8 @@ include('./admin-header.php');
 </tr>
 <tr valign="top">
 <th scope="row"><label for="blogdescription"><?php _e('Tagline') ?></label></th>
-<td><input name="blogdescription" type="text" id="blogdescription"  value="<?php form_option('blogdescription'); ?>" class="regular-text" />
-<span class="description"><?php _e('In a few words, explain what this site is about.') ?></span></td>
+<td><input name="blogdescription" type="text" id="blogdescription" value="<?php form_option('blogdescription'); ?>" class="regular-text" />
+<p class="description"><?php _e('In a few words, explain what this site is about.') ?></p></td>
 </tr>
 <?php if ( !is_multisite() ) { ?>
 <tr valign="top">
@@ -109,12 +108,12 @@ include('./admin-header.php');
 <tr valign="top">
 <th scope="row"><label for="home"><?php _e('Site Address (URL)') ?></label></th>
 <td><input name="home" type="text" id="home" value="<?php form_option('home'); ?>"<?php disabled( defined( 'WP_HOME' ) ); ?> class="regular-text code<?php if ( defined( 'WP_HOME' ) ) echo ' disabled' ?>" />
-<span class="description"><?php _e('Enter the address here if you want your site homepage <a href="http://codex.wordpress.org/Giving_WordPress_Its_Own_Directory">to be different from the directory</a> you installed WordPress.'); ?></span></td>
+<p class="description"><?php _e('Enter the address here if you want your site homepage <a href="http://codex.wordpress.org/Giving_WordPress_Its_Own_Directory">to be different from the directory</a> you installed WordPress.'); ?></p></td>
 </tr>
 <tr valign="top">
 <th scope="row"><label for="admin_email"><?php _e('E-mail Address') ?> </label></th>
-<td><input name="admin_email" type="text" id="admin_email" value="<?php form_option('admin_email'); ?>" class="regular-text" />
-<span class="description"><?php _e('This address is used for admin purposes, like new user notification.') ?></span></td>
+<td><input name="admin_email" type="text" id="admin_email" value="<?php form_option('admin_email'); ?>" class="regular-text ltr" />
+<p class="description"><?php _e('This address is used for admin purposes, like new user notification.') ?></p></td>
 </tr>
 <tr valign="top">
 <th scope="row"><?php _e('Membership') ?></th>
@@ -132,8 +131,8 @@ include('./admin-header.php');
 <?php } else { ?>
 <tr valign="top">
 <th scope="row"><label for="new_admin_email"><?php _e('E-mail Address') ?> </label></th>
-<td><input name="new_admin_email" type="text" id="new_admin_email" value="<?php form_option('admin_email'); ?>" class="regular-text code" />
-<span class="description"><?php _e('This address is used for admin purposes. If you change this we will send you an e-mail at your new address to confirm it. <strong>The new address will not become active until confirmed.</strong>') ?></span>
+<td><input name="new_admin_email" type="text" id="new_admin_email" value="<?php form_option('admin_email'); ?>" class="regular-text ltr" />
+<p class="description"><?php _e('This address is used for admin purposes. If you change this we will send you an e-mail at your new address to confirm it. <strong>The new address will not become active until confirmed.</strong>') ?></p>
 <?php
 $new_admin_email = get_option( 'new_admin_email' );
 if ( $new_admin_email && $new_admin_email != get_option('admin_email') ) : ?>
@@ -151,7 +150,7 @@ $tzstring = get_option('timezone_string');
 
 $check_zone_info = true;
 
-// Remove old Etc mappings.  Fallback to gmt_offset.
+// Remove old Etc mappings. Fallback to gmt_offset.
 if ( false !== strpos($tzstring,'Etc/GMT') )
 	$tzstring = '';
 
@@ -177,8 +176,7 @@ if ( empty($tzstring) ) { // Create a UTC+- zone if no timezone string exists
 <?php if ( get_option('timezone_string') || !empty($current_offset) ) : ?>
 	<span id="local-time"><?php printf(__('Local time is <code>%1$s</code>'), date_i18n($timezone_format)); ?></span>
 <?php endif; ?>
-<br />
-<span class="description"><?php _e('Choose a city in the same timezone as you.'); ?></span>
+<p class="description"><?php _e('Choose a city in the same timezone as you.'); ?></p>
 <?php if ($check_zone_info && $tzstring) : ?>
 <br />
 <span>
@@ -211,7 +209,7 @@ if ( empty($tzstring) ) { // Create a UTC+- zone if no timezone string exists
 			echo ' ';
 			$message = $tr['isdst'] ?
 				__('Daylight saving time begins on: <code>%s</code>.') :
-				__('Standard time begins  on: <code>%s</code>.');
+				__('Standard time begins on: <code>%s</code>.');
 			// Add the difference between the current offset and the new offset to ts to get the correct transition time from date_i18n().
 			printf( $message, date_i18n(get_option('date_format') . ' ' . get_option('time_format'), $tr['ts'] + ($tz_offset - $tr['offset']) ) );
 		} else {
@@ -232,12 +230,12 @@ if ( empty($tzstring) ) { // Create a UTC+- zone if no timezone string exists
 	<fieldset><legend class="screen-reader-text"><span><?php _e('Date Format') ?></span></legend>
 <?php
 
-	$date_formats = apply_filters( 'date_formats', array(
+	$date_formats = array_unique( apply_filters( 'date_formats', array(
 		__('F j, Y'),
 		'Y/m/d',
 		'm/d/Y',
 		'd/m/Y',
-	) );
+	) ) );
 
 	$custom = true;
 
@@ -252,7 +250,7 @@ if ( empty($tzstring) ) { // Create a UTC+- zone if no timezone string exists
 
 	echo '	<label><input type="radio" name="date_format" id="date_format_custom_radio" value="\c\u\s\t\o\m"';
 	checked( $custom );
-	echo '/> ' . __('Custom:') . ' </label><input type="text" name="date_format_custom" value="' . esc_attr( get_option('date_format') ) . '" class="small-text" /> <span class="example"> ' . date_i18n( get_option('date_format') ) . "</span> <img class='ajax-loading' src='" . esc_url( admin_url( 'images/wpspin_light.gif' ) ) . "' />\n";
+	echo '/> ' . __('Custom:') . ' </label><input type="text" name="date_format_custom" value="' . esc_attr( get_option('date_format') ) . '" class="small-text" /> <span class="example"> ' . date_i18n( get_option('date_format') ) . "</span> <span class='spinner'></span>\n";
 
 	echo "\t<p>" . __('<a href="http://codex.wordpress.org/Formatting_Date_and_Time">Documentation on date and time formatting</a>.') . "</p>\n";
 ?>
@@ -265,11 +263,11 @@ if ( empty($tzstring) ) { // Create a UTC+- zone if no timezone string exists
 	<fieldset><legend class="screen-reader-text"><span><?php _e('Time Format') ?></span></legend>
 <?php
 
-	$time_formats = apply_filters( 'time_formats', array(
+	$time_formats = array_unique( apply_filters( 'time_formats', array(
 		__('g:i a'),
 		'g:i A',
 		'H:i',
-	) );
+	) ) );
 
 	$custom = true;
 
@@ -284,7 +282,7 @@ if ( empty($tzstring) ) { // Create a UTC+- zone if no timezone string exists
 
 	echo '	<label><input type="radio" name="time_format" id="time_format_custom_radio" value="\c\u\s\t\o\m"';
 	checked( $custom );
-	echo '/> ' . __('Custom:') . ' </label><input type="text" name="time_format_custom" value="' . esc_attr( get_option('time_format') ) . '" class="small-text" /> <span class="example"> ' . date_i18n( get_option('time_format') ) . "</span> <img class='ajax-loading' src='" . esc_url( admin_url( 'images/wpspin_light.gif' ) ) . "' />\n";
+	echo '/> ' . __('Custom:') . ' </label><input type="text" name="time_format_custom" value="' . esc_attr( get_option('time_format') ) . '" class="small-text" /> <span class="example"> ' . date_i18n( get_option('time_format') ) . "</span> <span class='spinner'></span>\n";
 	;
 ?>
 	</fieldset>

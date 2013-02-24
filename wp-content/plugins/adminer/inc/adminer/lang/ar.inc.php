@@ -243,7 +243,6 @@ $translations = array(
 	'Alter type' => 'تعديل نوع',
 	'Type has been dropped.' => 'تم حذف النوع.',
 	'Type has been created.' => 'تم إنشاء النوع.',
-	'Double click on a value to modify it.' => 'أنقر نقرا مزدوجا على قيمة لتعديلها.',
 	'Use edit link to modify this value.' => 'إستعمل الرابط "تعديل" لتعديل هذه القيمة.',
 	'last' => 'الأخيرة',
 	'From server' => 'من الخادم',
@@ -268,6 +267,5 @@ $translations = array(
 	'Copy' => 'نسخ',
 	'Permanent link' => 'وصلة دائمة',
 	'Edit all' => 'تعديل الكل',
-	'Resend POST data?' => 'هل تود إعادة إرسال بيانات POST ؟',
 	'HH:MM:SS' => 'HH:MM:SS',
 );

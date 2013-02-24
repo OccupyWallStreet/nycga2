@@ -49,4 +49,8 @@ if (!$bolFOpen && !$bolCURL) {
 	<input type="checkbox" value="1" id="wp-piwik_disabletimelimit" name="wp-piwik_disabletimelimit"<?php echo (self::$aryGlobalSettings['disable_timelimit']?' checked="checked"':''); ?> />
 	<label for="wp-piwik_disabletimelimit"><?php echo _e('Use set_time_limit(0) if stats page causes a time out.', 'wp-piwik'); ?></label>
 </td></tr>
+<tr><th><?php _e('Enable shortcodes', 'wp-piwik'); ?>:</th><td>
+	<input type="checkbox" value="1" id="wp-piwik_shortcodes" name="wp-piwik_shortcodes"<?php echo (self::$aryGlobalSettings['shortcodes']?' checked="checked"':''); ?> />
+	<label for="wp-piwik_shortcodes"><?php echo _e('Enable shortcodes in post or page content.', 'wp-piwik'); ?></label>
+</td></tr>
 <?php } ?>

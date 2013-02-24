@@ -26,6 +26,12 @@ if ($tables_views && !$error && !$_POST["search"]) {
 			$result = drop_tables($_POST["tables"]);
 		}
 		$message = lang('Tables have been dropped.');
+	} elseif ($jush != "sql") {
+		$result = ($jush == "sqlite"
+			? queries("VACUUM")
+			: apply_queries("VACUUM" . ($_POST["optimize"] ? "" : " ANALYZE"), $_POST["tables"])
+		);
+		$message = lang('Tables have been optimized.');
 	} elseif ($_POST["tables"] && ($result = queries(($_POST["optimize"] ? "OPTIMIZE" : ($_POST["check"] ? "CHECK" : ($_POST["repair"] ? "REPAIR" : "ANALYZE"))) . " TABLE " . implode(", ", array_map('idf_escape', $_POST["tables"]))))) {
 		while ($row = $result->fetch_assoc()) {
 			$message .= "<b>" . h($row["Table"]) . "</b>: " . h($row["Msg_text"]) . "<br>";
@@ -48,7 +54,7 @@ if ($adminer->homepage()) {
 			if ($_POST["search"] && $_POST["query"] != "") {
 				search_tables();
 			}
-			echo "<table cellspacing='0' class='nowrap checkable' onclick='tableClick(event);'>\n";
+			echo "<table cellspacing='0' class='nowrap checkable' onclick='tableClick(event);' ondblclick='tableClick(event, true);'>\n";
 			echo '<thead><tr class="wrap"><td><input id="check-all" type="checkbox" onclick="formCheck(this, /^(tables|views)\[/);">';
 			echo '<th>' . lang('Table');
 			echo '<td>' . lang('Engine');
@@ -61,7 +67,7 @@ if ($adminer->homepage()) {
 			echo (support("comment") ? '<td>' . lang('Comment') : '');
 			echo "</thead>\n";
 			foreach ($tables_list as $name => $type) {
-				$view = (isset($type) && !eregi("table", $type));
+				$view = ($type !== null && !eregi("table", $type));
 				echo '<tr' . odd() . '><td>' . checkbox(($view ? "views[]" : "tables[]"), $name, in_array($name, $tables_views, true), "", "formUncheck('check-all');");
 				echo '<th><a href="' . h(ME) . 'table=' . urlencode($name) . '" title="' . lang('Show structure') . '">' . h($name) . '</a>';
 				if ($view) {
@@ -91,14 +97,17 @@ if ($adminer->homepage()) {
 			echo "</table>\n";
 			echo "<script type='text/javascript'>tableCheck();</script>\n";
 			if (!information_schema(DB)) {
-				echo "<p>" . ($jush == "sql" ? "<input type='submit' value='" . lang('Analyze') . "'> <input type='submit' name='optimize' value='" . lang('Optimize') . "'> <input type='submit' name='check' value='" . lang('Check') . "'> <input type='submit' name='repair' value='" . lang('Repair') . "'> " : "") . "<input type='submit' name='truncate' value='" . lang('Truncate') . "'" . confirm("formChecked(this, /tables/)") . "> <input type='submit' name='drop' value='" . lang('Drop') . "'" . confirm("formChecked(this, /tables|views/)", 1) . ">\n"; // 1 - eventStop
-				$databases = (support("scheme") ? schemas() : get_databases());
+				echo "<p>" . (ereg('^(sql|sqlite|pgsql)$', $jush)
+					? ($jush != "sqlite" ? "<input type='submit' value='" . lang('Analyze') . "'> " : "")
+					. "<input type='submit' name='optimize' value='" . lang('Optimize') . "'> " : ""
+				) . ($jush == "sql" ? "<input type='submit' name='check' value='" . lang('Check') . "'> <input type='submit' name='repair' value='" . lang('Repair') . "'> " : "") . "<input type='submit' name='truncate' value='" . lang('Truncate') . "'" . confirm("formChecked(this, /tables/)") . "> <input type='submit' name='drop' value='" . lang('Drop') . "'" . confirm("formChecked(this, /tables|views/)") . ">\n";
+				$databases = (support("scheme") ? schemas() : $adminer->databases());
 				if (count($databases) != 1 && $jush != "sqlite") {
 					$db = (isset($_POST["target"]) ? $_POST["target"] : (support("scheme") ? $_GET["ns"] : DB));
 					echo "<p>" . lang('Move to other database') . ": ";
 					echo ($databases ? html_select("target", $databases, $db) : '<input name="target" value="' . h($db) . '">');
-					echo " <input type='submit' name='move' value='" . lang('Move') . "' onclick='eventStop(event);'>";
-					echo (support("copy") ? " <input type='submit' name='copy' value='" . lang('Copy') . "' onclick='eventStop(event);'>" : "");
+					echo " <input type='submit' name='move' value='" . lang('Move') . "'>";
+					echo (support("copy") ? " <input type='submit' name='copy' value='" . lang('Copy') . "'>" : "");
 					echo "\n";
 				}
 				echo "<input type='hidden' name='token' value='$token'>\n";
@@ -173,6 +182,10 @@ if ($adminer->homepage()) {
 					echo "<td>$row[Ends]";
 				}
 				echo "</table>\n";
+				$event_scheduler = $connection->result("SELECT @@event_scheduler");
+				if ($event_scheduler && $event_scheduler != "ON") {
+					echo "<p class='error'><code class='jush-sqlset'>event_scheduler</code>: " . h($event_scheduler) . "\n";
+				}
 			}
 			echo '<p><a href="' . h(ME) . 'event=">' . lang('Create event') . "</a>\n";
 		}

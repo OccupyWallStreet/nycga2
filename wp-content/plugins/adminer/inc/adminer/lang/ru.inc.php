@@ -244,7 +244,7 @@ $translations = array(
 	'Alter type' => 'Изменить тип',
 	'Type has been dropped.' => 'Тип удален.',
 	'Type has been created.' => 'Создан новый тип.',
-	'Double click on a value to modify it.' => 'Кликни два раза по значению, чтобы его изменить.',
+	'Ctrl+click on a value to modify it.' => 'Ctrl+кликни по значению, чтобы его изменить.',
 	'Use edit link to modify this value.' => 'Изменить это значение можно с помощью ссылки «изменить».',
 	'last' => 'последняя',
 	'From server' => 'С сервера',
@@ -268,6 +268,5 @@ $translations = array(
 	'Copy' => 'Копировать',
 	'Permanent link' => 'Постоянная ссылка',
 	'Edit all' => 'Редактировать всё',
-	'Resend POST data?' => 'Еще раз послать данные POST запроса?',
 	'HH:MM:SS' => 'ЧЧ:ММ:СС',
 );

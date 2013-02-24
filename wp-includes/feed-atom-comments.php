@@ -10,17 +10,17 @@ echo '<?xml version="1.0" encoding="' . get_option('blog_charset') . '" ?' . '>'
 ?>
 <feed
 	xmlns="http://www.w3.org/2005/Atom"
-	xml:lang="<?php echo get_option('rss_language'); ?>"
+	xml:lang="<?php bloginfo_rss( 'language' ); ?>"
 	xmlns:thr="http://purl.org/syndication/thread/1.0"
 	<?php do_action('atom_ns'); do_action('atom_comments_ns'); ?>
 >
 	<title type="text"><?php
 		if ( is_singular() )
-			printf(ent2ncr(__('Comments on %s')), get_the_title_rss());
+			printf( ent2ncr( __( 'Comments on %s' ) ), get_the_title_rss() );
 		elseif ( is_search() )
-			printf(ent2ncr(__('Comments for %1$s searching on %2$s')), get_bloginfo_rss( 'name' ), get_search_query() );
+			printf( ent2ncr( __( 'Comments for %1$s searching on %2$s' ) ), get_bloginfo_rss( 'name' ), get_search_query() );
 		else
-			printf(ent2ncr(__('Comments for %s')), get_bloginfo_rss( 'name' ) . get_wp_title_rss());
+			printf( ent2ncr( __( 'Comments for %s' ) ), get_bloginfo_rss( 'name' ) . get_wp_title_rss() );
 	?></title>
 	<subtitle type="text"><?php bloginfo_rss('description'); ?></subtitle>
 
@@ -28,8 +28,8 @@ echo '<?xml version="1.0" encoding="' . get_option('blog_charset') . '" ?' . '>'
 
 <?php if ( is_singular() ) { ?>
 	<link rel="alternate" type="<?php bloginfo_rss('html_type'); ?>" href="<?php comments_link_feed(); ?>" />
-	<link rel="self" type="application/atom+xml" href="<?php echo get_post_comments_feed_link('', 'atom'); ?>" />
-	<id><?php echo get_post_comments_feed_link('', 'atom'); ?></id>
+	<link rel="self" type="application/atom+xml" href="<?php echo esc_url( get_post_comments_feed_link('', 'atom') ); ?>" />
+	<id><?php echo esc_url( get_post_comments_feed_link('', 'atom') ); ?></id>
 <?php } elseif(is_search()) { ?>
 	<link rel="alternate" type="<?php bloginfo_rss('html_type'); ?>" href="<?php echo home_url() . '?s=' . get_search_query(); ?>" />
 	<link rel="self" type="application/atom+xml" href="<?php echo get_search_comments_feed_link('', 'atom'); ?>" />

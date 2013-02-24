@@ -1,67 +1,81 @@
 <?php
-// search and include wp-load.php
-// require_once('../../../../../wp-load.php');
-function get_wp_root ( $directory ) {
-	global $wp_root;
+// the path to wp-load.php
+require_once '../../config.php';
+
+function fb_find_wp_config_path() {
 	
-	foreach( glob( $directory . "/*" ) as $f ) {
-		
-		if ( 'wp-load.php' == basename($f) ) {
-			$wp_root = str_replace( "\\", "/", dirname($f) );
-			return TRUE;
+	$dir = dirname(__FILE__);
+	
+	do {
+		if( file_exists( $dir . "/wp-config.php" ) ) {
+			return $dir;
+			var_dump($dir);
 		}
-		
-		if ( is_dir($f) )
-			$newdir = dirname( dirname($f) );
-	}
+	} while ( $dir = realpath( "$dir/.." ) );
 	
-	if ( isset($newdir) && $newdir != $directory ) {
-		if ( get_wp_root ( $newdir ) )
-			return FALSE;
-	}
-	
-	return FALSE;
-} // end function to find wp-load.php
-
-if ( ! function_exists('add_action') ) {
-
-	get_wp_root ( dirname( dirname(__FILE__) ) );
-	if ( $wp_root ) {
-		include_once $wp_root . '/wp-load.php';
-	} else {
-		die( 'Cheatin&#8217; uh?');
-		exit;
-	}
+	return NULL;
 }
 
-if ( ! current_user_can('unfiltered_html') )
-	wp_die( __('Cheatin&#8217; uh?') );
+if ( ! defined( 'ABSPATH' ) ) {
+	
+	//get_wp_root( dirname( dirname(__FILE__) ) );
+	if ( ! empty( $wp_siteurl ) ) {
+		if ( ! file_exists( $wp_siteurl . '/wp-load.php' ) ) {
+			die( 'Cheatin&#8217; or you have the wrong path to <code>wp-load.php</code>, see the <a href="http://wordpress.org/extend/plugins/adminer/installation/">readme</a>?');
+			exit;
+		}
+		
+		define( 'WP_USE_THEMES', FALSE );
+		require_once( $wp_siteurl . '/wp-load.php' );
+	} else {
+		define( 'WP_USE_THEMES', FALSE );
+		require_once( fb_find_wp_config_path() . '/wp-config.php' );
+	}
+	
+}
 
+if ( ! defined( 'ABSPATH' ) ) {
+	wp_die( __('Cheatin&#8217; uh?') );
+	exit;
+}
+
+if ( ! current_user_can( 'unfiltered_html' ) ) {
+	wp_die( __( 'Cheatin&#8217; uh? You do not have permission to use this.' ) );
+	exit;
+}
+
+/**
+ * Call Adminer with custom params
+ * 
+ * @return  class AdminerUser
+ */
 function adminer_object() {
 	
 	class AdminerUser extends Adminer {
 		
 		function name() {
 			
-			return get_option('blogname');
+			return 'Adminer';
 		}
 		
 		function credentials() {
-			global $wpdb;
 			
-			return array(DB_HOST, DB_USER, DB_PASSWORD);
+			return array( DB_HOST, DB_USER, DB_PASSWORD );
 		}
 		
 		function database() {
-			global $wpdb;
 			
 			return DB_NAME;
 		}
 		
-		function login($login, $password) {
-			global $wpdb;
+		function login( $login, $password ) {
 			
-			return ($login == DB_USER);
+			if ( current_user_can( 'unfiltered_html' ) )
+				return ( $login == DB_USER );
+			else {
+				wp_die( __( 'Cheatin&#8217; uh? You do not have permission to use this.' ) );
+				exit;
+			}
 		}
 		
 	}
@@ -69,4 +83,4 @@ function adminer_object() {
 	return new AdminerUser;
 }
 
-include_once ( 'index.php' );
+include_once( 'index.php' );

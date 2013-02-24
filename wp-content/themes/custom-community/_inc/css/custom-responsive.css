@@ -1,0 +1,290 @@
+/*
+    Custom CSS for responsive theme
+*/
+body.bubble #outerrim div.post div.post-content, #blog-search #outerrim div.post-content {
+    margin-left: 25px;
+    width: 90%;
+    float:left;
+}
+.cc_slider.hidden-phone.span12{
+    margin-left: 0;
+}
+body #header .row-fluid .span4, 
+body #content .row-fluid .span4, 
+body #footer .row-fluid .span4{
+    width: 32%;
+}
+body .row-fluid .cc_slider .span8{
+    width: 75%;
+}
+.row-fluid .span8{
+    width: 81%;
+}
+.row-fluid.full-width .span8{
+    width: 100%;
+}
+textarea{
+    max-width: 95%;
+}
+.row-fluid.left-right-sidebar .span8, 
+.row-fluid.left-right-template .span8, 
+.row-fluid .span8.left-right-template {
+    width: 62%;
+}
+
+
+/* Tablet Landscape */
+@media screen and (max-width: 1024px) {
+    
+    ul.item-list li .item-avatar img.avatar{
+        margin-top: 0;
+    }
+    body #outerrim{
+        width: 100%;
+        margin: 0;
+    }
+    .boxgrid{
+        margin: 45px 0px -35px 0;
+    }
+    body.bubble div.post div.post-content, 
+    #blog-search div.post-content{
+        margin-left: 7px;
+    }
+    
+    div.v_line_right{
+        right: 22%;
+    }
+    .row-fluid .span8{
+        width: 799px;
+    }
+    .row-fluid.left-right-sidebar .span8{
+        width: 516px;
+    }
+    .row-fluid.left-right-sidebar .span11{
+        width: 89%;
+    }
+    .row-fluid.full-width .span8 {
+        width: 100%;
+    }
+    
+     .row-fluid .span8.left-right-template{
+        width: 50%;
+    }
+    #access .menu-header, div.menu {
+        margin-left: 0.9765%;
+    }
+    .ui-tabs-nav.span4{
+        width: 235px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .boxgrid{
+        width: 160px;
+        height: 115px;
+    }
+    body.bubble div.post div.post-content, 
+    #blog-search div.post-content{
+        width: 95%;
+    }
+    
+    ul.item-list.displaymode-grid li, 
+    ul#groups-list.displaymode-grid li{
+        margin: 10px;
+    }
+    .row-fluid .span8{
+        width: 70%;
+    }
+    #sidebar.span4, #leftsidebar.widgetarea, div#leftsidebar h3.widgettitle{
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+    div#content{
+        float: none;
+        width: 96%;
+        margin: 0 2%;
+    }
+    ul.item-list li div.item-title, ul.item-list li h4{
+        margin-left: 10px;
+    }
+    div.widget-title ul.item-list li{
+        margin-left: 20px;
+    }
+    div#sidebar .widget_search, div.widgetarea .widget_search{
+        margin-left: 20px;
+    }
+    div#sidebar div.item-options,
+    div.widgetarea div.item-options{
+        margin-top:0;
+    }
+    div.widget ul#members-list li{
+        min-height: 86px;
+        width: 100%;
+        margin-bottom: 0 !important;
+    }
+    #header .row-fluid h3.widgettitle, 
+    #content .row-fluid h3.widgettitle, 
+    #footer .row-fluid .span4 h3.widgettitle{
+        width: 92%;
+    }
+    #sidebar .widget .widgettitle{
+        width: 100%;
+    }
+    body #header .row-fluid .span4, 
+    body #content .row-fluid .span4, 
+    body #footer .row-fluid .span4{
+        margin-left: 8px;
+    }
+    body.bubble #outerrim div.post div.post-content, 
+    #blog-search #outerrim div.post-content{
+        margin-left: 3px;
+        width: 98%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .paddersidebar{
+        padding: 10px 0;
+    }
+    .row-fluid .span8, .activity-list li.mini .activity-content{
+        width: 100%;
+    }
+    div.activity-comments{
+        margin-left: 10px;
+    }
+    div.activity-comments ul li > ul{
+        margin-left: 10px;
+    }
+    .displaymode-grid .item-avatar.hidden-phone{
+        display: block !important;
+    }
+    div.dir-search {
+        margin: 0 0 0 0;
+    }
+    h3, h3 a, h3 a:hover, h3 a:focus{
+        font-size: 1em;
+        width: 90%;
+    }
+    .dir-list ul.item-list li .hoverblock{
+       width: 130px;
+       height: 120px;
+       font-size: 1em;
+       text-align: justify;
+    }
+    .dir-list ul.item-list.displaymode-grid li, 
+    .dir-list ul#groups-list.displaymode-grid li{
+        width: 100px;
+        height: 100px;
+        padding: 15px;
+    }
+    .dir-list ul.item-list.displaymode-grid li img.avatar{
+        width: 100px;
+        height: 100px;
+    }
+    div#item-header div#item-header-content{
+        width: 60%;
+    }
+    #wpadminbar{
+        display: none;
+    }
+    html{
+        margin-top: 0 !important;
+    }
+    div#content .left-menu{
+        float: none;
+        width: 100%;
+        overflow: hidden;
+    }
+    div#content .main-column{
+        margin: 0;
+    }
+    div#invite-list{
+        margin: 0;
+        height: auto;
+        overflow: hidden;
+        width: 100%;
+    }
+    ul.item-list li div.item-title, ul.item-list li h4{
+        font-size: 0.9em;
+        margin: -14px 0 0px 0;
+    }
+    .boxgrid {
+        width: 150px;
+        height: 108px;
+    }
+    .accordion h3{
+        padding: 7px 15px;
+    }
+    span.cc_blockquote{
+        width: 60%;
+    }
+    .widget_bp_core_whos_online_widget .avatar, 
+    .widget_bp_core_whos_online_widget .item-avatar{
+        display: block;
+    }
+    div.widget ul#members-list li{
+        min-height: 45px;
+    }
+    .item-avatar, .avatar{
+        display: none;
+    }
+    
+    #groups-directory-form h3, #members-directory-form h3, 
+    #group-dir-search.dir-search , #members-dir-search.dir-search{
+        width: 100%;
+    }
+    body #header .row-fluid .span4, body  #content .row-fluid .span4, body #footer .row-fluid .span4 {
+        margin: 0;
+        width: 100%;
+    }
+    div.widget ul#groups-list li{
+        min-height: 45px;
+    }
+    #header .row-fluid h3.widgettitle, 
+    #content .row-fluid h3.widgettitle, 
+    #footer .row-fluid .span4 h3.widgettitle {
+        width: 96%;
+    }
+}
+@media screen and (max-width: 320px) {
+    #group-dir-search.dir-search, div.dir-search {
+        float: left;
+        margin: -10px 0 0 10px;
+        width: 90%;
+    }
+    ul#friend-list li{
+        height: auto;
+        padding-bottom: 25px !important;
+    }
+    ul.item-list li div.action{
+        position: static;
+        top: 0;
+        left: 0;
+        width: 80%;
+        float: left;
+    }
+    ul.item-list li div.item-title,
+    ul.item-list li h4,
+    ul.item-list li div.action {
+        width: 98%;
+        float: none;
+        margin: 0 0 0 2%;
+    }
+    .accordion h3 {
+        padding: 0px 0px 0 20px;
+        width: 85%;
+    } 
+    .item-meta{
+        width: 100%;
+    }
+    #content ul.item-list li div.action{
+        width: 95%;
+    }
+}
+@media screen and (max-width: 240px) {
+    .boxgrid {
+        width: 115px;
+        height: 83px;
+    }
+}
+img { max-width: 100%; }
+

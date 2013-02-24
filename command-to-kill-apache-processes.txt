@@ -1,0 +1,14 @@
+# Check if processes are running
+ps -u www-data
+
+# Get pid of processes
+# These commands change depending on the length of the PID Id
+ps -u www-data | cut -f3 -d' '
+ps -u www-data | cut -f2 -d' '
+ps -u www-data | cut -f1 -d' '
+
+# recursively kill www-data processes
+# These commands change depending on the length of the PID Id
+for i in $(ps -u www-data | cut -f3 -d' '); do kill -9 $i; done
+for i in $(ps -u www-data | cut -f2 -d' '); do kill -9 $i; done
+for i in $(ps -u www-data | cut -f1 -d' '); do kill -9 $i; done

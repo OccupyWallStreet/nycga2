@@ -12,7 +12,7 @@ not_set:"-- Not set --",
 clipboard_msg:"Copy/Cut/Paste is not available in Mozilla and Firefox.",
 clipboard_no_support:"Currently not supported by your browser, use keyboard shortcuts instead.",
 popup_blocked:"Sorry, but we have noticed that your popup-blocker has disabled a window that provides application functionality. You will need to disable popup blocking on this site in order to fully utilize this tool.",
-invalid_data:"Error: Invalid values entered, these are marked in red.",
+invalid_data:"ERROR: Invalid values entered, these are marked in red.",
 invalid_data_number:"{#field} must be a number",
 invalid_data_min:"{#field} must be a number greater than {#min}",
 invalid_data_size:"{#field} must be a number or percentage",
@@ -106,7 +106,7 @@ iespell_desc:"Run spell checking",
 download:"ieSpell not detected. Do you want to install it now?"
 },
 advhr:{
-advhr_desc:"Horizontale rule"
+advhr_desc:"Horizontal rule"
 },
 emotions:{
 emotions_desc:"Emotions"
@@ -240,8 +240,8 @@ code:"Code",
 samp:"Code sample",
 dt:"Definition term ",
 dd:"Definition description",
-bold_desc:"Bold (Ctrl / Alt + Shift + B)",
-italic_desc:"Italic (Ctrl / Alt + Shift + I)",
+bold_desc:"Bold (Ctrl + B)",
+italic_desc:"Italic (Ctrl + I)",
 underline_desc:"Underline",
 striketrough_desc:"Strikethrough (Alt + Shift + D)",
 justifyleft_desc:"Align Left (Alt + Shift + L)",
@@ -278,7 +278,7 @@ blockquote_desc:"Blockquote (Alt + Shift + Q)",
 clipboard_msg:"Copy/Cut/Paste is not available in Mozilla and Firefox.",
 path:"Path",
 newdocument:"Are you sure you want to clear all contents?",
-toolbar_focus:"Jump to tool buttons - Alt + Q, Jump to editor - Alt-Z, Jump to element path - Alt-X",
+toolbar_focus:"Jump to tool buttons - Alt+Q, Jump to editor - Alt-Z, Jump to element path - Alt-X",
 more_colors:"More colors",
 shortcuts_desc:"Accessibility Help",
 help_shortcut:" Press ALT F10 for toolbar. Press ALT 0 for help.",
@@ -310,6 +310,7 @@ colorpicker_named_title:"Named colors",
 colorpicker_color:"Color:",
 colorpicker_name:"Name:",
 charmap_title:"Select custom character",
+charmap_usage:"Use left and right arrows to navigate.",
 image_title:"Insert/edit image",
 image_src:"Image URL",
 image_alt:"Image description",
@@ -399,7 +400,7 @@ playcount:"Play count",
 rate:"Rate",
 uimode:"UI Mode",
 flash_options:"Flash options",
-qt_options:"Quicktime options",
+qt_options:"QuickTime options",
 wmp_options:"Windows media player options",
 rmp_options:"Real media player options",
 shockwave_options:"Shockwave options",
@@ -462,7 +463,8 @@ add_image:"Add an Image",
 add_video:"Add Video",
 add_audio:"Add Audio",
 editgallery:"Edit Gallery",
-delgallery:"Delete Gallery"
+delgallery:"Delete Gallery",
+wp_fullscreen_desc:"Distraction Free Writing mode (Alt + Shift + W)"
 });
 
 tinyMCE.addI18n("en.wpeditimage",{
@@ -498,5 +500,5 @@ s120:"120%",
 s130:"130%",
 img_title:"Title",
 caption:"Caption",
-alt:"Alternate Text"
+alt:"Alternative Text"
 });

@@ -593,7 +593,7 @@ jQuery(document).ready(function() {
 	});
 	jQuery(\".widefat\").attr(\"id\", \"pageordertable\");
 	jQuery(\"#pageordertable > thead > tr\").attr(\"id\", \"page-0\");
-	jQuery(\"tr:has('a:contains('—')')\").addClass('nodrop').addClass('nodrag');
+	jQuery(\"tr\").has(\"a:contains('—')\").addClass('nodrop').addClass('nodrag');
     jQuery(\"#pageordertable\").tableDnD({
     	dragHandle: \"ame_sort\",
     	scrollAmount: \"30\",
@@ -669,7 +669,7 @@ if( $current_page == 'edit-pages' || $current_page == 'edit' ) {
 	if( $current_page == 'edit-pages' || ( $current_page == 'edit' && isset($_GET['post_type']) && $_GET['post_type'] == 'page' ) ) $ame_column_heading = __('Edit Page Order:', 'admin-management-xtended'); else $ame_column_heading = __('Edit Post Order:', 'admin-management-xtended');
 	
 	if ( get_option('ame_show_orderoptions') == '0' ) {
-		$dnd_text = ($current_page != 'edit' || ( $current_page == 'edit' && $_GET['post_type'] == 'page' )) ? " <a class='page-numbers' href='javascript:void(0);' onclick='ame_ajax_toggle_orderoptions(2)'>" . __('Drag & Drop', 'admin-management-xtended') . "</a>" : "";
+		$dnd_text = ($current_page != 'edit' || ( $current_page == 'edit' && isset($_GET['post_type']) && $_GET['post_type'] == 'page' )) ? " <a class='page-numbers' href='javascript:void(0);' onclick='ame_ajax_toggle_orderoptions(2)'>" . __('Drag & Drop', 'admin-management-xtended') . "</a>" : "";
 		echo "<script type=\"text/javascript\" charset=\"utf-8\">
 jQuery(document).ready(function() {
   jQuery(\"div.wrap div[class*='tablenav']:first\").prepend(\"<div class='tablenav-pages'>&nbsp;&nbsp;|&nbsp;<span id='ame_order2_loader' class='displaying-num'>" . $ame_column_heading . "</span> <span class='page-numbers current'>" . __('Off', 'admin-management-xtended') . "</span> <a class='page-numbers' href='javascript:void(0);' onclick='ame_ajax_toggle_orderoptions(1)'>" . __('Direct input', 'admin-management-xtended') . "</a>$dnd_text</div>\");

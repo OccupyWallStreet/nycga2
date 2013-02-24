@@ -140,6 +140,7 @@ function the_title_rss() {
  * @see get_the_content()
  *
  * @param string $feed_type The type of feed. rss2 | atom | rss | rdf
+ * @return string The filtered content.
  */
 function get_the_content_feed($feed_type = null) {
 	if ( !$feed_type )
@@ -424,7 +425,7 @@ function atom_enclosure() {
 	foreach ( (array) get_post_custom() as $key => $val ) {
 		if ($key == 'enclosure') {
 			foreach ( (array) $val as $enc ) {
-				$enclosure = split("\n", $enc);
+				$enclosure = explode("\n", $enc);
 				echo apply_filters('atom_enclosure', '<link href="' . trim(htmlspecialchars($enclosure[0])) . '" rel="enclosure" length="' . trim($enclosure[1]) . '" type="' . trim($enclosure[2]) . '" />' . "\n");
 			}
 		}
@@ -487,13 +488,7 @@ function prep_atom_text_construct($data) {
  */
 function self_link() {
 	$host = @parse_url(home_url());
-	$host = $host['host'];
-	echo esc_url(
-		'http'
-		. ( (isset($_SERVER['https']) && $_SERVER['https'] == 'on') ? 's' : '' ) . '://'
-		. $host
-		. stripslashes($_SERVER['REQUEST_URI'])
-		);
+	echo esc_url( set_url_scheme( 'http://' . $host['host'] . stripslashes($_SERVER['REQUEST_URI']) ) );
 }
 
 /**
@@ -532,10 +527,17 @@ function fetch_feed($url) {
 	require_once (ABSPATH . WPINC . '/class-feed.php');
 
 	$feed = new SimplePie();
+
+	$feed->set_sanitize_class( 'WP_SimplePie_Sanitize_KSES' );
+	// We must manually overwrite $feed->sanitize because SimplePie's
+	// constructor sets it before we have a chance to set the sanitization class
+	$feed->sanitize = new WP_SimplePie_Sanitize_KSES();
+
+	$feed->set_cache_class( 'WP_Feed_Cache' );
+	$feed->set_file_class( 'WP_SimplePie_File' );
+
 	$feed->set_feed_url($url);
-	$feed->set_cache_class('WP_Feed_Cache');
-	$feed->set_file_class('WP_SimplePie_File');
-	$feed->set_cache_duration(apply_filters('wp_feed_cache_transient_lifetime', 43200, $url));
+	$feed->set_cache_duration( apply_filters( 'wp_feed_cache_transient_lifetime', 12 * HOUR_IN_SECONDS, $url ) );
 	do_action_ref_array( 'wp_feed_options', array( &$feed, $url ) );
 	$feed->init();
 	$feed->handle_content_type();

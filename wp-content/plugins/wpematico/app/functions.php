@@ -1,221 +1,41 @@
-<?PHP
-// don't load directly
-if ( !defined('ABSPATH') )
+<?php 
+// don't load directly 
+if ( !defined('ABSPATH') ) 
 	die('-1');
 
-	/* Add Page under admin and Add Settings Page */
-	function wpematico_admin_menu() {
-		if (function_exists('add_menu_page')) {
-			$hook = add_menu_page( __('WPeMatico','wpematico'), __('WPeMatico','wpematico'), 'manage_options', 'WPeMatico', 'wpematico_options_page','',7);
-			add_submenu_page( 'WPeMatico', __('Campaigns', 'WPeMatico'), __('Campaigns', 'WPeMatico'), 'manage_options', 'WPeMatico', 'wpematico_options_page');
-			add_submenu_page( 'WPeMatico', __('Add New Campaign', 'WPeMatico')  , __('Add New', 'WPeMatico'), 'manage_options', wp_nonce_url('WPeMatico&subpage=edit', 'edit-job'), 'wpematico_options_page');
-			add_submenu_page( 'WPeMatico', __('Settings', 'WPeMatico') , __('Settings', 'WPeMatico') , 'manage_options', 'WPeMatico&amp;subpage=settings', 'wpematico_options_page');
-			add_action('load-'.$hook, 'wpematico_options_load');
+if ( class_exists( 'WPeMatico_functions' ) ) return;
+
+class WPeMatico_functions {
+	function wpematico_env_checks() {
+		global $wp_version,$wpematico_admin_message;
+		$message='';
+		$checks=true;
+		if (version_compare($wp_version, '3.1', '<')) { // check WP Version
+			$message.=__('- WordPress 3.1 or higher needed!', self :: TEXTDOMAIN ) . '<br />';
+			$checks=false;
 		}
-	}
-
-	//Options Page
-	function wpematico_options_page() {
-		global $table,$wpematico_message,$page_hook;
-		if (!current_user_can(10))
-			wp_die('You do not have sufficient permissions to access this page.');
-		if(!empty($wpematico_message))
-			echo $wpematico_message;
-		switch($_REQUEST['subpage']) {
-		case 'edit':
-			require_once(dirname(__FILE__).'/options-edit-job.php');
-			break;
-		case 'settings':
-			require_once(dirname(__FILE__).'/options-settings.php');
-			break;
-		case 'runnow':
-			echo "<div class=\"wrap\">";
-			echo "<div id=\"icon-tools\" class=\"icon32\"><br /></div>";
-			echo "<h2>".__('WPeMatico', 'wpematico')."&nbsp;<a href=\"".wp_nonce_url('admin.php?page=WPeMatico&subpage=edit', 'edit-job')."\" class=\"button add-new-h2\">".esc_html__('Add New')."</a></h2>";
-			wpematico_option_submenues();
-			echo "<form id=\"posts-filter\" action=\"\" method=\"post\">";
-			echo "<input type=\"hidden\" name=\"page\" value=\"WPeMatico\" />";
-			echo "<input type=\"hidden\" name=\"subpage\" value=\"\" />";
-			$table->display();
-			echo "<div id=\"ajax-response\"></div>";
-			echo "</form>"; 
-			echo "</div>";
-			break;
-
-		default:
-			echo "<div class=\"wrap\">";
-			echo "<div id=\"icon-tools\" class=\"icon32\"><br /></div>";
-			echo "<h2>".__('WPeMatico', 'wpematico')."&nbsp;<a href=\"".wp_nonce_url('admin.php?page=WPeMatico&subpage=edit', 'edit-job')."\" class=\"button add-new-h2\">".esc_html__('Add New')."</a></h2>";
-			wpematico_option_submenues();
-			echo "<form id=\"posts-filter\" action=\"\" method=\"post\">";
-			echo "<input type=\"hidden\" name=\"page\" value=\"WPeMatico\" />";
-			echo "<input type=\"hidden\" name=\"subpage\" value=\"\" />";
-			$table->display();
-			echo "<div id=\"ajax-response\"></div>";
-			echo "</form>"; 
-			echo "</div>";
-			break;
+		if (version_compare(phpversion(), '5.2.0', '<')) { // check PHP Version
+			$message.=__('- PHP 5.2.0 or higher needed!', self :: TEXTDOMAIN ) . '<br />';
+			$checks=false;
 		}
-	}
 
-	//Options Page
-	function wpematico_options_load() {
-		global $current_screen,$table,$wpematico_message;
-		
-		if (!current_user_can(10))
-			wp_die('You do not have sufficient permissions to access this page.');
-		//Css for Admin Section
-		wp_enqueue_style('WPeMatico',plugins_url('css/options.css',__FILE__),'',WPEMATICO_VERSION,'screen');
-		wp_enqueue_script('WPeMatico',plugins_url('js/options.js',__FILE__),'',WPEMATICO_VERSION,true);
-		add_contextual_help($current_screen,
-			'<!-- div class="metabox-prefs">'.
-			'<a href="http://wordpress.org/tags/wpematico" target="_blank">'.__('Support').'</a>'.
-			' | <a href="http://wordpress.org/extend/plugins/wpematico/faq/" target="_blank">' . __('FAQ') . '</a>'.
-			' | <a href="http://http://www.netmdp.com/tag/wpematico" target="_blank">' . __('Plugin Homepage', 'wpematico') . '</a>'.
-			' | <a href="http://wordpress.org/extend/plugins/wpematico" target="_blank">' . __('Plugin Home on WordPress.org', 'wpematico') . '</a>'.
-			' | <a href="" target="_blank">' . __('Donate') . '</a>'.
-			'</div -->'.
-			'<div class="metabox-prefs">'.
-			__('Version:', 'wpematico').' '.WPEMATICO_VERSION.' | '.
-			__('Author:', 'wpematico').' <a href="http://www.netmdp.com" target="_blank">Esteban</a>'.
-			'</div>'
-		);
-		
-		if ($_REQUEST['action2']!='-1' and !empty($_REQUEST['doaction2']))
-			$_REQUEST['action']=$_REQUEST['action2'];
-
-		switch($_REQUEST['subpage']) {
-		case 'edit':
-			if (!empty($_POST['submit'])) {
-				require_once(dirname(__FILE__).'/options-save.php');
-				$wpematico_message=wpematico_save_job();
-			}
-			break;
-		case 'settings':
-			if (!empty($_POST['submit'])) {
-				require_once(dirname(__FILE__).'/options-save.php');
-				$wpematico_message=wpematico_save_settings();
-			}
-			break;
-		case 'runnow':
-			$jobid = (int) $_GET['jobid'];
-			check_admin_referer('runnow-job_' . $jobid);
-			$wpematico_message = wpematico_dojob($jobid);
-			$table = new WPeMatico_Campaigns_Table;
-			$table->check_permissions();
-			$table->prepare_items();
-			break;
-
-		default:
-			if (!empty($_REQUEST['action'])) {
-				require_once(dirname(__FILE__).'/options-save.php');
-				wpematico_job_operations($_REQUEST['action']);
-			}
-			$table = new WPeMatico_Campaigns_Table;
-			$table->check_permissions();
-			$table->prepare_items();
-			break;
+		if (wp_next_scheduled('wpematico_cron')!=0 and wp_next_scheduled('wpematico_cron')>(time()+360)) {  //check cron jobs work
+			$message.=__("- WP-Cron don't working please check it!", self :: TEXTDOMAIN ) .'<br />';
 		}
+		//put massage if one
+		if (!empty($message))
+			$wpematico_admin_message = '<div id="message" class="error fade"><strong>WPeMatico:</strong><br />'.$message.'</div>';
+		return $checks;
 	}
 
-	
-	function wpematico_option_submenues() {
-		$maincurrent="";$logscurrent="";$backupscurrent="";$toolscurrent="";$settingscurrent="";
-		if (empty($_REQUEST['subpage']))
-			$maincurrent=" class=\"current\"";
-		if ($_REQUEST['subpage']=='settings')
-			$settingscurrent=" class=\"current\"";
-		echo "<ul class=\"subsubsub\">";
-		echo "<li><a href=\"admin.php?page=WPeMatico\"$maincurrent>".__('Campaigns','wpematico')."</a> |</li>";
-		echo "<li><a href=\"admin.php?page=WPeMatico&amp;subpage=settings\"$settingscurrent>".__('Settings','wpematico')."</a></li>";
-		echo "</ul>";
+/* 	//Admin header notify
+	function wpematico_admin_notice() {
+		global $wpematico_admin_message;
+		echo $wpematico_admin_message;
 	}
-
-	//On Plugin activate
-	function wpematico_plugin_activate() {
-		//remove old cron jobs
-		$jobs=(array)get_option('wpematico_jobs');
-		foreach ($jobs as $jobid => $jobvalue) {
-			if ($time=wp_next_scheduled('wpematico_cron',array('jobid'=>$jobid))) {
-				wp_unschedule_event($time,'wpematico_cron',array('jobid'=>$jobid));
-			}
-		}
-		wp_clear_scheduled_hook('wpematico_cron');
-		//make schedule
-		wp_schedule_event(0, 'wpematico_int', 'wpematico_cron');
-		//Set defaults
-		$cfg=get_option('wpematico'); //Load Settings
- 		if (empty($cfg['mailsndemail'])) $cfg['mailsndemail']	= sanitize_email(get_bloginfo( 'admin_email' ));
-	   if (empty($cfg['mailsndname'])) $cfg['mailsndname']	= 'WPeMatico '.get_bloginfo( 'name' );
-	   if (empty($cfg['mailmethod'])) 	$cfg['mailmethod']	= 'mail';
-		if (empty($cfg['mailsendmail'])) $cfg['mailsendmail']	= substr(ini_get('sendmail_path'),0,strpos(ini_get('sendmail_path'),' -'));
-		if (empty($cfg['imgcache'])) 		$cfg['imgcache'] 		= false;
-		if (empty($cfg['enableword2cats'])) 		$cfg['enableword2cats'] 		= false;
-		update_option('wpematico',$cfg);
-	}
-
-	//on Plugin deaktivate
-	function wpematico_plugin_deactivate() {
-		//remove old cron jobs
-		$jobs=(array)get_option('wpematico_jobs');
-		foreach ($jobs as $jobid => $jobvalue) {
-			if ($time=wp_next_scheduled('wpematico_cron',array('jobid'=>$jobid))) {
-				wp_unschedule_event($time,'wpematico_cron',array('jobid'=>$jobid));
-			}
-		}
-		wp_clear_scheduled_hook('wpematico_cron');
-		delete_option('wpematico');
-	}
-
-	//add edit setting to plugins page
-	function wpematico_plugin_options_link($links) {
-		$settings_link='<a href="admin.php?page=WPeMatico" title="' . __('Go to Settings Page','wpematico') . '" class="edit">' . __('Settings') . '</a>';
-		array_unshift( $links, $settings_link );
-		return $links;
-	}
-
-	//add links on plugins page
-	function wpematico_plugin_links($links, $file) {
-		if ($file == WPEMATICO_PLUGIN_BASEDIR.'/wpematico.php') {
-			$links[] = '<a href="http://wordpress.org/extend/plugins/wpematico/faq/" target="_blank">' . __('FAQ') . '</a>';
-			$links[] = '<a href="http://wordpress.org/tags/wpematico/" target="_blank">' . __('Support') . '</a>';
-			$links[] = '<a href="" target="_blank">' . __('Donate') . '</a>';
-		}
-		return $links;
-	}
-
-	//Add cron interval
-	function wpematico_intervals($schedules) {
-		$intervals['wpematico_int']=array('interval' => '300', 'display' => __('WPeMatico', 'wpematico'));
-		$schedules=array_merge($intervals,$schedules);
-		return $schedules;
-	}
-
-	//cron work
-	function wpematico_cron() {
-		$jobs=(array)get_option('wpematico_jobs');
-		foreach ($jobs as $jobid => $jobvalue) {
-			if (!$jobvalue['activated'])
-				continue;
-			if ($jobvalue['cronnextrun']<=current_time('timestamp')) {
-				wpematico_dojob($jobid);
-			}
-		}
-	}
-
-	//DoJob
-	function wpematico_dojob($jobid) {
-		global $wpematico_dojob_message;
-		if (empty($jobid))
-			return false;
-		require_once(dirname(__FILE__).'/wpematico_dojob.php');
-		$wpematico_dojob= new wpematico_dojob($jobid);
-		unset($wpematico_dojob);
-		return $wpematico_dojob_message;
-	}
-
+ */	
 	//file size
-	function wpematico_formatBytes($bytes, $precision = 2) {
+	function formatBytes($bytes, $precision = 2) {
 		$units = array('B', 'KB', 'MB', 'GB', 'TB');
 		$bytes = max($bytes, 0);
 		$pow = floor(($bytes ? log($bytes) : 0) / log(1024));
@@ -223,28 +43,178 @@ if ( !defined('ABSPATH') )
 		$bytes /= pow(1024, $pow);
 		return round($bytes, $precision) . ' ' . $units[$pow];
 	}
-	
-	//Permalink to Source
-	 /*** Determines what the title has to link to   * @return string new text   **/
-  function wpematico_permalink($url) {
-    // if from admin panel
-	if(get_the_ID()) {
-		$jobid = (int) get_post_meta(get_the_ID(), 'wpe_campaignid', true);
 
-		$jobs=(array)get_option('wpematico_jobs');
-		$jobs=get_option('wpematico_jobs');
-
-		if($jobid) {
-			$jobvalue=wpematico_check_job_vars($jobs[$jobid],$jobid);
-			if($jobvalue['campaign_linktosource'])
-			 return get_post_meta(get_the_ID(), 'wpe_sourcepermalink', true);
-		}  	  
+	//************************* CARGA CAMPAÑASS *******************************************************
+ /**
+   * Load all campaigns data
+   * 
+   * @return an array with all campaigns data 
+   **/	
+	function get_campaigns() {
+		$campaigns_data = array();
+		$args = array(
+			'orderby'         => 'ID',
+			'order'           => 'ASC',
+			'post_type'       => 'wpematico', 
+			'numberposts' => -1
+		);
+		$campaigns = get_posts( $args );
+		foreach( $campaigns as $post ):
+			$campaigns_data[] = self::get_campaign( $post->ID );	
+		endforeach; 
+		return $campaigns_data;
 	}
-   return $url;      
-  }
+ 
+	//************************* CARGA CAMPAÑA *******************************************************
+ /**
+   * Load campaign data
+   * Required @param   integer  $post_id    Campaign ID to load
+   * 		  @param   boolean  $getfromdb  if set to true run get_post($post_ID) and retuirn object post
+   * 
+   * @return an array with campaign data 
+   **/	
+	public function get_campaign( $post_id , $getfromdb = false ) {
+		if ( $getfromdb ){
+			$campaign = get_post($post_id);
+		}
+		$campaign_data = get_post_meta( $post_id , 'campaign_data' );
+		$campaign_data = @$campaign_data[0];
+		$campaign_data['campaign_id'] = $post_id;
+		$campaign_data['campaign_title'] = get_the_title($post_id);
+		return $campaign_data;
+	}
 	
+	//************************* GUARDA CAMPAÑA *******************************************************
+ /**
+   * save campaign data
+   * Required @param   integer  $post_id    Campaign ID to load
+   * 		  @param   boolean  $getfromdb  if set to true run get_post($post_ID) and retuirn object post
+   * 
+   * @return an array with campaign data 
+   **/	
+	public function update_campaign( $post_id , $campaign = array() ) {
+		$campaign['cronnextrun']= WPeMatico :: time_cron_next($campaign['cron']);
+		
+			// *** Campaign Rewrites	
+		// Proceso los rewrites agrego slashes	
+		if (isset($campaign['campaign_rewrites']['origin']))
+			for ($i = 0; $i < count($campaign['campaign_rewrites']['origin']); $i++) {
+				$campaign['campaign_rewrites']['origin'][$i] = addslashes($campaign['campaign_rewrites']['origin'][$i]);
+				$campaign['campaign_rewrites']['rewrite'][$i] = addslashes($campaign['campaign_rewrites']['rewrite'][$i]);
+				$campaign['campaign_rewrites']['relink'][$i] = addslashes($campaign['campaign_rewrites']['relink'][$i]);
+			}
+		if (isset($campaign['campaign_wrd2cat']['word']))
+			for ($i = 0; $i < count($campaign['campaign_wrd2cat']['word']); $i++) {
+				$campaign['campaign_wrd2cat']['word'][$i] = addslashes($campaign['campaign_wrd2cat']['word'][$i]);
+			}
+				
+		return add_post_meta( $post_id, 'campaign_data', $campaign, true )  or
+          update_post_meta( $post_id, 'campaign_data', $campaign );
+		  
+	}
+	
+	/*********** 	 Funciones para procesar campañas ******************/
+	//DoJob
+	function wpematico_dojob($jobid) {
+		global $campaign_log_message;
+		$campaign_log_message = "";
+		if (empty($jobid))
+			return false;
+		require_once(dirname(__FILE__).'/campaign_fetch.php');
+		$fetched= new wpematico_campaign_fetch($jobid);
+		unset($fetched);
+		return $campaign_log_message;
+	}
+
+	// Processes all campaigns
+/* 	function processAll() {
+		@set_time_limit(0);    
+		$args = array( 'post_type' => 'wpematico', 'orderby' => 'ID', 'order' => 'ASC' );
+		$campaignsid = get_posts( $args );
+		foreach( $campaignsid as $campaignid ) {
+			wpematico_dojob( $campaignid->ID ); 
+		}
+	}
+	
+ */
+	//Permalink to Source
+	/*** Determines what the title has to link to   * @return string new text   **/
+	function wpematico_permalink($url) {
+		// if from admin panel
+		if(get_the_ID()) {
+			$campaign_id = (int) get_post_meta(get_the_ID(), 'wpe_campaignid', true);
+			if($campaign_id) {
+				$campaign = $this->get_campaign( $campaign_id );
+				//$campaign = :: check_campaigndata($campaign);
+				if($campaign['campaign_linktosource'])
+					return get_post_meta(get_the_ID(), 'wpe_sourcepermalink', true);
+			}  	  
+		}
+		return $url;      
+	}
+ 
+	
+//*********************************************************************************************************
+  /**
+   * Parses a feed with SimplePie
+   *
+   * @param   boolean     $stupidly_fast    Set fast mode. Best for checks
+   * @param   integer     $max              Limit of items to fetch
+   * @return  SimplePie_Item    Feed object
+   **/
+  function fetchFeed($url, $stupidly_fast = false, $max = 0) {  # SimplePie
+	$cfg = get_option(WPeMatico :: OPTION_KEY);
+	if ( $cfg['force_mysimplepie']){
+		include_once( dirname( __FILE__) . '/lib/simplepie.inc.php' );
+	}else{
+		if (!class_exists('SimplePie')) {
+			if (is_file( ABSPATH . WPINC . '/class-simplepie.php'))
+				include_once( ABSPATH. WPINC . '/class-simplepie.php' );
+			else if (is_file( ABSPATH.'wp-admin/includes/class-simplepie.php'))
+				include_once( ABSPATH.'wp-admin/includes/class-simplepie.php' );
+			else
+				include_once( dirname( __FILE__) . '/lib/simplepie.inc.php' );
+		}		
+	}
+    $feed = new SimplePie();
+    $feed->enable_order_by_date(false);
+    $feed->set_feed_url($url);
+    $feed->set_item_limit($max);
+    $feed->set_stupidly_fast($stupidly_fast);
+    $feed->enable_cache(false);    
+    $feed->init();
+    $feed->handle_content_type(); 
+    
+    return $feed;
+  }
+ 
+	/**
+	* Tests a feed
+	*
+	*/
+	public function Test_feed($args='') {
+		if (is_array($args)) {
+			extract($args);
+			$ajax=false;
+		} else {
+			if(!isset($_POST['url'])) return false;
+			$url=$_POST['url'];
+			$ajax=true;
+		}
+		$feed = self :: fetchFeed($url, true);
+		$works = !$feed->error(); // if no error returned
+		if ($ajax) {
+				echo intval($works);
+			die();
+		}else {
+			if($works) printf(__('The feed %s has been parsed successfully.', WPeMatico :: TEXTDOMAIN ), $url);
+			else	printf(__('The feed %s cannot be parsed. Simplepie said: %s', WPeMatico :: TEXTDOMAIN ), $url, $works);
+			return;
+		}
+	}
+  
 	################### ARRAYS FUNCS
-  /* * filtering an array   */
+	/* * filtering an array   */
     function filter_by_value ($array, $index, $value){
         if(is_array($array) && count($array)>0) 
         {
@@ -281,79 +251,49 @@ if ( !defined('ABSPATH') )
 		if(!$array) return $keys;
 		$keys=func_get_args();
 		array_shift($keys);
-		array_sort_func($keys);
-		usort($array,"array_sort_func");       
+		$this->array_sort_func($keys);
+		usort($array, array($this,"array_sort_func"));
 	} 
 	################### END ARRAYS FUNCS
 
-
-	 //Dashboard widget
-	function wpematico_dashboard_output() {
-//		global $wpdb;
-		$jobs=(array)get_option('wpematico_jobs');
-		echo '<strong>'.__('Processed Campaigns:','wpematico').'</strong><br />';
-		$jobs2 = filter_by_value($jobs, 'lastrun', '');  
-		foreach ($jobs2 as $jobid => $jobvalue) $jobs2[$jobid]['jobid']=$jobid; // Le agrego el id para no perderlo al ordenar		
-		array_sort($jobs2,'lastrun');
-//				echo "<pre>".print_r($jobs, true)."</pre>";
-		if (is_array($jobs2)) {
-			$count=0;
-			foreach ($jobs2 as $jobid => $jobvalue) {
-				echo '<a href="'.wp_nonce_url('admin.php?page=WPeMatico&subpage=edit&jobid='.$jobvalue['jobid'], 'edit-job').'" title="'.__('Edit Campaign','wpematico').'">';
-					if ($jobvalue['lastrun']) {
-						echo "ID: " .$jobvalue['jobid']. ", <i>".$jobvalue['name']."</i> :: ";
-						echo  date_i18n(get_option('date_format'),$jobvalue['lastrun']).'-'. date_i18n(get_option('time_format'),$jobvalue['lastrun']).'h, <i>'; 
-						if ($jobvalue['lastpostscount']>0)
-							echo ' <span style="color:green;">'. sprintf(__('Processed Posts: %1s','wpematico'),$jobvalue['lastpostscount']).'</span>, ';
-						else
-							echo ' <span style="color:red;">'. sprintf(__('Processed Posts: %1s','wpematico'), '0').'</span>, ';
-							
-						if ($jobvalue['lastruntime']<10)
-							echo ' <span style="color:green;">'. sprintf(__('Job done in %1s sec.','wpematico'),$jobvalue['lastruntime']) .'</span>';
-						else
-							echo ' <span style="color:red;">'. sprintf(__('Job done in %1s sec.','wpematico'),$jobvalue['lastruntime']) .'</span>';
-					} 
-				echo '</i></a><br />';
-				$count++;
-				if ($count>=5)
-					break;
-			}		
+// ********************************** CRON FUNCTIONS
+	public function cron_string($array_post){
+		if ($array_post['cronminutes'][0]=='*' or empty($array_post['cronminutes'])) {
+			if (!empty($array_post['cronminutes'][1]))
+				$array_post['cronminutes']=array('*/'.$array_post['cronminutes'][1]);
+			else
+				$array_post['cronminutes']=array('*');
 		}
-		unset($jobs2);
-		echo '<strong>'.__('Scheduled Campaigns:','wpematico').'</strong><br />';
-		foreach ($jobs as $jobid => $jobvalue) {
-			if ($jobvalue['activated']) {
-				echo '<a href="'.wp_nonce_url('admin.php?page=WPeMatico&subpage=edit&jobid='.$jobid, 'edit-job').'" title="'.__('Edit Campaign','wpematico').'">';
-				if ($jobvalue['starttime']>0 and empty($jobvalue['stoptime'])) {
-					$runtime=current_time('timestamp')-$jobvalue['starttime'];
-					echo __('Running since:','wpematico').' '.$runtime.' '.__('sec.','wpematico');
-				} elseif ($jobvalue['activated']) {
-					echo date(get_option('date_format'),$jobvalue['cronnextrun']).' '.date(get_option('time_format'),$jobvalue['cronnextrun']);
-				}
-				echo ': <span>'.$jobvalue['name'].'</span></a><br />';
-			}
+		if ($array_post['cronhours'][0]=='*' or empty($array_post['cronhours'])) {
+			if (!empty($array_post['cronhours'][1]))
+				$array_post['cronhours']=array('*/'.$array_post['cronhours'][1]);
+			else
+				$array_post['cronhours']=array('*');
 		}
-		$jobs=filter_by_value($jobs, 'activated', '');
-		if (empty($jobs)) 
-			echo '<i>'.__('None','wpematico').'</i><br />';
-
+		if ($array_post['cronmday'][0]=='*' or empty($array_post['cronmday'])) {
+			if (!empty($array_post['cronmday'][1]))
+				$array_post['cronmday']=array('*/'.$array_post['cronmday'][1]);
+			else
+				$array_post['cronmday']=array('*');
+		}
+		if ($array_post['cronmon'][0]=='*' or empty($array_post['cronmon'])) {
+			if (!empty($array_post['cronmon'][1]))
+				$array_post['cronmon']=array('*/'.$array_post['cronmon'][1]);
+			else
+				$array_post['cronmon']=array('*');
+		}
+		if ($array_post['cronwday'][0]=='*' or empty($array_post['cronwday'])) {
+			if (!empty($array_post['cronwday'][1]))
+				$array_post['cronwday']=array('*/'.$array_post['cronwday'][1]);
+			else
+				$array_post['cronwday']=array('*');
+		}
+		return implode(",",$array_post['cronminutes']).' '.implode(",",$array_post['cronhours']).' '.implode(",",$array_post['cronmday']).' '.implode(",",$array_post['cronmon']).' '.implode(",",$array_post['cronwday']);
 	}
-
-	//add dashboard widget
-	function wpematico_add_dashboard() {
-		wp_add_dashboard_widget( 'wpematico_dashboard_widget', 'WPeMatico', 'wpematico_dashboard_output' );
-	}
-
-	//turn cache off
-	function wpematico_meta_no_cache() {
-		echo "<meta http-equiv=\"expires\" content=\"0\" />\n";
-		echo "<meta http-equiv=\"pragma\" content=\"no-cache\" />\n";
-		echo "<meta http-equiv=\"cache-control\" content=\"no-cache\" />\n";
-	}
-
 	
+	//******************************************************************************
 	//Calcs next run for a cron string as timestamp
-	function wpematico_cron_next($cronstring) {
+	public function time_cron_next($cronstring) {
 		//Cronstring zerlegen
 		list($cronstr['minutes'],$cronstr['hours'],$cronstr['mday'],$cronstr['mon'],$cronstr['wday'])=explode(' ',$cronstring,5);
 
@@ -478,168 +418,34 @@ if ( !defined('ABSPATH') )
 		return false;
 	}
 
-	function wpematico_env_checks() {
-		global $wp_version,$wpematico_admin_message;
-		$message='';
-		$checks=true;
-		$cfg=get_option('wpematico');
-		if (version_compare($wp_version, '2.8', '<')) { // check WP Version
-			$message.=__('- WordPress 2.8 or heiger needed!','wpematico') . '<br />';
-			$checks=false;
-		}
-		if (version_compare(phpversion(), '5.2.0', '<')) { // check PHP Version
-			$message.=__('- PHP 5.2.0 or higher needed!','wpematico') . '<br />';
-			$checks=false;
-		}
-
-		$jobs=(array)get_option('wpematico_jobs'); 
-		foreach ($jobs as $jobid => $jobvalue) { //check for old cheduling
-			if (isset($jobvalue['scheduletime']) and empty($jobvalue['cron']))
-				$message.=__('- Please Check Scheduling time for Campaign:','wpematico') . ' '.$jobid.'. '.$jobvalue['name'].'<br />';
-		}
-		if (wp_next_scheduled('wpematico_cron')!=0 and wp_next_scheduled('wpematico_cron')>(time()+360)) {  //check cron jobs work
-			$message.=__("- WP-Cron don't working please check it!","wpematico") .'<br />';
-		}
-		//put massage if one
-		if (!empty($message))
-			$wpematico_admin_message = '<div id="message" class="error fade"><strong>WPeMatico:</strong><br />'.$message.'</div>';
-		return $checks;
-	}
-
-	function wpematico_admin_notice() {
-		global $wpematico_admin_message;
-		echo $wpematico_admin_message;
-	}
-	
-	// add all action and so on only if plugin loaded.
-	function wpematico_plugins_loaded() {
-		if (!wpematico_env_checks())
-			return;
-		//iclude php5 functions
-		require_once(dirname(__FILE__).'/functions5.php');
-		//load tables Classes
-		require_once(dirname(__FILE__).'/list-tables.php');
-		//Disabele WP_Corn
-		$cfg=get_option('wpematico');
-		if ($cfg['disablewpcron'])
-			define('DISABLE_WP_CRON',true);
-		//add Menu
-			add_action('admin_menu', 'wpematico_admin_menu');
-		//Additional links on the plugin page
-		if (current_user_can(10))
-			add_filter('plugin_action_links_'.WPEMATICO_PLUGIN_BASEDIR.'/wpematico.php', 'wpematico_plugin_options_link');
-		if (current_user_can('install_plugins'))
-			add_filter('plugin_row_meta', 'wpematico_plugin_links',10,2);
-		//add cron intervals
-		add_filter('cron_schedules', 'wpematico_intervals');
-		//Actions for Cron job
-		add_action('wpematico_cron', 'wpematico_cron');
-		//test if cron active
-		if (!(wp_next_scheduled('wpematico_cron')))
-			wp_schedule_event(0, 'wpematico_int', 'wpematico_cron');
-		//add Dashboard widget
-		if (current_user_can(10) && !$cfg['disabledashboard'])
-			add_action('wp_dashboard_setup', 'wpematico_add_dashboard');
-		// add ajax function
-		add_action('wp_ajax_test_feed', 'wpematico_Testfeed');			
-	}
-
-//*****************************************************************************************
-// ** Muestro Categor�as seleccionables 
-function _wpe_edit_cat_row($category, $level, &$data) {  
-	$category = get_category( $category );
-	$name = $category->cat_name;
-	echo '
-	<li style="margin-left:'.$level.'5px" class="jobtype-select checkbox">
-	<input type="checkbox" value="' . $category->cat_ID . '" id="category_' . $category->cat_ID . '" name="campaign_categories[]" ';
-	echo (in_array($category->cat_ID, $data )) ? 'checked="checked"' : '' ;
-	echo '>
-    <label for="category_' . $category->cat_ID . '">' . $name . '</label></li>';}
-
-function adminEditCategories(&$data, $parent = 0, $level = 0, $categories = 0)  {    
-  	if ( !$categories )
-  		$categories = get_categories(array('hide_empty' => 0));
-
-    if(function_exists('_get_category_hierarchy'))
-      $children = _get_category_hierarchy();
-    elseif(function_exists('_get_term_hierarchy'))
-      $children = _get_term_hierarchy('category');
-    else
-      $children = array();
-
-  	if ( $categories ) {
-  		ob_start();
-  		foreach ( $categories as $category ) {
-  			if ( $category->parent == $parent) {
-  				echo "\t" . _wpe_edit_cat_row($category, $level, $data);
-  				if ( isset($children[$category->term_id]) )
-  					adminEditCategories($data, $category->term_id, $level + 1, $categories );
-  			}
-  		}
-  		$output = ob_get_contents();
-  		ob_end_clean();
-
-  		echo $output;
-  	} else {
-  		return false;
-  	}
-}
-//*********************************************************************************************************
-  /**
-   * Parses a feed with SimplePie
-   *
-   * @param   boolean     $stupidly_fast    Set fast mode. Best for checks
-   * @param   integer     $max              Limit of items to fetch
-   * @return  SimplePie_Item    Feed object
-   **/
-  function fetchFeed($url, $stupidly_fast = false, $max = 0) {
-    # SimplePie
-
-	if (!class_exists('SimplePie')) {
-		if (is_file(trailingslashit(ABSPATH).'wp-admin/includes/class-simplepie.php'))
-			include_once( trailingslashit(ABSPATH).'wp-admin/includes/class-simplepie.php' );
-		else
-			include_once('compatibility/class-simplepie.php');
-	}		
-    $feed = new SimplePie();
-    $feed->enable_order_by_date(false);
-    $feed->set_feed_url($url);
-    $feed->set_item_limit($max);
-    $feed->set_stupidly_fast($stupidly_fast);
-    $feed->enable_cache(false);    
-    $feed->init();
-    $feed->handle_content_type(); 
-    
-    return $feed;
-  }
-
-  /**
-   * Tests a feed
-   *
-   *
-   */
-  function wpematico_Testfeed($args='') {
-	if (is_array($args)) {
-		extract($args);
-		$ajax=false;
-	} else {
-		if(!isset($_POST['url'])) return false;
-		$url=$_POST['url'];
-		$ajax=true;
-	}
-
-	$feed = fetchFeed($url, true);
-	$works = ! $feed->error(); // if no error returned
-	
-	if ($ajax) {
-		echo intval($works);
-		die();
-	}else {
-		if($works) printf(__('The feed %s has been parsed successfully.', 'wpematico'), $url);
-		else	printf(__('The feed %s cannot be parsed. Simplepie said: %s', 'wpematico'), $url, $works);
-		return;
-	}   
-
 }
 
-?>
+	/**
+	* Add cron interval
+	*
+	* @access protected
+	* @param array $schedules
+	* @return array
+	*/
+	function wpematico_intervals($schedules) {
+		$intervals['wpematico_int'] = array('interval' => '300', 'display' => __('WPeMatico'));
+		$schedules = array_merge( $intervals, $schedules);
+		return $schedules;
+	}
+
+	//cron work  (fuera de la clase hasta que wp lo soporte)
+	function wpematico_cron() {
+		$args = array( 'post_type' => 'wpematico', 'orderby' => 'ID', 'order' => 'ASC', 'numberposts' => -1 );
+		$campaigns = get_posts( $args );
+		foreach( $campaigns as $post ) {
+			$campaign = WPeMatico :: get_campaign( $post->ID );
+			$activated = $campaign['activated'];
+			$cronnextrun = $campaign['cronnextrun'];
+			if ( !$activated )
+				continue;
+			if ( $cronnextrun <= current_time('timestamp') ) {
+				WPeMatico :: wpematico_dojob( $post->ID );
+			}
+		}
+	}
+

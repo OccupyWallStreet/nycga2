@@ -1,0 +1,2195 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Community Brazilian Portuguese\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Ghad Arddhu <arddhu@axisdraco.com>\n"
+"Language-Team: Ghad Arddhu <arddhu@axisdraco.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#@ cc
+#: 404.php:7
+msgid "Page not found"
+msgstr "Página não encontrada"
+
+#@ cc
+#: 404.php:9
+msgid "We're sorry, but we can't find the page that you're looking for. Perhaps searching will help."
+msgstr "Desculpe-nos, mas não conseguimos encontrar a página que você está procurando. Faça uma busca."
+
+#@ cc
+#: _inc/ajax.php:147
+msgid "Please enter some content to post."
+msgstr "Insira algum conteúdo para o post."
+
+#@ cc
+#: _inc/ajax.php:164
+msgid "There was a problem posting your update, please try again."
+msgstr "Ocorreu um problema postando seu update, tente novamente por favor."
+
+#@ cc
+#: _inc/ajax.php:189
+msgid "Please do not leave the comment area blank."
+msgstr "Não deixe a área de comentário em branco."
+
+#@ cc
+#: _inc/ajax.php:194
+#: _inc/ajax.php:205
+msgid "There was an error posting that reply, please try again."
+msgstr "Ocorreu um erro postando essa réplica, por favor tente novamente."
+
+#@ cc
+#: _inc/ajax.php:262
+#: _inc/ajax.php:297
+msgid "There was a problem when deleting. Please try again."
+msgstr "Ocorreu um problema ao tentar apagar. Por favor tente novamente."
+
+#@ cc
+#: _inc/ajax.php:312
+#: activity/entry.php:72
+msgid "Remove Favorite"
+msgstr "Remover Favorito"
+
+#@ cc
+#: _inc/ajax.php:321
+#: activity/entry.php:68
+msgid "Favorite"
+msgstr "Favorito"
+
+#@ cc
+#: _inc/ajax.php:380
+#: groups/create.php:234
+#: groups/single/send-invites.php:42
+msgid "Remove Invite"
+msgstr "Convite Remoto"
+
+#@ cc
+#: _inc/ajax.php:406
+msgid "Friendship could not be canceled."
+msgstr "Esta amizade não pode ser cancelada."
+
+#@ cc
+#: _inc/ajax.php:408
+msgid "Add Friend"
+msgstr "Adicionar Amigo"
+
+#@ cc
+#: _inc/ajax.php:416
+msgid "Friendship could not be requested."
+msgstr "O pedido de amizade não pôde ser feito."
+
+#@ cc
+#: _inc/ajax.php:418
+msgid "Friendship Requested"
+msgstr "Pedido de amizade enviado"
+
+#@ cc
+#: _inc/ajax.php:421
+msgid "Request Pending"
+msgstr "Requisição Pendente"
+
+#@ cc
+#: _inc/ajax.php:433
+msgid "There was a problem accepting that request. Please try again."
+msgstr "Ocorreu um problema ao aceitar essa requisição. Por favor tente novamente."
+
+#@ cc
+#: _inc/ajax.php:444
+msgid "There was a problem rejecting that request. Please try again."
+msgstr "Ocorreu um problema ao rejeitar essa requisição. Por favor tente novamente."
+
+#@ cc
+#: _inc/ajax.php:467
+msgid "Error joining group"
+msgstr "Erro ao ingressar no grupo"
+
+#@ cc
+#: _inc/ajax.php:469
+msgid "Leave Group"
+msgstr "Deixar Grupo"
+
+#@ cc
+#: _inc/ajax.php:477
+msgid "Error requesting membership"
+msgstr "Erro ao requisitar afiliação."
+
+#@ cc
+#: _inc/ajax.php:479
+msgid "Membership Requested"
+msgstr "Afiliação aprovada."
+
+#@ cc
+#: _inc/ajax.php:488
+msgid "Error leaving group"
+msgstr "Erro ao sair do grupo"
+
+#@ cc
+#: _inc/ajax.php:491
+msgid "Join Group"
+msgstr "Ingressar no Grupo"
+
+#@ cc
+#: _inc/ajax.php:493
+msgid "Request Membership"
+msgstr "Requisitar Afiliação"
+
+#@ cc
+#: _inc/ajax.php:505
+msgid "There was a problem closing the notice."
+msgstr "Ocorreu um problema ao fechar a notificação"
+
+#@ cc
+#: _inc/ajax.php:530
+#, php-format
+msgid "Sent %s"
+msgstr "Enviado %s"
+
+#@ cc
+#: _inc/ajax.php:547
+msgid "There was a problem sending that reply. Please try again."
+msgstr "Ocorreu um problema ao enviar essa réplica. Por favor tente novamente."
+
+#@ cc
+#: _inc/ajax.php:557
+msgid "There was a problem marking messages as unread."
+msgstr "Ocorreu um problema ao marcar as mensagens como não-lidas."
+
+#@ cc
+#: _inc/ajax.php:573
+msgid "There was a problem marking messages as read."
+msgstr "Ocorreu um problema ao marcar as mensagens como lidas."
+
+#@ cc
+#: _inc/ajax.php:589
+msgid "There was a problem deleting messages."
+msgstr "Ocorreu um problema ao apagar as mensagens."
+
+#@ cc
+#: _inc/ajax.php:596
+msgid "Messages deleted."
+msgstr "Mensagens apagadas."
+
+#@ cc
+#: activity/activity-loop.php:41
+msgid "Load More"
+msgstr "Carregar Mais"
+
+#@ cc
+#: activity/activity-loop.php:55
+msgid "Sorry, there was no activity found. Please try a different filter."
+msgstr "Desculpe, não foi encontrada nenhuma atividade. Por favor tente um filtro diferente."
+
+#@ cc
+#. translators: 1: user profile link, 2: user name, 3: activity permalink, 3: activity timestamp
+#: activity/comment.php:28
+#, php-format
+msgid "<a href=\"%1$s\">%2$s</a> replied <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\">%2$s</a> respondeu <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+
+#@ cc
+#: activity/comment.php:33
+#: forums/single/edit.php:10
+#: groups/single/forum/edit.php:10
+msgid "Reply"
+msgstr "Responder"
+
+#@ cc
+#: activity/comment.php:39
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/single.php:24
+msgid "Delete"
+msgstr "Apagar"
+
+#@ cc
+#: activity/entry.php:37
+msgid "In reply to: "
+msgstr "Em resposta a:"
+
+#@ cc
+#: activity/entry.php:37
+msgid "View Thread / Permalink"
+msgstr "Visualizar Tópico/Link permanente"
+
+#@ cc
+#: activity/entry.php:37
+#: core/includes/bp/templatetags.php:89
+msgid "View"
+msgstr "Visualizar"
+
+#@ cc
+#: activity/entry.php:60
+#, php-format
+msgid "Comment <span>%s</span>"
+msgstr "Comentário <span>%s</span>"
+
+#@ cc
+#: activity/entry.php:68
+msgid "Mark as Favorite"
+msgstr "Marcar como Favorito"
+
+#@ cc
+#: activity/entry.php:104
+msgid "Post"
+msgstr "Postar"
+
+#@ cc
+#: activity/entry.php:104
+msgid "or press esc to cancel."
+msgstr "ou pressione esc para cancelar."
+
+#@ cc
+#: activity/index.php:23
+msgid "Site Activity"
+msgstr "Atividade do Site"
+
+#@ cc
+#: activity/index.php:41
+msgid "The public activity for everyone on this site."
+msgstr "A atividade pública para todos neste site."
+
+#@ cc
+#: activity/index.php:41
+#: members/index.php:35
+#, php-format
+msgid "All Members <span>%s</span>"
+msgstr "Todos Membros <span>%s</span>"
+
+#@ cc
+#: activity/index.php:51
+msgid "The activity of my friends only."
+msgstr "As atividades de meus amigos apenas."
+
+#@ cc
+#: activity/index.php:51
+#: members/index.php:39
+#, php-format
+msgid "My Friends <span>%s</span>"
+msgstr "Meus Amigos<span>%s</span>"
+
+#@ cc
+#: activity/index.php:63
+msgid "The activity of groups I am a member of."
+msgstr "As atividades dos grupos ao qual pertenço."
+
+#@ cc
+#: activity/index.php:63
+#: groups/index.php:41
+#, php-format
+msgid "My Groups <span>%s</span>"
+msgstr "Meus grupos <span>%s</span>"
+
+#@ cc
+#: activity/index.php:73
+msgid "The activity I've marked as a favorite."
+msgstr "Atividade que marquei como favorita."
+
+#@ cc
+#: activity/index.php:73
+#, php-format
+msgid "My Favorites <span>%s</span>"
+msgstr "Meus Favoritos <span>%s</span>"
+
+#@ cc
+#: activity/index.php:79
+msgid "Activity that I have been mentioned in."
+msgstr "Atividades no houve menção a mim."
+
+#@ cc
+#: activity/index.php:79
+msgid "Public Mentions"
+msgstr "Menções Públicas"
+
+#@ cc
+#: activity/index.php:79
+#, php-format
+msgid "<span>%s new</span>"
+msgstr "<span>%s novo</span>"
+
+#@ cc
+#: activity/index.php:89
+#: groups/single/activity.php:3
+msgid "RSS Feed"
+msgstr "RSS Feed"
+
+#@ cc
+#: activity/index.php:89
+#: groups/single/activity.php:3
+msgid "RSS"
+msgstr "RSS"
+
+#@ cc
+#: activity/index.php:94
+#: groups/single/activity.php:8
+#: members/single/activity.php:18
+msgid "Show:"
+msgstr "Exibir:"
+
+#@ cc
+#: activity/index.php:96
+#: groups/single/activity.php:10
+#: members/single/activity.php:20
+msgid "Everything"
+msgstr "Tudo"
+
+#@ cc
+#: activity/index.php:97
+#: groups/single/activity.php:11
+#: members/single/activity.php:21
+msgid "Updates"
+msgstr "Atualizações"
+
+#@ cc
+#: activity/index.php:101
+#: forums/forums-loop.php:31
+#: members/single/activity.php:27
+msgid "Posts"
+msgstr "Posts"
+
+#@ cc
+#: activity/index.php:102
+#: members/single/activity.php:28
+msgid "Comments"
+msgstr "Comentários"
+
+#@ cc
+#: activity/index.php:108
+#: groups/single/activity.php:14
+#: members/single/activity.php:43
+msgid "Forum Topics"
+msgstr "Tópicos do Fórum"
+
+#@ cc
+#: activity/index.php:109
+#: groups/single/activity.php:15
+#: members/single/activity.php:44
+msgid "Forum Replies"
+msgstr "Respostas do Fórum"
+
+#@ cc
+#: activity/index.php:115
+#: members/single/activity.php:50
+msgid "New Groups"
+msgstr "Novos Grupos"
+
+#@ cc
+#: activity/index.php:116
+#: groups/single/activity.php:18
+#: members/single/activity.php:51
+msgid "Group Memberships"
+msgstr "Afiliações a Grupos"
+
+#@ cc
+#: activity/index.php:122
+#: members/single/activity.php:35
+msgid "Friendships"
+msgstr "Amizades"
+
+#@ cc
+#: activity/index.php:126
+msgid "New Members"
+msgstr "Novos Membros"
+
+#@ cc
+#: activity/post-form.php:23
+#, php-format
+msgid "What's new in %s, %s?"
+msgstr "Quais as novidades em %s, %s?"
+
+#@ cc
+#: activity/post-form.php:25
+#, php-format
+msgid "What's new, %s?"
+msgstr "Novidades, %s?"
+
+#@ cc
+#: activity/post-form.php:35
+msgid "Post Update"
+msgstr "Atualização do Post"
+
+#@ cc
+#: activity/post-form.php:42
+msgid "Post in"
+msgstr "Postar em"
+
+#@ cc
+#: activity/post-form.php:45
+#: members/single/profile/profile-wp.php:8
+msgid "My Profile"
+msgstr "Meu Perfil"
+
+#@ cc
+#: admin/library.php:536
+msgid "Save Options"
+msgstr "Opções para Salvar"
+
+#@ cc
+#: admin/post-metabox.php:25
+#: admin/post-metabox.php:139
+msgid "klick"
+msgstr "clicar"
+
+#@ cc
+#: admin/post-metabox.php:28
+#: admin/post-metabox.php:142
+msgid "Custom Community settings"
+msgstr "Configurações do Custom Community"
+
+#@ cc
+#: admin/post-metabox.php:35
+#: admin/post-metabox.php:168
+msgid "Post template on"
+msgstr "Postar modelo em"
+
+#@ cc
+#: admin/post-metabox.php:45
+msgid "Hide avatar"
+msgstr "Esconder avatar"
+
+#@ cc
+#: admin/post-metabox.php:47
+msgid "Hide date/category"
+msgstr "Esconder data/categoria"
+
+#@ cc
+#: admin/post-metabox.php:49
+msgid "Hide tags"
+msgstr "Esconder etiquetas"
+
+#@ cc
+#: admin/post-metabox.php:52
+msgid "Hide comment-info"
+msgstr "Esconder informações de comentário"
+
+#@ cc
+#: admin/post-metabox.php:150
+msgid "Slideshow on"
+msgstr "Ligar Slideshow"
+
+#@ cc
+#: admin/post-metabox.php:162
+msgid "Get The PRO Version for more options:"
+msgstr "Atualize para Versão PRO para mais opções:"
+
+#@ cc
+#: admin/post-metabox.php:164
+msgid "Use custom post types and pages in the slideshow, show/hide caption, define the sliding time in ms, order and amount"
+msgstr "Usar posts personalizados e páginas no slideshow, exibir/esconder descrição, definir tempo de transição em ms, organizar e quantidade"
+
+#@ cc
+#: archive.php:8
+#, php-format
+msgid "You are browsing the archive for %1$s."
+msgstr "Você está visualizando os arquivos de %1$s"
+
+#@ cc
+#: archive.php:14
+#: archive.php:55
+#: core/includes/bp/templatetags.php:349
+#: index.php:50
+#: search-loop.php:43
+#: search.php:17
+#: search.php:53
+msgid "&larr; Previous Entries"
+msgstr "&larr; Entradas Anteriores"
+
+#@ cc
+#: archive.php:15
+#: archive.php:56
+#: core/includes/bp/templatetags.php:350
+#: index.php:51
+#: search-loop.php:44
+#: search.php:18
+#: search.php:54
+msgid "Next Entries &rarr;"
+msgstr "Próximas Entradas &rarr;"
+
+#@ cc
+#: archive.php:28
+#: archive.php:34
+#: index.php:20
+#: search.php:30
+#: search.php:37
+#: single.php:44
+#, php-format
+msgid "by %s"
+msgstr "por %s"
+
+#@ cc
+#: archive.php:32
+#: index.php:28
+#: search.php:35
+#: single.php:54
+msgid "Permanent Link to"
+msgstr "Link Permanente para"
+
+#@ cc
+#: archive.php:34
+#: index.php:30
+#: search.php:37
+#: single.php:56
+msgid "in"
+msgstr "em"
+
+#@ cc
+#: archive.php:41
+#: index.php:36
+#: search.php:43
+#: single.php:74
+msgid "Tags: "
+msgstr "Etiquetas:"
+
+#@ cc
+#: archive.php:41
+#: archive.php:43
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:79
+msgid "No Comments &#187;"
+msgstr "Sem Comentários &#187;"
+
+#@ cc
+#: archive.php:41
+#: archive.php:43
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:79
+msgid "1 Comment &#187;"
+msgstr "1 Comentário &#187;"
+
+#@ cc
+#: archive.php:41
+#: archive.php:43
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:79
+msgid "% Comments &#187;"
+msgstr "% Comentários &#187;"
+
+#@ cc
+#: archive.php:62
+#: index.php:57
+msgid "Not Found"
+msgstr "Não encontrado"
+
+#@ cc
+#: attachment.php:9
+#: search.php:10
+msgid "Blog"
+msgstr "Blog"
+
+#@ cc
+#: attachment.php:25
+msgid "<p class=\"serif\">Read the rest of this entry &rarr;</p>"
+msgstr "<p class=\"serif\">Leia o resto deste post &rarr;</p>"
+
+#@ cc
+#: attachment.php:27
+#: full-width.php:29
+#: page.php:18
+#: single.php:67
+msgid "<p><strong>Pages:</strong> "
+msgstr "<p><strong>Páginas:</strong> "
+
+#@ cc
+#: attachment.php:38
+msgid "Sorry, no attachments matched your criteria."
+msgstr "Desculpe, nenhum anexo corresponde ao seu critério."
+
+#@ cc
+#: blogs/blogs-loop.php:90
+msgid "Sorry, there were no sites found."
+msgstr "Desculpe, nenhum site foi encontrado."
+
+#@ cc
+#: blogs/create.php:21
+#: blogs/index.php:23
+msgid "Create a Site"
+msgstr "Criar um Site"
+
+#@ cc
+#: blogs/create.php:21
+#: blogs/index.php:23
+msgid "Site Directory"
+msgstr "Diretório de Sites"
+
+#@ cc
+#: blogs/create.php:32
+msgid "Site registration is currently disabled"
+msgstr "O Registro de Sites está desabilitado"
+
+#@ cc
+#: blogs/index.php:35
+#, php-format
+msgid "All Sites <span>%s</span>"
+msgstr "Todos os Sites <span>%s</span>"
+
+#@ cc
+#: blogs/index.php:39
+#, php-format
+msgid "My Sites <span>%s</span>"
+msgstr "Meus Sites <span>%s</span>"
+
+#@ cc
+#: blogs/index.php:55
+#: forums/index.php:60
+#: forums/single/forum.php:34
+#: groups/index.php:57
+#: groups/single/forum.php:32
+#: groups/single/members.php:12
+#: members/index.php:55
+#: members/single/blogs.php:19
+#: members/single/forums.php:18
+#: members/single/friends.php:20
+#: members/single/groups.php:20
+msgid "Order By:"
+msgstr "Organizar por:"
+
+#@ cc
+#: blogs/index.php:57
+#: forums/index.php:62
+#: forums/single/forum.php:36
+#: groups/index.php:59
+#: groups/single/forum.php:34
+#: groups/single/members.php:14
+#: members/index.php:57
+#: members/single/blogs.php:21
+#: members/single/forums.php:20
+#: members/single/friends.php:22
+#: members/single/groups.php:22
+msgid "Last Active"
+msgstr "Última vez Ativo"
+
+#@ cc
+#: blogs/index.php:58
+#: members/single/blogs.php:22
+msgid "Newest"
+msgstr "Mais Recente"
+
+#@ cc
+#: blogs/index.php:59
+#: groups/index.php:62
+#: groups/single/members.php:19
+#: members/index.php:62
+#: members/single/blogs.php:23
+#: members/single/friends.php:24
+#: members/single/groups.php:25
+msgid "Alphabetical"
+msgstr "Alfabético"
+
+#@ cc
+#: comments.php:52
+msgid "Comments are closed."
+msgstr "Os comentários estão fechados:"
+
+#@ cc
+#: core/includes/bp/templatetags.php:300
+#: members/single/profile/profile-wp.php:15
+msgid "Name"
+msgstr "Nome"
+
+#@ cc
+#: core/includes/bp/templatetags.php:302
+msgid "Email"
+msgstr "Email"
+
+#@ cc
+#: core/includes/bp/templatetags.php:304
+#: members/single/profile/profile-wp.php:33
+msgid "Website"
+msgstr "Website"
+
+#@ cc
+#: core/includes/bp/buddydev-search.php:52
+msgid "Search Page"
+msgstr "Página de Pesquisa"
+
+#@ cc
+#: core/includes/bp/templatetags.php:82
+msgid "My Favorites"
+msgstr "Meus Favoritos"
+
+#@ cc
+#: core/includes/bp/templatetags.php:83
+msgid "Accepted"
+msgstr "Aceitos"
+
+#@ cc
+#: core/includes/bp/templatetags.php:84
+msgid "Rejected"
+msgstr "Rejeitados"
+
+#@ cc
+#: core/includes/bp/templatetags.php:85
+msgid "Show all comments for this thread"
+msgstr "Exibir todos comentários para esse tópico"
+
+#@ cc
+#: core/includes/bp/templatetags.php:86
+msgid "Show all"
+msgstr "Exibir todos"
+
+#@ cc
+#: core/includes/bp/templatetags.php:87
+msgid "comments"
+msgstr "comentários"
+
+#@ cc
+#: core/includes/bp/templatetags.php:88
+msgid "Close"
+msgstr "Fechar"
+
+#@ cc
+#. translators: 1: comment author url, 2: comment author name, 3: comment permalink, 4: comment date/timestamp
+#: core/includes/bp/templatetags.php:142
+#, php-format
+msgid "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> said on <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> disse às <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+
+#@ cc
+#: core/includes/bp/templatetags.php:149
+msgid "Your comment is awaiting moderation."
+msgstr "Seu comentário aguarda moderação."
+
+#@ cc
+#: core/includes/bp/templatetags.php:161
+msgid "Edit comment"
+msgstr "Editar comentário"
+
+#@ cc
+#: core/includes/bp/templatetags.php:161
+msgid "Edit"
+msgstr "Editar"
+
+#@ cc
+#: core/includes/bp/templatetags.php:231
+#, php-format
+msgid "Theme activated! This theme contains <a href=\"%s\">custom header image</a> support and <a href=\"%s\">sidebar widgets</a>."
+msgstr "Tema ativado! Este tema contém <a href=\"%s\"> imagem personalizade de cabeçalho</a> suporte e<a href=\"%s\"> barra lateral com widgets</a>."
+
+#@ cc
+#: core/includes/bp/templatetags.php:312
+#, php-format
+msgid "You must be <a href=\"%1$s\">logged in</a> to post a comment."
+msgstr "Você deve estar <a href=\"%1$s\">logado</a> para postar um comentário."
+
+#@ cc
+#: core/includes/bp/templatetags.php:313
+msgid "Leave a reply"
+msgstr "Escrever uma réplica"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:157
+#: searchform.php:5
+msgid "Search"
+msgstr "Pesquisar"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:184
+#: core/includes/theme-generator/theme-generator.php:188
+#: core/includes/theme-generator/theme-generator.php:193
+#: core/includes/theme-generator/theme-generator.php:196
+#: core/includes/theme-generator/theme-generator.php:217
+#: core/includes/theme-generator/theme-generator.php:225
+msgid "Home"
+msgstr "Início"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:230
+#: core/includes/wp/widgets.php:34
+msgid "Community"
+msgstr "Comunidade"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:234
+#: core/includes/wp/widgets.php:38
+msgid "Activity"
+msgstr "Atividade"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:239
+#: core/includes/wp/widgets.php:43
+#: groups/single/admin.php:229
+msgid "Members"
+msgstr "Membros"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:244
+#: core/includes/wp/widgets.php:48
+msgid "Groups"
+msgstr "Grupos"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:248
+#: core/includes/wp/widgets.php:53
+msgid "Forums"
+msgstr "Fóruns"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:255
+#: core/includes/wp/widgets.php:59
+msgid "Blogs"
+msgstr "Blogs"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:357
+msgid "20 widget areas all over the site"
+msgstr "20 widgets pelo site"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:370
+#: links.php:16
+#: sidebar.php:45
+msgid "Links"
+msgstr "Links"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:383
+#: sidebar.php:39
+msgid "Archives"
+msgstr "Arquivos"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:396
+#: sidebar.php:51
+msgid "Meta"
+msgstr "Meta"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:410
+#, php-format
+msgid "%s is proudly powered by <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> and <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
+msgstr "%s é orgulhosamente alimentado por<a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> e <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:536
+#: core/includes/theme-generator/theme-generator.php:538
+#: single.php:63
+msgid "Read the rest of this entry &rarr;"
+msgstr "Ler o resto deste post &rarr;"
+
+#@ cc
+#: core/includes/wp/shortcodes.php:355
+msgid "read more"
+msgstr "ler mais"
+
+#@ cc
+#: core/includes/wp/shortcodes.php:580
+msgid "Empty Slideshow"
+msgstr "Slideshow Vazio"
+
+#@ cc
+#: core/includes/wp/shortcodes.php:581
+msgid "You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> for more."
+msgstr "Não há posts selecionados para seu slideshow! <br>Confira as configurações de seu tema para slideshow global ou a página de configurações para slideshows de página... <br>e escreva um post! Confira o <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> para mais informações."
+
+#@ cc
+#: core/includes/wp/widgets.php:68
+msgid "@ Group"
+msgstr "@ Grupo"
+
+#@ cc
+#: core/includes/wp/widgets.php:79
+msgid "@ Member"
+msgstr "@ Membro"
+
+#@ cc
+#: core/includes/wp/widgets.php:111
+msgid "Log Out"
+msgstr "Deslogar"
+
+#@ cc
+#: core/includes/wp/widgets.php:128
+msgid "To start connecting please log in first."
+msgstr "Para se conectar por favor logue primeiro."
+
+#@ cc
+#: core/includes/wp/widgets.php:133
+#, php-format
+msgid " You can also <a href=\"%s\" title=\"Create an account\">create an account</a>."
+msgstr "Você pode também <a href=\"%s\" title=\"Criar uma conta\">Criar uma conta</a>."
+
+#@ cc
+#: core/includes/wp/widgets.php:138
+#: registration/register.php:37
+msgid "Username"
+msgstr "Nome de Usuário"
+
+#@ cc
+#: core/includes/wp/widgets.php:141
+msgid "Password"
+msgstr "Senha"
+
+#@ cc
+#: core/includes/wp/widgets.php:144
+msgid "Remember Me"
+msgstr "Lembrar-se de mim"
+
+#@ cc
+#: core/includes/wp/widgets.php:147
+msgid "Log In"
+msgstr "Logar"
+
+#@ cc
+#: core/includes/wp/widgets.php:166
+msgid "Forum Topic Tags"
+msgstr "Etiquetas dos Tópicos de Fórum"
+
+#@ cc
+#: forums/forums-loop.php:32
+msgid "Freshness"
+msgstr "Novidade"
+
+#@ cc
+#: forums/forums-loop.php:45
+msgid "Permalink"
+msgstr "Link Permanente"
+
+#@ cc
+#: forums/forums-loop.php:95
+msgid "Sorry, there were no forum topics found."
+msgstr "Desculpe, nenhum fórum foi encontrado."
+
+#@ cc
+#: forums/index.php:23
+msgid "Forums Directory"
+msgstr "Diretório de Fóruns"
+
+#@ cc
+#: forums/index.php:23
+#: forums/single/forum.php:19
+#: groups/single/forum.php:17
+msgid "New Topic"
+msgstr "Novo Tópico"
+
+#@ cc
+#: forums/index.php:40
+#, php-format
+msgid "All Topics <span>%s</span>"
+msgstr "Todos Tópicos <span>%s</span>"
+
+#@ cc
+#: forums/index.php:44
+#, php-format
+msgid "My Topics <span>%s</span>"
+msgstr "Meus Tópicos <span>%s</span>"
+
+#@ cc
+#: forums/index.php:63
+#: forums/single/forum.php:37
+#: groups/single/forum.php:35
+#: members/single/forums.php:21
+msgid "Most Posts"
+msgstr "Mais Posts"
+
+#@ cc
+#: forums/index.php:64
+#: forums/single/forum.php:38
+#: groups/single/forum.php:36
+#: members/single/forums.php:22
+msgid "Unreplied"
+msgstr "Não Respondidos"
+
+#@ cc
+#: forums/index.php:100
+msgid "Create New Topic:"
+msgstr "Criar Novo Tópico:"
+
+#@ cc
+#: forums/index.php:104
+#: forums/single/edit.php:49
+#: groups/single/forum/edit.php:49
+#: groups/single/forum.php:71
+msgid "Title:"
+msgstr "Título:"
+
+#@ cc
+#: forums/index.php:107
+#: forums/single/edit.php:52
+#: groups/single/forum/edit.php:52
+#: groups/single/forum.php:74
+msgid "Content:"
+msgstr "Conteúdo:"
+
+#@ cc
+#: forums/index.php:110
+#: groups/single/forum/edit.php:55
+#: groups/single/forum.php:77
+msgid "Tags (comma separated):"
+msgstr "Etiquetas (separadas por vírgula):"
+
+#@ cc
+#: forums/index.php:113
+msgid "Post In Group Forum:"
+msgstr "Postar no Fórum do Grupo:"
+
+#@ cc
+#. translators: no option picked in select box
+#: forums/index.php:116
+msgid "----"
+msgstr "----"
+
+#@ cc
+#: forums/index.php:133
+#: groups/single/forum.php:83
+msgid "Post Topic"
+msgstr "Postar Tópico"
+
+#@ cc
+#: forums/index.php:134
+msgid "Cancel"
+msgstr "Cancelar"
+
+#@ cc
+#: forums/index.php:145
+#, php-format
+msgid "You are not a member of any groups so you don't have any group forums you can post in. To start posting, first find a group that matches the topic subject you'd like to start. If this group does not exist, why not <a href='%s'>create a new group</a>? Once you have joined or created the group you can post your topic in that group's forum."
+msgstr "Você não é membro de nenhum grupo por isso você não tem grupos de fóruns nos quais possa postar. Para começar a postar, primeiro encontre um grupo que codiza com o assunto do tópico que você queira iniciar. Se esse grupo não existir, porque não <a href='%s'>criar um novo grupo</a>? Uma vez que você tenha ingressado ou criado o grupo você poderá postar seu tópico nesse fórum de grupo."
+
+#@ cc
+#: forums/single/edit.php:16
+#: forums/single/forum.php:25
+#: forums/single/topic.php:43
+#: groups/single/forum/edit.php:16
+#: groups/single/forum/topic.php:16
+#: groups/single/forum.php:23
+msgid "Forum Directory"
+msgstr "Diretório do Fórum"
+
+#@ cc
+#: forums/single/edit.php:25
+#: groups/single/forum/edit.php:25
+msgid "Edit:"
+msgstr "Editar:"
+
+#@ cc
+#: forums/single/edit.php:57
+#: forums/single/edit.php:73
+#: groups/single/admin.php:32
+#: groups/single/admin.php:117
+#: groups/single/forum/edit.php:60
+#: groups/single/forum/edit.php:76
+#: members/single/profile/edit.php:126
+#: members/single/settings/general.php:69
+#: members/single/settings/notifications.php:62
+msgid "Save Changes"
+msgstr "Salvar Alterações"
+
+#@ cc
+#: forums/single/edit.php:88
+#: groups/single/forum/edit.php:91
+msgid "This topic does not exist."
+msgstr "Esse tópico não existe."
+
+#@ cc
+#: forums/single/forum-header.php:13
+#: groups/groups-loop.php:47
+#, php-format
+msgid "active %s"
+msgstr "ativo %s"
+
+#@ cc
+#: forums/single/topic.php:37
+#: groups/single/forum/topic.php:10
+msgid "New Reply"
+msgstr "Nova Resposta"
+
+#@ cc
+#: forums/single/topic.php:97
+#, php-format
+msgid "%s said %s ago:"
+msgstr "%s disse %s atrás:"
+
+#@ cc
+#: forums/single/topic.php:117
+#: groups/single/forum/topic.php:81
+msgid "Permanent link to this post"
+msgstr "Link Permanente para esse post:"
+
+#@ cc
+#: forums/single/topic.php:153
+#: groups/single/forum/topic.php:117
+msgid "Add a reply:"
+msgstr "Adicionar uma resposta:"
+
+#@ cc
+#: forums/single/topic.php:158
+#: groups/single/forum/topic.php:122
+msgid "Post Reply"
+msgstr "Resposta ao post:"
+
+#@ cc
+#: forums/single/topic.php:169
+#: groups/single/forum/topic.php:133
+msgid "This topic is closed, replies are no longer accepted."
+msgstr "Esse tópico está fechado, respostas não são mais aceitas."
+
+#@ cc
+#: forums/single/topic.php:184
+#: groups/single/forum/topic.php:147
+msgid "There are no posts for this topic."
+msgstr "Não existes posts nesse tópico."
+
+#@ cc
+#: full-width.php:27
+#: page.php:17
+msgid "<p class=\"serif\">Read the rest of this page &rarr;</p>"
+msgstr "<p class=\"serif\">Ler o resto desta página &rarr;</p>"
+
+#@ cc
+#: full-width.php:42
+#: single.php:91
+msgid "Edit this entry."
+msgstr "Editar essa entrada."
+
+#@ cc
+#: functions.php:59
+msgid "Header top menu"
+msgstr "Menu superior do Cabeçalho"
+
+#@ cc
+#: functions.php:60
+msgid "Header bottom menu"
+msgstr "Menu inferior do Cabeçalho"
+
+#@ cc
+#: functions.php:473
+msgid "Members Results"
+msgstr "Resultados de Membros"
+
+#@ cc
+#: functions.php:488
+msgid "Group Search"
+msgstr "Busca de Grupos"
+
+#@ cc
+#: functions.php:491
+msgid "View All matched Groups"
+msgstr "Ver todos grupos equivalentes"
+
+#@ cc
+#: functions.php:509
+msgid "Blog Search"
+msgstr "Buscar Blog"
+
+#@ cc
+#: functions.php:512
+msgid "View All matched Posts"
+msgstr "Ver todos os posts equivalentes"
+
+#@ cc
+#: functions.php:524
+msgid "Forums Search"
+msgstr "Buscar Fórum"
+
+#@ cc
+#: functions.php:526
+msgid "View All matched forum posts"
+msgstr "Encontrar todos posts de fórum equivalentes"
+
+#@ cc
+#: functions.php:545
+msgid "Blogs Search"
+msgstr "Buscar Blogs"
+
+#@ cc
+#: functions.php:547
+msgid "View All matched Blogs"
+msgstr "Ver todos Blogs equivalentes"
+
+#@ cc
+#: groups/create.php:18
+#: groups/index.php:23
+msgid "Create a Group"
+msgstr "Criar Grupo"
+
+#@ cc
+#: groups/create.php:18
+#: groups/index.php:23
+msgid "Groups Directory"
+msgstr "Diretório de Grupos"
+
+#@ cc
+#: groups/create.php:39
+#: groups/single/admin.php:16
+msgid "Group Name (required)"
+msgstr "Nome do Grupo (necessário)"
+
+#@ cc
+#: groups/create.php:42
+#: groups/single/admin.php:19
+msgid "Group Description (required)"
+msgstr "Descrição do Grupo (necessária)"
+
+#@ cc
+#: groups/create.php:62
+#: groups/single/admin.php:47
+msgid "Enable discussion forum"
+msgstr "Habilitar fórum de discussão"
+
+#@ cc
+#: groups/create.php:69
+#, php-format
+msgid "<strong>Attention Site Admin:</strong> Group forums require the <a href=\"%s\">correct setup and configuration</a> of a bbPress installation."
+msgstr "<strong>Atenção Site Admin:</strong> Fóruns de Grupos requerem a <a href=\"%s\">configuração correta</a> de uma instalação do bbPress."
+
+#@ cc
+#: groups/create.php:78
+#: groups/single/admin.php:56
+msgid "Privacy Options"
+msgstr "Opções de Privacidade"
+
+#@ cc
+#: groups/create.php:82
+#: groups/single/admin.php:61
+msgid "This is a public group"
+msgstr "Este é um grupo público"
+
+#@ cc
+#: groups/create.php:84
+#: groups/single/admin.php:63
+msgid "Any site member can join this group."
+msgstr "Qualquer membro do site pode ingressar nesse grupo."
+
+#@ cc
+#: groups/create.php:85
+#: groups/create.php:94
+#: groups/single/admin.php:64
+#: groups/single/admin.php:74
+msgid "This group will be listed in the groups directory and in search results."
+msgstr "Este grupo será listado no diretórios de grupos e nos resultados de pesquisa."
+
+#@ cc
+#: groups/create.php:86
+#: groups/single/admin.php:65
+msgid "Group content and activity will be visible to any site member."
+msgstr "O conteúdo do grupo e toda sua atividade será visível para qualquer membro do site."
+
+#@ cc
+#: groups/create.php:91
+#: groups/single/admin.php:71
+msgid "This is a private group"
+msgstr "Este grupo é privado"
+
+#@ cc
+#: groups/create.php:93
+#: groups/single/admin.php:73
+msgid "Only users who request membership and are accepted can join the group."
+msgstr "Apenas usuários que requisitaram ingresso e foram aceitos podem entrar no grupo."
+
+#@ cc
+#: groups/create.php:95
+#: groups/create.php:104
+#: groups/single/admin.php:75
+#: groups/single/admin.php:85
+msgid "Group content and activity will only be visible to members of the group."
+msgstr "O conteúdo do grupo e toda sua atividade só serão visíveis para membros do grupo."
+
+#@ cc
+#: groups/create.php:100
+#: groups/single/admin.php:81
+msgid "This is a hidden group"
+msgstr "Este é um grupo oculto"
+
+#@ cc
+#: groups/create.php:102
+#: groups/single/admin.php:83
+msgid "Only users who are invited can join the group."
+msgstr "Apenas usuários que foram convidados podem entrar no grupo."
+
+#@ cc
+#: groups/create.php:103
+#: groups/single/admin.php:84
+msgid "This group will not be listed in the groups directory or search results."
+msgstr "Este grupo não será listado no diretório de grupos ou nos resultados de pesquisa."
+
+#@ cc
+#: groups/create.php:111
+#: groups/single/admin.php:92
+msgid "Group Invitations"
+msgstr "Convites de Grupos"
+
+#@ cc
+#: groups/create.php:113
+#: groups/single/admin.php:94
+msgid "Which members of this group are allowed to invite others?"
+msgstr "Quais membros deste grupo podem convidar outros?"
+
+#@ cc
+#: groups/create.php:118
+#: groups/single/admin.php:99
+msgid "All group members"
+msgstr "Todos membros do grupo"
+
+#@ cc
+#: groups/create.php:123
+#: groups/single/admin.php:104
+msgid "Group admins and mods only"
+msgstr "Apenas Administradores de grupo e moderadores"
+
+#@ cc
+#: groups/create.php:128
+#: groups/single/admin.php:109
+msgid "Group admins only"
+msgstr "Apenas Administradores de grupo"
+
+#@ cc
+#: groups/create.php:154
+#: groups/single/admin.php:127
+msgid "Upload an image to use as an avatar for this group. The image will be shown on the main group page, and in search results."
+msgstr "Carregue uma imagem para usar como avatar deste grupo. A imagem será exibida na página inicial do grupo e nos resultados de pesquisa."
+
+#@ cc
+#: groups/create.php:158
+#: groups/single/admin.php:131
+#: members/single/profile/change-avatar.php:18
+msgid "Upload Image"
+msgstr "Carregar uma Imagem"
+
+#@ cc
+#: groups/create.php:162
+msgid "To skip the avatar upload process, hit the \"Next Step\" button."
+msgstr "Para pular o processo de upload de avatar pressione o botão \"Próximo Passo\"."
+
+#@ cc
+#: groups/create.php:169
+msgid "Crop Group Avatar"
+msgstr "Recortar Avatar do Grupo"
+
+#@ cc
+#: groups/create.php:171
+#: groups/single/admin.php:151
+#: members/single/profile/change-avatar.php:33
+msgid "Avatar to crop"
+msgstr "Avatar a ser recortado"
+
+#@ cc
+#: groups/create.php:174
+#: groups/single/admin.php:154
+#: members/single/profile/change-avatar.php:36
+msgid "Avatar preview"
+msgstr "Pré-visualização do Avatar"
+
+#@ cc
+#: groups/create.php:177
+#: groups/single/admin.php:157
+#: members/single/profile/change-avatar.php:39
+msgid "Crop Image"
+msgstr "Recortar Imagem"
+
+#@ cc
+#: groups/create.php:216
+#: groups/single/send-invites.php:22
+msgid "Select people to invite from your friends list."
+msgstr "Selecionar convidados de sua lista de amigos."
+
+#@ cc
+#: groups/create.php:251
+#: groups/single/send-invites.php:73
+msgid "Once you have built up friend connections you will be able to invite others to your group. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new group."
+msgstr "Assim que você construir uma relação de amizade você poderá convidar outros para se juntarem a seu grupo. Você pode enviar convites em qualquer momento no futuro selecionando a opção \"Enviar Convites\" na visualização de seu novo grupo."
+
+#@ cc
+#: groups/create.php:273
+msgid "Back to Previous Step"
+msgstr "Retornar para o Passo Anterior"
+
+#@ cc
+#: groups/create.php:280
+msgid "Next Step"
+msgstr "Próximo Passo"
+
+#@ cc
+#: groups/create.php:287
+msgid "Create Group and Continue"
+msgstr "Criar Grupo e Continuar"
+
+#@ cc
+#: groups/create.php:294
+msgid "Finish"
+msgstr "Finalizar"
+
+#@ cc
+#: groups/groups-loop.php:95
+msgid "There were no groups found."
+msgstr "Não foram encontrados grupos."
+
+#@ cc
+#: groups/index.php:37
+#, php-format
+msgid "All Groups <span>%s</span>"
+msgstr "Todos os Grupos <span>%s</span>"
+
+#@ cc
+#: groups/index.php:60
+#: members/single/groups.php:23
+msgid "Most Members"
+msgstr "Mais Membros"
+
+#@ cc
+#: groups/index.php:61
+#: members/single/groups.php:24
+msgid "Newly Created"
+msgstr "Criado Recentemente"
+
+#@ cc
+#: groups/single/admin.php:25
+msgid "Notify group members of changes via email"
+msgstr "Notificar membros do grupo das mudanças via email"
+
+#@ cc
+#: groups/single/admin.php:26
+#: registration/register.php:205
+msgid "Yes"
+msgstr "Sim"
+
+#@ cc
+#: groups/single/admin.php:27
+#: registration/register.php:206
+msgid "No"
+msgstr "Não"
+
+#@ cc
+#: groups/single/admin.php:137
+msgid "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button."
+msgstr "Se você quer remover o avatar atual mas não carregar um novo, por favor use o botão apagar avatar."
+
+#@ cc
+#: groups/single/admin.php:139
+#: members/single/profile/change-avatar.php:24
+msgid "Delete Avatar"
+msgstr "Apagar Avatar"
+
+#@ cc
+#: groups/single/admin.php:149
+msgid "Crop Avatar"
+msgstr "Recortar Avatar"
+
+#@ cc
+#: groups/single/admin.php:177
+msgid "Administrators"
+msgstr "Administradores"
+
+#@ cc
+#: groups/single/admin.php:185
+#: groups/single/admin.php:210
+#, php-format
+msgid "Profile picture of %s"
+msgstr "Figura de perfil de  %s"
+
+#@ cc
+#: groups/single/admin.php:189
+#: groups/single/admin.php:215
+msgid "Demote to Member"
+msgstr "Rebaixar para Membro"
+
+#@ cc
+#: groups/single/admin.php:203
+msgid "Moderators"
+msgstr "Moderadores"
+
+#@ cc
+#: groups/single/admin.php:214
+#: groups/single/admin.php:270
+msgid "Promote to Admin"
+msgstr "Promover a Administrador"
+
+#@ cc
+#: groups/single/admin.php:258
+msgid "(banned)"
+msgstr "(banido)"
+
+#@ cc
+#: groups/single/admin.php:264
+msgid "Unban this member"
+msgstr "Desbanir este membro"
+
+#@ cc
+#: groups/single/admin.php:264
+msgid "Remove Ban"
+msgstr "Remover banimento"
+
+#@ cc
+#: groups/single/admin.php:268
+msgid "Kick and ban this member"
+msgstr "Expulsar e banir este membro"
+
+#@ cc
+#: groups/single/admin.php:268
+msgid "Kick &amp; Ban"
+msgstr "Explusar &amp; Banir"
+
+#@ cc
+#: groups/single/admin.php:269
+msgid "Promote to Mod"
+msgstr "Promover a Moderador"
+
+#@ cc
+#: groups/single/admin.php:274
+msgid "Remove this member"
+msgstr "Remover este membro"
+
+#@ cc
+#: groups/single/admin.php:274
+msgid "Remove from group"
+msgstr "Remover do grupo"
+
+#@ cc
+#: groups/single/admin.php:288
+#: groups/single/members.php:104
+msgid "This group has no members."
+msgstr "Este grupo não tem membros"
+
+#@ cc
+#: groups/single/admin.php:318
+#: members/single/friends/requests.php:37
+#: members/single/groups/invites.php:23
+msgid "Accept"
+msgstr "Aceitar"
+
+#@ cc
+#: groups/single/admin.php:320
+#: members/single/friends/requests.php:38
+#: members/single/groups/invites.php:24
+msgid "Reject"
+msgstr "Rejeitar"
+
+#@ cc
+#: groups/single/admin.php:333
+msgid "There are no pending membership requests."
+msgstr "Não há pedidos de afiliação pendentes;"
+
+#@ cc
+#: groups/single/admin.php:350
+msgid "WARNING: Deleting this group will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "AVISO: Apagar este grupo irá remover completamente TODO o conteúdo associado a ele. Não há reversão, seja cuidadoso com esta opção."
+
+#@ cc
+#: groups/single/admin.php:353
+msgid "I understand the consequences of deleting this group."
+msgstr "Eu entendo as consequências de apagar este grupo."
+
+#@ cc
+#: groups/single/admin.php:358
+msgid "Delete Group"
+msgstr "Apagar Grupo"
+
+#@ cc
+#: groups/single/forum/topic.php:67
+#, php-format
+msgid "%1$s said %2$s:"
+msgstr "%1$s disse %2$s:"
+
+#@ cc
+#: groups/single/forum/topic.php:112
+msgid "You will auto join this group when you reply to this topic."
+msgstr "Você irá ingressar automaticamente neste grupo ao responder este tópico."
+
+#@ cc
+#: groups/single/forum.php:65
+msgid "You will auto join this group when you start a new topic."
+msgstr "Você irá ingressar automaticamente neste grupo ao iniciar um novo tópico."
+
+#@ cc
+#: groups/single/forum.php:69
+msgid "Post a New Topic:"
+msgstr "Postar um Novo Tópico:"
+
+#@ cc
+#: groups/single/group-header-sidebar.php:16
+#: groups/single/group-header.php:35
+#, php-format
+msgid "active %s ago"
+msgstr "ativo %s atrás"
+
+#@ cc
+#: groups/single/group-header.php:6
+msgid "Group Admins"
+msgstr "Administradores do Grupo"
+
+#@ cc
+#: groups/single/group-header.php:14
+msgid "Group Mods"
+msgstr "Moderadores do Grupo"
+
+#@ cc
+#: groups/single/members.php:15
+#: members/index.php:58
+#: members/single/friends.php:23
+msgid "Newest Registered"
+msgstr "Mais novo Registrado"
+
+#@ cc
+#: groups/single/request-membership.php:4
+#, php-format
+msgid "You are requesting to become a member of the group '%s'."
+msgstr "Você está pedindo para se tornar membro do grupo '%s'."
+
+#@ cc
+#: groups/single/request-membership.php:7
+msgid "Comments (optional)"
+msgstr "Comentários (opcional)"
+
+#@ cc
+#: groups/single/request-membership.php:12
+msgid "Send Request"
+msgstr "Enviar Requisição"
+
+#@ cc
+#: groups/single/send-invites.php:60
+msgid "Send Invites"
+msgstr "Enviar Convites"
+
+#@ cc
+#: index.php:30
+#: single.php:56
+#, php-format
+msgid " by %s"
+msgstr "por %s"
+
+#@ cc
+#: index.php:58
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr "Desculpe, mas você está procurando por algo que não está aqui."
+
+#@ cc
+#: members/index.php:23
+msgid "Members Directory"
+msgstr "Diretório de Membros"
+
+#@ cc
+#: members/members-loop.php:108
+msgid "Sorry, no members were found."
+msgstr "Desculpe, não foram encontrados membros."
+
+#@ cc
+#: members/single/friends/requests.php:68
+msgid "You have no pending friendship requests."
+msgstr "Você não tem requisições de amizade pendentes."
+
+#@ cc
+#: members/single/groups/invites.php:14
+#, php-format
+msgid "%s members"
+msgstr "%s membros"
+
+#@ cc
+#: members/single/groups/invites.php:37
+msgid "You have no outstanding group invites."
+msgstr "Você não tem convites de grupo sobrando."
+
+#@ cc
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+msgid "Mention this user in a new public message, this will send the user a notification to get their attention."
+msgstr "Mencione esse usuário em uma nova mensagem pública, dessa forma ele recebará uma notificação."
+
+#@ cc
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+msgid "Mention this User"
+msgstr "Mencionar este Usuário"
+
+#@ cc
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+msgid "Send a private message to this user."
+msgstr "Enviar uma mensagem privada para este usuário."
+
+#@ cc
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+msgid "Send Private Message"
+msgstr "Enviar Mensagem Privada"
+
+#@ cc
+#: members/single/messages/compose.php:5
+msgid "Send To (Username or Friend's Name)"
+msgstr "Enviar para (Nome de usuário ou de Amigo)"
+
+#@ cc
+#: members/single/messages/compose.php:14
+msgid "This is a notice to all users."
+msgstr "Essa é uma notificação a todos os membros."
+
+#@ cc
+#: members/single/messages/compose.php:17
+msgid "Subject"
+msgstr "Assunto"
+
+#@ cc
+#: members/single/messages/compose.php:20
+msgid "Message"
+msgstr "Mensagem"
+
+#@ cc
+#: members/single/messages/compose.php:28
+msgid "Send Message"
+msgstr "Emviar Mensagem"
+
+#@ cc
+#: members/single/messages/messages-loop.php:31
+msgid "From:"
+msgstr "De:"
+
+#@ cc
+#: members/single/messages/messages-loop.php:36
+msgid "To:"
+msgstr "Para:"
+
+#@ cc
+#: members/single/messages/messages-loop.php:42
+msgid "View Message"
+msgstr "Ver Mensagem"
+
+#@ cc
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/notices-loop.php:38
+#: members/single/messages/single.php:24
+msgid "Delete Message"
+msgstr "Apagar Mensagem"
+
+#@ cc
+#: members/single/messages/messages-loop.php:68
+msgid "Sorry, no messages were found."
+msgstr "Desculpe, nenhuma mensagem foi encontrada."
+
+#@ cc
+#: members/single/messages/notices-loop.php:31
+msgid "Sent:"
+msgstr "Enviado:"
+
+#@ cc
+#: members/single/messages/notices-loop.php:49
+msgid "Sorry, no notices were found."
+msgstr "Desculpe, nenhuma notificação foi encontrada."
+
+#@ cc
+#: members/single/messages/single.php:14
+msgid "You are alone in this conversation."
+msgstr "Você está sozinho nesta conversação."
+
+#@ cc
+#: members/single/messages/single.php:18
+#, php-format
+msgid "Conversation between %s and you."
+msgstr "Conversação entre %s e você."
+
+#@ cc
+#: members/single/messages/single.php:75
+msgid "Send a Reply"
+msgstr "Enviar uma Resposta"
+
+#@ cc
+#: members/single/messages/single.php:91
+msgid "Send Reply"
+msgstr "Enviar Resposta"
+
+#@ cc
+#: members/single/profile/change-avatar.php:1
+msgid "Change Avatar"
+msgstr "Modificar Avatar"
+
+#@ cc
+#: members/single/profile/change-avatar.php:7
+msgid "Your avatar will be used on your profile and throughout the site. If there is a <a href=\"http://gravatar.com\">Gravatar</a> associated with your account email we will use that, or you can upload an image from your computer."
+msgstr "Seu avatar será usado no seu perfil e no site.  Se houver um <a href=\"http://gravatar.com\">Gravatar</a> associado a sua conta ou email nós o usaremos, ou você poderá carregar uma imagem do seu computador."
+
+#@ cc
+#: members/single/profile/change-avatar.php:14
+msgid "Click below to select a JPG, GIF or PNG format photo from your computer and then click 'Upload Image' to proceed."
+msgstr "Cloque adiante para selcionar uma photo em formato JPG, GIF ou PNG de seu computador e então clique em 'Enviar Imagem' para prosseguir."
+
+#@ cc
+#: members/single/profile/change-avatar.php:23
+msgid "If you'd like to delete your current avatar but not upload a new one, please use the delete avatar button."
+msgstr "Se você quer apagar seu avatar atual mas não carregar um novo, por favor use o botão apagar avatar."
+
+#@ cc
+#: members/single/profile/change-avatar.php:24
+msgid "Delete My Avatar"
+msgstr "Apagar meu Avatar"
+
+#@ cc
+#: members/single/profile/change-avatar.php:31
+msgid "Crop Your New Avatar"
+msgstr "Recortar seu Novo Avatar"
+
+#@ cc
+#: members/single/profile/change-avatar.php:55
+msgid "Your avatar will be used on your profile and throughout the site. To change your avatar, please create an account with <a href=\"http://gravatar.com\">Gravatar</a> using the same email address as you used to register with this site."
+msgstr "Seu avatar será usado no seu perfil e no site. Para modificar seu avatar, por favor crie uma conta no <a href=\"http://gravatar.com\">Gravatar</a> usando o mesmo endereço de email com o qual você se registrou neste site."
+
+#@ cc
+#: members/single/profile/edit.php:10
+#, php-format
+msgid "Editing '%s' Profile Group"
+msgstr "Editando o Perfil do Grupo '%s' "
+
+#@ cc
+#: members/single/profile/edit.php:26
+#: members/single/profile/edit.php:33
+#: members/single/profile/edit.php:40
+#: members/single/profile/edit.php:49
+#: members/single/profile/edit.php:67
+#: members/single/profile/edit.php:83
+#: members/single/profile/edit.php:93
+#: registration/register.php:37
+#: registration/register.php:41
+#: registration/register.php:45
+#: registration/register.php:49
+#: registration/register.php:76
+#: registration/register.php:84
+#: registration/register.php:92
+#: registration/register.php:102
+#: registration/register.php:113
+#: registration/register.php:128
+#: registration/register.php:139
+#: registration/register.php:189
+#: registration/register.php:198
+msgid "(required)"
+msgstr "(necessário)"
+
+#@ cc
+#: members/single/profile/edit.php:58
+#: members/single/profile/edit.php:73
+#: registration/register.php:119
+msgid "Clear"
+msgstr "Limpar"
+
+#@ cc
+#: members/single/profile/profile-wp.php:8
+#, php-format
+msgid "%s's Profile"
+msgstr "Perfil de %s"
+
+#@ cc
+#: members/single/profile/profile-wp.php:24
+msgid "About Me"
+msgstr "Sobre Mim"
+
+#@ cc
+#: members/single/profile/profile-wp.php:42
+msgid "Jabber"
+msgstr "Jabber"
+
+#@ cc
+#: members/single/profile/profile-wp.php:51
+msgid "AOL Messenger"
+msgstr "AOL Messenger"
+
+#@ cc
+#: members/single/profile/profile-wp.php:60
+msgid "Yahoo Messenger"
+msgstr "Yahoo Messenger"
+
+#@ cc
+#: members/single/settings/delete-account.php:50
+msgid "Delete Account"
+msgstr "Apagar Conta"
+
+#@ cc
+#: members/single/settings/delete-account.php:55
+msgid "WARNING: Deleting your account will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "AVISO: Apagar sua conta irá remover TODO o conteúdo associado a ela. Não há reversão, seja cuidadoso com essa opção."
+
+#@ cc
+#: members/single/settings/delete-account.php:58
+msgid "I understand the consequences of deleting my account."
+msgstr "Eu entendo as consequências de apagar minha conta."
+
+#@ cc
+#: members/single/settings/delete-account.php:63
+msgid "Delete My Account"
+msgstr "Apagar Minha Conta"
+
+#@ cc
+#: members/single/settings/general.php:50
+msgid "General Settings"
+msgstr "Configurações Gerais"
+
+#@ cc
+#: members/single/settings/general.php:56
+msgid "Current Password <span>(required to update email or change current password)</span>"
+msgstr "Senha atual <span>(necessário para atualizar email ou modificar a senha atual)</span>"
+
+#@ cc
+#: members/single/settings/general.php:57
+msgid "Password Lost and Found"
+msgstr "Recuperar Senhas"
+
+#@ cc
+#: members/single/settings/general.php:57
+msgid "Lost your password?"
+msgstr "Perdeu sua senha?"
+
+#@ cc
+#: members/single/settings/general.php:59
+msgid "Account Email"
+msgstr "Email da Conta"
+
+#@ cc
+#: members/single/settings/general.php:62
+msgid "Change Password <span>(leave blank for no change)</span>"
+msgstr "Modificar Senha <span>(deixe em branco para não modificar)</span>"
+
+#@ cc
+#: members/single/settings/general.php:63
+msgid "New Password"
+msgstr "Nova Senha"
+
+#@ cc
+#: members/single/settings/general.php:64
+msgid "Repeat New Password"
+msgstr "Repetir Nova Senha"
+
+#@ cc
+#: members/single/settings/notifications.php:50
+msgid "Email Notification"
+msgstr "Notificação por Email"
+
+#@ cc
+#: members/single/settings/notifications.php:55
+msgid "Send a notification by email when:"
+msgstr "Notificar-me por email quando:"
+
+#@ cc
+#: registration/activate.php:12
+msgid "Account Activated"
+msgstr "Conta Ativada"
+
+#@ cc
+#: registration/activate.php:17
+msgid "Your account was activated successfully! Your account details have been sent to you in a separate email."
+msgstr "Sua conta foi ativada com sucesso! Os detalhes de sua conta lhe foram enviados em um email à parte."
+
+#@ cc
+#: registration/activate.php:19
+msgid "Your account was activated successfully! You can now log in with the username and password you provided when you signed up."
+msgstr "Sua conta foi ativada com sucesso! Agora você pode logar com seu nome de usuário e a senha que você criou ao se registrar."
+
+#@ cc
+#: registration/activate.php:24
+msgid "Activate your Account"
+msgstr "Ativar sua Conta"
+
+#@ cc
+#: registration/activate.php:28
+msgid "Please provide a valid activation key."
+msgstr "Por favor forneça uma chave de ativação válida."
+
+#@ cc
+#: registration/activate.php:32
+msgid "Activation Key:"
+msgstr "Chave de Ativação:"
+
+#@ cc
+#: registration/activate.php:36
+msgid "Activate"
+msgstr "Ativar"
+
+#@ cc
+#: registration/register.php:16
+msgid "User registration is currently not allowed."
+msgstr "O registro de usuários não está disponível atualmente."
+
+#@ cc
+#: registration/register.php:23
+msgid "Create an Account"
+msgstr "Criar uma Conta."
+
+#@ cc
+#: registration/register.php:27
+msgid "Registering for this site is easy, just fill in the fields below and we'll get a new account set up for you in no time."
+msgstr "Registrar-se para este site é fácil, preencha os cambos abaixo e nós lhe forneceremos uma conta rapidamente."
+
+#@ cc
+#: registration/register.php:35
+msgid "Account Details"
+msgstr "Detalhes da Conta"
+
+#@ cc
+#: registration/register.php:41
+msgid "Email Address"
+msgstr "Endereço de Email"
+
+#@ cc
+#: registration/register.php:45
+msgid "Choose a Password"
+msgstr "Escolher uma Senha"
+
+#@ cc
+#: registration/register.php:49
+msgid "Confirm Password"
+msgstr "Confirmar Senha"
+
+#@ cc
+#: registration/register.php:65
+msgid "Profile Details"
+msgstr "Detalhes do Perfil"
+
+#@ cc
+#: registration/register.php:183
+msgid "Blog Details"
+msgstr "Detalhes do Blog"
+
+#@ cc
+#: registration/register.php:185
+msgid "Yes, I'd like to create a new site"
+msgstr "Sim, eu gostaria de criar um novo site"
+
+#@ cc
+#: registration/register.php:189
+msgid "Blog URL"
+msgstr "URL do Blog"
+
+#@ cc
+#: registration/register.php:198
+msgid "Site Title"
+msgstr "Título do Site"
+
+#@ cc
+#: registration/register.php:202
+msgid "I would like my site to appear in search engines, and in public listings around this network."
+msgstr "Eu gostaria que meu site aparecesse em mecanismos de buscas e em listagens públicas desta rede."
+
+#@ cc
+#: registration/register.php:219
+msgid "Complete Sign Up"
+msgstr "Completar Registro"
+
+#@ cc
+#: registration/register.php:230
+msgid "Sign Up Complete!"
+msgstr "Registro Completo!"
+
+#@ cc
+#: registration/register.php:236
+msgid "You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address."
+msgstr "Você criou sua conta com sucesso! Para começar a usá-la você precisa ativar sua conta pelo email que lhe foi enviado."
+
+#@ cc
+#: registration/register.php:238
+msgid "You have successfully created your account! Please log in using the username and password you have just created."
+msgstr "Você cirou sua conta com Sucesso! Por favor logue usando o nome de usuário e senha que você criou."
+
+#@ cc
+#: search-loop.php:34
+msgid "Read more..."
+msgstr "Ler mais..."
+
+#@ cc
+#: search-loop.php:51
+#, php-format
+msgid "We are sorry, but we could not find anything for the search term '%s'"
+msgstr "Desculpe, mas não encontramos nada com o termo de pesquisa '%s'"
+
+#@ cc
+#: search.php:14
+msgid "Search Results"
+msgstr "Resultados de Pesquisa"
+
+#@ cc
+#: search.php:59
+msgid "No posts found. Try a different search?"
+msgstr "Nenhum post encontrado. Gostaria de tentar uma nova pesquisa?"
+
+#@ cc
+#: sidebar.php:11
+msgid "Recent Posts"
+msgstr "Posts Recentes"
+
+#@ cc
+#: sidebar.php:23
+msgid "Random Posts"
+msgstr "Posts Aleatórios"
+
+#@ cc
+#: sidebar.php:35
+msgid "Search by Tags!"
+msgstr "Procurar por Etiquetas!"
+
+#@ cc
+#: single.php:96
+msgid "Sorry, no posts matched your criteria."
+msgstr "Desculpe, nenhum post equivale a seu critério."
+
+#@ cc
+#: comments.php:3
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Esse post está protegido por senha. Entre com a senha para visualizar qualquer comentário."
+
+#@ cc
+#: comments.php:19
+#, php-format
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Um pensamento sobre &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s pensamentos sobre &ldquo;%2$s&rdquo;"
+
+#@ cc
+#: comments.php:26
+#: comments.php:40
+msgid "Comment navigation"
+msgstr "Navegação pelos Comentários"
+
+#@ cc
+#: comments.php:27
+#: comments.php:41
+msgid "&larr; Older Comments"
+msgstr "&larr; Comentários Antigos"
+
+#@ cc
+#: comments.php:28
+#: comments.php:42
+msgid "Newer Comments &rarr;"
+msgstr "Novos Comentários &rarr;"
+
+#@ cc
+#: forums/forums-loop.php:24
+msgid "Topic Title"
+msgstr "Título do Tópico"
+
+#@ cc
+#: forums/forums-loop.php:25
+msgid "Latest Poster"
+msgstr "Último Postador"
+
+#@ cc
+#: forums/forums-loop.php:28
+msgid "Posted In Group"
+msgstr "Postado neste Grupo"
+
+#@ cc
+#: page.php:33
+msgid "Edit this page."
+msgstr "Editar esta página."
+
+#@ cc
+#: single.php:86
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#@ cc
+#: single.php:87
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"
+

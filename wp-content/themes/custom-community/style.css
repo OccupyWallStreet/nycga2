@@ -1,0 +1,82 @@
+/*
+Theme Name: Custom Community 
+Theme URI: http://themekraft.com/custom-community/
+Description: Standout with a professional custom made WordPress theme designed by you. Responsive with just 1 click. Ready for your next blog, portfolio site, magazine, social network or shop. Use it out-of-the-box or customize it up to the smallest details. Spend your time on your ideas, not on trouble shooting. Easy to use jQuery slideshow. List posts in magazine layouts. 100+ easy theme options. 20 widget areas, 5 special widgets and 2 custom WP 3.0 header menus. 15+ languages available. 3 predefined colour schemes (white, grey, black) with clean and simple browsersafe CSS design to start from. Working with latest WordPress, BuddyPress, WooCommerce and most common plugins. Find extensive Documentation, Free Tech Support and Premium Support at http://themekraft.com/support. One of the most used BudyPress themes. Community thriven development. You are welcome to contribute and report bugs or ideas at GitHub: https://github.com/Themekraft/custom-community/issues - designed and developed by Themekraft. 
+Version: 1.12.2
+Author: Themekraft
+Author URI: http://themekraft.com/
+Tags: buddypress, translation-ready, dark, light, white, gray, left-sidebar, right-sidebar, one-column, two-columns, three-columns, fixed-width, flexible-width, full-width-template, custom-header, flexible-header, custom-menu, custom-colors, custom-background, theme-options, featured-images, editor-style, sticky-post, threaded-comments, holiday, photoblogging
+License: GNU General Public License v2.0 / License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/* Reset browser defaults */
+@import url( _inc/css/reset.css );
+
+/** 
+ * 	
+ * PLEASE NEVER CHANGE THE THEME FILES 
+ * 
+ * your changes will not be update safe, which would be really sad. :( 
+ * 
+ * ---------------------------------------------- 
+ * 
+ * But we made an extra space for your style changes. :)
+ * 
+ * Simply go to 
+ * 
+ * APPEARANCE -> THEME SETTINGS -> CSS 
+ * 
+ * andd add your CSS changes there. 
+ * 
+ * ----------------------------------------------
+ * 
+ * If you want to change more than CSS, we strongly recommend creating a child theme:
+ * http://support.themekraft.com/entries/20916508-create-child-themes 
+ * 
+ * MORE HELP HERE
+ * 
+ * Custom Community Knowledge Base: 
+ * http://support.themekraft.com/categories/20053996-custom-community 
+ * 
+ * Free Tech Support and Premium Support: 
+ * http://themekraft.com/support 
+ * 
+ * Custom Community Project Overview: 
+ * http://themekraft.com/custom-community/ 
+ * 
+ * We hope you enjoy it! 
+ * 
+ */
+
+.aligncenter { 
+display: block;
+margin-left: auto;
+margin-right: auto; 
+}
+
+.alignleft {
+float: left;
+margin-right: 15px;
+}
+
+.alignright {
+float: right;
+margin-left: 15px;
+}
+
+div.post .wp-caption {
+text-align: center;
+background-color: #f3f3f3;
+padding-top: 4px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+margin-bottom:12px;
+}
+
+div.post dd.wp-caption p.wp-caption-text, div.post .wp-caption p.wp-caption-text {
+font-size: 0.9em;
+line-height: 17px;
+padding: 0 4px 5px 0;
+margin: 0;
+}

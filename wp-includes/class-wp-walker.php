@@ -52,7 +52,7 @@ class Walker {
 	 *
 	 * @param string $output Passed by reference. Used to append additional content.
 	 */
-	function start_lvl(&$output) {}
+	function start_lvl( &$output, $depth = 0, $args = array() ) {}
 
 	/**
 	 * Ends the list of after the elements are added.
@@ -66,7 +66,7 @@ class Walker {
 	 *
 	 * @param string $output Passed by reference. Used to append additional content.
 	 */
-	function end_lvl(&$output)   {}
+	function end_lvl( &$output, $depth = 0, $args = array() )   {}
 
 	/**
 	 * Start the element output.
@@ -80,7 +80,7 @@ class Walker {
 	 *
 	 * @param string $output Passed by reference. Used to append additional content.
 	 */
-	function start_el(&$output)  {}
+	function start_el( &$output, $object, $depth, $args, $current_object_id = 0 )  {}
 
 	/**
 	 * Ends the element output, if needed.
@@ -93,7 +93,7 @@ class Walker {
 	 *
 	 * @param string $output Passed by reference. Used to append additional content.
 	 */
-	function end_el(&$output)    {}
+	function end_el( &$output, $object, $depth = 0, $args = array() )    {}
 
 	/**
 	 * Traverse elements to create list from elements.
@@ -126,7 +126,7 @@ class Walker {
 		if ( is_array( $args[0] ) )
 			$args[0]['has_children'] = ! empty( $children_elements[$element->$id_field] );
 		$cb_args = array_merge( array(&$output, $element, $depth), $args);
-		call_user_func_array(array(&$this, 'start_el'), $cb_args);
+		call_user_func_array(array($this, 'start_el'), $cb_args);
 
 		$id = $element->$id_field;
 
@@ -139,7 +139,7 @@ class Walker {
 					$newlevel = true;
 					//start the child delimiter
 					$cb_args = array_merge( array(&$output, $depth), $args);
-					call_user_func_array(array(&$this, 'start_lvl'), $cb_args);
+					call_user_func_array(array($this, 'start_lvl'), $cb_args);
 				}
 				$this->display_element( $child, $children_elements, $max_depth, $depth + 1, $args, $output );
 			}
@@ -149,12 +149,12 @@ class Walker {
 		if ( isset($newlevel) && $newlevel ){
 			//end the child delimiter
 			$cb_args = array_merge( array(&$output, $depth), $args);
-			call_user_func_array(array(&$this, 'end_lvl'), $cb_args);
+			call_user_func_array(array($this, 'end_lvl'), $cb_args);
 		}
 
 		//end this element
 		$cb_args = array_merge( array(&$output, $element, $depth), $args);
-		call_user_func_array(array(&$this, 'end_el'), $cb_args);
+		call_user_func_array(array($this, 'end_el'), $cb_args);
 	}
 
 	/**
@@ -395,5 +395,3 @@ class Walker {
 
 	}
 }
-
-?>

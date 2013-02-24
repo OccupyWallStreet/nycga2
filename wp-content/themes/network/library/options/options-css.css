@@ -1,0 +1,211 @@
+#options-panel {
+	margin: 0px;
+	padding: 20px 0px;
+	float: left;
+	width: 98%;
+	position: relative;
+}
+#options-panel h2 {
+	font-size: 17px;
+	color: #000000;
+	margin: 0px 0px 15px;
+	padding: 0px 0px 5px;
+	float: left;
+	width: 100%;
+	border-bottom: 1px solid #eee;
+}
+
+#submitsection h2{
+	color: #000000;
+	font-weight: bold;
+	font-size: 17px;
+	margin: 0px 20px 0px 0px;
+	float: left;
+	width: auto;
+}
+
+#resetsection h2{
+	float: left;
+	color: #ff9000;
+	font-weight: bold;
+	font-size: 17px;
+	width: auto;
+	margin: 0px 20px 0px 0px;
+}
+
+#resetsection{
+	border: 1px solid #ff9000;
+	background: #fff4e5;
+	padding: 0px 16px 0px 10px;
+	width: 95%;
+	float: left;
+}
+
+#resetsection .submit{
+	padding-top: 10px;
+	margin-top: 0px;
+	padding-bottom: 10px;
+	margin-bottom: 0px;
+}
+#submitsection{
+	border: 1px solid #cccccc;
+	background: #eeeeee;
+	padding: 10px 18px 10px 10px;
+	float: left;
+	width: 97%;
+}
+
+.ui-tabs-hide { display: none; }
+
+#sbtabs {clear:both; margin-top:10px;}
+.tabc {
+	margin: 0px 0px 20px;
+	padding: 2%;
+	float: left;
+	width: 95%;
+	background: #FFFFFF;
+	border: 1px solid #CCCCCC;
+}
+#tabm {
+	margin: 0px;
+	padding: 0% 3%;
+	float: left;
+	width: 93%;
+}
+.tabci {margin: 0px;padding: 10px;border-left: 1px solid #ddd;border-top: 1px solid #ddd;border-right: 1px solid #ccc;border-bottom: 1px solid #ccc;}
+.tabmc {
+	padding: 0px 0px 8px;
+	margin: 0px 0px 8px;
+	float: left;
+	width: 100%;
+	border-bottom: 1px solid #ddd;
+}
+#tabm li {
+	margin: 0px 12px 0px 0px;
+	padding: 0px 12px 0px 0px;
+	font-size: 13px;
+	line-height: normal;
+	float: left;
+	list-style: none;
+	cursor: pointer;
+	border-right: 1px solid #CCCCCC;
+}
+#tabm li a, #tabm li a:visited {
+	color: #999999;
+	text-decoration: none;
+	display: block;
+	float: left;
+}
+#tabm li a:hover, #tabm li.ui-tabs-selected a {
+	color: #003366;
+	text-decoration: underline;
+	display: block;
+	float: left;
+}
+.tabc ul {
+	margin: 0px;
+	padding: 0%;
+	float: left;
+	width: 100%;
+	list-style-type: none;
+}
+.tabc ul li {
+	margin: 0px 0px 12px;
+	padding: 0px;
+	float: left;
+	width: 100%;
+	list-style-type: none;
+}
+
+.tab-option {
+	margin: 0px 0px 8px;
+	padding: 0px 0px 8px;
+	float: left;
+	width: 100%;
+	border-bottom: 1px solid #eee;
+}
+.tab-option .description {
+	margin: 0px;
+	padding: 0px 5% 0px 0px;
+	float: left;
+	width: 45%;
+	font-size: 13px;
+	font-weight: bold;
+	color: #000000;
+}
+.description span {
+	font-size: 11px;
+	font-weight: normal;
+	color: #999999;
+}
+.tab-option .input-option {
+	margin: 0px;
+	padding: 0px;
+	float: right;
+	width: 50%;
+}
+input.myfield, input.color {
+	width: 90%;
+}
+#options-panel .submit{
+	margin: 0px 15px 0px 0px;
+	padding: 0px;
+	float: left;
+}
+
+#resetsection .sbutton{
+	margin: 0px;
+	border: 1px solid #ffffff;
+	background: #ff9000;
+	color: #ffffff;
+	text-shadow: #ffffff 0px 0px;
+}
+
+#submitsection .sbutton{
+	margin: 0px;
+	float: left;
+}
+
+#options-panel textarea {
+	width: 90%;
+}
+
+div.admin-options {
+	margin: 0px;
+	padding: 0px 0px 35px;
+	float: left;
+	width: 100%;
+}
+
+#options-panel h6 {
+	font-size: 24px;
+	margin: 0px 0px 8px;
+	padding: 0px 0px 8px;
+	float: left;
+	width: 100%;
+	border-bottom: 1px solid #ddd;
+	font-family: Helvetica, Arial, sans-serif;
+	letter-spacing: -1px;
+}
+#options-panel em {
+	font-size: 11px;
+	font-style: normal !important;
+	color: #999;
+}
+#options-panel select {
+	width: 60%;
+	border: 1px solid #C0C0C0;
+}
+#options-panel select.select-multiple {
+	height: 100px;
+}
+
+#options-panel input, #options-panel textarea {
+	border: 1px solid #C0C0C0;
+}
+
+#footer{
+	position:relative!important;
+}
+
+/* 18246-1343677389 */

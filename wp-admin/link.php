@@ -15,7 +15,7 @@ require_once ('admin.php');
 wp_reset_vars(array('action', 'cat_id', 'linkurl', 'name', 'image', 'description', 'visible', 'target', 'category', 'link_id', 'submit', 'order_by', 'links_show_cat_id', 'rating', 'rel', 'notes', 'linkcheck[]'));
 
 if ( ! current_user_can('manage_links') )
-	wp_die( __('You do not have sufficient permissions to edit the links for this site.') );
+	wp_link_manager_disabled_message();
 
 if ( !empty($_POST['deletebookmarks']) )
 	$action = 'deletebookmarks';
@@ -99,6 +99,9 @@ switch ($action) {
 		wp_enqueue_script('link');
 		wp_enqueue_script('xfn');
 
+		if ( wp_is_mobile() )
+			wp_enqueue_script( 'jquery-touch-punch' );
+
 		$parent_file = 'link-manager.php';
 		$submenu_file = 'link-manager.php';
 		$title = __('Edit Link');
@@ -115,4 +118,3 @@ switch ($action) {
 	default :
 		break;
 }
-?>

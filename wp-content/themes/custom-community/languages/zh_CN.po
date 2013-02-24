@@ -1,0 +1,2199 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#@ cc
+#: 404.php:7
+msgid "Page not found"
+msgstr "亲，页面暂时没有找到哦！"
+
+#@ cc
+#: 404.php:9
+msgid "We're sorry, but we can't find the page that you're looking for. Perhaps searching will help."
+msgstr "别急嘛，要不再逛逛？肯定有你喜欢的！"
+
+#@ cc
+#: _inc/ajax.php:147
+msgid "Please enter some content to post."
+msgstr "无字天书啊！你叫我们怎么看？"
+
+#@ cc
+#: _inc/ajax.php:164
+msgid "There was a problem posting your update, please try again."
+msgstr "我晕！更新设置时出错了，再试试吧……"
+
+#@ cc
+#: _inc/ajax.php:189
+msgid "Please do not leave the comment area blank."
+msgstr "看到这个对话框了吗？把你的内容挪进来！"
+
+#@ cc
+#: _inc/ajax.php:194
+#: _inc/ajax.php:205
+msgid "There was an error posting that reply, please try again."
+msgstr "有木有搞错！写个回复都能出错，绝不是人品问题……"
+
+#@ cc
+#: _inc/ajax.php:262
+#: _inc/ajax.php:297
+msgid "There was a problem when deleting. Please try again."
+msgstr "纳尼？删除时出错了，还要不要人删啊……"
+
+#@ cc
+#: _inc/ajax.php:312
+#: activity/entry.php:72
+msgid "Remove Favorite"
+msgstr "移除珍藏"
+
+#@ cc
+#: _inc/ajax.php:321
+#: activity/entry.php:68
+msgid "Favorite"
+msgstr "珍藏"
+
+#@ cc
+#: _inc/ajax.php:380
+#: groups/create.php:234
+#: groups/single/send-invites.php:42
+msgid "Remove Invite"
+msgstr "删除邀请"
+
+#@ cc
+#: _inc/ajax.php:406
+msgid "Friendship could not be canceled."
+msgstr "La Amistad no pudo ser cancelada."
+
+#@ cc
+#: _inc/ajax.php:408
+msgid "Add Friend"
+msgstr "加好友"
+
+#@ cc
+#: _inc/ajax.php:416
+msgid "Friendship could not be requested."
+msgstr "La Amistad no pudo ser solicitada."
+
+#@ cc
+#: _inc/ajax.php:418
+msgid "Friendship Requested"
+msgstr "好友请求"
+
+#@ cc
+#: _inc/ajax.php:421
+msgid "Request Pending"
+msgstr "请求正在审核中……"
+
+#@ cc
+#: _inc/ajax.php:433
+msgid "There was a problem accepting that request. Please try again."
+msgstr "接受申请时出现问题，请再尝试。"
+
+#@ cc
+#: _inc/ajax.php:444
+msgid "There was a problem rejecting that request. Please try again."
+msgstr "拒绝申请时出现问题，请再尝试。"
+
+#@ cc
+#: _inc/ajax.php:467
+msgid "Error joining group"
+msgstr "加入群时，出现错误"
+
+#@ cc
+#: _inc/ajax.php:469
+msgid "Leave Group"
+msgstr "离开此群"
+
+#@ cc
+#: _inc/ajax.php:477
+msgid "Error requesting membership"
+msgstr "请求加入成员时出现错误。"
+
+#@ cc
+#: _inc/ajax.php:479
+msgid "Membership Requested"
+msgstr "会员要求"
+
+#@ cc
+#: _inc/ajax.php:488
+msgid "Error leaving group"
+msgstr "离开群时，出现错误。"
+
+#@ cc
+#: _inc/ajax.php:491
+msgid "Join Group"
+msgstr "加入群"
+
+#@ cc
+#: _inc/ajax.php:493
+msgid "Request Membership"
+msgstr "申请会员"
+
+#@ cc
+#: _inc/ajax.php:505
+msgid "There was a problem closing the notice."
+msgstr "关闭通知时出现错误。"
+
+#@ cc
+#: _inc/ajax.php:530
+#, php-format
+msgid "Sent %s"
+msgstr "发送 %s"
+
+#@ cc
+#: _inc/ajax.php:547
+msgid "There was a problem sending that reply. Please try again."
+msgstr "发送回复时出现问题，请再尝试。"
+
+#@ cc
+#: _inc/ajax.php:557
+msgid "There was a problem marking messages as unread."
+msgstr "标记未读时出现问题。"
+
+#@ cc
+#: _inc/ajax.php:573
+msgid "There was a problem marking messages as read."
+msgstr "标记已读时出现问题。"
+
+#@ cc
+#: _inc/ajax.php:589
+msgid "There was a problem deleting messages."
+msgstr "删除信息时出现问题。"
+
+#@ cc
+#: _inc/ajax.php:596
+msgid "Messages deleted."
+msgstr "信息已被删除。"
+
+#@ cc
+#: activity/activity-loop.php:41
+msgid "Load More"
+msgstr "加载更多"
+
+#@ cc
+#: activity/activity-loop.php:55
+msgid "Sorry, there was no activity found. Please try a different filter."
+msgstr "对不起，没有发现动态，请试试其他的过滤器。"
+
+#@ cc
+#. translators: 1: user profile link, 2: user name, 3: activity permalink, 3: activity timestamp
+#: activity/comment.php:28
+#, php-format
+msgid "<a href=\"%1$s\">%2$s</a> replied <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\">%2$s</a> respondió <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+
+#@ cc
+#: activity/comment.php:33
+#: forums/single/edit.php:10
+#: groups/single/forum/edit.php:10
+msgid "Reply"
+msgstr "回复"
+
+#@ cc
+#: activity/comment.php:39
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/single.php:24
+msgid "Delete"
+msgstr "删除"
+
+#@ cc
+#: activity/entry.php:37
+msgid "In reply to: "
+msgstr "回复给"
+
+#@ cc
+#: activity/entry.php:37
+msgid "View Thread / Permalink"
+msgstr "查看链接"
+
+#@ cc
+#: activity/entry.php:37
+#: core/includes/bp/templatetags.php:89
+msgid "View"
+msgstr "查看"
+
+#@ cc
+#: activity/entry.php:60
+#, php-format
+msgid "Comment <span>%s</span>"
+msgstr "评论  <span>%s</span>"
+
+#@ cc
+#: activity/entry.php:68
+msgid "Mark as Favorite"
+msgstr "标记为最喜爱的"
+
+#@ cc
+#: activity/entry.php:104
+msgid "Post"
+msgstr "发布"
+
+#@ cc
+#: activity/entry.php:104
+msgid "or press esc to cancel."
+msgstr "按ESC取消"
+
+#@ cc
+#: activity/index.php:23
+msgid "Site Activity"
+msgstr "网站动态"
+
+#@ cc
+#: activity/index.php:41
+msgid "The public activity for everyone on this site."
+msgstr "网站公开动态。"
+
+#@ cc
+#: activity/index.php:41
+#: members/index.php:35
+#, php-format
+msgid "All Members <span>%s</span>"
+msgstr "所有成员 <span>%s</span>"
+
+#@ cc
+#: activity/index.php:51
+msgid "The activity of my friends only."
+msgstr "只是好友的动态。"
+
+#@ cc
+#: activity/index.php:51
+#: members/index.php:39
+#, php-format
+msgid "My Friends <span>%s</span>"
+msgstr "我的朋友 <span>%s</span>"
+
+#@ cc
+#: activity/index.php:63
+msgid "The activity of groups I am a member of."
+msgstr "我所在群的动态。"
+
+#@ cc
+#: activity/index.php:63
+#: groups/index.php:41
+#, php-format
+msgid "My Groups <span>%s</span>"
+msgstr "我的群 <span>%s</span>"
+
+#@ cc
+#: activity/index.php:73
+msgid "The activity I've marked as a favorite."
+msgstr "我已标记为最喜爱的动态。"
+
+#@ cc
+#: activity/index.php:73
+#, php-format
+msgid "My Favorites <span>%s</span>"
+msgstr "我最喜爱的 <span>%s</span>"
+
+#@ cc
+#: activity/index.php:79
+msgid "Activity that I have been mentioned in."
+msgstr "与我相关的动态。"
+
+#@ cc
+#: activity/index.php:79
+msgid "Public Mentions"
+msgstr "公共讨论"
+
+#@ cc
+#: activity/index.php:79
+#, php-format
+msgid "<span>%s new</span>"
+msgstr "<span>%s nuevo</span>"
+
+#@ cc
+#: activity/index.php:89
+#: groups/single/activity.php:3
+msgid "RSS Feed"
+msgstr "Suscripción RSS"
+
+#@ cc
+#: activity/index.php:89
+#: groups/single/activity.php:3
+msgid "RSS"
+msgstr "RSS"
+
+#@ cc
+#: activity/index.php:94
+#: groups/single/activity.php:8
+#: members/single/activity.php:18
+msgid "Show:"
+msgstr "展示"
+
+#@ cc
+#: activity/index.php:96
+#: groups/single/activity.php:10
+#: members/single/activity.php:20
+msgid "Everything"
+msgstr "所有"
+
+#@ cc
+#: activity/index.php:97
+#: groups/single/activity.php:11
+#: members/single/activity.php:21
+msgid "Updates"
+msgstr "更新"
+
+#@ cc
+#: activity/index.php:101
+#: forums/forums-loop.php:31
+#: members/single/activity.php:27
+msgid "Posts"
+msgstr "文章"
+
+#@ cc
+#: activity/index.php:102
+#: members/single/activity.php:28
+msgid "Comments"
+msgstr "评论"
+
+#@ cc
+#: activity/index.php:108
+#: groups/single/activity.php:14
+#: members/single/activity.php:43
+msgid "Forum Topics"
+msgstr "论坛主题"
+
+#@ cc
+#: activity/index.php:109
+#: groups/single/activity.php:15
+#: members/single/activity.php:44
+msgid "Forum Replies"
+msgstr "论坛回复"
+
+#@ cc
+#: activity/index.php:115
+#: members/single/activity.php:50
+msgid "New Groups"
+msgstr "新群"
+
+#@ cc
+#: activity/index.php:116
+#: groups/single/activity.php:18
+#: members/single/activity.php:51
+msgid "Group Memberships"
+msgstr "群成员资格"
+
+#@ cc
+#: activity/index.php:122
+#: members/single/activity.php:35
+msgid "Friendships"
+msgstr "友谊"
+
+#@ cc
+#: activity/index.php:126
+msgid "New Members"
+msgstr "新成员"
+
+#@ cc
+#: activity/post-form.php:23
+#, php-format
+msgid "What's new in %s, %s?"
+msgstr "有什么新消息在 %s, %s?"
+
+#@ cc
+#: activity/post-form.php:25
+#, php-format
+msgid "What's new, %s?"
+msgstr "有什么新消息需要发布吗，%s？"
+
+#@ cc
+#: activity/post-form.php:35
+msgid "Post Update"
+msgstr "文章更新"
+
+#@ cc
+#: activity/post-form.php:42
+msgid "Post in"
+msgstr "发表于："
+
+#@ cc
+#: activity/post-form.php:45
+#: members/single/profile/profile-wp.php:8
+msgid "My Profile"
+msgstr "我的设置"
+
+#@ cc
+#: admin/library.php:536
+msgid "Save Options"
+msgstr "保持选项"
+
+#@ cc_pro
+#: admin/post-metabox.php:7
+msgid "Custom Community Post Settings"
+msgstr "Custom Community 文章设置"
+
+#@ cc
+#: admin/post-metabox.php:30
+#: admin/post-metabox.php:202
+msgid "Post template on"
+msgstr "Publicar plantilla en"
+
+#@ cc
+#: admin/post-metabox.php:40
+msgid "Hide avatar"
+msgstr "隐藏头像"
+
+#@ cc
+#: admin/post-metabox.php:42
+msgid "Hide date/category"
+msgstr "隐藏日期/分类"
+
+#@ cc
+#: admin/post-metabox.php:44
+msgid "Hide tags"
+msgstr "隐藏标签"
+
+#@ cc
+#: admin/post-metabox.php:47
+msgid "Hide comment-info"
+msgstr "隐藏回复信息"
+
+#@ cc
+#: admin/post-metabox.php:173
+msgid "klick"
+msgstr "点击"
+
+#@ cc
+#: admin/post-metabox.php:176
+msgid "Custom Community settings"
+msgstr "Custom Community 设置"
+
+#@ cc
+#: admin/post-metabox.php:184
+msgid "Slideshow on"
+msgstr "幻灯片打开"
+
+#@ cc
+#: admin/post-metabox.php:196
+msgid "Get The PRO Version for more options:"
+msgstr "Obten la versión PRO para mas opciones:"
+
+#@ cc
+#: admin/post-metabox.php:198
+msgid "Use custom post types and pages in the slideshow, show/hide caption, define the sliding time in ms, order and amount"
+msgstr "Utiliza tipos personalizados de publicación y páginas en la Presentación, oculta/ muestra la leyenda, define el tiempo de transición en minutos, orden y cantidad"
+
+#@ cc
+#: archive.php:8
+#, php-format
+msgid "You are browsing the archive for %1$s."
+msgstr "Estas explorando los archivos para  %1$s."
+
+#@ cc
+#: archive.php:14
+#: archive.php:55
+#: core/includes/bp/templatetags.php:349
+#: index.php:50
+#: search-loop.php:43
+#: search.php:17
+#: search.php:53
+msgid "&larr; Previous Entries"
+msgstr "&larr; Entradas Previas"
+
+#@ cc
+#: archive.php:15
+#: archive.php:56
+#: core/includes/bp/templatetags.php:350
+#: index.php:51
+#: search-loop.php:44
+#: search.php:18
+#: search.php:54
+msgid "Next Entries &rarr;"
+msgstr "Próximas Entradas &rarr;"
+
+#@ cc
+#: archive.php:28
+#: archive.php:34
+#: index.php:20
+#: search.php:30
+#: search.php:37
+#: single.php:44
+#, php-format
+msgid "by %s"
+msgstr "por %s"
+
+#@ cc
+#: archive.php:32
+#: index.php:28
+#: search.php:35
+#: single.php:54
+msgid "Permanent Link to"
+msgstr "链接到"
+
+#@ cc
+#: archive.php:34
+#: index.php:30
+#: search.php:37
+#: single.php:56
+msgid "in"
+msgstr "在"
+
+#@ cc
+#: archive.php:41
+#: index.php:36
+#: search.php:43
+#: single.php:75
+msgid "Tags: "
+msgstr "标签："
+
+#@ cc
+#: archive.php:41
+#: archive.php:43
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:80
+msgid "No Comments &#187;"
+msgstr "没有评论 &#187;"
+
+#@ cc
+#: archive.php:41
+#: archive.php:43
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:80
+msgid "1 Comment &#187;"
+msgstr "一个评论 &#187;"
+
+#@ cc
+#: archive.php:41
+#: archive.php:43
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:80
+msgid "% Comments &#187;"
+msgstr "% 评论 &#187;"
+
+#@ cc
+#: archive.php:62
+#: index.php:57
+msgid "Not Found"
+msgstr "没有找到"
+
+#@ cc
+#: attachment.php:9
+#: search.php:10
+msgid "Blog"
+msgstr "博客"
+
+#@ cc
+#: attachment.php:25
+msgid "<p class=\"serif\">Read the rest of this entry &rarr;</p>"
+msgstr "<p class=\"serif\">Lee el resto de esta entrada &rarr;</p>"
+
+#@ cc
+#: attachment.php:27
+#: full-width.php:29
+msgid "<p><strong>Pages:</strong> "
+msgstr "<p><strong>Páginas:</strong> "
+
+#@ cc
+#: attachment.php:38
+msgid "Sorry, no attachments matched your criteria."
+msgstr "抱歉，满足你标准的一个都没有。"
+
+#@ cc
+#: blogs/blogs-loop.php:90
+msgid "Sorry, there were no sites found."
+msgstr "对不起，没有找到网站。"
+
+#@ cc
+#: blogs/create.php:21
+#: blogs/index.php:23
+msgid "Create a Site"
+msgstr "建一个网站"
+
+#@ cc
+#: blogs/create.php:21
+#: blogs/index.php:23
+msgid "Site Directory"
+msgstr "网站目录"
+
+#@ cc
+#: blogs/create.php:32
+msgid "Site registration is currently disabled"
+msgstr "网站注册现已停用"
+
+#@ cc
+#: blogs/index.php:35
+#, php-format
+msgid "All Sites <span>%s</span>"
+msgstr "所有网站 <span>%s</span>"
+
+#@ cc
+#: blogs/index.php:39
+#, php-format
+msgid "My Sites <span>%s</span>"
+msgstr "我的站群 <span>%s</span>"
+
+#@ cc
+#: blogs/index.php:55
+#: forums/index.php:60
+#: forums/single/forum.php:34
+#: groups/index.php:57
+#: groups/single/forum.php:32
+#: groups/single/members.php:12
+#: members/index.php:55
+#: members/single/blogs.php:19
+#: members/single/forums.php:18
+#: members/single/friends.php:20
+#: members/single/groups.php:20
+msgid "Order By:"
+msgstr "排序："
+
+#@ cc
+#: blogs/index.php:57
+#: forums/index.php:62
+#: forums/single/forum.php:36
+#: groups/index.php:59
+#: groups/single/forum.php:34
+#: groups/single/members.php:14
+#: members/index.php:57
+#: members/single/blogs.php:21
+#: members/single/forums.php:20
+#: members/single/friends.php:22
+#: members/single/groups.php:22
+msgid "Last Active"
+msgstr "最新动态"
+
+#@ cc
+#: blogs/index.php:58
+#: members/single/blogs.php:22
+msgid "Newest"
+msgstr "最新的"
+
+#@ cc
+#: blogs/index.php:59
+#: groups/index.php:62
+#: groups/single/members.php:19
+#: members/index.php:62
+#: members/single/blogs.php:23
+#: members/single/friends.php:24
+#: members/single/groups.php:25
+msgid "Alphabetical"
+msgstr "字母次序"
+
+#@ cc
+#: comments.php:3
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "此文章已被密码保护，请输入密码，看到所有评论。"
+
+#@ cc
+#: comments.php:19
+#, php-format
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#@ cc
+#: comments.php:26
+#: comments.php:40
+msgid "Comment navigation"
+msgstr "评论导航"
+
+#@ cc
+#: comments.php:27
+#: comments.php:41
+msgid "&larr; Older Comments"
+msgstr "&larr; 之前的评论"
+
+#@ cc
+#: comments.php:28
+#: comments.php:42
+msgid "Newer Comments &rarr;"
+msgstr "新的评论 &rarr;"
+
+#@ cc
+#: comments.php:52
+msgid "Comments are closed."
+msgstr "评论已被关闭"
+
+#@ cc
+#: core/includes/bp/buddydev-search.php:52
+msgid "Search Page"
+msgstr "搜索页面"
+
+#@ cc
+#: core/includes/bp/templatetags.php:82
+msgid "My Favorites"
+msgstr "我的最爱"
+
+#@ cc
+#: core/includes/bp/templatetags.php:83
+msgid "Accepted"
+msgstr "被接受"
+
+#@ cc
+#: core/includes/bp/templatetags.php:84
+msgid "Rejected"
+msgstr "被拒绝"
+
+#@ cc
+#: core/includes/bp/templatetags.php:85
+msgid "Show all comments for this thread"
+msgstr "显示页面所有评论"
+
+#@ cc
+#: core/includes/bp/templatetags.php:86
+msgid "Show all"
+msgstr "显示所有的"
+
+#@ cc
+#: core/includes/bp/templatetags.php:87
+msgid "comments"
+msgstr "评论"
+
+#@ cc
+#: core/includes/bp/templatetags.php:88
+msgid "Close"
+msgstr "关闭"
+
+#@ cc
+#. translators: 1: comment author url, 2: comment author name, 3: comment permalink, 4: comment date/timestamp
+#: core/includes/bp/templatetags.php:142
+#, php-format
+msgid "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> said on <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> dijo en <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+
+#@ cc
+#: core/includes/bp/templatetags.php:149
+msgid "Your comment is awaiting moderation."
+msgstr "你的评论正在接受审核。"
+
+#@ cc
+#: core/includes/bp/templatetags.php:161
+msgid "Edit comment"
+msgstr "修改评论"
+
+#@ cc
+#: core/includes/bp/templatetags.php:161
+msgid "Edit"
+msgstr "修改"
+
+#@ cc
+#: core/includes/bp/templatetags.php:231
+#, php-format
+msgid "Theme activated! This theme contains <a href=\"%s\">custom header image</a> support and <a href=\"%s\">sidebar widgets</a>."
+msgstr "¡Tema activado! Este tema contiene apoyo para <a href=\"%s\">imagen de cabecera</a> y <a href=\"%s\">widgets para barra lateral</a>."
+
+#@ cc
+#: core/includes/bp/templatetags.php:300
+#: members/single/profile/profile-wp.php:15
+msgid "Name"
+msgstr "您贵姓"
+
+#@ cc
+#: core/includes/bp/templatetags.php:302
+msgid "Email"
+msgstr "电子邮件"
+
+#@ cc
+#: core/includes/bp/templatetags.php:304
+#: members/single/profile/profile-wp.php:33
+msgid "Website"
+msgstr "网站"
+
+#@ cc
+#: core/includes/bp/templatetags.php:312
+#, php-format
+msgid "You must be <a href=\"%1$s\">logged in</a> to post a comment."
+msgstr "Debes haber <a href=\"%1$s\">iniciado sesión</a> para publicar un comentario.."
+
+#@ cc
+#: core/includes/bp/templatetags.php:313
+msgid "Leave a reply"
+msgstr "留下回复"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:157
+#: searchform.php:5
+msgid "Search"
+msgstr "搜索"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:184
+#: core/includes/theme-generator/theme-generator.php:188
+#: core/includes/theme-generator/theme-generator.php:193
+#: core/includes/theme-generator/theme-generator.php:196
+#: core/includes/theme-generator/theme-generator.php:217
+#: core/includes/theme-generator/theme-generator.php:225
+msgid "Home"
+msgstr "主页"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:230
+#: core/includes/wp/widgets.php:34
+msgid "Community"
+msgstr "社区"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:234
+#: core/includes/wp/widgets.php:38
+msgid "Activity"
+msgstr "动态"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:239
+#: core/includes/wp/widgets.php:43
+#: groups/single/admin.php:229
+msgid "Members"
+msgstr "成员"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:244
+#: core/includes/wp/widgets.php:48
+msgid "Groups"
+msgstr "群"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:248
+#: core/includes/wp/widgets.php:53
+msgid "Forums"
+msgstr "论坛"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:255
+#: core/includes/wp/widgets.php:59
+msgid "Blogs"
+msgstr "博客"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:357
+msgid "20 widget areas all over the site"
+msgstr "20 áreas para widgets en todo el sitio"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:370
+#: links.php:16
+#: sidebar.php:45
+msgid "Links"
+msgstr "链接"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:383
+#: sidebar.php:39
+msgid "Archives"
+msgstr "档案"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:396
+#: sidebar.php:51
+msgid "Meta"
+msgstr "Meta"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:410
+#, php-format
+msgid "%s is proudly powered by <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> and <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
+msgstr "%s 很荣幸被 <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> and <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a> 技术支持。"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:544
+#: core/includes/theme-generator/theme-generator.php:546
+#: single.php:63
+msgid "Read the rest of this entry &rarr;"
+msgstr "读文章剩下的部分 &rarr;"
+
+#@ cc
+#: core/includes/wp/shortcodes.php:355
+msgid "read more"
+msgstr "看更多"
+
+#@ cc
+#: core/includes/wp/shortcodes.php:580
+msgid "Empty Slideshow"
+msgstr "空的幻灯片"
+
+#@ cc
+#: core/includes/wp/shortcodes.php:581
+msgid "You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> for more."
+msgstr "¡No tiene publicaciones seleccionadas para su Presentación! <br>Revise los ajustes del tema para su presentación global o los ajustes de página para las presentaciones de página... <br>¡y publica! Revisa las <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">Preguntas Más Frecuentes</a> para más información."
+
+#@ cc
+#: core/includes/wp/widgets.php:68
+msgid "@ Group"
+msgstr "@ 群"
+
+#@ cc
+#: core/includes/wp/widgets.php:79
+msgid "@ Member"
+msgstr "@ 成员"
+
+#@ cc
+#: core/includes/wp/widgets.php:111
+msgid "Log Out"
+msgstr "登出"
+
+#@ cc
+#: core/includes/wp/widgets.php:128
+msgid "To start connecting please log in first."
+msgstr "开始连接之前请登陆"
+
+#@ cc
+#: core/includes/wp/widgets.php:133
+#, php-format
+msgid " You can also <a href=\"%s\" title=\"Create an account\">create an account</a>."
+msgstr "你也可以 <a href=\"%s\" title=\"建立一个帐号\">建立一个帐号</a>."
+
+#@ cc
+#: core/includes/wp/widgets.php:138
+#: registration/register.php:37
+msgid "Username"
+msgstr "用户名"
+
+#@ cc
+#: core/includes/wp/widgets.php:141
+msgid "Password"
+msgstr "密码"
+
+#@ cc
+#: core/includes/wp/widgets.php:144
+msgid "Remember Me"
+msgstr "记住我"
+
+#@ cc
+#: core/includes/wp/widgets.php:147
+msgid "Log In"
+msgstr "登陆"
+
+#@ cc
+#: core/includes/wp/widgets.php:166
+msgid "Forum Topic Tags"
+msgstr "论坛主题标签"
+
+#@ cc
+#: forums/forums-loop.php:24
+msgid "Topic Title"
+msgstr "话题标题"
+
+#@ cc
+#: forums/forums-loop.php:25
+msgid "Latest Poster"
+msgstr "最新文章"
+
+#@ cc
+#: forums/forums-loop.php:28
+msgid "Posted In Group"
+msgstr "发在了群里"
+
+#@ cc
+#: forums/forums-loop.php:32
+msgid "Freshness"
+msgstr "链接"
+
+#@ cc
+#: forums/forums-loop.php:45
+msgid "Permalink"
+msgstr "Enlace permanente"
+
+#@ cc
+#: forums/forums-loop.php:95
+msgid "Sorry, there were no forum topics found."
+msgstr "抱歉，没有找到论坛话题。"
+
+#@ cc
+#: forums/index.php:23
+msgid "Forums Directory"
+msgstr "论坛目录"
+
+#@ cc
+#: forums/index.php:23
+#: forums/single/forum.php:19
+#: groups/single/forum.php:17
+msgid "New Topic"
+msgstr "新话题"
+
+#@ cc
+#: forums/index.php:40
+#, php-format
+msgid "All Topics <span>%s</span>"
+msgstr "所有话题 <span>%s</span>"
+
+#@ cc
+#: forums/index.php:44
+#, php-format
+msgid "My Topics <span>%s</span>"
+msgstr "我的话题 <span>%s</span>"
+
+#@ cc
+#: forums/index.php:63
+#: forums/single/forum.php:37
+#: groups/single/forum.php:35
+#: members/single/forums.php:21
+msgid "Most Posts"
+msgstr "大部分文章"
+
+#@ cc
+#: forums/index.php:64
+#: forums/single/forum.php:38
+#: groups/single/forum.php:36
+#: members/single/forums.php:22
+msgid "Unreplied"
+msgstr "未回复"
+
+#@ cc
+#: forums/index.php:100
+msgid "Create New Topic:"
+msgstr "建立新话题"
+
+#@ cc
+#: forums/index.php:104
+#: forums/single/edit.php:49
+#: groups/single/forum/edit.php:49
+#: groups/single/forum.php:71
+msgid "Title:"
+msgstr "标题"
+
+#@ cc
+#: forums/index.php:107
+#: forums/single/edit.php:52
+#: groups/single/forum/edit.php:52
+#: groups/single/forum.php:74
+msgid "Content:"
+msgstr "内容"
+
+#@ cc
+#: forums/index.php:110
+#: groups/single/forum/edit.php:55
+#: groups/single/forum.php:77
+msgid "Tags (comma separated):"
+msgstr "标题（逗号分开）"
+
+#@ cc
+#: forums/index.php:113
+msgid "Post In Group Forum:"
+msgstr "在群论坛里发布"
+
+#@ cc
+#. translators: no option picked in select box
+#: forums/index.php:116
+msgid "----"
+msgstr "----"
+
+#@ cc
+#: forums/index.php:133
+#: groups/single/forum.php:83
+msgid "Post Topic"
+msgstr "发布话题"
+
+#@ cc
+#: forums/index.php:134
+msgid "Cancel"
+msgstr "取消"
+
+#@ cc
+#: forums/index.php:145
+#, php-format
+msgid "You are not a member of any groups so you don't have any group forums you can post in. To start posting, first find a group that matches the topic subject you'd like to start. If this group does not exist, why not <a href='%s'>create a new group</a>? Once you have joined or created the group you can post your topic in that group's forum."
+msgstr "你现在不是任何群的成员因此你不能在任何群里发布信息，想要发布信息，首先请找一个你所喜欢的群，如果这个群不存在，可以选择 <a href='%s'>建立一个新群</a>? 一旦你加入或者建立了一个群你就可以在群论坛里发布信息了。"
+
+#@ cc
+#: forums/single/edit.php:16
+#: forums/single/forum.php:25
+#: forums/single/topic.php:43
+#: groups/single/forum/edit.php:16
+#: groups/single/forum/topic.php:16
+#: groups/single/forum.php:23
+msgid "Forum Directory"
+msgstr "论坛目录"
+
+#@ cc
+#: forums/single/edit.php:25
+#: groups/single/forum/edit.php:25
+msgid "Edit:"
+msgstr "修改"
+
+#@ cc
+#: forums/single/edit.php:57
+#: forums/single/edit.php:73
+#: groups/single/admin.php:32
+#: groups/single/admin.php:117
+#: groups/single/forum/edit.php:60
+#: groups/single/forum/edit.php:76
+#: members/single/profile/edit.php:126
+#: members/single/settings/general.php:69
+#: members/single/settings/notifications.php:62
+msgid "Save Changes"
+msgstr "保存修改"
+
+#@ cc
+#: forums/single/edit.php:88
+#: groups/single/forum/edit.php:91
+msgid "This topic does not exist."
+msgstr "这个话题不存在。"
+
+#@ cc
+#: forums/single/forum-header.php:13
+#: groups/groups-loop.php:47
+#, php-format
+msgid "active %s"
+msgstr "活跃 %s"
+
+#@ cc
+#: forums/single/topic.php:37
+#: groups/single/forum/topic.php:10
+msgid "New Reply"
+msgstr "新回复"
+
+#@ cc
+#: forums/single/topic.php:97
+#, php-format
+msgid "%s said %s ago:"
+msgstr "%s dijo hace %s :"
+
+#@ cc
+#: forums/single/topic.php:117
+#: groups/single/forum/topic.php:81
+msgid "Permanent link to this post"
+msgstr "链接到此文章"
+
+#@ cc
+#: forums/single/topic.php:153
+#: groups/single/forum/topic.php:117
+msgid "Add a reply:"
+msgstr "加上一个回复："
+
+#@ cc
+#: forums/single/topic.php:158
+#: groups/single/forum/topic.php:122
+msgid "Post Reply"
+msgstr "发布回复"
+
+#@ cc
+#: forums/single/topic.php:169
+#: groups/single/forum/topic.php:133
+msgid "This topic is closed, replies are no longer accepted."
+msgstr "这个话题已关闭，已不能再回复。"
+
+#@ cc
+#: forums/single/topic.php:184
+#: groups/single/forum/topic.php:147
+msgid "There are no posts for this topic."
+msgstr "这个话题还没有人发言。"
+
+#@ cc
+#: full-width.php:27
+#: page.php:17
+msgid "<p class=\"serif\">Read the rest of this page &rarr;</p>"
+msgstr "<p class=\"serif\">读剩下的一部分 &rarr;</p>"
+
+#@ cc
+#: full-width.php:42
+#: single.php:92
+msgid "Edit this entry."
+msgstr "修改此文章"
+
+#@ cc
+#: functions.php:59
+msgid "Header top menu"
+msgstr "Menu superior de cabecera"
+
+#@ cc
+#: functions.php:60
+msgid "Header bottom menu"
+msgstr "Menú inferior de cabecera."
+
+#@ cc
+#: functions.php:473
+msgid "Members Results"
+msgstr "成员结果"
+
+#@ cc
+#: functions.php:488
+msgid "Group Search"
+msgstr "群搜索"
+
+#@ cc
+#: functions.php:491
+msgid "View All matched Groups"
+msgstr "查看所有相关的群"
+
+#@ cc
+#: functions.php:509
+msgid "Blog Search"
+msgstr "博客搜索"
+
+#@ cc
+#: functions.php:512
+msgid "View All matched Posts"
+msgstr "查看所有相关的群"
+
+#@ cc
+#: functions.php:524
+msgid "Forums Search"
+msgstr "论坛搜索"
+
+#@ cc
+#: functions.php:526
+msgid "View All matched forum posts"
+msgstr "查看所有相关的论坛文章"
+
+#@ cc
+#: functions.php:545
+msgid "Blogs Search"
+msgstr "博客搜索"
+
+#@ cc
+#: functions.php:547
+msgid "View All matched Blogs"
+msgstr "查看所有相关的博客"
+
+#@ cc
+#: groups/create.php:18
+#: groups/index.php:23
+msgid "Create a Group"
+msgstr "建一个群"
+
+#@ cc
+#: groups/create.php:18
+#: groups/index.php:23
+msgid "Groups Directory"
+msgstr "群目录"
+
+#@ cc
+#: groups/create.php:39
+#: groups/single/admin.php:16
+msgid "Group Name (required)"
+msgstr "群名字（必须的）"
+
+#@ cc
+#: groups/create.php:42
+#: groups/single/admin.php:19
+msgid "Group Description (required)"
+msgstr "群描述（必须的）"
+
+#@ cc
+#: groups/create.php:62
+#: groups/single/admin.php:47
+msgid "Enable discussion forum"
+msgstr "激活讨论论坛"
+
+#@ cc
+#: groups/create.php:69
+#, php-format
+msgid "<strong>Attention Site Admin:</strong> Group forums require the <a href=\"%s\">correct setup and configuration</a> of a bbPress installation."
+msgstr "<strong>Atención Administrador de Sitio:</strong> Foros de Grupo requieren la <a href=\"%s\">correcta instalación y configuración de</a> bbPress."
+
+#@ cc
+#: groups/create.php:78
+#: groups/single/admin.php:56
+msgid "Privacy Options"
+msgstr "隐私选项"
+
+#@ cc
+#: groups/create.php:82
+#: groups/single/admin.php:61
+msgid "This is a public group"
+msgstr "这是一个公共群"
+
+#@ cc
+#: groups/create.php:84
+#: groups/single/admin.php:63
+msgid "Any site member can join this group."
+msgstr "所有成员均可加入此群。"
+
+#@ cc
+#: groups/create.php:85
+#: groups/create.php:94
+#: groups/single/admin.php:64
+#: groups/single/admin.php:74
+msgid "This group will be listed in the groups directory and in search results."
+msgstr "这个群会在群目录和搜索结果中找到。"
+
+#@ cc
+#: groups/create.php:86
+#: groups/single/admin.php:65
+msgid "Group content and activity will be visible to any site member."
+msgstr "所有成员可见此群的内容和动态。"
+
+#@ cc
+#: groups/create.php:91
+#: groups/single/admin.php:71
+msgid "This is a private group"
+msgstr "这不是一个公开群哦"
+
+#@ cc
+#: groups/create.php:93
+#: groups/single/admin.php:73
+msgid "Only users who request membership and are accepted can join the group."
+msgstr "只有成员才能加入此群，所以想办法混成成员吧。"
+
+#@ cc
+#: groups/create.php:95
+#: groups/create.php:104
+#: groups/single/admin.php:75
+#: groups/single/admin.php:85
+msgid "Group content and activity will only be visible to members of the group."
+msgstr "只有此群成才员可见内容和动态。"
+
+#@ cc
+#: groups/create.php:100
+#: groups/single/admin.php:81
+msgid "This is a hidden group"
+msgstr "这是一个隐藏的群。"
+
+#@ cc
+#: groups/create.php:102
+#: groups/single/admin.php:83
+msgid "Only users who are invited can join the group."
+msgstr "只有被邀请的才能加入此群。"
+
+#@ cc
+#: groups/create.php:103
+#: groups/single/admin.php:84
+msgid "This group will not be listed in the groups directory or search results."
+msgstr "这个群不会在群目录和搜索结果中找到。"
+
+#@ cc
+#: groups/create.php:111
+#: groups/single/admin.php:92
+msgid "Group Invitations"
+msgstr "群邀请"
+
+#@ cc
+#: groups/create.php:113
+#: groups/single/admin.php:94
+msgid "Which members of this group are allowed to invite others?"
+msgstr "那一位群成员可邀请其他人？"
+
+#@ cc
+#: groups/create.php:118
+#: groups/single/admin.php:99
+msgid "All group members"
+msgstr "所有群成员"
+
+#@ cc
+#: groups/create.php:123
+#: groups/single/admin.php:104
+msgid "Group admins and mods only"
+msgstr "Solamente administradores y moderadores de grupo"
+
+#@ cc
+#: groups/create.php:128
+#: groups/single/admin.php:109
+msgid "Group admins only"
+msgstr "只有群主可以哦！"
+
+#@ cc
+#: groups/create.php:154
+#: groups/single/admin.php:127
+msgid "Upload an image to use as an avatar for this group. The image will be shown on the main group page, and in search results."
+msgstr "上传一张图片作为此群的头像，这张图片将会在群页面和搜索结果中找到。"
+
+#@ cc
+#: groups/create.php:158
+#: groups/single/admin.php:131
+#: members/single/profile/change-avatar.php:18
+msgid "Upload Image"
+msgstr "上传图片"
+
+#@ cc
+#: groups/create.php:162
+msgid "To skip the avatar upload process, hit the \"Next Step\" button."
+msgstr "想要跳过上传头像，请点击 \"下一步\"。"
+
+#@ cc
+#: groups/create.php:169
+msgid "Crop Group Avatar"
+msgstr "Recortar Avatar de Grupo"
+
+#@ cc
+#: groups/create.php:171
+#: groups/single/admin.php:151
+#: members/single/profile/change-avatar.php:33
+msgid "Avatar to crop"
+msgstr "Avatar a recortar"
+
+#@ cc
+#: groups/create.php:174
+#: groups/single/admin.php:154
+#: members/single/profile/change-avatar.php:36
+msgid "Avatar preview"
+msgstr "头像预览"
+
+#@ cc
+#: groups/create.php:177
+#: groups/single/admin.php:157
+#: members/single/profile/change-avatar.php:39
+msgid "Crop Image"
+msgstr "Recortar Imagen"
+
+#@ cc
+#: groups/create.php:216
+#: groups/single/send-invites.php:22
+msgid "Select people to invite from your friends list."
+msgstr "从朋友列表中选择想要邀请的。"
+
+#@ cc
+#: groups/create.php:251
+#: groups/single/send-invites.php:73
+msgid "Once you have built up friend connections you will be able to invite others to your group. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new group."
+msgstr "当你建立好朋友连接之后你就能邀请其他人到你的群。当你在浏览你的新群时，你可以通过选择\"发出邀请\"发出邀请函。"
+
+#@ cc
+#: groups/create.php:273
+msgid "Back to Previous Step"
+msgstr "回到上一步"
+
+#@ cc
+#: groups/create.php:280
+msgid "Next Step"
+msgstr "下一步"
+
+#@ cc
+#: groups/create.php:287
+msgid "Create Group and Continue"
+msgstr "建立群，然后继续"
+
+#@ cc
+#: groups/create.php:294
+msgid "Finish"
+msgstr "完成"
+
+#@ cc
+#: groups/groups-loop.php:95
+msgid "There were no groups found."
+msgstr "没有发现群"
+
+#@ cc
+#: groups/index.php:37
+#, php-format
+msgid "All Groups <span>%s</span>"
+msgstr "所有群 <span>%s</span>"
+
+#@ cc
+#: groups/index.php:60
+#: members/single/groups.php:23
+msgid "Most Members"
+msgstr "大部分成员"
+
+#@ cc
+#: groups/index.php:61
+#: members/single/groups.php:24
+msgid "Newly Created"
+msgstr "新建的"
+
+#@ cc
+#: groups/single/admin.php:25
+msgid "Notify group members of changes via email"
+msgstr "通过电子邮件告诉群成员有新的更改"
+
+#@ cc
+#: groups/single/admin.php:26
+#: registration/register.php:205
+msgid "Yes"
+msgstr "是"
+
+#@ cc
+#: groups/single/admin.php:27
+#: registration/register.php:206
+msgid "No"
+msgstr "否"
+
+#@ cc
+#: groups/single/admin.php:137
+msgid "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button."
+msgstr "如果你想移除现在的头像，但不想上传一个新的，请选删除头像选项。"
+
+#@ cc
+#: groups/single/admin.php:139
+#: members/single/profile/change-avatar.php:24
+msgid "Delete Avatar"
+msgstr "删除头像"
+
+#@ cc
+#: groups/single/admin.php:149
+msgid "Crop Avatar"
+msgstr "Recortar Avatar"
+
+#@ cc
+#: groups/single/admin.php:177
+msgid "Administrators"
+msgstr "管理员"
+
+#@ cc
+#: groups/single/admin.php:185
+#: groups/single/admin.php:210
+#, php-format
+msgid "Profile picture of %s"
+msgstr "个人头像 %s "
+
+#@ cc
+#: groups/single/admin.php:189
+#: groups/single/admin.php:215
+msgid "Demote to Member"
+msgstr "降回成员"
+
+#@ cc
+#: groups/single/admin.php:203
+msgid "Moderators"
+msgstr "版主"
+
+#@ cc
+#: groups/single/admin.php:214
+#: groups/single/admin.php:270
+msgid "Promote to Admin"
+msgstr "升级成管理员"
+
+#@ cc
+#: groups/single/admin.php:258
+msgid "(banned)"
+msgstr "被禁了哦。"
+
+#@ cc
+#: groups/single/admin.php:264
+msgid "Unban this member"
+msgstr "解禁此成员"
+
+#@ cc
+#: groups/single/admin.php:264
+msgid "Remove Ban"
+msgstr "解禁"
+
+#@ cc
+#: groups/single/admin.php:268
+msgid "Kick and ban this member"
+msgstr "禁止此成员"
+
+#@ cc
+#: groups/single/admin.php:268
+msgid "Kick &amp; Ban"
+msgstr "Expulsar &amp; Suspender"
+
+#@ cc
+#: groups/single/admin.php:269
+msgid "Promote to Mod"
+msgstr "Ascender a Moderador"
+
+#@ cc
+#: groups/single/admin.php:274
+msgid "Remove this member"
+msgstr "移除此成员"
+
+#@ cc
+#: groups/single/admin.php:274
+msgid "Remove from group"
+msgstr "从群里移除"
+
+#@ cc
+#: groups/single/admin.php:288
+#: groups/single/members.php:104
+msgid "This group has no members."
+msgstr "此群没有人哦。"
+
+#@ cc
+#: groups/single/admin.php:318
+#: members/single/friends/requests.php:37
+#: members/single/groups/invites.php:23
+msgid "Accept"
+msgstr "接受"
+
+#@ cc
+#: groups/single/admin.php:320
+#: members/single/friends/requests.php:38
+#: members/single/groups/invites.php:24
+msgid "Reject"
+msgstr "拒绝"
+
+#@ cc
+#: groups/single/admin.php:333
+msgid "There are no pending membership requests."
+msgstr "现在还没有正在审核的成员资格申请。"
+
+#@ cc
+#: groups/single/admin.php:350
+msgid "WARNING: Deleting this group will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "温馨提示：删除此群会导致所有内容的遗失，不能复原，请注意此项选项。"
+
+#@ cc
+#: groups/single/admin.php:353
+msgid "I understand the consequences of deleting this group."
+msgstr "我清楚删除此群的结果。"
+
+#@ cc
+#: groups/single/admin.php:358
+msgid "Delete Group"
+msgstr "删除群"
+
+#@ cc
+#: groups/single/forum/topic.php:67
+#, php-format
+msgid "%1$s said %2$s:"
+msgstr "%1$s 说 %2$s:"
+
+#@ cc
+#: groups/single/forum/topic.php:112
+msgid "You will auto join this group when you reply to this topic."
+msgstr "当你回复此话题时你会自动加入此群。"
+
+#@ cc
+#: groups/single/forum.php:65
+msgid "You will auto join this group when you start a new topic."
+msgstr "当你开始一个新话题时你会自动加入此群。"
+
+#@ cc
+#: groups/single/forum.php:69
+msgid "Post a New Topic:"
+msgstr "发布一个新话题："
+
+#@ cc
+#: groups/single/group-header-sidebar.php:16
+#: groups/single/group-header.php:35
+#, php-format
+msgid "active %s ago"
+msgstr "activo hace %s"
+
+#@ cc
+#: groups/single/group-header.php:6
+msgid "Group Admins"
+msgstr "群管理员"
+
+#@ cc
+#: groups/single/group-header.php:14
+msgid "Group Mods"
+msgstr "Moderadores de Grupo"
+
+#@ cc
+#: groups/single/members.php:15
+#: members/index.php:58
+#: members/single/friends.php:23
+msgid "Newest Registered"
+msgstr "最新注册的"
+
+#@ cc
+#: groups/single/request-membership.php:4
+#, php-format
+msgid "You are requesting to become a member of the group '%s'."
+msgstr "你正在申请成为此群的一员  '%s'."
+
+#@ cc
+#: groups/single/request-membership.php:7
+msgid "Comments (optional)"
+msgstr "你暂时没有群邀请"
+
+#@ cc
+#: groups/single/request-membership.php:12
+msgid "Send Request"
+msgstr "发送请求"
+
+#@ cc
+#: groups/single/send-invites.php:60
+msgid "Send Invites"
+msgstr "发送邀请"
+
+#@ cc
+#: index.php:30
+#: single.php:56
+#, php-format
+msgid " by %s"
+msgstr "por %s"
+
+#@ cc
+#: index.php:58
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr "抱歉，你所要找的不在这里。"
+
+#@ cc
+#: members/index.php:23
+msgid "Members Directory"
+msgstr "成员目录"
+
+#@ cc
+#: members/members-loop.php:108
+msgid "Sorry, no members were found."
+msgstr "抱歉，没有找到成员。"
+
+#@ cc
+#: members/single/friends/requests.php:68
+msgid "You have no pending friendship requests."
+msgstr "你没有正在审核的朋友申请。"
+
+#@ cc
+#: members/single/groups/invites.php:14
+#, php-format
+msgid "%s members"
+msgstr "%s 成员"
+
+#@ cc
+#: members/single/groups/invites.php:37
+msgid "You have no outstanding group invites."
+msgstr "你目前没有群邀请。"
+
+#@ cc
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+msgid "Mention this user in a new public message, this will send the user a notification to get their attention."
+msgstr "在公共信息上提到此用户，这将会发送给用户一项提示以此让他注意。"
+
+#@ cc
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+msgid "Mention this User"
+msgstr "提到此用户"
+
+#@ cc
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+msgid "Send a private message to this user."
+msgstr "发送私人信息给此用户"
+
+#@ cc
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+msgid "Send Private Message"
+msgstr "发送私人信息"
+
+#@ cc
+#: members/single/messages/compose.php:5
+msgid "Send To (Username or Friend's Name)"
+msgstr "发送到（用户名或者朋友名字）"
+
+#@ cc
+#: members/single/messages/compose.php:14
+msgid "This is a notice to all users."
+msgstr "这是对所有用户的提示信息。"
+
+#@ cc
+#: members/single/messages/compose.php:17
+msgid "Subject"
+msgstr "主题"
+
+#@ cc
+#: members/single/messages/compose.php:20
+msgid "Message"
+msgstr "信息"
+
+#@ cc
+#: members/single/messages/compose.php:28
+msgid "Send Message"
+msgstr "发送信息"
+
+#@ cc
+#: members/single/messages/messages-loop.php:31
+msgid "From:"
+msgstr "来自"
+
+#@ cc
+#: members/single/messages/messages-loop.php:36
+msgid "To:"
+msgstr "到"
+
+#@ cc
+#: members/single/messages/messages-loop.php:42
+msgid "View Message"
+msgstr "查看信息"
+
+#@ cc
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/notices-loop.php:38
+#: members/single/messages/single.php:24
+msgid "Delete Message"
+msgstr "删除信息"
+
+#@ cc
+#: members/single/messages/messages-loop.php:68
+msgid "Sorry, no messages were found."
+msgstr "抱歉，没有发现信息。"
+
+#@ cc
+#: members/single/messages/notices-loop.php:31
+msgid "Sent:"
+msgstr "已发送"
+
+#@ cc
+#: members/single/messages/notices-loop.php:49
+msgid "Sorry, no notices were found."
+msgstr "抱歉，没有发现提示"
+
+#@ cc
+#: members/single/messages/single.php:14
+msgid "You are alone in this conversation."
+msgstr "你正在自言自语。"
+
+#@ cc
+#: members/single/messages/single.php:18
+#, php-format
+msgid "Conversation between %s and you."
+msgstr "你和%s的对话"
+
+#@ cc
+#: members/single/messages/single.php:75
+msgid "Send a Reply"
+msgstr "发送回复"
+
+#@ cc
+#: members/single/messages/single.php:91
+msgid "Send Reply"
+msgstr "发送回复"
+
+#@ cc
+#: members/single/profile/change-avatar.php:1
+msgid "Change Avatar"
+msgstr "换头像"
+
+#@ cc
+#: members/single/profile/change-avatar.php:7
+msgid "Your avatar will be used on your profile and throughout the site. If there is a <a href=\"http://gravatar.com\">Gravatar</a> associated with your account email we will use that, or you can upload an image from your computer."
+msgstr "你的头像会用在你的个人设置和整个网站里，如果你的帐号电子邮件里有和此<a href=\"http://gravatar.com\">Gravatar</a>相关的头像，我们将会使用它，或者你可以上传一张图片。"
+
+#@ cc
+#: members/single/profile/change-avatar.php:14
+msgid "Click below to select a JPG, GIF or PNG format photo from your computer and then click 'Upload Image' to proceed."
+msgstr "点击西面的选择一个你电脑里的JPG，GIF或者PNG 格式的图片，然后点击'上传图片'来进行操作。"
+
+#@ cc
+#: members/single/profile/change-avatar.php:23
+msgid "If you'd like to delete your current avatar but not upload a new one, please use the delete avatar button."
+msgstr "如果你想删除你现在的头像但是不上传一个新的，请用删除头像这一选项。"
+
+#@ cc
+#: members/single/profile/change-avatar.php:24
+msgid "Delete My Avatar"
+msgstr "删除我的头像"
+
+#@ cc
+#: members/single/profile/change-avatar.php:31
+msgid "Crop Your New Avatar"
+msgstr "Recortar tu nuevo Avatar"
+
+#@ cc
+#: members/single/profile/change-avatar.php:55
+msgid "Your avatar will be used on your profile and throughout the site. To change your avatar, please create an account with <a href=\"http://gravatar.com\">Gravatar</a> using the same email address as you used to register with this site."
+msgstr "你的头像将会被用在你的个人设置里，如果想改头像，请用你之前在此网站注册过得邮件建立一个帐号<a href=\"http://gravatar.com\">头像</a>"
+
+#@ cc
+#: members/single/profile/edit.php:10
+#, php-format
+msgid "Editing '%s' Profile Group"
+msgstr "Editando Perfil del Grupo '%s' "
+
+#@ cc
+#: members/single/profile/edit.php:26
+#: members/single/profile/edit.php:33
+#: members/single/profile/edit.php:40
+#: members/single/profile/edit.php:49
+#: members/single/profile/edit.php:67
+#: members/single/profile/edit.php:83
+#: members/single/profile/edit.php:93
+#: registration/register.php:37
+#: registration/register.php:41
+#: registration/register.php:45
+#: registration/register.php:49
+#: registration/register.php:76
+#: registration/register.php:84
+#: registration/register.php:92
+#: registration/register.php:102
+#: registration/register.php:113
+#: registration/register.php:128
+#: registration/register.php:139
+#: registration/register.php:189
+#: registration/register.php:198
+msgid "(required)"
+msgstr "(需要的)"
+
+#@ cc
+#: members/single/profile/edit.php:58
+#: members/single/profile/edit.php:73
+#: registration/register.php:119
+msgid "Clear"
+msgstr "Vaciar"
+
+#@ cc
+#: members/single/profile/profile-wp.php:8
+#, php-format
+msgid "%s's Profile"
+msgstr "%s 的个人设置"
+
+#@ cc
+#: members/single/profile/profile-wp.php:24
+msgid "About Me"
+msgstr "关于我"
+
+#@ cc
+#: members/single/profile/profile-wp.php:42
+msgid "Jabber"
+msgstr "Jabber"
+
+#@ cc
+#: members/single/profile/profile-wp.php:51
+msgid "AOL Messenger"
+msgstr "AOL Messenger"
+
+#@ cc
+#: members/single/profile/profile-wp.php:60
+msgid "Yahoo Messenger"
+msgstr "Yahoo Messenger"
+
+#@ cc
+#: members/single/settings/delete-account.php:50
+msgid "Delete Account"
+msgstr "删除帐号"
+
+#@ cc
+#: members/single/settings/delete-account.php:55
+msgid "WARNING: Deleting your account will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "温馨提示：删除你的帐号会导致所有内容的遗失，不能复原，请注意此项选项。"
+
+#@ cc
+#: members/single/settings/delete-account.php:58
+msgid "I understand the consequences of deleting my account."
+msgstr "我知道删除帐号的后果。"
+
+#@ cc
+#: members/single/settings/delete-account.php:63
+msgid "Delete My Account"
+msgstr "删除我的帐号"
+
+#@ cc
+#: members/single/settings/general.php:50
+msgid "General Settings"
+msgstr "总体设置"
+
+#@ cc
+#: members/single/settings/general.php:56
+msgid "Current Password <span>(required to update email or change current password)</span>"
+msgstr "现在的密码 <span>(需要更新电邮或者更改现在的密码)</span>"
+
+#@ cc
+#: members/single/settings/general.php:57
+msgid "Password Lost and Found"
+msgstr "密码遗失后找到"
+
+#@ cc
+#: members/single/settings/general.php:57
+msgid "Lost your password?"
+msgstr "忘记了密码？"
+
+#@ cc
+#: members/single/settings/general.php:59
+msgid "Account Email"
+msgstr "账户电子邮件"
+
+#@ cc
+#: members/single/settings/general.php:62
+msgid "Change Password <span>(leave blank for no change)</span>"
+msgstr "改密码 <span>(dejar en blanco para no cambiar)</span>"
+
+#@ cc
+#: members/single/settings/general.php:63
+msgid "New Password"
+msgstr "新密码"
+
+#@ cc
+#: members/single/settings/general.php:64
+msgid "Repeat New Password"
+msgstr "重复新密码"
+
+#@ cc
+#: members/single/settings/notifications.php:50
+msgid "Email Notification"
+msgstr "电子邮件通知"
+
+#@ cc
+#: members/single/settings/notifications.php:55
+msgid "Send a notification by email when:"
+msgstr "通过邮件发送通知当："
+
+#@ cc
+#: page.php:19
+#: single.php:68
+msgid "<p class=\"cc_pagecount\"><strong>Pages:</strong> "
+msgstr "<p class=\"cc_pagecount\"><strong>Páginas:</strong> "
+
+#@ cc
+#: page.php:34
+msgid "Edit this page."
+msgstr "修改此页"
+
+#@ cc
+#: registration/activate.php:12
+msgid "Account Activated"
+msgstr "账户已激活"
+
+#@ cc
+#: registration/activate.php:17
+msgid "Your account was activated successfully! Your account details have been sent to you in a separate email."
+msgstr "你的帐号已被激活，你账户的具体信息已通过另一邮件发送给你。"
+
+#@ cc
+#: registration/activate.php:19
+msgid "Your account was activated successfully! You can now log in with the username and password you provided when you signed up."
+msgstr "你账号已被激活，你可以用你注册时填进的用户名和密码来登陆。"
+
+#@ cc
+#: registration/activate.php:24
+msgid "Activate your Account"
+msgstr "激活你的账户"
+
+#@ cc
+#: registration/activate.php:28
+msgid "Please provide a valid activation key."
+msgstr "请你提供一个有效的激活码。"
+
+#@ cc
+#: registration/activate.php:32
+msgid "Activation Key:"
+msgstr "激活码："
+
+#@ cc
+#: registration/activate.php:36
+msgid "Activate"
+msgstr "激活"
+
+#@ cc
+#: registration/register.php:16
+msgid "User registration is currently not allowed."
+msgstr "现在不能进行用户注册哦。"
+
+#@ cc
+#: registration/register.php:23
+msgid "Create an Account"
+msgstr "建立一个帐号"
+
+#@ cc
+#: registration/register.php:27
+msgid "Registering for this site is easy, just fill in the fields below and we'll get a new account set up for you in no time."
+msgstr "注册很简单，只要填上表格我们就能马上给你一个新的帐号。"
+
+#@ cc
+#: registration/register.php:35
+msgid "Account Details"
+msgstr "账户信息"
+
+#@ cc
+#: registration/register.php:41
+msgid "Email Address"
+msgstr "电邮地址"
+
+#@ cc
+#: registration/register.php:45
+msgid "Choose a Password"
+msgstr "选择一个密码"
+
+#@ cc
+#: registration/register.php:49
+msgid "Confirm Password"
+msgstr "确认密码"
+
+#@ cc
+#: registration/register.php:65
+msgid "Profile Details"
+msgstr "个人设置信息"
+
+#@ cc
+#: registration/register.php:183
+msgid "Blog Details"
+msgstr "博客信息"
+
+#@ cc
+#: registration/register.php:185
+msgid "Yes, I'd like to create a new site"
+msgstr "对，我就是想建一个新的网站。"
+
+#@ cc
+#: registration/register.php:189
+msgid "Blog URL"
+msgstr "博客域名"
+
+#@ cc
+#: registration/register.php:198
+msgid "Site Title"
+msgstr "网站标题"
+
+#@ cc
+#: registration/register.php:202
+msgid "I would like my site to appear in search engines, and in public listings around this network."
+msgstr "我想要我的网站出现在搜索引擎和公共目录里。"
+
+#@ cc
+#: registration/register.php:219
+msgid "Complete Sign Up"
+msgstr "完成注册"
+
+#@ cc
+#: registration/register.php:230
+msgid "Sign Up Complete!"
+msgstr "注册已完成！"
+
+#@ cc
+#: registration/register.php:236
+msgid "You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address."
+msgstr "你已成功建立你的帐号！在使用你账户之前需要去你的邮箱里激活我们发送的激活码。"
+
+#@ cc
+#: registration/register.php:238
+msgid "You have successfully created your account! Please log in using the username and password you have just created."
+msgstr "你已成功建立你的账号！请用你的帐号和密码登录。"
+
+#@ cc
+#: search-loop.php:34
+msgid "Read more..."
+msgstr "读更多..."
+
+#@ cc
+#: search-loop.php:51
+#, php-format
+msgid "We are sorry, but we could not find anything for the search term '%s'"
+msgstr "抱歉，我们没有为你找到你要的东西 `%s´"
+
+#@ cc
+#: search.php:14
+msgid "Search Results"
+msgstr "搜索结果"
+
+#@ cc
+#: search.php:59
+msgid "No posts found. Try a different search?"
+msgstr "没有找到文章，请用其他方法搜索。"
+
+#@ cc
+#: sidebar.php:11
+msgid "Recent Posts"
+msgstr "最近的文章"
+
+#@ cc
+#: sidebar.php:23
+msgid "Random Posts"
+msgstr "随机文章"
+
+#@ cc
+#: sidebar.php:35
+msgid "Search by Tags!"
+msgstr "通过标签来搜索"
+
+#@ cc
+#: single.php:87
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#@ cc
+#: single.php:88
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"
+
+#@ cc
+#: single.php:97
+msgid "Sorry, no posts matched your criteria."
+msgstr "抱歉，暂时没有文章满足你的要求。"
+

@@ -1,0 +1,74 @@
+----------------------------------------------------------------------
+Site Categories
+Author: Paul Menard (Incsub)
+----------------------------------------------------------------------
+
+1.0.7.4 - 2013-01-31 
+----------------------------------------------------------------------
+- Corrected logic on new site signup form to required labels on categories and labels. 
+- Added div wrapper around new site signup form site categories elements to allow hiding these via theme CSS.
+
+1.0.7.3 - 2013-01-22
+----------------------------------------------------------------------
+- Changes to correct category counts.
+- Lowered timeout on widgets caching from 120 seconds to 30 seconds. 
+
+1.0.7.2 - 2012-12-20
+----------------------------------------------------------------------
+- Fixed issue where Deleted, Archive, Deactivated blog was not properly decrementing Site Category counter. http://premium.wpmudev.org/forums/topic/counter-not-incrementing-properly
+- Fixed warning messages on uninitialized category exclude array http://premium.wpmudev.org/forums/topic/site-categories-plugin-error-messages
+- Added Site Category column to Network > Sites listing
+- Corrected landing page category sites listing to show only public blogs. Excluding Spam, Deactivated, Mature and Non-Active blogs.
+
+1.0.7.1 - 2012-12-14
+----------------------------------------------------------------------
+- Added site category exclude input field to form settings. This will allow super admins to exclude categories from new signup and blog settings. Only super admins can assigns site to these excluded categories. 
+- Correct link on Single Category Widget to link to the proper Site Category page instead of the landing page. 
+- Some CSS tweaking.
+
+1.0.7 - 2012-12-12
+----------------------------------------------------------------------
+- Fixed issue with strip slashes on site descriptions per http://premium.wpmudev.org/forums/topic/stripslash-in-site-description
+
+1.0.6 - 2012-10-04
+----------------------------------------------------------------------
+- Corrected category widget where the site category slug and avatar were not being set if the number of categories were less than the per page amount. 
+
+
+1.0.5 - 2012-09-26
+----------------------------------------------------------------------
+- Corrected issue on displaying Site description http://premium.wpmudev.org/forums/topic/site-description-field-is-not-displaying
+- Corrected issue reported with loosing settings on plugin upgrade. 
+
+1.0.4 - 2012-09-09
+----------------------------------------------------------------------
+- Corrected code for Multi-Network support of Categories.
+- Corrected issue on new site signup for non-authenticated users. (thanks Jafar Amin)
+- Corrected image URL used on site/category icons when page is SSL.
+- Correct issue on Landing page showing double output of content (thanks Jafar Amin)
+
+1.0.3 - 2012-08-15
+----------------------------------------------------------------------
+- Remove debug output from Grid display template
+- Corrected some typos in the translation .pot text
+- Added more help details on the New Siteup Form options
+
+1.0.2 - 2012-08-12
+----------------------------------------------------------------------
+- Corrected issue counting category items (sites) when viewing landing page.
+- Corrected forced break in Grid display template. 
+- Added options for better handling of hierarchical category display for Grid and Accordion layouts. Allows selection of show icon, show description, show icon and icon size for parent and child categories
+- Add option 'Category parents selectable' to prevent selection of top-level categories. This is handy when using the accordion layout option to. So on the new site registration and the site settings page the dropdown(s) will limit selection to child categories only.
+
+1.0.1 - 2012-08-07
+----------------------------------------------------------------------
+- Added better logic for New Site Signup form to validate and enforce required fields. On the backend added new metabox where network admin can control required fields and labels for New Site Signup form. 
+- Added link to Landing page on Site Settings page.
+- Added Tag Cloud widget with many options including category selection and font sizes control
+
+
+1.0.0 - 2012-07-30
+----------------------------------------------------------------------
+- Initial stable release
+
+18246-1360717929

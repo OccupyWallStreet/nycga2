@@ -5,9 +5,9 @@ Tags: admin, navigation, post, next, previous, edit, post types, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.0
-Tested up to: 3.4
-Stable tag: 1.7.1
-Version: 1.7.1
+Tested up to: 3.5
+Stable tag: 1.7.2
+Version: 1.7.2
 
 Adds links to navigate to the next and previous posts when editing a post in the WordPress admin.
 
@@ -132,6 +132,12 @@ function override_apn_display( $text ) {
 
 == Changelog ==
 
+= 1.7.2 =
+* Add check to prevent execution of code if file is directly accessed
+* Note compatibility through WP 3.5+
+* Update copyright date (2013)
+* Move screenshots into repo's assets directory
+
 = 1.7.1 =
 * Use string instead of variable to specify translation textdomain
 * Re-license as GPLv2 or later (from X11)
@@ -225,6 +231,9 @@ function override_apn_display( $text ) {
 
 
 == Upgrade Notice ==
+
+= 1.7.2 =
+Trivial update: noted compatibility through WP 3.5+
 
 = 1.7.1 =
 Trivial update: noted compatibility through WP 3.4+; explicitly stated license

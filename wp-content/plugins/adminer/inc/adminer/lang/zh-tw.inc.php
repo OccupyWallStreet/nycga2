@@ -244,7 +244,6 @@ $translations = array(
 	'Alter type' => '更改類型',
 	'Type has been dropped.' => '已刪除類型。',
 	'Type has been created.' => '已建立類型。',
-	'Double click on a value to modify it.' => '雙擊以進行修改。',
 	'Use edit link to modify this value.' => '使用編輯連結來修改。',
 	'last' => '最後一頁',
 	'From server' => '從伺服器',
@@ -268,6 +267,5 @@ $translations = array(
 	'Copy' => '複製',
 	'Permanent link' => '永久鏈接',
 	'Edit all' => '編輯全部',
-	'Resend POST data?' => '重新發送表單資料?',
 	'HH:MM:SS' => 'HH:MM:SS',
 );

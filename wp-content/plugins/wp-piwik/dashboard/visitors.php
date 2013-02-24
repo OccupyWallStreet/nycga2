@@ -45,7 +45,7 @@
 		$strCounter = substr($strCounter, 0, -1);
 
 /***************************************************************************/ ?>
-<div class="wp-piwik-graph-wide">
+<div class="wp-piwik-graph-wide" title="<?php _e('The graph contains the values shown in the table below (visitors / unique / bounces). The red line show a linear trendline (unique).', 'wp-piwik'); ?>">
 	<div id="wp-piwik_stats_vistors_graph" style="height:220px;<?php if (!isset($aryConf['inline']) || $aryConf['inline'] != true) { ?>width:100%<?php } ?>"></div>
 </div>
 <?php if (!isset($aryConf['inline']) || $aryConf['inline'] != true) { ?>

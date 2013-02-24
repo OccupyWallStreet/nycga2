@@ -244,7 +244,7 @@ $translations = array(
 	'Alter type' => 'Type wijzigen',
 	'Type has been dropped.' => 'Type verwijderd.',
 	'Type has been created.' => 'Type aangemaakt.',
-	'Double click on a value to modify it.' => 'Dubbelklik op een waarde om deze te bewerken.',
+	'Ctrl+click on a value to modify it.' => 'Ctrl+klik op een waarde om deze te bewerken.',
 	'Use edit link to modify this value.' => 'Gebruik de link "bewerk" om deze waarde te wijzigen.',
 	'last' => 'laatste',
 	'From server' => 'Van server',
@@ -268,6 +268,5 @@ $translations = array(
 	'Copy' => 'Kopieren',
 	'Permanent link' => 'Permanente link',
 	'Edit all' => 'Alles bewerken',
-	'Resend POST data?' => 'POST data opnieuw verzenden',
 	'HH:MM:SS' => 'HH:MM:SS',
 );

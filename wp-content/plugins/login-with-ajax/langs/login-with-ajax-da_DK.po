@@ -1,0 +1,458 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Danish by Wall wall.clan-zone.dk\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/login-with-ajax\n"
+"POT-Creation-Date: 2010-06-04 16:10+0000\n"
+"PO-Revision-Date: 2010-06-06 12:16+0100\n"
+"Last-Translator: Wall <wall@clan-zone.dk>\n"
+"Language-Team: danish <wall1337@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Danish\n"
+"X-Poedit-Country: DENMARK\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:43
+msgid "New features in Login With AJAX (including registration!), check out the settings and widget pages!"
+msgstr "Nye funktioner i Log på med AJAX (herunder registrering!), Så tjek indstillingerne og widget sider!"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:45
+msgid "Dismiss"
+msgstr "Afvis"
+
+#  Translated by WP
+#: login-with-ajax-admin.php:89
+msgid "Changes saved."
+msgstr "Ændringer er gemt."
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:93
+msgid "There were issues when saving your settings. Please try again."
+msgstr "Der var et problemer med at gemmer dine indstillinger. Prøv igen."
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:137
+msgid "General Settings"
+msgstr "Generelle indstillinger"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:142
+msgid "Default Template"
+msgstr "StandardSkabelon"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:151
+msgid "Choose the default theme you'd like to use. This can be overriden in the widget, shortcode and template tags."
+msgstr "Vælg den standard tema, du gerne vil bruge. Dette kan være blev tilsidesat i widget, kortkode og skabelon tags."
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:152
+msgid "Further documentation for this feature coming soon..."
+msgstr "Yderligere dokumentation for denne funktion kommer snart ..."
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:157
+msgid "Disable refresh upon login?"
+msgstr "Forhindre refresh ved login?"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:162
+msgid "If the user logs in and you check the button above, only the login widget will update itself without refreshing the page. Not a good idea if your site shows different content to users once logged in, as a refresh would be needed."
+msgstr "Hvis brugeren logger på, og du tjekke knappen ovenfor, er det kun login widget vil opdatere sig selv uden at opdatere siden. Ikke en god idé, hvis dit websted viser forskellige indhold til brugere, når logget ind som refresh ville være nødvendige."
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:163
+msgid "<strong>Experimental and not fully tested!</strong> please test and report any bugs on our forum."
+msgstr "<strong>Eksperimentel og ikke fuldt ud testet!</strong> Du kan afprøve og rapportere eventuelle fejl på vores forum."
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:168
+msgid "Redirection Settings"
+msgstr "Omdirigering Indstillinger"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:173
+msgid "Global Login Redirect"
+msgstr "Global Login Omdirigere"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:177
+msgid "If you'd like to send the user to a specific URL after login, enter it here (e.g. http://wordpress.org/)"
+msgstr "Hvis du ønsker at sende brugeren til en bestemt webadresse efter login, skal du indtaste det her (f.eks http://wordpress.org/)"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:178
+#: login-with-ajax-admin.php:188
+msgid "New!"
+msgstr "Nyt!"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:178
+#, php-format
+msgid "Use %USERNAME% and it will be replaced with the username of person logging in."
+msgstr "Brug %USERNAME% og det vil blive erstattet med brugernavnet på den person, der er logger ind"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:183
+msgid "Global Logout Redirect"
+msgstr "Global Log af omdirigere"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:187
+msgid "If you'd like to send the user to a specific URL after logout, enter it here (e.g. http://wordpress.org/)"
+msgstr "Hvis du ønsker at sende brugeren til en bestemt webadresse efter log af, skal du indtaste det her (f.eks http://wordpress.org/)"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:188
+#, php-format
+msgid "Enter %LASTURL% to send the user back to the page they were previously on."
+msgstr "Indtast %LASTURL% for at sende brugeren tilbage til den side, de var tidligere på"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:193
+msgid "Role-Based Custom Login Redirects"
+msgstr "Rollebaseret Tilpasset Login Omdirigeringer"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:196
+msgid "If you would like a specific user role to be redirected to a custom URL upon login, place it here (blank value will default to the global redirect)"
+msgstr "Hvis du ønsker en bestemt bruger rolle at blive omdirigeret til en brugerdefineret URL-adresse ved login, placere den her (tom værdi vil som standard til den globale omdirigering)"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:216
+msgid "Role-Based Custom Logout Redirects"
+msgstr "Rollebaseret Tilpasset Log af Omdirigeringer"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:219
+msgid "If you would like a specific user role to be redirected to a custom URL upon logout, place it here (blank value will default to the global redirect)"
+msgstr "Hvis du ønsker en bestemt bruger rolle at blive omdirigeret til en brugerdefineret URL-adresse efter log af, placere den her (tom værdi vil som standard til den globale omdirigering)"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:239
+msgid "Notification Settings"
+msgstr "Notification Indstillinger"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:241
+msgid "If you'd like to override the default Wordpress email users receive once registered, make sure you check the box below and enter a new email subject and message"
+msgstr "Hvis du gerne vil tilsidesætte standard Wordpress email brugere modtager når de registreret, skal du sørge for at kontrollere feltet nedenfor og indtaste en ny email emne og budskab"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:242
+msgid "If this feature doesn't work, please make sure that you don't have another plugin installed which also manages user registrations (e.g. BuddyPress and MU)."
+msgstr "Hvis denne funktion ikke virker, skal du sørge for, at du ikke har en anden plugin installeret, som også styrer brugeren registreringer (f.eks BuddyPress og MU)."
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:248
+msgid "Override Default Email?"
+msgstr "Tilsidesæt Standard Email?"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:256
+msgid "Subject"
+msgstr "Emne"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:261
+#, php-format
+msgid "Your registration at %BLOGNAME%"
+msgstr "Din registrering ved %BLOGNAME%"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:265
+#, php-format
+msgid "<code>%USERNAME%</code> will be replaced with a username."
+msgstr "<code>%USERNAME%</code> og det vil blive erstattet med brugernavnet på den person, der er logger ind"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:266
+#, php-format
+msgid "<code>%PASSWORD%</code> will be replaced with the user's password."
+msgstr "<code>%PASSWORD%</code> vil blive erstattet med brugerens adgangskode."
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:267
+#: login-with-ajax-admin.php:291
+#, php-format
+msgid "<code>%BLOGNAME%</code> will be replaced with the name of your blog."
+msgstr "<code>%BLOGNAME%</code> bliver erstattet med navnet på din blog."
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:268
+#: login-with-ajax-admin.php:292
+#, php-format
+msgid "<code>%BLOGURL%</code> will be replaced with the url of your blog."
+msgstr "<code>%BLOGURL%</code> bliver erstattet med webadressen på din blog."
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:273
+msgid "Message"
+msgstr "Besked"
+
+#  Translated by WP
+#: login-with-ajax-admin.php:301
+msgid "Save Changes"
+msgstr "Gem ændringer"
+
+#@ login-with-ajax
+#: login-with-ajax-widget.php:5
+msgid "Login widget with AJAX capabilities."
+msgstr "Login widget med AJAX kapaciteter."
+
+#@ login-with-ajax
+#: login-with-ajax-widget.php:28
+msgid "Show profile link?"
+msgstr "Vis profil link?"
+
+#@ login-with-ajax
+#: login-with-ajax-widget.php:32
+msgid "AJAX Registration?"
+msgstr "AJAX registrering?"
+
+#@ login-with-ajax
+#: login-with-ajax-widget.php:36
+msgid "Template"
+msgstr "Skabelon"
+
+#@ login-with-ajax
+#: login-with-ajax.php:149
+msgid "Login Successful, redirecting..."
+msgstr "Login Successful, omdirigere ..."
+
+#@ login-with-ajax
+#: login-with-ajax.php:161
+msgid "Login successful, updating..."
+msgstr "Login Successful, omdirigere ..."
+
+#@ login-with-ajax
+#: login-with-ajax.php:171
+#: login-with-ajax.php:219
+msgid "An undefined error has ocurred"
+msgstr "En udefineret fejl er opstået"
+
+#: login-with-ajax.php:190
+msgid "Registration complete. Please check your e-mail."
+msgstr "Registrering komplet. Tjek venligst din e-mail."
+
+#@ login-with-ajax
+#: login-with-ajax.php:210
+msgid "We have sent you an email"
+msgstr "Vi har sendt dig en e-mail"
+
+#: pluggable.php:26
+#, php-format
+msgid "New user registration on your blog %s:"
+msgstr "Ny bruger registrering på din blog %s:"
+
+#  Translated by WP
+#: pluggable.php:27
+#: pluggable.php:41
+#, php-format
+msgid "Username: %s"
+msgstr "Brugernavn: %s"
+
+#: pluggable.php:28
+#, php-format
+msgid "E-mail: %s"
+msgstr "E-mail: %s"
+
+#: pluggable.php:30
+#, php-format
+msgid "[%s] New User Registration"
+msgstr "[%s] Ny bruger registrering"
+
+#  Translated by WP
+#: pluggable.php:42
+#, php-format
+msgid "Password: %s"
+msgstr "Adgangskode: %s"
+
+#: pluggable.php:45
+#, php-format
+msgid "[%s] Your username and password"
+msgstr "[%s] Dit brugernavn og Adgangskode"
+
+#: widget/default/register.php:9
+#: widget/ie7-friendly/widget_out.php:88
+#: widget/inline-registration/widget_out.php:94
+msgid "Register For This Site"
+msgstr "Registrer til denne blog"
+
+#  Translated by WP
+#: widget/default/register.php:12
+#: widget/default/widget_out.php:19
+#: widget/ie7-friendly/widget_out.php:17
+#: widget/ie7-friendly/widget_out.php:93
+#: widget/inline-registration/widget_out.php:19
+#: widget/inline-registration/widget_out.php:99
+#: widget/widget_out.php:19
+msgid "Username"
+msgstr "Brugernavn"
+
+#: widget/default/register.php:16
+#: widget/ie7-friendly/widget_out.php:99
+#: widget/inline-registration/widget_out.php:105
+msgid "E-mail"
+msgstr "E-mail"
+
+#: widget/default/register.php:20
+#: widget/ie7-friendly/widget_out.php:113
+#: widget/inline-registration/widget_out.php:119
+msgid "A password will be e-mailed to you."
+msgstr "Et kodeord vil blive e-mailes til dig."
+
+#  Translated by WP
+#: widget/default/register.php:21
+#: widget/default/widget_out.php:56
+#: widget/ie7-friendly/widget_out.php:53
+#: widget/ie7-friendly/widget_out.php:114
+#: widget/inline-registration/widget_out.php:55
+#: widget/inline-registration/widget_out.php:120
+#: widget/widget_out.php:56
+msgid "Register"
+msgstr "Register"
+
+#@ login-with-ajax
+#: widget/default/widget_in.php:11
+#: widget/default/widget_in.php:14
+#: widget/ie7-friendly/widget_in.php:11
+#: widget/ie7-friendly/widget_in.php:14
+#: widget/inline-registration/widget_in.php:11
+#: widget/inline-registration/widget_in.php:14
+#: widget/widget_in.php:11
+#: widget/widget_in.php:14
+msgid "Hi"
+msgstr "Hej"
+
+#  Translated by WP
+#: widget/default/widget_in.php:33
+#: widget/ie7-friendly/widget_in.php:34
+#: widget/inline-registration/widget_in.php:33
+#: widget/widget_in.php:33
+msgid "Profile"
+msgstr "Profile"
+
+#  Translated by WP
+#: widget/default/widget_in.php:38
+#: widget/ie7-friendly/widget_in.php:40
+#: widget/ie7-friendly/widget_in.php:44
+#: widget/inline-registration/widget_in.php:38
+#: widget/widget_in.php:38
+msgid "Log Out"
+msgstr "Log af"
+
+#@ loginwithajax
+#: widget/default/widget_in.php:43
+#: widget/inline-registration/widget_in.php:43
+#: widget/widget_in.php:43
+msgid "blog admin"
+msgstr "blog admin"
+
+#  Translated by WP
+#: widget/default/widget_out.php:10
+#: widget/default/widget_out.php:35
+#: widget/ie7-friendly/widget_out.php:10
+#: widget/ie7-friendly/widget_out.php:32
+#: widget/inline-registration/widget_out.php:10
+#: widget/inline-registration/widget_out.php:35
+#: widget/widget_out.php:10
+#: widget/widget_out.php:35
+msgid "Log In"
+msgstr "Log In"
+
+#  Translated by WP
+#: widget/default/widget_out.php:27
+#: widget/ie7-friendly/widget_out.php:25
+#: widget/inline-registration/widget_out.php:27
+#: widget/widget_out.php:27
+msgid "Password"
+msgstr "Adgangskode"
+
+#  Translated by WP
+#: widget/default/widget_out.php:41
+#: widget/ie7-friendly/widget_out.php:38
+#: widget/inline-registration/widget_out.php:40
+#: widget/widget_out.php:41
+msgid "Remember Me"
+msgstr "Husk Mig"
+
+#: widget/default/widget_out.php:43
+#: widget/ie7-friendly/widget_out.php:40
+#: widget/inline-registration/widget_out.php:42
+#: widget/widget_out.php:43
+msgid "Password Lost and Found"
+msgstr "Kodeord Mistet og Fundet"
+
+#: widget/default/widget_out.php:43
+#: widget/ie7-friendly/widget_out.php:40
+#: widget/inline-registration/widget_out.php:42
+#: widget/widget_out.php:43
+msgid "Lost your password?"
+msgstr "Glemt din adgangskode?"
+
+#@ login-with-ajax
+#: widget/default/widget_out.php:68
+#: widget/ie7-friendly/widget_out.php:63
+#: widget/inline-registration/widget_out.php:67
+#: widget/widget_out.php:68
+msgid "Forgotten Password"
+msgstr "Glemt Adgangskode"
+
+#@ login-with-ajax
+#: widget/default/widget_out.php:73
+#: widget/ie7-friendly/widget_out.php:67
+#: widget/inline-registration/widget_out.php:72
+#: widget/widget_out.php:73
+msgid "Enter username or email"
+msgstr "Indtast brugernavn eller email"
+
+#@ login-with-ajax
+#: widget/default/widget_out.php:79
+#: widget/ie7-friendly/widget_out.php:72
+#: widget/inline-registration/widget_out.php:78
+#: widget/widget_out.php:79
+msgid "Get New Password"
+msgstr "Få en ny adgangskode"
+
+#: widget/default/widget_out.php:80
+#: widget/ie7-friendly/widget_out.php:115
+#: widget/inline-registration/widget_out.php:79
+#: widget/inline-registration/widget_out.php:121
+#: widget/widget_out.php:80
+msgid "Cancel"
+msgstr "Annuller"
+
+#@ login-with-ajax
+#: login-with-ajax-admin.php:278
+#, php-format
+msgid ""
+"Thanks for signing up to our blog. \n"
+"\n"
+"You can login with the following credentials by visiting %BLOGURL%\n"
+"\n"
+"Username : %USERNAME%\n"
+"Password : %PASSWORD%\n"
+"\n"
+"We look forward to your next visit!\n"
+"\n"
+"The team at %BLOGNAME%"
+msgstr ""
+"Tak for din tilmelding til vores blog.\n"
+"\n"
+" Du kan logge ind med følgende ved at besøge %BLOGURL%\n"
+"\n"
+" Brugernavn: %USERNAME%\n"
+" Adgangskode: %PASSWORD%\n"
+"\n"
+" Vi ser frem til dit næste besøg!\n"
+"\n"
+"Holdet på %BLOGNAME%"
+
