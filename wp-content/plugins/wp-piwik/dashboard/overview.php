@@ -27,14 +27,15 @@
 	else {
 		if ($aryConf['params']['date'] == 'last30') {
 			$intValCnt = 0;
-			foreach ($aryConf['data'] as $aryDay) 
-				foreach ($aryDay as $strKey => $strValue) {
-					$intValCnt++;
-					if (!in_array($strKey, array('max_actions','bounce_rate','nb_actions_per_visit','avg_time_on_site')))
-						$aryTmp[$strKey] += $strValue;
-					elseif ($aryTmp[$strKey] < $strValue)
-						$aryTmp[$strKey] = $strValue;
-				}
+			if (is_array($aryConf['data']))
+				foreach ($aryConf['data'] as $aryDay) 
+					foreach ($aryDay as $strKey => $strValue) {
+						$intValCnt++;
+						if (!in_array($strKey, array('max_actions','bounce_rate','nb_actions_per_visit','avg_time_on_site')))
+							$aryTmp[$strKey] += $strValue;
+						elseif ($aryTmp[$strKey] < $strValue)
+							$aryTmp[$strKey] = $strValue;
+					}
 			$aryConf['data'] = $aryTmp;
 			if ($intValCnt > 1 && $aryConf['data']['nb_visits'] >0) $aryConf['data']['bounce_rate'] = round($aryConf['data']['bounce_count']/$aryConf['data']['nb_visits']*100).'%';
 		}

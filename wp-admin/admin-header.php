@@ -11,7 +11,7 @@ if ( ! defined( 'WP_ADMIN' ) )
 	require_once( './admin.php' );
 
 // In case admin-header.php is included in a function.
-global $title, $hook_suffix, $current_screen, $wp_locale, $pagenow, $wp_version, $is_iphone,
+global $title, $hook_suffix, $current_screen, $wp_locale, $pagenow, $wp_version,
 	$current_site, $update_title, $total_update_count, $parent_file;
 
 // Catch plugins that include admin-header.php before admin.php completes.
@@ -50,12 +50,7 @@ $admin_body_class = preg_replace('/[^a-z0-9_-]+/i', '-', $hook_suffix);
 ?>
 <script type="text/javascript">
 addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
-var userSettings = {
-		'url': '<?php echo SITECOOKIEPATH; ?>',
-		'uid': '<?php if ( ! isset($current_user) ) $current_user = wp_get_current_user(); echo $current_user->ID; ?>',
-		'time':'<?php echo time() ?>'
-	},
-	ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>',
+var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
 	pagenow = '<?php echo $current_screen->id; ?>',
 	typenow = '<?php echo $current_screen->post_type; ?>',
 	adminpage = '<?php echo $admin_body_class; ?>',
@@ -76,6 +71,9 @@ do_action('admin_head');
 if ( get_user_setting('mfold') == 'f' )
 	$admin_body_class .= ' folded';
 
+if ( !get_user_setting('unfold') )
+	$admin_body_class .= ' auto-fold';
+
 if ( is_admin_bar_showing() )
 	$admin_body_class .= ' admin-bar';
 
@@ -85,15 +83,29 @@ if ( is_rtl() )
 $admin_body_class .= ' branch-' . str_replace( array( '.', ',' ), '-', floatval( $wp_version ) );
 $admin_body_class .= ' version-' . str_replace( '.', '-', preg_replace( '/^([.0-9]+).*/', '$1', $wp_version ) );
 $admin_body_class .= ' admin-color-' . sanitize_html_class( get_user_option( 'admin_color' ), 'fresh' );
+$admin_body_class .= ' locale-' . sanitize_html_class( strtolower( str_replace( '_', '-', get_locale() ) ) );
 
-if ( $is_iphone ) { ?>
-<style type="text/css">.row-actions{visibility:visible;}</style>
-<?php } ?>
+if ( wp_is_mobile() )
+	$admin_body_class .= ' mobile';
+
+$admin_body_class .= ' no-customize-support';
+
+?>
 </head>
-<body class="wp-admin no-js <?php echo apply_filters( 'admin_body_class', '' ) . " $admin_body_class"; ?>">
-<script type="text/javascript">document.body.className = document.body.className.replace('no-js','js');</script>
+<body class="wp-admin wp-core-ui no-js <?php echo apply_filters( 'admin_body_class', '' ) . " $admin_body_class"; ?>">
+<script type="text/javascript">
+	document.body.className = document.body.className.replace('no-js','js');
+</script>
+
+<?php
+// If the customize-loader script is enqueued, make sure the customize
+// body classes are correct as early as possible.
+if ( wp_script_is( 'customize-loader', 'queue' ) && current_user_can( 'edit_theme_options' ) )
+	wp_customize_support_script();
+?>
 
 <div id="wpwrap">
+<a tabindex="1" href="#wpbody-content" class="screen-reader-shortcut"><?php _e('Skip to main content'); ?></a>
 <?php require(ABSPATH . 'wp-admin/menu-header.php'); ?>
 <div id="wpcontent">
 
@@ -109,7 +121,7 @@ $current_screen->set_parentage( $parent_file );
 
 ?>
 
-<div id="wpbody-content">
+<div id="wpbody-content" aria-label="<?php esc_attr_e('Main content'); ?>" tabindex="0">
 <?php
 
 $current_screen->render_screen_meta();

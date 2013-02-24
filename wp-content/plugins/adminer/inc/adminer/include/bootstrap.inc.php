@@ -4,7 +4,7 @@ error_reporting(6135); // errors and warnings
 include "../adminer/include/coverage.inc.php";
 
 // disable filter.default
-$filter = (!ereg('^(unsafe_raw)?$', ini_get("filter.default")));
+$filter = !ereg('^(unsafe_raw)?$', ini_get("filter.default"));
 if ($filter || ini_get("filter.default_flags")) {
 	foreach (array('_GET', '_POST', '_COOKIE', '_SERVER') as $val) {
 		$unsafe = filter_input_array(constant("INPUT$val"), FILTER_UNSAFE_RAW);
@@ -21,9 +21,13 @@ if (isset($_GET["file"])) {
 
 include "../adminer/include/functions.inc.php";
 
-global $adminer, $connection, $drivers, $edit_functions, $enum_length, $error, $functions, $grouping, $HTTPS, $inout, $jush, $LANG, $langs, $on_actions, $structured_types, $token, $translations, $types, $unsigned, $VERSION; // allows including Adminer inside a function
-if (!isset($_SERVER["REQUEST_URI"])) {
-	$_SERVER["REQUEST_URI"] = $_SERVER["ORIG_PATH_INFO"] . ($_SERVER["QUERY_STRING"] != "" ? "?$_SERVER[QUERY_STRING]" : ""); // IIS 5 compatibility
+global $adminer, $connection, $drivers, $edit_functions, $enum_length, $error, $functions, $grouping, $HTTPS, $inout, $jush, $LANG, $langs, $on_actions, $permanent, $structured_types, $token, $translations, $types, $unsigned, $VERSION; // allows including Adminer inside a function
+
+if (!$_SERVER["REQUEST_URI"]) { // IIS 5 compatibility
+	$_SERVER["REQUEST_URI"] = $_SERVER["ORIG_PATH_INFO"]; 
+}
+if (!strpos($_SERVER["REQUEST_URI"], '?') && $_SERVER["QUERY_STRING"] != "") { // IIS 7 compatibility
+	$_SERVER["REQUEST_URI"] .= "?$_SERVER[QUERY_STRING]";
 }
 $HTTPS = $_SERVER["HTTPS"] && strcasecmp($_SERVER["HTTPS"], "off");
 
@@ -70,12 +74,13 @@ include "./include/adminer.inc.php";
 include "../adminer/include/design.inc.php";
 include "../adminer/include/xxtea.inc.php";
 include "../adminer/include/auth.inc.php";
-include "./include/connect.inc.php";
-include "./include/editing.inc.php";
 
-session_cache_limiter(""); // to allow restarting session
 if (!ini_bool("session.use_cookies") || @ini_set("session.use_cookies", false) !== false) { // @ - may be disabled
+	session_cache_limiter(""); // to allow restarting session
 	session_write_close(); // improves concurrency if a user opens several pages at once, may be restarted later
 }
 
-$on_actions = "RESTRICT|CASCADE|SET NULL|NO ACTION"; ///< @var string used in foreign_keys()
+include "./include/connect.inc.php";
+include "./include/editing.inc.php";
+
+$on_actions = "RESTRICT|NO ACTION|CASCADE|SET NULL|SET DEFAULT"; ///< @var string used in foreign_keys()

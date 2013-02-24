@@ -1,0 +1,349 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: login-with-ajax\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/login-with-ajax\n"
+"POT-Creation-Date: 2010-11-29 14:04+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: anselmo\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: login-with-ajax-admin.php:44
+msgid "New features in Login With AJAX (including registration!), check out the settings and widget pages!"
+msgstr "Új funkciók a Login with Ajax pluginben (regisztráció is!), ellenőrizze a beállításokat és a widgetek oldalt!"
+
+#: login-with-ajax-admin.php:46
+msgid "Dismiss"
+msgstr "Figyelmen kívül hagy"
+
+#: login-with-ajax-admin.php:92
+msgid "Changes saved."
+msgstr "A változtatásokat elmentettük."
+
+#: login-with-ajax-admin.php:135
+msgid "General Settings"
+msgstr "Álltalános beállítások"
+
+#: login-with-ajax-admin.php:141
+msgid "Default Template"
+msgstr "Alapértelmezett template"
+
+#: login-with-ajax-admin.php:150
+msgid "Choose the default theme you'd like to use. This can be overriden in the widget, shortcode and template tags."
+msgstr "Válassza ki a használni kívánt témát. Ez felülírható a widgetben, shortcodeban és a tempalte tagekben."
+
+#: login-with-ajax-admin.php:151
+msgid "Further documentation for this feature coming soon..."
+msgstr "A további dokumentálása ennek a funkciónak hamarosan elkészül..."
+
+#: login-with-ajax-admin.php:157
+msgid "Disable refresh upon login?"
+msgstr "Kikapcsolja a frissítést belépés után?"
+
+#: login-with-ajax-admin.php:162
+msgid "If the user logs in and you check the button above, only the login widget will update itself without refreshing the page. Not a good idea if your site shows different content to users once logged in, as a refresh would be needed."
+msgstr "Ha Ön kipipálta ezt a mezőt, és a felhasználó bejelentkezik, akkor csak a bejelentkezés widget frissíti magát anélkül, hogy az egész oldalt frissítené. Ne használja, ha a felhasználóknak más tartalmat akar megjeleníteni belépés után!"
+
+#: login-with-ajax-admin.php:163
+msgid "<strong>Experimental and not fully tested!</strong> please test and report any bugs on our forum."
+msgstr "<strong>Kisérleti és nem teljesen tesztelt!</strong> Kérjük tesztelje, és ha hibát talál jelentse a forumon!"
+
+#: login-with-ajax-admin.php:168
+msgid "Redirection Settings"
+msgstr "Átirányítási beállítások"
+
+#: login-with-ajax-admin.php:173
+msgid "Global Login Redirect"
+msgstr "Globális belépési átirányítás"
+
+#: login-with-ajax-admin.php:177
+msgid "If you'd like to send the user to a specific URL after login, enter it here (e.g. http://wordpress.org/)"
+msgstr "Ha a felhaszálót egy bizonyos URLre akarja irányítani belépés után, akkor azt itt adhatja meg (pl.: http://wordpress.org/)"
+
+#: login-with-ajax-admin.php:178
+#: login-with-ajax-admin.php:188
+msgid "New!"
+msgstr "Új!"
+
+#: login-with-ajax-admin.php:178
+msgid "Use %USERNAME% and it will be replaced with the username of person logging in."
+msgstr "Használja a %USERNAME% kifejezést és ez ki lesz cserélve a regisztrált felhasználó felhasználói nevével."
+
+#: login-with-ajax-admin.php:183
+msgid "Global Logout Redirect"
+msgstr "Globális kilépési átirányítás"
+
+#: login-with-ajax-admin.php:187
+msgid "If you'd like to send the user to a specific URL after logout, enter it here (e.g. http://wordpress.org/)"
+msgstr "Ha a felhaszálót egy bizonyos URLre akarja irányítani kilépés után, akkor azt itt adhatja meg (pl.: http://wordpress.org/)"
+
+#: login-with-ajax-admin.php:188
+msgid "Enter %LASTURL% to send the user back to the page they were previously on."
+msgstr "Ha azt akarja hogy a felhasználó arra az oldalra legyne visszaküldve ahonnan jött akkor írja be következőt: %LASTURL% "
+
+#: login-with-ajax-admin.php:193
+msgid "Role-Based Custom Login Redirects"
+msgstr "Szerepkör függő belépési átirányítások"
+
+#: login-with-ajax-admin.php:196
+msgid "If you would like a specific user role to be redirected to a custom URL upon login, place it here (blank value will default to the global redirect)"
+msgstr "Ha szeretné, hogy egy bizonyos felhasználói szerepkörrel bírók egy adott URL-címre legyenek irányítva a belépéskor, akkor azt adja meg itt (Ha nem tölti ki akkor a globális beállítás fog érvényesülni)"
+
+#: login-with-ajax-admin.php:216
+msgid "Role-Based Custom Logout Redirects"
+msgstr "Szerepkör függő kilépési átirányítások"
+
+#: login-with-ajax-admin.php:219
+msgid "If you would like a specific user role to be redirected to a custom URL upon logout, place it here (blank value will default to the global redirect)"
+msgstr "Ha szeretné, hogy egy bizonyos felhasználói szerepkörrel bírók egy adott URL-címre legyenek irányítva a kilépéskor, akkor azt adja meg itt (Ha nem tölti ki akkor a globális beállítás fog érvényesülni)"
+
+#: login-with-ajax-admin.php:239
+msgid "Notification Settings"
+msgstr "Értesítési beállítások"
+
+#: login-with-ajax-admin.php:241
+msgid "If you'd like to override the default Wordpress email users receive once registered, make sure you check the box below and enter a new email subject and message"
+msgstr "Ha azt szeretné, hogy az alapértelmezett Wordpress email amit a felhasználók kapnak regisztráció után felülíródjon, akkor ellenőrizze hogy bepipálta az alábbi mezőt és kitöltötte az email tárgy mezőjét is."
+
+#: login-with-ajax-admin.php:242
+msgid "If this feature doesn't work, please make sure that you don't have another plugin installed which also manages user registrations (e.g. BuddyPress and MU)."
+msgstr "Ha ez a funkció nem müködik, kérjük ellenőrizze, hogy nincs-e egy másik bővítmény installálva, ami szintén a felhasználói regisztrációt kezeli (például: BuddyPress, MU)"
+
+#: login-with-ajax-admin.php:248
+msgid "Override Default Email?"
+msgstr "Az alapértelmezett email felülírása?"
+
+#: login-with-ajax-admin.php:256
+msgid "Subject"
+msgstr "Tárgy"
+
+#: login-with-ajax-admin.php:261
+msgid "Your registration at %BLOGNAME%"
+msgstr "Az Ön regisztrációja a(z) %BLOGNAME% weboldalon."
+
+#: login-with-ajax-admin.php:265
+msgid "<code>%USERNAME%</code> will be replaced with a username."
+msgstr "<code>%USERNAME%</code> ki lesz cserélve a felhasználónévvel."
+
+#: login-with-ajax-admin.php:266
+msgid "<code>%PASSWORD%</code> will be replaced with the user's password."
+msgstr "<code>%PASSWORD%</code> ki lesz cserélve a jelszóval."
+
+#: login-with-ajax-admin.php:267
+#: login-with-ajax-admin.php:291
+msgid "<code>%BLOGNAME%</code> will be replaced with the name of your blog."
+msgstr "<code>%BLOGNAME%</code> ki lesz cserélve a weboldal nevével."
+
+#: login-with-ajax-admin.php:268
+#: login-with-ajax-admin.php:292
+msgid "<code>%BLOGURL%</code> will be replaced with the url of your blog."
+msgstr "<code>%BLOGURL%</code> ki lesz cserélve a weboldal URLjével."
+
+#: login-with-ajax-admin.php:273
+msgid "Message"
+msgstr "Üzenet"
+
+#: login-with-ajax-admin.php:278
+msgid ""
+"Thanks for signing up to our blog. \r\n"
+"\r\n"
+"You can login with the following credentials by visiting %BLOGURL%\r\n"
+"\r\n"
+"Username : %USERNAME%\r\n"
+"Password : %PASSWORD%\r\n"
+"\r\n"
+"We look forward to your next visit!\r\n"
+"\r\n"
+"The team at %BLOGNAME%"
+msgstr ""
+"Köszönjük, hogy regisztrált weboldalunkon. \r\n"
+"\r\n"
+"Lépjen be bármikor a %BLOGURL% hivatkozás használatával.\r\n"
+"\r\n"
+"Felhasználóneve: %USERNAME%\r\n"
+"Jelszava: %PASSWORD%\r\n"
+"\r\n"
+"Várjuk a következő látogatását,!\r\n"
+"\r\n"
+"%BLOGNAME%"
+
+#: login-with-ajax-admin.php:301
+msgid "Save Changes"
+msgstr "Változtatások mentése"
+
+#: login-with-ajax-widget.php:5
+msgid "Login widget with AJAX capabilities."
+msgstr "Login widget AJAX támogatással."
+
+#: login-with-ajax-widget.php:28
+msgid "Show profile link?"
+msgstr "Mutassa a profil linket?"
+
+#: login-with-ajax-widget.php:32
+msgid "AJAX Registration?"
+msgstr "AJAX Regisztráció?"
+
+#: login-with-ajax-widget.php:37
+msgid "Template"
+msgstr "Template"
+
+#: login-with-ajax.php:177
+msgid "Login Successful, redirecting..."
+msgstr "Belépés sikeres, átirányítás folyamatban..."
+
+#: login-with-ajax.php:189
+msgid "Login successful, updating..."
+msgstr "Belépés sikeres, frissítés..."
+
+#: login-with-ajax.php:199
+#: login-with-ajax.php:251
+msgid "An undefined error has ocurred"
+msgstr "Ismeretlen hiba történt"
+
+#: login-with-ajax.php:203
+msgid "Please supply your username and password."
+msgstr "Kérjük adja meg felhasználónevét és jelszavát"
+
+#: login-with-ajax.php:222
+msgid "Registration complete. Please check your e-mail."
+msgstr "A regisztráció befejezve, kérjük nézze meg az emailjeit."
+
+#: login-with-ajax.php:242
+msgid "We have sent you an email"
+msgstr "Küldtünk Önnek egy emailt."
+
+#: pluggable.php:25
+#, php-format
+msgid "New user registration on your blog %s:"
+msgstr "Új felhasználó regisztrált a weboldalán: %s:"
+
+#: pluggable.php:26
+#: pluggable.php:40
+#, php-format
+msgid "Username: %s"
+msgstr "Felhasználónév: %s"
+
+#: pluggable.php:27
+#, php-format
+msgid "E-mail: %s"
+msgstr "Email: %s"
+
+#: pluggable.php:29
+#, php-format
+msgid "[%s] New User Registration"
+msgstr "[%s] Új felhasználó regisztráció"
+
+#: pluggable.php:41
+#, php-format
+msgid "Password: %s"
+msgstr "Jelszó: %s"
+
+#: pluggable.php:44
+#, php-format
+msgid "[%s] Your username and password"
+msgstr "[%s] Az Ön felhasználóneve és jelszava"
+
+#: widget/default/widget_in.php:11
+#: widget/default/widget_in.php:14
+msgid "Hi"
+msgstr "Üdvözöljük"
+
+#: widget/default/widget_in.php:35
+#: widget/default/widget_in.php:39
+msgid "Profile"
+msgstr "Profil"
+
+#: widget/default/widget_in.php:45
+msgid "Log Out"
+msgstr "Kilépés"
+
+#: widget/default/widget_in.php:50
+msgid "blog admin"
+msgstr "blog admin"
+
+#: widget/default/widget_out.php:10
+#: widget/default/widget_out.php:35
+msgid "Log In"
+msgstr "Belépés"
+
+#: widget/default/widget_out.php:19
+#: widget/default/widget_out.php:93
+msgid "Username"
+msgstr "Felhasználónév"
+
+#: widget/default/widget_out.php:27
+msgid "Password"
+msgstr "Jelszó"
+
+#: widget/default/widget_out.php:41
+msgid "Remember Me"
+msgstr "Emlékezzen rám"
+
+#: widget/default/widget_out.php:43
+msgid "Password Lost and Found"
+msgstr "Elfelejtett / megtalált jelszó"
+
+#: widget/default/widget_out.php:43
+msgid "Lost your password?"
+msgstr "Elfelejtette a jelszavát?"
+
+#: widget/default/widget_out.php:56
+#: widget/default/widget_out.php:102
+msgid "Register"
+msgstr "Regisztrál"
+
+#: widget/default/widget_out.php:68
+msgid "Forgotten Password"
+msgstr "Elfelejtett jelszó"
+
+#: widget/default/widget_out.php:73
+msgid "Enter username or email"
+msgstr "Adja meg felhasználónevét és jelszavát"
+
+#: widget/default/widget_out.php:79
+msgid "Get New Password"
+msgstr "Új jelszó igénylése"
+
+#: widget/default/widget_out.php:80
+msgid "Cancel"
+msgstr "Mégse"
+
+#: widget/default/widget_out.php:90
+msgid "Register For This Site"
+msgstr "Regisztráljon az oldalra"
+
+#: widget/default/widget_out.php:97
+msgid "E-mail"
+msgstr "Email"
+
+#: widget/default/widget_out.php:101
+msgid "A password will be e-mailed to you."
+msgstr "A jelszavát emailben elküldtük."
+
+#. Plugin Name of the plugin/theme
+msgid "Login With Ajax"
+msgstr "Login with Ajax"
+
+#. Plugin URI of the plugin/theme
+msgid "http://netweblogic.com/wordpress/plugins/login-with-ajax/"
+msgstr "http://netweblogic.com/wordpress/plugins/login-with-ajax/"
+
+#. Description of the plugin/theme
+msgid "Ajax driven login widget. Customisable from within your template folder, and advanced settings from the admin area."
+msgstr "AJAX alapú belépés widget. Személyre szabható a template mappában, és haladó beállításokra is lehetőség van az admin területen."
+
+#. Author of the plugin/theme
+msgid "NetWebLogic"
+msgstr "NetWebLogic"
+
+#. Author URI of the plugin/theme
+msgid "http://netweblogic.com/"
+msgstr "http://netweblogic.com/"
+
+#. Tags of the plugin/theme
+msgid "Login, Ajax, Redirect, BuddyPress, MU, WPMU, sidebar, admin, widget"
+msgstr "Login, Ajax, Redirect, BuddyPress, MU, WPMU, sidebar, admin, widget"
+

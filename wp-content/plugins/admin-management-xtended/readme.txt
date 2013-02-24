@@ -3,7 +3,7 @@ Contributors: Alphawolf
 Donate link: http://www.schloebe.de/donate/
 Tags: admin, ajax, management, cms, post, pages, category, inline, media, revision, link, bookmark, drag-and-drop, drag drop
 Requires at least: 3.2
-Tested up to: 3.5
+Tested up to: 3.6
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -100,6 +100,13 @@ Please visit [the official website](http://www.schloebe.de/wordpress/admin-manag
 4. Installation finished.
 
 == Changelog ==
+
+= 2.3.8 =
+* FIXED: PHP Notice and CSS fixes
+
+= 2.3.7 =
+* FIXED: Drag'n'Drop was broken in WP 3.5
+* Merry Xmas and a Happy New Year 2013 everyone!
 
 = 2.3.6 =
 * FIXED: Readme.txt updated to be more compliant with the readme.txt standard

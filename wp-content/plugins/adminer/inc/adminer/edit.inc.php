@@ -53,7 +53,14 @@ if ($_POST["save"]) {
 	$select = array();
 	foreach ($fields as $name => $field) {
 		if (isset($field["privileges"]["select"])) {
-			$select[] = ($_POST["clone"] && $field["auto_increment"] ? "'' AS " : (ereg("enum|set", $field["type"]) ? "1*" . idf_escape($name) . " AS " : "")) . idf_escape($name);
+			$as = convert_field($field);
+			if ($_POST["clone"] && $field["auto_increment"]) {
+				$as = "''";
+			}
+			if ($jush == "sql" && ereg("enum|set", $field["type"])) {
+				$as = "1*" . idf_escape($name);
+			}
+			$select[] = ($as ? "$as AS " : "") . idf_escape($name);
 		}
 	}
 	$row = array();
@@ -75,14 +82,14 @@ if ($fields) {
 	foreach ($fields as $name => $field) {
 		echo "<tr><th>" . $adminer->fieldName($field);
 		$default = $_GET["set"][bracket_escape($name)];
-		$value = (isset($row)
-			? ($row[$name] != "" && ereg("enum|set", $field["type"]) ? (is_array($row[$name]) ? array_sum($row[$name]) : +$row[$name]) : $row[$name])
-			: (!$update && $field["auto_increment"] ? "" : (isset($_GET["select"]) ? false : (isset($default) ? $default : $field["default"])))
+		$value = ($row !== null
+			? ($row[$name] != "" && $jush == "sql" && ereg("enum|set", $field["type"]) ? (is_array($row[$name]) ? array_sum($row[$name]) : +$row[$name]) : $row[$name])
+			: (!$update && $field["auto_increment"] ? "" : (isset($_GET["select"]) ? false : ($default !== null ? $default : $field["default"])))
 		);
 		if (!$_POST["save"] && is_string($value)) {
 			$value = $adminer->editVal($value, $field);
 		}
-		$function = ($_POST["save"] ? (string) $_POST["function"][$name] : ($update && $field["on_update"] == "CURRENT_TIMESTAMP" ? "now" : ($value === false ? null : (isset($value) ? '' : 'NULL'))));
+		$function = ($_POST["save"] ? (string) $_POST["function"][$name] : ($update && $field["on_update"] == "CURRENT_TIMESTAMP" ? "now" : ($value === false ? null : ($value !== null ? '' : 'NULL'))));
 		if ($field["type"] == "timestamp" && $value == "CURRENT_TIMESTAMP") {
 			$value = "";
 			$function = "now";

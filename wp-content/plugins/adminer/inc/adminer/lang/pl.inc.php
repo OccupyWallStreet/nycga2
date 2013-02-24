@@ -20,7 +20,7 @@ $translations = array(
 	'%s version: %s through PHP extension %s' => 'Wersja %s: %s za pomocą %s',
 	'Refresh' => 'Odśwież',
 
-	// text direction
+	// text direction - 'ltr' or 'rtl'
 	'ltr' => 'ltr',
 
 	'Privileges' => 'Uprawnienia użytkowników',
@@ -147,6 +147,7 @@ $translations = array(
 	'Create new table' => 'Utwórz nową tabelę',
 	'Table has been dropped.' => 'Tabela została usunięta.',
 	'Tables have been dropped.' => 'Tabele zostały usunięte.',
+	'Tables have been optimized.' => 'Tabele zostały zoptymalizowane.',
 	'Table has been altered.' => 'Tabela została zmieniona.',
 	'Table has been created.' => 'Tabela została utworzona.',
 	'Table name' => 'Nazwa tabeli',
@@ -239,7 +240,7 @@ $translations = array(
 	'%d row(s) have been imported.' => array('%d rekord został zaimportowany.', '%d rekordy zostały zaimportowane.', '%d rekordów zostało zaimportowanych.'),
 	
 	// in-place editing in select
-	'Double click on a value to modify it.' => 'Kliknij podwójnie wartość, aby ją edytować.',
+	'Ctrl+click on a value to modify it.' => 'Ctrl+kliknij wartość, aby ją edytować.',
 	'Use edit link to modify this value.' => 'Użyj linku edycji aby zmienić tę wartość.',
 	
 	// %s can contain auto-increment value
@@ -277,9 +278,6 @@ $translations = array(
 	'Geometry' => 'Geometria',
 	'Relations' => 'Relacje',
 	
-	// reload confirmation in AJAX
-	'Resend POST data?' => 'Wysłać dane ponownie?',
-	
 	'Editor' => 'Edytor',
 	// date format in Editor: $1 yyyy, $2 yy, $3 mm, $4 m, $5 dd, $6 d
 	'$1-$3-$5' => '$6.$4.$1',
@@ -288,6 +286,8 @@ $translations = array(
 	// hint for time format - use language equivalents for hour, minute and second shortcuts
 	'HH:MM:SS' => 'HH:MM:SS',
 	'now' => 'teraz',
+	'yes' => 'tak',
+	'no' => 'nie',
 	
 	// general SQLite error in create, drop or rename database
 	'File exists.' => 'Plik już istnieje.',

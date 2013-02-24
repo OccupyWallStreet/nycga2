@@ -13,11 +13,11 @@ $translations = array(
 	'Invalid credentials.' => 'Neplatné přihlašovací údaje.',
 	'Language' => 'Jazyk',
 	'Invalid CSRF token. Send the form again.' => 'Neplatný token CSRF. Odešlete formulář znovu.',
-	'No extension' => 'Žádná extenze',
-	'None of the supported PHP extensions (%s) are available.' => 'Není dostupná žádná z podporovaných PHP extenzí (%s).',
+	'No extension' => 'Žádné rozšíření',
+	'None of the supported PHP extensions (%s) are available.' => 'Není dostupné žádné z podporovaných PHP rozšíření (%s).',
 	'Session support must be enabled.' => 'Session proměnné musí být povolené.',
 	'Session expired, please login again.' => 'Session vypršela, přihlašte se prosím znovu.',
-	'%s version: %s through PHP extension %s' => 'Verze %s: %s přes PHP extenzi %s',
+	'%s version: %s through PHP extension %s' => 'Verze %s: %s přes PHP rozšíření %s',
 	'Refresh' => 'Obnovit',
 	
 	// text direction - 'ltr' or 'rtl'
@@ -147,6 +147,7 @@ $translations = array(
 	'Create new table' => 'Vytvořit novou tabulku',
 	'Table has been dropped.' => 'Tabulka byla odstraněna.',
 	'Tables have been dropped.' => 'Tabulky byly odstraněny.',
+	'Tables have been optimized.' => 'Tabulky byly optimalizovány.',
 	'Table has been altered.' => 'Tabulka byla změněna.',
 	'Table has been created.' => 'Tabulka byla vytvořena.',
 	'Table name' => 'Název tabulky',
@@ -226,12 +227,15 @@ $translations = array(
 	'Limit' => 'Limit',
 	'Text length' => 'Délka textů',
 	'Action' => 'Akce',
+	'Full table scan' => 'Průchod celé tabulky',
 	'Unable to select the table' => 'Nepodařilo se vypsat tabulku',
 	'No rows.' => 'Žádné řádky.',
 	'%d row(s)' => array('%d řádek', '%d řádky', '%d řádků'),
 	'Page' => 'Stránka',
 	'last' => 'poslední',
 	'Last page' => 'Poslední stránka',
+	'Load more data' => 'Nahrát další data',
+	'Loading' => 'Nahrává se',
 	'whole result' => 'celý výsledek',
 	'%d byte(s)' => array('%d bajt', '%d bajty', '%d bajtů'),
 	
@@ -239,7 +243,7 @@ $translations = array(
 	'%d row(s) have been imported.' => array('Byl importován %d záznam.', 'Byly importovány %d záznamy.', 'Bylo importováno %d záznamů.'),
 	
 	// in-place editing in select
-	'Double click on a value to modify it.' => 'Dvojklikněte na políčko, které chcete změnit.',
+	'Ctrl+click on a value to modify it.' => 'Ctrl+klikněte na políčko, které chcete změnit.',
 	'Use edit link to modify this value.' => 'Ke změně této hodnoty použijte odkaz upravit.',
 	
 	// %s can contain auto-increment value
@@ -277,9 +281,6 @@ $translations = array(
 	'Geometry' => 'Geometrie',
 	'Relations' => 'Vztahy',
 	
-	// reload confirmation in AJAX
-	'Resend POST data?' => 'Znovu odeslat POST data?',
-	
 	'Editor' => 'Editor',
 	// date format in Editor: $1 yyyy, $2 yy, $3 mm, $4 m, $5 dd, $6 d
 	'$1-$3-$5' => '$6.$4.$1',
@@ -288,6 +289,8 @@ $translations = array(
 	// hint for time format - use language equivalents for hour, minute and second shortcuts
 	'HH:MM:SS' => 'HH:MM:SS',
 	'now' => 'teď',
+	'yes' => 'ano',
+	'no' => 'ne',
 	
 	// general SQLite error in create, drop or rename database
 	'File exists.' => 'Soubor existuje.',

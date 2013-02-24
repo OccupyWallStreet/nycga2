@@ -1,0 +1,400 @@
+/*
+Theme Name: Wordpress Foundation
+Theme URI: http://320press.com/wpfoundation
+Description: A bones/Zurb foundation based wordpress theme.
+Version: 2.0
+Author: 320press
+Author URI: http://320press.com
+Tags: bones, zurb, foundation, 320press, clean, basic
+*/
+
+/* layout */
+
+.more-link{
+	white-space: nowrap;
+}
+
+p.attribution{
+	text-align: right;
+}
+
+article.post{
+	margin-bottom: 18px;
+	border-bottom: 1px solid #E6E6E6;
+}
+
+header .menu-action {
+    float: left;
+    margin-top: 0;
+    position: relative;
+    top: 1px;
+}
+
+header .menu-action .button.small {
+    padding: 8px;
+}
+
+header .menu-action .button.small svg {
+    opacity: 0.5;
+}
+
+.mobile-nav-container{
+	margin-left: -100%;
+	float: left;
+	width: 50%;
+	position: absolute;
+	top: 150px;
+}
+
+.active .mobile-nav-container{
+	display: block;
+	margin-left: 0;
+}
+
+.active #main{
+	margin-left: 55%;
+}
+
+.mobile-nav-container,
+#main{
+	-moz-transition: all 0.25s ease-in 0s;
+}
+
+.side-nav{
+	height: auto;
+}
+
+ul.tabs.vertical {
+    border-bottom: 1px solid #E6E6E6;
+    height: auto;
+}
+
+ul.tabs {
+    border-bottom: 1px solid #E6E6E6;
+    display: block;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+ul.tabs.vertical li {
+    border-left: 3px solid #CCCCCC;
+}
+
+ul.tabs.vertical li, ul.tabs.vertical li {
+    float: none;
+    height: auto;
+}
+
+ul.tabs li:first-child {
+    margin-left: 0;
+}
+
+ul.tabs li {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+ul.tabs.vertical li a {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #F2F2F2;
+    border-color: #E6E6E6;
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    color: #555555;
+    display: block;
+    font-size: 14px;
+    height: auto;
+    line-height: 1;
+    padding: 15px 20px;
+}
+
+ul.tabs li a {
+    color: #6F6F6F;
+    display: block;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 23.8px;
+}
+
+/* typography */
+h1, h2, h3, h4, h5, h6{ font-family: 'Open Sans', sans-serif; font-weight: 300;}
+
+.siteinfo h1{ font-weight: 800; }
+
+/* post styling */
+
+#main p.meta{
+	font-style: italic;
+	color: #808080;
+}
+
+div[id*='attachment_']{
+	max-width: 100%;
+	height: 100%;
+}
+
+#credit320{
+	background: url('images/320press_mini.png') no-repeat left top transparent;
+	padding-left: 20px;
+	display: inline !important;
+}
+
+#main article img{
+	max-width: 100%;
+	margin-bottom: 18px;
+}
+
+h1.single-title{
+	line-height: 1.1;
+}
+
+img.alignleft{
+	margin-right: 10px;
+	float: left;
+}
+
+img.alignright{
+	margin-left: 10px;
+	float: right;
+}
+
+img.aligncenter{
+	display: block;
+	margin: 0 auto;
+}
+
+p.tags a:hover{
+	color: #f0f0f0;
+}
+
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.video-wrapper {
+	width: 630px;
+	max-width: 100%;
+	margin-bottom: 18px;
+}
+
+pre {
+    background-color: #F5F5F5;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    display: block;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 0 0 18px;
+    padding: 8.5px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+code {
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+}
+
+code, pre {
+    font-family: Monaco,Andale Mono,Courier New,monospace;
+    font-size: 12px;
+	padding: 5px 15px;
+}
+
+/* featured posts slider */
+#featured{
+	border: 1px solid #E6E6E6;
+}
+
+#featured div{
+	padding: 0 15px;
+}
+
+#featured h3{
+	margin-top: .2em;
+	padding-left: .05em;
+}
+
+#featured p{
+	padding-left: .1em;
+}
+
+#featured h3,
+#featured p{
+	width: 100%;
+}
+
+/* page styling */
+
+.page-template-page-homepage-php #main {
+	border-bottom: none;
+}
+
+/* comments */
+
+#comments{
+	line-height: 3.1rem;
+	margin-bottom: 18px;
+}
+
+ol.commentlist,
+ol.commentlist ul.children{
+	list-style-type: none;
+	margin-left: 0;
+}
+
+ol.commentlist div.avatar{
+	float: left;
+	margin-right: 10px;
+}
+
+ol.commentlist time{
+	font-size: .8em;
+	color: #eeeeee;
+}
+
+ol.commentlist div.comment-author{
+	position: relative;
+}
+
+.panel ol.commentlist a.comment-edit-link{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+ol.commentlist span.edit-comment{
+	position: absolute;
+	right: 1.5em;
+	top: 0;
+}
+
+.comment h4{
+	margin-bottom: 0;
+}
+
+a.comment-reply-link{
+	position: absolute;
+	right: 1.5em;
+	bottom: 0;
+}
+
+#cancel-comment-reply{
+	padding-left: 20px;
+}
+
+#comment-nav ul{
+	list-style-type: none;
+	margin: 0;
+}
+
+#comment-form-elements{
+	list-style-type: none;
+	margin: 0;
+}
+
+/* specific post-type styles */
+
+/* image attachment */
+
+.attachment #main .post_content img{
+	max-width: 100%;
+}
+
+li.next{
+	text-align: right;
+}
+
+#sidebar1 .metadata,
+#sidebar1 .caption{
+	padding-bottom: 20px;
+}
+
+/* widget styles */
+
+.widget{
+	margin-bottom: 18px;
+}
+
+.widget li{
+	margin-bottom: 2px;
+}
+
+.widget ul.children{
+	margin-bottom: 0;
+}
+
+.widget ul.children li{
+	margin-left: 9px;
+}
+
+#tag-cloud{
+	margin-bottom: 18px;
+}
+
+a[class^='tag-link-']:hover{
+	color: #f0f0f0;
+}
+
+@media only screen and (min-width: 768px) {
+	ol.commentlist div.avatar{
+		margin-right: 0;
+	}
+	
+	#main{
+		border-bottom: none;
+	}
+
+	#featured h3{
+		margin-top: 2em;
+		padding-left: 2em;
+	}
+
+	#featured p{
+		padding-left: 4em;
+	}
+
+	#featured h3,
+	#featured p{
+		width: 66%;
+	}
+}
+
+@media only screen and (min-width: 940px) {
+	/* desktop specific styles */
+	
+	#main{
+		margin-bottom: 0;
+	}
+	
+	ol.commentlist div.avatar{
+		margin-right: 0;
+	}
+	
+}

@@ -1,0 +1,133 @@
+changelog
+---------
+Updating notes
+--------------
+DO NOT COPY OVER EXACT BUDDYPRESS FILES
+- BuddyPress Core Template Change: Removed item-header and item-nav sections from members/single/home.php
+- BuddyPress Core Template Change: Removed item-header and item-nav sections from members/single/plugins.php; added h2 tag around bp_template_title call
+- BuddyPress Core Template Change: Removed item-header-avatar and item-header-content from members/single/member-header.php
+
+1.1 BETA
+--------
+- CSS fixes
+- Thumbnail and timthumb php errors fixed
+- No thumbnail showing on single sites issue resolved
+- Sign up button text customisation fixed
+- Google fonts fixed
+
+1.2 BETA
+--------
+- CSS fix for avatar image
+
+1.3 BETA
+-------
+- CSS files compared and corrected so all styles have same styling
+- Signup feature text reset
+- Positioning of avatars in activity fixed
+
+1.4 BETA
+--------
+- WAMP fix: only need to update if using windows server
+
+1.5 BETA
+--------
+- Few CSS fixes
+- WAMP fix for headers
+
+1.6 BETA
+--------
+- String fix
+
+1
+--
+- Full release
+- Code tidy
+- Description tidy formatting
+
+1.1
+---
+- Pagination fix
+- Multisite fix
+
+1.2
+---
+- Sign up fix
+
+1.2.1
+-----
+- Project ID fix
+
+1.3
+---
+- Performance enhancements and function rewrites props to Aaron
+
+1.4
+---
+- Sub blog fixes
+- Pagination fix
+
+1.5.1
+-----
+- Membership fix
+
+1.5.2
+-----
+- Sub blog thumbnail fix
+
+1.5.3
+-----
+- Antisplog fix
+
+1.5.4
+-----
+- Vladislav's timthumb fix - props Vladislav
+
+1.5.5
+-----
+3.2 update
+
+1.5.6
+-----
+Remove custom icon function
+
+1.5.7
+-----
+Timthumb fix
+
+1.6
+---
+- Remove simple SEO please use our SEO plugin or another plugin for better control
+- BuddyPress 1.5 update
+- Compressed CSS sheets
+- Reduction in CSS sheet number
+- New set up theme function
+- Updated header links and formats
+- Use enqueue for all styling and scripts
+- New theme function allows for child themes to override everything including function files
+- Updated comment forms to use functions and comment_form
+
+1.7
+- Colour options fix
+
+1.7.1
+Removal of TEXT_DOMAIN to use a string and also merging of strings for buddypress and theme to give consistency and better language handling.
+
+1.7.2
+- Removal of functions from child theme using from parent automatically now to enqueue just update child.css with your changes
+
+1.7.3
+- Bug fix on log out button not showing correct text or correct link
+
+1.7.4
+styles from print to scripts on enqueue
+
+1.7.5
+Div fix
+
+1.7.6
+Custom font forcing
+
+1.7.7
+Profile display fix
+
+18246-1343677389

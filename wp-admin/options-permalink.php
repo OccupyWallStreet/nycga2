@@ -49,15 +49,14 @@ get_current_screen()->set_help_sidebar(
 /**
  * Display JavaScript on the page.
  *
- * @package WordPress
- * @subpackage Permalink_Settings_Screen
+ * @since 3.5.0
  */
-function add_js() {
+function options_permalink_add_js() {
 	?>
 <script type="text/javascript">
 //<![CDATA[
 jQuery(document).ready(function() {
-	jQuery('input:radio.tog').change(function() {
+	jQuery('.permalink-structure input:radio').change(function() {
 		if ( 'custom' == this.value )
 			return;
 		jQuery('#permalink_structure').val( this.value );
@@ -70,7 +69,7 @@ jQuery(document).ready(function() {
 </script>
 <?php
 }
-add_filter('admin_head', 'add_js');
+add_filter('admin_head', 'options_permalink_add_js');
 
 include('./admin-header.php');
 
@@ -140,19 +139,18 @@ if ( $wp_rewrite->using_index_permalinks() )
 else
 	$usingpi = false;
 
-$wp_rewrite->flush_rules();
-
+flush_rewrite_rules();
 
 if (isset($_POST['submit'])) : ?>
 <div id="message" class="updated"><p><?php
 if ( ! is_multisite() ) {
 	if ( $iis7_permalinks ) {
 		if ( $permalink_structure && ! $usingpi && ! $writable )
-			_e('You should update your web.config now');
+			_e('You should update your web.config now.');
 		else if ( $permalink_structure && ! $usingpi && $writable )
 			_e('Permalink structure updated. Remove write access on web.config file now!');
 		else
-			_e('Permalink structure updated');
+			_e('Permalink structure updated.');
 	} else {
 		if ( $permalink_structure && ! $usingpi && ! $writable )
 			_e('You should update your .htaccess now.');
@@ -191,46 +189,49 @@ $structures = array(
 );
 ?>
 <h3><?php _e('Common Settings'); ?></h3>
-<table class="form-table">
+<table class="form-table permalink-structure">
 	<tr>
-		<th><label><input name="selection" type="radio" value="" class="tog" <?php checked('', $permalink_structure); ?> /> <?php _e('Default'); ?></label></th>
+		<th><label><input name="selection" type="radio" value="" <?php checked('', $permalink_structure); ?> /> <?php _e('Default'); ?></label></th>
 		<td><code><?php echo get_option('home'); ?>/?p=123</code></td>
 	</tr>
 	<tr>
-		<th><label><input name="selection" type="radio" value="<?php echo esc_attr($structures[1]); ?>" class="tog" <?php checked($structures[1], $permalink_structure); ?> /> <?php _e('Day and name'); ?></label></th>
+		<th><label><input name="selection" type="radio" value="<?php echo esc_attr($structures[1]); ?>" <?php checked($structures[1], $permalink_structure); ?> /> <?php _e('Day and name'); ?></label></th>
 		<td><code><?php echo get_option('home') . $blog_prefix . $prefix . '/' . date('Y') . '/' . date('m') . '/' . date('d') . '/' . _x( 'sample-post', 'sample permalink structure' ) . '/'; ?></code></td>
 	</tr>
 	<tr>
-		<th><label><input name="selection" type="radio" value="<?php echo esc_attr($structures[2]); ?>" class="tog" <?php checked($structures[2], $permalink_structure); ?> /> <?php _e('Month and name'); ?></label></th>
+		<th><label><input name="selection" type="radio" value="<?php echo esc_attr($structures[2]); ?>" <?php checked($structures[2], $permalink_structure); ?> /> <?php _e('Month and name'); ?></label></th>
 		<td><code><?php echo get_option('home') . $blog_prefix . $prefix . '/' . date('Y') . '/' . date('m') . '/' . _x( 'sample-post', 'sample permalink structure' ) . '/'; ?></code></td>
 	</tr>
 	<tr>
-		<th><label><input name="selection" type="radio" value="<?php echo esc_attr($structures[3]); ?>" class="tog" <?php checked($structures[3], $permalink_structure); ?> /> <?php _e('Numeric'); ?></label></th>
+		<th><label><input name="selection" type="radio" value="<?php echo esc_attr($structures[3]); ?>" <?php checked($structures[3], $permalink_structure); ?> /> <?php _e('Numeric'); ?></label></th>
 		<td><code><?php echo get_option('home') . $blog_prefix . $prefix . '/' . _x( 'archives', 'sample permalink base' ) . '/123'; ?></code></td>
 	</tr>
 	<tr>
-		<th><label><input name="selection" type="radio" value="<?php echo esc_attr($structures[4]); ?>" class="tog" <?php checked($structures[4], $permalink_structure); ?> /> <?php _e('Post name'); ?></label></th>
+		<th><label><input name="selection" type="radio" value="<?php echo esc_attr($structures[4]); ?>" <?php checked($structures[4], $permalink_structure); ?> /> <?php _e('Post name'); ?></label></th>
 		<td><code><?php echo get_option('home') . $blog_prefix . $prefix . '/' . _x( 'sample-post', 'sample permalink structure' ) . '/'; ?></code></td>
 	</tr>
 	<tr>
 		<th>
-			<label><input name="selection" id="custom_selection" type="radio" value="custom" class="tog" <?php checked( !in_array($permalink_structure, $structures) ); ?> />
+			<label><input name="selection" id="custom_selection" type="radio" value="custom" <?php checked( !in_array($permalink_structure, $structures) ); ?> />
 			<?php _e('Custom Structure'); ?>
 			</label>
 		</th>
 		<td>
-			<?php echo $blog_prefix; ?>
+			<code><?php echo get_option('home') . $blog_prefix; ?></code>
 			<input name="permalink_structure" id="permalink_structure" type="text" value="<?php echo esc_attr($permalink_structure); ?>" class="regular-text code" />
 		</td>
 	</tr>
 </table>
 
 <h3><?php _e('Optional'); ?></h3>
-<?php if ( $is_apache || $iis7_permalinks ) : ?>
-	<p><?php _e('If you like, you may enter custom structures for your category and tag <abbr title="Universal Resource Locator">URL</abbr>s here. For example, using <kbd>topics</kbd> as your category base would make your category links like <code>http://example.org/topics/uncategorized/</code>. If you leave these blank the defaults will be used.') ?></p>
-<?php else : ?>
-	<p><?php _e('If you like, you may enter custom structures for your category and tag <abbr title="Universal Resource Locator">URL</abbr>s here. For example, using <code>topics</code> as your category base would make your category links like <code>http://example.org/index.php/topics/uncategorized/</code>. If you leave these blank the defaults will be used.') ?></p>
-<?php endif; ?>
+<?php
+$suffix = '';
+if ( ! $is_apache && ! $iis7_permalinks )
+	$suffix = 'index.php/';
+?>
+<p><?php
+/* translators: %s is a placeholder that must come at the start of the URL path. */
+printf( __('If you like, you may enter custom structures for your category and tag <abbr title="Universal Resource Locator">URL</abbr>s here. For example, using <code>topics</code> as your category base would make your category links like <code>http://example.org/%stopics/uncategorized/</code>. If you leave these blank the defaults will be used.'), $suffix ); ?></p>
 
 <table class="form-table">
 	<tr>
@@ -257,14 +258,14 @@ $structures = array(
 <?php wp_nonce_field('update-permalink') ?>
 	<p><textarea rows="9" class="large-text readonly" name="rules" id="rules" readonly="readonly"><?php echo esc_textarea( $wp_rewrite->iis7_url_rewrite_rules() ); ?></textarea></p>
 </form>
-<p><?php _e('If you temporarily make your <code>web.config</code> file writable for us to generate rewrite rules automatically, do not forget to revert the permissions after rule has been saved.')  ?></p>
+<p><?php _e('If you temporarily make your <code>web.config</code> file writable for us to generate rewrite rules automatically, do not forget to revert the permissions after rule has been saved.') ?></p>
 		<?php else : ?>
 <p><?php _e('If the root directory of your site were <a href="http://codex.wordpress.org/Changing_File_Permissions">writable</a>, we could do this automatically, but it isn&#8217;t so this is the url rewrite rule you should have in your <code>web.config</code> file. Create a new file, called <code>web.config</code> in the root directory of your site. Click in the field and press <kbd>CTRL + a</kbd> to select all. Then insert this code into the <code>web.config</code> file.') ?></p>
 <form action="options-permalink.php" method="post">
 <?php wp_nonce_field('update-permalink') ?>
 	<p><textarea rows="18" class="large-text readonly" name="rules" id="rules" readonly="readonly"><?php echo esc_textarea( $wp_rewrite->iis7_url_rewrite_rules(true) ); ?></textarea></p>
 </form>
-<p><?php _e('If you temporarily make your site&#8217;s root directory writable for us to generate the <code>web.config</code> file automatically, do not forget to revert the permissions after the file has been created.')  ?></p>
+<p><?php _e('If you temporarily make your site&#8217;s root directory writable for us to generate the <code>web.config</code> file automatically, do not forget to revert the permissions after the file has been created.') ?></p>
 		<?php endif; ?>
 	<?php endif; ?>
 <?php else :

@@ -1,0 +1,98 @@
+/* 
+Styles for admin part
+*/
+
+
+.CodeMirror .CodeMirror-scroll {
+	height: auto;
+	min-height: 20px;
+}
+img.cc_image_preview {
+	padding: 1em 0;
+}
+.ui-accordion-content {
+	padding-top: 0;
+}
+.ui-accordion-content select, 
+.ui-accordion-content input {
+	margin-bottom: 2em;
+}
+#config-tabs .text_option_teaxarea {
+    width:100%;
+    height:100%;
+    overflow: hidden;
+}
+#config-tabs option-inputs .cc_image_preview{
+    max-width: 100px
+}
+.wrap p.additional_info{
+    margin-bottom:20px; 
+    color:#000;
+}
+.wrap p.additional_info .themekraft-link{
+    color:#abc214;
+}
+.wrap .full-version-link{
+    color:#ff9900;
+}
+form .export-button{
+    margin-left:20px;
+}   
+
+/* Rate for us notice */
+.dismiss-activation-message{
+    color: red;
+    float: right;
+    padding-right:10px;
+}
+
+#cap_slideshow .slideshow_info{
+    color: #468847;
+    background-color: #DFF0D8;
+    border-color: #D6E9C6;
+    margin: 0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.close {
+    position: relative;
+    top: -10px;
+    right: -5px;
+    line-height: 20px;
+}
+button.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    color: black;
+    text-shadow: 0 1px 0 white;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+fieldset.import-export{
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding-left: 15px;
+}
+.import-export .alignright{
+    margin-right: 20px;
+}
+.CodeMirror-lines{
+    border: 1px solid #cecece;
+}
+.ui-accordion .ui-accordion-header a{
+    padding-left: 2.2em;
+}
+.slideshow_info button.close{
+    font-size: 1em;
+}
+#config-tabs input.checkbox-group {
+    margin: 0 10px 5px 0;
+}

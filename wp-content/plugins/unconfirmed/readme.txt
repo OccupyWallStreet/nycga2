@@ -3,8 +3,8 @@ Contributors: boonebgorges, cuny-academic-commons
 Donate link: http://teleogistic.net/donate
 Tags: multisite, network, activate, activation, email
 Requires at least: WordPress 3.1 
-Tested up to: WordPress 3.2.1
-Stable tag: 1.2
+Tested up to: WordPress 3.5
+Stable tag: 1.2.2
 
 Allows WordPress admins to manage unactivated users, by activating them manually, deleting their pending registrations, or resending the activation email.
 
@@ -21,6 +21,12 @@ Unconfirmed creates a Dashboard panel under the Users menu (Network Admin > User
 1. Navigate to Network Admin > Users > Unconfirmed 
 
 == Changelog ==
+
+= 1.2.2 =
+* Fixes pagination count for non-MS installations
+
+= 1.2.1 =
+* Better support for WP 3.5
 
 = 1.2 =
 * Adds 'Delete' buttons to remove registrations

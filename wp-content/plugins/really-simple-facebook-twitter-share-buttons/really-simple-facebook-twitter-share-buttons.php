@@ -4,7 +4,7 @@ Plugin Name: Really simple Facebook Twitter share buttons
 Plugin URI: http://www.whiletrue.it
 Description: Puts Facebook, Twitter, LinkedIn, Google "+1", Pinterest and other share buttons of your choice above or below your posts.
 Author: WhileTrue
-Version: 2.6.1
+Version: 2.9
 Author URI: http://www.whiletrue.it
 */
 
@@ -37,6 +37,11 @@ if ($really_simple_share_option['scripts_at_bottom']) {
 } else {
 	add_action('wp_head',   'really_simple_share_scripts');
 }
+
+if ($really_simple_share_option['active_buttons']['facebook_like'] and $really_simple_share_option['facebook_like_html5']) {
+	add_action('wp_footer', 'really_simple_share_facebook_like_html5_bottom_scripts');
+}
+
 if (!$really_simple_share_option['disable_default_styles']) {
 	add_action('wp_print_styles', 'really_simple_share_style');
 }
@@ -50,6 +55,8 @@ if (!$really_simple_share_option['disable_excerpts']) {
 // PUBLIC FUNCTIONS
 
 function really_simple_share_scripts () {
+	really_simple_share_adjust_locale();
+	
 	global $really_simple_share_option;
 
 	$out = '';
@@ -65,44 +72,35 @@ function really_simple_share_scripts () {
 	}
 
 	if ($really_simple_share_option['active_buttons']['pinterest']) {
-	
-		if ($really_simple_share_option['pinterest_multi_image']) {
-			$out .= '<script type="text/javascript">' .
-	            'var iFrameBtnUrl = "'.plugin_dir_url(__FILE__).'inc/pin-it-button-user-selects-image-iframe.html"; ' .
-	            '</script>' . "\n";
-			$out .= '<script type="text/javascript" src="'.plugin_dir_url(__FILE__).'js/pin-it-button-user-selects-image.js"></script>' . "\n";
-		} else if ($really_simple_share_option['pinterest_old_include']) {
-			$out .= '<script type="text/javascript">
-				(function() {
-				    window.PinIt = window.PinIt || { loaded:false };
-				    if (window.PinIt.loaded) return;
-				    window.PinIt.loaded = true;
-				    function async_load(){
-				        var s = document.createElement("script");
-				        s.type = "text/javascript";
-				        s.async = true;
-				        if (window.location.protocol == "https:")
-				            s.src = "https://assets.pinterest.com/js/pinit.js";
-				        else
-				            s.src = "http://assets.pinterest.com/js/pinit.js";
-				        var x = document.getElementsByTagName("script")[0];
-				        x.parentNode.insertBefore(s, x);
-				    }
-				    if (window.attachEvent)
-				        window.attachEvent("onload", async_load);
-				    else
-				        window.addEventListener("load", async_load, false);
-				})();
-			</script>';
-		} else {
-			$out .= '<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>';
-		}
+		$out .= '<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>';
 	}
 	echo $out;
 }
 
+
+function really_simple_share_facebook_like_html5_bottom_scripts () {
+	really_simple_share_adjust_locale();
+
+	global $really_simple_share_option;
+
+	$app_id = ($really_simple_share_option['facebook_like_appid']!='') ? '&amp;appId='.$really_simple_share_option['facebook_like_appid'] : '';
+	$out = '
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/'.$really_simple_share_option['locale'].'/all.js#xfbml=1'.$app_id.'";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, "script", "facebook-jssdk"));</script>';
+	echo $out;
+}
+
+
 function really_simple_share_init() {
-	// DISABLED IN THE ADMIN PAGES
+	load_plugin_textdomain('really-simple-share', false, basename(dirname(__FILE__)).'/lang');
+
+	// THE REST IS DISABLED IN THE ADMIN PAGES
 	if (is_admin()) {
 		wp_enqueue_script('jquery-ui-sortable');
 		return;
@@ -193,6 +191,7 @@ function really_simple_share ($content, $filter, $link='', $title='', $author=''
 	}
 	
 	//GET ARRAY OF STORED VALUES
+	really_simple_share_adjust_locale();
 	global $really_simple_share_option;
 	$option = $really_simple_share_option;
 
@@ -239,7 +238,7 @@ function really_simple_share ($content, $filter, $link='', $title='', $author=''
 	}
 
 	$height = ($option['layout']=='button') ? 33 : 66;
-	$out .= '<div style="height:'.$height.'px;" class="really_simple_share robots-nocontent snap_nopreview">';
+	$out .= '<div style="min-height:'.$height.'px;" class="really_simple_share robots-nocontent snap_nopreview">';
 
 	// PREPEND INLINE TEXT
 	if ($option['prepend_inline']!='') {
@@ -267,33 +266,41 @@ function really_simple_share ($content, $filter, $link='', $title='', $author=''
 		else if ($name == 'facebook_like') {
 			$option_layout = ($option['layout']=='button') ? 'button_count' : 'box_count';
 			$option_height = ($option['layout']=='button') ? 27 : 62;
-			// OPTION facebook_like_text FILTERING
-			$option_facebook_like_text = ($option['facebook_like_text']=='recommend') ? 'recommend' : 'like';
 
-			$out .= '<iframe src="//www.facebook.com/plugins/like.php?href='.rawurlencode($link).'&amp;send=false&amp;layout='.$option_layout.'&amp;width='.$option['width_buttons'][$name].'&amp;show_faces=false&amp;action='.$option_facebook_like_text.'&amp;colorscheme=light&amp;height='.$option_height.'&amp;locale='.$option['locale'].'" 
-						scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:'.$option['width_buttons'][$name].'px; height:'.$option_height.'px;" allowTransparency="true"></iframe>';
-			// FACEBOOK LIKE SEND BUTTON CURRENTLY IN FBML MODE - WILL BE MERGED IN THE LIKE BUTTON WHEN FACEBOOK RELEASES IT	
-			if ($option['facebook_like_send']) {
-				$out .= '</div>';
-				static $facebook_like_send_script_inserted = false;
-				if (!$facebook_like_send_script_inserted) {
-					// OLD IMPLEMENTATION
-					//$out .= '<script src="http://connect.facebook.net/'.$option['locale'].'/all.js#xfbml=1"></script>';
+			$appid = ($option['facebook_like_appid']!='') ? '&amp;appId='.$option['facebook_like_appid'] : '';
+
+			if ($option['facebook_like_html5']) {
+				// HTML5 VERSION
+				$option_data_send = ($option['facebook_like_send']) ? 'true"' : 'false';
+				$option_facebook_like_text = ($option['facebook_like_text']=='recommend') ? 'data-action="recommend"' : '';
+
+				$out .= '<div class="fb-like" data-href="'.$link.'" data-send="'.$option_data_send.'" data-layout="'.$option_layout.'" data-width="'.$option['width_buttons'][$name].'" '.$option_facebook_like_text.'></div>';
+			} else {
+				$option_facebook_like_text = ($option['facebook_like_text']=='recommend') ? 'recommend' : 'like';
+			
+				// IFRAME VERSION
+				$out .= '<iframe src="//www.facebook.com/plugins/like.php?href='.rawurlencode($link).'&amp;send=false&amp;layout='.$option_layout.'&amp;width='.$option['width_buttons'][$name].'&amp;show_faces=false&amp;action='.$option_facebook_like_text.'&amp;colorscheme=light&amp;height='.$option_height.'&amp;locale='.$option['locale'].$appid.'" 
+							scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:'.$option['width_buttons'][$name].'px; height:'.$option_height.'px;" allowTransparency="true"></iframe>';
+				// FACEBOOK LIKE SEND BUTTON ONLY AVAILABLE IN FBML MODE	
+				if ($option['facebook_like_send']) {
+					$out .= '</div>';
+					static $facebook_like_send_script_inserted = false;
+					if (!$facebook_like_send_script_inserted) {
 					
-					$out .= '<div id="fb-root"></div>
-						<script>(function(d, s, id) {
-						  var js, fjs = d.getElementsByTagName(s)[0];
-						  if (d.getElementById(id)) return;
-						  js = d.createElement(s); js.id = id;
-						  js.src = "//connect.facebook.net/'.$option['locale'].'/all.js#xfbml=1"; //&appId=1234567890
-						  fjs.parentNode.insertBefore(js, fjs);
-						}(document, "script", "facebook-jssdk"));</script>';
-					$facebook_like_send_script_inserted = true;
+						$out .= '<div id="fb-root"></div>
+							<script>(function(d, s, id) {
+							  var js, fjs = d.getElementsByTagName(s)[0];
+							  if (d.getElementById(id)) return;
+							  js = d.createElement(s); js.id = id;
+							  js.src = "//connect.facebook.net/'.$option['locale'].'/all.js#xfbml=1'.$app_id.'";
+							  fjs.parentNode.insertBefore(js, fjs);
+							}(document, "script", "facebook-jssdk"));</script>';
+						$facebook_like_send_script_inserted = true;
+					}
+					$out .= '
+						<div class="really_simple_share_facebook_like_send">
+						<div class="fb-send" data-href="'.$link.'"></div>';
 				}
-				$out .= '
-					<div class="really_simple_share_facebook_like_send">
-					<div class="fb-send" data-href="'.$link.'"></div>';
-				//<fb:send href="'.$link.'" font=""></fb:send>';
 			}
 		}
 		else if ($name == 'linkedin') {
@@ -341,46 +348,54 @@ function really_simple_share ($content, $filter, $link='', $title='', $author=''
 			$out .= '<a class="FlattrButton" style="display:none;" href="'.$link.'" title="'.strip_tags($title).'" rev="flattr;uid:'.$option['flattr_uid'].';language:'.$option['locale'].';category:text;tags:'.strip_tags(get_the_tag_list('', ',', '')).';'.$option_layout.';">'.$title.'</a>';
 		}
 		else if ($name == 'pinterest') {
-			$option_layout = ($option['layout']=='button') ? 'horizontal' : 'vertical';
+			$option_layout = ($option['layout']=='button') ? 'beside' : 'above';
 			$option_layout = ($option['pinterest_count']) ? $option_layout : 'none';
+
 			$media = '';
-			// TRY TO USE THE THUMBNAIL, OTHERWHISE TRY TO USE THE FIRST ATTACHMENT
-			$the_post_id = get_the_ID();
-			if ( function_exists('has_post_thumbnail') and has_post_thumbnail($the_post_id) ) {
-				$post_thumbnail_id = get_post_thumbnail_id($the_post_id);
-				$media = wp_get_attachment_url($post_thumbnail_id);
-			}
-			// IF NO MEDIA IS FOUND, LOOK FOR AN ATTACHMENT
-			if ($media=='') {
-				$args = array(
-					'post_type'   => 'attachment',
-					'numberposts' => 1,
-					'post_status' => null,
-					'post_parent' => $the_post_id
-					);
+			if (!$option['pinterest_multi_image']) {
+				// TRY TO USE THE THUMBNAIL, OTHERWHISE TRY TO USE THE FIRST ATTACHMENT
+				$the_post_id = get_the_ID();
+				if ( function_exists('has_post_thumbnail') and has_post_thumbnail($the_post_id) ) {
+					$post_thumbnail_id = get_post_thumbnail_id($the_post_id);
+					$media = wp_get_attachment_url($post_thumbnail_id);
+				}
+				// IF NO MEDIA IS FOUND, LOOK FOR AN ATTACHMENT
+				if ($media=='') {
+					$args = array(
+						'post_type'   => 'attachment',
+						'numberposts' => 1,
+						'post_status' => null,
+						'post_parent' => $the_post_id
+						);
 
-				$attachments = get_posts( $args );
+					$attachments = get_posts( $args );
 
-				if ( $attachments ) {
-					$attachment = $attachments[0];
-					$media = wp_get_attachment_url( $attachment->ID);
+					if ( $attachments ) {
+						$attachment = $attachments[0];
+						$media = wp_get_attachment_url( $attachment->ID);
+					}
+				}
+				// IF NO MEDIA IS FOUND, LOOK INSIDE THE CONTENT
+				if ($media=='') {
+					$output = @preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+					if (isset($matches [1] [0]))  {
+						$media = $matches [1] [0];
+					}
 				}
 			}
-			// IF NO MEDIA IS FOUND, LOOK INSIDE THE CONTENT
-			if ($media=='') {
-				$output = @preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
-				if (isset($matches [1] [0]))  {
-					$media = $matches [1] [0];
-				}
+				
+			if ($media != '') {
+				// ONE IMAGE
+				$appended_url = '?url='.rawurlencode($link).'&media='.rawurlencode($media).'&description='.strip_tags($title);
+				$data_pin_do = 'buttonPin';
+			} else {
+				// ANY IMAGE ON PAGE
+				$appended_url = '';
+				$data_pin_do = 'buttonBookmark';
 			}
-			// IF NO MEDIA IS FOUND, DON'T SHOW THE BUTTON
-			if ($media!='') {
-				if ($really_simple_share_option['pinterest_old_include'] or $really_simple_share_option['pinterest_multi_image']) {
-					$out .= '<a href="https://pinterest.com/pin/create/button/?url='.rawurlencode($link).'&media='.rawurlencode($media).'&description='.strip_tags($title).'" class="pin-it-button" count-layout="'.$option_layout.'">Pin It</a>';
-				} else {
-					$out .= '<a href="https://pinterest.com/pin/create/button/?url='.rawurlencode($link).'&media='.rawurlencode($media).'&description='.rawurlencode(strip_tags($title)).'" class="pin-it-button" count-layout="'.$option_layout.'"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>';
-				}
-			}
+			
+			// FIXED: ADD THE PROTOCOL OR IT WON'T WORK IN SOME SITES
+			$out .= '<a data-pin-config="'.$option_layout.'" href="https://pinterest.com/pin/create/button/'.$appended_url.'" data-pin-do="'.$data_pin_do.'" ><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>';
 		}
 		else if ($name == 'tipy') {
 			$option_layout = ($option['layout']=='button') ? 'tipy_button_compact' : 'tipy_button';
@@ -451,6 +466,17 @@ function really_simple_share ($content, $filter, $link='', $title='', $author=''
 	}
 }
 
+
+function really_simple_share_adjust_locale () {
+	if (defined("ICL_LANGUAGE_CODE") and ICL_LANGUAGE_CODE!='') {
+		global $really_simple_share_option, $wpdb, $table_prefix;
+		$full_locale = $wpdb->get_var("select default_locale from ".$table_prefix."icl_languages where code = '".ICL_LANGUAGE_CODE."'");
+		// FULL LOCALE IS SOMETIMES UNDEFINED, USE ICL_LANGUAGE_CODE AS FALLBACK
+		$really_simple_share_option['locale'] = ($full_locale!='') ? $full_locale : ICL_LANGUAGE_CODE;
+	}
+}
+
+
 function really_simple_share_options () {
 
 	$option_name = 'really_simple_share';
@@ -515,7 +541,9 @@ function really_simple_share_options () {
 		$option['use_shortlink'] = (isset($_POST['really_simple_share_use_shortlink']) and $_POST['really_simple_share_use_shortlink']=='on') ? true : false;
 		$option['scripts_at_bottom'] = (isset($_POST['really_simple_share_scripts_at_bottom']) and $_POST['really_simple_share_scripts_at_bottom']=='on') ? true : false;
 
+		$option['facebook_like_appid']  = esc_html($_POST['really_simple_share_facebook_like_appid']);
 		$option['facebook_like_text']  = ($_POST['really_simple_share_facebook_like_text']=='recommend') ? 'recommend' : 'like';
+		$option['facebook_like_html5']  = (isset($_POST['really_simple_share_facebook_like_html5']) and $_POST['really_simple_share_facebook_like_html5']=='on') ? true : false;
 		$option['facebook_like_send']  = (isset($_POST['really_simple_share_facebook_like_send']) and $_POST['really_simple_share_facebook_like_send']=='on') ? true : false;
 		$option['facebook_share_text'] = esc_html($_POST['really_simple_share_facebook_share_text']);
 		$option['rss_text'] = esc_html($_POST['really_simple_share_rss_text']);
@@ -556,6 +584,7 @@ function really_simple_share_options () {
 	$disable_excerpts = ($option['disable_excerpts']) ? 'checked="checked"' : '';
 	$use_shortlink = ($option['use_shortlink']) ? 'checked="checked"' : '';
 	$scripts_at_bottom = ($option['scripts_at_bottom']) ? 'checked="checked"' : '';
+	$facebook_like_html5 = ($option['facebook_like_html5']) ? 'checked="checked"' : '';
 	$facebook_like_show_send_button = ($option['facebook_like_send']) ? 'checked="checked"' : '';
 	$pinterest_multi_image = ($option['pinterest_multi_image']) ? 'checked="checked"' : '';
 	$pinterest_old_include = ($option['pinterest_old_include']) ? 'checked="checked"' : '';
@@ -612,6 +641,11 @@ function really_simple_share_options () {
 				$checked = ($option['active_buttons'][$name]) ? 'checked="checked"' : '';
 				$options = '';
 				switch ($name) {
+					case 'facebook_like': 
+						$options = 'Facebook app ID:
+							<input type="text" name="really_simple_share_facebook_like_appid" value="'.stripslashes($option['facebook_like_appid']).'" style="width:120px; margin:0; padding:0;" />
+						';
+						break;
 					case 'facebook_share': 
 						$options = __('Button text').':
 							<input type="text" name="really_simple_share_facebook_share_text" value="'.stripslashes($option['facebook_share_text']).'" style="width:160px; margin:0; padding:0;" />
@@ -629,25 +663,25 @@ function really_simple_share_options () {
 						';
 						break;
 					case 'google1': 
-						$options = 'Show counter: <input type="checkbox" name="really_simple_share_google1_count" '.$google1_count.' />';
+						$options = __('Show counter', 'really-simple-share').': <input type="checkbox" name="really_simple_share_google1_count" '.$google1_count.' />';
 						break;
 					case 'linkedin': 
-						$options = 'Show counter: <input type="checkbox" name="really_simple_share_linkedin_count" '.$linkedin_count.' />';
+						$options = __('Show counter', 'really-simple-share').': <input type="checkbox" name="really_simple_share_linkedin_count" '.$linkedin_count.' />';
 						break;
 					case 'pinterest': 
-						$options = 'Show counter: <input type="checkbox" name="really_simple_share_pinterest_count" '.$pinterest_count.' />';
+						$options = __('Show counter', 'really-simple-share').': <input type="checkbox" name="really_simple_share_pinterest_count" '.$pinterest_count.' />';
 						break;
 					case 'buffer': 
-						$options = 'Show counter: <input type="checkbox" name="really_simple_share_buffer_count" '.$buffer_count.' />';
+						$options = __('Show counter', 'really-simple-share').': <input type="checkbox" name="really_simple_share_buffer_count" '.$buffer_count.' />';
 						break;
 					case 'tipy': 
-						$options = 'Tipy site id: 
+						$options = __('Tipy site id', 'really-simple-share').': 
 							<input type="text" name="really_simple_share_tipy_uid" value="'.stripslashes($option['tipy_uid']).'" style="width:80px; margin:0; padding:0;" />
 							<span class="description">'.__("(mandatory)", 'really-simple-share' ).'</span>
 						';
 						break;
 					case 'twitter': 
-						$options = 'Show counter: <input type="checkbox" name="really_simple_share_twitter_count" '.$twitter_count.' />';
+						$options = __('Show counter', 'really-simple-share').': <input type="checkbox" name="really_simple_share_twitter_count" '.$twitter_count.' />';
 						break;
 				}
 				$li_class = ($checked) ? 'button_active' : 'button_inactive';
@@ -657,7 +691,7 @@ function really_simple_share_options () {
 							<b>'.$active_buttons[$name].'</b>
 						</div>
 						<div style="float:left; width:120px;">
-							Width: <input type="text" name="really_simple_share_width_'.$name.'" value="'.stripslashes($option['width_buttons'][$name]).'" style="width:35px; margin:0; padding:0; text-align:right;" />px	
+							'.__('Width', 'really-simple-share').': <input type="text" name="really_simple_share_width_'.$name.'" value="'.stripslashes($option['width_buttons'][$name]).'" style="width:35px; margin:0; padding:0; text-align:right;" />px	
 						</div>
 						<div style="float:left; width:260px;">
 							'.$options.'
@@ -806,7 +840,7 @@ function really_simple_share_options () {
 					<option value="ps_AF" '. ($option['locale'] == 'ps_AF' ? 'selected="1"' : '') . '>Pashto</option>
 					<option value="tl_ST" '. ($option['locale'] == 'tl_ST' ? 'selected="1"' : '') . '>Klingon</option>						
 				</select><br />
-				<span class="description">'.__("Please note that not all languages are available for every button", 'really-simple-share' ).'
+				<span class="description">'.__("Please note that not all languages are available for every button. If the WPML plugin is active, language is set automatically", 'really-simple-share' ).'
 			</td></tr>
 			<tr><td>'.__("Prepend text on the above line", 'really-simple-share' ).':</td>
 			<td><input type="text" name="really_simple_share_prepend_above" value="'.stripslashes($option['prepend_above']).'" size="50" /><br />
@@ -848,6 +882,10 @@ function really_simple_share_options () {
 				',
 				'Show Send button'=>'
 					<input type="checkbox" name="really_simple_share_facebook_like_send" '.$facebook_like_show_send_button.' />
+				',
+				'Use Html5 code instead of iFrame'=>'
+					<input type="checkbox" name="really_simple_share_facebook_like_html5" '.$facebook_like_html5.' />
+					<span class="description">'.__("Warning: this requires the theme to have the wp_footer() hook in the appropriate place; if unsure, leave it unchecked", 'really-simple-share' ).'</span>
 				'
 			)
 		)
@@ -859,14 +897,9 @@ function really_simple_share_options () {
 			)
 		)
 		.really_simple_share_box_content('Pinterest button options', 
-			array('Use multiple image selector'=>'
+			array('Always use multiple image selector'=>'
 					<input type="checkbox" name="really_simple_share_pinterest_multi_image" '.$pinterest_multi_image.' /> 
-					<span class="description">'.__("Warning: uses additional JS code, doesn't work in any environment", 'really-simple-share' ).'</span>
 				',
-				'Use old button code'=>'
-					<input type="checkbox" name="really_simple_share_pinterest_old_include" '.$pinterest_old_include.' /> 
-					<span class="description">'.__("Warning: only works if the \"Use multiple image selector\" option is disabled", 'really-simple-share' ).'</span>
-				'
 			)
 		)
 		.really_simple_share_box_content('Twitter button options', 
@@ -1051,6 +1084,8 @@ function really_simple_share_get_options_default () {
 	$option['use_shortlink'] = false;
 	$option['scripts_at_bottom'] = false;
 
+	$option['facebook_like_appid'] = '';
+	$option['facebook_like_html5'] = false;
 	$option['facebook_like_text'] = 'like';
 	$option['facebook_like_send'] = false;
 	$option['facebook_share_text'] = 'Share';
@@ -1060,7 +1095,6 @@ function really_simple_share_get_options_default () {
 	$option['linkedin_count'] = true;
 	$option['pinterest_count'] = true;
 	$option['pinterest_multi_image'] = false;
-	$option['pinterest_old_include'] = false;
 	$option['rss_text'] = 'comments feed';
 	$option['tipy_uid'] = '';
 	$option['twitter_count'] = true;

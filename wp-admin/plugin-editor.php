@@ -65,7 +65,8 @@ case 'update':
 			if ( is_plugin_active($file) )
 				deactivate_plugins($file, true);
 
-			update_option('recently_activated', array($file => time()) + (array)get_option('recently_activated'));
+			if ( ! is_network_admin() )
+				update_option( 'recently_activated', array( $file => time() ) + (array) get_option( 'recently_activated' ) );
 
 			wp_redirect(add_query_arg('_wpnonce', wp_create_nonce('edit-plugin-test_' . $file), "plugin-editor.php?file=$file&liveupdate=1&scrollto=$scrollto&networkwide=" . $network_wide));
 			exit;
@@ -117,6 +118,7 @@ default:
 		'<p>' . __('You can use the editor to make changes to any of your plugins&#8217; individual PHP files. Be aware that if you make changes, plugins updates will overwrite your customizations.') . '</p>' .
 		'<p>' . __('Choose a plugin to edit from the menu in the upper right and click the Select button. Click once on any file name to load it in the editor, and make your changes. Don&#8217;t forget to save your changes (Update File) when you&#8217;re finished.') . '</p>' .
 		'<p>' . __('The Documentation menu below the editor lists the PHP functions recognized in the plugin file. Clicking Lookup takes you to a web page about that particular function.') . '</p>' .
+		'<p id="newcontent-description">' . __('In the editing area the Tab key enters a tab character. To move below this area by pressing Tab, press the Esc key followed by the Tab key.') . '</p>' .
 		'<p>' . __('If you want to make changes but don&#8217;t want them to be overwritten when the plugin is updated, you may be ready to think about writing your own plugin. For information on how to edit plugins, write your own from scratch, or just better understand their anatomy, check out the links below.') . '</p>' .
 		( is_network_admin() ? '<p>' . __('Any edits to files from this screen will be reflected on all sites in the network.') . '</p>' : '' )
 	) );
@@ -225,7 +227,7 @@ foreach ( $plugin_files as $plugin_file ) :
 </div>
 <form name="template" id="template" action="plugin-editor.php" method="post">
 	<?php wp_nonce_field('edit-plugin_' . $file) ?>
-		<div><textarea cols="70" rows="25" name="newcontent" id="newcontent" tabindex="1"><?php echo $content ?></textarea>
+		<div><textarea cols="70" rows="25" name="newcontent" id="newcontent" aria-describedby="newcontent-description"><?php echo $content; ?></textarea>
 		<input type="hidden" name="action" value="update" />
 		<input type="hidden" name="file" value="<?php echo esc_attr($file) ?>" />
 		<input type="hidden" name="plugin" value="<?php echo esc_attr($plugin) ?>" />
@@ -236,15 +238,15 @@ foreach ( $plugin_files as $plugin_file ) :
 		<?php endif; ?>
 <?php if ( is_writeable($real_file) ) : ?>
 	<?php if ( in_array( $file, (array) get_option( 'active_plugins', array() ) ) ) { ?>
-		<p><?php _e('<strong>Warning:</strong> Making changes to active plugins is not recommended.  If your changes cause a fatal error, the plugin will be automatically deactivated.'); ?></p>
+		<p><?php _e('<strong>Warning:</strong> Making changes to active plugins is not recommended. If your changes cause a fatal error, the plugin will be automatically deactivated.'); ?></p>
 	<?php } ?>
 	<p class="submit">
 	<?php
 		if ( isset($_GET['phperror']) ) {
 			echo "<input type='hidden' name='phperror' value='1' />";
-			submit_button( __( 'Update File and Attempt to Reactivate' ), 'primary', 'submit', false, array( 'tabindex' => '2' ) );
+			submit_button( __( 'Update File and Attempt to Reactivate' ), 'primary', 'submit', false );
 		} else {
-			submit_button( __( 'Update File' ), 'primary', 'submit', false, array( 'tabindex' => '2' ) );
+			submit_button( __( 'Update File' ), 'primary', 'submit', false );
 		}
 	?>
 	</p>
@@ -255,12 +257,10 @@ foreach ( $plugin_files as $plugin_file ) :
 <br class="clear" />
 </div>
 <script type="text/javascript">
-/* <![CDATA[ */
 jQuery(document).ready(function($){
 	$('#template').submit(function(){ $('#scrollto').val( $('#newcontent').scrollTop() ); });
 	$('#newcontent').scrollTop( $('#scrollto').val() );
 });
-/* ]]> */
 </script>
 <?php
 	break;

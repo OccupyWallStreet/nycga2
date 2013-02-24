@@ -162,10 +162,10 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 
 				$attributes = "$class$style";
 
-
 				switch ( $column_name ) {
 					case 'cb': ?>
 						<th scope="row" class="check-column">
+							<label class="screen-reader-text" for="blog_<?php echo $user->ID; ?>"><?php echo sprintf( __( 'Select %s' ), $user->user_login ); ?></label>
 							<input type="checkbox" id="blog_<?php echo $user->ID ?>" name="allusers[]" value="<?php echo esc_attr( $user->ID ) ?>" />
 						</th>
 					<?php
@@ -173,11 +173,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 
 					case 'username':
 						$avatar	= get_avatar( $user->user_email, 32 );
-						if ( get_current_user_id() == $user->ID ) {
-							$edit_link = esc_url( network_admin_url( 'profile.php' ) );
-						} else {
-							$edit_link = esc_url( network_admin_url( add_query_arg( 'wp_http_referer', urlencode( stripslashes( $_SERVER['REQUEST_URI'] ) ), 'user-edit.php?user_id=' . $user->ID ) ) );
-						}
+						$edit_link = esc_url( add_query_arg( 'wp_http_referer', urlencode( stripslashes( $_SERVER['REQUEST_URI'] ) ), get_edit_user_link( $user->ID ) ) );
 
 						echo "<td $attributes>"; ?>
 							<?php echo $avatar; ?><strong><a href="<?php echo $edit_link; ?>" class="edit"><?php echo stripslashes( $user->user_login ); ?></a><?php
@@ -242,7 +238,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 									if ( get_blog_status( $val->userblog_id, 'archived' ) == 1 )
 										$class .= 'site-archived ';
 
-									$actions['view'] = '<a class="' . $class . '" href="' .  esc_url( get_home_url( $val->userblog_id ) )  . '">' . __( 'View' ) . '</a>';
+									$actions['view'] = '<a class="' . $class . '" href="' . esc_url( get_home_url( $val->userblog_id ) ) . '">' . __( 'View' ) . '</a>';
 
 									$actions = apply_filters('ms_user_list_site_actions', $actions, $val->userblog_id);
 
@@ -274,5 +270,3 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 		}
 	}
 }
-
-?>

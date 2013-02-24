@@ -3,14 +3,16 @@
 * @param Min_Result
 * @param Min_DB connection to examine indexes
 * @param string base link for <th> fields
+* @param array 
 * @return null
 */
-function select($result, $connection2 = null, $href = "") {
+function select($result, $connection2 = null, $href = "", $orgtables = array()) {
 	$links = array(); // colno => orgtable - create links from these columns
 	$indexes = array(); // orgtable => array(column => colno) - primary keys
 	$columns = array(); // orgtable => array(column => ) - not selected columns in primary key
 	$blobs = array(); // colno => bool - display bytes for blobs
 	$types = array(); // colno => type - display char in <code>
+	$return = array(); // table => orgtable - mapping to use in EXPLAIN
 	odd(''); // reset odd for each result
 	for ($i=0; $row = $result->fetch_row(); $i++) {
 		if (!$i) {
@@ -21,6 +23,7 @@ function select($result, $connection2 = null, $href = "") {
 				$name = $field->name;
 				$orgtable = $field->orgtable;
 				$orgname = $field->orgname;
+				$return[$field->table] = $orgtable;
 				if ($href) { // MySQL EXPLAIN
 					$links[$j] = ($name == "table" ? "table=" : ($name == "possible_keys" ? "indexes=" : null));
 				} elseif ($orgtable != "") {
@@ -52,7 +55,7 @@ function select($result, $connection2 = null, $href = "") {
 		}
 		echo "<tr" . odd() . ">";
 		foreach ($row as $key => $val) {
-			if (!isset($val)) {
+			if ($val === null) {
 				$val = "<i>NULL</i>";
 			} elseif ($blobs[$key] && !is_utf8($val)) {
 				$val = "<i>" . lang('%d byte(s)', strlen($val)) . "</i>"; //! link to download
@@ -66,7 +69,8 @@ function select($result, $connection2 = null, $href = "") {
 			}
 			if (isset($links[$key]) && !$columns[$links[$key]]) {
 				if ($href) { // MySQL EXPLAIN
-					$link = $links[$key] . urlencode($row[array_search("table=", $links)]);
+					$table = $row[array_search("table=", $links)];
+					$link = $links[$key] . urlencode($orgtables[$table] != "" ? $orgtables[$table] : $table);
 				} else {
 					$link = "edit=" . urlencode($links[$key]);
 					foreach ($indexes[$links[$key]] as $col => $j) {
@@ -79,6 +83,7 @@ function select($result, $connection2 = null, $href = "") {
 		}
 	}
 	echo ($i ? "</table>" : "<p class='message'>" . lang('No rows.')) . "\n";
+	return $return;
 }
 
 /** Get referencable tables with single column primary key except self
@@ -114,7 +119,7 @@ function textarea($name, $value, $rows = 10, $cols = 80) {
 	echo "<textarea name='$name' rows='$rows' cols='$cols' class='sqlarea' spellcheck='false' wrap='off' onkeydown='return textareaKeydown(this, event);'>"; // spellcheck, wrap - not valid before HTML5
 	if (is_array($value)) {
 		foreach ($value as $val) { // not implode() to save memory
-			echo h($val) . "\n\n\n";
+			echo h($val[0]) . "\n\n\n"; // $val == array($query, $time)
 		}
 	} else {
 		echo h($value);
@@ -178,7 +183,7 @@ function process_type($field, $collate = "COLLATE") {
 */
 function process_field($field, $type_field) {
 	return array(
-		idf_escape($field["field"]),
+		idf_escape(trim($field["field"])),
 		process_type($type_field),
 		($field["null"] ? " NULL" : " NOT NULL"), // NULL for timestamp
 		(isset($field["default"]) ? " DEFAULT " . (($field["type"] == "timestamp" && eregi('^CURRENT_TIMESTAMP$', $field["default"])) || ($field["type"] == "bit" && ereg("^([0-9]+|b'[0-1]+')\$", $field["default"])) ? $field["default"] : q($field["default"])) : ""),
@@ -226,10 +231,10 @@ function edit_fields($fields, $collations, $type = "TABLE", $allowed = 0, $forei
 <?php if ($type == "TABLE") { ?>
 <td>NULL
 <td><input type="radio" name="auto_increment_col" value=""><acronym title="<?php echo lang('Auto Increment'); ?>">AI</acronym>
-<td<?php echo ($_POST["defaults"] ? "" : " class='hidden'"); ?>><?php echo lang('Default values'); ?>
+<td><?php echo lang('Default values'); ?>
 <?php echo (support("comment") ? "<td" . ($comments ? "" : " class='hidden'") . ">" . lang('Comment') : ""); ?>
 <?php } ?>
-<td><?php echo "<input type='image' name='add[" . (support("move_col") ? 0 : count($fields)) . "]' src='../adminer/static/plus.gif' alt='+' title='" . lang('Add next') . "'>"; ?><script type="text/javascript">row_count = <?php echo count($fields); ?>;</script>
+<td><?php echo "<input type='image' class='icon' name='add[" . (support("move_col") ? 0 : count($fields)) . "]' src='../adminer/static/plus.gif' alt='+' title='" . lang('Add next') . "'>"; ?><script type="text/javascript">row_count = <?php echo count($fields); ?>;</script>
 </thead>
 <tbody onkeydown="return editingKeydown(event);">
 <?php
@@ -245,17 +250,17 @@ function edit_fields($fields, $collations, $type = "TABLE", $allowed = 0, $forei
 <?php if ($type == "TABLE") { ?>
 <td><?php echo checkbox("fields[$i][null]", 1, $field["null"]); ?>
 <td><input type="radio" name="auto_increment_col" value="<?php echo $i; ?>"<?php if ($field["auto_increment"]) { ?> checked<?php } ?> onclick="var field = this.form['fields[' + this.value + '][field]']; if (!field.value) { field.value = 'id'; field.onchange(); }">
-<td<?php echo ($_POST["defaults"] ? "" : " class='hidden'"); ?>><?php echo checkbox("fields[$i][has_default]", 1, $field["has_default"]); ?><input name="fields[<?php echo $i; ?>][default]" value="<?php echo h($field["default"]); ?>" onchange="this.previousSibling.checked = true;">
+<td><?php echo checkbox("fields[$i][has_default]", 1, $field["has_default"]); ?><input name="fields[<?php echo $i; ?>][default]" value="<?php echo h($field["default"]); ?>" onchange="this.previousSibling.checked = true;">
 <?php echo (support("comment") ? "<td" . ($comments ? "" : " class='hidden'") . "><input name='fields[$i][comment]' value='" . h($field["comment"]) . "' maxlength='255'>" : ""); ?>
 <?php } ?>
 <?php
 		echo "<td>";
 		echo (support("move_col") ?
-			"<input type='image' name='add[$i]' src='../adminer/static/plus.gif' alt='+' title='" . lang('Add next') . "' onclick='return !editingAddRow(this, $allowed, 1);'>&nbsp;"
-			. "<input type='image' name='up[$i]' src='../adminer/static/up.gif' alt='^' title='" . lang('Move up') . "'>&nbsp;"
-			. "<input type='image' name='down[$i]' src='../adminer/static/down.gif' alt='v' title='" . lang('Move down') . "'>&nbsp;"
+			"<input type='image' class='icon' name='add[$i]' src='../adminer/static/plus.gif' alt='+' title='" . lang('Add next') . "' onclick='return !editingAddRow(this, $allowed, 1);'>&nbsp;"
+			. "<input type='image' class='icon' name='up[$i]' src='../adminer/static/up.gif' alt='^' title='" . lang('Move up') . "'>&nbsp;"
+			. "<input type='image' class='icon' name='down[$i]' src='../adminer/static/down.gif' alt='v' title='" . lang('Move down') . "'>&nbsp;"
 		: "");
-		echo ($orig == "" || support("drop_col") ? "<input type='image' name='drop_col[$i]' src='../adminer/static/cross.gif' alt='x' title='" . lang('Remove') . "' onclick='return !editingRemoveRow(this);'>" : "");
+		echo ($orig == "" || support("drop_col") ? "<input type='image' class='icon' name='drop_col[$i]' src='../adminer/static/cross.gif' alt='x' title='" . lang('Remove') . "' onclick='return !editingRemoveRow(this);'>" : "");
 		echo "\n";
 	}
 }
@@ -352,6 +357,14 @@ function drop_create($drop, $create, $location, $message_drop, $message_alter, $
 	return $dropped;
 }
 
+/** Remove current user definer from SQL command
+ * @param string
+ * @return string
+ */
+function remove_definer($query) {
+	return preg_replace('~^([A-Z =]+) DEFINER=`' . preg_replace('~@(.*)~', '`@`(%|\\1)', logged_user()) . '`~', '\\1', $query); //! proper escaping of user
+}
+
 /** Get string to add a file in TAR
 * @param string
 * @param string
@@ -361,8 +374,22 @@ function tar_file($filename, $contents) {
 	$return = pack("a100a8a8a8a12a12", $filename, 644, 0, 0, decoct(strlen($contents)), decoct(time()));
 	$checksum = 8*32; // space for checksum itself
 	for ($i=0; $i < strlen($return); $i++) {
-		$checksum += ord($return{$i});
+		$checksum += ord($return[$i]);
 	}
 	$return .= sprintf("%06o", $checksum) . "\0 ";
 	return $return . str_repeat("\0", 512 - strlen($return)) . $contents . str_repeat("\0", 511 - (strlen($contents) + 511) % 512);
+}
+
+/** Get INI bytes value
+* @param string
+* @return int
+*/
+function ini_bytes($ini) {
+	$val = ini_get($ini);
+	switch (strtolower(substr($val, -1))) {
+		case 'g': $val *= 1024; // no break
+		case 'm': $val *= 1024; // no break
+		case 'k': $val *= 1024;
+	}
+	return $val;
 }

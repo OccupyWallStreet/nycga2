@@ -1,18 +1,44 @@
 Changes on ADMINER
 
+add files:
+- loader.php
+- adminer.css
+
 rename functions:
-- is_mail() --> is_adminer_mail()
-- is_ajax() --> is_adminer_ajax()
-- js_escape() --> js_adminer_escape()
+- is_adminer_mail() --> is_adminer_mail()
+- is_adminer_ajax() --> is_adminer_ajax()
+- js_adminer_escape() --> js_adminer_escape()
 
-<body --> without jaavscript for check version
-only: <body class="<?php echo lang('ltr'); ?> nojs"<?php echo ($_POST ? "" : " onclick=\"return bodyClick(event, '" . h(js_escape(DB) . "', '" . js_adminer_escape($_GET["ns"])) . "');\""); // avoid re-post confirmation after refreshing the next page in Google Chrome ?> ">
+<body --> without javscript for check version, in inc/adminer/include/design.inc.php
+only: <body class="<?php echo lang('ltr'); ?> nojs"<?php echo ($_POST ? "" : " onclick=\"return bodyClick(event, '" . h(js_adminer_escape(DB) . "', '" . js_adminer_escape($_GET["ns"])) . "');\""); // avoid re-post confirmation after refreshing the next page in Google Chrome ?> ">
 
-iframe
+iframe, in inc/adminer/include/design.inc.php
 remove: header("X-Frame-Options: deny");
 
-sourceforge url
+sourceforge url, in 3.5 not relevant; in inc/adminer/static/editing.js
 set FALSE to var jushRoot 
 
+============================================================
+Remove Magic Quotes
+inc/adminer/index.php, first php call; line 10 after comment
+// Remove Magic Quotes
+if ( ! class_exists( 'AdminerForWP' ) ) {
+	require_once '../../adminer.php';
+	new AdminerForWP();
+}
+AdminerForWP::gpc_strip_slashes();
+
+============================================================
+Remove Magic Quotes
+Filter für $query in inc/adminer/include/functions.inc.php
+	if ($query) {
+>		// filter query via plugin fct.
+>		$query = AdminerForWP::array_map_recursive( 'stripslashes', $query );
+		$sql = $adminer->messageQuery("$query;");
+	}
+
+============================================================
+Current: no!
 Filter of $query for Magic Quotes
 $query = $_POST["query"]; --> $query = stripslashes($_POST["query"]);
+- sql.inc.php

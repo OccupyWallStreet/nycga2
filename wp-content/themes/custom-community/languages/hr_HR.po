@@ -1,0 +1,4690 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Community Pro v1.10\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-01-29 14:56:53+0000\n"
+"Last-Translator: admin <admin@igk.hr>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%100/10==1 ? 2 : n%10==1 ? 0 : (n+9)%10>3 ? 2 : 1;\n"
+"X-Poedit-Language: Croatian\n"
+"X-Poedit-Country: CROATIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: 404.php:7
+#@ cc
+msgid "Page not found"
+msgstr "Stranica nije pronađena"
+
+#: 404.php:9
+#@ cc
+msgid "We're sorry, but we can't find the page that you're looking for. Perhaps searching will help."
+msgstr "Žao nam je, ne možemo pronaći stranicu koju tražite. Pokušajte pretragom."
+
+#: _inc/ajax.php:173
+#@ cc
+msgid "Please enter some content to post."
+msgstr "Molimo vas da unesete sadržaj za objavu."
+
+#: _inc/ajax.php:190
+#@ cc
+msgid "There was a problem posting your update, please try again."
+msgstr "Objava ažuriranog sadržaja nije uspjela, molimo vas da pokušate ponovno."
+
+#: _inc/ajax.php:215
+#@ cc
+msgid "Please do not leave the comment area blank."
+msgstr "Molimo vas da ne ostavljate prostor za komentar praznim."
+
+#: _inc/ajax.php:220
+#: _inc/ajax.php:231
+#@ cc
+msgid "There was an error posting that reply, please try again."
+msgstr "Pogreška u objavi odgovora, molimo vas da pokušate ponovno."
+
+#: _inc/ajax.php:288
+#: _inc/ajax.php:323
+#@ cc
+msgid "There was a problem when deleting. Please try again."
+msgstr "Pogreška pri brisanju. Molimo vas da pokušate ponovno."
+
+#: _inc/ajax.php:338
+#: activity/entry.php:72
+#@ cc
+msgid "Remove Favorite"
+msgstr "Ukloni favorita"
+
+#: _inc/ajax.php:347
+#: activity/entry.php:68
+#@ cc
+msgid "Favorite"
+msgstr "Favorit"
+
+#: _inc/ajax.php:406
+#: groups/create.php:234
+#: groups/single/send-invites.php:42
+#@ cc
+msgid "Remove Invite"
+msgstr "Ukloni pozivnicu"
+
+#: _inc/ajax.php:432
+#@ cc
+msgid "Friendship could not be canceled."
+msgstr "Nije moguće prekinuti prijateljstvo."
+
+#: _inc/ajax.php:434
+#@ cc
+msgid "Add Friend"
+msgstr "Dodaj kao prijatelja"
+
+#: _inc/ajax.php:442
+#@ cc
+msgid "Friendship could not be requested."
+msgstr "Ne može se poslati zahtjev za prijateljstvo."
+
+#: _inc/ajax.php:444
+#@ cc
+msgid "Friendship Requested"
+msgstr "Zahtjev za prijateljstvo poslan"
+
+#: _inc/ajax.php:447
+#@ cc
+msgid "Request Pending"
+msgstr "Zahtjev na čekanju"
+
+#: _inc/ajax.php:459
+#@ cc
+msgid "There was a problem accepting that request. Please try again."
+msgstr "Pojavio se problem s prihvaćanjem tog zahtjeva. Molimo vas da pokušate ponovno."
+
+#: _inc/ajax.php:470
+#@ cc
+msgid "There was a problem rejecting that request. Please try again."
+msgstr "Pojavio se problem s odbijanjem tog zahtjeva. Molimo vas da pokušate ponovno."
+
+#: _inc/ajax.php:493
+#@ cc
+msgid "Error joining group"
+msgstr "Pogreška u pridruživanju grupi"
+
+#: _inc/ajax.php:495
+#@ cc
+msgid "Leave Group"
+msgstr "Napusti grupu"
+
+#: _inc/ajax.php:503
+#@ cc
+msgid "Error requesting membership"
+msgstr "Pogreška u zahtjevu za članstvo"
+
+#: _inc/ajax.php:505
+#@ cc
+msgid "Membership Requested"
+msgstr "Zahtjev za članstvo poslan"
+
+#: _inc/ajax.php:514
+#@ cc
+msgid "Error leaving group"
+msgstr "Pogreška pri napuštanju grupe"
+
+#: _inc/ajax.php:517
+#@ cc
+msgid "Join Group"
+msgstr "Pridruži se grupi"
+
+#: _inc/ajax.php:519
+#@ cc
+msgid "Request Membership"
+msgstr "Pošalji zahtjev za članstvo"
+
+#: _inc/ajax.php:531
+#@ cc
+msgid "There was a problem closing the notice."
+msgstr "Došlo je do problema sa zatvaranjem obavijesti."
+
+#: _inc/ajax.php:556
+#, php-format
+#@ cc
+msgid "Sent %s"
+msgstr "Poslano %s"
+
+#: _inc/ajax.php:573
+#@ cc
+msgid "There was a problem sending that reply. Please try again."
+msgstr "Došlo je do problema sa slanjem odgovora. Molimo vas da pokušate ponovno."
+
+#: _inc/ajax.php:583
+#@ cc
+msgid "There was a problem marking messages as unread."
+msgstr "Došlo je do problema s označivanjem poruka kao nepročitanih."
+
+#: _inc/ajax.php:599
+#@ cc
+msgid "There was a problem marking messages as read."
+msgstr "Došlo je do problema s označivanjem poruka kao pročitanih."
+
+#: _inc/ajax.php:615
+#@ cc
+msgid "There was a problem deleting messages."
+msgstr "Došlo je do problema s brisanjem poruka."
+
+#: _inc/ajax.php:622
+#@ cc
+msgid "Messages deleted."
+msgstr " Poruke su izbrisane."
+
+#: _pro/_inc/shortcodes.php:469
+#@ cc
+msgid "Empty Slideshow"
+msgstr "Prazna prezentacija"
+
+#: _pro/_inc/shortcodes.php:470
+#@ cc
+msgid "You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> for more."
+msgstr "Niste odabrali nijednu objavu za prezentaciju! <br>Provjerite postavke tema za glavnu prezentaciju ili postavke stranice za prezentaciju stranice... <br>i napišite objavu! Provjerite <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> za više informacija."
+
+#: _pro/_inc/shortcodes.php:490
+#: _pro/_inc/shortcodes.php:629
+#: _pro/pro-enabler.php:15
+#: core/includes/helper-functions.php:160
+#: core/includes/helper-functions.php:244
+#: core/includes/wp/shortcodes.php:12
+#@ cc
+msgid "natural"
+msgstr "prirodna"
+
+#: _pro/_inc/shortcodes.php:497
+#: _pro/_inc/shortcodes.php:628
+#: admin/config.php:48
+#: core/includes/helper-functions.php:148
+#: core/includes/helper-functions.php:241
+#: core/includes/wp/shortcodes.php:9
+#@ cc
+msgid "dark"
+msgstr "tamna"
+
+#: _pro/_inc/shortcodes.php:498
+#: _pro/_inc/shortcodes.php:633
+#: _pro/pro-enabler.php:15
+#: core/includes/helper-functions.php:209
+#: core/includes/helper-functions.php:256
+#: core/includes/wp/shortcodes.php:24
+#@ cc
+msgid "black"
+msgstr "crna"
+
+#: _pro/_inc/shortcodes.php:505
+#: _pro/_inc/shortcodes.php:630
+#: admin/config.php:48
+#: core/includes/helper-functions.php:173
+#: core/includes/helper-functions.php:247
+#: core/includes/wp/shortcodes.php:15
+#@ cc
+msgid "white"
+msgstr "bijela"
+
+#: _pro/_inc/shortcodes.php:506
+#: _pro/_inc/shortcodes.php:631
+#: _pro/pro-enabler.php:15
+#: core/includes/helper-functions.php:185
+#: core/includes/helper-functions.php:250
+#: core/includes/wp/shortcodes.php:18
+#@ cc
+msgid "light"
+msgstr "svijetla"
+
+#: _pro/_inc/shortcodes.php:507
+#: _pro/_inc/shortcodes.php:632
+#: admin/config.php:48
+#: core/includes/helper-functions.php:197
+#: core/includes/helper-functions.php:253
+#: core/includes/wp/shortcodes.php:21
+#@ cc
+msgid "grey"
+msgstr "siva"
+
+#: _pro/pro-enabler.php:23
+#@ cc
+msgid "Show credits links in footer"
+msgstr "Pokaži poveznice na autore u podnožju"
+
+#: _pro/pro-enabler.php:24
+#@ cc
+msgid "Show the credits liks in the footer"
+msgstr "Pokaži poveznice na autore u podnožju"
+
+#: _pro/tpl-left-and-right-sidebar.php:22
+#: _pro/tpl-left-sidebar.php:22
+#: _pro/tpl-right-sidebar.php:22
+#: full-width.php:23
+#: page.php:17
+#@ cc
+msgid "<p class=\"serif\">Read the rest of this page &rarr;</p>"
+msgstr "<p class=\"serif\">Pročitaj ostatak stranice &rarr;</p>"
+
+#: _pro/tpl-left-and-right-sidebar.php:24
+#: _pro/tpl-left-sidebar.php:24
+#: _pro/tpl-right-sidebar.php:24
+#: page.php:19
+#: single.php:68
+#@ cc
+msgid "<p class=\"cc_pagecount\"><strong>Pages:</strong> "
+msgstr "<p class=\"cc_pagecount\"><strong>Stranice:</strong> "
+
+#: _pro/tpl-left-and-right-sidebar.php:39
+#: _pro/tpl-left-sidebar.php:39
+#: _pro/tpl-right-sidebar.php:39
+#: page.php:34
+#@ cc
+msgid "Edit this page."
+msgstr "Uredi ovu stranicu."
+
+#: activity/activity-loop.php:41
+#@ cc
+msgid "Load More"
+msgstr "Učitaj više"
+
+#: activity/activity-loop.php:55
+#@ cc
+msgid "Sorry, there was no activity found. Please try a different filter."
+msgstr "Žao nam je, nije pronađena nijedna aktivnost. Molimo vas da pokušate s drugačijim filterom."
+
+#. translators: 1: user profile link, 2: user name, 3: activity permalink, 3: activity timestamp
+#: activity/comment.php:28
+#, php-format
+#@ cc
+msgid "<a href=\"%1$s\">%2$s</a> replied <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\">%2$s</a> je odgovorio/la <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+
+#: activity/comment.php:33
+#: forums/single/edit.php:10
+#: groups/single/forum/edit.php:10
+#@ cc
+msgid "Reply"
+msgstr "Odgovori"
+
+#: activity/comment.php:39
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/single.php:24
+#@ cc
+msgid "Delete"
+msgstr "Izbriši"
+
+#: activity/entry.php:37
+#@ cc
+msgid "In reply to: "
+msgstr "Odgovor na: "
+
+#: activity/entry.php:37
+#@ cc
+msgid "View Thread / Permalink"
+msgstr "Pogledaj temu / Trajna poveznica"
+
+#: activity/entry.php:37
+#: core/includes/bp/templatetags.php:89
+#@ cc
+msgid "View"
+msgstr "Pogledaj"
+
+#: activity/entry.php:60
+#, php-format
+#@ cc
+msgid "Comment <span>%s</span>"
+msgstr "Komentar<span>%s</span>"
+
+#: activity/entry.php:68
+#@ cc
+msgid "Mark as Favorite"
+msgstr "Označi kao favorit"
+
+#: activity/entry.php:104
+#@ cc
+msgid "Post"
+msgstr "Objavi"
+
+#: activity/entry.php:104
+#@ cc
+msgid "or press esc to cancel."
+msgstr "ili pritisni esc za izlaz."
+
+#: activity/index.php:23
+#@ cc
+msgid "Site Activity"
+msgstr "Aktivnosti na stranici"
+
+#: activity/index.php:41
+#@ cc
+msgid "The public activity for everyone on this site."
+msgstr "Javne aktivnosti za sve na ovoj stranici."
+
+#: activity/index.php:41
+#: members/index.php:35
+#, php-format
+#@ cc
+msgid "All Members <span>%s</span>"
+msgstr "Svi članovi <span>%s</span>"
+
+#: activity/index.php:51
+#@ cc
+msgid "The activity of my friends only."
+msgstr "Samo aktivnosti mojih prijatelja."
+
+#: activity/index.php:51
+#: members/index.php:39
+#, php-format
+#@ cc
+msgid "My Friends <span>%s</span>"
+msgstr "Moji prijatelji <span>%s</span>"
+
+#: activity/index.php:63
+#@ cc
+msgid "The activity of groups I am a member of."
+msgstr "Aktivnosti grupa u koje sam učlanjen/a."
+
+#: activity/index.php:63
+#: groups/index.php:41
+#, php-format
+#@ cc
+msgid "My Groups <span>%s</span>"
+msgstr "Moje grupe <span>%s</span>"
+
+#: activity/index.php:73
+#@ cc
+msgid "The activity I've marked as a favorite."
+msgstr "Aktivnosti koje sam označio/la kao omiljene."
+
+#: activity/index.php:73
+#, php-format
+#@ cc
+msgid "My Favorites <span>%s</span>"
+msgstr "Moji favoriti <span>%s</span>"
+
+#: activity/index.php:79
+#@ cc
+msgid "Activity that I have been mentioned in."
+msgstr "Aktivnosti u kojima sam spomenut/a."
+
+#: activity/index.php:79
+#@ cc
+msgid "Public Mentions"
+msgstr "Javno spominjanje"
+
+#: activity/index.php:79
+#, php-format
+#@ cc
+msgid "<span>%s new</span>"
+msgstr "<span>%s novo</span>"
+
+#: activity/index.php:89
+#: groups/single/activity.php:3
+#@ cc
+msgid "RSS Feed"
+msgstr "RSS kanal"
+
+#: activity/index.php:89
+#: groups/single/activity.php:3
+#@ cc
+msgid "RSS"
+msgstr "RSS"
+
+#: activity/index.php:94
+#: groups/single/activity.php:8
+#: members/single/activity.php:18
+#@ cc
+msgid "Show:"
+msgstr "Pokaži:"
+
+#: activity/index.php:96
+#: groups/single/activity.php:10
+#: members/single/activity.php:20
+#@ cc
+msgid "Everything"
+msgstr "Sve"
+
+#: activity/index.php:97
+#: groups/single/activity.php:11
+#: members/single/activity.php:21
+#@ cc
+msgid "Updates"
+msgstr "Ažuriranja"
+
+#: activity/index.php:101
+#: forums/forums-loop.php:31
+#: members/single/activity.php:27
+#@ cc
+msgid "Posts"
+msgstr "Objave"
+
+#: activity/index.php:102
+#: members/single/activity.php:28
+#@ cc
+msgid "Comments"
+msgstr "Komentari"
+
+#: activity/index.php:108
+#: groups/single/activity.php:14
+#: members/single/activity.php:43
+#@ cc
+msgid "Forum Topics"
+msgstr "Teme foruma"
+
+#: activity/index.php:109
+#: groups/single/activity.php:15
+#: members/single/activity.php:44
+#@ cc
+msgid "Forum Replies"
+msgstr "Odgovori na forumu"
+
+#: activity/index.php:115
+#: members/single/activity.php:50
+#@ cc
+msgid "New Groups"
+msgstr "Nove grupe"
+
+#: activity/index.php:116
+#: groups/single/activity.php:18
+#: members/single/activity.php:51
+#@ cc
+msgid "Group Memberships"
+msgstr "Članstva u grupama"
+
+#: activity/index.php:122
+#: members/single/activity.php:35
+#@ cc
+msgid "Friendships"
+msgstr "Prijateljstva"
+
+#: activity/index.php:126
+#@ cc
+msgid "New Members"
+msgstr "Novi Članovi"
+
+#: activity/post-form.php:23
+#, php-format
+#@ cc
+msgid "What's new in %s, %s?"
+msgstr "Što je novo u %s, %s?"
+
+#: activity/post-form.php:25
+#, php-format
+#@ cc
+msgid "What's new, %s?"
+msgstr "Što je novo, %s?"
+
+#: activity/post-form.php:35
+#@ cc
+msgid "Post Update"
+msgstr "Ažuriraj objavu"
+
+#: activity/post-form.php:42
+#@ cc
+msgid "Post in"
+msgstr "Objavi u"
+
+#: activity/post-form.php:45
+#: members/single/profile/profile-wp.php:8
+#@ cc
+msgid "My Profile"
+msgstr "Moj profil"
+
+#: admin/config.php:17
+#@ cc
+msgid "All pages"
+msgstr "Sve stranice"
+
+#: admin/config.php:29
+#: admin/page-meta-box.php:8
+#@ cc
+msgid "All categories"
+msgstr "Sve kategorije"
+
+#: admin/config.php:42
+#@ cc
+msgid "General"
+msgstr "Općenito"
+
+#: admin/config.php:45
+#@ cc
+msgid "Colour scheme"
+msgstr "Paleta boja"
+
+#: admin/config.php:46
+#@ cc
+msgid "Select the colour scheme of your website."
+msgstr "Odaberite paletu boja za svoju stranicu."
+
+#: admin/config.php:50
+#: admin/config.php:57
+#@ cc
+msgid "Website width"
+msgstr "Širina stranice"
+
+#: admin/config.php:51
+#@ cc
+msgid ""
+"Just type in the number, either in px or %. Default is 1000. <br>\n"
+"\t\t\tTip: If you use the full-width slider, don't make your site bigger than 1006px, or use the normal slider with preview."
+msgstr ""
+"Samo unesite broj u pikselima ili u postocima. Početna vrijednost je 1000. <br>\n"
+"\t\t\tSavjet: Ako koristite klizač pune širine, pripazite da vaša stranica ne bude šira od 1006 piksela ili koristite normalni klizač s pretpregledom."
+
+#: admin/config.php:59
+#@ cc
+msgid "Fluid or static width?"
+msgstr "Fluidna ili statična širina?"
+
+#: admin/config.php:60
+#@ cc
+msgid ""
+"Do you want your layout fluid(%) or static(px)? <br>\n"
+"\t\t\tNotes: when you use the slideshow, better don't use fluid width. <br>\n"
+"\t\t\tAnd if you use the slideshow shadow, it only looks nice with a static width between 990 and about 1100px."
+msgstr ""
+"Želite li fluidan (%) ili statičan (px) prijelom? <br>\n"
+"\t\t\tNapomene: kad koristite prezentaciju, radije  nemojte koristiti fluidnu širinu. <br>\n"
+"\t\t\tI ako koristite sjene na prezentacijama, imajte u vidu da to izgleda dobro samo sa statičnom širinom u rasponu od 990 do oko 1100 piksela."
+
+#: admin/config.php:68
+#@ cc
+msgid "Use standard Wordpress background settings"
+msgstr "Koristi standardne pozadinske postavke Wordpressa"
+
+#: admin/config.php:69
+#@ cc
+msgid "Enable this option, if you like to use the standard wordpress settings page."
+msgstr "Aktivirajte ovu opciju ako želite koristiti stranicu sa standardnim postavkama Wordpressa."
+
+#: admin/config.php:73
+#@ cc
+msgid "Background"
+msgstr "Pozadina"
+
+#: admin/config.php:75
+#@ cc
+msgid "Background colour"
+msgstr "Pozadinska boja"
+
+#: admin/config.php:76
+#@ cc
+msgid "Change your background colour"
+msgstr "Promijeni boju pozadine"
+
+#: admin/config.php:82
+#@ cc
+msgid "Background image"
+msgstr "Pozadinska slika"
+
+#: admin/config.php:83
+#@ cc
+msgid "Insert your own background image. Upload or insert url."
+msgstr "Umetni vlastitu pozadinsku sliku. Pošalji ili umetni url."
+
+#: admin/config.php:89
+#@ cc
+msgid "Fixed background image"
+msgstr "Fiksna pozadinska slika"
+
+#: admin/config.php:90
+#@ cc
+msgid "Fix the position of your body background image"
+msgstr "Popravi poziciju pozadinske slike"
+
+#: admin/config.php:96
+#@ cc
+msgid "Background position"
+msgstr "Pozicija pozadine"
+
+#: admin/config.php:97
+#@ cc
+msgid "Position of the background image: center, left, right"
+msgstr "Pozicija pozadinske slike: u sredini, lijevo, desno"
+
+#: admin/config.php:99
+#: admin/config.php:451
+#: core/includes/theme-generator/style.php:38
+#: core/includes/theme-generator/style.php:4300
+#: core/includes/theme-generator/style.php:4333
+#@ cc
+msgid "center"
+msgstr "u sredini"
+
+#: admin/config.php:99
+#: admin/config.php:160
+#: admin/config.php:451
+#: admin/config.php:452
+#: admin/config.php:480
+#: admin/config.php:481
+#: admin/config.php:771
+#: admin/config.php:810
+#: admin/config.php:844
+#: core/includes/theme-generator/style.php:32
+#: core/includes/theme-generator/style.php:4305
+#: core/includes/theme-generator/style.php:4338
+#: core/includes/theme-generator/theme-generator.php:100
+#: core/includes/theme-generator/theme-generator.php:469
+#: core/includes/theme-generator/theme-generator.php:473
+#: core/includes/theme-generator/theme-generator.php:480
+#: core/includes/theme-generator/theme-generator.php:484
+#: core/includes/theme-generator/theme-generator.php:489
+#: core/includes/theme-generator/theme-generator.php:494
+#@ cc
+msgid "left"
+msgstr "lijevo"
+
+#: admin/config.php:99
+#: admin/config.php:160
+#: admin/config.php:161
+#: admin/config.php:451
+#: admin/config.php:480
+#: admin/config.php:771
+#: admin/config.php:772
+#: admin/config.php:810
+#: admin/config.php:844
+#: core/includes/theme-generator/style.php:35
+#: core/includes/theme-generator/style.php:294
+#: core/includes/theme-generator/style.php:4302
+#: core/includes/theme-generator/style.php:4335
+#: core/includes/theme-generator/style.php:4495
+#: core/includes/theme-generator/theme-generator.php:79
+#: core/includes/theme-generator/theme-generator.php:101
+#: core/includes/theme-generator/theme-generator.php:525
+#: core/includes/theme-generator/theme-generator.php:528
+#: core/includes/theme-generator/theme-generator.php:534
+#: core/includes/theme-generator/theme-generator.php:538
+#: core/includes/theme-generator/theme-generator.php:543
+#: core/includes/theme-generator/theme-generator.php:548
+#@ cc
+msgid "right"
+msgstr "desno"
+
+#: admin/config.php:104
+#@ cc
+msgid "Background repeat"
+msgstr "Ponavljanje pozadine"
+
+#: admin/config.php:105
+#: admin/config.php:144
+#: admin/config.php:516
+#: admin/config.php:532
+#: admin/config.php:580
+#: admin/config.php:607
+#: admin/config.php:655
+#: admin/config.php:702
+#: admin/config.php:724
+#@ cc
+msgid "Repeat background image: x=horizontally, y=vertically"
+msgstr "Ponovi pozadinsku sliku: x=vodoravno, y=okomito"
+
+#: admin/config.php:107
+#: admin/config.php:146
+#: admin/config.php:443
+#: admin/config.php:444
+#: admin/config.php:518
+#: admin/config.php:519
+#: admin/config.php:534
+#: admin/config.php:535
+#: admin/config.php:582
+#: admin/config.php:583
+#: admin/config.php:609
+#: admin/config.php:610
+#: admin/config.php:657
+#: admin/config.php:658
+#: admin/config.php:704
+#: admin/config.php:705
+#: admin/config.php:726
+#: admin/config.php:727
+#: core/includes/theme-generator/style.php:3503
+#: core/includes/theme-generator/style.php:3558
+#: core/includes/theme-generator/style.php:3601
+#: core/includes/theme-generator/style.php:3644
+#: core/includes/theme-generator/style.php:3678
+#: core/includes/theme-generator/style.php:4283
+#: core/includes/theme-generator/style.php:4316
+#: core/includes/theme-generator/style.php:4568
+#: core/includes/theme-generator/style.php:4620
+#: core/includes/theme-generator/style.php:4692
+#: core/includes/theme-generator/style.php:4744
+#: core/includes/theme-generator/style.php:4789
+#@ cc
+msgid "no repeat"
+msgstr "bez ponavljanja"
+
+#: admin/config.php:112
+#@ cc
+msgid "Container colour"
+msgstr "Boja spremnika "
+
+#: admin/config.php:113
+#@ cc
+msgid ""
+"Change the background colour of the content part,<br> \n"
+"\t\t\twrite transparent for no color"
+msgstr ""
+"Promijenite pozadinsku boju dijela sa sadržajem,<br> \n"
+"\t\t\tupišite transparent  ako se ne želi nijedna posebna boja"
+
+#: admin/config.php:118
+#@ cc
+msgid "Container"
+msgstr "Spremnik"
+
+#: admin/config.php:120
+#@ cc
+msgid "Show / hide the vertical lines"
+msgstr "Pokaži / sakrij okomite linije"
+
+#: admin/config.php:121
+#@ cc
+msgid ""
+"The vertical lines that divide your container are default, <br>\n"
+"\t\t\t\tyou can disable them if you like."
+msgstr ""
+"Okomite linije kojima je spremnik podijeljen dio su početnih postavki, <br>\n"
+"\t\t\t\tmožete ih isključiti ako želite."
+
+#: admin/config.php:124
+#: admin/config.php:307
+#: admin/config.php:308
+#: admin/config.php:315
+#: admin/config.php:316
+#: admin/config.php:330
+#: admin/config.php:331
+#: admin/config.php:339
+#: admin/config.php:340
+#: admin/config.php:355
+#: admin/config.php:356
+#: core/includes/theme-generator/theme-generator.php:584
+#@ cc
+msgid "show"
+msgstr "pokaži"
+
+#: admin/config.php:124
+#: admin/config.php:307
+#: admin/config.php:315
+#: admin/config.php:330
+#: admin/config.php:339
+#: admin/config.php:355
+#: core/includes/theme-generator/style.php:3538
+#: core/includes/theme-generator/style.php:4166
+#: core/includes/theme-generator/style.php:4181
+#: core/includes/theme-generator/style.php:4206
+#: core/includes/theme-generator/style.php:4208
+#: core/includes/theme-generator/style.php:4246
+#: core/includes/theme-generator/style.php:4255
+#@ cc
+msgid "hide"
+msgstr "sakrij"
+
+#: admin/config.php:128
+#@ cc
+msgid "Vertical lines colour"
+msgstr "Boja okomitih linija"
+
+#: admin/config.php:129
+#@ cc
+msgid ""
+"Change the colour of the vertical lines. <br>\n"
+"\t\t\t\tTip: Best is to have them in the colour of the background and other lines. "
+msgstr ""
+"Promijeni boju okomitih linija. <br>\n"
+"\t\t\t\tSavjet: Najbolje ih je izjednačiti s bojom pozadine i drugih linija."
+
+#: admin/config.php:136
+#@ cc
+msgid "Container background image"
+msgstr "Pozadinska slika spremnika"
+
+#: admin/config.php:137
+#@ cc
+msgid ""
+"Change background image for the container (currently the vertical lines <br>\n"
+"\t\t\t\tthat separate the sidebars). Upload or insert url."
+msgstr ""
+"Promijeni pozadinsku sliku za spremnik (trenutno okomite linije <br>\n"
+"\t\t\t\tkoje odvajaju rubne stupce). Pošalji ili umetni url."
+
+#: admin/config.php:143
+#@ cc
+msgid "Container background repeat"
+msgstr "Ponovi pozadinu spremnika"
+
+#: admin/config.php:150
+#@ cc
+msgid "Container corner radius"
+msgstr "Kutni polumjer spremnika"
+
+#: admin/config.php:151
+#@ cc
+msgid "Do you want your container corners to be rounded?"
+msgstr "Želite li da kutovi spremnika budu zaobljeni?"
+
+#: admin/config.php:153
+#: admin/config.php:154
+#: admin/config.php:616
+#@ cc
+msgid "rounded"
+msgstr "zaobljen"
+
+#: admin/config.php:153
+#: admin/config.php:552
+#: core/includes/theme-generator/style.php:3573
+#: core/includes/theme-generator/style.php:3617
+#: core/includes/theme-generator/style.php:4597
+#@ cc
+msgid "not rounded"
+msgstr "nezaobljen"
+
+#: admin/config.php:157
+#@ cc
+msgid "Sidebar default position"
+msgstr "Početna postavka rubnog stupca"
+
+#: admin/config.php:158
+#@ cc
+msgid "Where do you like to have your sidebars? Define your default layout."
+msgstr "Gdje želite postaviti svoje rubne stupce? Definirajte svoj standardni prijelom stranice."
+
+#: admin/config.php:160
+#: admin/config.php:810
+#: admin/config.php:844
+#: core/includes/theme-generator/theme-generator.php:470
+#: core/includes/theme-generator/theme-generator.php:474
+#: core/includes/theme-generator/theme-generator.php:481
+#: core/includes/theme-generator/theme-generator.php:485
+#: core/includes/theme-generator/theme-generator.php:490
+#: core/includes/theme-generator/theme-generator.php:495
+#: core/includes/theme-generator/theme-generator.php:525
+#: core/includes/theme-generator/theme-generator.php:529
+#: core/includes/theme-generator/theme-generator.php:535
+#: core/includes/theme-generator/theme-generator.php:539
+#: core/includes/theme-generator/theme-generator.php:544
+#: core/includes/theme-generator/theme-generator.php:548
+#@ cc
+msgid "left and right"
+msgstr "lijevo i desno"
+
+#: admin/config.php:160
+#: admin/config.php:428
+#: admin/config.php:683
+#: core/includes/theme-generator/theme-generator.php:103
+#: core/includes/theme-generator/theme-generator.php:128
+#: core/includes/theme-generator/theme-generator.php:144
+#: core/includes/theme-generator/theme-generator.php:346
+#@ cc
+msgid "full-width"
+msgstr "puna širina"
+
+#: admin/config.php:163
+#@ cc
+msgid "Title font style"
+msgstr "Font naslova"
+
+#: admin/config.php:164
+#@ cc
+msgid "Change the title font style (h1 and h2)"
+msgstr "Promijeni stil fonta naslova (h1 i h2)"
+
+#: admin/config.php:169
+#@ cc
+msgid "Titles"
+msgstr "Naslovi"
+
+#: admin/config.php:171
+#@ cc
+msgid "Title size"
+msgstr "Veličina naslova"
+
+#: admin/config.php:172
+#@ cc
+msgid "Change the title font size (h1 and h2), default is 28px, just enter a number"
+msgstr "Promijenite veličinu fonta naslova (h1 i h2), početna postavka je 28 piksela, samo unesite broj"
+
+#: admin/config.php:178
+#@ cc
+msgid "Titles font weight"
+msgstr "Debljina fonta naslova"
+
+#: admin/config.php:179
+#@ cc
+msgid "Do you want your titles bold or normal?"
+msgstr "Želite li svoje naslove podebljane ili ne?"
+
+#: admin/config.php:181
+#: admin/config.php:182
+#: admin/config.php:201
+#: admin/config.php:202
+#: core/includes/theme-generator/style.php:3876
+#: core/includes/theme-generator/style.php:3902
+#@ cc
+msgid "bold"
+msgstr "podebljano"
+
+#: admin/config.php:181
+#: admin/config.php:201
+#: core/includes/theme-generator/style.php:3878
+#@ cc
+msgid "normal"
+msgstr "normalno"
+
+#: admin/config.php:185
+#@ cc
+msgid "Title colour"
+msgstr "Boja naslova"
+
+#: admin/config.php:186
+#@ cc
+msgid "Change title colour"
+msgstr "Promijeni boju naslova"
+
+#: admin/config.php:190
+#@ cc
+msgid "Subtitle font style"
+msgstr "Stil fonta podnaslova"
+
+#: admin/config.php:191
+#@ cc
+msgid "Change the subtitle font style (h3-h6)"
+msgstr "Promijeni stil fonta pdnaslova (h3-h6)"
+
+#: admin/config.php:196
+#@ cc
+msgid "Subtitles"
+msgstr "Podnaslovi"
+
+#: admin/config.php:198
+#@ cc
+msgid "Subtitles font weight"
+msgstr "Debljina fonta podnaslova"
+
+#: admin/config.php:199
+#@ cc
+msgid "Do you want your subtitles bold or normal?"
+msgstr "Želite li da podnaslovi budu podebljani ili ne?"
+
+#: admin/config.php:205
+#@ cc
+msgid "Subtitle colour"
+msgstr "Boja podnaslova"
+
+#: admin/config.php:206
+#@ cc
+msgid "Change subtitle colour"
+msgstr "Promijeni boju podnaslova"
+
+#: admin/config.php:210
+#@ cc
+msgid "Show excerpts"
+msgstr "Pokaži izvatke"
+
+#: admin/config.php:211
+#@ cc
+msgid "Just for category and archive views: use excerpts or show full content of your posts"
+msgstr "Samo za prikaze po kategorijama i arhiva: iskoristite izvatke ili pokažite puni sadržaj  svojih objava"
+
+#: admin/config.php:213
+#: admin/config.php:214
+#@ cc
+msgid "content"
+msgstr "sadržaj"
+
+#: admin/config.php:213
+#@ cc
+msgid "excerpt"
+msgstr "izvadak"
+
+#: admin/config.php:216
+#@ cc
+msgid "Excerpts"
+msgstr "Izvatci"
+
+#: admin/config.php:218
+#@ cc
+msgid "Excerpt length"
+msgstr "Duljina izvatka"
+
+#: admin/config.php:219
+#@ cc
+msgid "Change the excerpt length, default is 30 words"
+msgstr "Promijeni duljinu izvatka, standardna vrijednost je 30 riječi"
+
+#: admin/config.php:223
+#@ cc
+msgid "Font style"
+msgstr "Stil fonta"
+
+#: admin/config.php:224
+#@ cc
+msgid "Change the font style"
+msgstr "Promijeni stil fonta"
+
+#: admin/config.php:229
+#@ cc
+msgid "Fonts"
+msgstr "Fontovi"
+
+#: admin/config.php:231
+#@ cc
+msgid "Font size"
+msgstr "Velična fonta"
+
+#: admin/config.php:232
+#@ cc
+msgid "Change the standard font size, default is 13px, just enter a number"
+msgstr "Promijenite standardnu veličinu fonta, početna je vrijednost 13 piksela, samo unesite novi broj"
+
+#: admin/config.php:237
+#@ cc
+msgid "Font colour"
+msgstr "Boja fonta"
+
+#: admin/config.php:238
+#@ cc
+msgid "Change font colour"
+msgstr "Promijeni boju fonta"
+
+#: admin/config.php:243
+#@ cc
+msgid "Link colour"
+msgstr "Boja poveznice"
+
+#: admin/config.php:244
+#@ cc
+msgid ""
+"Change link colour. <br>\n"
+"\t\t\tNotes: You just need to change the link colour to have a nice effect on all link and button colours. <br>\n"
+"\t\t\tThe hover colour will automatically be your font colour or the default font colour. <br>\n"
+"\t\t\tOptional, you can also choose a hover colour, background colour, background hover colour or if and when to underline. "
+msgstr ""
+"Promijeni boju poveznice. <br>\n"
+"\t\t\tNapomene: Da biste dobili lijep efekt na svim bojama poveznica i gumbiju, dovoljno je da promijenite samo boju poveznice. <br>\n"
+"\t\t\tBoja poveznice dok se iznad nje nalazi pokazivač automatski će postati vaša boja fonta ili osnovna vrijednost boje fonta. <br>\n"
+"\t\t\tOpcionalno, možete odabrati koje boje želite za pozadinu poveznice, za situaciju kad je pokazivač iznad poveznice i za pozadinu poveznice kad je pokazivač iznad nje, kao i želite li podcrtati poveznicu te kad je želite podcrtati."
+
+#: admin/config.php:251
+#: core/includes/theme-generator/theme-generator.php:393
+#: links.php:16
+#: sidebar.php:45
+#@ cc
+msgid "Links"
+msgstr "Poveznice"
+
+#: admin/config.php:253
+#@ cc
+msgid "Link hover colour"
+msgstr "Boja poveznice kad je pokazivač iznad nje"
+
+#: admin/config.php:254
+#@ cc
+msgid "Change link colour for mouse moves over."
+msgstr "Promijeni boju poveznice kad miš prijeđe preko nje."
+
+#: admin/config.php:259
+#@ cc
+msgid "BuddyPress subnavigation adapting"
+msgstr "Prilagođavanje podnavigacije BuddyPress-a"
+
+#: admin/config.php:260
+#@ cc
+msgid ""
+"Use link hover colour for the BuddyPress subnav also? <br> \n"
+"\t\t\tBy default the subnav links adapts the link colour and link hover colour. <br>\n"
+"\t\t\tSometimes the link hover colour can look ugly here and you don't want the subnav to adapt. <br>\n"
+"\t\t\tThen you can change the colour adapting here easily. "
+msgstr ""
+"Želite li iskoristiti boju koja se pojavljuje kad je pokazivač iznad poveznice i za podnavigaciju BuddyPress-a? <br> \n"
+"\t\t\tPoveznica podnavigacije sama prilagođava boju poveznice i boju koja se pojavljuje kad je pokazivač iznad poveznice. <br>\n"
+"\t\t\tPonekad boja koja se pojavljuje kad je pokazivač iznad poveznice može ružno izgledati na ovom mjestu pa stoga ne želite da se podnavigacija prilagodi prema njoj. <br>\n"
+"\t\t\tTada možete promijeniti boju jednostavnom prilagodbom."
+
+#: admin/config.php:265
+#@ cc
+msgid "just the link colour"
+msgstr "samo boja poveznice"
+
+#: admin/config.php:265
+#: admin/config.php:266
+#: admin/config.php:293
+#: core/includes/theme-generator/style.php:3972
+#: core/includes/theme-generator/style.php:4033
+#: core/includes/theme-generator/style.php:4053
+#@ cc
+msgid "link colour and hover colour"
+msgstr "boja poveznice i boja u situaciji kad je pokazivač iznad poveznice"
+
+#: admin/config.php:269
+#@ cc
+msgid "Link underline"
+msgstr "Podcrtaj link"
+
+#: admin/config.php:270
+#@ cc
+msgid "Choose if (and when) to underline links."
+msgstr "Izaberi ako (i kada) podcrtati poveznice."
+
+#: admin/config.php:272
+#: core/includes/theme-generator/style.php:3980
+#: core/includes/theme-generator/style.php:4055
+#: core/includes/theme-generator/style.php:4086
+#@ cc
+msgid "never"
+msgstr "nikada"
+
+#: admin/config.php:272
+#: core/includes/theme-generator/style.php:3985
+#: core/includes/theme-generator/style.php:4061
+#: core/includes/theme-generator/style.php:4092
+#@ cc
+msgid "always"
+msgstr "uvijek"
+
+#: admin/config.php:272
+#: admin/config.php:273
+#: core/includes/theme-generator/style.php:3982
+#: core/includes/theme-generator/style.php:4057
+#: core/includes/theme-generator/style.php:4088
+#@ cc
+msgid "just for mouse over"
+msgstr "samo za prijelaz mišem preko poveznice"
+
+#: admin/config.php:272
+#@ cc
+msgid "just when normal"
+msgstr "samo kad je boja obična"
+
+#: admin/config.php:276
+#@ cc
+msgid "Link background colour"
+msgstr "Boja pozadine poveznice"
+
+#: admin/config.php:277
+#@ cc
+msgid "Change link background colour."
+msgstr "Promijeni boju pozadine poveznice."
+
+#: admin/config.php:282
+#@ cc
+msgid "Link background hover colour"
+msgstr "Boja pozadine kad je pokazivač iznad poveznice"
+
+#: admin/config.php:283
+#@ cc
+msgid ""
+"Change link background colour for mouse moves over. <br>\n"
+"\t\t\tWatch out you have enough contrast to the (hover) link colour and also the font colour!"
+msgstr ""
+"Promijeni boju pozadine poveznice kad je pokazivač iznad poveznice. <br>\n"
+"\t\t\tPripazite da je odabrana boja dovoljno kontrastna u odnosu na boju poveznice (ili na boju koja se vidi kad je pokazivač iznad nje) i u odnosu na boju fonta!"
+
+#: admin/config.php:289
+#@ cc
+msgid "Titles adapting"
+msgstr "Prilagodba naslova"
+
+#: admin/config.php:290
+#@ cc
+msgid ""
+"Do you like to use the link background colours or underline effetcs for the titles (h1-h6) also? <br> \n"
+"\t\t\tBy default they adapt just the link colour and link hover colour."
+msgstr ""
+"Želite li upotrebljavati boje pozadine poveznice ili efekte podcrtavanja i za naslove (h1-h6)? <br> \n"
+"\t\t\tPočetne postavke prilagođavaju samo boju poveznice i boju poveznice kad je pokazivač iznad nje."
+
+#: admin/config.php:293
+#: core/includes/theme-generator/style.php:4019
+#@ cc
+msgid "just the hover effect"
+msgstr "samo efekt kad je pokazivač iznad poveznice"
+
+#: admin/config.php:293
+#@ cc
+msgid "...the underline effects too"
+msgstr "…i efekte podcrtavanja"
+
+#: admin/config.php:293
+#: core/includes/theme-generator/style.php:4135
+#@ cc
+msgid "the background colours too"
+msgstr "također i pozadinske boje"
+
+#: admin/config.php:293
+#: core/includes/theme-generator/style.php:4084
+#@ cc
+msgid "adapt all link styles"
+msgstr "prilagodi sve stilove poveznica"
+
+#: admin/config.php:297
+#@ cc
+msgid "Favicon image"
+msgstr "Slika Favicona"
+
+#: admin/config.php:298
+#@ cc
+msgid "Insert your own favicon image. Upload or insert url."
+msgstr "Umetni vlastitu favicon sliku. Pošalji ili umetni url."
+
+#: admin/config.php:302
+#: admin/config.php:335
+#@ cc
+msgid "Show / hide avatars"
+msgstr "Pokaži / sakrij avatare"
+
+#: admin/config.php:303
+#@ cc
+msgid ""
+"Show or hide the avatars in the post listing. <br> \n"
+"\t\t\tThis option is for the standard WordPress Homepage showing your latest articles. <br>\n"
+"\t\t\tTo select a page as your homepage, go to Settings -> Reading."
+msgstr ""
+"Prikaži ili sakrij avatare u objavama. <br> \n"
+"\t\t\tOva opcija služi standardnoj početnoj stranici WordPressa koja prikazuje vaše najnovije članke. <br>\n"
+"\t\t\tAko želite odabrati stranicu koja će biti vaša početna stranica, otiđite na Postavke -> Čitanje."
+
+#: admin/config.php:310
+#@ cc
+msgid "Default homepage"
+msgstr "Početna stranica"
+
+#: admin/config.php:312
+#@ cc
+msgid "Last 3 Posts on home"
+msgstr "Posljednje 3 objave na početnoj stranici"
+
+#: admin/config.php:313
+#@ cc
+msgid "Display last 3 posts. <br> "
+msgstr "Prikaži posljednje 3 objave. <br> "
+
+#: admin/config.php:319
+#: admin/config.php:344
+#@ cc
+msgid "Post listing style"
+msgstr "Stil liste objava"
+
+#: admin/config.php:320
+#: admin/config.php:345
+#@ cc
+msgid ""
+"Select a style how to display the latest posts. <br> \n"
+"\t\t\tYou can also list your posts in magazine style, showing the featured images, check out our our <a href='http://themekraft.com/faq/list-your-latest-posts/'>FAQ here</a>."
+msgstr ""
+"Odaberite stil kojim želite da se posljednje objave prikazuju. <br> \n"
+"\t\t\tMožete poredati objave u stilu magazina, prikazujući umetnute slike, pogledajte naš <a href='http://themekraft.com/faq/list-your-latest-posts/'>FAQ ovdje</a>."
+
+#: admin/config.php:323
+#: admin/config.php:324
+#: admin/config.php:348
+#: admin/config.php:349
+#: core/includes/theme-generator/style.php:4196
+#@ cc
+msgid "bubbles"
+msgstr "mjehurići"
+
+#: admin/config.php:323
+#: admin/config.php:348
+#: admin/config.php:428
+#: admin/config.php:429
+#: admin/config.php:683
+#: admin/config.php:810
+#: admin/config.php:811
+#: admin/config.php:844
+#: admin/config.php:845
+#: admin/config.php:929
+#: core/includes/theme-generator/theme-generator.php:89
+#: core/includes/theme-generator/theme-generator.php:91
+#: core/includes/theme-generator/theme-generator.php:472
+#: core/includes/theme-generator/theme-generator.php:475
+#: core/includes/theme-generator/theme-generator.php:483
+#: core/includes/theme-generator/theme-generator.php:486
+#: core/includes/theme-generator/theme-generator.php:527
+#: core/includes/theme-generator/theme-generator.php:530
+#: core/includes/theme-generator/theme-generator.php:537
+#: core/includes/theme-generator/theme-generator.php:540
+#@ cc
+msgid "default"
+msgstr "početne postavke"
+
+#: admin/config.php:327
+#: admin/config.php:352
+#@ cc
+msgid "Show / hide date, category and author"
+msgstr "Prikaži / sakrij datum, kategoriju i autora"
+
+#: admin/config.php:328
+#: admin/config.php:353
+#@ cc
+msgid "Show or hide the date, category and author in the post listing."
+msgstr "Prikaži ili sakrij datum, kategoriju i autora u listi objava."
+
+#: admin/config.php:336
+#@ cc
+msgid ""
+"Show or hide the avatars in the post listing. <br> \n"
+"\t\t\tThis option is for categories, tags and archives pages, showing your articles."
+msgstr ""
+"Prikaži ili sakrij avatare u listama objava. <br> \n"
+"\t\t\tOva opcija služi za kategorije, oznake i stranice iz arhive na kojima su prikazani vaši članci."
+
+#: admin/config.php:342
+#@ cc
+msgid "Posts archive pages (categories, tags, dates)"
+msgstr "Arhivske stranice objava (kategorije, oznake, datumi)"
+
+#: admin/config.php:360
+#@ cc
+msgid "Login page logo"
+msgstr "Logo stranice za logiranje"
+
+#: admin/config.php:361
+#@ cc
+msgid "Insert your own image for the login page. Upload or insert url."
+msgstr "Umetni vlastitu sliku za stranicu za logiranje. Pošalji ili umetni url."
+
+#: admin/config.php:365
+#@ cc
+msgid "Login"
+msgstr "Login"
+
+#: admin/config.php:367
+#@ cc
+msgid "Login logo height"
+msgstr "Visina loga logina"
+
+#: admin/config.php:368
+#@ cc
+msgid "Define the login logo height, the width should be 326px max"
+msgstr "Definiraj visinu loga logina, širina bi trebala biti najviše 326 piksela"
+
+#: admin/config.php:374
+#@ cc
+msgid "Login page background colour"
+msgstr "Pozadinska boja stranice za logiranje"
+
+#: admin/config.php:375
+#@ cc
+msgid "Change login page background colour"
+msgstr "Promijeni pozadinsku boju stranice za logiranje"
+
+#: admin/config.php:380
+#@ cc
+msgid "Login page backtoblog fade colour 1"
+msgstr "Boja 1 za prijelaz iz stranice za logiranje natrag u blog"
+
+#: admin/config.php:381
+#@ cc
+msgid "Change login page backtoblog colour fade 1"
+msgstr "Promijeni boju 1 za prijelaz iz stranice za logiranje natrag u blog"
+
+#: admin/config.php:387
+#@ cc
+msgid "Login page backtoblog fade colour 2"
+msgstr "Boja 2 za prijelaz iz stranice za logiranje natrag u blog"
+
+#: admin/config.php:388
+#@ cc
+msgid "Change login page backtoblog colour fade 2"
+msgstr "Promijeni boju 2 za prijelaz iz stranice za logiranje natrag u blog"
+
+#: admin/config.php:395
+#@ cc
+msgid "Header"
+msgstr "Zaglavlje"
+
+#: admin/config.php:398
+#@ cc
+msgid "Use standard Wordpress custom image header settings"
+msgstr "Koristi standardne Wordpressove postavke za sliku zaglavlja"
+
+#: admin/config.php:399
+#@ cc
+msgid "Enable this option, if you like to use the standard wordpress settings Page."
+msgstr "Aktivirajte ovu opciju ako želite koristiti standardnu stranicu postavki Wordpressa."
+
+#: admin/config.php:403
+#@ cc
+msgid "Show header text"
+msgstr "Pokaži tekst zaglavlja"
+
+#: admin/config.php:404
+#@ cc
+msgid "Show header text or not?"
+msgstr "Želite li pokazati tekst zaglavlja ili ne?"
+
+#: admin/config.php:406
+#: admin/config.php:407
+#: admin/config.php:741
+#: admin/config.php:783
+#: admin/config.php:798
+#: admin/config.php:832
+#: admin/config.php:867
+#: admin/config.php:934
+#: admin/library.php:94
+#: core/includes/helper-functions.php:327
+#: core/includes/theme-generator/style.php:4403
+#: core/includes/theme-generator/theme-generator.php:82
+#: core/includes/theme-generator/theme-generator.php:566
+#: functions.php:108
+#@ cc
+msgid "off"
+msgstr "isključeno"
+
+#: admin/config.php:406
+#: admin/config.php:741
+#: admin/config.php:742
+#: admin/config.php:783
+#: admin/config.php:784
+#: admin/config.php:798
+#: admin/config.php:799
+#: admin/config.php:832
+#: admin/config.php:833
+#: admin/config.php:934
+#: core/includes/helper-functions.php:323
+#: core/includes/theme-generator/theme-generator.php:626
+#: core/includes/theme-generator/theme-generator.php:677
+#@ cc
+msgid "on"
+msgstr "uključeno"
+
+#: admin/config.php:409
+#@ cc
+msgid "Header text colour"
+msgstr "Boja teksta zaglavlja"
+
+#: admin/config.php:410
+#@ cc
+msgid "Change header font colour"
+msgstr "Promijeni boju fonta zaglavlja"
+
+#: admin/config.php:414
+#@ cc
+msgid "Logo"
+msgstr "Logo"
+
+#: admin/config.php:415
+#@ cc
+msgid "Insert your own Logo. Upload or insert url."
+msgstr "Umetnite vlastiti logo. Pošalji ili umetni url."
+
+#: admin/config.php:418
+#@ cc
+msgid "Header height"
+msgstr "Visina zaglavlja"
+
+#: admin/config.php:419
+#@ cc
+msgid ""
+"Your header height in px (and navigation position (y) at the same time), just enter a number. <br>\n"
+"\t\t\tThis is not your header image height, you can specify your header image separately in the fields below. <br>\n"
+"\t\t\tTry 25px or 63px less than your header-image-height to fit perfectly..."
+msgstr ""
+"Visina vašeg zaglavlja u pikselima (i pozicija navigacije (y) u isto vrijeme), samo unesite broj. <br>\n"
+"\t\t\tOvo nije visina slike vašeg zaglavlja, slika zaglavlja definira se odvojeno u donjim poljima. <br>\n"
+"\t\t\tDa se sve savršeno uklopi, isprobajte vrijednost koja je ili 25 piksela ili 63 piksela manja od visine slike zaglavlja …"
+
+#: admin/config.php:425
+#@ cc
+msgid "Header width"
+msgstr "Širina zaglavlja"
+
+#: admin/config.php:426
+#@ cc
+msgid "Do you like the header in full width or as wide as your site?"
+msgstr "Želite li da zaglavlje bude svoje pune širine ili širine vaše stranice?"
+
+#: admin/config.php:431
+#: admin/config.php:438
+#@ cc
+msgid "Header image"
+msgstr "Slika zaglavlja"
+
+#: admin/config.php:432
+#@ cc
+msgid ""
+"Insert your own header image. Upload or insert url. <br>\n"
+"\t\t\tDefault width is 1000px, the height (and full width option) can be adjusted above. <br>\n"
+"\t\t\tFor no image write 'none'."
+msgstr ""
+"Umetnite vlastitu sliku zaglavlja. Pošaljite ili umetnite url. <br>\n"
+"\t\t\tPočetna širina je 1000 piksela, visina (i opcija pune širine) mogu se gore prilagoditi. <br>\n"
+"\t\t\tZa opciju bez slike upišite 'none' ."
+
+#: admin/config.php:440
+#@ cc
+msgid "Header image repeat"
+msgstr "Ponovi sliku zaglavlja"
+
+#: admin/config.php:441
+#@ cc
+msgid "Repeat header image: x=horizontally, y=vertically"
+msgstr "Ponovi sliku zaglavlja: x=vodoravno, y=okomito"
+
+#: admin/config.php:448
+#@ cc
+msgid "Header image x-position"
+msgstr "X-pozicija slike zaglavlja "
+
+#: admin/config.php:449
+#@ cc
+msgid "If header image is smaller, you can choose to align left, center or right"
+msgstr "Ako je slika zaglavlja manja, možete izabrati poravnanje lijevo, u sredini ili desno"
+
+#: admin/config.php:455
+#@ cc
+msgid "Header image y-position"
+msgstr "Y-pozicija slike zaglavlja"
+
+#: admin/config.php:456
+#@ cc
+msgid "Distance from header image to top (in px), just enter a number"
+msgstr "Udaljenost od slike zaglavlja do vrha (u pikselima), samo unesite broj"
+
+#: admin/config.php:464
+#@ cc
+msgid "Menu"
+msgstr "Izbornik"
+
+#: admin/config.php:467
+#@ cc
+msgid "Show the 'Home' menu item"
+msgstr "Pokaži izborničku stavku 'Naslovnica'"
+
+#: admin/config.php:468
+#@ cc
+msgid "You can disable the 'Home' menu item in the main navigation"
+msgstr "Možete onemogućiti izborničku stavku 'Naslovnica' u glavnoj navigaciji"
+
+#: admin/config.php:472
+#@ cc
+msgid "Show community navigation"
+msgstr "Pokaži navigaciju zajednice"
+
+#: admin/config.php:473
+#@ cc
+msgid "Enable Buddypress menu-items in the main navigation"
+msgstr "Omogući stavke Buddypress izbornika u glavnoj navigaciji"
+
+#: admin/config.php:477
+#@ cc
+msgid "Menu x-position"
+msgstr "X-pozicija izbornika"
+
+#: admin/config.php:478
+#@ cc
+msgid "Align the menu left or right"
+msgstr "Poravnaj izbornik lijevo ili desno"
+
+#: admin/config.php:483
+#@ cc
+msgid "Menu style"
+msgstr "Stil izbornika"
+
+#: admin/config.php:484
+#@ cc
+msgid "Choose a menu style"
+msgstr "Izaberite stil izbornika"
+
+#: admin/config.php:486
+#: admin/config.php:487
+#: core/includes/theme-generator/style.php:4435
+#@ cc
+msgid "tab style"
+msgstr "stil kartice"
+
+#: admin/config.php:486
+#: core/includes/theme-generator/style.php:4439
+#@ cc
+msgid "closed style"
+msgstr "zatvoreni stil"
+
+#: admin/config.php:486
+#: core/includes/theme-generator/style.php:4457
+#@ cc
+msgid "simple"
+msgstr "jednostavni stil"
+
+#: admin/config.php:486
+#: core/includes/theme-generator/style.php:4477
+#@ cc
+msgid "bordered"
+msgstr "stil s okvirom"
+
+#: admin/config.php:489
+#@ cc
+msgid "Menu border bottom"
+msgstr "Donji rub izbornika"
+
+#: admin/config.php:490
+#@ cc
+msgid "Would you like to underline your menu? Select a colour."
+msgstr "Želite li podcrtati svoj izbornik? Izaberite boju."
+
+#: admin/config.php:494
+#@ cc
+msgid "Menu font colour"
+msgstr "Boja fonta izbornika"
+
+#: admin/config.php:495
+#@ cc
+msgid "Change menu font colour"
+msgstr "Promijenite boju fonta izbornika"
+
+#: admin/config.php:499
+#@ cc
+msgid "Menu font colour &raquo; current and mouse over"
+msgstr "Boja fonta izbornika &raquo; trenutna boja i boja kad je miš iznad njega"
+
+#: admin/config.php:500
+#@ cc
+msgid ""
+"Change menu font colour from currently displayed menu item <br>\n"
+"\t\t\tor when mouse moves over"
+msgstr ""
+"Promijeni boju fonta izbornika u odnosu na trenutno prikazanu stavku izbornika <br>\n"
+"\t\t\tili kad miš prelazi preko njega"
+
+#: admin/config.php:505
+#@ cc
+msgid "Menu background colour"
+msgstr "Boja pozadine izbornika"
+
+#: admin/config.php:506
+#@ cc
+msgid "Change the menu bar's general background colour"
+msgstr "Promijeni opću pozadinsku boju trake izbornika"
+
+#: admin/config.php:510
+#@ cc
+msgid "Menu background image"
+msgstr "Pozadinska slika izbornika"
+
+#: admin/config.php:511
+#@ cc
+msgid "Insert your own background image for the menu bar. Upload or insert url."
+msgstr "Umetnite vlastitu pozadinsku sliku za izbornik. Pošaljite ili umetnite url."
+
+#: admin/config.php:515
+#@ cc
+msgid "Menu background repeat"
+msgstr "Ponovi pozadinu izbornika"
+
+#: admin/config.php:521
+#@ cc
+msgid "Menu background colour &raquo; current"
+msgstr "Pozadinska boja izbornika &raquo; trenutna"
+
+#: admin/config.php:522
+#@ cc
+msgid "Change background colour from currently displayed menu item"
+msgstr "Promijeni pozadinsku boju u odnosu na trenutno prikazanu stavku izbornika"
+
+#: admin/config.php:526
+#@ cc
+msgid "Menu background image &raquo; current"
+msgstr "Pozadinska slika izbornika &raquo; trenutna"
+
+#: admin/config.php:527
+#@ cc
+msgid "Background image of the currently displayed menu item. Upload or insert url."
+msgstr "Pozadinska slika trenutno prikazane stavke izbornika. Pošaljite ili umetnite url."
+
+#: admin/config.php:531
+#@ cc
+msgid "Menu background image repeat &raquo current"
+msgstr "Ponovi &raquo trenutnu pozadinsku sliku izbornika"
+
+#: admin/config.php:537
+#@ cc
+msgid "Menu background colour &raquo; mouse over and drop down list"
+msgstr "Pozadinska boja izbornika &raquo; kada se prijeđe mišem i lista padajućeg izbornika"
+
+#: admin/config.php:538
+#@ cc
+msgid ""
+"Change a menu item's background colour when mouse moves over it, <br>\n"
+"\t\t\tand drop down background colour"
+msgstr ""
+"Promijeni pozadinsku boju stavke izbornika kad miš prijeđe preko nje <br>\n"
+"\t\t\ti pozadinsku boju padajućeg izbornika"
+
+#: admin/config.php:540
+#@ cc
+msgid "bg_menue_link_color_hover"
+msgstr "bg_menue_link_color_hover"
+
+#: admin/config.php:543
+#@ cc
+msgid "Menu background colour &raquo; drop down list mouse over"
+msgstr "Pozadinska boja izbornika &raquo; padajući izbornik kad miš prelazi preko njega"
+
+#: admin/config.php:544
+#@ cc
+msgid ""
+"Change background colour of hovered drop down menu item <br>\n"
+"\t\t\t(when the mouse moves over it)"
+msgstr ""
+"Promijeni pozadinsku boju stavke padajućeg izbornika <br>\n"
+"\t\t\t(kad se pokazivač miša nalazi iznad nje)"
+
+#: admin/config.php:549
+#@ cc
+msgid "Menu corner radius"
+msgstr "Polumjer kuta izbornika "
+
+#: admin/config.php:550
+#@ cc
+msgid "Do you want your menu corners to be rounded?"
+msgstr "Želite li da kutovi vašeg izbornika budu zaobljeni?"
+
+#: admin/config.php:552
+#: admin/config.php:553
+#@ cc
+msgid "all rounded"
+msgstr "sve zaobljeno"
+
+#: admin/config.php:552
+#: core/includes/theme-generator/style.php:4589
+#@ cc
+msgid "just the bottom ones"
+msgstr "samo donji"
+
+#: admin/config.php:556
+#@ cc
+msgid "Sidebars"
+msgstr "Rubni stupci"
+
+#: admin/config.php:559
+#@ cc
+msgid "Left sidebar width"
+msgstr "Širina lijevog rubnog stupca"
+
+#: admin/config.php:560
+#@ cc
+msgid "Change the left sidebar width - in pixel. Just enter a number. "
+msgstr "Promijeni širinu lijevog rubnog stupca – u pikselima. Samo unesite broj. "
+
+#: admin/config.php:565
+#@ cc
+msgid "Left sidebar"
+msgstr "Lijevi rubni stupac"
+
+#: admin/config.php:567
+#@ cc
+msgid "Left sidebar background colour"
+msgstr "Pozadinska boja lijevog rubnog stupca"
+
+#: admin/config.php:568
+#@ cc
+msgid "Change background colour of the left sidebar. "
+msgstr "Promijeni pozadinsku boju lijevog rubnog stupca."
+
+#: admin/config.php:573
+#@ cc
+msgid "Left sidebar background image"
+msgstr "Pozadinska slika lijevog rubnog stupca"
+
+#: admin/config.php:574
+#@ cc
+msgid "Your own background image for the left sidebar. Upload or insert url."
+msgstr "Vaša pozadinska slika za lijevi rubni stupac. Pošaljite ili umetnite url."
+
+#: admin/config.php:579
+#@ cc
+msgid "Left sidebar background repeat"
+msgstr "Ponovi pozadinu lijevog rubnog stupca"
+
+#: admin/config.php:586
+#@ cc
+msgid "Right sidebar width"
+msgstr "Širina desnog rubnog stupca"
+
+#: admin/config.php:587
+#@ cc
+msgid "Change the right sidebar width - in pixel. Just enter a number. "
+msgstr "Promijeni širinu desnog rubnog stupca – u pikselima. Samo unesite broj. "
+
+#: admin/config.php:592
+#@ cc
+msgid "Right sidebar"
+msgstr "Desni rubni stupac"
+
+#: admin/config.php:594
+#@ cc
+msgid "Right sidebar background colour"
+msgstr "Pozadinska boja desnog rubnog stupca"
+
+#: admin/config.php:595
+#@ cc
+msgid "Change background colour of the right sidebar. "
+msgstr "Promijeni pozadinsku boju desnog rubnog stupca."
+
+#: admin/config.php:600
+#@ cc
+msgid "Right sidebar background image"
+msgstr "Pozadinska slika desnog rubnog stupca"
+
+#: admin/config.php:601
+#@ cc
+msgid "Your own background image for the right sidebar. Upload or insert url."
+msgstr "Vaša vlastita pozadinska slika za desni rubni stupac. Pošaljite ili umetnite url."
+
+#: admin/config.php:606
+#@ cc
+msgid "Right sidebar background repeat"
+msgstr "Ponovi pozadinu lijevog rubnog stupca"
+
+#: admin/config.php:613
+#@ cc
+msgid "Sidebar widget title style"
+msgstr "Stil naslova widgeta u rubnom stupcu"
+
+#: admin/config.php:614
+#@ cc
+msgid "Choose a style for the widget titles"
+msgstr "Izaberite stil za naslove widgeta"
+
+#: admin/config.php:616
+#: admin/config.php:617
+#: core/includes/theme-generator/style.php:4770
+#: core/includes/theme-generator/style.php:4809
+#@ cc
+msgid "angled"
+msgstr "ukoso"
+
+#: admin/config.php:616
+#: core/includes/theme-generator/style.php:3521
+#: core/includes/theme-generator/style.php:3550
+#: core/includes/theme-generator/style.php:3593
+#: core/includes/theme-generator/style.php:3638
+#: core/includes/theme-generator/style.php:3671
+#: core/includes/theme-generator/style.php:3704
+#: core/includes/theme-generator/style.php:3706
+#: core/includes/theme-generator/style.php:3712
+#: core/includes/theme-generator/style.php:4006
+#: core/includes/theme-generator/style.php:4015
+#: core/includes/theme-generator/style.php:4118
+#: core/includes/theme-generator/style.php:4128
+#: core/includes/theme-generator/style.php:4142
+#: core/includes/theme-generator/style.php:4152
+#: core/includes/theme-generator/style.php:4555
+#: core/includes/theme-generator/style.php:4613
+#: core/includes/theme-generator/style.php:4645
+#: core/includes/theme-generator/style.php:4774
+#: core/includes/theme-generator/style.php:4813
+#@ cc
+msgid "transparent"
+msgstr "bezbojno"
+
+#: admin/config.php:619
+#@ cc
+msgid "Sidebar widget title font style"
+msgstr "Stil fonta naslova widgeta u rubnom stupcu"
+
+#: admin/config.php:620
+#@ cc
+msgid "Change the widget title's font style"
+msgstr "Promijeni stil fonta naslova widgeta"
+
+#: admin/config.php:625
+#@ cc
+msgid "Sidebar widget title fonts"
+msgstr "Fontovi naslova widgeta u rubnom stupcu"
+
+#: admin/config.php:627
+#@ cc
+msgid "Widget title font size"
+msgstr "Veličina fonta naslova widgeta"
+
+#: admin/config.php:628
+#@ cc
+msgid "Font size of your widget titles in px, just enter a number, default=13"
+msgstr "Veličina fonta vašeg naslova widgeta u pikselima. Samo unesite broj (početna vrijednost=13)"
+
+#: admin/config.php:634
+#@ cc
+msgid "Sidebar widget title font colour"
+msgstr "Boja fonta naslova widgeta u rubnom stupcu"
+
+#: admin/config.php:635
+#@ cc
+msgid "Change font colour of the widget titles"
+msgstr "Promijeni boju fonta naslova widgeta"
+
+#: admin/config.php:636
+#@ cc
+msgid "widgettitle_font_color"
+msgstr " widgettitle_font_color"
+
+#: admin/config.php:640
+#@ cc
+msgid "Sidebar widget title background colour"
+msgstr "Pozadinska boja naslova widgeta u rubnom stupcu"
+
+#: admin/config.php:641
+#@ cc
+msgid "Change background colour of the widget titles"
+msgstr "Promijeni pozadinsku boju naslova widgeta"
+
+#: admin/config.php:645
+#@ cc
+msgid "Sidebar widget titles background"
+msgstr "Pozadina naslova widgeta u rubnom stupcu"
+
+#: admin/config.php:648
+#@ cc
+msgid "Sidebar widget title background image"
+msgstr "Pozadinska slika naslova widgeta u rubnom stupcu"
+
+#: admin/config.php:649
+#@ cc
+msgid "Your own background image for the widget title. Upload or insert url."
+msgstr "Vaša pozadinska slika za naslov widgeta. Pošaljite ili umetnite url."
+
+#: admin/config.php:654
+#@ cc
+msgid "Sidebar widget title background repeat"
+msgstr "Ponovi pozadinu naslova widgeta u rubnom stupcu"
+
+#: admin/config.php:661
+#@ cc
+msgid "Capitalizing in widgets"
+msgstr "Velika slova u widgetima"
+
+#: admin/config.php:662
+#@ cc
+msgid "Capitalize the fonts in lists in your widgets?"
+msgstr "Želite li velika početna slova u listama u vašim widgetima?"
+
+#: admin/config.php:664
+#: admin/config.php:665
+#: admin/config.php:672
+#: admin/config.php:673
+#@ cc
+msgid "no"
+msgstr "ne"
+
+#: admin/config.php:664
+#: admin/config.php:672
+#: core/includes/theme-generator/style.php:4833
+#: core/includes/theme-generator/style.php:4841
+#@ cc
+msgid "yes"
+msgstr "da"
+
+#: admin/config.php:667
+#@ cc
+msgid "Capitalizing"
+msgstr "Mijenjanje u velika slova"
+
+#: admin/config.php:669
+#@ cc
+msgid "Capitalizing the widget titles"
+msgstr "Mijenjanje u velika slova naslova widgeta"
+
+#: admin/config.php:670
+#@ cc
+msgid "Capitalize the titles in your widgets?"
+msgstr "Želite li velika slova naslova u svojim widgetima?"
+
+#: admin/config.php:677
+#@ cc
+msgid "Footer"
+msgstr "Podnožje"
+
+#: admin/config.php:680
+#@ cc
+msgid "Footer width"
+msgstr "Širina podnožja"
+
+#: admin/config.php:681
+#@ cc
+msgid "Do you like the footer in full width or as wide as your site?"
+msgstr "Želite li da podnožje bude pune širine ili širine vaše stranice?"
+
+#: admin/config.php:685
+#@ cc
+msgid "Footer height"
+msgstr "Visina podnožja"
+
+#: admin/config.php:686
+#@ cc
+msgid ""
+"Change the footer height, in px, just enter a number <br>\n"
+"\t\t\tThis option is not the footer widget height, you can define that one below."
+msgstr ""
+"Promijenite visinu podnožja u pikselima. Samo unesite broj <br>\n"
+"\t\t\tOva opcija nije visina dodataka podnožja. Tu visinu možete definirati ispod."
+
+#: admin/config.php:691
+#@ cc
+msgid "Footer background"
+msgstr "Pozadina podnožja"
+
+#: admin/config.php:692
+#@ cc
+msgid "Change background colour of the footer"
+msgstr "Promijeni pozadinsku boju podnožja"
+
+#: admin/config.php:696
+#@ cc
+msgid "Footer background image"
+msgstr "Pozadinska slika podnožja"
+
+#: admin/config.php:697
+#@ cc
+msgid "Background image for the footer background. Upload or insert url."
+msgstr "Pozadinska slika za pozadinu podnožja. Pošaljite ili umetnite url."
+
+#: admin/config.php:701
+#@ cc
+msgid "Footer background image repeat"
+msgstr "Ponovi pozadinsku sliku podnožja"
+
+#: admin/config.php:707
+#@ cc
+msgid "Footer widget height"
+msgstr "Širina dodataka podnožja"
+
+#: admin/config.php:708
+#@ cc
+msgid ""
+"Change the footer widgets height, in px, just enter a number <br>\n"
+"\t\t\tThis option is nice to have your footer widget areas all the same height."
+msgstr ""
+"Promijenite širinu dodataka podnožja u pikselima. Samo unesite broj <br>\n"
+"\t\t\tOva je opcija korisna kako bi u podnožju sva područja dodataka bila iste visine."
+
+#: admin/config.php:713
+#@ cc
+msgid "Footer widget background"
+msgstr "Pozadina widgeta u podnožju"
+
+#: admin/config.php:714
+#@ cc
+msgid "Change background colour of the footer widgets"
+msgstr "Promijeni pozadinsku sliku widgeta u podnožju"
+
+#: admin/config.php:718
+#@ cc
+msgid "Footer widget background image"
+msgstr "Pozadinska slika widgeta u podnožju"
+
+#: admin/config.php:719
+#@ cc
+msgid "Background image for the footer widgets background. Upload or insert url."
+msgstr "Pozadinska slika za pozadinu widgeta u podnožju. Pošaljite ili umetnite url."
+
+#: admin/config.php:723
+#@ cc
+msgid "Footer widget background image repeat"
+msgstr "Ponovi pozadinsku sliku widgeta u podnožju"
+
+#: admin/config.php:729
+#@ cc
+msgid "Your own credits links in footer"
+msgstr "Vlastite poveznice o autorstvu i impresumu u podnožju"
+
+#: admin/config.php:730
+#@ cc
+msgid "Write in your own credits - links - text. You can use HTML"
+msgstr "Upišite vlastiti impresum i podatke o autorstvu – poveznice – tekst. Možete koristiti HTML"
+
+#: admin/config.php:735
+#@ cc
+msgid "BuddyPress"
+msgstr "BuddyPress"
+
+#: admin/config.php:738
+#@ cc
+msgid "Login bar header"
+msgstr "Zaglavlje trake za logiranje"
+
+#: admin/config.php:739
+#@ cc
+msgid "Select a login bar at the top of the header"
+msgstr "Izaberite traku za logiranje na vrhu zaglavlja"
+
+#: admin/config.php:744
+#@ cc
+msgid "Use BuddyPress default sub-navigation"
+msgstr "Koristi početnu podnavigaciju BuddyPress-a"
+
+#: admin/config.php:745
+#@ cc
+msgid ""
+"This sub-navigation is the secondary level navigation, <br>\n"
+"\t\t\te.g. for profile it contains: [Public, Edit Profile, Change Avatar]<br>\n"
+"\t\t\tIf you use the community navigation widget, you don't need this navigation. <br>\n"
+"\t\t\tIf you want to use a horizontally sub-navigation - choose this one."
+msgstr ""
+"Ova podnavigacija je navigacija druge razine, <br>\n"
+"\t\t\tnpr. što se tiče profila, ona sadrži: [Javno, Uredi profil, Promijeni avatara]<br>\n"
+"\t\t\tAko koristite widget  za navigaciju u zajednici, ova vam navigacija nije potrebna. <br>\n"
+"\t\t\tAko želite koristiti vodoravnu podnavigaciju, izaberite ovu."
+
+#: admin/config.php:752
+#@ cc
+msgid "BuddyPress sub navigation background colour"
+msgstr "Pozadinska boja podnavigacije BuddyPress-a"
+
+#: admin/config.php:753
+#@ cc
+msgid "Change the background colour of the Buddypress component sub navigation"
+msgstr "Promijeni pozadinsku boju podnavigacijske komponente Buddypress-a"
+
+#: admin/config.php:757
+#@ cc
+msgid "Show search bar"
+msgstr "Prikaži traku za pretraživanje"
+
+#: admin/config.php:758
+#@ cc
+msgid "Enable BuddyPress search bar in header"
+msgstr "Aktiviraj traku za pretraživanje BuddyPress-a u zaglavlju"
+
+#: admin/config.php:762
+#@ cc
+msgid "Use global Buddydev search instead of bp-search"
+msgstr "Koristi globalno pretraživanje Buddydev umjesto bp-pretrage"
+
+#: admin/config.php:763
+#@ cc
+msgid ""
+"Replace the BuddyPress search (which comes with dropdown menu) with the Buddydev search. <br>\n"
+"\t\t\tThe Buddydev search is an easy one-field global search with nice result-listing."
+msgstr ""
+"Zamijeni pretraživanje BuddyPress-a (koje dolazi s padajućim izbornikom) pretraživanjem Buddydev. <br>\n"
+"\t\t\tPretraživanje Buddydev je jednostavno globalno pretraživanje jednog polja koje daje dobru listu rezultata."
+
+#: admin/config.php:768
+#@ cc
+msgid "Search bar horizontal position"
+msgstr "Vodoravna pozicija trake za pretraživanje"
+
+#: admin/config.php:769
+#@ cc
+msgid "If selected, you want the search bar left or right?"
+msgstr "Ako je traka za pretraživanje odabrana, želite li da bude lijevo ili desno?"
+
+#: admin/config.php:774
+#@ cc
+msgid "Search bar vertical position"
+msgstr "Okomita pozicija trake za pretraživanje"
+
+#: admin/config.php:775
+#@ cc
+msgid "Distance from search bar to top (in px), just enter a number"
+msgstr "Udaljenost od trake za pretraživanje do vrha (u pikselima). Samo unesite broj"
+
+#: admin/config.php:779
+#@ cc
+msgid "Login sidebar"
+msgstr "Rubni stupac za logiranje"
+
+#: admin/config.php:780
+#@ cc
+msgid ""
+"Turn auto BuddyPress login in the right sidebar on/off. <br>\n"
+"\t\t\tYou can add this feature as a widget into every widgetarea you like."
+msgstr ""
+"Uključi/isključi automatsko logiranje u BuddyPress u desnom rubnom stupcu. <br>\n"
+"\t\tOvu osobinu možete dodati kao dodatak u bilo koje područje za widgete."
+
+#: admin/config.php:786
+#@ cc
+msgid "Login sidebar text"
+msgstr "Tekst rubnog stupca za logiranje"
+
+#: admin/config.php:787
+#@ cc
+msgid "Define the text displayed in the login sidebar when you're logged out."
+msgstr "Definirajte tekst prikazan u rubnom stupcu za logiranje kad niste ulogirani."
+
+#: admin/config.php:792
+#@ cc
+msgid "Profile"
+msgstr "Profil"
+
+#: admin/config.php:795
+#@ cc
+msgid "Show Profile header"
+msgstr "Prikaži zaglavlje profila"
+
+#: admin/config.php:796
+#@ cc
+msgid "Display profile header, can be used as widget area"
+msgstr "Prikaži zaglavlje profila. Može ga se koristiti kao područje za widgete"
+
+#: admin/config.php:801
+#@ cc
+msgid "Profile Sidebars"
+msgstr "Rubni stupci profila"
+
+#: admin/config.php:802
+#@ cc
+msgid ""
+"Where do you like to have your sidebars in profiles? <br>\n"
+"\t\t\tdefault = the global settings and sidebars will be used<br>\n"
+"\t\t\tnone = no sidebars, full width<br>\n"
+"\t\t\tleft = left profile sidebar, this will overwrite the global settings and display the left profile sidebar<br>\n"
+"\t\t\tright = right profile sidebar, this will overwrite the global settings and display the right profile sidebar<br>\n"
+"\t\t\tleft and right = This option will display the left and right profile sidebars and overwrite the global settings<br>\n"
+"\t\t\tNote: all sidebars can be filled with widgets. Without widgets there will be the user avatar and information like in the member header"
+msgstr ""
+"Gdje želite da se vaše bočne trake nalaze u profilima? <br>\n"
+"\t\t\tstandardno = globalne postavke i bočne trake se koriste <br>\n"
+"\t\t\tnone = nema bočnih traka, puna širina<br>\n"
+"\t\t\tlijevo = lijeva bočna traka profila, ovo će zamijeniti globalne postavke i prikazati lijevu bočnu traku profila<br>\n"
+"\t\t\tdesno = desna bočna traka profila, ovo će zamijeniti globalne postavke i prikazati desnu bočnu traku profila<br>\n"
+"\t\t\tlijevo i desno = ova će opcija prikazati i lijevu i desnu bočnu traku te zamijeniti globalne postavke <br>\n"
+"\t\t\tNapomena: sve bočne trake mogu se koristiti za dodatke. Ako izuzmemo dodatke, u njima se nalaze korisnikov avatar i informacije iz zaglavlju člana"
+
+#: admin/config.php:810
+#: admin/config.php:844
+#: core/includes/theme-generator/theme-generator.php:102
+#@ cc
+msgid "none"
+msgstr "nijedna"
+
+#: admin/config.php:813
+#@ cc
+msgid "Profile avatar size"
+msgstr "Veličina profilnog avatara"
+
+#: admin/config.php:814
+#@ cc
+msgid "Define the size of the profile avatar. Width and height is the same"
+msgstr "Definirajte veličinu profilnog avatara. Širina i visina su iste"
+
+#: admin/config.php:818
+#@ cc
+msgid "Profile menu order"
+msgstr "Redoslijed izbornika Profil"
+
+#: admin/config.php:819
+#@ cc
+msgid ""
+"Change the menu order in the profiles. Write the order in by slug, comma-separated. <br>\n"
+"\t\t\tNote: a slug is the name as it is written in the url, <br>\n"
+"\t\t\tmeans all letters in small, no symbols, ..."
+msgstr ""
+"Promijeni redoslijed izbornika u profilima. Upišite redoslijed koristeći zarezom razdvojene slugove  unutar kategorije. <br>\n"
+"\t\t\tNapomena: Slug je ime kategorije onako kako je napisano u url-u,<br>\n"
+"\t\t\tdakle, sva slova su mala, bez simbola, ..."
+
+#: admin/config.php:826
+#: core/includes/theme-generator/theme-generator.php:257
+#: core/includes/wp/widgets.php:48
+#@ cc
+msgid "Groups"
+msgstr "Grupe"
+
+#: admin/config.php:829
+#@ cc
+msgid "Show Groups header"
+msgstr "Prikaži zaglavlje grupa"
+
+#: admin/config.php:830
+#@ cc
+msgid "Display group header, can be used as widget area"
+msgstr "Prikaži zaglavlje grupe, može se koriztiti kao područje za widgete"
+
+#: admin/config.php:835
+#@ cc
+msgid "Groups Sidebars"
+msgstr "Bočne trake grupa"
+
+#: admin/config.php:836
+#@ cc
+msgid ""
+"Where do you like to have your sidebars in groups? <br>\n"
+"\t\t\tdefault = the global settings and sidebars will be used<br>\n"
+"\t\t\tnone = no sidebars, full width<br>\n"
+"\t\t\tleft = left group sidebar, this will overwrite the global settings and display the left group sidebar<br>\n"
+"\t\t\tright = right group sidebar, this will overwrite the global settings and display the right group sidebar<br>\n"
+"\t\t\tleft and right = this option will display the left and right group sidebars and overwrite the global settings<br>\n"
+"\t\t\tNote: all sidebars can be filled with widgets. Without widgets there will be the group avatar and information like in the group header"
+msgstr ""
+"Gdje želite da se vaše bočne trake nalaze u grupama? <br>\n"
+"\t\t\tstandardno = globalne postavke i bočne trake se koriste<br>\n"
+"\t\t\tnone = nema bočnih traka, puna širina<br>\n"
+"\t\t\tlijevo = lijeva bočna traka grupe, ovo će zamijeniti globalne postavke i prikazati lijevu bočnu traku grupe<br>\n"
+"\t\t\tdesno = desna bočna traka grupe, ovo će zamijeniti globalne postavke i prikazati desnu bočnu traku grupe<br>\n"
+"\t\t\tlijevo i desno = ova će opcija prikazati i lijevu i desnu bočnu traku te zamijeniti globalne postavke <br>\n"
+"\t\t\tNapomena: sve bočne trake mogu se koristiti za dodatke. Ako izuzmemo dodatke, u njima se nalaze korisnikov avatar i informacije iz zaglavlja grupe"
+
+#: admin/config.php:847
+#@ cc
+msgid "Groups avatar size"
+msgstr "Veličina avatara grupa"
+
+#: admin/config.php:848
+#@ cc
+msgid ""
+"Define the size of the group avatar. Width and height is the same <br>\n"
+"\t\t\tJust write a number, without px, default is 200."
+msgstr ""
+"Definirajte veličinu avatara grupe. Širina i visina su iste <br>\n"
+"\t\t\tSamo upišite broj bez piksela, početna je vrijednost 200."
+
+#: admin/config.php:853
+#@ cc
+msgid "Groups menu order"
+msgstr "Redoslijed izbornika grupe"
+
+#: admin/config.php:854
+#@ cc
+msgid ""
+"Change the menu order in the groups. Write the order in by slug, comma-separated. <br>\n"
+"\t\t\tNote: a slug is the name as it is written in the url, <br>\n"
+"\t\t\tmeans all letters in small, no symbols, ..."
+msgstr ""
+"Promijeni redoslijed izbornika u grupama. Upišite redoslijed koristeći zarezom razdvojene slugove unutar kategorije. <br>\n"
+"\t\t\tNapomena: Slug je ime kategorije onako kako je napisano u URL-u, <br>\n"
+"\t\t\tdakle, sva slova su mala, bez simbola, ..."
+
+#: admin/config.php:861
+#: admin/page-meta-box.php:66
+#@ cc
+msgid "Slideshow"
+msgstr "Prezentacija"
+
+#: admin/config.php:864
+#: admin/config.php:865
+#@ cc
+msgid "Enable slideshow"
+msgstr "Uključi prezentaciju"
+
+#: admin/config.php:867
+#: admin/config.php:868
+#: core/includes/theme-generator/theme-generator.php:81
+#: core/includes/theme-generator/theme-generator.php:301
+#: core/includes/theme-generator/theme-generator.php:302
+#: core/includes/theme-generator/theme-generator.php:303
+#: core/includes/theme-generator/theme-generator.php:308
+#: core/includes/theme-generator/theme-generator.php:310
+#@ cc
+msgid "home"
+msgstr "naslovnica"
+
+#: admin/config.php:867
+#: core/includes/theme-generator/theme-generator.php:300
+#: core/includes/theme-generator/theme-generator.php:307
+#@ cc
+msgid "all"
+msgstr "sve"
+
+#: admin/config.php:870
+#@ cc
+msgid "Set your own default slideshow image"
+msgstr "Postavite vlastitu početnu sliku za prezentaciju"
+
+#: admin/config.php:871
+#@ cc
+msgid "Insert your own default slideshow image. Upload or insert URL (with http://)."
+msgstr "Umetnite vlastitu početnu sliku za prezentaciju. Pošaljite ili umetnite url (s http://)."
+
+#: admin/config.php:875
+#@ cc
+msgid "Default slideshow images"
+msgstr "Početne slike prezentacije"
+
+#: admin/config.php:877
+#@ cc
+msgid "Set your own default slideshow small image"
+msgstr "Postavite vlastitu početnu malu sliku prezentacije"
+
+#: admin/config.php:878
+#@ cc
+msgid "Insert your own default small slideshow image. Upload or insert url (with http://)."
+msgstr "Umetnite vlastitu početnu malu sliku prezentacije. Pošaljite ili umetnite url (s http://)."
+
+#: admin/config.php:883
+#@ cc
+msgid "Slideshow post categories"
+msgstr "Kategorije objava za prezentaciju"
+
+#: admin/config.php:884
+#@ cc
+msgid ""
+"The slideshow takes images, titles and text-excerpts of the last 4 posts.<br>\n"
+"\t\t\tYou can select the category the posts should be taken from. <br>\n"
+"\t\t\tFor more info check out the <a href='http://themekraft.com/faq/' target='_blank'>FAQ</a>, especially <a href='http://themekraft.com/faq/slideshow/' target='_blank'>slideshow</a> and <a href='http://themekraft.com/faq/featured-image/' target='_blank'>featured image</a>."
+msgstr ""
+"Prezentacija koristi slike, naslove i odlomke iz posljednje 4 objave.<br>\n"
+"\t\t\tMožete izabrati kategorije iz kojih želite da se uzimaju objave. <br>\n"
+"\t\t\tZa više informacija pogledajte <a href='http://themekraft.com/faq/' target='_blank'>FAQ</a>, a posebno <a href='http://themekraft.com/faq/slideshow/' target='_blank'>slideshow</a> i <a href='http://themekraft.com/faq/featured-image/' target='_blank'> istaknutu sliku</a>."
+
+#: admin/config.php:890
+#: admin/page-meta-box.php:89
+#@ cc
+msgid "Amount"
+msgstr "Količina"
+
+#: admin/config.php:891
+#@ cc
+msgid "Define the amount of posts. This option works just with the full width image slider."
+msgstr "Definirajte broj objava. Ova opcija radi samo s kliznom trakom pune širine slike."
+
+#: admin/config.php:895
+#@ cc
+msgid "Post type"
+msgstr "Tip objave"
+
+#: admin/config.php:896
+#: admin/config.php:901
+#@ cc
+#@ cc
+msgid "Page IDs"
+msgstr "Identifikatori stranice"
+
+#: admin/config.php:902
+#@ cc
+msgid "Page IDs, comma separated. Just working if you use post types instead of categories"
+msgstr "Identifikator stranice odvojeni zarezom. Radit će samo ako koristite tipove objava umjesto kategorija"
+
+#: admin/config.php:906
+#@ cc
+msgid "Sliding time"
+msgstr "Vrijeme izmjene"
+
+#: admin/config.php:907
+#: admin/page-meta-box.php:85
+#@ cc
+msgid "Define the sliding time in ms"
+msgstr "Definirajte vrijeme izmjene u ms"
+
+#: admin/config.php:910
+#@ cc
+msgid "Order posts by"
+msgstr "Poredaj objave prema"
+
+#: admin/config.php:911
+#@ cc
+msgid ""
+"* orderby=author<br>\n"
+"\t\t\t* orderby=date<br>\n"
+"\t\t\t* orderby=title<br>\n"
+"\t\t\t* orderby=modified<br>\n"
+"\t\t\t* orderby=menu_order used most often for Pages (Order field in the Edit Page -> Attributes box) and attachments (the integer fields in the Insert / Upload Media -> Gallery dialog), but could be used for any post type with distinct menu_order values (they all default to 0).<br>\n"
+"\t\t\t* orderby=parent<br>\n"
+"\t\t\t* orderby=ID<br>\n"
+"\t\t\t* orderby=rand<br>\n"
+"\t\t\t* orderby=meta_value Note: A meta_key=keyname must also be present in the query. Note also that the sorting will be alphabetical which is fine for strings (i.e. words), but can be unexpected for numbers (e.g. 1, 3, 34, 4, 56, 6, etc, rather than 1, 3, 4, 6, 34, 56 as you might naturally expect).<br>\n"
+"\t\t\t* orderby=meta_value_num - Order by numeric meta value (available with Version 2.8)<br>\n"
+"\t\t\t* orderby=none - No order (available with Version 2.8)<br>\n"
+"\t\t\t* orderby=comment_count - (available with Version 2.9) <br>"
+msgstr ""
+"* orderby =author<br>\n"
+"\t\t\t* orderby=date<br>\n"
+"\t\t\t* orderby=title<br>\n"
+"\t\t\t* orderby=modified<br>\n"
+"\t\t\t* orderby=menu_order najčešće se koristi za Stranice (Polje poretka u Uredi stranicu - > Okvir za atribute) i priloge (polja cijelih brojeva u Umetni / Pošalji materijale - > Dijalog galerije), ali može se koristiti i za bilo koji drugi tip objave s određenim menu_order vrijednostima (sve početne vrijednosti su 0).<br>\n"
+"\t\t\t* orderby=parent<br>\n"
+"\t\t\t* orderby=ID<br>\n"
+"\t\t\t* orderby=rand<br>\n"
+"\t\t\t* orderby=meta_value Napomena: meta_key=keyname također mora biti prisutan u upitu. Primijetite da će se nizovi sortirati po abecedi, što je u redu za nizove riječi, ali možda nije onako kako očekujete za brojeve (npr. 1, 3, 34, 4, 56, 6, itd., umjesto 1, 3, 4, 6, 34, 56 kako biste očekivali).<br>\n"
+"\t\t\t* orderby=meta_value_num – Poredaj po numeričkoj meta vrijednosti (dostupno u verziji 2.8)<br>\n"
+"\t\t\t* orderby=none – Nema poretka (dostupno u verziji 2.8)<br>\n"
+"\t\t\t* orderby=comment_count - (dostpuno u verziji 2.9) <br>"
+
+#: admin/config.php:926
+#@ cc
+msgid "Slideshow style"
+msgstr "Stil prezentacije"
+
+#: admin/config.php:927
+#@ cc
+msgid "Select a type of slideshow."
+msgstr "Izaberi tip prezentacije."
+
+#: admin/config.php:929
+#: core/includes/helper-functions.php:354
+#: core/includes/theme-generator/style.php:2968
+#@ cc
+msgid "full width"
+msgstr "puna širina"
+
+#: admin/config.php:931
+#@ cc
+msgid "Caption"
+msgstr "Opis slike"
+
+#: admin/config.php:932
+#@ cc
+msgid "Show just the images or also titles and excerpts?"
+msgstr "Pokazati samo slike ili i naslove i isječke?"
+
+#: admin/config.php:936
+#@ cc
+msgid "Shadow"
+msgstr "Sjena"
+
+#: admin/config.php:937
+#@ cc
+msgid ""
+"Select if you'd like to have a shadow under the top slideshow.<br>\n"
+"\t\t\tNote: just for bright background and static width between 990 and about 1100 pixels."
+msgstr ""
+"Odaberite ako želite sjenu ispod glavne prezentacije.<br>\n"
+"\t\t\tNapomena: samo za svijetlu pozadinu i statičnu širinu u rasponu od 990 do oko 1100 piksela."
+
+#: admin/config.php:940
+#: admin/config.php:941
+#@ cc
+msgid "sharper shadow"
+msgstr "oštrija sjena"
+
+#: admin/config.php:940
+#: core/includes/helper-functions.php:20
+#@ cc
+msgid "shadow"
+msgstr "sjena"
+
+#: admin/config.php:940
+#: core/includes/helper-functions.php:386
+#@ cc
+msgid "no shadow"
+msgstr "bez sjene"
+
+#: admin/config.php:944
+#@ cc
+msgid "CSS"
+msgstr "CSS"
+
+#: admin/config.php:947
+#@ cc
+msgid "Overwrite CSS"
+msgstr "Zamijeni CSS"
+
+#: admin/config.php:948
+#@ cc
+msgid ""
+"This is your place to overwrite existing CSS.<br>\n"
+"\t\t\tThis way you are able to customize even the smallest CSS details. <br>\n"
+"\t\t\tIf you know how to write, you can play around a bit!<br>\n"
+"\t\t\t<br>\n"
+"\t\t\tHere's an example how to change your body background picture:<br>\n"
+"\t\t\t<br>\n"
+"\t\t\tbody {<br>\n"
+"\t\t\tbackground-image:url(url-to-your-picture);<br>\n"
+"\t\t\t}<br>\n"
+"\t\t\t<br>"
+msgstr ""
+"Na ovom mjestu mijenjate postojeće vrijednosti CSS-a.<br>\n"
+"\t\t\tNa ovaj način možete prilagoditi čak i najmanje detalje CSS-a. <br>\n"
+"\t\t\tAko znate kako pisati, možete se malo i igrati!<br>\n"
+"\t\t\t<br>\n"
+"\t\t\tEvo primjera kako promijeniti pozadinsku sliku:<br>\n"
+"\t\t\t<br>\n"
+"\t\t\tpozadina {<br>\n"
+"\t\t\tpozadinska slika:url(url prema vašoj slici);<br>\n"
+"\t\t\t}<br>\n"
+"\t\t\t<br>"
+
+#: admin/get-pro.php:6
+#@ cc
+msgid "FAQ, Forum and Community at <a href=\"http://themekraft.com\" title=\"Themekraft - Beautiful Themes and Plugins for WordPress and BuddyPress.\" target=\"_blank\">themekraft.com</a>"
+msgstr "FAQ, Forum i Zajednica na <a href=\"http://themekraft.com\" title=\"Themekraft – Beautiful Themes and Plugins for WordPress and BuddyPress. \" target=\"_blank\">themekraft.com</a>"
+
+#: admin/get-pro.php:9
+#@ cc
+msgid "For more information and help, please visit the <a href=\"http://themekraft.com/forums/\" target=\"_blank\">FORUM</a> and <a href=\"http://themekraft.com/faq/\" target=\"_blank\">FAQ</a>"
+msgstr "Za više informacija i za pomoć, molimo vas da posjetite <a href=\"http://themekraft.com/forums/\" target=\"_blank\">FORUM</a> i <a href=\"http://themekraft.com/faq/\" target=\"_blank\">FAQ</a>"
+
+#: admin/get-pro.php:11
+#@ cc
+msgid "See the <a href=\"http://custom-community-pro.themekraft.com/\" target=\"_blank\">demo</a> page with many examples."
+msgstr "Pogledajte <a href=\"http://custom-community-pro.themekraft.com/\" target=\"_blank\">demo</a>stranicu s mnogo primjera."
+
+#: admin/get-pro.php:14
+#@ cc
+msgid "Your Themekraft Team."
+msgstr "Vaš Themekraft Tim."
+
+#: admin/library.php:260
+#@ cc
+msgid "Disabled"
+msgstr "Isključeno"
+
+#: admin/library.php:260
+#: admin/library.php:274
+#@ cc
+msgid "Enabled"
+msgstr "Uključeno"
+
+#: admin/library.php:383
+#@ cc
+msgid "Browse.."
+msgstr "Pretraži.."
+
+#: admin/library.php:501
+#@ cc
+msgid "Options"
+msgstr "Opcije"
+
+#: admin/library.php:502
+#@ cc
+msgid "Custom Community is proudly brought to you by "
+msgstr "Custom Community ponosno predstavljaju"
+
+#: admin/library.php:503
+#@ ee
+msgid "For support, check out the "
+msgstr "Podršku potražite u "
+
+#: admin/library.php:503
+#@ cc
+msgid "FAQ"
+msgstr "FAQ"
+
+#: admin/library.php:505
+#@ cc
+msgid "Looking for more? "
+msgstr "Želite više?"
+
+#: admin/library.php:505
+#@ cc
+msgid "Get the Full Version"
+msgstr "Nabavite punu verziju"
+
+#: admin/library.php:520
+#@ cc
+msgid "Get the Pro"
+msgstr "Nabavite Pro"
+
+#: admin/library.php:522
+#@ cc
+msgid "Support"
+msgstr "Podrška"
+
+#: admin/library.php:538
+#@ cc
+msgid "Save Options"
+msgstr "Opcije za snimanje"
+
+#: admin/library.php:544
+#@ cc
+msgid "Reset"
+msgstr "Reset"
+
+#: admin/library.php:547
+#@ cc
+msgid "Export"
+msgstr "Izvoz"
+
+#: admin/library.php:550
+#@ cc
+msgid "Import"
+msgstr "Uvoz"
+
+#: admin/library.php:555
+#@ cc
+msgid "Preview (updated when options are saved)"
+msgstr "Pretpregled (ažurira se kad se opcije snime)"
+
+#: admin/page-meta-box.php:60
+#: admin/post-meta-box.php:41
+#@ cc
+msgid "click"
+msgstr "klik"
+
+#: admin/page-meta-box.php:63
+#: admin/post-meta-box.php:44
+#@ cc
+msgid "Custom Community settings"
+msgstr "Postavke Custom Community-ja"
+
+#: admin/page-meta-box.php:67
+#@ cc
+msgid "Slideshow on"
+msgstr "Uključi prezentaciju"
+
+#: admin/page-meta-box.php:69
+#@ cc
+msgid "Select a category to display in slideshow:"
+msgstr "Izaberite kategoriju koja će se prikazivati u prezentaciji:"
+
+#: admin/page-meta-box.php:74
+#@ cc
+msgid "Use Post Type: for Pages write \"page\""
+msgstr "Upotrijebite tip objave: za stranice napišite \"page\""
+
+#: admin/page-meta-box.php:76
+#@ cc
+msgid "post/page ids comma separated"
+msgstr "Identifikatori objave/stranice odvojeni zarezom"
+
+#: admin/page-meta-box.php:78
+#@ cc
+msgid "Select a slideshow style:"
+msgstr "Izaberite stil prezentacije:"
+
+#: admin/page-meta-box.php:83
+#@ cc
+msgid "Caption off"
+msgstr "Isključite opise slika"
+
+#: admin/page-meta-box.php:87
+#@ cc
+msgid "Order By"
+msgstr "Poredaj prema"
+
+#: admin/page-meta-box.php:92
+#@ cc
+msgid "Lists Posts under this Page"
+msgstr "Izlistava objave ispod ove stranice"
+
+#: admin/page-meta-box.php:93
+#@ cc
+msgid "You can show your posts in a predefined template"
+msgstr "Svoje objave možete prikazati koristeći unaprijed definirani predložak"
+
+#: admin/page-meta-box.php:94
+#: admin/post-meta-box.php:48
+#@ cc
+msgid "Post template on"
+msgstr "Uključi predložak za objave"
+
+#: admin/page-meta-box.php:96
+#@ cc
+msgid "Select a template to use:"
+msgstr "Izaberite predložak koji želite koristiti:"
+
+#: admin/page-meta-box.php:101
+#@ cc
+msgid "Select a category to display"
+msgstr "Izaberite kategoriju koju želite prikazati"
+
+#: admin/page-meta-box.php:106
+#@ cc
+msgid "How many posts to display?"
+msgstr "Koliko objava želite prikazati?"
+
+#: admin/post-meta-box.php:46
+#@ cc
+msgid "Use a post template for this post"
+msgstr "Iskoristite predložak za ovu objavu"
+
+#: admin/post-meta-box.php:47
+#@ cc
+msgid "You can select a predefined post template"
+msgstr "Možete izabrati unaprijed definirani predložak za objave"
+
+#: admin/post-meta-box.php:50
+#@ cc
+msgid "Select a template to use"
+msgstr "Izaberite predložak koji želite koristiti"
+
+#: admin/post-meta-box.php:56
+#@ cc
+msgid "Show/hide meta info"
+msgstr "Prikaži/sakrij meta informacije"
+
+#: admin/post-meta-box.php:58
+#@ cc
+msgid "Hide avatar"
+msgstr "Sakrij avatara"
+
+#: admin/post-meta-box.php:60
+#@ cc
+msgid "Hide date/category"
+msgstr "Sakrij datum/kategoriju"
+
+#: admin/post-meta-box.php:62
+#@ cc
+msgid "Hide tags"
+msgstr "Sakrij oznake"
+
+#: admin/post-meta-box.php:65
+#@ cc
+msgid "Hide comment-info"
+msgstr "Sakrij informacije o komentarima"
+
+#: archive.php:13
+#, php-format
+#@ cc
+msgid "Daily Archives: %s"
+msgstr "Dnevne arhive: %s"
+
+#: archive.php:15
+#, php-format
+#@ cc
+msgid "Monthly Archives: %s"
+msgstr "Mjesečne arhive: %s"
+
+#: archive.php:17
+#, php-format
+#@ cc
+msgid "Yearly Archives: %s"
+msgstr "Godišnje arhive: %s"
+
+#: archive.php:19
+#, php-format
+#@ cc
+msgid "You are browsing the Blog for %1$s."
+msgstr "Pretražujete blog za %1$s."
+
+#: archive.php:26
+#: archive.php:68
+#: core/includes/bp/templatetags.php:345
+#: index.php:50
+#: search-loop.php:45
+#: search.php:17
+#: search.php:53
+#@ cc
+msgid "&larr; Previous Entries"
+msgstr "&larr; Prethodni unosi"
+
+#: archive.php:27
+#: archive.php:69
+#: core/includes/bp/templatetags.php:346
+#: index.php:51
+#: search-loop.php:46
+#: search.php:18
+#: search.php:54
+#@ cc
+msgid "Next Entries &rarr;"
+msgstr "Sljedeći unosi &rarr;"
+
+#: archive.php:40
+#: archive.php:47
+#: index.php:20
+#: search.php:30
+#: search.php:37
+#: single.php:44
+#, php-format
+#@ cc
+msgid "by %s"
+msgstr "od %s"
+
+#: archive.php:45
+#: index.php:28
+#: search.php:35
+#: single.php:54
+#@ cc
+msgid "Permanent Link to"
+msgstr "Trajna poveznica na"
+
+#: archive.php:47
+#: index.php:30
+#: search.php:37
+#: single.php:56
+#@ cc
+msgid "in"
+msgstr "u"
+
+#: archive.php:54
+#: index.php:36
+#: search.php:43
+#: single.php:75
+#@ cc
+msgid "Tags: "
+msgstr "Oznake: "
+
+#: archive.php:54
+#: archive.php:56
+#: index.php:36
+#: index.php:38
+#: search-loop.php:35
+#: search.php:43
+#: single.php:80
+#@ cc
+msgid "No Comments &#187;"
+msgstr "Bez komentara &#187;"
+
+#: archive.php:54
+#: archive.php:56
+#: index.php:36
+#: index.php:38
+#: search-loop.php:35
+#: search.php:43
+#: single.php:80
+#@ cc
+msgid "1 Comment &#187;"
+msgstr "1 Komentar &#187;"
+
+#: archive.php:54
+#: archive.php:56
+#: index.php:36
+#: index.php:38
+#: search-loop.php:35
+#: search.php:43
+#: single.php:80
+#@ cc
+msgid "% Comments &#187;"
+msgstr "Broj komentara: % &#187;"
+
+#: archive.php:75
+#: index.php:57
+#@ cc
+msgid "Not Found"
+msgstr "Nije pronađeno"
+
+#: attachment.php:9
+#: search.php:10
+#@ cc
+msgid "Blog"
+msgstr "Blog"
+
+#: attachment.php:19
+#@ cc
+msgid "Permanent Link:"
+msgstr "Trajna poveznica:"
+
+#: attachment.php:24
+#@ cc
+msgid "<p class=\"serif\">Read the rest of this entry &rarr;</p>"
+msgstr "<p class=\"serif\">Pročitaj ostatak ovog zapisa &rarr;</p>"
+
+#: attachment.php:26
+#: full-width.php:25
+#@ cc
+msgid "<p><strong>Pages:</strong> "
+msgstr "<p><strong>Stranice: </strong> "
+
+#: attachment.php:37
+#@ cc
+msgid "Sorry, no attachments matched your criteria."
+msgstr "Žao nam je, vaše kriterije nije zadovoljio nijedan prilog."
+
+#: blogs/blogs-loop.php:88
+#@ cc
+msgid "Sorry, there were no sites found."
+msgstr "Žao nam je, nije pronađena nijedna stranica."
+
+#: blogs/create.php:19
+#: blogs/index.php:21
+#@ cc
+msgid "Create a Site"
+msgstr "Kreiraj stranicu"
+
+#: blogs/create.php:19
+#: blogs/index.php:21
+#@ cc
+msgid "Site Directory"
+msgstr "Direktorij stranice"
+
+#: blogs/create.php:30
+#@ cc
+msgid "Site registration is currently disabled"
+msgstr "Na stranici je registriranje trenutno onemogućeno"
+
+#: blogs/index.php:33
+#, php-format
+#@ cc
+msgid "All Sites <span>%s</span>"
+msgstr "Sve stranice <span>%s</span>"
+
+#: blogs/index.php:37
+#, php-format
+#@ cc
+msgid "My Sites <span>%s</span>"
+msgstr "Moje Stranice <span>%s</span>"
+
+#: blogs/index.php:53
+#: forums/index.php:60
+#: forums/single/forum.php:34
+#: groups/index.php:57
+#: groups/single/forum.php:32
+#: members/index.php:55
+#: members/single/blogs.php:19
+#: members/single/forums.php:18
+#: members/single/friends.php:20
+#: members/single/groups.php:20
+#@ cc
+msgid "Order By:"
+msgstr "Poredaj prema:"
+
+#: blogs/index.php:55
+#: forums/index.php:62
+#: forums/single/forum.php:36
+#: groups/index.php:59
+#: groups/single/forum.php:34
+#: members/index.php:57
+#: members/single/blogs.php:21
+#: members/single/forums.php:20
+#: members/single/friends.php:22
+#: members/single/groups.php:22
+#@ cc
+msgid "Last Active"
+msgstr "Posljedni put aktivan"
+
+#: blogs/index.php:56
+#: members/single/blogs.php:22
+#@ cc
+msgid "Newest"
+msgstr "Najnovije"
+
+#: blogs/index.php:57
+#: groups/index.php:62
+#: members/index.php:62
+#: members/single/blogs.php:23
+#: members/single/friends.php:24
+#: members/single/groups.php:25
+#@ cc
+msgid "Alphabetical"
+msgstr "Abecedno"
+
+#: comments.php:3
+#@ cc
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Ova objava zaštićena je lozinkom. Unesite lozinku ako želite čitati komentare."
+
+#: comments.php:19
+#, php-format
+#@ cc
+msgid "One  thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Jedan smatra za &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s smatraju za &ldquo;%2$s&rdquo;"
+msgstr[2] "%1$s smatraju za &ldquo;%2$s&rdquo;"
+
+#: comments.php:26
+#: comments.php:40
+#@ cc
+msgid "Comment navigation"
+msgstr "Navigacija kroz komentare"
+
+#: comments.php:27
+#: comments.php:41
+#@ cc
+msgid "&larr; Older Comments"
+msgstr "&larr; Stariji komentari"
+
+#: comments.php:28
+#: comments.php:42
+#@ cc
+msgid "Newer Comments &rarr;"
+msgstr "Noviji komentari &rarr;"
+
+#: comments.php:52
+#@ cc
+msgid "Comments are closed."
+msgstr "Daljnje komentiranje nije dopušteno."
+
+#: core/includes/bp/buddydev-search.php:56
+#@ cc
+msgid "Search Page"
+msgstr "Pretraži Stranicu"
+
+#: core/includes/bp/templatetags.php:82
+#@ cc
+msgid "My Favorites"
+msgstr "Moji favoriti"
+
+#: core/includes/bp/templatetags.php:83
+#@ cc
+msgid "Accepted"
+msgstr "Prihvaćeno"
+
+#: core/includes/bp/templatetags.php:84
+#@ cc
+msgid "Rejected"
+msgstr "Odbijeno"
+
+#: core/includes/bp/templatetags.php:85
+#@ cc
+msgid "Show all comments for this thread"
+msgstr "Prikaži sve komentare za ovu temu"
+
+#: core/includes/bp/templatetags.php:86
+#@ cc
+msgid "Show all"
+msgstr "Prikaži sve"
+
+#: core/includes/bp/templatetags.php:87
+#@ cc
+msgid "comments"
+msgstr "komentari"
+
+#: core/includes/bp/templatetags.php:88
+#: members/single/profile/edit.php:128
+#@ cc
+msgid "Close"
+msgstr "Zatvori"
+
+#. translators: 1: comment author url, 2: comment author name, 3: comment permalink, 4: comment date/timestamp
+#: core/includes/bp/templatetags.php:142
+#, php-format
+#@ cc
+msgid "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> said on <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> rekao/la je <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+
+#: core/includes/bp/templatetags.php:149
+#@ cc
+msgid "Your comment is awaiting moderation."
+msgstr "Vaš komentar čeka moderatorovo odobrenje."
+
+#: core/includes/bp/templatetags.php:161
+#@ cc
+msgid "Edit comment"
+msgstr "Uredi komentar"
+
+#: core/includes/bp/templatetags.php:161
+#@ cc
+msgid "Edit"
+msgstr "Uredi"
+
+#: core/includes/bp/templatetags.php:230
+#, php-format
+#@ cc
+msgid "Theme activated! This theme contains <a href=\"%s\">custom header image</a> support and <a href=\"%s\">sidebar widgets</a>."
+msgstr "Tema aktivirana! Ova tema sadrži podršku za <a href=\"%s\">vašu vlastitu sliku zaglavlja</a> i <a href=\"%s\">widgete u bočnoj traci</a>."
+
+#: core/includes/bp/templatetags.php:296
+#: members/single/profile/profile-wp.php:15
+#@ cc
+msgid "Name"
+msgstr "Ime"
+
+#: core/includes/bp/templatetags.php:298
+#@ cc
+msgid "Email"
+msgstr "E-mail"
+
+#: core/includes/bp/templatetags.php:300
+#: members/single/profile/profile-wp.php:33
+#@ cc
+msgid "Website"
+msgstr "web stranica"
+
+#: core/includes/bp/templatetags.php:308
+#, php-format
+#@ cc
+msgid "You must be <a href=\"%1$s\">logged in</a> to post a comment."
+msgstr "Za komentiranje morate biti <a href=\"%1$s\">ulogirani</a>."
+
+#: core/includes/bp/templatetags.php:309
+#@ cc
+msgid "Leave a reply"
+msgstr "Odgovorite"
+
+#: core/includes/theme-generator/style.php:4042
+#@ cc
+msgid "no, only the link colour!"
+msgstr "ne, samo boja poveznice!"
+
+#: core/includes/theme-generator/theme-generator.php:170
+#: searchform.php:5
+#@ cc
+msgid "Search"
+msgstr "Pretraga"
+
+#: core/includes/theme-generator/theme-generator.php:197
+#: core/includes/theme-generator/theme-generator.php:201
+#: core/includes/theme-generator/theme-generator.php:206
+#: core/includes/theme-generator/theme-generator.php:209
+#: core/includes/theme-generator/theme-generator.php:230
+#: core/includes/theme-generator/theme-generator.php:238
+#@ cc
+msgid "Home"
+msgstr "Naslovnica"
+
+#: core/includes/theme-generator/theme-generator.php:243
+#: core/includes/wp/widgets.php:34
+#@ cc
+msgid "Community"
+msgstr "Zajednica"
+
+#: core/includes/theme-generator/theme-generator.php:247
+#: core/includes/wp/widgets.php:38
+#@ cc
+msgid "Activity"
+msgstr "Aktivnost"
+
+#: core/includes/theme-generator/theme-generator.php:252
+#: core/includes/wp/widgets.php:43
+#: groups/single/admin.php:229
+#@ cc
+msgid "Members"
+msgstr "Članovi"
+
+#: core/includes/theme-generator/theme-generator.php:261
+#: core/includes/wp/widgets.php:53
+#@ cc
+msgid "Forums"
+msgstr "Forumi"
+
+#: core/includes/theme-generator/theme-generator.php:268
+#: core/includes/wp/widgets.php:59
+#@ cc
+msgid "Blogs"
+msgstr "Blogovi"
+
+#: core/includes/theme-generator/theme-generator.php:380
+#@ cc
+msgid "20 widget areas all over the site"
+msgstr "20 područja za widgete na cijeloj stranici"
+
+#: core/includes/theme-generator/theme-generator.php:381
+#@ cc
+msgid "4 header + 4 footer widget areas (2 full width and 6 columns)."
+msgstr "4 + 4 područja za widgete u zaglavlju i podnožju (2 pune širine i 6 stupaca)."
+
+#: core/includes/theme-generator/theme-generator.php:382
+#@ cc
+msgid "6 widget areas for members + 6 for groups."
+msgstr "6 + 6 područja za widgete za članove i za grupe."
+
+#: core/includes/theme-generator/theme-generator.php:406
+#: sidebar.php:39
+#@ cc
+msgid "Archives"
+msgstr "Arhive"
+
+#: core/includes/theme-generator/theme-generator.php:419
+#: sidebar.php:51
+#@ cc
+msgid "Meta"
+msgstr "Meta"
+
+#: core/includes/theme-generator/theme-generator.php:434
+#, php-format
+#@ cc
+msgid "%s is proudly powered by <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> and <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
+msgstr "%s ponosno pokreće <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> i <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
+
+#: core/includes/theme-generator/theme-generator.php:435
+#@ cc
+msgid "Just another <a class=\"credits\" href=\"http://themekraft.com/all-themes/\" target=\"_blank\" title=\"Wordpress Theme\" alt=\"WordPress Theme\">WordPress Theme</a> developed by Themekraft."
+msgstr "Samo još jedna <a class=\"credits\" href=\"http://themekraft.com/all-themes/\" target=\"_blank\" title=\"Wordpress Theme\" alt=\"WordPress Theme\">WordPress tema</a> koju je razvio Themekraft."
+
+#: core/includes/theme-generator/theme-generator.php:607
+#: core/includes/theme-generator/theme-generator.php:609
+#: single.php:63
+#@ cc
+msgid "Read the rest of this entry &rarr;"
+msgstr "Pročitaj ostatak ovog zapisa&rarr;"
+
+#: core/includes/wp/shortcodes.php:386
+#@ cc
+msgid "read more"
+msgstr "saznaj više"
+
+#: core/includes/wp/widgets.php:7
+#@ cc
+msgid "BP Sidebar Login"
+msgstr "BP Login na bočnoj traci"
+
+#: core/includes/wp/widgets.php:10
+#@ cc
+msgid "Community Navigation"
+msgstr "Navigacija kroz zajednicu"
+
+#: core/includes/wp/widgets.php:13
+#@ cc
+msgid "Groups Header Widget"
+msgstr "Widget zaglavlja grupa "
+
+#: core/includes/wp/widgets.php:14
+#@ cc
+msgid "Groups Header Control"
+msgstr "Kontrola zaglavlja grupa"
+
+#: core/includes/wp/widgets.php:17
+#@ cc
+msgid "Profiles Header Widget"
+msgstr "Dodatak zaglavlja profila "
+
+#: core/includes/wp/widgets.php:18
+#@ cc
+msgid "Profiles Header Control"
+msgstr "Kontrola zaglavlja profila"
+
+#: core/includes/wp/widgets.php:22
+#@ cc
+msgid "Forum Tags"
+msgstr "Oznake u forumu"
+
+#: core/includes/wp/widgets.php:68
+#@ cc
+msgid "@ Group"
+msgstr "@ Grupa"
+
+#: core/includes/wp/widgets.php:79
+#@ cc
+msgid "@ Member"
+msgstr "@ Član"
+
+#: core/includes/wp/widgets.php:111
+#@ cc
+msgid "Log Out"
+msgstr "Odlogiraj se"
+
+#: core/includes/wp/widgets.php:128
+#@ cc
+msgid "To start connecting please log in first."
+msgstr "Za povezivanje, molimo vas da se prvo ulogirate."
+
+#: core/includes/wp/widgets.php:133
+#, php-format
+#@ cc
+msgid " You can also <a href=\"%s\" title=\"Create an account\">create an account</a>."
+msgstr "Možete i <a href=\"%s\" title=\"Create an account\"> napraviti korisnički račun</a>."
+
+#: core/includes/wp/widgets.php:138
+#: registration/register.php:37
+#@ cc
+msgid "Username"
+msgstr "Korisničko ime"
+
+#: core/includes/wp/widgets.php:141
+#@ cc
+msgid "Password"
+msgstr "Lozinka"
+
+#: core/includes/wp/widgets.php:144
+#@ cc
+msgid "Remember Me"
+msgstr "Zapamti"
+
+#: core/includes/wp/widgets.php:147
+#@ cc
+msgid "Log In"
+msgstr "Ulogiraj se"
+
+#: core/includes/wp/widgets.php:166
+#@ cc
+msgid "Forum Topic Tags"
+msgstr "Oznake tema foruma"
+
+#: core/includes/wp/widgets.php:213
+#@ cc
+msgid "Widget Position:"
+msgstr "Pozicija widgeta:"
+
+#: core/includes/wp/widgets.php:214
+#: core/includes/wp/widgets.php:261
+#@ cc
+msgid "Horizontal"
+msgstr "Vodoravno"
+
+#: core/includes/wp/widgets.php:215
+#: core/includes/wp/widgets.php:262
+#@ cc
+msgid "Vertical"
+msgstr "Okomito"
+
+#: core/includes/wp/widgets.php:260
+#@ cc
+msgid "Widget Position"
+msgstr "Pozicija widgeta"
+
+#: forums/forums-loop.php:24
+#@ cc
+msgid "Topic Title"
+msgstr "Naslov teme"
+
+#: forums/forums-loop.php:25
+#@ cc
+msgid "Latest Poster"
+msgstr "Posljednji objavio"
+
+#: forums/forums-loop.php:28
+#@ cc
+msgid "Posted In Group"
+msgstr "Objavljeno u grupi"
+
+#: forums/forums-loop.php:32
+#@ cc
+msgid "Freshness"
+msgstr "Svježina"
+
+#: forums/forums-loop.php:45
+#@ cc
+msgid "Permalink"
+msgstr "Trajna poveznica"
+
+#: forums/forums-loop.php:95
+#@ cc
+msgid "Sorry, there were no forum topics found."
+msgstr "Žao nam je, nijedna forumska tema nije pronađena."
+
+#: forums/index.php:23
+#@ cc
+msgid "Forums Directory"
+msgstr "Direktorij foruma"
+
+#: forums/index.php:23
+#: forums/single/forum.php:19
+#: groups/single/forum.php:17
+#@ cc
+msgid "New Topic"
+msgstr "Nova tema"
+
+#: forums/index.php:40
+#, php-format
+#@ cc
+msgid "All Topics <span>%s</span>"
+msgstr "Sve teme <span>%s</span>"
+
+#: forums/index.php:44
+#, php-format
+#@ cc
+msgid "My Topics <span>%s</span>"
+msgstr "Moje teme <span>%s</span>"
+
+#: forums/index.php:63
+#: forums/single/forum.php:37
+#: groups/single/forum.php:35
+#: members/single/forums.php:21
+#@ cc
+msgid "Most Posts"
+msgstr "Većina objava"
+
+#: forums/index.php:64
+#: forums/single/forum.php:38
+#: groups/single/forum.php:36
+#: members/single/forums.php:22
+#@ cc
+msgid "Unreplied"
+msgstr "Neodgovoreno"
+
+#: forums/index.php:100
+#@ cc
+msgid "Create New Topic:"
+msgstr "Napravi novu temu:"
+
+#: forums/index.php:104
+#: forums/single/edit.php:49
+#: groups/single/forum/edit.php:49
+#: groups/single/forum.php:71
+#@ cc
+msgid "Title:"
+msgstr "Naslov:"
+
+#: forums/index.php:107
+#: forums/single/edit.php:52
+#: groups/single/forum/edit.php:52
+#: groups/single/forum.php:74
+#@ cc
+msgid "Content:"
+msgstr "Sadržaj:"
+
+#: forums/index.php:110
+#: groups/single/forum/edit.php:55
+#: groups/single/forum.php:77
+#@ cc
+msgid "Tags (comma separated):"
+msgstr "Oznake (odvojene zarezom):"
+
+#: forums/index.php:113
+#@ cc
+msgid "Post In Group Forum:"
+msgstr "Objavi u forumu grupe:"
+
+#. translators: no option picked in select box
+#: forums/index.php:116
+#@ cc
+msgid "----"
+msgstr "----"
+
+#: forums/index.php:133
+#: groups/single/forum.php:83
+#@ cc
+msgid "Post Topic"
+msgstr "Objavi temu"
+
+#: forums/index.php:134
+#@ cc
+msgid "Cancel"
+msgstr "Otkaži"
+
+#: forums/index.php:145
+#, php-format
+#@ cc
+msgid "You are not a member of any groups so you don't have any group forums you can post in. To start posting, first find a group that matches the topic subject you'd like to start. If this group does not exist, why not <a href='%s'>create a new group</a>? Once you have joined or created the group you can post your topic in that group's forum."
+msgstr "Budući da niste član nijedne grupe, ne možete objavljivati ni u jednom grupnom forumu. Kako biste počeli objavljivati, prvo pronađite grupu koja odgovara temi koju želite započeti. Ako takva grupa ne postoji, <a href='%s'>otvorite novu grupu</a>. Nakon što se pridružite nekoj grupi ili otvorite novu grupu, možete u forumu te grupe objaviti svoju temu."
+
+#: forums/single/edit.php:16
+#: forums/single/forum.php:25
+#: forums/single/topic.php:43
+#: groups/single/forum/edit.php:16
+#: groups/single/forum/topic.php:16
+#: groups/single/forum.php:23
+#@ cc
+msgid "Forum Directory"
+msgstr "Direktorij foruma"
+
+#: forums/single/edit.php:25
+#: groups/single/forum/edit.php:25
+#@ cc
+msgid "Edit:"
+msgstr "Uredi:"
+
+#: forums/single/edit.php:57
+#: forums/single/edit.php:73
+#: groups/single/admin.php:32
+#: groups/single/admin.php:117
+#: groups/single/forum/edit.php:60
+#: groups/single/forum/edit.php:76
+#: members/single/profile/edit.php:146
+#: members/single/settings/general.php:69
+#: members/single/settings/notifications.php:62
+#@ cc
+msgid "Save Changes"
+msgstr "Snimi promjene"
+
+#: forums/single/edit.php:88
+#: groups/single/forum/edit.php:91
+#@ cc
+msgid "This topic does not exist."
+msgstr "Ova tema ne postoji."
+
+#: forums/single/forum-header.php:13
+#: groups/groups-loop-grid.php:31
+#: groups/groups-loop-list.php:12
+#, php-format
+#@ cc
+msgid "active %s"
+msgstr "aktivno %s"
+
+#: forums/single/topic.php:37
+#: groups/single/forum/topic.php:10
+#@ cc
+msgid "New Reply"
+msgstr "Novi odgovor"
+
+#: forums/single/topic.php:97
+#, php-format
+#@ cc
+msgid "%s said %s ago:"
+msgstr "%s je rekao/la prije %s vremena:"
+
+#: forums/single/topic.php:117
+#: groups/single/forum/topic.php:81
+#@ cc
+msgid "Permanent link to this post"
+msgstr "Trajna poveznica na ovu objavu"
+
+#: forums/single/topic.php:153
+#: groups/single/forum/topic.php:117
+#@ cc
+msgid "Add a reply:"
+msgstr "Dodaj odgovor:"
+
+#: forums/single/topic.php:158
+#: groups/single/forum/topic.php:122
+#@ cc
+msgid "Post Reply"
+msgstr "Objavi odgovor"
+
+#: forums/single/topic.php:169
+#: groups/single/forum/topic.php:133
+#@ cc
+msgid "This topic is closed, replies are no longer accepted."
+msgstr "Ova je tema zatvorena pa se u njoj više ne može odgovarati."
+
+#: forums/single/topic.php:184
+#: groups/single/forum/topic.php:147
+#@ cc
+msgid "There are no posts for this topic."
+msgstr "Nema objava za ovu temu."
+
+#: full-width.php:38
+#: single.php:92
+#@ cc
+msgid "Edit this entry."
+msgstr "Uredi ovaj unos."
+
+#: functions.php:60
+#@ cc
+msgid "Header top menu"
+msgstr "Izbornik vrha zaglavlja"
+
+#: functions.php:61
+#@ cc
+msgid "Header bottom menu"
+msgstr "Izbornik dna zaglavlja"
+
+#: functions.php:400
+#@ cc
+msgid "Members Results"
+msgstr "Rezultati članova"
+
+#: functions.php:404
+#, php-format
+#@ cc
+msgid "View all %d matched Members"
+msgstr "Prikaži sve %d članove koji zadovoljavaju kriterije"
+
+#: functions.php:414
+#@ cc
+msgid "Group Search"
+msgstr "Pretraživanje grupe"
+
+#: functions.php:417
+#@ cc
+msgid "View All matched Groups"
+msgstr "Prikaži sve grupe koje zadovoljavaju kriterije"
+
+#: functions.php:435
+#@ cc
+msgid "Blog Search"
+msgstr "Pretraživanje bloga"
+
+#: functions.php:438
+#@ cc
+msgid "View All matched Posts"
+msgstr "Pregledaj sve objave koje zadovoljavaju kriterije"
+
+#: functions.php:450
+#@ cc
+msgid "Forums Search"
+msgstr "Pretraživanje foruma"
+
+#: functions.php:452
+#@ cc
+msgid "View All matched forum posts"
+msgstr "Pregledaj sve objave foruma koje zadovoljavaju kriterije"
+
+#: functions.php:471
+#@ cc
+msgid "Blogs Search"
+msgstr "Pretraživanje blogova"
+
+#: functions.php:473
+#@ cc
+msgid "View All matched Blogs"
+msgstr "Pregledaj sve blogove koje zadovoljavaju kriterije"
+
+#: groups/create.php:18
+#: groups/index.php:23
+#@ cc
+msgid "Create a Group"
+msgstr "Kreiraj grupu"
+
+#: groups/create.php:18
+#: groups/index.php:23
+#@ cc
+msgid "Groups Directory"
+msgstr "Direktorij grupa"
+
+#: groups/create.php:39
+#: groups/single/admin.php:16
+#@ cc
+msgid "Group Name (required)"
+msgstr "Ime grupe (obavezno)"
+
+#: groups/create.php:42
+#: groups/single/admin.php:19
+#@ cc
+msgid "Group Description (required)"
+msgstr "Opis grupe (obavezno)"
+
+#: groups/create.php:62
+#: groups/single/admin.php:47
+#@ cc
+msgid "Enable discussion forum"
+msgstr "Aktiviraj forum za rasprave"
+
+#: groups/create.php:69
+#, php-format
+#@ cc
+msgid "<strong>Attention Site Admin:</strong> Group forums require the <a href=\"%s\">correct setup and configuration</a> of a bbPress installation."
+msgstr "<strong>Za administratora stranice:</strong> forumi grupe zahtijevaju <a href=\"%s\">da se ispravno podesi i konfigurira</a> bbPress instalacija."
+
+#: groups/create.php:78
+#: groups/single/admin.php:56
+#@ cc
+msgid "Privacy Options"
+msgstr "Opcije privatnosti"
+
+#: groups/create.php:82
+#: groups/single/admin.php:61
+#@ cc
+msgid "This is a public group"
+msgstr "Ovo je javna grupa"
+
+#: groups/create.php:84
+#: groups/single/admin.php:63
+#@ cc
+msgid "Any site member can join this group."
+msgstr "Bilo koji član stranice može se pridružiti ovoj grupi."
+
+#: groups/create.php:85
+#: groups/create.php:94
+#: groups/single/admin.php:64
+#: groups/single/admin.php:74
+#@ cc
+msgid "This group will be listed in the groups directory and in search results."
+msgstr "Ova će se grupa vidjeti u direktoriju grupa i u rezultatima pretraživanja."
+
+#: groups/create.php:86
+#: groups/single/admin.php:65
+#@ cc
+msgid "Group content and activity will be visible to any site member."
+msgstr "Sadržaj grupe i njezine aktivnosti bit će vidljivi bilo kojem članu stranice."
+
+#: groups/create.php:91
+#: groups/single/admin.php:71
+#@ cc
+msgid "This is a private group"
+msgstr "Ovo je privatna grupa"
+
+#: groups/create.php:93
+#: groups/single/admin.php:73
+#@ cc
+msgid "Only users who request membership and are accepted can join the group."
+msgstr "Samo korisnici koji zatraže članstvo i koji budu prihvaćeni mogu se pridružiti grupi."
+
+#: groups/create.php:95
+#: groups/create.php:104
+#: groups/single/admin.php:75
+#: groups/single/admin.php:85
+#@ cc
+msgid "Group content and activity will only be visible to members of the group."
+msgstr "Sadržaj i aktivnosti grupe bit će vidljivi samo članovima grupe."
+
+#: groups/create.php:100
+#: groups/single/admin.php:81
+#@ cc
+msgid "This is a hidden group"
+msgstr "Ovo je skrivena grupa"
+
+#: groups/create.php:102
+#: groups/single/admin.php:83
+#@ cc
+msgid "Only users who are invited can join the group."
+msgstr "Ovoj se grupi mogu pridružiti samo pozvani korisnici."
+
+#: groups/create.php:103
+#: groups/single/admin.php:84
+#@ cc
+msgid "This group will not be listed in the groups directory or search results."
+msgstr "Ova se grupa neće vidjeti u direktoriju grupa ili u rezultatima pretraživanja."
+
+#: groups/create.php:111
+#: groups/single/admin.php:92
+#@ cc
+msgid "Group Invitations"
+msgstr "Pozivnice za grupu"
+
+#: groups/create.php:113
+#: groups/single/admin.php:94
+#@ cc
+msgid "Which members of this group are allowed to invite others?"
+msgstr "Koji članovi ove grupe smiju pozvati druge?"
+
+#: groups/create.php:118
+#: groups/single/admin.php:99
+#@ cc
+msgid "All group members"
+msgstr "Svi članovi grupe"
+
+#: groups/create.php:123
+#: groups/single/admin.php:104
+#@ cc
+msgid "Group admins and mods only"
+msgstr "Samo administratori i moderatori grupe"
+
+#: groups/create.php:128
+#: groups/single/admin.php:109
+#@ cc
+msgid "Group admins only"
+msgstr "Samo administratori grupe"
+
+#: groups/create.php:154
+#: groups/single/admin.php:127
+#@ cc
+msgid "Upload an image to use as an avatar for this group. The image will be shown on the main group page, and in search results."
+msgstr "Umetnite sliku koju ćete koristiti kao avatar za ovu grupu. Slika će biti prikazana na glavnoj stranici grupe i u rezultatima pretraživanja."
+
+#: groups/create.php:158
+#: groups/single/admin.php:131
+#: members/single/profile/change-avatar.php:18
+#@ cc
+msgid "Upload Image"
+msgstr "Pošaljite sliku"
+
+#: groups/create.php:162
+#@ cc
+msgid "To skip the avatar upload process, hit the \"Next Step\" button."
+msgstr "Ako želite preskočiti slanje avatara, pritisnite\"Next Step\"."
+
+#: groups/create.php:169
+#@ cc
+msgid "Crop Group Avatar"
+msgstr "Izreži avatara grupe"
+
+#: groups/create.php:171
+#: groups/single/admin.php:151
+#: members/single/profile/change-avatar.php:33
+#@ cc
+msgid "Avatar to crop"
+msgstr "Avatar za rezanje"
+
+#: groups/create.php:174
+#: groups/single/admin.php:154
+#: members/single/profile/change-avatar.php:36
+#@ cc
+msgid "Avatar preview"
+msgstr "Pretpregled avatara"
+
+#: groups/create.php:177
+#: groups/single/admin.php:157
+#: members/single/profile/change-avatar.php:39
+#@ cc
+msgid "Crop Image"
+msgstr "Izreži sliku"
+
+#: groups/create.php:216
+#: groups/single/send-invites.php:22
+#@ cc
+msgid "Select people to invite from your friends list."
+msgstr "Odaberite ljude s liste prijatelja koje želite pozvati."
+
+#: groups/create.php:251
+#: groups/single/send-invites.php:73
+#@ cc
+msgid "Once you have built up friend connections you will be able to invite others to your group. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new group."
+msgstr "Nakon što uspostavite veze s prijateljima, moći ćete u svoju grupu pozivati i druge ljude. Ubuduće ćete moći slati pozivnice bilo kad odabirom opcije \"Send Invites\" za vrijeme pregledavanja svoje nove grupe."
+
+#: groups/create.php:273
+#@ cc
+msgid "Back to Previous Step"
+msgstr "Natrag na prethodni korak"
+
+#: groups/create.php:280
+#@ cc
+msgid "Next Step"
+msgstr "Sljedeći korak"
+
+#: groups/create.php:287
+#@ cc
+msgid "Create Group and Continue"
+msgstr "Kreiraj grupu i nastavi"
+
+#: groups/create.php:294
+#@ cc
+msgid "Finish"
+msgstr "Završi"
+
+#: groups/groups-loop.php:59
+#@ cc
+msgid "There were no groups found."
+msgstr "Nijedna grupa nije pronađena."
+
+#: groups/index.php:37
+#, php-format
+#@ cc
+msgid "All Groups <span>%s</span>"
+msgstr "Sve grupe <span>%s</span>"
+
+#: groups/index.php:60
+#: members/single/groups.php:23
+#@ cc
+msgid "Most Members"
+msgstr "Većina članova"
+
+#: groups/index.php:61
+#: members/single/groups.php:24
+#@ cc
+msgid "Newly Created"
+msgstr "Nedavno kreirane"
+
+#: groups/index.php:71
+#: groups/single/members.php:31
+#: members/index.php:73
+#: members/single/friends.php:35
+#: members/single/groups.php:35
+#@ cc
+msgid "Display mode:"
+msgstr "Način prikazivanja:"
+
+#: groups/index.php:73
+#: groups/single/members.php:33
+#: members/index.php:75
+#: members/single/friends.php:37
+#: members/single/groups.php:37
+#@ cc
+msgid "List"
+msgstr "Lista"
+
+#: groups/index.php:74
+#: groups/single/members.php:34
+#: members/index.php:76
+#: members/single/friends.php:38
+#: members/single/groups.php:38
+#@ cc
+msgid "Grid"
+msgstr "Mreža"
+
+#: groups/single/admin.php:25
+#@ cc
+msgid "Notify group members of changes via email"
+msgstr "Obavijesti članove grupe o promjenama e-mailom"
+
+#: groups/single/admin.php:26
+#: registration/register.php:205
+#@ cc
+msgid "Yes"
+msgstr "Da"
+
+#: groups/single/admin.php:27
+#: registration/register.php:206
+#@ cc
+msgid "No"
+msgstr "Ne"
+
+#: groups/single/admin.php:137
+#@ cc
+msgid "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button."
+msgstr "Ako želite ukloniti postojeći avatar ali ga ne želite zamijeniti novim, molimo vas da upotrijebite gumb za brisanje avatara."
+
+#: groups/single/admin.php:139
+#: members/single/profile/change-avatar.php:24
+#@ cc
+msgid "Delete Avatar"
+msgstr "Izbriši avatara"
+
+#: groups/single/admin.php:149
+#@ cc
+msgid "Crop Avatar"
+msgstr "Izreži avatara"
+
+#: groups/single/admin.php:177
+#@ cc
+msgid "Administrators"
+msgstr "Administratori"
+
+#: groups/single/admin.php:185
+#: groups/single/admin.php:210
+#, php-format
+#@ cc
+msgid "Profile picture of %s"
+msgstr "Profilna slika %s"
+
+#: groups/single/admin.php:189
+#: groups/single/admin.php:215
+#@ cc
+msgid "Demote to Member"
+msgstr "Degradiraj u člana"
+
+#: groups/single/admin.php:203
+#@ cc
+msgid "Moderators"
+msgstr "Moderatori"
+
+#: groups/single/admin.php:214
+#: groups/single/admin.php:270
+#@ cc
+msgid "Promote to Admin"
+msgstr "Promoviraj u Administratora"
+
+#: groups/single/admin.php:258
+#@ cc
+msgid "(banned)"
+msgstr "(blokiran)"
+
+#: groups/single/admin.php:264
+#@ cc
+msgid "Unban this member"
+msgstr "Ukloni restrikcije za ovog člana"
+
+#: groups/single/admin.php:264
+#@ cc
+msgid "Remove Ban"
+msgstr "Ukloni ban"
+
+#: groups/single/admin.php:268
+#@ cc
+msgid "Kick and ban this member"
+msgstr "Izbaci i blokiraj  ovog člana"
+
+#: groups/single/admin.php:268
+#@ cc
+msgid "Kick &amp; Ban"
+msgstr "Izbaci &amp; Blokiraj"
+
+#: groups/single/admin.php:269
+#@ cc
+msgid "Promote to Mod"
+msgstr "Promoviraj u Moderatora"
+
+#: groups/single/admin.php:274
+#@ cc
+msgid "Remove this member"
+msgstr "Izbaci ovog člana"
+
+#: groups/single/admin.php:274
+#@ cc
+msgid "Remove from group"
+msgstr "Izbaci iz grupe"
+
+#: groups/single/admin.php:288
+#: groups/single/members-loop.php:49
+#@ cc
+msgid "This group has no members."
+msgstr "Ova grupa nema članova."
+
+#: groups/single/admin.php:318
+#: members/single/friends/requests.php:37
+#: members/single/groups/invites.php:23
+#@ cc
+msgid "Accept"
+msgstr "Prihvati"
+
+#: groups/single/admin.php:320
+#: members/single/friends/requests.php:38
+#: members/single/groups/invites.php:24
+#@ cc
+msgid "Reject"
+msgstr "Odbij"
+
+#: groups/single/admin.php:333
+#@ cc
+msgid "There are no pending membership requests."
+msgstr "Nema zahtjeva za članstvom koji čekaju obradu."
+
+#: groups/single/admin.php:350
+#@ cc
+msgid "WARNING: Deleting this group will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "UPOZORENJE: Brisanjem ove grupe u potpunosti će se izbrisati SAV sadržaj koji je povezan s njom. Budući da nema načina za povratak u početno stanje, molimo vas da budete oprezni s ovom opcijom."
+
+#: groups/single/admin.php:353
+#@ cc
+msgid "I understand the consequences of deleting this group."
+msgstr "Razumijem posljedice brisanja ove grupe."
+
+#: groups/single/admin.php:358
+#@ cc
+msgid "Delete Group"
+msgstr "Izbriši grupu"
+
+#: groups/single/forum/topic.php:67
+#, php-format
+#@ cc
+msgid "%1$s said %2$s:"
+msgstr "je rekao/la %2$s:"
+
+#: groups/single/forum/topic.php:112
+#@ cc
+msgid "You will auto join this group when you reply to this topic."
+msgstr "Kad odgovorite na ovu temu, automatski ćete se pridružiti ovoj grupi."
+
+#: groups/single/forum.php:65
+#@ cc
+msgid "You will auto join this group when you start a new topic."
+msgstr "Kad otvorite novu temu, automatski ćete se pridružiti ovoj grupi."
+
+#: groups/single/forum.php:69
+#@ cc
+msgid "Post a New Topic:"
+msgstr "Objavi novu temu:"
+
+#: groups/single/group-header-sidebar.php:17
+#: groups/single/group-header.php:35
+#, php-format
+#@ cc
+msgid "active %s ago"
+msgstr "aktivan %s prije"
+
+#: groups/single/group-header-sidebar.php:28
+#@ cc
+msgid "Description"
+msgstr "Opis"
+
+#: groups/single/group-header-sidebar.php:35
+#: groups/single/group-header.php:6
+#@ cc
+msgid "Group Admins"
+msgstr "Administratori grupe"
+
+#: groups/single/group-header-sidebar.php:43
+#@ cc
+msgid "Group Moderators"
+msgstr "Moderatori grupe"
+
+#: groups/single/group-header.php:14
+#@ cc
+msgid "Group Mods"
+msgstr "Moderatori grupe"
+
+#: groups/single/request-membership.php:4
+#, php-format
+#@ cc
+msgid "You are requesting to become a member of the group '%s'."
+msgstr "Postavili ste zahtjev za članstvom u grupi '%s'."
+
+#: groups/single/request-membership.php:7
+#@ cc
+msgid "Comments (optional)"
+msgstr "Komentari (opcionalno)"
+
+#: groups/single/request-membership.php:12
+#@ cc
+msgid "Send Request"
+msgstr "Pošalji zahtjev"
+
+#: groups/single/send-invites.php:60
+#@ cc
+msgid "Send Invites"
+msgstr "Pošalji pozivnice"
+
+#: index.php:30
+#: single.php:56
+#, php-format
+#@ cc
+msgid " by %s"
+msgstr " od %s"
+
+#: index.php:58
+#@ cc
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr "Žao nam je, ali tražite nešto čega ovdje nema."
+
+#: members/index.php:23
+#@ cc
+msgid "Members Directory"
+msgstr "Direktorij članova"
+
+#: members/index.php:58
+#: members/single/friends.php:23
+#@ cc
+msgid "Newest Registered"
+msgstr "Najnoviji registrirani član"
+
+#: members/members-loop.php:61
+#@ cc
+msgid "Sorry, no members were found."
+msgstr "Žao nam je, ali nismo pronašli nijednoga člana."
+
+#: members/single/friends/requests.php:68
+#@ cc
+msgid "You have no pending friendship requests."
+msgstr "Nemate zahtjeva za prijateljsto na čekanju."
+
+#: members/single/groups/invites.php:14
+#, php-format
+#@ cc
+msgid "%s members"
+msgstr "%s članovi"
+
+#: members/single/groups/invites.php:37
+#@ cc
+msgid "You have no outstanding group invites."
+msgstr "Nemate nijedne neriješene pozivnice u grupu."
+
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+#@ cc
+msgid "Mention this user in a new public message, this will send the user a notification to get their attention."
+msgstr "Ako spomenete ovog korisnika u novoj javnoj poruci, on će primiti obavijest kojom će saznati da je spomenut."
+
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+#@ cc
+msgid "Mention this User"
+msgstr "Spomeni ovog korisnika"
+
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+#@ cc
+msgid "Send a private message to this user."
+msgstr "Pošalji privatnu poruku ovom korisniku."
+
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+#@ cc
+msgid "Send Private Message"
+msgstr "Pošalji privatnu poruku"
+
+#: members/single/messages/compose.php:5
+#@ cc
+msgid "Send To (Username or Friend's Name)"
+msgstr "Pošalji (Korisničko ime ili ime prijatelja)"
+
+#: members/single/messages/compose.php:14
+#@ cc
+msgid "This is a notice to all users."
+msgstr "Ovo je obavijest svim korisnicima."
+
+#: members/single/messages/compose.php:17
+#@ cc
+msgid "Subject"
+msgstr "Predmet"
+
+#: members/single/messages/compose.php:20
+#@ cc
+msgid "Message"
+msgstr "Poruka"
+
+#: members/single/messages/compose.php:28
+#@ cc
+msgid "Send Message"
+msgstr "Pošalji poruku"
+
+#: members/single/messages/messages-loop.php:31
+#@ cc
+msgid "From:"
+msgstr "Od:"
+
+#: members/single/messages/messages-loop.php:36
+#@ cc
+msgid "To:"
+msgstr "Za:"
+
+#: members/single/messages/messages-loop.php:42
+#@ cc
+msgid "View Message"
+msgstr "Vidi poruku"
+
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/notices-loop.php:38
+#: members/single/messages/single.php:24
+#@ cc
+msgid "Delete Message"
+msgstr "Izbriši poruku"
+
+#: members/single/messages/messages-loop.php:68
+#@ cc
+msgid "Sorry, no messages were found."
+msgstr "Žao nam je, ali nije pronađena nijedna poruka."
+
+#: members/single/messages/notices-loop.php:31
+#@ cc
+msgid "Sent:"
+msgstr "Poslano:"
+
+#: members/single/messages/notices-loop.php:49
+#@ cc
+msgid "Sorry, no notices were found."
+msgstr "Žao nam je, ali nije pronađena nijedna obavijest."
+
+#: members/single/messages/single.php:14
+#@ cc
+msgid "You are alone in this conversation."
+msgstr "Jedini ste sudionik u ovom razgovoru."
+
+#: members/single/messages/single.php:18
+#, php-format
+#@ cc
+msgid "Conversation between %s and you."
+msgstr "Razgovor između %s i vas."
+
+#: members/single/messages/single.php:75
+#@ cc
+msgid "Send a Reply"
+msgstr "Pošalji odgovor"
+
+#: members/single/messages/single.php:91
+#@ cc
+msgid "Send Reply"
+msgstr "Pošalji odgovor"
+
+#: members/single/profile/change-avatar.php:1
+#@ cc
+msgid "Change Avatar"
+msgstr "Promijeni avatara"
+
+#: members/single/profile/change-avatar.php:7
+#@ cc
+msgid "Your avatar will be used on your profile and throughout the site. If there is a <a href=\"http://gravatar.com\">Gravatar</a> associated with your account email we will use that, or you can upload an image from your computer."
+msgstr "Vaš avatar koristit će se na vašem profilu i ostalim dijelovima ove stranice. Ako je neki <a href=\"http://gravatar.com\">Gravatar</a> povezan s vašim korisničkim e-mailom, koristit će se taj ili možete poslati sliku sa svog računala."
+
+#: members/single/profile/change-avatar.php:14
+#@ cc
+msgid "Click below to select a JPG, GIF or PNG format photo from your computer and then click 'Upload Image' to proceed."
+msgstr "Kliknite ispod kako biste na svom računalu odabrali fotografiju u formatu JPG, GIF ili PNG pa potom kliknite 'Učitaj sliku' za nastavak."
+
+#: members/single/profile/change-avatar.php:23
+#@ cc
+msgid "If you'd like to delete your current avatar but not upload a new one, please use the delete avatar button."
+msgstr "Ako želite izbrisati svog trenutnog avatara ali ne želite postaviti novoga, molimo vas da upotrijebite gumb za brisanje avatara."
+
+#: members/single/profile/change-avatar.php:24
+#@ cc
+msgid "Delete My Avatar"
+msgstr "Izbriši mog avatara"
+
+#: members/single/profile/change-avatar.php:31
+#@ cc
+msgid "Crop Your New Avatar"
+msgstr "Izreži novog avatara"
+
+#: members/single/profile/change-avatar.php:55
+#@ cc
+msgid "Your avatar will be used on your profile and throughout the site. To change your avatar, please create an account with <a href=\"http://gravatar.com\">Gravatar</a> using the same email address as you used to register with this site."
+msgstr "Vaš avatar koristit će se na vašem profilu i na ostalim dijelovima stranice. Ako želite promijeniti avatara, molimo vas da otvorite korisnički račun s <a href=\"http://gravatar.com\">Gravatarom</a> koristeći istu e-mail adresu koju ste koristili pri registraciji na ovu stranicu."
+
+#: members/single/profile/edit.php:10
+#, php-format
+#@ cc
+msgid "Editing '%s' Profile Group"
+msgstr "Uređivanje '%s' profila grupe"
+
+#: members/single/profile/edit.php:26
+#: members/single/profile/edit.php:33
+#: members/single/profile/edit.php:40
+#: members/single/profile/edit.php:49
+#: members/single/profile/edit.php:67
+#: members/single/profile/edit.php:83
+#: members/single/profile/edit.php:93
+#: registration/register.php:37
+#: registration/register.php:41
+#: registration/register.php:45
+#: registration/register.php:49
+#: registration/register.php:76
+#: registration/register.php:84
+#: registration/register.php:92
+#: registration/register.php:102
+#: registration/register.php:113
+#: registration/register.php:128
+#: registration/register.php:139
+#: registration/register.php:189
+#: registration/register.php:198
+#@ cc
+msgid "(required)"
+msgstr "(obavezno)"
+
+#: members/single/profile/edit.php:58
+#: members/single/profile/edit.php:73
+#: registration/register.php:119
+#@ cc
+msgid "Clear"
+msgstr "Izbriši"
+
+#: members/single/profile/edit.php:118
+#: members/single/profile/edit.php:132
+#, php-format
+#@ cc
+msgid "This field can be seen by: <span class=\"current-visibility-level\">%s</span>"
+msgstr "Ovo polje vidljivo je za: <span class=\"current-visibility-level\">%s</span>"
+
+#: members/single/profile/edit.php:118
+#@ cc
+msgid "Change"
+msgstr "Promijeni"
+
+#: members/single/profile/edit.php:123
+#@ cc
+msgid "Who can see this field?"
+msgstr "Tko može vidjeti ovo polje?"
+
+#: members/single/profile/profile-wp.php:8
+#, php-format
+#@ cc
+msgid "%s's Profile"
+msgstr "%s's  profil"
+
+#: members/single/profile/profile-wp.php:24
+#@ cc
+msgid "About Me"
+msgstr "O meni"
+
+#: members/single/profile/profile-wp.php:42
+#@ cc
+msgid "Jabber"
+msgstr "Jabber"
+
+#: members/single/profile/profile-wp.php:51
+#@ cc
+msgid "AOL Messenger"
+msgstr "AOL Messenger"
+
+#: members/single/profile/profile-wp.php:60
+#@ cc
+msgid "Yahoo Messenger"
+msgstr "Yahoo Messenger"
+
+#: members/single/settings/capabilities.php:40
+#@ cc
+msgid "Capabilities"
+msgstr "Sposobnosti"
+
+#: members/single/settings/capabilities.php:48
+#@ cc
+msgid "This user is a spammer."
+msgstr "Ovaj korisnik je spamer."
+
+#: members/single/settings/capabilities.php:52
+#@ cc
+msgid "Save"
+msgstr "Spremi"
+
+#: members/single/settings/delete-account.php:50
+#@ cc
+msgid "Delete Account"
+msgstr "Izbriši korisnički račun"
+
+#: members/single/settings/delete-account.php:55
+#@ cc
+msgid "WARNING: Deleting your account will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "UPOZORENJE: Brisanje vašeg korisničkog računa u potpunosti će ukloniti SAV sadržaj vezan uz njega. Budući da nema načina da se izbrisani račun i sadržaji vezani uz njega vrate, molimo vas da budete oprezni s ovom opcijom."
+
+#: members/single/settings/delete-account.php:58
+#@ cc
+msgid "I understand the consequences of deleting my account."
+msgstr "Razumijem posljedice brisanja svog korisničkog računa."
+
+#: members/single/settings/delete-account.php:63
+#@ cc
+msgid "Delete My Account"
+msgstr "Izbriši moj korisnički račun"
+
+#: members/single/settings/general.php:50
+#@ cc
+msgid "General Settings"
+msgstr "Opće postavke"
+
+#: members/single/settings/general.php:56
+#@ cc
+msgid "Current Password <span>(required to update email or change current password)</span>"
+msgstr "Trenutna lozinka <span>(nužno za ažuriranje e-maila ili za promjenu trenutne lozinke)</span>"
+
+#: members/single/settings/general.php:57
+#@ cc
+msgid "Password Lost and Found"
+msgstr "Izgubljene lozinke"
+
+#: members/single/settings/general.php:57
+#@ cc
+msgid "Lost your password?"
+msgstr "Izgubili ste lozinku?"
+
+#: members/single/settings/general.php:59
+#@ cc
+msgid "Account Email"
+msgstr "E-mail korisničkog računa"
+
+#: members/single/settings/general.php:62
+#@ cc
+msgid "Change Password <span>(leave blank for no change)</span>"
+msgstr "Promijeni lozinku </span>(ostavite prazno ako ne želite mijenjati lozinku)</span>"
+
+#: members/single/settings/general.php:63
+#@ cc
+msgid "New Password"
+msgstr "Nova lozinka"
+
+#: members/single/settings/general.php:64
+#@ cc
+msgid "Repeat New Password"
+msgstr "Ponovite novu lozinku"
+
+#: members/single/settings/notifications.php:50
+#@ cc
+msgid "Email Notification"
+msgstr "Obavijest e-mailom"
+
+#: members/single/settings/notifications.php:55
+#@ cc
+msgid "Send a notification by email when:"
+msgstr "Pošalji obavijest e-mailom kad je:"
+
+#: registration/activate.php:12
+#@ cc
+msgid "Account Activated"
+msgstr "Korisnički račun aktiviran"
+
+#: registration/activate.php:17
+#@ cc
+msgid "Your account was activated successfully! Your account details have been sent to you in a separate email."
+msgstr "Vaš je korisnički račun uspješno aktiviran! Detalji vašeg korisničkog računa poslani su u zasebnom e-mailu."
+
+#: registration/activate.php:19
+#@ cc
+msgid "Your account was activated successfully! You can now log in with the username and password you provided when you signed up."
+msgstr "Vaš je korisnički račun uspješno aktiviran! Možete se logirati s korisničkim imenom i lozinkom koju ste unijeli prilikom registracije."
+
+#: registration/activate.php:24
+#@ cc
+msgid "Activate your Account"
+msgstr "Aktivirajte svoj korisnički račun"
+
+#: registration/activate.php:28
+#@ cc
+msgid "Please provide a valid activation key."
+msgstr "Molimo vas da upišete ispravan ključ za aktivaciju."
+
+#: registration/activate.php:32
+#@ cc
+msgid "Activation Key:"
+msgstr "Ključ za aktivaciju:"
+
+#: registration/activate.php:36
+#@ cc
+msgid "Activate"
+msgstr "Aktiviraj"
+
+#: registration/register.php:16
+#@ cc
+msgid "User registration is currently not allowed."
+msgstr "Registracija korisnika trenutno nije dopuštena."
+
+#: registration/register.php:23
+#@ cc
+msgid "Create an Account"
+msgstr "Kreiraj korisnički račun"
+
+#: registration/register.php:27
+#@ cc
+msgid "Registering for this site is easy, just fill in the fields below and we'll get a new account set up for you in no time."
+msgstr "Procedura registracije za ovu stranicu je jednostavna. Sve što trebate je popuniti polja ispod pa ćemo vam začas otvoriti korisnički račun."
+
+#: registration/register.php:35
+#@ cc
+msgid "Account Details"
+msgstr "Detalji korisničkog računa"
+
+#: registration/register.php:41
+#@ cc
+msgid "Email Address"
+msgstr "E-mail adresa"
+
+#: registration/register.php:45
+#@ cc
+msgid "Choose a Password"
+msgstr "Izaberite lozinku"
+
+#: registration/register.php:49
+#@ cc
+msgid "Confirm Password"
+msgstr "Potvrdite lozinku"
+
+#: registration/register.php:65
+#@ cc
+msgid "Profile Details"
+msgstr "Detalji profila"
+
+#: registration/register.php:183
+#@ cc
+msgid "Blog Details"
+msgstr "Detalji bloga"
+
+#: registration/register.php:185
+#@ cc
+msgid "Yes, I'd like to create a new site"
+msgstr "Da, želim kreirati novu stranicu"
+
+#: registration/register.php:189
+#@ cc
+msgid "Blog URL"
+msgstr "URL bloga"
+
+#: registration/register.php:198
+#@ cc
+msgid "Site Title"
+msgstr "Naslov stranice"
+
+#: registration/register.php:202
+#@ cc
+msgid "I would like my site to appear in search engines, and in public listings around this network."
+msgstr "Želim da se moja stranica pojavljuje u pretraživačima i javnim popisima povezanim s ovom mrežom."
+
+#: registration/register.php:219
+#@ cc
+msgid "Complete Sign Up"
+msgstr "Završi registraciju"
+
+#: registration/register.php:230
+#@ cc
+msgid "Sign Up Complete!"
+msgstr "Registracija završena!"
+
+#: registration/register.php:236
+#@ cc
+msgid "You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address."
+msgstr "Uspješno ste kreirali svoj korisnički račun! Kako biste počeli koristiti ovu stranicu, aktivirajte svoj korisnički račun putem e- maila koji smo upravo poslali na vašu adresu."
+
+#: registration/register.php:238
+#@ cc
+msgid "You have successfully created your account! Please log in using the username and password you have just created."
+msgstr "Uspješno ste kreirali svoj korisnički račun! Molimo vas da se logirate koristeći korisničko ime i lozinku koje ste upravo kreirali."
+
+#: search-loop.php:36
+#@ cc
+msgid "Read more..."
+msgstr "Pročitaj više…"
+
+#: search-loop.php:53
+#, php-format
+#@ cc
+msgid "We are sorry, but we could not find anything for the search term '%s'"
+msgstr "Žao nam je, ali nismo pronašli ništa za termin pretrage '%s'"
+
+#: search.php:14
+#@ cc
+msgid "Search Results"
+msgstr "Rezultati pretraživanja"
+
+#: search.php:59
+#@ cc
+msgid "No posts found. Try a different search?"
+msgstr "Nije pronađena nijedna objava. Želite li pokušati drugačiju pretragu?"
+
+#: sidebar.php:11
+#@ cc
+msgid "Recent Posts"
+msgstr "Nedavne objave"
+
+#: sidebar.php:23
+#@ cc
+msgid "Random Posts"
+msgstr "Slučajno odabrane objave "
+
+#: sidebar.php:35
+#@ cc
+msgid "Search by Tags!"
+msgstr "Pretraži po oznakama!"
+
+#: single.php:87
+#@ cc
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#: single.php:88
+#@ cc
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"
+

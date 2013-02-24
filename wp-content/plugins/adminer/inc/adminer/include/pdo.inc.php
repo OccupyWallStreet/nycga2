@@ -5,6 +5,11 @@ if (extension_loaded('pdo')) {
 		var $_result, $server_info, $affected_rows, $error;
 		
 		function __construct() {
+			global $adminer;
+			$pos = array_search("", $adminer->operators);
+			if ($pos !== false) {
+				unset($adminer->operators[$pos]);
+			}
 		}
 		
 		function dsn($dsn, $username, $password, $exception_handler = 'auth_error') {
@@ -19,6 +24,7 @@ if (extension_loaded('pdo')) {
 		
 		function query($query, $unbuffered = false) {
 			$result = parent::query($query);
+			$this->error = "";
 			if (!$result) {
 				$errorInfo = $this->errorInfo();
 				$this->error = $errorInfo[2];
@@ -45,7 +51,8 @@ if (extension_loaded('pdo')) {
 		}
 		
 		function next_result() {
-			return $this->_result->nextRowset();
+			$this->_result->_offset = 0;
+			return @$this->_result->nextRowset(); // @ - PDO_PgSQL doesn't support it
 		}
 		
 		function result($query, $field = 0) {
@@ -73,7 +80,7 @@ if (extension_loaded('pdo')) {
 			$row = (object) $this->getColumnMeta($this->_offset++);
 			$row->orgtable = $row->table;
 			$row->orgname = $row->name;
-			$row->charsetnr = (in_array("blob", $row->flags) ? 63 : 0);
+			$row->charsetnr = (in_array("blob", (array) $row->flags) ? 63 : 0);
 			return $row;
 		}
 	}

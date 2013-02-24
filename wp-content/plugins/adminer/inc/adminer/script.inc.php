@@ -13,8 +13,12 @@ if ($_GET["script"] == "db") {
 			foreach ($sums + array("Auto_increment" => 0, "Rows" => 0) as $key => $val) {
 				if ($table_status[$key] != "") {
 					$val = number_format($table_status[$key], 0, '.', lang(','));
-					json_row("$key-$id", ($key == "Rows" && $table_status["Engine"] == "InnoDB" && $val ? "~ $val" : $val));
+					json_row("$key-$id", ($key == "Rows" && $val && $table_status["Engine"] == ($sql == "pgsql" ? "table" : "InnoDB")
+						? "~ $val"
+						: $val
+					));
 					if (isset($sums[$key])) {
+						// ignore innodb_file_per_table because it is not active for tables created before it was enabled
 						$sums[$key] += ($table_status["Engine"] != "InnoDB" || $key != "Data_free" ? $table_status[$key] : 0);
 					}
 				} elseif (array_key_exists($key, $table_status)) {
@@ -27,8 +31,12 @@ if ($_GET["script"] == "db") {
 		json_row("sum-$key", number_format($val, 0, '.', lang(',')));
 	}
 	json_row("");
+
+} elseif ($_GET["script"] == "kill") {
+	$connection->query("KILL " . (+$_POST["kill"]));
+
 } else { // connect
-	foreach (count_tables(get_databases()) as $db => $val) {
+	foreach (count_tables($adminer->databases()) as $db => $val) {
 		json_row("tables-" . js_adminer_escape($db), $val);
 	}
 	json_row("");

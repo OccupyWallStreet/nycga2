@@ -1,0 +1,899 @@
+# Translation of the WordPress plugin Site Categories 1.0.3 by Paul Menard (Incsub).
+# Copyright (C) 2012 Paul Menard (Incsub)
+# This file is distributed under the same license as the Site Categories package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Site Categories 1.0.3\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/site-categories\n"
+"POT-Creation-Date: 2012-08-16 10:44-0500\n"
+"PO-Revision-Date: 2012-08-16 11:46-0500\n"
+"Last-Translator: Paul Menard <paul@codehooligans.com>\n"
+"Language-Team: WPMUDEV <paul@incsub.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+
+#: lib/dash-notice/wpmudev-dash-notification.php:57
+#, php-format
+msgid "Easily get updates, support, and one-click WPMU DEV plugin/theme installations right from in your dashboard - <strong><a href=\"%s\" title=\"Install Now &raquo;\">install the free WPMU DEV Dashboard plugin</a></strong>. &nbsp;&nbsp;&nbsp;<small><a href=\"http://premium.wpmudev.org/wpmu-dev/update-notifications-plugin-information/\">(find out more)</a></small>"
+msgstr ""
+
+#: lib/dash-notice/wpmudev-dash-notification.php:61
+#, php-format
+msgid "Updates, Support, Premium Plugins, Community - <strong><a href=\"%s\" title=\"Activate Now &raquo;\">activate the WPMU DEV Dashboard plugin now</a></strong>."
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:8
+msgid "Shows a list of all site categories."
+msgstr ""
+
+#. #-#-#-#-#  site-categories.pot (Site Categories 1.0.3)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: lib/widgets/class_site_categories_widget_categories.php:9
+#: site-categories.php:86
+#: site-categories.php:518
+msgid "Site Categories"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:27
+msgid "more categories"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:35
+#: lib/widgets/class_site_categories_widget_category_sites.php:33
+#: lib/widgets/class_site_categories_widget_cloud.php:37
+msgid "Title:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:41
+#: lib/widgets/class_site_categories_widget_category_sites.php:70
+msgid "Display as:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:45
+#: lib/widgets/class_site_categories_widget_category_sites.php:74
+#: site-categories.php:1279
+#: site-categories.php:1542
+msgid "Ordered List (ol)"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:47
+#: lib/widgets/class_site_categories_widget_category_sites.php:76
+#: site-categories.php:1277
+#: site-categories.php:1540
+msgid "Unordered List (ul)"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:58
+msgid "Number of Site Categories to show:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:65
+#: lib/widgets/class_site_categories_widget_category_sites.php:90
+#: lib/widgets/class_site_categories_widget_cloud.php:75
+msgid "Ordering:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:69
+#: lib/widgets/class_site_categories_widget_category_sites.php:94
+#: lib/widgets/class_site_categories_widget_cloud.php:79
+#: site-categories.php:1321
+msgid "Name"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:71
+#: lib/widgets/class_site_categories_widget_category_sites.php:96
+msgid "Category ID"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:76
+#: lib/widgets/class_site_categories_widget_category_sites.php:100
+#: lib/widgets/class_site_categories_widget_cloud.php:86
+#: site-categories.php:1330
+msgid "ASC"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:78
+#: lib/widgets/class_site_categories_widget_category_sites.php:102
+#: lib/widgets/class_site_categories_widget_cloud.php:88
+#: site-categories.php:1332
+msgid "DESC"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:83
+msgid "Hide Empty Site Categories:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:85
+#: lib/widgets/class_site_categories_widget_categories.php:94
+#: lib/widgets/class_site_categories_widget_categories.php:104
+#: lib/widgets/class_site_categories_widget_categories.php:119
+#: lib/widgets/class_site_categories_widget_category_sites.php:62
+#: lib/widgets/class_site_categories_widget_category_sites.php:114
+#: lib/widgets/class_site_categories_widget_category_sites.php:134
+#: site-categories.php:1343
+#: site-categories.php:1360
+#: site-categories.php:1374
+#: site-categories.php:1396
+#: site-categories.php:1410
+#: site-categories.php:1432
+#: site-categories.php:1446
+#: site-categories.php:1583
+#: site-categories.php:1601
+#: site-categories.php:1655
+#: site-categories.php:1671
+#: site-categories.php:1698
+#: site-categories.php:1847
+msgid "Yes"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:88
+#: lib/widgets/class_site_categories_widget_categories.php:97
+#: lib/widgets/class_site_categories_widget_categories.php:107
+#: lib/widgets/class_site_categories_widget_categories.php:122
+#: lib/widgets/class_site_categories_widget_category_sites.php:65
+#: lib/widgets/class_site_categories_widget_category_sites.php:118
+#: lib/widgets/class_site_categories_widget_category_sites.php:137
+#: site-categories.php:1344
+#: site-categories.php:1364
+#: site-categories.php:1378
+#: site-categories.php:1400
+#: site-categories.php:1414
+#: site-categories.php:1436
+#: site-categories.php:1450
+#: site-categories.php:1587
+#: site-categories.php:1605
+#: site-categories.php:1659
+#: site-categories.php:1675
+#: site-categories.php:1702
+#: site-categories.php:1851
+msgid "No"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:92
+msgid "Show Site Category Count:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:102
+msgid "Show Site Category icons:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:111
+#: lib/widgets/class_site_categories_widget_category_sites.php:122
+msgid "Icon size:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:113
+#: lib/widgets/class_site_categories_widget_category_sites.php:124
+#: site-categories.php:1464
+#: site-categories.php:1474
+#: site-categories.php:1623
+msgid "square"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:117
+msgid "Landing Page link below categories list:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:126
+#: lib/widgets/class_site_categories_widget_category_sites.php:143
+msgid "Label for link:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_categories.php:245
+msgid "More Categories"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_category_sites.php:8
+msgid "Shows a list of all sites that belong to selected site category."
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_category_sites.php:9
+msgid "Sites from a single site category"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_category_sites.php:25
+msgid "more sites"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_category_sites.php:39
+#: site-categories.php:2320
+msgid "Site Category:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_category_sites.php:48
+#: site-categories.php:1918
+#: site-categories.php:2360
+msgid "None Selected"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_category_sites.php:60
+msgid "Include Child Categories:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_category_sites.php:83
+msgid "Number of Sites to show:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_category_sites.php:111
+msgid "Show Blog icons:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_category_sites.php:128
+msgid "<p>Blog Avatar require <a target=\"_blank\" href=\"http://premium.wpmudev.org/project/avatars\">Avatars</a> plugin.</p>"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_category_sites.php:132
+msgid "Landing Page link below Sites list:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_category_sites.php:207
+msgid "More Sites"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:8
+msgid "Shows a tag cloud of Site Categories."
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:9
+msgid "Site Categories Cloud"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:44
+msgid "Number of item to show: (blank for all)"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:52
+msgid "Show Site Categories:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:59
+msgid "All Categories"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:71
+msgid "Include Parent:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:81
+msgid "Count"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:90
+msgid "Random"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:96
+msgid "Small Font size:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:103
+msgid "Large Font size:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:111
+msgid "Font size unit:"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:116
+msgid "% Percentage"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:118
+msgid "in Inch"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:120
+msgid "cm Centimeter"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:122
+msgid "mm Millimeter"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:124
+msgid "em"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:126
+msgid "ex"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:128
+msgid "pt Point"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:130
+msgid "pc Pica"
+msgstr ""
+
+#: lib/widgets/class_site_categories_widget_cloud.php:132
+msgid "px Pixels"
+msgstr ""
+
+#: site-categories.php:203
+msgid "Icon"
+msgstr ""
+
+#: site-categories.php:207
+msgid "Sites"
+msgstr ""
+
+#: site-categories.php:364
+msgctxt "Category Image"
+msgid "Image"
+msgstr ""
+
+#: site-categories.php:366
+msgid "The image used for the category icon will be displayed square."
+msgstr ""
+
+#: site-categories.php:368
+#: site-categories.php:1493
+msgid "Select Image"
+msgstr ""
+
+#: site-categories.php:370
+#: site-categories.php:1495
+msgid "Remove Image"
+msgstr ""
+
+#: site-categories.php:520
+#: site-categories.php:950
+#: site-categories.php:1147
+msgid "Site Description"
+msgstr ""
+
+#: site-categories.php:751
+msgctxt "taxonomy general name"
+msgid "Site Categories"
+msgstr ""
+
+#: site-categories.php:752
+msgctxt "taxonomy singular name"
+msgid "Site Category"
+msgstr ""
+
+#: site-categories.php:753
+msgid "Search Site Categories"
+msgstr ""
+
+#: site-categories.php:754
+msgid "All Site Categories"
+msgstr ""
+
+#: site-categories.php:755
+msgid "Parent Site Category"
+msgstr ""
+
+#: site-categories.php:756
+msgid "Parent Site Category:"
+msgstr ""
+
+#: site-categories.php:757
+msgid "Edit Site Category"
+msgstr ""
+
+#: site-categories.php:758
+msgid "Update Site Category"
+msgstr ""
+
+#: site-categories.php:759
+msgid "Add New Site Category"
+msgstr ""
+
+#: site-categories.php:760
+msgid "New Site Category Name"
+msgstr ""
+
+#: site-categories.php:761
+msgid "Site Category"
+msgstr ""
+
+#: site-categories.php:818
+#: site-categories.php:836
+#: site-categories.php:848
+msgctxt "page label"
+msgid "Site Categories"
+msgstr ""
+
+#: site-categories.php:819
+#: site-categories.php:837
+#: site-categories.php:849
+msgctxt "menu label"
+msgid "Site Categories"
+msgstr ""
+
+#: site-categories.php:827
+msgctxt "page label"
+msgid "Settings"
+msgstr ""
+
+#: site-categories.php:828
+msgctxt "menu label"
+msgid "Settings"
+msgstr ""
+
+#: site-categories.php:869
+#: site-categories.php:930
+msgid "Cheatin&#8217; uh?"
+msgstr ""
+
+#: site-categories.php:871
+#: site-categories.php:932
+msgid "Settings have been update."
+msgstr ""
+
+#: site-categories.php:887
+#: site-categories.php:981
+#: site-categories.php:1090
+msgid "Landing Page Selection"
+msgstr ""
+
+#: site-categories.php:893
+#: site-categories.php:983
+#: site-categories.php:1097
+msgid "Site Categories Selection Options"
+msgstr ""
+
+#: site-categories.php:899
+#: site-categories.php:985
+msgid "Landing Page Categories Display Options"
+msgstr ""
+
+#: site-categories.php:905
+#: site-categories.php:987
+msgid "Landing Page Sites Display Options"
+msgstr ""
+
+#: site-categories.php:911
+#: site-categories.php:989
+#: site-categories.php:1118
+msgid "New Site Signup Form Options"
+msgstr ""
+
+#: site-categories.php:944
+#: site-categories.php:1146
+msgid "Select the Categories for this site"
+msgstr ""
+
+#: site-categories.php:977
+msgid "This Settings panel controls various display options for the Landing page. This landing page is hosted only on the primary site and from the options on this page you can control the layout of the site categories items."
+msgstr ""
+
+#: site-categories.php:981
+#: site-categories.php:983
+#: site-categories.php:989
+msgid "This Selection lets you set the landing page to be used when displaying the Site Categories."
+msgstr ""
+
+#: site-categories.php:985
+#: site-categories.php:1024
+#: site-categories.php:1067
+msgid "This Selection controls the output of the Site Categories on the landing page. Here you can control the style, icons, number of categories per page, etc."
+msgstr ""
+
+#: site-categories.php:987
+#: site-categories.php:1048
+msgid "This Selection controls the output of the Sites on the landing page. Here you can control the style, icons, number of sites per page, etc."
+msgstr ""
+
+#: site-categories.php:997
+msgid "The Landing Page Selection lets you set the landing page to be used when displaying the Site Categories."
+msgstr ""
+
+#: site-categories.php:1000
+#: site-categories.php:1734
+msgid "Select Landing Page"
+msgstr ""
+
+#: site-categories.php:1000
+msgid "Select the page to function as the site categories landing page. The landing page will be inserted automatically at the bottom of the page content."
+msgstr ""
+
+#: site-categories.php:1010
+msgid "Number of Categories per site"
+msgstr ""
+
+#: site-categories.php:1010
+msgid " This option controls the number of dropdown selectors the site admin will see when creating a new site or under the Site Categories Settings option within an existing site."
+msgstr ""
+
+#: site-categories.php:1012
+#: site-categories.php:1774
+msgid "Number of categories per site"
+msgstr ""
+
+#: site-categories.php:1012
+msgid "This controls the number of categories a site can set. Within the site settings panel the admin will see a number of dropdowns for the Site Categories. The admin can set one or more of these to the available site categories."
+msgstr ""
+
+#: site-categories.php:1014
+#: site-categories.php:1784
+msgid "Pro Sites"
+msgstr ""
+
+#: site-categories.php:1014
+#, php-format
+msgid "If you have the %1$sPro Sites%2$s plugins installed you can assign a different number of Site Categories for each level"
+msgstr ""
+
+#: site-categories.php:1016
+#: site-categories.php:1841
+msgid "Category parents selectable"
+msgstr ""
+
+#: site-categories.php:1016
+msgid "With this option to can force the selection of only child categories from the dropdown selectors. This is handy when displaying your Site Categories using the Grid layout."
+msgstr ""
+
+#: site-categories.php:1026
+#: site-categories.php:1050
+#: site-categories.php:1272
+#: site-categories.php:1535
+msgid "Display Style"
+msgstr ""
+
+#: site-categories.php:1026
+msgid "The Display style is how the Site Categories are presented on the page. From the dropdown you can select a simple list or try more advanced display options like Grid or Accordion."
+msgstr ""
+
+#: site-categories.php:1028
+#: site-categories.php:1290
+#: site-categories.php:1300
+msgid "Categories per page"
+msgstr ""
+
+#: site-categories.php:1028
+msgid "This is the number of categories to show on a given page. If you have hundreds of site categories you probably would not want these all to show on a single page. That would be too much information for the user to digest. So you can set the number of categories to something manageable like 20, 50 or 100."
+msgstr ""
+
+#: site-categories.php:1030
+#: site-categories.php:1313
+msgid "Order by"
+msgstr ""
+
+#: site-categories.php:1030
+msgid "By default the displayed site categories will be ordered by Name. Using this option you can adjust the order to your liking."
+msgstr ""
+
+#: site-categories.php:1032
+msgid "Hide empty Categories"
+msgstr ""
+
+#: site-categories.php:1032
+msgid "If a site categories does not have any sites assigned to it you might want to hide it from the listing."
+msgstr ""
+
+#: site-categories.php:1034
+msgid "Show Counts"
+msgstr ""
+
+#: site-categories.php:1034
+msgid "Similar to the hide empty this option lets you show the user just how many sites are associated with each site category."
+msgstr ""
+
+#: site-categories.php:1036
+#: site-categories.php:1387
+msgid "Show Category Description"
+msgstr ""
+
+#: site-categories.php:1036
+msgid "When you create the site categories you can provide a detailed description. This description can be shown as part of the display output. "
+msgstr ""
+
+#: site-categories.php:1038
+#: site-categories.php:1056
+msgid "Show Icons"
+msgstr ""
+
+#: site-categories.php:1038
+msgid "As part of the site categories setup you can upload or select an image to represent the site category. Using this option will show those icons as part of the display output."
+msgstr ""
+
+#: site-categories.php:1040
+#: site-categories.php:1059
+#: site-categories.php:1457
+#: site-categories.php:1619
+msgid "Icon size"
+msgstr ""
+
+#: site-categories.php:1040
+msgid "If you chose to display site category icons you can control the size of these icons using this option."
+msgstr ""
+
+#: site-categories.php:1050
+msgid "The Display style is how the Sites are presented on the page."
+msgstr ""
+
+#: site-categories.php:1052
+#: site-categories.php:1548
+msgid "Sites per page"
+msgstr ""
+
+#: site-categories.php:1052
+msgid "This is the number of site to show on a given page. If you have hundreds of sites in a single category you probably would not want these all to show on a single page. That would be too much information for the user to digest. So you can set the number of sites to something manageable like 20, 50 or 100."
+msgstr ""
+
+#: site-categories.php:1054
+#: site-categories.php:1578
+msgid "Show Site Description"
+msgstr ""
+
+#: site-categories.php:1054
+msgid "On the Site Admin Settings page the admin can enter a description for the site. This is similar to the Site Category description. If provided by the site is will be displayed as part of the page output."
+msgstr ""
+
+#: site-categories.php:1056
+#, php-format
+msgid "If the %1$sAvatars%2$s plugins is installed you can show the Site icon as part of the display output."
+msgstr ""
+
+#: site-categories.php:1059
+msgid "If you chose to display site icons you can control the size of these icons using this option."
+msgstr ""
+
+#: site-categories.php:1069
+#: site-categories.php:1650
+msgid "Show Site Categories section"
+msgstr ""
+
+#: site-categories.php:1069
+msgid "With this option you can control the display of the Site Categories dropdowns and description on the New Site Signup Form."
+msgstr ""
+
+#: site-categories.php:1070
+#: site-categories.php:1666
+msgid "Site Categories Selection Required"
+msgstr ""
+
+#: site-categories.php:1070
+msgid "Allows you to force the new site admin to select Site Categories options. If set the admin is required to set "
+msgstr ""
+
+#: site-categories.php:1071
+#: site-categories.php:1682
+msgid "Label for Site Categories Dropdowns"
+msgstr ""
+
+#: site-categories.php:1071
+msgid "This option lets you use an alternate form label for the Site Categories dropdown selector. Maybe something more descriptive to the user."
+msgstr ""
+
+#: site-categories.php:1072
+#: site-categories.php:1693
+msgid "Description is Required"
+msgstr ""
+
+#: site-categories.php:1072
+msgid "This option control if the Site Description textarea field is required on the form."
+msgstr ""
+
+#: site-categories.php:1073
+#: site-categories.php:1708
+msgid "Label for Site Categories Description"
+msgstr ""
+
+#: site-categories.php:1073
+msgid "This option lets you use an alternate form label for the Site Description field."
+msgstr ""
+
+#: site-categories.php:1083
+#: site-categories.php:1156
+msgid "Settings Overview"
+msgstr ""
+
+#: site-categories.php:1104
+msgid "Categories Display Options"
+msgstr ""
+
+#: site-categories.php:1111
+msgid "Sites Display Options"
+msgstr ""
+
+#: site-categories.php:1144
+msgid "This page lets you associate this site with various Site Categories. The Site Categories are global to this Multisite network of sites and stores within the primary site."
+msgstr ""
+
+#: site-categories.php:1146
+msgid "Depending on the number of allowed categories by the super admin you will see a number of dropdowns where you can select the site category this site is to be associated."
+msgstr ""
+
+#: site-categories.php:1147
+msgid "Also on this page you can enter an optional Site Description. The site description is used on the Site Categories landing page of the primary site."
+msgstr ""
+
+#: site-categories.php:1177
+msgctxt "Site Categories New Page Title"
+msgid "Site Categories Settings"
+msgstr ""
+
+#: site-categories.php:1184
+#: site-categories.php:1232
+msgid "Save Settings"
+msgstr ""
+
+#: site-categories.php:1217
+msgctxt "Site Categories New Page Title"
+msgid "Site Categories"
+msgstr ""
+
+#: site-categories.php:1222
+msgid "From the options below you can select the Site Categories which best describe your site. Also provide a Description which may be displayed on the Site Categories landing page."
+msgstr ""
+
+#: site-categories.php:1225
+msgid "View the Site Categories landing page."
+msgstr ""
+
+#: site-categories.php:1281
+msgid "Accordion"
+msgstr ""
+
+#: site-categories.php:1283
+msgid "Grid"
+msgstr ""
+
+#: site-categories.php:1303
+msgid "Grid Options"
+msgstr ""
+
+#: site-categories.php:1305
+msgid "Number of Columns"
+msgstr ""
+
+#: site-categories.php:1307
+msgid "Number of Rows"
+msgstr ""
+
+#: site-categories.php:1316
+msgid "This order by option controls how the listed Site Categories will be ordered on the listing page."
+msgstr ""
+
+#: site-categories.php:1323
+msgid "ID"
+msgstr ""
+
+#: site-categories.php:1325
+msgid "None"
+msgstr ""
+
+#: site-categories.php:1339
+msgid "Hide Empty Categories"
+msgstr ""
+
+#: site-categories.php:1351
+msgid "Show counts"
+msgstr ""
+
+#: site-categories.php:1356
+#: site-categories.php:1392
+#: site-categories.php:1428
+#: site-categories.php:1462
+msgid "Parents"
+msgstr ""
+
+#: site-categories.php:1370
+#: site-categories.php:1407
+#: site-categories.php:1442
+#: site-categories.php:1471
+msgid "Children"
+msgstr ""
+
+#: site-categories.php:1423
+#: site-categories.php:1593
+msgid "Show icons"
+msgstr ""
+
+#: site-categories.php:1465
+#: site-categories.php:1475
+#: site-categories.php:1624
+msgid "default is 32px"
+msgstr ""
+
+#: site-categories.php:1489
+msgctxt "Category Image"
+msgid "Default Category Image"
+msgstr ""
+
+#: site-categories.php:1491
+msgid "Upload or select an image to used as the default category icons. Ensure it is at least as large as the icon size specified above. A square version of this image will be auto generated."
+msgstr ""
+
+#: site-categories.php:1608
+#, php-format
+msgid "Install the %1$sAvatars%2$s plugin to show Site icons."
+msgstr ""
+
+#: site-categories.php:1645
+msgid "These options let you control the Site Categories information displayed on the front-end New Site form."
+msgstr ""
+
+#: site-categories.php:1687
+msgid "The label is shown above the number of category dropdowns"
+msgstr ""
+
+#: site-categories.php:1713
+msgid "The label is shown above the site description"
+msgstr ""
+
+#: site-categories.php:1744
+msgid "&mdash; Select &mdash;"
+msgstr ""
+
+#: site-categories.php:1750
+msgid "The Site Categories listing will be appended to the selected page:"
+msgstr ""
+
+#: site-categories.php:1752
+msgid "View Listing"
+msgstr ""
+
+#: site-categories.php:1777
+msgid "This option lets you limit the number of Site Categories available to the site. This option adds a number of dropdown form elements on the Settings General page where the admin can set the categories for their site."
+msgstr ""
+
+#: site-categories.php:1796
+msgid "You can offer your Pro Sites level more site categories selections"
+msgstr ""
+
+#: site-categories.php:1820
+#, php-format
+msgid "If you install the %1$sPro Sites%2$s plugin, you can offer your Pro Sites levels more categories selections."
+msgstr ""
+
+#: site-categories.php:1844
+msgid "When displaying Site Categories on the Landing page using the <strong>Grid</strong> or <strong>Accordion</strong> styles. It is advisable to set this option to <strong>no</strong>. This option controls the dropdown categories options on the New Site form as well as the Settings page within wp-admin."
+msgstr ""
+
+#: site-categories.php:1880
+msgid "Pro Sites Level:"
+msgstr ""
+
+#: site-categories.php:1953
+msgid "Enter a Site Description to be used on the Landing page."
+msgstr ""
+
+#: site-categories.php:2050
+#: site-categories.php:2162
+msgid "Previous page"
+msgstr ""
+
+#: site-categories.php:2071
+#: site-categories.php:2176
+msgid "Next page"
+msgstr ""
+
+#: site-categories.php:2294
+msgid "Category"
+msgstr ""
+
+#: site-categories.php:2330
+msgid "Site Description:"
+msgstr ""
+
+#: site-categories.php:2374
+#: site-categories.php:2387
+msgid "(* required)"
+msgstr ""
+
+#: site-categories.php:2477
+#, php-format
+msgid "You must select at least %d unique categories"
+msgstr ""
+
+#: site-categories.php:2489
+msgid "Please provide a value"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Paul Menard (Incsub)"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://premium.wpmudev.org/"
+msgstr ""
+

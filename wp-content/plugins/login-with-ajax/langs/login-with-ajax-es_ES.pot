@@ -1,0 +1,171 @@
+# Translation of the WordPress plugin Login With Ajax 2.0.4 by NetWebLogic.
+# Copyright (C) 2010 NetWebLogic
+# This file is distributed under the same license as the Login With Ajax package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Login With Ajax 2.0.4\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/login-with-ajax\n"
+"POT-Creation-Date: 2010-02-10 13:35+0000\n"
+"PO-Revision-Date: 2011-01-06 10:55+0100\n"
+"Last-Translator: Daniel Ramos <daniel.ramos@emesa.nl>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: login-with-ajax-admin.php:67
+msgid "Changes saved."
+msgstr "Cambios guardados."
+
+#: login-with-ajax-admin.php:71
+msgid "There were issues when saving your settings. Please try again."
+msgstr "Hubo problemas guardando sus preferencias. Inténtelo de nuevo, por favor."
+
+#: login-with-ajax-admin.php:99
+msgid "Global Login Redirect"
+msgstr "Redirección global de entrada"
+
+#: login-with-ajax-admin.php:103
+msgid "If you'd like to send the user to a specific URL after login, enter it here (e.g. http://wordpress.org/)"
+msgstr "Si desea redireccionar al usuario a una URL determinada al iniciar la sesión, digítela aquí (p.e. http://wordpress.org)"
+
+#: login-with-ajax-admin.php:108
+msgid "Global Logout Redirect"
+msgstr "Redirección global de salida"
+
+#: login-with-ajax-admin.php:112
+msgid "If you'd like to send the user to a specific URL after logout, enter it here (e.g. http://wordpress.org/)"
+msgstr "Si desea redireccionar al usuario a una URL determinada al salir, digítela aquí  (p.e. http://wordpress.org)"
+
+#: login-with-ajax-admin.php:117
+msgid "Role-Based Custom Login Redirects"
+msgstr "Redirección de entrada según el tipo de usuario"
+
+#: login-with-ajax-admin.php:120
+msgid "If you would like a specific user role to be redirected to a custom URL upon login, place it here (blank value will default to the global redirect)"
+msgstr "Para redireccionar cada tipo de usuario a una página determinada al entrar, digítela aquí (si deja el campo vacío, se utilizará la configuración global)"
+
+#: login-with-ajax-admin.php:140
+msgid "Role-Based Custom Logout Redirects"
+msgstr "Redirección de salida según tipo de usuario"
+
+#: login-with-ajax-admin.php:143
+msgid "If you would like a specific user role to be redirected to a custom URL upon logout, place it here (blank value will default to the global redirect)"
+msgstr "Para redireccionar cada tipo de usuario a una página determinada al cerrar la sesión, digítela aquí (si deja el campo vacío, se utilizará la configuración global)"
+
+#: login-with-ajax-admin.php:167
+msgid "Save Changes"
+msgstr "Guardar cambios"
+
+#: login-with-ajax-widget.php:5
+msgid "Login widget with AJAX capabilities."
+msgstr "Widget de ingreso con funcionalidad de AJAX"
+
+#: login-with-ajax-widget.php:25
+msgid "Show profile link?"
+msgstr "¿Mostrar enlace para acceso al perfil de usuario?"
+
+#: login-with-ajax.php:107
+msgid "Login Successful, redirecting..."
+msgstr "Contraseña correcta, iniciando sesión..."
+
+#: login-with-ajax.php:126
+#: login-with-ajax.php:148
+msgid "An undefined error has ocurred"
+msgstr "Ha ocurrido un error indeterminado"
+
+#: login-with-ajax.php:138
+msgid "We have sent you an email"
+msgstr "Acabamos de enviarle un correo electrónico"
+
+#: widget/widget_in.php:11
+msgid "Hi"
+msgstr "Hola"
+
+#: widget/widget_in.php:34
+msgid "Profile"
+msgstr "Perfil"
+
+#: widget/widget_in.php:40
+#: widget/widget_in.php:44
+msgid "Log Out"
+msgstr "Salir"
+
+#: widget/widget_in.php:51
+msgid "blog admin"
+msgstr "Gestión del Blog"
+
+#: widget/widget_out.php:10
+#: widget/widget_out.php:35
+msgid "Log In"
+msgstr "Entrar"
+
+#: widget/widget_out.php:19
+msgid "Username"
+msgstr "Usuario"
+
+#: widget/widget_out.php:27
+msgid "Password"
+msgstr "Contraseña"
+
+#: widget/widget_out.php:41
+msgid "Remember Me"
+msgstr "Recuerdar mis datos"
+
+#: widget/widget_out.php:43
+msgid "Password Lost and Found"
+msgstr "Contraseña perdida y encontrada"
+
+#: widget/widget_out.php:43
+msgid "Lost your password?"
+msgstr "¿Olvidó la contraseña?"
+
+# Translated by WP
+#: widget/widget_out.php:52
+#: widget/widget_out.php:56
+msgid "Register"
+msgstr "Registrarse"
+
+# Translated by WP
+#: widget/widget_out.php:62
+msgid "Sign Up"
+msgstr "Inscribirse"
+
+#: widget/widget_out.php:74
+msgid "Forgotten Password"
+msgstr "Recordatorio de contraseña"
+
+#: widget/widget_out.php:79
+msgid "Enter username or email"
+msgstr "Digite su nombre de usuario o correo electrónico"
+
+#: widget/widget_out.php:85
+msgid "Get New Password"
+msgstr "Obtener nueva contraseña"
+
+#. Plugin Name of an extension
+msgid "Login With Ajax"
+msgstr "Login with Ajax"
+
+#. Plugin URI of an extension
+msgid "http://netweblogic.com/wordpress/plugins/login-with-ajax/"
+msgstr "http://netweblogic.com/wordpress/plugins/login-with-ajax/"
+
+#. Description of an extension
+msgid "Ajax driven login widget. Customisable from within your template folder, and advanced settings from the admin area."
+msgstr "Widget para entrar con AJAX. Se puede modificar dentro de la carpeta del tema y configurar opciones avanzadas en el área de gestión."
+
+#. Author of an extension
+msgid "NetWebLogic"
+msgstr "NetWebLogic"
+
+#. Author URI of an extension
+msgid "http://netweblogic.com/"
+msgstr "http://netweblogic.com/"
+
+#. Tags of an extension
+msgid "Login, Ajax, Redirect, BuddyPress, MU, WPMU, sidebar, admin, widget"
+msgstr "Login, Ajax, Redirect, BuddyPress, MU, WPMU, sidebar, admin, widget"
+

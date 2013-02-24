@@ -14,21 +14,24 @@ if ($_COOKIE["adminer_permanent"]) {
 	}
 }
 
-if (isset($_POST["server"])) {
+$auth = $_POST["auth"];
+if ($auth) {
 	session_regenerate_id(); // defense against session fixation
-	$_SESSION["pwds"][$_POST["driver"]][$_POST["server"]][$_POST["username"]] = $_POST["password"];
-	if ($_POST["permanent"]) {
-		$key = base64_encode($_POST["driver"]) . "-" . base64_encode($_POST["server"]) . "-" . base64_encode($_POST["username"]);
+	$_SESSION["pwds"][$auth["driver"]][$auth["server"]][$auth["username"]] = $auth["password"];
+	$_SESSION["db"][$auth["driver"]][$auth["server"]][$auth["username"]][$auth["db"]] = true;
+	if ($auth["permanent"]) {
+		$key = base64_encode($auth["driver"]) . "-" . base64_encode($auth["server"]) . "-" . base64_encode($auth["username"]) . "-" . base64_encode($auth["db"]);
 		$private = $adminer->permanentLogin();
-		$permanent[$key] = "$key:" . base64_encode($private ? encrypt_string($_POST["password"], $private) : "");
+		$permanent[$key] = "$key:" . base64_encode($private ? encrypt_string($auth["password"], $private) : "");
 		cookie("adminer_permanent", implode(" ", $permanent));
 	}
-	if (count($_POST) == ($_POST["permanent"] ? 5 : 4) // 4 - driver, server, username, password
-		|| DRIVER != $_POST["driver"]
-		|| SERVER != $_POST["server"]
-		|| $_GET["username"] !== $_POST["username"] // "0" == "00"
+	if (count($_POST) == 1 // 1 - auth
+		|| DRIVER != $auth["driver"]
+		|| SERVER != $auth["server"]
+		|| $_GET["username"] !== $auth["username"] // "0" == "00"
+		|| DB != $auth["db"]
 	) {
-		redirect(auth_url($_POST["driver"], $_POST["server"], $_POST["username"]));
+		redirect(auth_url($auth["driver"], $auth["server"], $auth["username"], $auth["db"]));
 	}
 } elseif ($_POST["logout"]) {
 	if ($token && $_POST["token"] != $token) {
@@ -36,14 +39,10 @@ if (isset($_POST["server"])) {
 		page_footer("db");
 		exit;
 	} else {
-		foreach (array("pwds", "dbs", "queries") as $key) {
+		foreach (array("pwds", "db", "dbs", "queries") as $key) {
 			set_session($key, null);
 		}
-		$key = base64_encode(DRIVER) . "-" . base64_encode(SERVER) . "-" . base64_encode($_GET["username"]);
-		if ($permanent[$key]) {
-			unset($permanent[$key]);
-			cookie("adminer_permanent", implode(" ", $permanent));
-		}
+		unset_permanent();
 		redirect(substr(preg_replace('~(username|db|ns)=[^&]*&~', '', ME), 0, -1), lang('Logout successful.'));
 	}
 } elseif ($permanent && !$_SESSION["pwds"]) {
@@ -51,9 +50,21 @@ if (isset($_POST["server"])) {
 	$private = $adminer->permanentLogin(); // try to decode even if not set
 	foreach ($permanent as $key => $val) {
 		list(, $cipher) = explode(":", $val);
-		list($driver, $server, $username) = array_map('base64_decode', explode("-", $key));
+		list($driver, $server, $username, $db) = array_map('base64_decode', explode("-", $key));
 		$_SESSION["pwds"][$driver][$server][$username] = decrypt_string(base64_decode($cipher), $private);
+		$_SESSION["db"][$driver][$server][$username][$db] = true;
 	}
+}
+
+function unset_permanent() {
+	global $permanent;
+	foreach ($permanent as $key => $val) {
+		list($driver, $server, $username) = array_map('base64_decode', explode("-", $key));
+		if ($driver == DRIVER && $server == SERVER && $db == $_GET["username"]) {
+			unset($permanent[$key]);
+		}
+	}
+	cookie("adminer_permanent", implode(" ", $permanent));
 }
 
 function auth_error($exception = null) {
@@ -67,17 +78,18 @@ function auth_error($exception = null) {
 			$error = lang('Session expired, please login again.');
 		} else {
 			$password = &get_session("pwds");
-			if (isset($password)) {
+			if ($password !== null) {
 				$error = h($exception ? $exception->getMessage() : (is_string($connection) ? $connection : lang('Invalid credentials.')));
 				$password = null;
 			}
+			unset_permanent();
 		}
 	}
 	page_header(lang('Login'), $error, null);
-	echo "<form action='' method='post' onclick='eventStop(event);'>\n";
+	echo "<form action='' method='post'>\n";
 	$adminer->loginForm();
 	echo "<div>";
-	hidden_fields($_POST, array("driver", "server", "username", "password", "permanent")); // expired session
+	hidden_fields($_POST, array("auth")); // expired session
 	echo "</div>\n";
 	echo "</form>\n";
 	page_footer("auth");
@@ -85,7 +97,8 @@ function auth_error($exception = null) {
 
 if (isset($_GET["username"])) {
 	if (!class_exists("Min_DB")) {
-		unset($_SESSION["pwds"][DRIVER]); //! remove also from adminer_permanent
+		unset($_SESSION["pwds"][DRIVER]);
+		unset_permanent();
 		page_header(lang('No extension'), lang('None of the supported PHP extensions (%s) are available.', implode(", ", $possible_drivers)), false);
 		page_footer("auth");
 		exit;
@@ -98,7 +111,7 @@ if (is_string($connection) || !$adminer->login($_GET["username"], get_session("p
 }
 
 $token = $_SESSION["token"]; ///< @var string CSRF protection
-if (isset($_POST["server"]) && $_POST["token"]) {
+if ($auth && $_POST["token"]) {
 	$_POST["token"] = $token; // reset token after explicit login
 }
 $error = ($_POST ///< @var string

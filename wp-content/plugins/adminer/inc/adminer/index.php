@@ -7,6 +7,13 @@
 * @license http://www.gnu.org/licenses/gpl-2.0.html GNU General Public License, version 2 (one or other)
 */
 
+// Remove Magic Quotes
+if ( ! class_exists( 'AdminerForWP' ) ) {
+	require_once '../../adminer.php';
+	new AdminerForWP();
+}
+AdminerForWP::gpc_strip_slashes();
+
 include "./include/bootstrap.inc.php";
 
 $enum_length = "'(?:''|[^'\\\\]|\\\\.)*+'";

@@ -26,7 +26,7 @@ if ( ! current_user_can( 'manage_sites' ) )
 
 get_current_screen()->set_help_sidebar(
 	'<p><strong>' . __('For more information:') . '</strong></p>' .
-	'<p>' . __('<a href="http://codex.wordpress.org/Network_Admin_Sites_Screens" target="_blank">Documentation on Site Management</a>') . '</p>' .
+	'<p>' . __('<a href="http://codex.wordpress.org/Network_Admin_Sites_Screen" target="_blank">Documentation on Site Management</a>') . '</p>' .
 	'<p>' . __('<a href="http://wordpress.org/support/forum/multisite/" target="_blank">Support Forums</a>') . '</p>'
 );
 
@@ -62,10 +62,10 @@ if ( isset($_REQUEST['action']) && 'add-site' == $_REQUEST['action'] ) {
 
 	if ( is_subdomain_install() ) {
 		$newdomain = $domain . '.' . preg_replace( '|^www\.|', '', $current_site->domain );
-		$path = $base;
+		$path      = $current_site->path;
 	} else {
 		$newdomain = $current_site->domain;
-		$path = $base . $domain . '/';
+		$path      = $current_site->path . $domain . '/';
 	}
 
 	$password = 'N/A';
@@ -85,7 +85,10 @@ if ( isset($_REQUEST['action']) && 'add-site' == $_REQUEST['action'] ) {
 	if ( !is_wp_error( $id ) ) {
 		if ( !is_super_admin( $user_id ) && !get_user_option( 'primary_blog', $user_id ) )
 			update_user_option( $user_id, 'primary_blog', $id, true );
-		$content_mail = sprintf( __( "New site created by %1s\n\nAddress: %2s\nName: %3s"), $current_user->user_login , get_site_url( $id ), stripslashes( $title ) );
+		$content_mail = sprintf( __( 'New site created by %1$s
+
+Address: %2$s
+Name: %3$s' ), $current_user->user_login , get_site_url( $id ), stripslashes( $title ) );
 		wp_mail( get_site_option('admin_email'), sprintf( __( '[%s] New Site Created' ), $current_site->site_name ), $content_mail, 'From: "Site Admin" <' . get_site_option( 'admin_email' ) . '>' );
 		wpmu_welcome_notification( $id, $user_id, $password, $title, array( 'public' => 1 ) );
 		wp_redirect( add_query_arg( array( 'update' => 'added', 'id' => $id ), 'site-new.php' ) );
@@ -123,11 +126,11 @@ if ( ! empty( $messages ) ) {
 			<th scope="row"><?php _e( 'Site Address' ) ?></th>
 			<td>
 			<?php if ( is_subdomain_install() ) { ?>
-				<input name="blog[domain]" type="text" class="regular-text" title="<?php esc_attr_e( 'Domain' ) ?>"/>.<?php echo preg_replace( '|^www\.|', '', $current_site->domain );?>
+				<input name="blog[domain]" type="text" class="regular-text" title="<?php esc_attr_e( 'Domain' ) ?>"/><span class="no-break">.<?php echo preg_replace( '|^www\.|', '', $current_site->domain ); ?></span>
 			<?php } else {
 				echo $current_site->domain . $current_site->path ?><input name="blog[domain]" class="regular-text" type="text" title="<?php esc_attr_e( 'Domain' ) ?>"/>
 			<?php }
-			echo '<p>' . __( 'Only the characters a-z and 0-9 recommended.' ) . '</p>';
+			echo '<p>' . __( 'Only lowercase letters (a-z) and numbers are allowed.' ) . '</p>';
 			?>
 			</td>
 		</tr>
@@ -148,4 +151,3 @@ if ( ! empty( $messages ) ) {
 </div>
 <?php
 require('../admin-footer.php');
-?>

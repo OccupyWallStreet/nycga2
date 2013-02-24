@@ -1,0 +1,777 @@
+# Copyright (C) 2010 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/si-captcha-for-wordpress\n"
+"POT-Creation-Date: 2011-12-08 01:44:01+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2012-05-01 19:13+0200\n"
+"Last-Translator: \n"
+"Language-Team: Host1free <none>\n"
+"X-Poedit-Language: Lithuanian\n"
+"X-Poedit-Country: Lithuania\n"
+
+#: si-captcha.php:49
+#: si-captcha.php:50
+#: si-captcha.php:53
+#: si-captcha.php:54
+#: si-captcha.php:57
+#: si-captcha-admin.php:88
+msgid "SI Captcha Options"
+msgstr "SI Captcha Parinktys"
+
+#: si-captcha.php:163
+msgid "All registered users"
+msgstr "Visi registruoti vartotojai"
+
+#: si-captcha.php:164
+msgid "Edit posts"
+msgstr "Redaguoti įrašus"
+
+#: si-captcha.php:165
+msgid "Publish Posts"
+msgstr "Paskelbti Įrašus"
+
+#: si-captcha.php:166
+msgid "Moderate Comments"
+msgstr "Prižiūrėti Komentarus"
+
+#: si-captcha.php:167
+msgid "Administer site"
+msgstr "Administruoti tinklalapį"
+
+#: si-captcha.php:185
+msgid "ERROR: si-captcha.php plugin says GD image support not detected in PHP!"
+msgstr "KLAIDA: si-captcha.php papildinys teigia, jog GD vaizdų palaikymas neaptiktas Jūsų PHP versijoje!"
+
+#: si-captcha.php:186
+msgid "Contact your web host and ask them why GD image support is not enabled for PHP."
+msgstr "Susisiekite su prieglobos tiekėju ir paklauskite jo kodėl GD vaizdų palaikymas nėra suaktyvintas šioje PHP versijoje."
+
+#: si-captcha.php:190
+msgid "ERROR: si-captcha.php plugin says imagepng function not detected in PHP!"
+msgstr "KLAIDA: si-captcha.php papildinys teigia, jog imagepng funkcija naptikta Jūsų PHP versijoje!"
+
+#: si-captcha.php:191
+msgid "Contact your web host and ask them why imagepng function is not enabled for PHP."
+msgstr "Susisiekite su prieglobos tiekėju ir paklauskite jo kodėl imagepng funkcija nėra suaktyvinta šioje PHP versijoje."
+
+#: si-captcha.php:195
+msgid "ERROR: si-captcha.php plugin says captcha_library not found."
+msgstr "KLAIDA: si-captcha.php papildinys teigia, jog captcha_library nerasta."
+
+#: si-captcha.php:236
+#: si-captcha.php:318
+#: si-captcha.php:369
+#: si-captcha.php:410
+#: si-captcha.php:443
+#: si-captcha.php:479
+#: si-captcha.php:525
+#: si-captcha.php:558
+#: si-captcha-admin.php:601
+msgid "CAPTCHA Code"
+msgstr "CAPTCHA Kodas"
+
+#: si-captcha.php:271
+msgid "Submit Comment"
+msgstr "Pateikti Komentarą"
+
+#: si-captcha.php:576
+#: si-captcha.php:583
+#: si-captcha-admin.php:389
+#: si-captcha-admin.php:397
+msgid "There is a problem with the directory"
+msgstr "Yra problemų su katalogu"
+
+#: si-captcha.php:578
+#: si-captcha-admin.php:391
+msgid "The directory is not found, a <a href=\"http://codex.wordpress.org/Changing_File_Permissions\" target=\"_blank\">permissions</a> problem may have prevented this directory from being created."
+msgstr "Katalogas nerastas, <a href=\"http://codex.wordpress.org/Changing_File_Permissions\" target=\"_blank\">leidimo</a> neturėjimas galėjo uždrausti šio katalogo sukūrimo procesą."
+
+#: si-captcha.php:580
+#: si-captcha.php:591
+msgid "Fixing the actual problem is recommended, but you can uncheck this setting on the si captcha options page: \"Use CAPTCHA without PHP session\" and the captcha will work this way just fine (as long as PHP sessions are working)."
+msgstr "Rekomenduojama išspręsti tikrąją problemą bet Jūs galite nužymėti šią nuostatą si captcha parinkčių puslapyje: \"Naudoti CAPTCHA be PHP sesijos\" ir captcha sėkmingai dirbs pagal šiuos nurodymus (tol, kol PHP sesijos yra veikiančios)."
+
+#: si-captcha.php:584
+msgid "Directory Unwritable (<a href=\"http://codex.wordpress.org/Changing_File_Permissions\" target=\"_blank\">fix permissions</a>)"
+msgstr "Direktorija Neįrašytina (<a href=\"http://codex.wordpress.org/Changing_File_Permissions\" target=\"_blank\">pakeisti leidimus</a>)"
+
+#: si-captcha.php:585
+#: si-captcha-admin.php:399
+msgid "Permissions are: "
+msgstr "Leidimai yra:"
+
+#: si-captcha.php:589
+#: si-captcha-admin.php:403
+msgid "Fixing this may require assigning 0755 permissions or higher (e.g. 0777 on some hosts. Try 0755 first, because 0777 is sometimes too much and will not work.)"
+msgstr "Kad tai būtų sutvarkyta, gali prireikti priskirti 0755 arba aukštesnius leidimus (pvz.  0777 kai kuriuose serveriuose. Iš pradžių pamėginkite 0755, nes 0777 kartais yra per daug, todėl neveiks.)"
+
+#: si-captcha.php:604
+#: si-captcha.php:636
+#: si-captcha.php:665
+#: si-captcha.php:698
+#: si-captcha.php:727
+#: si-captcha.php:760
+#: si-captcha.php:936
+#: si-captcha.php:945
+msgid "Please complete the CAPTCHA."
+msgstr "Prašome užbaigti CAPTCHA."
+
+#: si-captcha.php:607
+#: si-captcha.php:668
+#: si-captcha.php:730
+#: si-captcha.php:789
+#: si-captcha.php:876
+#: si-captcha.php:948
+msgid "Could not find CAPTCHA token."
+msgstr "Neįmanoma surasti CAPTCHA rakto."
+
+#: si-captcha.php:620
+#: si-captcha.php:681
+#: si-captcha.php:743
+#: si-captcha.php:961
+msgid "That CAPTCHA was incorrect."
+msgstr "Jūsų CAPTCHA kodas neteisingas."
+
+#: si-captcha.php:624
+#: si-captcha.php:685
+#: si-captcha.php:747
+#: si-captcha.php:805
+#: si-captcha.php:892
+#: si-captcha.php:965
+msgid "Could not read CAPTCHA token file."
+msgstr "Neįmanoma perskaityti CAPTCHA rakto rinkmenos."
+
+#: si-captcha.php:632
+#: si-captcha.php:694
+#: si-captcha.php:756
+#: si-captcha.php:813
+#: si-captcha.php:899
+#: si-captcha.php:973
+msgid "Could not read CAPTCHA cookie. Make sure you have cookies enabled and not blocking in your web browser settings. Or another plugin is conflicting. See plugin FAQ."
+msgstr "Neįimanoma perskaityti CAPTCHA slapuko. Įsitikinkite, jog Jūsų slapukai įjungti ir neblokuojami pagal Jūsų naršyklės nustatymus. Gali būti, kad konfliktą sukelia kitas papildinys. Peržiūrėkite papildinio Dažniausiai Užduodamus Klausimus."
+
+#: si-captcha.php:649
+#: si-captcha.php:711
+#: si-captcha.php:774
+#: si-captcha.php:987
+msgid "That CAPTCHA was incorrect. Make sure you have not disabled cookies."
+msgstr "Jūsų CAPTCHA kodas neteisingas. Įsitikinkite, kad nesate išjungęs slapukų."
+
+#: si-captcha.php:665
+#: si-captcha.php:668
+#: si-captcha.php:681
+#: si-captcha.php:685
+#: si-captcha.php:694
+#: si-captcha.php:698
+#: si-captcha.php:711
+#: si-captcha.php:727
+#: si-captcha.php:730
+#: si-captcha.php:743
+#: si-captcha.php:747
+#: si-captcha.php:756
+#: si-captcha.php:760
+#: si-captcha.php:774
+#: si-captcha.php:789
+#: si-captcha.php:805
+#: si-captcha.php:813
+#: si-captcha.php:876
+#: si-captcha.php:892
+#: si-captcha.php:899
+#: si-captcha.php:936
+#: si-captcha.php:945
+#: si-captcha.php:948
+#: si-captcha.php:961
+#: si-captcha.php:965
+#: si-captcha.php:973
+#: si-captcha.php:987
+msgid "ERROR"
+msgstr "KLAIDA"
+
+#: si-captcha.php:787
+#: si-captcha.php:816
+#: si-captcha.php:874
+#: si-captcha.php:902
+msgid "Error: You did not enter a CAPTCHA phrase. Press your browser's back button and try again."
+msgstr "Klaida: Jūs neįvedėte CAPTCHA frazės. Paspauskite savo naršyklės grįžimo atgal mygtuką ir pabandykite dar kartą."
+
+#: si-captcha.php:802
+#: si-captcha.php:830
+#: si-captcha.php:889
+#: si-captcha.php:914
+msgid "Error: You entered in the wrong CAPTCHA phrase. Press your browser's back button and try again."
+msgstr "Klaida: Jūs įvedėte neteisingą CAPTCHA frazę. Paspauskite savo naršyklės grįžimo atgal mygtuką ir pabandykite dar kartą."
+
+#: si-captcha.php:929
+msgid "<strong>ERROR</strong>: The username field is empty."
+msgstr "<strong>KLAIDA</strong>: Vartotojo vardo laukelis yra tuščias."
+
+#: si-captcha.php:932
+msgid "<strong>ERROR</strong>: The password field is empty."
+msgstr "<strong>KLAIDA</strong>: Slaptažodžio laukelis yra tuščias."
+
+#: si-captcha.php:997
+msgid "<strong>ERROR</strong>: Invalid username. <a href=\"%s\" title=\"Password Lost and Found\">Lost your password</a>?"
+msgstr "<strong>KLAIDA</strong>: Neteisingas vartotojo vardas. <a href=\"%s\" title=\"Password Lost and Found\">Pamiršote savo slaptažodį</a>?"
+
+#: si-captcha.php:1005
+msgid "<strong>ERROR</strong>: Your account has been marked as a spammer."
+msgstr "<strong>KLAIDA</strong>: Jūsų paskyra priskirta brukalų siuntėjams."
+
+#: si-captcha.php:1011
+msgid "Site Suspended."
+msgstr "Tinklalapis Suspenduotas."
+
+#: si-captcha.php:1021
+msgid "<strong>ERROR</strong>: Incorrect password. <a href=\"%s\" title=\"Password Lost and Found\">Lost your password</a>?"
+msgstr "<strong>KLAIDA</strong>: Neteisingas slaptažodis. <a href=\"%s\" title=\"Password Lost and Found\">Pamiršote savo slaptažodį</a>?"
+
+#: si-captcha.php:1068
+#: si-captcha.php:1070
+#: si-captcha-admin.php:602
+msgid "CAPTCHA Image"
+msgstr "CAPTCHA vaizdas"
+
+#: si-captcha.php:1077
+#: si-captcha.php:1084
+#: si-captcha-admin.php:603
+msgid "Refresh Image"
+msgstr "Atkurti Vaizdą"
+
+#: si-captcha.php:1097
+msgid "Settings"
+msgstr "Nuostatos"
+
+#: si-captcha-admin.php:14
+msgid "You do not have permissions for managing this option"
+msgstr "Jūs neturite leidimo valdyti šią parinktį"
+
+#: si-captcha-admin.php:85
+msgid "Options saved."
+msgstr "Parinktys įrašytos."
+
+#: si-captcha-admin.php:129
+msgid "Downloaded %s times"
+msgstr "Parsisiųsta % kartų(-us)"
+
+#: si-captcha-admin.php:134
+#: si-captcha-admin.php:142
+msgid "(Average rating based on %s ratings)"
+msgstr "(Vidutinis įvertinimas susideda iš %s įvertinimų(-o))"
+
+#: si-captcha-admin.php:136
+msgid "5 stars"
+msgstr "5 Žvaigždutės"
+
+#: si-captcha-admin.php:137
+msgid "4 stars"
+msgstr "4 Žvaigždutės"
+
+#: si-captcha-admin.php:138
+msgid "3 stars"
+msgstr "3 Žvaigždutės"
+
+#: si-captcha-admin.php:139
+msgid "2 stars"
+msgstr "2 Žvaigždutės"
+
+#: si-captcha-admin.php:140
+msgid "1 star"
+msgstr "1 Žvaigždutė"
+
+#: si-captcha-admin.php:142
+msgid "rate"
+msgstr "įvertinti"
+
+#: si-captcha-admin.php:153
+msgid "a newer version is available: %s"
+msgstr "yra pasirodžiusi nauja versija: %s"
+
+#: si-captcha-admin.php:155
+msgid "A newer version of SI Captcha Anti-Spam is available: %s"
+msgstr "yra pasirodžiusi nauja SI Captcha Anti-Spam versija: %s"
+
+#: si-captcha-admin.php:158
+msgid "(latest version)"
+msgstr "(naujausia versija)"
+
+#: si-captcha-admin.php:164
+msgid "Version:"
+msgstr "Versija:"
+
+#: si-captcha-admin.php:165
+msgid "Changelog"
+msgstr "Pasikeitimų žurnalas"
+
+#: si-captcha-admin.php:166
+msgid "FAQ"
+msgstr "DUK"
+
+#: si-captcha-admin.php:167
+#: si-captcha-admin.php:216
+msgid "Rate This"
+msgstr "Įvertinkite šį papildinį"
+
+#: si-captcha-admin.php:168
+msgid "Support"
+msgstr "Paremti"
+
+#: si-captcha-admin.php:169
+#: si-captcha-admin.php:184
+msgid "Donate"
+msgstr "Paaukoti"
+
+#: si-captcha-admin.php:170
+msgid "Free PHP Scripts"
+msgstr "Nemokami PHP Skriptai"
+
+#: si-captcha-admin.php:171
+msgid "Contact"
+msgstr "Susisiekti"
+
+#: si-captcha-admin.php:187
+msgid "Please donate to keep this plugin FREE"
+msgstr "Prašome paaukoti, kad šis papildinys ir toliau būtų platinamas NEMOKAMAI"
+
+#: si-captcha-admin.php:188
+msgid "If you find this plugin useful to you, please consider making a small donation to help contribute to my time invested and to further development. Thanks for your kind support!"
+msgstr "Jeigu manote, kad šis papildinys buvo Jums naudingas, prašome apsvarstyti paaukojimo galimybę. Šitaip Jūs parodysite, jog vertinate mano įdėtą triūsą (ir laiką) ir prisidėsite prie tolimesnio SI CAPTCHA plėtojimo. Ačiū Jums už nuoširdžią paramą!"
+
+#: si-captcha-admin.php:188
+msgid "More from Mike Challis"
+msgstr "Daugiau nuo Mike Challis"
+
+#: si-captcha-admin.php:201
+msgid "ThemeFuse Original WP Themes"
+msgstr "ThemeFuse Originalūs WP Apipavidalinimai"
+
+#: si-captcha-admin.php:202
+msgid "Try <a href=\"%s\" target=\"_blank\">ThemeFuse</a>, they make some amazing original WP themes that have a cool 1 click auto install feature and excellent after care support services. Check out some of their themes!"
+msgstr "Pamėginkite a href=\"%s\" target=\"_blank\">ThemeFuse</a>. Jie kuria nuostabius originalius WordPress apipavidalinimus, kurie turi labai smagią įdiegimo vienu mygtuko paspaudimu funkciją ir neįtikėtiną techninės pagalbos servisą. Pasižiūrėkite kaip atrodo kai kurie jų apipavidalinimai!"
+
+#: si-captcha-admin.php:204
+msgid "ThemeFuse"
+msgstr "ThemeFuse"
+
+#: si-captcha-admin.php:214
+msgid "Mike Challis says: \"Hello, I have spend hundreds of hours coding this plugin just for you. If you are satisfied with my programs and support please consider making a small donation. If you are not able to, that is OK."
+msgstr "Mika Challis sako: \"Sveiki, aš praleidau šimtus valandų kuriant papildinio, kurį dovanuju Jums, programinį kodą. Jeigu Jūs patenkinti mano programomis ir pagalba, prašome apsvarstyti mažyčio paaukojimo galimybę. Jeigu Jūs negalite paaukoti, aš nepykstu."
+
+#: si-captcha-admin.php:215
+msgid "Most people donate $3, $5, $10, $20, or more. Though no amount is too small. Donations can be made with your PayPal account, or securely using any of the major credit cards. Please also rate my plugin.\""
+msgstr "Didžioji dalis žmonių aukoja 3, 5, 10, 20 arba daugiau dolerių. Bet patikėkite, nėra per mažos sumos. Pinigėliai gali būti paaukoti perJūsų PayPal paskyrą, arba saugiai naudojant didžiąją dalį kreditinių kortelių. Taip pat būtų labai gerai, jeigu įvertintumėte mano papildinį.\""
+
+#: si-captcha-admin.php:218
+msgid "Close this message"
+msgstr "Uždaryti šį pranešimą"
+
+#: si-captcha-admin.php:241
+msgid "I have donated to help contribute for the development of this plugin."
+msgstr "Aš paaukojau, tad prisidėjau prie šio papildinio plėtojimo."
+
+#: si-captcha-admin.php:246
+msgid "Usage"
+msgstr "Naudojimas"
+
+#: si-captcha-admin.php:249
+msgid "Your theme must have a"
+msgstr "Jūsų apipavidalinimas privalo turėti"
+
+#: si-captcha-admin.php:249
+msgid "tag inside your comments.php form. Most themes do."
+msgstr "gairę Jūsų comments.php formoje. Didžioji dalis apipavidalinimų ją turi."
+
+#: si-captcha-admin.php:250
+msgid "The best place to locate the tag is before the comment textarea, you may want to move it if it is below the comment textarea, or the captcha image and captcha code entry might display after the submit button."
+msgstr "Geriausia vieta patalpinti gairę yra prieš komentarų tekstinę sritį, tačiau Jūs galite perkelti ją žemiau komentarų tekstinės srities, arba captcha vaizdo ir captcha kodo įrašas gali būti rodomas po pateikimo mygtuku."
+
+#: si-captcha-admin.php:255
+msgid "Options"
+msgstr "Parinktys"
+
+#: si-captcha-admin.php:258
+#: si-captcha-admin.php:612
+msgid "Update Options"
+msgstr "Atnaujinti Parinktis"
+
+#: si-captcha-admin.php:266
+msgid "CAPTCHA:"
+msgstr "CAPTCHA:"
+
+#: si-captcha-admin.php:268
+msgid "Test if your PHP installation will support the CAPTCHA"
+msgstr "Patikrinti ar Jūsų PHP įdiegimas palaikys CAPTCHA"
+
+#: si-captcha-admin.php:271
+msgid "CAPTCHA difficulty level:"
+msgstr "CAPTCHA sudėtingumo lygis:"
+
+#: si-captcha-admin.php:275
+msgid "Low"
+msgstr "Žemas"
+
+#: si-captcha-admin.php:276
+msgid "Medium"
+msgstr "Vidutinis"
+
+#: si-captcha-admin.php:277
+msgid "High"
+msgstr "Aukštas"
+
+#: si-captcha-admin.php:287
+#: si-captcha-admin.php:295
+#: si-captcha-admin.php:303
+#: si-captcha-admin.php:311
+#: si-captcha-admin.php:319
+#: si-captcha-admin.php:351
+#: si-captcha-admin.php:359
+#: si-captcha-admin.php:368
+#: si-captcha-admin.php:376
+#: si-captcha-admin.php:415
+#: si-captcha-admin.php:428
+#: si-captcha-admin.php:440
+#: si-captcha-admin.php:516
+#: si-captcha-admin.php:540
+#: si-captcha-admin.php:595
+msgid "Click for Help!"
+msgstr "Paspauskite jeigu prireikė pagalbos!"
+
+#: si-captcha-admin.php:287
+#: si-captcha-admin.php:295
+#: si-captcha-admin.php:303
+#: si-captcha-admin.php:311
+#: si-captcha-admin.php:319
+#: si-captcha-admin.php:351
+#: si-captcha-admin.php:359
+#: si-captcha-admin.php:368
+#: si-captcha-admin.php:376
+#: si-captcha-admin.php:415
+#: si-captcha-admin.php:428
+#: si-captcha-admin.php:440
+#: si-captcha-admin.php:516
+#: si-captcha-admin.php:540
+#: si-captcha-admin.php:595
+msgid "help"
+msgstr "pagalba"
+
+#: si-captcha-admin.php:289
+msgid "Changes level of distortion of the CAPTCHA image text."
+msgstr "Pakeičia triukšmo lygį CAPTCHA teksto vaizde."
+
+#: si-captcha-admin.php:294
+msgid "Enable CAPTCHA on the login form."
+msgstr "Įjungti CAPTCHA prisijungimo formoje."
+
+#: si-captcha-admin.php:297
+msgid "The Login form captcha is not enabled by default because it might be annoying to users. Only enable it if you are having spam problems related to bots automatically logging in."
+msgstr "Pagal numatytasias parinktis, prisijungimo formoje captcha yra išjungta, nes ji gali užknisti vartotojus. Įjunkite ją šioje vietoje tik tuomet, kai turėsite rimtų brukalių problemų, susijusių su automatiniu prisijungimu."
+
+#: si-captcha-admin.php:302
+msgid "Enable CAPTCHA on the register form."
+msgstr "Įjungti CAPTCHA registracijos formoje."
+
+#: si-captcha-admin.php:305
+msgid "Prevents automated spam bots by requiring that the user pass a CAPTCHA test before registering."
+msgstr "Apsaugo nuo automatinių brukalų robotų, reikalaudama vartotojo įveikti CAPTCHA testą prieš registruojantis."
+
+#: si-captcha-admin.php:310
+msgid "Enable CAPTCHA on the lost password form."
+msgstr "Įjungt CAPTCHA pamiršto slaptažodžio formoje."
+
+#: si-captcha-admin.php:313
+msgid "Prevents automated spam bots by requiring that the user pass a CAPTCHA test before lost password request."
+msgstr "Apsaugo nuo automatinių brukalų robotų, reikalaudama vartotojo įveikti CAPTCHA testą prieš prašant pamiršto slaptažodžio priminimo."
+
+#: si-captcha-admin.php:318
+msgid "Enable CAPTCHA on the comment form."
+msgstr "Įjungti CAPTCHA komentarų formoje."
+
+#: si-captcha-admin.php:321
+msgid "Prevents automated spam bots by requiring that the user pass a CAPTCHA test before posting comments."
+msgstr "Apsaugo nuo automatinių brukalų robotų, reikalaudama vartotojo įveikti CAPTCHA testą prieš rašant komentarus."
+
+#: si-captcha-admin.php:327
+msgid "Hide CAPTCHA for"
+msgstr "Nerodyti CAPTCHA"
+
+#: si-captcha-admin.php:328
+msgid "registered"
+msgstr "registruotiems"
+
+#: si-captcha-admin.php:329
+msgid "users who can:"
+msgstr "vartotojams, kurie gali:"
+
+#: si-captcha-admin.php:333
+msgid "CAPTCHA input label position on the comment form:"
+msgstr "CAPTCHA įvesties etiketės pozicija komentarų formoje:"
+
+#: si-captcha-admin.php:337
+msgid "input-label-required"
+msgstr "įvesties-etiketė-privaloma"
+
+#: si-captcha-admin.php:338
+msgid "label-required-input"
+msgstr "etiketė-reikalaujama-įvestis"
+
+#: si-captcha-admin.php:339
+msgid "label-required-linebreak-input"
+msgstr "etiketį-reikalaujama-eilutės lūžis-įvestis"
+
+#: si-captcha-admin.php:340
+msgid "label-input-required"
+msgstr "etiketė-įvestis-reikalaujama"
+
+#: si-captcha-admin.php:353
+msgid "Changes position of the CAPTCHA input labels on the comment form. Some themes have different label positions on the comment form. After changing this setting, be sure to view the comments to verify the setting is correct."
+msgstr "Pakeičia CAPTCHA įvesties etikečių poziciją komentaro formoje. Kai kurie apipavidalinimai turi skirtingas etikečių pozicijas komentarų formoje. Po to, kai pakeisite šią nuostatą, įsitikinkite, kad peržiūrėjote komentarus, kad būtumėte tikras, jog nuostatos yra teisingos."
+
+#: si-captcha-admin.php:358
+msgid "Change the display order of the CAPTCHA input field on the comment form."
+msgstr "Keisti CAPTCHA įvesties laukelio rodymo tvarką komentaro formoje."
+
+#: si-captcha-admin.php:361
+msgid "Sometimes the CAPTCHA image and input field are displayed AFTER the submit button on the comment form."
+msgstr "Kartais CAPTCHA vaizdas ir įvesties laukelis yra rodomas PO pateikties mygtuku komentaro formoje."
+
+#: si-captcha-admin.php:362
+msgid "Enable this setting and javascript will relocate the button."
+msgstr "Įjunkite šią nuostatą ir javascript perkels mygtuką."
+
+#: si-captcha-admin.php:367
+msgid "Enable smaller size CAPTCHA image."
+msgstr "Įjungti mažesnio dydžio CAPTCHA vaizdą."
+
+#: si-captcha-admin.php:370
+msgid "Makes the CAPTCHA image smaller."
+msgstr "Padaro CAPTCHA vaizdą mažesniu."
+
+#: si-captcha-admin.php:375
+msgid "Use CAPTCHA without PHP session."
+msgstr "Naudoti CAPTCHA be PHP sesijos."
+
+#: si-captcha-admin.php:378
+msgid "Sometimes the CAPTCHA code never validates because of a server problem with PHP session handling. If the CAPTCHA code never validates and does not work, you can enable this setting to use files for session."
+msgstr "Kartais CAPTCHA kodas niekada nepatvirtinamas dėl serverio problemų su PHP sesijos dorojimusi. Jeigu CAPTCHA kodas niekada nepatvirtinamas ir neveikia, Jūs galite įjungti šią nuostatą, kad galėtumėte naudotis sesijos rinkmenomis."
+
+#: si-captcha-admin.php:393
+msgid "Fixing the actual problem is recommended, but you can uncheck this setting on the contact form options page: \"Use CAPTCHA without PHP session\" and the captcha will work this way just fine (as long as PHP sessions are working)."
+msgstr "Rekomenduojama išspręsti tikrąją problemą bet Jūs galite nužymėti šią nuostatą si captcha parinkčių puslapyje: \"Naudoti CAPTCHA be PHP sesijos\" ir captcha sėkmingai dirbs pagal šiuos nurodymus (tol, kol PHP sesijos yra veikiančios)."
+
+#: si-captcha-admin.php:398
+msgid "The directory Unwritable (<a href=\"http://codex.wordpress.org/Changing_File_Permissions\" target=\"_blank\">fix permissions</a>)"
+msgstr "Direktorija Neįrašytina (<a href=\"http://codex.wordpress.org/Changing_File_Permissions\" target=\"_blank\">pakeisti leidimus</a>)"
+
+#: si-captcha-admin.php:405
+msgid "Fixing the actual problem is recommended, but you can uncheck this setting on the SI CAPTCHA options page: \"Use CAPTCHA without PHP session\" and the captcha will work this way just fine (as long as PHP sessions are working)."
+msgstr "Rekomenduojama išspręsti tikrąją problemą bet Jūs galite nužymėti šią nuostatą si captcha parinkčių puslapyje: \"Naudoti CAPTCHA be PHP sesijos\" ir captcha sėkmingai dirbs pagal šiuos nurodymus (tol, kol PHP sesijos yra veikiančios)."
+
+#: si-captcha-admin.php:414
+msgid "Disable CAPTCHA transparent text (only if captcha text is missing on the image, try this fix)."
+msgstr "Išjungti CAPTCHA permatomą tekstą (bandykite tai tik jeigu captcha tekstas yra nerodomas vaizde)"
+
+#: si-captcha-admin.php:417
+msgid "Sometimes fixes missing text on the CAPTCHA image. If this does not fix missing text, your PHP server is not compatible with the CAPTCHA functions. You should have your web server fixed."
+msgstr "Kartais pataiso nerodomą tekstą CAPTCHA vaizde. Jeigu tai neišspręs šios problemos, Jūsų PHP serveris yra nesuderinamas su CAPTCHA funkcijomis. Šiuo atveju Jums reikėtų programiškai taisyti savo PHP serverį."
+
+#: si-captcha-admin.php:424
+msgid "Accessibility:"
+msgstr "Prieinamumas:"
+
+#: si-captcha-admin.php:427
+msgid "Enable aria-required tags for screen readers"
+msgstr "Įjungti aria-require gaires ekrano skaitytojams"
+
+#: si-captcha-admin.php:430
+msgid "aria-required is a form input WAI ARIA tag. Screen readers use it to determine which fields are required. Enabling this is good for accessability, but will cause the HTML to fail the W3C Validation (there is no attribute \"aria-required\"). WAI ARIA attributes are soon to be accepted by the HTML validator, so you can safely ignore the validation error it will cause."
+msgstr "aria-require yra formos įvesties WAI ARIA gairė. Ekrano skaitytojai naudoja ją nustatyti kurie laukeliai yra privalomi. Šios funkcijos įjungimas pagerina pasiekiamumą, bet sukels nepavykusį HTML W3C Patvirtinimą (nėra tokio atributo kaip \"aria-required\"). WAI ARIA atributai greitai priimami HTML patvirtintojo, taigi galite saugiai ignoruoti patvirtinimo klaidą, kurią visa tai sukels."
+
+#: si-captcha-admin.php:436
+msgid "Akismet:"
+msgstr "Akismet:"
+
+#: si-captcha-admin.php:438
+msgid "Akismet spam prevention status:"
+msgstr "Akismet brukalų apsaugos būsena:"
+
+#: si-captcha-admin.php:442
+msgid "Akismet is a WordPress plugin. Akismet will greatly reduce or even completely eliminate the comment and trackback spam you get on your site. If one does happen to get through, simply mark it as \"spam\" on the moderation screen and Akismet will learn from the mistakes. When Akismet is installed and active, all comment posts will be checked with Akismet to help prevent spam."
+msgstr "Akismet yra Wordpress papildinys. Akismet smarkiai sumažins arba iš viso panaikins Jūsų komentarų cituojančiųjų sekiklių brukalus, kuriuos gaunate į savo puslapį. Jeigu kuris nors brukalas ir prasprūs pro šią apsaugą, paprasčiausiai priežiūros ekrane pažymėkite turinį kaip \"spam\" ir Akismet pasimokys iš savo klaidos. Kuomet Akismet yra įdiegtas ir suaktyvintas, visi komentarų įrašai bus patikrinti Akismet, siekiant apsisaugoti nuo brukalų."
+
+#: si-captcha-admin.php:450
+msgid "Akismet is installed."
+msgstr "Akismet įdiegtas."
+
+#: si-captcha-admin.php:454
+msgid "Check this and click \"Update Options\" to determine if Akismet key is active."
+msgstr "Patikrinkite tai ir paspauskite \"Atnaujinti Parinktis\", kad nustatytumėte ar Akismet raktas yra aktyvus."
+
+#: si-captcha-admin.php:467
+msgid "Akismet is installed and the key is valid. Comment posts will be checked with Akismet to help prevent spam."
+msgstr "Akismet yra įdiegtas, o raktas yra teisingas. Komentarų įrašai bus patikrinti Akismet, siekiant apsisaugoti nuo brukalų."
+
+#: si-captcha-admin.php:470
+msgid "Akismet plugin is installed but key needs to be activated."
+msgstr "Akismet papildinys yra įdiegtas, tačiau dar reikia aktyvuoti raktą."
+
+#: si-captcha-admin.php:473
+msgid "Akismet plugin is installed but key failed to verify."
+msgstr "Akismet papildinys yra įdiegtas, tačiau nepavyko atpažinti rakto."
+
+#: si-captcha-admin.php:476
+msgid "Configure Akismet"
+msgstr "Konfigūruoti Akismet"
+
+#: si-captcha-admin.php:479
+msgid "Akismet plugin is not installed or is deactivated."
+msgstr "Akismet papildinys nėra įdiegtas, arba jis yra pašalintas."
+
+#: si-captcha-admin.php:493
+msgid "Warning: Your web host has not upgraded from PHP4 to PHP5."
+msgstr "Dėmesio: Jūsų prieglobos tiekėjęs neatnaujino PHP versijos iš 4 į 5."
+
+# trūksta žodžio buvo
+#: si-captcha-admin.php:495
+msgid "PHP4 was officially discontinued August 8, 2008 and is no longer considered safe."
+msgstr "PHP 4 oficialiai nustotas tobulinti Rugpjūčio 8, 2008 metais ir dėl to nebelaikomas saugiu."
+
+#: si-captcha-admin.php:496
+msgid "PHP5 is faster, has more features, and is and safer. Using PHP4 might still work, but is highly discouraged. Contact your web host for support."
+msgstr "PHP5 yra greitesnis, turi daugiau funkcijų ir yra saugesnis. PHP4 naudojimas įmanomas, tačiau nerekomenduojamas. Susisiekite su savo prieglobos tiekėju, kad sužinotumėte daugiau."
+
+#: si-captcha-admin.php:504
+msgid "CAPTCHA Form CSS Style:"
+msgstr "CAPTCHA Formos CSS Stiius:"
+
+#: si-captcha-admin.php:510
+msgid "Reset the CAPTCHA form styles to default."
+msgstr "Atkurti CAPTCHA formos stilius į numatytuosius."
+
+#: si-captcha-admin.php:515
+msgid "Modifiable CAPTCHA Form CSS Style Feature:"
+msgstr "Modifikuojamos CAPCHA Formos CSS Stiliaus Ypatybė:"
+
+#: si-captcha-admin.php:518
+msgid "Use to adjust the font colors, image positioning, or other CSS styling of the CAPTCHA form."
+msgstr "Naudokite derinant šrifto spalvas, vaizdų pozicionavimą ar kitus CSS stiliaus elementus CAPTCHA formai."
+
+#: si-captcha-admin.php:519
+msgid "Acceptable Examples:"
+msgstr "Priimtini Pavyzdžiai:"
+
+#: si-captcha-admin.php:525
+msgid "Select the method of delivering the CAPTCHA form style:"
+msgstr "Pasirinkite CAPTCHA formos stiliaus pateikimo metodą:"
+
+#: si-captcha-admin.php:529
+msgid "Internal Style Sheet CSS (default, edit below)"
+msgstr "Vidinio Stiliaus Lapo CSS (numatytasis, redaguoti žemiau)"
+
+#: si-captcha-admin.php:530
+msgid "External Style Sheet CSS (requires editing style.css)"
+msgstr "Išorinio Stiliaus Lapo CSS (reikalauja redaguoti style.css)"
+
+#: si-captcha-admin.php:542
+msgid "By default, the CAPTCHA form styles are editable below when using \"Internal Style Sheet CSS\". The CAPTCHA CSS will be automatically be included in the page &lt;head&gt; section."
+msgstr "Pagal numatymus, CAPTCHA formų stiliai yra redaguojami žemiau, naudojant \"Vidinio Stiliaus Lapo CSS\". CAPTCHA CSS bus automatiškai įtrauktas į puslapio antraštės sekciją."
+
+#: si-captcha-admin.php:543
+msgid "Premium themes may have already added support for SI Captcha Anti-Spam style in the theme's style.css. If that is the case, then select \"External Style Sheet CSS\" if instructed by the theme's installation instructions."
+msgstr "Mokami apipavidalinimai gali turėti pridėtą SI Captcha Anti-Spam style palaikymą papildinio style.css rinkmenoje. Jeigu taip ir yra, pasirinkite \"Išorinio Stiliaus Lapo CSS\", jeigu taip nurodyta apipavidalinimo įdiegimo instrukcijose."
+
+#: si-captcha-admin.php:544
+msgid "The CAPTCHA CSS will NOT be included in the page &lt;head&gt; section, and it must be included in the style.css of the theme. Be sure to remember this if you switch your theme later on."
+msgstr "CAPTCHA CSS NEBUS įtrauktą į puslapio antraštės sekciją, tačiau privalo būti įtraukta į apipavidalinimo style.css rinkemną. Būtinai prisiminkite tai, jeigu vėliau keisite savo puslapio apipavidalinimą."
+
+#: si-captcha-admin.php:546
+msgid "External Style Sheet CSS starting point for theme builders:"
+msgstr "Išorinio Stiliaus Lapo CSS pradžios taškas apipavidalinimų kūrėjams:"
+
+#: si-captcha-admin.php:567
+msgid "Caution: \"External Style Sheet CSS\" is enabled. This setting requires your theme's style.css to include the CAPTCHA CSS. Check the CAPTCHA images and input field on your comment form, make sure they are aligned properly. Be sure your theme includes the CAPTCHA style for this plugin, if it does not, then change the setting back to \"Internal Style Sheet CSS\"."
+msgstr "Atsargiai: \"Išorinio Stiliaus Lapo CSS\" yra įjungtas. Ši nuostata reikalauja, kad į Jūsų apipavidalinimo style.css būtų įtrauktas CAPTCHA CSS. Patikrinkite CAPTVCHA vaizdus ir įvesties laukelį Jūsų komentaro formoje, užtikrinkite, jog jie yra teisingai išlygiuoti. Įsitikinkite, jog į Jūsų apipavidalinimą įtrauktas CAPTCHA stilius šiam papildiniui, jeigu ne, tuomet pakeiskite šią nuostatą atgal į \"Vidinio Stiliaus Lapo CSS\"."
+
+#: si-captcha-admin.php:571
+msgid "Note: \"Internal Style Sheet CSS\" fields below are not editable while \"External Style Sheet CSS\" is enabled."
+msgstr "Pastaba: \"Vidinio Stiliaus Lapo CSS\" laukeliai žemiau yra neredaguotini kol \"Išorinio Stiliaus Lapo CSS\" yra įjungta."
+
+#: si-captcha-admin.php:576
+msgid "Internal Style Sheet CSS:"
+msgstr "Vidinio Stiliaus Lapo CSS:"
+
+#: si-captcha-admin.php:577
+msgid "CSS style for CAPTCHA DIV:"
+msgstr "CSS stilius CAPTCHA DIV:"
+
+#: si-captcha-admin.php:578
+msgid "CSS style for Small CAPTCHA Image DIV:"
+msgstr "CSS stilius Mažo CAPTCHA vaizdo DIV:"
+
+#: si-captcha-admin.php:579
+msgid "CSS style for Large CAPTCHA Image DIV:"
+msgstr "CSS stilius Didelio CAPTCHA vaizdo DIV:"
+
+#: si-captcha-admin.php:580
+msgid "CSS style for CAPTCHA image:"
+msgstr "CSS stilius CAPTCHA vaizdui:"
+
+#: si-captcha-admin.php:581
+msgid "CSS style for Refresh image:"
+msgstr "CSS stilius vaizdo Atkūrimui:"
+
+#: si-captcha-admin.php:582
+msgid "CSS style for CAPTCHA input DIV:"
+msgstr "CSS stilius CAPTCHA įvesties DIV:"
+
+#: si-captcha-admin.php:583
+msgid "CSS style for CAPTCHA input label:"
+msgstr "CSS stilius CAPTCHA įvesties etiketei:"
+
+#: si-captcha-admin.php:584
+msgid "CSS style for CAPTCHA input field:"
+msgstr "CSS stilius CAPTCHA įvesties laukeliui:"
+
+#: si-captcha-admin.php:590
+msgid "Text Labels:"
+msgstr "Teksto Etiketės:"
+
+#: si-captcha-admin.php:594
+msgid "Change text labels:"
+msgstr "Keisti teksto etiketes:"
+
+#: si-captcha-admin.php:597
+msgid "Some people wanted to change the text labels. These fields can be filled in to override the standard text labels."
+msgstr "Kai kurie žmonės norėjo pakeisti teksto etiketes. Šie laukeliai gali būti užpildyti, kad perrašyti standartinius teksto laukelius."
+
+#: si-captcha-admin.php:600
+msgid "Required"
+msgstr "Privaloma"
+
+#: si-captcha-admin.php:620
+msgid "More WordPress plugins by Mike Challis:"
+msgstr "Daugiau WordPress papildinių, sukurtų Mike Challis:"
+
+#: si-captcha-admin.php:622
+msgid "Fast Secure Contact Form"
+msgstr "Fast Secure Contact Form"
+
+#: si-captcha-admin.php:623
+msgid "SI CAPTCHA Anti-Spam"
+msgstr "SI CAPTCHA Anti-Spam"
+
+#: si-captcha-admin.php:624
+msgid "Visitor Maps and Who's Online"
+msgstr "Visitor Maps ir Who's Online"
+
+#: si-captcha-admin.php:629
+msgid "\"I recommend <a href=\"%s\" target=\"_blank\">HostGator Web Hosting</a>. All my sites are hosted there. The prices are great and they offer the most features.\" - Mike Challis"
+msgstr "\"Aš rekomenduoju <a href=\"%s\" target=\"_blank\">HostGator Web Hosting</a>. Visos mano svetainės laikomos čia. Kainos yra šaunios ir jie siūlo daugybę funkcijų.\"  Mike Challis"
+
+#: si-captcha-admin.php:631
+msgid "Web Site Hosting"
+msgstr "Interneto Svetainių Talpinimas"
+

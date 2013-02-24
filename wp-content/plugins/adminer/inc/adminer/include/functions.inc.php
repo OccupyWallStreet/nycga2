@@ -149,11 +149,10 @@ function html_select($name, $options, $value = "", $onchange = true) {
 
 /** Get onclick confirmation
 * @param string JavaScript expression
-* @param bool stop event propagation
 * @return string
 */
-function confirm($count = "", $stop = false) {
-	return " onclick=\"" . ($stop ? "eventStop(event); " : "") . "return confirm('" . lang('Are you sure?') . ($count ? " (' + $count + ')" : "") . "');\"";
+function confirm($count = "") {
+	return " onclick=\"return confirm('" . lang('Are you sure?') . ($count ? " (' + $count + ')" : "") . "');\"";
 }
 
 /** Print header for hidden fieldset (close by </div></fieldset>)
@@ -206,7 +205,7 @@ function json_row($key, $val = null) {
 		echo "{";
 	}
 	if ($key != "") {
-		echo ($first ? "" : ",") . "\n\t\"" . addcslashes($key, "\r\n\"\\") . '": ' . (isset($val) ? '"' . addcslashes($val, "\r\n\"\\") . '"' : 'undefined');
+		echo ($first ? "" : ",") . "\n\t\"" . addcslashes($key, "\r\n\"\\") . '": ' . ($val !== null ? '"' . addcslashes($val, "\r\n\"\\") . '"' : 'undefined');
 		$first = false;
 	} else {
 		echo "\n}\n";
@@ -228,7 +227,7 @@ function ini_bool($ini) {
 */
 function sid() {
 	static $return;
-	if (!isset($return)) { // restart_session() defines SID
+	if ($return === null) { // restart_session() defines SID
 		$return = (SID && !($_COOKIE && ini_bool("session.use_cookies"))); // $_COOKIE - don't pass SID with permanent login
 	}
 	return $return;
@@ -282,20 +281,20 @@ function get_key_vals($query, $connection2 = null) {
 
 /** Get all rows of result
 * @param string
+* @param Min_DB
+* @param string
 * @return array associative
 */
 function get_rows($query, $connection2 = null, $error = "<p class='error'>") {
 	global $connection;
-	if (!is_object($connection2)) {
-		$connection2 = $connection;
-	}
+	$conn = (is_object($connection2) ? $connection2 : $connection);
 	$return = array();
-	$result = $connection2->query($query);
+	$result = $conn->query($query);
 	if (is_object($result)) { // can return true
 		while ($row = $result->fetch_assoc()) {
 			$return[] = $row;
 		}
-	} elseif (!$result && $connection->error && $error && defined("PAGE_HEADER")) {
+	} elseif (!$result && !is_object($connection2) && $error && defined("PAGE_HEADER")) {
 		echo $error . error() . "\n";
 	}
 	return $return;
@@ -337,7 +336,7 @@ function where($where) {
 	$return = array();
 	foreach ((array) $where["where"] as $key => $val) {
 		$return[] = idf_escape(bracket_escape($key, 1)) // 1 - back
-			. (ereg('\\.', $val) || $jush == "mssql" ? " LIKE " . exact_value(addcslashes($val, "%_\\")) : " = " . exact_value($val)) // LIKE because of floats, but slow with ints, in MS SQL because of text
+			. (($jush == "sql" && ereg('\\.', $val)) || $jush == "mssql" ? " LIKE " . exact_value(addcslashes($val, "%_\\")) : " = " . exact_value($val)) // LIKE because of floats, but slow with ints, in MS SQL because of text
 		; //! enum and set
 	}
 	foreach ((array) $where["null"] as $key) {
@@ -360,11 +359,11 @@ function where_check($val) {
 * @param int condition order
 * @param string column identifier
 * @param string
-* @return string
+* @param string
 * @return string
 */
 function where_link($i, $column, $value, $operator = "=") {
-	return "&where%5B$i%5D%5Bcol%5D=" . urlencode($column) . "&where%5B$i%5D%5Bop%5D=" . urlencode((isset($value) ? $operator : "IS NULL")) . "&where%5B$i%5D%5Bval%5D=" . urlencode($value);
+	return "&where%5B$i%5D%5Bcol%5D=" . urlencode($column) . "&where%5B$i%5D%5Bop%5D=" . urlencode(($value !== null ? $operator : "IS NULL")) . "&where%5B$i%5D%5Bval%5D=" . urlencode($value);
 }
 
 /** Set cookie valid for 1 month
@@ -397,6 +396,15 @@ function restart_session() {
 	}
 }
 
+/** Stop session if it would be possible to restart it later
+* @return null
+*/
+function stop_session() {
+	if (!ini_bool("session.use_cookies")) {
+		session_write_close();
+	}
+}
+
 /** Get session variable for current server
 * @param string
 * @return mixed
@@ -418,15 +426,17 @@ function set_session($key, $val) {
 * @param string
 * @param string
 * @param string
+* @param string
 * @return string
 */
-function auth_url($driver, $server, $username) {
+function auth_url($driver, $server, $username, $db = null) {
 	global $drivers;
-	preg_match('~([^?]*)\\??(.*)~', remove_from_uri(implode("|", array_keys($drivers)) . "|username|" . session_name()), $match);
+	preg_match('~([^?]*)\\??(.*)~', remove_from_uri(implode("|", array_keys($drivers)) . "|username|" . ($db !== null ? "db|" : "") . session_name()), $match);
 	return "$match[1]?"
 		. (sid() ? SID . "&" : "")
 		. ($driver != "server" || $server != "" ? urlencode($driver) . "=" . urlencode($server) . "&" : "")
 		. "username=" . urlencode($username)
+		. ($db != "" ? "&db=" . urlencode($db) : "")
 		. ($match[2] ? "&$match[2]" : "")
 	;
 }
@@ -444,15 +454,15 @@ function is_adminer_ajax() {
 * @return null
 */
 function redirect($location, $message = null) {
-	if (isset($message)) {
+	if ($message !== null) {
 		restart_session();
-		$_SESSION["messages"][preg_replace('~^[^?]*~', '', (isset($location) ? $location : $_SERVER["REQUEST_URI"]))][] = $message;
+		$_SESSION["messages"][preg_replace('~^[^?]*~', '', ($location !== null ? $location : $_SERVER["REQUEST_URI"]))][] = $message;
 	}
-	if (isset($location)) {
+	if ($location !== null) {
 		if ($location == "") {
 			$location = ".";
 		}
-		header((is_adminer_ajax() ? "X-AJAX-Redirect" : "Location") . ": $location");
+		header("Location: $location");
 		exit;
 	}
 }
@@ -473,6 +483,8 @@ function query_redirect($query, $location, $message, $redirect = true, $execute 
 	}
 	$sql = "";
 	if ($query) {
+		if ( ! get_magic_quotes_gpc() )
+			$query = AdminerForWP::array_map_recursive( 'stripslashes_deep', $query );
 		$sql = $adminer->messageQuery("$query;");
 	}
 	if ($failed) {
@@ -492,7 +504,7 @@ function query_redirect($query, $location, $message, $redirect = true, $execute 
 function queries($query = null) {
 	global $connection;
 	static $queries = array();
-	if (!isset($query)) {
+	if ($query === null) {
 		// return executed queries without parameter
 		return implode(";\n", $queries);
 	}
@@ -535,6 +547,7 @@ function remove_from_uri($param = "") {
 
 /** Generate page number for pagination
 * @param int
+* @param int
 * @return string
 */
 function pagination($page, $current) {
@@ -571,7 +584,7 @@ function get_file($key, $decompress = false) {
 * @return string
 */
 function upload_error($error) {
-	$max_size = ($error == UPLOAD_ERR_INI_SIZE ? ini_get("upload_max_filesize") : null); // post_max_size is checked in index.php
+	$max_size = ($error == UPLOAD_ERR_INI_SIZE ? ini_get("upload_max_filesize") : 0); // post_max_size is checked in index.php
 	return ($error ? lang('Unable to upload a file.') . ($max_size ? " " . lang('Maximum allowed file size is %sB.', $max_size) : "") : lang('File does not exist.'));
 }
 
@@ -668,7 +681,7 @@ function column_foreign_keys($table) {
 function enum_input($type, $attrs, $field, $value, $empty = null) {
 	global $adminer;
 	preg_match_all("~'((?:[^']|'')*)'~", $field["length"], $matches);
-	$return = (isset($empty) ? "<label><input type='$type'$attrs value='$empty'" . ((is_array($value) ? in_array($empty, $value) : $value === 0) ? " checked" : "") . "><i>" . lang('empty') . "</i></label>" : "");
+	$return = ($empty !== null ? "<label><input type='$type'$attrs value='$empty'" . ((is_array($value) ? in_array($empty, $value) : $value === 0) ? " checked" : "") . "><i>" . lang('empty') . "</i></label>" : "");
 	foreach ($matches[1] as $i => $val) {
 		$val = stripcslashes(str_replace("''", "'", $val));
 		$checked = (is_int($value) ? $value == $i+1 : (is_array($value) ? in_array($i+1, $value) : $value === $val));
@@ -705,7 +718,7 @@ function input($field, $value, $function) {
 		}
 		$onchange = ($first ? " onchange=\"var f = this.form['function[" . h(js_adminer_escape(bracket_escape($field["field"]))) . "]']; if ($first > f.selectedIndex) f.selectedIndex = $first;\"" : "");
 		$attrs .= $onchange;
-		echo (count($functions) > 1 ? html_select("function[$name]", $functions, !isset($function) || in_array($function, $functions) || isset($functions[$function]) ? $function : "", "functionChange(this);") : nbsp(reset($functions))) . '<td>';
+		echo (count($functions) > 1 ? html_select("function[$name]", $functions, $function === null || in_array($function, $functions) || isset($functions[$function]) ? $function : "", "functionChange(this);") : nbsp(reset($functions))) . '<td>';
 		$input = $adminer->editInput($_GET["edit"], $field, $attrs, $value); // usage in call is without a table
 		if ($input != "") {
 			echo $input;
@@ -718,8 +731,14 @@ function input($field, $value, $function) {
 			}
 		} elseif (ereg('blob|bytea|raw|file', $field["type"]) && ini_bool("file_uploads")) {
 			echo "<input type='file' name='fields-$name'$onchange>";
-		} elseif (ereg('text|lob', $field["type"])) {
-			echo "<textarea " . ($jush != "sqlite" || ereg("\n", $value) ? "cols='50' rows='12'" : "cols='30' rows='1' style='height: 1.2em;'") . "$attrs>" . h($value) . '</textarea>'; // 1.2em - line-height
+		} elseif (($text = ereg('text|lob', $field["type"])) || ereg("\n", $value)) {
+			if ($text && $jush != "sqlite") {
+				$attrs .= " cols='50' rows='12'";
+			} else {
+				$rows = min(12, substr_count($value, "\n") + 1);
+				$attrs .= " cols='30' rows='$rows'" . ($rows == 1 ? " style='height: 1.2em;'" : ""); // 1.2em - line-height
+			}
+			echo "<textarea$attrs>" . h($value) . '</textarea>';
 		} else {
 			// int(3) is only a display hint
 			$maxlength = (!ereg('int', $field["type"]) && preg_match('~^(\\d+)(,(\\d+))?$~', $field["length"], $match) ? ((ereg("binary", $field["type"]) ? 2 : 1) * $match[1] + ($match[3] ? 1 : 0) + ($match[2] && !$field["unsigned"] ? 1 : 0)) : ($types[$field["type"]] ? $types[$field["type"]] + ($field["unsigned"] ? 0 : 1) : 0));
@@ -782,12 +801,14 @@ function search_tables() {
 		$name = $adminer->tableName($table_status);
 		if (isset($table_status["Engine"]) && $name != "" && (!$_POST["tables"] || in_array($table, $_POST["tables"]))) {
 			$result = $connection->query("SELECT" . limit("1 FROM " . table($table), " WHERE " . implode(" AND ", $adminer->selectSearchProcess(fields($table), array())), 1));
-			if ($result->fetch_row()) {
+			if (!$result || $result->fetch_row()) {
 				if (!$found) {
 					echo "<ul>\n";
 					$found = true;
 				}
-				echo "<li><a href='" . h(ME . "select=" . urlencode($table) . "&where[0][op]=" . urlencode($_GET["where"][0]["op"]) . "&where[0][val]=" . urlencode($_GET["where"][0]["val"])) . "'>$name</a>\n";
+				echo "<li>" . ($result
+					? "<a href='" . h(ME . "select=" . urlencode($table) . "&where[0][op]=" . urlencode($_GET["where"][0]["op"]) . "&where[0][val]=" . urlencode($_GET["where"][0]["val"])) . "'>$name</a>\n"
+					: "$name: <span class='error'>" . error() . "</span>\n");
 			}
 		}
 	}
@@ -804,7 +825,7 @@ function dump_headers($identifier, $multi_table = false) {
 	$return = $adminer->dumpHeaders($identifier, $multi_table);
 	$output = $_POST["output"];
 	if ($output != "text") {
-		header("Content-Disposition: attachment; filename=" . friendly_url($identifier != "" ? $identifier : (SERVER != "" ? SERVER : "localhost")) . ".$return" . ($output != "file" && !ereg('[^0-9a-z]', $output) ? ".$output" : ""));
+		header("Content-Disposition: attachment; filename=" . $adminer->dumpFilename($identifier) . ".$return" . ($output != "file" && !ereg('[^0-9a-z]', $output) ? ".$output" : ""));
 	}
 	session_write_close();
 	return $return;
@@ -881,4 +902,81 @@ function is_adminer_mail($email) {
 function is_url($string) {
 	$domain = '[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])'; // one domain component //! IDN
 	return (preg_match("~^(https?)://($domain?\\.)+$domain(:\\d+)?(/.*)?(\\?.*)?(#.*)?\$~i", $string, $match) ? strtolower($match[1]) : ""); //! restrict path, query and fragment characters
+}
+
+/** Check if field should be shortened
+* @param array
+* @return bool
+*/
+function is_shortable($field) {
+	return ereg('char|text|lob|geometry|point|linestring|polygon', $field["type"]);
+}
+
+/** Run query which can be killed by AJAX call after timing out
+* @param string
+* @return Min_Result
+*/
+function slow_query($query) {
+	global $adminer, $token;
+	$db = $adminer->database();
+	if (support("kill") && is_object($connection2 = connect()) && ($db == "" || $connection2->select_db($db))) {
+		$kill = $connection2->result("SELECT CONNECTION_ID()"); // MySQL and MySQLi can use thread_id but it's not in PDO_MySQL
+		?>
+<script type="text/javascript">
+var timeout = setTimeout(function () {
+	ajax('<?php echo js_adminer_escape(ME); ?>script=kill', function () {
+	}, 'token=<?php echo $token; ?>&kill=<?php echo $kill; ?>');
+}, <?php echo 1000 * $adminer->queryTimeout(); ?>);
+</script>
+<?php
+	} else {
+		$connection2 = null;
+	}
+	ob_flush();
+	flush();
+	$return = @get_key_vals($query, $connection2); // @ - may be killed
+	if ($connection2) {
+		echo "<script type='text/javascript'>clearTimeout(timeout);</script>\n";
+		ob_flush();
+		flush();
+	}
+	return array_keys($return);
+}
+
+// used in compiled version
+function lzw_decompress($binary) {
+	// convert binary string to codes
+	$dictionary_count = 256;
+	$bits = 8; // ceil(log($dictionary_count, 2))
+	$codes = array();
+	$rest = 0;
+	$rest_length = 0;
+	for ($i=0; $i < strlen($binary); $i++) {
+		$rest = ($rest << 8) + ord($binary[$i]);
+		$rest_length += 8;
+		if ($rest_length >= $bits) {
+			$rest_length -= $bits;
+			$codes[] = $rest >> $rest_length;
+			$rest &= (1 << $rest_length) - 1;
+			$dictionary_count++;
+			if ($dictionary_count >> $bits) {
+				$bits++;
+			}
+		}
+	}
+	// decompression
+	$dictionary = range("\0", "\xFF");
+	$return = "";
+	foreach ($codes as $i => $code) {
+		$element = $dictionary[$code];
+		if (!isset($element)) {
+			$element = $word . $word[0];
+		}
+		$return .= $element;
+		if ($i) {
+			$dictionary[] = $word . $element[0];
+		}
+		$word = $element;
+	}
+	return $return;
 }

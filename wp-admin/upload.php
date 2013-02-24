@@ -57,7 +57,7 @@ if ( $doaction ) {
 			if ( !$parent_id )
 				return;
 
-			$parent = &get_post( $parent_id );
+			$parent = get_post( $parent_id );
 			if ( !current_user_can( 'edit_post', $parent_id ) )
 				wp_die( __( 'You are not allowed to edit this post.' ) );
 
@@ -69,12 +69,14 @@ if ( $doaction ) {
 					continue;
 
 				$attach[] = $att_id;
-				clean_attachment_cache( $att_id );
 			}
 
 			if ( ! empty( $attach ) ) {
-				$attach = implode( ',', $attach );
-				$attached = $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_parent = %d WHERE post_type = 'attachment' AND ID IN ( $attach )", $parent_id ) );
+				$attach_string = implode( ',', $attach );
+				$attached = $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_parent = %d WHERE post_type = 'attachment' AND ID IN ( $attach_string )", $parent_id ) );
+				foreach ( $attach as $att_id ) {
+					clean_attachment_cache( $att_id );
+				}
 			}
 
 			if ( isset( $attached ) ) {
@@ -176,7 +178,12 @@ require_once('./admin-header.php');
 
 <div class="wrap">
 <?php screen_icon(); ?>
-<h2><?php echo esc_html( $title ); ?> <a href="media-new.php" class="add-new-h2"><?php echo esc_html_x('Add New', 'file'); ?></a> <?php
+<h2>
+<?php
+echo esc_html( $title );
+if ( current_user_can( 'upload_files' ) ) { ?>
+	<a href="media-new.php" class="add-new-h2"><?php echo esc_html_x('Add New', 'file'); ?></a><?php
+}
 if ( ! empty( $_REQUEST['s'] ) )
 	printf( '<span class="subtitle">' . __('Search results for &#8220;%s&#8221;') . '</span>', get_search_query() ); ?>
 </h2>

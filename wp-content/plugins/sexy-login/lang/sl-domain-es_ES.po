@@ -1,0 +1,319 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Sexy Login 1.0\n"
+"POT-Creation-Date: 2013-02-22 19:03+0100\n"
+"PO-Revision-Date: 2013-02-22 19:04+0100\n"
+"Last-Translator: \n"
+"Language-Team: optimaldevs.com <info@optimaldevs.com>\n"
+"Language: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _;__;_e;esc_html_e;esc_html__;esc_attr_e\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2;plural=n != 1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: inc\n"
+"X-Poedit-SearchPath-2: inc/admin\n"
+
+#: sexy-login-init.php:89
+msgid "Enter the two words above"
+msgstr "Escribe las dos palabras de arriba"
+
+#: sexy-login-init.php:90
+msgid "Get another Captcha"
+msgstr "Obtener otro Captcha"
+
+#: inc/ajax.php:23 inc/ajax.php:86
+msgid "Invalid Captcha: Try again."
+msgstr "Captcha Incorrecto: Intentalo otra vez."
+
+#: inc/ajax.php:57
+msgid "Please enter your username and password to login."
+msgstr "Porfavor introduce tu nombre de usuario y tu contraseña para loguearte"
+
+#: inc/ajax.php:98
+msgid "<strong>ERROR</strong>: Please enter a username."
+msgstr ""
+
+#: inc/ajax.php:100
+msgid ""
+"<strong>ERROR</strong>: This username is invalid because it uses illegal "
+"characters. Please enter a valid username."
+msgstr ""
+
+#: inc/ajax.php:103
+msgid ""
+"<strong>ERROR</strong>: This username is already registered. Please choose "
+"another one."
+msgstr ""
+
+#: inc/ajax.php:108
+msgid "<strong>ERROR</strong>: Please type your e-mail address."
+msgstr ""
+
+#: inc/ajax.php:110
+msgid "<strong>ERROR</strong>: The email address isn&#8217;t correct."
+msgstr ""
+
+#: inc/ajax.php:113
+msgid ""
+"<strong>ERROR</strong>: This email is already registered, please choose "
+"another one."
+msgstr ""
+
+#: inc/ajax.php:132
+#, php-format
+msgid ""
+"<strong>ERROR</strong>: Couldn&#8217;t register you... please contact the <a "
+"href=\"mailto:%s\">webmaster</a> !"
+msgstr ""
+
+#: inc/ajax.php:143
+msgid "Registration complete. Please check your e-mail."
+msgstr "Registro completado. Porfavor comprueba tu e-mail"
+
+#: inc/ajax.php:170
+msgid "<strong>ERROR</strong>: Enter a username or e-mail address."
+msgstr ""
+
+#: inc/ajax.php:174
+msgid ""
+"<strong>ERROR</strong>: There is no user registered with that email address."
+msgstr ""
+
+#: inc/ajax.php:191
+msgid "<strong>ERROR</strong>: Invalid username or e-mail."
+msgstr ""
+
+#: inc/ajax.php:208
+msgid "Password reset is not allowed for this user"
+msgstr ""
+
+#: inc/ajax.php:222
+msgid "Before requesting a new password must wait"
+msgstr "Antes de solicitar una nueva contraseña debe esperar"
+
+#: inc/ajax.php:222
+msgid "minutes"
+msgstr "minutos"
+
+#: inc/ajax.php:236
+msgid "Someone requested that the password be reset for the following account:"
+msgstr ""
+
+#: inc/ajax.php:238
+#, php-format
+msgid "Username: %s"
+msgstr ""
+
+#: inc/ajax.php:239
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr ""
+
+#: inc/ajax.php:240
+msgid "To reset your password, visit the following address:"
+msgstr ""
+
+#: inc/ajax.php:250
+#, php-format
+msgid "[%s] Password Reset"
+msgstr ""
+
+#: inc/ajax.php:258
+msgid "The e-mail could not be sent."
+msgstr "El email no se ha podido enviar."
+
+#: inc/ajax.php:258
+msgid "Possible reason: your host may have disabled the mail() function..."
+msgstr ""
+
+#: inc/ajax.php:263
+msgid "Check your e-mail for your new password."
+msgstr "Recibirás una nueva contraseña, comprueba tu correo."
+
+#: inc/class-sexy-login-widget.php:72
+#, fuzzy
+msgid "Log in"
+msgstr "Entrar"
+
+#: inc/class-sexy-login-widget.php:75 inc/class-sexy-login-widget.php:95
+msgid "Register"
+msgstr ""
+
+#: inc/class-sexy-login-widget.php:86 inc/class-sexy-login-widget.php:87
+#: inc/class-sexy-login-widget.php:127 inc/class-sexy-login-widget.php:128
+msgid "Username"
+msgstr ""
+
+#: inc/class-sexy-login-widget.php:90 inc/class-sexy-login-widget.php:91
+msgid "E-mail"
+msgstr ""
+
+#: inc/class-sexy-login-widget.php:106 inc/class-sexy-login-widget.php:145
+msgid "Lost your password?"
+msgstr ""
+
+#: inc/class-sexy-login-widget.php:108
+msgid ""
+"Please enter your username or email address. You will receive a link to "
+"create a new password via email."
+msgstr ""
+
+#: inc/class-sexy-login-widget.php:112
+#, fuzzy
+msgid "Username or E-mail"
+msgstr "Nombre de Usuario o email"
+
+#: inc/class-sexy-login-widget.php:115
+#, fuzzy
+msgid "Get New Password"
+msgstr "Contraseña"
+
+#: inc/class-sexy-login-widget.php:131 inc/class-sexy-login-widget.php:132
+msgid "Password"
+msgstr ""
+
+#: inc/class-sexy-login-widget.php:137
+msgid "Log In"
+msgstr ""
+
+#: inc/class-sexy-login-widget.php:174
+msgid "Title"
+msgstr ""
+
+#: inc/admin/class-sexy-login-admin.php:16
+msgid "Sexy Login Options"
+msgstr "Opciones Sexy Login"
+
+#: inc/admin/class-sexy-login-admin.php:40
+msgid "ReCaptcha"
+msgstr "Recaptcha"
+
+#: inc/admin/class-sexy-login-admin.php:45
+msgid "Enable Captcha"
+msgstr "Activar Captcha"
+
+#: inc/admin/class-sexy-login-admin.php:53
+msgid ""
+"The next keys are required before you are able to use ReCaptcha. You can get "
+"the keys in"
+msgstr ""
+"Las claves siguientes son necesarias para que puedas usar ReCaptcha. Las "
+"puedes obtener en"
+
+#: inc/admin/class-sexy-login-admin.php:54
+msgid "Note: the keys are not interchangeable."
+msgstr "Nota: las claves no son intercambiables."
+
+#: inc/admin/class-sexy-login-admin.php:59
+msgid "Public Key"
+msgstr ""
+
+#: inc/admin/class-sexy-login-admin.php:67
+msgid "Private Key"
+msgstr ""
+
+#: inc/admin/class-sexy-login-admin.php:80
+msgid "Sexy Login Wrap"
+msgstr "Contenedor de Sexy Login"
+
+#: inc/admin/class-sexy-login-admin.php:84
+msgid "Width"
+msgstr ""
+
+#: inc/admin/class-sexy-login-admin.php:96
+msgid "Avatar"
+msgstr ""
+
+#: inc/admin/class-sexy-login-admin.php:100
+msgid "Show Avatar"
+msgstr "Mostrar Avatar"
+
+#: inc/admin/class-sexy-login-admin.php:109
+msgid "Avatar Size"
+msgstr "Tamaño del Avatar"
+
+#: inc/admin/class-sexy-login-admin.php:121
+msgid "Buttons"
+msgstr "Botones"
+
+#: inc/admin/class-sexy-login-admin.php:125
+msgid "Show \"Dashboard\""
+msgstr "Mostrar \"Escritorio\""
+
+#: inc/admin/class-sexy-login-admin.php:133
+msgid "Show \"Edit My Profile\""
+msgstr "Mostrar \"Editar Mi Perfil\""
+
+#: inc/admin/class-sexy-login-admin.php:144
+msgid "Redirect"
+msgstr "Redirección"
+
+#: inc/admin/class-sexy-login-admin.php:148
+msgid "Login redirect to"
+msgstr "Redirección al loguearse"
+
+#: inc/admin/class-sexy-login-admin.php:152
+#: inc/admin/class-sexy-login-admin.php:166
+msgid "Current URL"
+msgstr "URL Actual"
+
+#: inc/admin/class-sexy-login-admin.php:153
+#: inc/admin/class-sexy-login-admin.php:167
+msgid "Custom URL"
+msgstr "URL Personalizada"
+
+#: inc/admin/class-sexy-login-admin.php:162
+msgid "Logout redirect to"
+msgstr "Redirección al  cerrar sesión"
+
+#: inc/admin/class-sexy-login-admin.php:177
+msgid "Save Changes"
+msgstr ""
+
+#: inc/admin/class-sexy-login-admin.php:203
+msgid "ReCaptcha was disabled because you have not entered any key"
+msgstr "ReCaptcha ha sido desactivado porque no has introducido las key."
+
+#~ msgid "Your email"
+#~ msgstr "Tu email"
+
+#~ msgid "Sign up!"
+#~ msgstr "¡Registrate!"
+
+#~ msgid "Lose Something?"
+#~ msgstr "¿Has Perdido Algo?"
+
+#~ msgid "Enter your username or email to reset your password."
+#~ msgstr "Introduce tu nombre de usuario o email para resetear tu contraseña."
+
+#~ msgid "Reset my password"
+#~ msgstr "Resetea mi contraseña"
+
+#~ msgid "here."
+#~ msgstr "aquí."
+
+#~ msgid "Show \"Log Out\""
+#~ msgstr "Mostrar \"Cerrar Sesión\""
+
+#~ msgid "Remember Me"
+#~ msgstr "Recordarme"
+
+#~ msgid "ReCaptcha options"
+#~ msgstr "Opciones de ReCaptcha"
+
+#~ msgid "Enter the words shown above separated by space"
+#~ msgstr ""
+#~ "Escribe las palabras mostradas en la imágen separadas por un espacio"
+
+#~ msgid "Show:"
+#~ msgstr "Mostrar:"
+
+#~ msgid "Select Name to Show"
+#~ msgstr "Elige el Nombre a Mostrar"
+
+#~ msgid "Nickname"
+#~ msgstr "Alias"

@@ -1,0 +1,2229 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: 404.php:7
+#@ cc
+msgid "Page not found"
+msgstr "Pagina niet gevonden"
+
+#: 404.php:9
+#@ cc
+msgid "We're sorry, but we can't find the page that you're looking for. Perhaps searching will help."
+msgstr "Helaas, maar de gevraagde pagina kon niet worden gevonden. Misschien zal zoeken helpen."
+
+#: _inc/ajax.php:147
+#@ cc
+msgid "Please enter some content to post."
+msgstr "Typ een bericht om te publiceren."
+
+#: _inc/ajax.php:164
+#@ cc
+msgid "There was a problem posting your update, please try again."
+msgstr "Het is niet gelukt om je update te plaatsen, probeer het nog een keer."
+
+#: _inc/ajax.php:189
+#@ cc
+msgid "Please do not leave the comment area blank."
+msgstr "Laat het reactieveld niet leeg."
+
+#: _inc/ajax.php:194
+#: _inc/ajax.php:205
+#@ cc
+msgid "There was an error posting that reply, please try again."
+msgstr "Het is niet gelukt om deze reactie te plaatsen, probeer het nog een keer."
+
+#: _inc/ajax.php:262
+#: _inc/ajax.php:297
+#@ cc
+msgid "There was a problem when deleting. Please try again."
+msgstr "Er trad een probleem op bij het verwijderen. Probeer het nog een keer."
+
+#: _inc/ajax.php:312
+#: activity/entry.php:72
+#@ cc
+msgid "Remove Favorite"
+msgstr "Favoriet verwijderen"
+
+#: _inc/ajax.php:321
+#: activity/entry.php:68
+#@ cc
+msgid "Favorite"
+msgstr "Favoriet"
+
+#: _inc/ajax.php:380
+#: groups/create.php:234
+#: groups/single/send-invites.php:42
+#@ cc
+msgid "Remove Invite"
+msgstr "Uitnodiging verwijderen"
+
+#: _inc/ajax.php:406
+#@ cc
+msgid "Friendship could not be canceled."
+msgstr "De vriendschap kon niet worden geannuleerd."
+
+#: _inc/ajax.php:408
+#@ cc
+msgid "Add Friend"
+msgstr "Vriend toevoegen"
+
+#: _inc/ajax.php:416
+#@ cc
+msgid "Friendship could not be requested."
+msgstr "Vriendschapverzoek kon niet uitgevoerd worden."
+
+#: _inc/ajax.php:418
+#@ cc
+msgid "Friendship Requested"
+msgstr "Vriendschap gevraagd"
+
+#: _inc/ajax.php:421
+#@ cc
+msgid "Request Pending"
+msgstr "Openstaand verzoek"
+
+#: _inc/ajax.php:433
+#@ cc
+msgid "There was a problem accepting that request. Please try again."
+msgstr "Er trad een probleem op bij het accepteren van het verzoek. Probeer het nog een keer."
+
+#: _inc/ajax.php:444
+#@ cc
+msgid "There was a problem rejecting that request. Please try again."
+msgstr "Er trad een probleem op bij het weigeren van het verzoek. Probeer het nog een keer."
+
+#: _inc/ajax.php:467
+#@ cc
+msgid "Error joining group"
+msgstr "Probleem bij lid worden van groep"
+
+#: _inc/ajax.php:469
+#@ cc
+msgid "Leave Group"
+msgstr "Groep verlaten"
+
+#: _inc/ajax.php:477
+#@ cc
+msgid "Error requesting membership"
+msgstr "Probleem bij verzoek om lidmaatschap"
+
+#: _inc/ajax.php:479
+#@ cc
+msgid "Membership Requested"
+msgstr "Lidmaatschap verzocht"
+
+#: _inc/ajax.php:488
+#@ cc
+msgid "Error leaving group"
+msgstr "Probleem bij verlaten van groep"
+
+#: _inc/ajax.php:491
+#@ cc
+msgid "Join Group"
+msgstr "Wordt groepslid"
+
+#: _inc/ajax.php:493
+#@ cc
+msgid "Request Membership"
+msgstr "Vraag lidmaatschap aan"
+
+#: _inc/ajax.php:505
+#@ cc
+msgid "There was a problem closing the notice."
+msgstr "Er trad een probleem op bij het sluiten van de melding."
+
+#: _inc/ajax.php:530
+#, php-format
+#@ cc
+msgid "Sent %s"
+msgstr "%s verzonden"
+
+#: _inc/ajax.php:547
+#@ cc
+msgid "There was a problem sending that reply. Please try again."
+msgstr "Er trad een probleem op bij het verzenden van het antwoord. Probeer het nog een keer."
+
+#: _inc/ajax.php:557
+#@ cc
+msgid "There was a problem marking messages as unread."
+msgstr "Er trad een probleem op bij het als ongelezen markeren van de berichten."
+
+#: _inc/ajax.php:573
+#@ cc
+msgid "There was a problem marking messages as read."
+msgstr "Er trad een probleem op bij het als gelezen markeren van de berichten ."
+
+#: _inc/ajax.php:589
+#@ cc
+msgid "There was a problem deleting messages."
+msgstr "Er trad een probleem op bij het verwijderen van de berichten."
+
+#: _inc/ajax.php:596
+#@ cc
+msgid "Messages deleted."
+msgstr "Berichten verwijderd."
+
+#: activity/activity-loop.php:41
+#@ cc
+msgid "Load More"
+msgstr "Laad meer zien"
+
+#: activity/activity-loop.php:55
+#@ cc
+msgid "Sorry, there was no activity found. Please try a different filter."
+msgstr "Sorry, er is geen activiteit gevonden. Probeer het met een ander filter."
+
+#. translators: 1: user profile link, 2: user name, 3: activity permalink, 3: activity timestamp
+#: activity/comment.php:28
+#, php-format
+#@ cc
+msgid "<a href=\"%1$s\">%2$s</a> replied <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\">%2$s</a> antwoordde <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+
+#: activity/comment.php:33
+#: forums/single/edit.php:10
+#: groups/single/forum/edit.php:10
+#@ cc
+msgid "Reply"
+msgstr "Antwoorden"
+
+#: activity/comment.php:39
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/single.php:24
+#@ cc
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: activity/entry.php:37
+#@ cc
+msgid "In reply to: "
+msgstr "Antwoord op: "
+
+#: activity/entry.php:37
+#@ cc
+msgid "View Thread / Permalink"
+msgstr "Bekijk volledige discussie / Permalink"
+
+#: activity/entry.php:37
+#: core/includes/bp/templatetags.php:89
+#@ cc
+msgid "View"
+msgstr "Bekijken"
+
+#: activity/entry.php:60
+#, php-format
+#@ cc
+msgid "Comment <span>%s</span>"
+msgstr "Reactie <span>%s</span>"
+
+#: activity/entry.php:68
+#@ cc
+msgid "Mark as Favorite"
+msgstr "Als favoriet markeren"
+
+#: activity/entry.php:104
+#@ cc
+msgid "Post"
+msgstr "Bericht"
+
+#: activity/entry.php:104
+#@ cc
+msgid "or press esc to cancel."
+msgstr "of druk op Esc om te annuleren."
+
+#: activity/index.php:23
+#@ cc
+msgid "Site Activity"
+msgstr "Site activiteit"
+
+#: activity/index.php:41
+#@ cc
+msgid "The public activity for everyone on this site."
+msgstr "De openbare activiteit van iedereen op deze site."
+
+#: activity/index.php:41
+#: members/index.php:35
+#, php-format
+#@ cc
+msgid "All Members <span>%s</span>"
+msgstr "Alle leden <span>%s</span>"
+
+#: activity/index.php:51
+#@ cc
+msgid "The activity of my friends only."
+msgstr "Alleen de activiteit van mijn vrienden."
+
+#: activity/index.php:51
+#: members/index.php:39
+#, php-format
+#@ cc
+msgid "My Friends <span>%s</span>"
+msgstr "Mijn vrienden <span>%s</span>"
+
+#: activity/index.php:63
+#@ cc
+msgid "The activity of groups I am a member of."
+msgstr "De activiteit van groepen waar ik lid van ben."
+
+#: activity/index.php:63
+#: groups/index.php:41
+#, php-format
+#@ cc
+msgid "My Groups <span>%s</span>"
+msgstr "Mijn groepen <span>%s</span>"
+
+#: activity/index.php:73
+#@ cc
+msgid "The activity I've marked as a favorite."
+msgstr "De activiteit die ik heb gemarkeerd als favoriet."
+
+#: activity/index.php:73
+#, php-format
+#@ cc
+msgid "My Favorites <span>%s</span>"
+msgstr "Mijn favorieten <span>%s</span>"
+
+#: activity/index.php:79
+#@ cc
+msgid "Activity that I have been mentioned in."
+msgstr "Activiteiten waarin ik genoemd wordt. "
+
+#: activity/index.php:79
+#@ cc
+msgid "Public Mentions"
+msgstr "Openbare vermeldingen"
+
+#: activity/index.php:79
+#, php-format
+#@ cc
+msgid "<span>%s new</span>"
+msgstr "<span>%s nieuw</span>"
+
+#: activity/index.php:89
+#: groups/single/activity.php:3
+#@ cc
+msgid "RSS Feed"
+msgstr "RSS Feed"
+
+#: activity/index.php:89
+#: groups/single/activity.php:3
+#@ cc
+msgid "RSS"
+msgstr "RSS"
+
+#: activity/index.php:94
+#: groups/single/activity.php:8
+#: members/single/activity.php:18
+#@ cc
+msgid "Show:"
+msgstr "Toon:"
+
+#: activity/index.php:96
+#: groups/single/activity.php:10
+#: members/single/activity.php:20
+#@ cc
+msgid "Everything"
+msgstr "Alles"
+
+#: activity/index.php:97
+#: groups/single/activity.php:11
+#: members/single/activity.php:21
+#@ cc
+msgid "Updates"
+msgstr "Updates"
+
+#: activity/index.php:101
+#: forums/forums-loop.php:31
+#: members/single/activity.php:27
+#@ cc
+msgid "Posts"
+msgstr "Berichten"
+
+#: activity/index.php:102
+#: members/single/activity.php:28
+#@ cc
+msgid "Comments"
+msgstr "Reacties"
+
+#: activity/index.php:108
+#: groups/single/activity.php:14
+#: members/single/activity.php:43
+#@ cc
+msgid "Forum Topics"
+msgstr "Topics op het forum"
+
+#: activity/index.php:109
+#: groups/single/activity.php:15
+#: members/single/activity.php:44
+#@ cc
+msgid "Forum Replies"
+msgstr "Antwoorden op het forum"
+
+#: activity/index.php:115
+#: members/single/activity.php:50
+#@ cc
+msgid "New Groups"
+msgstr "Nieuwe groepen"
+
+#: activity/index.php:116
+#: groups/single/activity.php:18
+#: members/single/activity.php:51
+#@ cc
+msgid "Group Memberships"
+msgstr "Groepslidmaatschappen"
+
+#: activity/index.php:122
+#: members/single/activity.php:35
+#@ cc
+msgid "Friendships"
+msgstr "Vriendschappen"
+
+#: activity/index.php:126
+#@ cc
+msgid "New Members"
+msgstr "Nieuwe leden"
+
+#: activity/post-form.php:23
+#, php-format
+#@ cc
+msgid "What's new in %s, %s?"
+msgstr "Is er nieuws in %s, %s?"
+
+#: activity/post-form.php:25
+#, php-format
+#@ cc
+msgid "What's new, %s?"
+msgstr "Nog nieuws, %s?"
+
+#: activity/post-form.php:35
+#@ cc
+msgid "Post Update"
+msgstr "Plaats update"
+
+#: activity/post-form.php:42
+#@ cc
+msgid "Post in"
+msgstr "Plaats in"
+
+#: activity/post-form.php:45
+#: members/single/profile/profile-wp.php:8
+#@ cc
+msgid "My Profile"
+msgstr "Mijn profiel"
+
+#: admin/library.php:536
+#@ cc
+msgid "Save Options"
+msgstr "Bewaar instellingen"
+
+#: admin/page-meta-box.php:61
+#: admin/post-meta-box.php:46
+#@ buddypress
+msgid "klick"
+msgstr "klik"
+
+#: admin/page-meta-box.php:64
+#: admin/post-meta-box.php:49
+#@ default
+msgid "Custom Community settings"
+msgstr "Custom Community instellingen"
+
+#: admin/page-meta-box.php:95
+#: admin/post-meta-box.php:53
+#@ default
+msgid "Post template on"
+msgstr "Post template voor"
+
+#: admin/post-meta-box.php:63
+#@ default
+msgid "Hide avatar"
+msgstr "Avatar verbergen"
+
+#: admin/post-meta-box.php:65
+#@ default
+msgid "Hide date/category"
+msgstr "Datum/categorie verbergen"
+
+#: admin/post-meta-box.php:67
+#@ default
+msgid "Hide tags"
+msgstr "Tags verbergen"
+
+#: admin/post-meta-box.php:70
+#@ default
+msgid "Hide comment-info"
+msgstr "Commentaarinfo verbergen"
+
+#: admin/page-meta-box.php:68
+#@ default
+msgid "Slideshow on"
+msgstr "Diashow aan"
+
+#: archive.php:8
+#, php-format
+#@ cc
+msgid "You are browsing the archive for %1$s."
+msgstr "Je bladert nu door het archief van %1$s."
+
+#: archive.php:14
+#: archive.php:55
+#: core/includes/bp/templatetags.php:349
+#: index.php:50
+#: search-loop.php:43
+#: search.php:17
+#: search.php:53
+#@ cc
+msgid "&larr; Previous Entries"
+msgstr "&larr; Vorige items"
+
+#: archive.php:15
+#: archive.php:56
+#: core/includes/bp/templatetags.php:350
+#: index.php:51
+#: search-loop.php:44
+#: search.php:18
+#: search.php:54
+#@ cc
+msgid "Next Entries &rarr;"
+msgstr "Volgende items &rarr;"
+
+#: archive.php:28
+#: archive.php:34
+#: index.php:20
+#: search.php:30
+#: search.php:37
+#: single.php:44
+#, php-format
+#@ cc
+msgid "by %s"
+msgstr "door %s"
+
+#: archive.php:32
+#: index.php:28
+#: search.php:35
+#: single.php:54
+#@ cc
+msgid "Permanent Link to"
+msgstr "Permanente link naar"
+
+#: archive.php:34
+#: index.php:30
+#: search.php:37
+#: single.php:56
+#@ cc
+msgid "in"
+msgstr "in"
+
+#: archive.php:41
+#: index.php:36
+#: search.php:43
+#: single.php:75
+#@ cc
+msgid "Tags: "
+msgstr "Tags: "
+
+#: archive.php:41
+#: archive.php:43
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:80
+#@ cc
+msgid "No Comments &#187;"
+msgstr "Geen reacties &#187;"
+
+#: archive.php:41
+#: archive.php:43
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:80
+#@ cc
+msgid "1 Comment &#187;"
+msgstr "1 Reactie &#187;"
+
+#: archive.php:41
+#: archive.php:43
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:80
+#@ cc
+msgid "% Comments &#187;"
+msgstr "% Reacties &#187;"
+
+#: archive.php:62
+#: index.php:57
+#@ cc
+msgid "Not Found"
+msgstr "Niet gevonden"
+
+#: attachment.php:9
+#: search.php:10
+#@ cc
+msgid "Blog"
+msgstr "Blog"
+
+#: attachment.php:25
+#@ cc
+msgid "<p class=\"serif\">Read the rest of this entry &rarr;</p>"
+msgstr "<p class=\"serif\">Lees de rest van dit item &rarr;</p>"
+
+#: attachment.php:27
+#: full-width.php:25
+#@ cc
+msgid "<p><strong>Pages:</strong> "
+msgstr "<p><strong>Pagina's:</strong> "
+
+#: attachment.php:38
+#@ cc
+msgid "Sorry, no attachments matched your criteria."
+msgstr "Sorry, er zijn geen bijlagen gevonden die aan je criteria voldoen."
+
+#: blogs/blogs-loop.php:90
+#@ cc
+msgid "Sorry, there were no sites found."
+msgstr "Sorry, er zijn geen sites gevonden."
+
+#: blogs/create.php:21
+#: blogs/index.php:23
+#@ cc
+msgid "Create a Site"
+msgstr "Maak een site aan"
+
+#: blogs/create.php:21
+#: blogs/index.php:23
+#@ cc
+msgid "Site Directory"
+msgstr "Site overzicht"
+
+#: blogs/create.php:32
+#@ cc
+msgid "Site registration is currently disabled"
+msgstr "Momenteel is registratie voor deze site uitgeschakeld."
+
+#: blogs/index.php:35
+#, php-format
+#@ cc
+msgid "All Sites <span>%s</span>"
+msgstr "Alle sites <span>%s</span>"
+
+#: blogs/index.php:39
+#, php-format
+#@ cc
+msgid "My Sites <span>%s</span>"
+msgstr "Mijn sites <span>%s</span>"
+
+#: blogs/index.php:55
+#: forums/index.php:60
+#: forums/single/forum.php:34
+#: groups/index.php:57
+#: groups/single/forum.php:32
+#: groups/single/members.php:12
+#: members/index.php:55
+#: members/single/blogs.php:19
+#: members/single/forums.php:18
+#: members/single/friends.php:20
+#: members/single/groups.php:20
+#@ cc
+msgid "Order By:"
+msgstr "Sorteer op:"
+
+#: blogs/index.php:57
+#: forums/index.php:62
+#: forums/single/forum.php:36
+#: groups/index.php:59
+#: groups/single/forum.php:34
+#: groups/single/members.php:14
+#: members/index.php:57
+#: members/single/blogs.php:21
+#: members/single/forums.php:20
+#: members/single/friends.php:22
+#: members/single/groups.php:22
+#@ cc
+msgid "Last Active"
+msgstr "Laatst actief"
+
+#: blogs/index.php:58
+#: members/single/blogs.php:22
+#@ cc
+msgid "Newest"
+msgstr "Nieuwste"
+
+#: blogs/index.php:59
+#: groups/index.php:62
+#: groups/single/members.php:19
+#: members/index.php:62
+#: members/single/blogs.php:23
+#: members/single/friends.php:24
+#: members/single/groups.php:25
+#@ cc
+msgid "Alphabetical"
+msgstr "Alfabetisch"
+
+#: comments.php:3
+#@ cc
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Dit bericht is met een wachtwoord beveiligd. Typ het wachtwoord om de reacties te kunnen zien."
+
+#: comments.php:19
+#, php-format
+#@ cc
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Een gedachte over &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s gedachten over &ldquo;%2$s&rdquo;"
+
+#: comments.php:26
+#: comments.php:40
+#@ cc
+msgid "Comment navigation"
+msgstr "Blader door de reacties"
+
+#: comments.php:27
+#: comments.php:41
+#@ cc
+msgid "&larr; Older Comments"
+msgstr "&larr; Oudere reacties"
+
+#: comments.php:28
+#: comments.php:42
+#@ cc
+msgid "Newer Comments &rarr;"
+msgstr "Nieuwere reacties &rarr;"
+
+#: comments.php:52
+#@ cc
+msgid "Comments are closed."
+msgstr "Reageren is niet mogelijk."
+
+#: core/includes/bp/buddydev-search.php:52
+#@ cc
+msgid "Search Page"
+msgstr "Zoekpagina"
+
+#: core/includes/bp/templatetags.php:82
+#@ cc
+msgid "My Favorites"
+msgstr "Mijn favorieten"
+
+#: core/includes/bp/templatetags.php:83
+#@ cc
+msgid "Accepted"
+msgstr "Geaccepteerd"
+
+#: core/includes/bp/templatetags.php:84
+#@ cc
+msgid "Rejected"
+msgstr "Geweigerd"
+
+#: core/includes/bp/templatetags.php:85
+#@ cc
+msgid "Show all comments for this thread"
+msgstr "Toon alle reacties van deze discussie"
+
+#: core/includes/bp/templatetags.php:86
+#@ cc
+msgid "Show all"
+msgstr "Toon alles"
+
+#: core/includes/bp/templatetags.php:87
+#@ cc
+msgid "comments"
+msgstr "reacties"
+
+#: core/includes/bp/templatetags.php:88
+#@ cc
+msgid "Close"
+msgstr "Sluiten"
+
+#. translators: 1: comment author url, 2: comment author name, 3: comment permalink, 4: comment date/timestamp
+#: core/includes/bp/templatetags.php:142
+#, php-format
+#@ cc
+msgid "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> said on <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> zei op <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+
+#: core/includes/bp/templatetags.php:149
+#@ cc
+msgid "Your comment is awaiting moderation."
+msgstr "Je reactie wacht op moderatie."
+
+#: core/includes/bp/templatetags.php:161
+#@ cc
+msgid "Edit comment"
+msgstr "Reactie bewerken"
+
+#: core/includes/bp/templatetags.php:161
+#@ cc
+msgid "Edit"
+msgstr "Bewerken"
+
+#: core/includes/bp/templatetags.php:231
+#, php-format
+#@ cc
+msgid "Theme activated! This theme contains <a href=\"%s\">custom header image</a> support and <a href=\"%s\">sidebar widgets</a>."
+msgstr "Thema geactiveerd! Dit thema ondersteunt <a href=\"%s\">custom header afbeeldingen</a> en <a href=\"%s\">sidebar widgets</a>."
+
+#: core/includes/bp/templatetags.php:300
+#: members/single/profile/profile-wp.php:15
+#@ cc
+msgid "Name"
+msgstr "Naam"
+
+#: core/includes/bp/templatetags.php:302
+#@ cc
+msgid "Email"
+msgstr "E-mail"
+
+#: core/includes/bp/templatetags.php:304
+#: members/single/profile/profile-wp.php:33
+#@ cc
+msgid "Website"
+msgstr "Website"
+
+#: core/includes/bp/templatetags.php:312
+#, php-format
+#@ cc
+msgid "You must be <a href=\"%1$s\">logged in</a> to post a comment."
+msgstr "Je moet <a href=\"%1$s\">ingelogd</a> zijn om te kunnen reageren."
+
+#: core/includes/bp/templatetags.php:313
+#@ cc
+msgid "Leave a reply"
+msgstr "Laat een reactie achter"
+
+#: core/includes/theme-generator/theme-generator.php:170
+#: searchform.php:5
+#@ cc
+msgid "Search"
+msgstr "Zoeken"
+
+#: core/includes/theme-generator/theme-generator.php:197
+#: core/includes/theme-generator/theme-generator.php:201
+#: core/includes/theme-generator/theme-generator.php:206
+#: core/includes/theme-generator/theme-generator.php:209
+#: core/includes/theme-generator/theme-generator.php:230
+#: core/includes/theme-generator/theme-generator.php:238
+#@ cc
+msgid "Home"
+msgstr "Home"
+
+#: core/includes/theme-generator/theme-generator.php:243
+#: core/includes/wp/widgets.php:34
+#@ cc
+msgid "Community"
+msgstr "Community"
+
+#: core/includes/theme-generator/theme-generator.php:247
+#: core/includes/wp/widgets.php:38
+#@ cc
+msgid "Activity"
+msgstr "Activiteit"
+
+#: core/includes/theme-generator/theme-generator.php:252
+#: core/includes/wp/widgets.php:43
+#: groups/single/admin.php:229
+#@ cc
+msgid "Members"
+msgstr "Leden"
+
+#: core/includes/theme-generator/theme-generator.php:257
+#: core/includes/wp/widgets.php:48
+#@ cc
+msgid "Groups"
+msgstr "Groepen"
+
+#: core/includes/theme-generator/theme-generator.php:261
+#: core/includes/wp/widgets.php:53
+#@ cc
+msgid "Forums"
+msgstr "Forums"
+
+#: core/includes/theme-generator/theme-generator.php:268
+#: core/includes/wp/widgets.php:59
+#@ cc
+msgid "Blogs"
+msgstr "Blogs"
+
+#: core/includes/theme-generator/theme-generator.php:370
+#@ cc
+msgid "20 widget areas all over the site"
+msgstr "20 widget zones verspreid over de gehele layout"
+
+#: core/includes/theme-generator/theme-generator.php:383
+#: links.php:16
+#: sidebar.php:45
+#@ cc
+msgid "Links"
+msgstr "Links"
+
+#: core/includes/theme-generator/theme-generator.php:396
+#: sidebar.php:39
+#@ cc
+msgid "Archives"
+msgstr "Archieven"
+
+#: core/includes/theme-generator/theme-generator.php:409
+#: sidebar.php:51
+#@ cc
+msgid "Meta"
+msgstr "Meta"
+
+#: core/includes/theme-generator/theme-generator.php:424
+#, php-format
+#@ cc
+msgid "%s is proudly powered by <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> and <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
+msgstr "%s draait met trots op <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> en <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
+
+#: core/includes/theme-generator/theme-generator.php:576
+#: core/includes/theme-generator/theme-generator.php:578
+#: single.php:63
+#@ cc
+msgid "Read the rest of this entry &rarr;"
+msgstr "Lees de rest van dit item &rarr;"
+
+#: core/includes/wp/shortcodes.php:639
+#@ cc
+msgid "read more"
+msgstr "lees verder"
+
+#: core/includes/wp/shortcodes.php:868
+#@ cc
+msgid "Empty Slideshow"
+msgstr "Lege diashow"
+
+#: core/includes/wp/shortcodes.php:869
+#@ cc
+msgid "You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> for more."
+msgstr "Je hebt nog geen berichten geselecteerd voor je diashow! <br>Controleer onder de thema-instellingen de hoofdinstellingen van de diashow of onder paginainstellingen voor de pagina-diashows... <br>en schrijf een bericht! Check de <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> voor meer."
+
+#: core/includes/wp/widgets.php:68
+#@ cc
+msgid "@ Group"
+msgstr "@ Groep"
+
+#: core/includes/wp/widgets.php:79
+#@ cc
+msgid "@ Member"
+msgstr "@ Groepslid"
+
+#: core/includes/wp/widgets.php:111
+#@ cc
+msgid "Log Out"
+msgstr "Uitloggen"
+
+#: core/includes/wp/widgets.php:128
+#@ cc
+msgid "To start connecting please log in first."
+msgstr "Om met netwerken te beginnen moet je eerst even inloggen."
+
+#: core/includes/wp/widgets.php:133
+#, php-format
+#@ cc
+msgid " You can also <a href=\"%s\" title=\"Create an account\">create an account</a>."
+msgstr " Je kunt ook <a href=\"%s\" title=\"Een account aanmaken\">een account aanmaken</a>."
+
+#: core/includes/wp/widgets.php:138
+#: registration/register.php:37
+#@ cc
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: core/includes/wp/widgets.php:141
+#@ cc
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: core/includes/wp/widgets.php:144
+#@ cc
+msgid "Remember Me"
+msgstr "Onthoud mij"
+
+#: core/includes/wp/widgets.php:147
+#@ cc
+msgid "Log In"
+msgstr "Inloggen"
+
+#: core/includes/wp/widgets.php:166
+#@ cc
+msgid "Forum Topic Tags"
+msgstr "Topic tags"
+
+#: forums/forums-loop.php:24
+#@ cc
+msgid "Topic Title"
+msgstr "Titel van topic"
+
+#: forums/forums-loop.php:25
+#@ cc
+msgid "Latest Poster"
+msgstr "Laatste activiteit"
+
+#: forums/forums-loop.php:28
+#@ cc
+msgid "Posted In Group"
+msgstr "Geplaatst in groep"
+
+#: forums/forums-loop.php:32
+#@ cc
+msgid "Freshness"
+msgstr "Versheid"
+
+#: forums/forums-loop.php:45
+#@ cc
+msgid "Permalink"
+msgstr "Permalink"
+
+#: forums/forums-loop.php:95
+#@ cc
+msgid "Sorry, there were no forum topics found."
+msgstr "Sorry, er zijn geen topics in het forum gevonden."
+
+#: forums/index.php:23
+#@ cc
+msgid "Forums Directory"
+msgstr "Forums"
+
+#: forums/index.php:23
+#: forums/single/forum.php:19
+#: groups/single/forum.php:17
+#@ cc
+msgid "New Topic"
+msgstr "Nieuw topic"
+
+#: forums/index.php:40
+#, php-format
+#@ cc
+msgid "All Topics <span>%s</span>"
+msgstr "Alle topics <span>%s</span>"
+
+#: forums/index.php:44
+#, php-format
+#@ cc
+msgid "My Topics <span>%s</span>"
+msgstr "Mijn topics <span>%s</span>"
+
+#: forums/index.php:63
+#: forums/single/forum.php:37
+#: groups/single/forum.php:35
+#: members/single/forums.php:21
+#@ cc
+msgid "Most Posts"
+msgstr "Meeste berichten"
+
+#: forums/index.php:64
+#: forums/single/forum.php:38
+#: groups/single/forum.php:36
+#: members/single/forums.php:22
+#@ cc
+msgid "Unreplied"
+msgstr "Onbeantwoord"
+
+#: forums/index.php:100
+#@ cc
+msgid "Create New Topic:"
+msgstr "Maak een nieuw topic aan:"
+
+#: forums/index.php:104
+#: forums/single/edit.php:49
+#: groups/single/forum/edit.php:49
+#: groups/single/forum.php:71
+#@ cc
+msgid "Title:"
+msgstr "Titel:"
+
+#: forums/index.php:107
+#: forums/single/edit.php:52
+#: groups/single/forum/edit.php:52
+#: groups/single/forum.php:74
+#@ cc
+msgid "Content:"
+msgstr "Inhoud:"
+
+#: forums/index.php:110
+#: groups/single/forum/edit.php:55
+#: groups/single/forum.php:77
+#@ cc
+msgid "Tags (comma separated):"
+msgstr "Tags (komma-gescheiden):"
+
+#: forums/index.php:113
+#@ cc
+msgid "Post In Group Forum:"
+msgstr "Plaats in het groepsforum:"
+
+#. translators: no option picked in select box
+#: forums/index.php:116
+#@ cc
+msgid "----"
+msgstr "----"
+
+#: forums/index.php:133
+#: groups/single/forum.php:83
+#@ cc
+msgid "Post Topic"
+msgstr "Plaats topic"
+
+#: forums/index.php:134
+#@ cc
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: forums/index.php:145
+#, php-format
+#@ cc
+msgid "You are not a member of any groups so you don't have any group forums you can post in. To start posting, first find a group that matches the topic subject you'd like to start. If this group does not exist, why not <a href='%s'>create a new group</a>? Once you have joined or created the group you can post your topic in that group's forum."
+msgstr "Je bent nog geen lid van een groep. Daarom kun je nog geen berichten in een groepsforum plaatsen. Om een bericht te plaatsen kun je het beste eerst kijken of er al een groep bestaat die past bij het onderwerp van het topic dat je wilt starten. Mocht zo'n groep er nog niet zijn, dan kan je <a href='%s'>een nieuwe groep aanmaken</a>. Zodra je lid bent geworden van een groep of zelf een groep hebt aangemaakt kun je topics starten op het forum van die groep."
+
+#: forums/single/edit.php:16
+#: forums/single/forum.php:25
+#: forums/single/topic.php:43
+#: groups/single/forum/edit.php:16
+#: groups/single/forum/topic.php:16
+#: groups/single/forum.php:23
+#@ cc
+msgid "Forum Directory"
+msgstr "Forumoverzicht"
+
+#: forums/single/edit.php:25
+#: groups/single/forum/edit.php:25
+#@ cc
+msgid "Edit:"
+msgstr "Bewerk:"
+
+#: forums/single/edit.php:57
+#: forums/single/edit.php:73
+#: groups/single/admin.php:32
+#: groups/single/admin.php:117
+#: groups/single/forum/edit.php:60
+#: groups/single/forum/edit.php:76
+#: members/single/profile/edit.php:126
+#: members/single/settings/general.php:69
+#: members/single/settings/notifications.php:62
+#@ cc
+msgid "Save Changes"
+msgstr "Aanpassingen opslaan"
+
+#: forums/single/edit.php:88
+#: groups/single/forum/edit.php:91
+#@ cc
+msgid "This topic does not exist."
+msgstr "Dit topic bestaat niet."
+
+#: forums/single/forum-header.php:13
+#: groups/groups-loop.php:47
+#, php-format
+#@ cc
+msgid "active %s"
+msgstr "actief %s"
+
+#: forums/single/topic.php:37
+#: groups/single/forum/topic.php:10
+#@ cc
+msgid "New Reply"
+msgstr "Nieuw antwoord"
+
+#: forums/single/topic.php:97
+#, php-format
+#@ cc
+msgid "%s said %s ago:"
+msgstr "%s zei %s geleden:"
+
+#: forums/single/topic.php:117
+#: groups/single/forum/topic.php:81
+#@ cc
+msgid "Permanent link to this post"
+msgstr "Permanente link naar dit bericht"
+
+#: forums/single/topic.php:153
+#: groups/single/forum/topic.php:117
+#@ cc
+msgid "Add a reply:"
+msgstr "Voeg een reactie toe:"
+
+#: forums/single/topic.php:158
+#: groups/single/forum/topic.php:122
+#@ cc
+msgid "Post Reply"
+msgstr "Reactie plaatsen"
+
+#: forums/single/topic.php:169
+#: groups/single/forum/topic.php:133
+#@ cc
+msgid "This topic is closed, replies are no longer accepted."
+msgstr "Dit topic is gesloten. Je kunt hier niet meer reageren."
+
+#: forums/single/topic.php:184
+#: groups/single/forum/topic.php:147
+#@ cc
+msgid "There are no posts for this topic."
+msgstr "Er zijn geen berichten voor dit topic."
+
+#: full-width.php:23
+#: left-and-right-sidebar.php:22
+#: left-sidebar.php:22
+#: page.php:17
+#: right-sidebar.php:22
+#@ cc
+msgid "<p class=\"serif\">Read the rest of this page &rarr;</p>"
+msgstr "<p class=\"serif\">Lees de rest van deze pagina &rarr;</p>"
+
+#: full-width.php:38
+#: single.php:92
+#@ cc
+msgid "Edit this entry."
+msgstr "Bewerk dit item."
+
+#: functions.php:60
+#@ cc
+msgid "Header top menu"
+msgstr "Header top menu"
+
+#: functions.php:61
+#@ cc
+msgid "Header bottom menu"
+msgstr "Header bottom menu"
+
+#: functions.php:474
+#@ cc
+msgid "Members Results"
+msgstr "Resultaat van leden"
+
+#: functions.php:489
+#@ cc
+msgid "Group Search"
+msgstr "Groep doorzoeken"
+
+#: functions.php:492
+#@ cc
+msgid "View All matched Groups"
+msgstr "Bekijk alle gevonden groepen"
+
+#: functions.php:510
+#@ cc
+msgid "Blog Search"
+msgstr "Blog doorzoeken"
+
+#: functions.php:513
+#@ cc
+msgid "View All matched Posts"
+msgstr "Bekijk alle gevonden berichten"
+
+#: functions.php:525
+#@ cc
+msgid "Forums Search"
+msgstr "Forums doorzoeken"
+
+#: functions.php:527
+#@ cc
+msgid "View All matched forum posts"
+msgstr "Bekijk alle gevonden forumberichten."
+
+#: functions.php:546
+#@ cc
+msgid "Blogs Search"
+msgstr "Blogs doorzoeken"
+
+#: functions.php:548
+#@ cc
+msgid "View All matched Blogs"
+msgstr "Bekijk alle gevonden blogs"
+
+#: groups/create.php:18
+#: groups/index.php:23
+#@ cc
+msgid "Create a Group"
+msgstr "Groep aanmaken"
+
+#: groups/create.php:18
+#: groups/index.php:23
+#@ cc
+msgid "Groups Directory"
+msgstr "Groepen"
+
+#: groups/create.php:39
+#: groups/single/admin.php:16
+#@ cc
+msgid "Group Name (required)"
+msgstr "Groepsnaam (verplicht)"
+
+#: groups/create.php:42
+#: groups/single/admin.php:19
+#@ cc
+msgid "Group Description (required)"
+msgstr "Groepsomschrijving (verplicht)"
+
+#: groups/create.php:62
+#: groups/single/admin.php:47
+#@ cc
+msgid "Enable discussion forum"
+msgstr "Activeer het discussieforum"
+
+#: groups/create.php:69
+#, php-format
+#@ cc
+msgid "<strong>Attention Site Admin:</strong> Group forums require the <a href=\"%s\">correct setup and configuration</a> of a bbPress installation."
+msgstr "<strong>Attentie Site Admin:</strong> Groepsforums hebben een <a href=\"%s\">correcte installatie en configuratie</a> van bbPress nodig."
+
+#: groups/create.php:78
+#: groups/single/admin.php:56
+#@ cc
+msgid "Privacy Options"
+msgstr "Privacyinstellingen"
+
+#: groups/create.php:82
+#: groups/single/admin.php:61
+#@ cc
+msgid "This is a public group"
+msgstr "Dit is een openbare groep"
+
+#: groups/create.php:84
+#: groups/single/admin.php:63
+#@ cc
+msgid "Any site member can join this group."
+msgstr "Elke gebruiker van de site kan lid worden van deze groep."
+
+#: groups/create.php:85
+#: groups/create.php:94
+#: groups/single/admin.php:64
+#: groups/single/admin.php:74
+#@ cc
+msgid "This group will be listed in the groups directory and in search results."
+msgstr "Deze groep wordt opgenomen in het groepsoverzicht en in de zoekresultaten."
+
+#: groups/create.php:86
+#: groups/single/admin.php:65
+#@ cc
+msgid "Group content and activity will be visible to any site member."
+msgstr "Inhoud en activiteit van de groep zullen zichtbaar zijn voor elke gebruiker van de site."
+
+#: groups/create.php:91
+#: groups/single/admin.php:71
+#@ cc
+msgid "This is a private group"
+msgstr "Dit is een privégroep"
+
+#: groups/create.php:93
+#: groups/single/admin.php:73
+#@ cc
+msgid "Only users who request membership and are accepted can join the group."
+msgstr "Alleen gebruikers die groepslidmaatschap aanvragen en worden geaccepteerd kunnen zich bij de groep aansluiten."
+
+#: groups/create.php:95
+#: groups/create.php:104
+#: groups/single/admin.php:75
+#: groups/single/admin.php:85
+#@ cc
+msgid "Group content and activity will only be visible to members of the group."
+msgstr "Inhoud en activiteit van de groep zullen alleen zichtbaar zijn voor leden van de groep."
+
+#: groups/create.php:100
+#: groups/single/admin.php:81
+#@ cc
+msgid "This is a hidden group"
+msgstr "Dit is een verborgen groep"
+
+#: groups/create.php:102
+#: groups/single/admin.php:83
+#@ cc
+msgid "Only users who are invited can join the group."
+msgstr "Alleen gebruikers die zijn uitgenodigd kunnen lid worden van de groep."
+
+#: groups/create.php:103
+#: groups/single/admin.php:84
+#@ cc
+msgid "This group will not be listed in the groups directory or search results."
+msgstr "Deze groep wordt niet opgenomen in het groepsoverzicht of de zoekresultaten."
+
+#: groups/create.php:111
+#: groups/single/admin.php:92
+#@ cc
+msgid "Group Invitations"
+msgstr "Groepsuitnodigingen"
+
+#: groups/create.php:113
+#: groups/single/admin.php:94
+#@ cc
+msgid "Which members of this group are allowed to invite others?"
+msgstr "Welke leden van deze groep mogen anderen uitnodigen?"
+
+#: groups/create.php:118
+#: groups/single/admin.php:99
+#@ cc
+msgid "All group members"
+msgstr "Alle groepsleden"
+
+#: groups/create.php:123
+#: groups/single/admin.php:104
+#@ cc
+msgid "Group admins and mods only"
+msgstr "Alleen groepsbeheerders en moderators"
+
+#: groups/create.php:128
+#: groups/single/admin.php:109
+#@ cc
+msgid "Group admins only"
+msgstr "Alleen groepsbeheerders"
+
+#: groups/create.php:154
+#: groups/single/admin.php:127
+#@ cc
+msgid "Upload an image to use as an avatar for this group. The image will be shown on the main group page, and in search results."
+msgstr "Upload een afbeelding om te gebruiken als avatar voor deze groep. De afbeelding wordt weergegeven op de hoofdpagina van de groep en in de zoekresultaten."
+
+#: groups/create.php:158
+#: groups/single/admin.php:131
+#: members/single/profile/change-avatar.php:18
+#@ cc
+msgid "Upload Image"
+msgstr "Afbeelding uploaden"
+
+#: groups/create.php:162
+#@ cc
+msgid "To skip the avatar upload process, hit the \"Next Step\" button."
+msgstr "Druk op de  \"Volgende stap\"-knop om het uploaden van een avatar over te slaan."
+
+#: groups/create.php:169
+#@ cc
+msgid "Crop Group Avatar"
+msgstr "Groepsavatar bijsnijden"
+
+#: groups/create.php:171
+#: groups/single/admin.php:151
+#: members/single/profile/change-avatar.php:33
+#@ cc
+msgid "Avatar to crop"
+msgstr "Avatar om bij te snijden"
+
+#: groups/create.php:174
+#: groups/single/admin.php:154
+#: members/single/profile/change-avatar.php:36
+#@ cc
+msgid "Avatar preview"
+msgstr "Avatar voorbeeld"
+
+#: groups/create.php:177
+#: groups/single/admin.php:157
+#: members/single/profile/change-avatar.php:39
+#@ cc
+msgid "Crop Image"
+msgstr "Afbeelding bijsnijden"
+
+#: groups/create.php:216
+#: groups/single/send-invites.php:22
+#@ cc
+msgid "Select people to invite from your friends list."
+msgstr "Selecteer personen om uit te nodigen op je vriendenlijst."
+
+#: groups/create.php:251
+#: groups/single/send-invites.php:73
+#@ cc
+msgid "Once you have built up friend connections you will be able to invite others to your group. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new group."
+msgstr "Als je connecties met vrienden hebt opgebouwd kun je anderen uitnodigen voor je groep. Je kunt dat doen door te kiezen voor de optie \"Uitnodigingen verzenden\" wanneer je de nieuwe groep bekijkt."
+
+#: groups/create.php:273
+#@ cc
+msgid "Back to Previous Step"
+msgstr "Terug naar de vorige stap"
+
+#: groups/create.php:280
+#@ cc
+msgid "Next Step"
+msgstr "Volgende stap"
+
+#: groups/create.php:287
+#@ cc
+msgid "Create Group and Continue"
+msgstr "Groep aanmaken en doorgaan"
+
+#: groups/create.php:294
+#@ cc
+msgid "Finish"
+msgstr "Afronden"
+
+#: groups/groups-loop.php:95
+#@ cc
+msgid "There were no groups found."
+msgstr "Er zijn geen groepen gevonden."
+
+#: groups/index.php:37
+#, php-format
+#@ cc
+msgid "All Groups <span>%s</span>"
+msgstr "Alle groepen <span>%s</span>"
+
+#: groups/index.php:60
+#: members/single/groups.php:23
+#@ cc
+msgid "Most Members"
+msgstr "Meeste leden"
+
+#: groups/index.php:61
+#: members/single/groups.php:24
+#@ cc
+msgid "Newly Created"
+msgstr "Nieuw aangemaakt"
+
+#: groups/single/admin.php:25
+#@ cc
+msgid "Notify group members of changes via email"
+msgstr "Stel groepsleden op de hoogte via e-mail"
+
+#: groups/single/admin.php:26
+#: registration/register.php:205
+#@ cc
+msgid "Yes"
+msgstr "Ja"
+
+#: groups/single/admin.php:27
+#: registration/register.php:206
+#@ cc
+msgid "No"
+msgstr "Nee"
+
+#: groups/single/admin.php:137
+#@ cc
+msgid "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button."
+msgstr "Gebruik de \"Avatar verwijderen\"-knop als je de bestaande avatar wilt verwijderen en geen nieuwe wilt uploaden."
+
+#: groups/single/admin.php:139
+#: members/single/profile/change-avatar.php:24
+#@ cc
+msgid "Delete Avatar"
+msgstr "Avatar verwijderen"
+
+#: groups/single/admin.php:149
+#@ cc
+msgid "Crop Avatar"
+msgstr "Avatar bijsnijden"
+
+#: groups/single/admin.php:177
+#@ cc
+msgid "Administrators"
+msgstr "Beheerders"
+
+#: groups/single/admin.php:185
+#: groups/single/admin.php:210
+#, php-format
+#@ cc
+msgid "Profile picture of %s"
+msgstr "Profielafbeelding van %s"
+
+#: groups/single/admin.php:189
+#: groups/single/admin.php:215
+#@ cc
+msgid "Demote to Member"
+msgstr "Degradeer tot lid"
+
+#: groups/single/admin.php:203
+#@ cc
+msgid "Moderators"
+msgstr "Moderators"
+
+#: groups/single/admin.php:214
+#: groups/single/admin.php:270
+#@ cc
+msgid "Promote to Admin"
+msgstr "Promoveer tot beheerder"
+
+#: groups/single/admin.php:258
+#@ cc
+msgid "(banned)"
+msgstr "(verbannen)"
+
+#: groups/single/admin.php:264
+#@ cc
+msgid "Unban this member"
+msgstr "Hef de ban van dit lid op"
+
+#: groups/single/admin.php:264
+#@ cc
+msgid "Remove Ban"
+msgstr "Ban opheffen"
+
+#: groups/single/admin.php:268
+#@ cc
+msgid "Kick and ban this member"
+msgstr "Schop en verban dit lid"
+
+#: groups/single/admin.php:268
+#@ cc
+msgid "Kick &amp; Ban"
+msgstr "Schoppen &amp; verbannen"
+
+#: groups/single/admin.php:269
+#@ cc
+msgid "Promote to Mod"
+msgstr "Promoveer tot moderator"
+
+#: groups/single/admin.php:274
+#@ cc
+msgid "Remove this member"
+msgstr "Lid verwijderen"
+
+#: groups/single/admin.php:274
+#@ cc
+msgid "Remove from group"
+msgstr "Uit groep verwijderen"
+
+#: groups/single/admin.php:288
+#: groups/single/members.php:104
+#@ cc
+msgid "This group has no members."
+msgstr "Deze groep heeft geen leden."
+
+#: groups/single/admin.php:318
+#: members/single/friends/requests.php:37
+#: members/single/groups/invites.php:23
+#@ cc
+msgid "Accept"
+msgstr "Accepteren"
+
+#: groups/single/admin.php:320
+#: members/single/friends/requests.php:38
+#: members/single/groups/invites.php:24
+#@ cc
+msgid "Reject"
+msgstr "Weigeren"
+
+#: groups/single/admin.php:333
+#@ cc
+msgid "There are no pending membership requests."
+msgstr "Er zijn geen openstaande verzoeken om lidmaatschap."
+
+#: groups/single/admin.php:350
+#@ cc
+msgid "WARNING: Deleting this group will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "WAARSCHUWING: Verwijderen van deze groep betekent dat ALLE content die bij deze groep hoort, permanent verwijderd wordt. Er is geen mogelijkheid om dit achteraf ongedaan te maken. Wees dus voorzichtig met deze optie."
+
+#: groups/single/admin.php:353
+#@ cc
+msgid "I understand the consequences of deleting this group."
+msgstr "Ik begrijp de gevolgen van het verwijderen van deze groep."
+
+#: groups/single/admin.php:358
+#@ cc
+msgid "Delete Group"
+msgstr "Groep verwijderen"
+
+#: groups/single/forum/topic.php:67
+#, php-format
+#@ cc
+msgid "%1$s said %2$s:"
+msgstr "%1$s zei %2$s:"
+
+#: groups/single/forum/topic.php:112
+#@ cc
+msgid "You will auto join this group when you reply to this topic."
+msgstr "Je wordt automatisch lid van deze groep als je een reactie op dit topic plaatst."
+
+#: groups/single/forum.php:65
+#@ cc
+msgid "You will auto join this group when you start a new topic."
+msgstr "Je wordt automatisch lid van deze groep als je een nieuw topic start."
+
+#: groups/single/forum.php:69
+#@ cc
+msgid "Post a New Topic:"
+msgstr "Start een nieuw topic."
+
+#: groups/single/group-header-sidebar.php:16
+#: groups/single/group-header.php:35
+#, php-format
+#@ cc
+msgid "active %s ago"
+msgstr "%s geleden actief"
+
+#: groups/single/group-header.php:6
+#@ cc
+msgid "Group Admins"
+msgstr "Groepsbeheerders"
+
+#: groups/single/group-header.php:14
+#@ cc
+msgid "Group Mods"
+msgstr "Groepsmoderatoren"
+
+#: groups/single/members.php:15
+#: members/index.php:58
+#: members/single/friends.php:23
+#@ cc
+msgid "Newest Registered"
+msgstr "Meest recent geregistreerd"
+
+#: groups/single/request-membership.php:4
+#, php-format
+#@ cc
+msgid "You are requesting to become a member of the group '%s'."
+msgstr "Je verzoekt om lid te worden van groep '%s'."
+
+#: groups/single/request-membership.php:7
+#@ cc
+msgid "Comments (optional)"
+msgstr "Reacties (optioneel)"
+
+#: groups/single/request-membership.php:12
+#@ cc
+msgid "Send Request"
+msgstr "Verzoek versturen"
+
+#: groups/single/send-invites.php:60
+#@ cc
+msgid "Send Invites"
+msgstr "Uitnodigingen versturen"
+
+#: index.php:30
+#: single.php:56
+#, php-format
+#@ cc
+msgid " by %s"
+msgstr "door %s"
+
+#: index.php:58
+#@ cc
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr "Sorry, maar je zoekt iets dat hier niet te vinden is."
+
+#: members/index.php:23
+#@ cc
+msgid "Members Directory"
+msgstr "Leden"
+
+#: members/members-loop.php:108
+#@ cc
+msgid "Sorry, no members were found."
+msgstr "Sorry, er zijn geen leden gevonden."
+
+#: members/single/friends/requests.php:68
+#@ cc
+msgid "You have no pending friendship requests."
+msgstr "Je hebt geen openstaande vriendschapsverzoeken."
+
+#: members/single/groups/invites.php:14
+#, php-format
+#@ cc
+msgid "%s members"
+msgstr "%s leden"
+
+#: members/single/groups/invites.php:37
+#@ cc
+msgid "You have no outstanding group invites."
+msgstr "Je hebt geen uitstaande groepsuitnodigingen."
+
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+#@ cc
+msgid "Mention this user in a new public message, this will send the user a notification to get their attention."
+msgstr "Vermeld deze gebruiker in een nieuw openbaar bericht. De gebruiker krijgt hiervan een notificatie."
+
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+#@ cc
+msgid "Mention this User"
+msgstr "Vermeld deze gebruiker"
+
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+#@ cc
+msgid "Send a private message to this user."
+msgstr "Verstuur een privébericht naar deze gebruiker."
+
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+#@ cc
+msgid "Send Private Message"
+msgstr "Privébericht versturen"
+
+#: members/single/messages/compose.php:5
+#@ cc
+msgid "Send To (Username or Friend's Name)"
+msgstr "Verstuur aan (gebruikersnaam of naam van vriend)"
+
+#: members/single/messages/compose.php:14
+#@ cc
+msgid "This is a notice to all users."
+msgstr "Dit is een melding aan alle gebruikers."
+
+#: members/single/messages/compose.php:17
+#@ cc
+msgid "Subject"
+msgstr "Onderwerp"
+
+#: members/single/messages/compose.php:20
+#@ cc
+msgid "Message"
+msgstr "Bericht"
+
+#: members/single/messages/compose.php:28
+#@ cc
+msgid "Send Message"
+msgstr "Bericht versturen"
+
+#: members/single/messages/messages-loop.php:31
+#@ cc
+msgid "From:"
+msgstr "Van:"
+
+#: members/single/messages/messages-loop.php:36
+#@ cc
+msgid "To:"
+msgstr "Aan:"
+
+#: members/single/messages/messages-loop.php:42
+#@ cc
+msgid "View Message"
+msgstr "Bericht bekijken"
+
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/notices-loop.php:38
+#: members/single/messages/single.php:24
+#@ cc
+msgid "Delete Message"
+msgstr "Bericht verwijderen"
+
+#: members/single/messages/messages-loop.php:68
+#@ cc
+msgid "Sorry, no messages were found."
+msgstr "Sorry, er zijn geen berichten gevonden."
+
+#: members/single/messages/notices-loop.php:31
+#@ cc
+msgid "Sent:"
+msgstr "Verzonden:"
+
+#: members/single/messages/notices-loop.php:49
+#@ cc
+msgid "Sorry, no notices were found."
+msgstr "Sorry, er zijn geen meldingen gevonden."
+
+#: members/single/messages/single.php:14
+#@ cc
+msgid "You are alone in this conversation."
+msgstr "Je bent alleen in dit gesprek."
+
+#: members/single/messages/single.php:18
+#, php-format
+#@ cc
+msgid "Conversation between %s and you."
+msgstr "Gesprek tussen %s en jou."
+
+#: members/single/messages/single.php:75
+#@ cc
+msgid "Send a Reply"
+msgstr "Verstuur een antwoord"
+
+#: members/single/messages/single.php:91
+#@ cc
+msgid "Send Reply"
+msgstr "Antwoord versturen"
+
+#: members/single/profile/change-avatar.php:1
+#@ cc
+msgid "Change Avatar"
+msgstr "Avatar veranderen"
+
+#: members/single/profile/change-avatar.php:7
+#@ cc
+msgid "Your avatar will be used on your profile and throughout the site. If there is a <a href=\"http://gravatar.com\">Gravatar</a> associated with your account email we will use that, or you can upload an image from your computer."
+msgstr "Je avatar wordt gebruikt op je profiel en op allerlei plaatsen op de site. Als er een <a href=\"http://gravatar.com\">Gravatar</a> gekoppeld is met het e-mailadres van jouw account dan gebruiken we die. Maar je kunt ook een eigen afbeelding van je computer uploaden."
+
+#: members/single/profile/change-avatar.php:14
+#@ cc
+msgid "Click below to select a JPG, GIF or PNG format photo from your computer and then click 'Upload Image' to proceed."
+msgstr "Klik hieronder om een JPG, GIF of PNG afbeelding op je computer te selecteren. Klik daarna op 'Afbeelding uploaden' om verder te gaan."
+
+#: members/single/profile/change-avatar.php:23
+#@ cc
+msgid "If you'd like to delete your current avatar but not upload a new one, please use the delete avatar button."
+msgstr "Gebruik de \"Avatar verwijderen\"-knop als je de bestaande avatar wilt verwijderen en geen nieuwe wilt uploaden."
+
+#: members/single/profile/change-avatar.php:24
+#@ cc
+msgid "Delete My Avatar"
+msgstr "Verwijder mijn avatar"
+
+#: members/single/profile/change-avatar.php:31
+#@ cc
+msgid "Crop Your New Avatar"
+msgstr "Je nieuwe avatar bijsnijden"
+
+#: members/single/profile/change-avatar.php:55
+#@ cc
+msgid "Your avatar will be used on your profile and throughout the site. To change your avatar, please create an account with <a href=\"http://gravatar.com\">Gravatar</a> using the same email address as you used to register with this site."
+msgstr "Je avatar wordt gebruikt op je profiel en op allerlei plaatsen binnen de site. Om je avatar te veranderen kun je een eigen afbeelding uploaden bij je profiel. Of gebruik een service als <a href=\"http://gravatar.com\">Gravatar</a> om een afbeelding te koppelen met hetzelfde e-mailadres dat je gebruikt hebt om je op deze site te registreren."
+
+#: members/single/profile/edit.php:10
+#, php-format
+#@ cc
+msgid "Editing '%s' Profile Group"
+msgstr "'%s' Profielgroep bewerken"
+
+#: members/single/profile/edit.php:26
+#: members/single/profile/edit.php:33
+#: members/single/profile/edit.php:40
+#: members/single/profile/edit.php:49
+#: members/single/profile/edit.php:67
+#: members/single/profile/edit.php:83
+#: members/single/profile/edit.php:93
+#: registration/register.php:37
+#: registration/register.php:41
+#: registration/register.php:45
+#: registration/register.php:49
+#: registration/register.php:76
+#: registration/register.php:84
+#: registration/register.php:92
+#: registration/register.php:102
+#: registration/register.php:113
+#: registration/register.php:128
+#: registration/register.php:139
+#: registration/register.php:189
+#: registration/register.php:198
+#@ cc
+msgid "(required)"
+msgstr "(verplicht)"
+
+#: members/single/profile/edit.php:58
+#: members/single/profile/edit.php:73
+#: registration/register.php:119
+#@ cc
+msgid "Clear"
+msgstr "Leegmaken"
+
+#: members/single/profile/profile-wp.php:8
+#, php-format
+#@ cc
+msgid "%s's Profile"
+msgstr "Profiel van %s"
+
+#: members/single/profile/profile-wp.php:24
+#@ cc
+msgid "About Me"
+msgstr "Over mijzelf"
+
+#: members/single/profile/profile-wp.php:42
+#@ cc
+msgid "Jabber"
+msgstr "Jabber"
+
+#: members/single/profile/profile-wp.php:51
+#@ cc
+msgid "AOL Messenger"
+msgstr "AOL Messenger"
+
+#: members/single/profile/profile-wp.php:60
+#@ cc
+msgid "Yahoo Messenger"
+msgstr "Yahoo Messenger"
+
+#: members/single/settings/delete-account.php:50
+#@ cc
+msgid "Delete Account"
+msgstr "Account verwijderen"
+
+#: members/single/settings/delete-account.php:55
+#@ cc
+msgid "WARNING: Deleting your account will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "WAARSCHUWING: Verwijderen van je account betekent dat ALLE content die bij jouw account hoort permanent verwijderd wordt. Er is geen mogelijkheid om dit achteraf ongedaan te maken. Wees dus voorzichtig met deze optie."
+
+#: members/single/settings/delete-account.php:58
+#@ cc
+msgid "I understand the consequences of deleting my account."
+msgstr "Ik begrijp de gevolgen van het verwijderen van mijn account."
+
+#: members/single/settings/delete-account.php:63
+#@ cc
+msgid "Delete My Account"
+msgstr "Verwijder mijn account"
+
+#: members/single/settings/general.php:50
+#@ cc
+msgid "General Settings"
+msgstr "Algemene instellingen"
+
+#: members/single/settings/general.php:56
+#@ cc
+msgid "Current Password <span>(required to update email or change current password)</span>"
+msgstr "Huidig wachtwoord <span>(verplicht bij wijzigen van e-mailadres of wachtwoord)</span>"
+
+#: members/single/settings/general.php:57
+#@ cc
+msgid "Password Lost and Found"
+msgstr "Wachtwoord kwijt en gevonden"
+
+#: members/single/settings/general.php:57
+#@ cc
+msgid "Lost your password?"
+msgstr "Je wachtwoord vergeten?"
+
+#: members/single/settings/general.php:59
+#@ cc
+msgid "Account Email"
+msgstr "E-mailadres van account"
+
+#: members/single/settings/general.php:62
+#@ cc
+msgid "Change Password <span>(leave blank for no change)</span>"
+msgstr "Wachtwoord wijzigen <span>(laat leeg voor geen verandering)</span>"
+
+#: members/single/settings/general.php:63
+#@ cc
+msgid "New Password"
+msgstr "Nieuw wachtwoord"
+
+#: members/single/settings/general.php:64
+#@ cc
+msgid "Repeat New Password"
+msgstr "Herhaal nieuw wachtwoord"
+
+#: members/single/settings/notifications.php:50
+#@ cc
+msgid "Email Notification"
+msgstr "E-mailnotificatie"
+
+#: members/single/settings/notifications.php:55
+#@ cc
+msgid "Send a notification by email when:"
+msgstr "Verstuur een notificatie per e-mail wanneer:"
+
+#: left-and-right-sidebar.php:39
+#: left-sidebar.php:39
+#: page.php:34
+#: right-sidebar.php:39
+#@ cc
+msgid "Edit this page."
+msgstr "Deze pagina bewerken."
+
+#: registration/activate.php:12
+#@ cc
+msgid "Account Activated"
+msgstr "Account geactiveerd"
+
+#: registration/activate.php:17
+#@ cc
+msgid "Your account was activated successfully! Your account details have been sent to you in a separate email."
+msgstr "Je account is succesvol geactiveerd! Je accountgegevens zijn in een aparte e-mail naar je toegestuurd."
+
+#: registration/activate.php:19
+#@ cc
+msgid "Your account was activated successfully! You can now log in with the username and password you provided when you signed up."
+msgstr "Je account is succesvol geactiveerd! Je kunt nu inloggen met de gebruikersnaam en het wachtwoord dat je gebruikt hebt tijdens het registreren."
+
+#: registration/activate.php:24
+#@ cc
+msgid "Activate your Account"
+msgstr "Activeer je account"
+
+#: registration/activate.php:28
+#@ cc
+msgid "Please provide a valid activation key."
+msgstr "Voer een geldige activatiesleutel in."
+
+#: registration/activate.php:32
+#@ cc
+msgid "Activation Key:"
+msgstr "Activatiesleutel:"
+
+#: registration/activate.php:36
+#@ cc
+msgid "Activate"
+msgstr "Activeren"
+
+#: registration/register.php:16
+#@ cc
+msgid "User registration is currently not allowed."
+msgstr "Momenteel is het registreren van nieuwe gebruikers uitgeschakeld."
+
+#: registration/register.php:23
+#@ cc
+msgid "Create an Account"
+msgstr "Maak een account aan"
+
+#: registration/register.php:27
+#@ cc
+msgid "Registering for this site is easy, just fill in the fields below and we'll get a new account set up for you in no time."
+msgstr "Registreren voor deze site is makkelijk. Vul het formulier hieronder in en binnen de kortste tijd is jouw nieuwe account ingericht."
+
+#: registration/register.php:35
+#@ cc
+msgid "Account Details"
+msgstr "Accountdetails"
+
+#: registration/register.php:41
+#@ cc
+msgid "Email Address"
+msgstr "E-mailadres"
+
+#: registration/register.php:45
+#@ cc
+msgid "Choose a Password"
+msgstr "Kies een wachtwoord"
+
+#: registration/register.php:49
+#@ cc
+msgid "Confirm Password"
+msgstr "Bevestig wachtwoord"
+
+#: registration/register.php:65
+#@ cc
+msgid "Profile Details"
+msgstr "Profieldetails"
+
+#: registration/register.php:183
+#@ cc
+msgid "Blog Details"
+msgstr "Blogdetails"
+
+#: registration/register.php:185
+#@ cc
+msgid "Yes, I'd like to create a new site"
+msgstr "Ja, ik wil een nieuwe site aanmaken"
+
+#: registration/register.php:189
+#@ cc
+msgid "Blog URL"
+msgstr "Blog URL"
+
+#: registration/register.php:198
+#@ cc
+msgid "Site Title"
+msgstr "Titel van site"
+
+#: registration/register.php:202
+#@ cc
+msgid "I would like my site to appear in search engines, and in public listings around this network."
+msgstr "I sta toe dat mijn site verschijnt in zoekmachines en overige openbare diensten rond dit netwerk."
+
+#: registration/register.php:219
+#@ cc
+msgid "Complete Sign Up"
+msgstr "Registratie afronden"
+
+#: registration/register.php:230
+#@ cc
+msgid "Sign Up Complete!"
+msgstr "Registratie afgerond!"
+
+#: registration/register.php:236
+#@ cc
+msgid "You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address."
+msgstr "Je account is succesvol aangemaakt! Om met deze site te kunnen werken moet je eerst je account activeren via de e-mail die we zojuist naar je e-mailadres hebben gestuurd."
+
+#: registration/register.php:238
+#@ cc
+msgid "You have successfully created your account! Please log in using the username and password you have just created."
+msgstr "Je account is succesvol aangemaakt! Je kunt nu inloggen met de gebruikersnaam en het wachtwoord die je net aangemaakt hebt."
+
+#: search-loop.php:34
+#@ cc
+msgid "Read more..."
+msgstr "Lees verder..."
+
+#: search-loop.php:51
+#, php-format
+#@ cc
+msgid "We are sorry, but we could not find anything for the search term '%s'"
+msgstr "Het spijt ons, maar we konden niets vinden met de zoekopdracht '%s'"
+
+#: search.php:14
+#@ cc
+msgid "Search Results"
+msgstr "Zoekresultaat"
+
+#: search.php:59
+#@ cc
+msgid "No posts found. Try a different search?"
+msgstr "Geen berichten gevonden. Misschien met een andere zoekopdracht?"
+
+#: sidebar.php:11
+#@ cc
+msgid "Recent Posts"
+msgstr "Recente berichten"
+
+#: sidebar.php:23
+#@ cc
+msgid "Random Posts"
+msgstr "Willekeurige berichten"
+
+#: sidebar.php:35
+#@ cc
+msgid "Search by Tags!"
+msgstr "Zoek op tags!"
+
+#: single.php:87
+#@ cc
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#: single.php:88
+#@ cc
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"
+
+#: single.php:97
+#@ cc
+msgid "Sorry, no posts matched your criteria."
+msgstr "Sorry, er zijn geen berichten die voldoen aan je criteria."
+
+#: admin/page-meta-box.php:75
+#@ default
+msgid "Use Post Type: for Pages write \"page\""
+msgstr ""
+
+#: admin/page-meta-box.php:77
+#@ default
+msgid "post/page ids comma separated"
+msgstr ""
+
+#: admin/page-meta-box.php:84
+#@ default
+msgid "Caption off"
+msgstr ""
+
+#: admin/page-meta-box.php:86
+#@ default
+msgid "Define the sliding time in ms"
+msgstr ""
+
+#: admin/page-meta-box.php:88
+#@ default
+msgid "Order By"
+msgstr ""
+
+#: admin/page-meta-box.php:90
+#@ default
+msgid "Amount"
+msgstr ""
+
+#: left-and-right-sidebar.php:24
+#: left-sidebar.php:24
+#: page.php:19
+#: right-sidebar.php:24
+#: single.php:68
+#@ cc
+msgid "<p class=\"cc_pagecount\"><strong>Pages:</strong> "
+msgstr "<p class=\"cc_pagecount\"><strong>Pagina's:</strong> "
+

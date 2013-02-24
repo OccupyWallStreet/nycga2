@@ -1,0 +1,220 @@
+# Translation of the WordPress plugin Login With Ajax 2.1.5 by NetWebLogic.
+# Copyright (C) 2010 NetWebLogic
+# This file is distributed under the same license as the Login With Ajax package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Login With Ajax 2.1.5\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/login-with-ajax\n"
+"POT-Creation-Date: 2010-05-11 11:44+0000\n"
+"PO-Revision-Date: 2010-07-25 21:16+0100\n"
+"Last-Translator: Rickard Westerlind <rickard@orangelab.se>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#: login-with-ajax-admin.php:68
+msgid "Changes saved."
+msgstr "Ändringarna sparade."
+
+#: login-with-ajax-admin.php:72
+msgid "There were issues when saving your settings. Please try again."
+msgstr "Det uppstod problem med dina inställningar. Var god försök igen."
+
+#: login-with-ajax-admin.php:101
+msgid "Default Template"
+msgstr "Förvald mall"
+
+#: login-with-ajax-admin.php:105
+#: login-with-ajax-widget.php:34
+msgid "default"
+msgstr "standard"
+
+#: login-with-ajax-admin.php:111
+msgid "Choose the default theme you'd like to use. This can be overriden in the widget, shortcode and template tags."
+msgstr "Välj vilket förvalt tema du vill använda. Valet kan dock också sättas i widget, shortcode och temat."
+
+#: login-with-ajax-admin.php:112
+msgid "Further documentation for this feature coming soon..."
+msgstr "Mer dokumentation kring den här funktionen kommer snart..."
+
+#: login-with-ajax-admin.php:117
+msgid "Disable refresh upon login?"
+msgstr "Avaktivera omladdning vid inloggning?"
+
+#: login-with-ajax-admin.php:122
+msgid "If the user logs in and you check the button above, only the login widget will update itself without refreshing the page. Not a good idea if your site shows different content to users once logged in, as a refresh would be needed."
+msgstr "Om användaren loggar in och du har kryssat i boxen ovan, kommer endast inloggningsrutan att laddas om, inte hela sidan. Det är inte rekommenderat om din sida visar annat innehål för inloggade användare, då en omladdning krävs."
+
+#: login-with-ajax-admin.php:123
+msgid "<strong>Experimental and not fully tested!</strong> please test and report any bugs on our forum."
+msgstr "<strong>Under utveckling och inte fullt testad!</strong>. Var snäll testa och rapportera byggar till vårt forum."
+
+#: login-with-ajax-admin.php:128
+msgid "Global Login Redirect"
+msgstr "Global inloggnings omdirigering"
+
+#: login-with-ajax-admin.php:132
+msgid "If you'd like to send the user to a specific URL after login, enter it here (e.g. http://wordpress.org/)"
+msgstr "Om du vill att användaren ska skickas till en specifik URL efter inloggning, ange den här (ex. http://wordpress.org/)"
+
+#: login-with-ajax-admin.php:133
+#: login-with-ajax-admin.php:143
+msgid "New!"
+msgstr "Ny!"
+
+#: login-with-ajax-admin.php:133
+msgid "Use %USERNAME% and it will be replaced with the username of person logging in."
+msgstr "Använd %USERNAME% som komemr ersättas av den inloggade användarens användarnamn."
+
+#: login-with-ajax-admin.php:138
+msgid "Global Logout Redirect"
+msgstr "Global utloggnings omdirigering"
+
+#: login-with-ajax-admin.php:142
+msgid "If you'd like to send the user to a specific URL after logout, enter it here (e.g. http://wordpress.org/)"
+msgstr "Om du vill att användaren ska skickas till en specifik URL efter utloggning, ange den här (ex. http://wordpress.org/)"
+
+#: login-with-ajax-admin.php:143
+msgid "Enter %LASTURL% to send the user back to the page they were previously on."
+msgstr "Ange %LASTURL% för att skicka användaren tillbaka till den sida den senast var på."
+
+#: login-with-ajax-admin.php:148
+msgid "Role-Based Custom Login Redirects"
+msgstr "Rollbaserade inloggnings omdirigeringar"
+
+#: login-with-ajax-admin.php:151
+msgid "If you would like a specific user role to be redirected to a custom URL upon login, place it here (blank value will default to the global redirect)"
+msgstr "Om du vill att en specifik användarroll ska omdirigeras till en egen URL vid inloggning, ange den här (tomt fält använder global inställning)"
+
+#: login-with-ajax-admin.php:171
+msgid "Role-Based Custom Logout Redirects"
+msgstr "Rollbaserade utloggnings omdirigeringar"
+
+#: login-with-ajax-admin.php:174
+msgid "If you would like a specific user role to be redirected to a custom URL upon logout, place it here (blank value will default to the global redirect)"
+msgstr "Om du vill att en specifik användarroll ska omdirigeras till en egen URL vid utloggning, ange den här (tomt fält använder global inställning)"
+
+#: login-with-ajax-admin.php:198
+msgid "Save Changes"
+msgstr "Spara ändringar"
+
+#: login-with-ajax-widget.php:5
+msgid "Login widget with AJAX capabilities."
+msgstr "Inloggningswidget med AJAX"
+
+#: login-with-ajax-widget.php:28
+msgid "Show profile link?"
+msgstr "Visa profillänk?"
+
+#: login-with-ajax-widget.php:32
+msgid "Template"
+msgstr "Mall"
+
+#: login-with-ajax.php:153
+msgid "Login Successful, redirecting..."
+msgstr "Inloggningen lyckades, skickar vidare..."
+
+#: login-with-ajax.php:168
+msgid "Login successful, updating..."
+msgstr "Inloggningen lyckades, uppdaterar..."
+
+#: login-with-ajax.php:178
+#: login-with-ajax.php:201
+msgid "An undefined error has ocurred"
+msgstr "En okänt fel uppstod"
+
+#: login-with-ajax.php:192
+msgid "We have sent you an email"
+msgstr "Vi har nu skickat dig ett e-postmeddelande"
+
+#: widget/widget_in.php:11
+#: widget/widget_in.php:14
+msgid "Hi"
+msgstr "Hej"
+
+#: widget/widget_in.php:33
+msgid "Profile"
+msgstr "Profil"
+
+#: widget/widget_in.php:38
+msgid "Log Out"
+msgstr "Logga ut"
+
+#: widget/widget_in.php:43
+msgid "blog admin"
+msgstr "blogg administratör"
+
+#: widget/widget_out.php:10
+#: widget/widget_out.php:35
+msgid "Log In"
+msgstr "Logga in"
+
+#: widget/widget_out.php:19
+msgid "Username"
+msgstr "Användare"
+
+#: widget/widget_out.php:27
+msgid "Password"
+msgstr "Lösenord"
+
+#: widget/widget_out.php:41
+msgid "Remember Me"
+msgstr "Kom ihåg mig"
+
+#: widget/widget_out.php:43
+msgid "Password Lost and Found"
+msgstr "Lösenord glömt och hittat"
+
+#: widget/widget_out.php:43
+msgid "Lost your password?"
+msgstr "Glömt lösenordet?"
+
+#: widget/widget_out.php:56
+msgid "Register"
+msgstr "Registrera"
+
+#: widget/widget_out.php:68
+msgid "Forgotten Password"
+msgstr "Glömt lösenord"
+
+#: widget/widget_out.php:73
+msgid "Enter username or email"
+msgstr "Ange användarnamn eller e-post"
+
+#: widget/widget_out.php:79
+msgid "Get New Password"
+msgstr "Få ett nytt lösenord"
+
+#: widget/widget_out.php:80
+msgid "Cancel"
+msgstr "Avbryt"
+
+#. Plugin Name of the plugin/theme
+msgid "Login With Ajax"
+msgstr "Logga in med Ajax"
+
+#. Plugin URI of the plugin/theme
+msgid "http://netweblogic.com/wordpress/plugins/login-with-ajax/"
+msgstr "http://netweblogic.com/wordpress/plugins/login-with-ajax/"
+
+#. Description of the plugin/theme
+msgid "Ajax driven login widget. Customisable from within your template folder, and advanced settings from the admin area."
+msgstr "Ajax-baserad inloggningswidget. Kan ändras i ditt tema och med avancerade inställningar i administrationen."
+
+#. Author of the plugin/theme
+msgid "NetWebLogic"
+msgstr "NetWebLogic"
+
+#. Author URI of the plugin/theme
+msgid "http://netweblogic.com/"
+msgstr "http://netweblogic.com/"
+
+#. Tags of the plugin/theme
+msgid "Login, Ajax, Redirect, BuddyPress, MU, WPMU, sidebar, admin, widget"
+msgstr "Login, Ajax, Redirect, BuddyPress, MU, WPMU, sidebar, admin, widget"
+

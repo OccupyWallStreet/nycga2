@@ -233,7 +233,7 @@ $translations = array(
 	'Geometry' => 'Geometria',
 	'Databases have been dropped.' => 'S\'han suprimit les bases de dades.',
 	'File exists.' => 'El fitxer ja existeix.',
-	'Double click on a value to modify it.' => 'Fes un doble clic a un valor per modificar-lo.',
+	'Ctrl+click on a value to modify it.' => 'Fes un Ctrl+clic a un valor per modificar-lo.',
 	'Use edit link to modify this value.' => 'Utilitza l\'enllaç d\'edició per modificar aquest valor.',
 	'Alter schema' => 'Modifica l\'esquema',
 	'Create schema' => 'Crea un esquema',
@@ -268,6 +268,5 @@ $translations = array(
 	'Copy' => 'Còpia',
 	'Permanent link' => 'Enllaç permanent',
 	'Edit all' => 'Edita-ho tot',
-	'Resend POST data?' => 'Torna a enviar les dades POST?',
 	'HH:MM:SS' => 'HH:MM:SS',
 );

@@ -1,0 +1,2223 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Community v1.8.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2012-08-07 13:10+0100\n"
+"Last-Translator: Miquel Mora <orland62@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#@ cc
+#: 404.php:7
+msgid "Page not found"
+msgstr "No s'ha trovat la pàgina"
+
+#@ cc
+#: 404.php:9
+msgid "We're sorry, but we can't find the page that you're looking for. Perhaps searching will help."
+msgstr "Ho sento, pero no trovem la pàgina que estaves cercant. Potser si fas una cerca et pot ajudar"
+
+#@ cc
+#: _inc/ajax.php:147
+msgid "Please enter some content to post."
+msgstr "Si us plau poseu algun contingut per seguir"
+
+#@ cc
+#: _inc/ajax.php:164
+msgid "There was a problem posting your update, please try again."
+msgstr "Hi ha un problema per a poder publicar la teva actualització. Si us plau intenteu-ho un altre cop."
+
+#@ cc
+#: _inc/ajax.php:189
+msgid "Please do not leave the comment area blank."
+msgstr "Si us plau no deixis l'espai de comentaris en blanc."
+
+#@ cc
+#: _inc/ajax.php:194
+#: _inc/ajax.php:205
+msgid "There was an error posting that reply, please try again."
+msgstr "Va haver-hi un error en publicar aquesta resposta. Per favor intenta-ho de nou."
+
+#@ cc
+#: _inc/ajax.php:262
+#: _inc/ajax.php:297
+msgid "There was a problem when deleting. Please try again."
+msgstr "Va haver-hi un problema en esborrar. Per favor intenta-ho de nou."
+
+#@ cc
+#: _inc/ajax.php:312
+#: activity/entry.php:72
+msgid "Remove Favorite"
+msgstr "Treure el Favorit"
+
+#@ cc
+#: _inc/ajax.php:321
+#: activity/entry.php:68
+msgid "Favorite"
+msgstr "Favorit"
+
+#@ cc
+#: _inc/ajax.php:380
+#: groups/create.php:234
+#: groups/single/send-invites.php:42
+msgid "Remove Invite"
+msgstr "Treure l'Invitació"
+
+#@ cc
+#: _inc/ajax.php:406
+msgid "Friendship could not be canceled."
+msgstr "L'Amistat no va poder ser cancel·lada."
+
+#@ cc
+#: _inc/ajax.php:408
+msgid "Add Friend"
+msgstr "Afegir un Amic"
+
+#@ cc
+#: _inc/ajax.php:416
+msgid "Friendship could not be requested."
+msgstr "L' Amistat no va poder ser sol·licitada."
+
+#@ cc
+#: _inc/ajax.php:418
+msgid "Friendship Requested"
+msgstr "Amistat Sol·licitada"
+
+#@ cc
+#: _inc/ajax.php:421
+msgid "Request Pending"
+msgstr "Solicitud Pendent"
+
+#@ cc
+#: _inc/ajax.php:433
+msgid "There was a problem accepting that request. Please try again."
+msgstr "Va haver-hi un problema en acceptar aquesta sol·licitud. Per favor intenta-ho de nou."
+
+#@ cc
+#: _inc/ajax.php:444
+msgid "There was a problem rejecting that request. Please try again."
+msgstr "Va haver-hi un problema en rebutjar aquesta sol·licitud. Per favor intenta-ho de nou."
+
+#@ cc
+#: _inc/ajax.php:467
+msgid "Error joining group"
+msgstr "Error en unir-te al Grup"
+
+#@ cc
+#: _inc/ajax.php:469
+msgid "Leave Group"
+msgstr "Deixar el Grup"
+
+#@ cc
+#: _inc/ajax.php:477
+msgid "Error requesting membership"
+msgstr "Error en sol·licitar la pertinença"
+
+#@ cc
+#: _inc/ajax.php:479
+msgid "Membership Requested"
+msgstr "Pertinença Sol·licitada"
+
+#@ cc
+#: _inc/ajax.php:488
+msgid "Error leaving group"
+msgstr "Error en abandonar el Grup"
+
+#@ cc
+#: _inc/ajax.php:491
+msgid "Join Group"
+msgstr "Unir-se al Grup"
+
+#@ cc
+#: _inc/ajax.php:493
+msgid "Request Membership"
+msgstr "Sol·licitar la Pertinença"
+
+#@ cc
+#: _inc/ajax.php:505
+msgid "There was a problem closing the notice."
+msgstr "Va haver-hi un problema tancant l'avís."
+
+#@ cc
+#: _inc/ajax.php:530
+#, php-format
+msgid "Sent %s"
+msgstr "Enviat %s"
+
+#@ cc
+#: _inc/ajax.php:547
+msgid "There was a problem sending that reply. Please try again."
+msgstr "Va haver-hi un problema en enviar aquesta resposta. Per favor, intenta-ho de nou."
+
+#@ cc
+#: _inc/ajax.php:557
+msgid "There was a problem marking messages as unread."
+msgstr "Va haver-hi un problema en enviar missatges com a no llegits."
+
+#@ cc
+#: _inc/ajax.php:573
+msgid "There was a problem marking messages as read."
+msgstr "Va haver-hi un problema en enviar missatges com a llegits."
+
+#@ cc
+#: _inc/ajax.php:589
+msgid "There was a problem deleting messages."
+msgstr "Va haver-hi un problema en borrar missatges."
+
+#@ cc
+#: _inc/ajax.php:596
+msgid "Messages deleted."
+msgstr "Missatges borrats."
+
+#@ cc
+#: activity/activity-loop.php:41
+msgid "Load More"
+msgstr "Carregar Més"
+
+#@ cc
+#: activity/activity-loop.php:55
+msgid "Sorry, there was no activity found. Please try a different filter."
+msgstr "Disculpa, no trovem cap activitat. Si us plau, intenta un altre filtre."
+
+#@ cc
+#. translators: 1: user profile link, 2: user name, 3: activity permalink, 3: activity timestamp
+#: activity/comment.php:28
+#, php-format
+msgid "<a href=\"%1$s\">%2$s</a> replied <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\">%2$s</a> respondió <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+
+#@ cc
+#: activity/comment.php:33
+#: forums/single/edit.php:10
+#: groups/single/forum/edit.php:10
+msgid "Reply"
+msgstr "Respondre"
+
+#@ cc
+#: activity/comment.php:39
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/single.php:24
+msgid "Delete"
+msgstr "Borrar"
+
+#@ cc
+#: activity/entry.php:37
+msgid "In reply to: "
+msgstr "En resposta a: "
+
+#@ cc
+#: activity/entry.php:37
+msgid "View Thread / Permalink"
+msgstr "Veure Fil/ Enllaç"
+
+#@ cc
+#: activity/entry.php:37
+#: core/includes/bp/templatetags.php:89
+msgid "View"
+msgstr "Veure"
+
+#@ cc
+#: activity/entry.php:60
+#, php-format
+msgid "Comment <span>%s</span>"
+msgstr "Comentar  <span>%s</span>"
+
+#@ cc
+#: activity/entry.php:68
+msgid "Mark as Favorite"
+msgstr "Marcar com a Favorit"
+
+#@ cc
+#: activity/entry.php:104
+msgid "Post"
+msgstr "Publicar"
+
+#@ cc
+#: activity/entry.php:104
+msgid "or press esc to cancel."
+msgstr "o pressiona esc para cancelar"
+
+#@ cc
+#: activity/index.php:23
+msgid "Site Activity"
+msgstr "Activitat del Lloc"
+
+#@ cc
+#: activity/index.php:41
+msgid "The public activity for everyone on this site."
+msgstr "Activitat pública de tots en aquest lloc"
+
+#@ cc
+#: activity/index.php:41
+#: members/index.php:35
+#, php-format
+msgid "All Members <span>%s</span>"
+msgstr "Tots els Membres  <span>%s</span>"
+
+#@ cc
+#: activity/index.php:51
+msgid "The activity of my friends only."
+msgstr "Activitat només dels meus Amics"
+
+#@ cc
+#: activity/index.php:51
+#: members/index.php:39
+#, php-format
+msgid "My Friends <span>%s</span>"
+msgstr "Els meus Amics <span>%s</span>"
+
+#@ cc
+#: activity/index.php:63
+msgid "The activity of groups I am a member of."
+msgstr "Activitat de Grups dels que en soc Membre."
+
+#@ cc
+#: activity/index.php:63
+#: groups/index.php:41
+#, php-format
+msgid "My Groups <span>%s</span>"
+msgstr "Els meus grups <span>%s</span>"
+
+#@ cc
+#: activity/index.php:73
+msgid "The activity I've marked as a favorite."
+msgstr "Activitat marcada com a Favorit."
+
+#@ cc
+#: activity/index.php:73
+#, php-format
+msgid "My Favorites <span>%s</span>"
+msgstr "Els meus Favorits <span>%s</span>"
+
+#@ cc
+#: activity/index.php:79
+msgid "Activity that I have been mentioned in."
+msgstr "Activitat en la qual he estat citat."
+
+#@ cc
+#: activity/index.php:79
+msgid "Public Mentions"
+msgstr "Mencions Públiques"
+
+#@ cc
+#: activity/index.php:79
+#, php-format
+msgid "<span>%s new</span>"
+msgstr "<span>%s nou</span>"
+
+#@ cc
+#: activity/index.php:89
+#: groups/single/activity.php:3
+msgid "RSS Feed"
+msgstr "Suscripció RSS"
+
+#@ cc
+#: activity/index.php:89
+#: groups/single/activity.php:3
+msgid "RSS"
+msgstr "RSS"
+
+#@ cc
+#: activity/index.php:94
+#: groups/single/activity.php:8
+#: members/single/activity.php:18
+msgid "Show:"
+msgstr "Mostrar"
+
+#@ cc
+#: activity/index.php:96
+#: groups/single/activity.php:10
+#: members/single/activity.php:20
+msgid "Everything"
+msgstr "Tot"
+
+#@ cc
+#: activity/index.php:97
+#: groups/single/activity.php:11
+#: members/single/activity.php:21
+msgid "Updates"
+msgstr "Actualitzacions"
+
+#@ cc
+#: activity/index.php:101
+#: forums/forums-loop.php:31
+#: members/single/activity.php:27
+msgid "Posts"
+msgstr "Publicacions"
+
+#@ cc
+#: activity/index.php:102
+#: members/single/activity.php:28
+msgid "Comments"
+msgstr "Comentaris"
+
+#@ cc
+#: activity/index.php:108
+#: groups/single/activity.php:14
+#: members/single/activity.php:43
+msgid "Forum Topics"
+msgstr "Temes de Foros"
+
+#@ cc
+#: activity/index.php:109
+#: groups/single/activity.php:15
+#: members/single/activity.php:44
+msgid "Forum Replies"
+msgstr "Respostes de Foros"
+
+#@ cc
+#: activity/index.php:115
+#: members/single/activity.php:50
+msgid "New Groups"
+msgstr "Nous Grups"
+
+#@ cc
+#: activity/index.php:116
+#: groups/single/activity.php:18
+#: members/single/activity.php:51
+msgid "Group Memberships"
+msgstr "Membres del Grup"
+
+#@ cc
+#: activity/index.php:122
+#: members/single/activity.php:35
+msgid "Friendships"
+msgstr "Amistats"
+
+#@ cc
+#: activity/index.php:126
+msgid "New Members"
+msgstr "Nous Membres"
+
+#@ cc
+#: activity/post-form.php:23
+#, php-format
+msgid "What's new in %s, %s?"
+msgstr "Què hi ha de nou en %s, %s?"
+
+#@ cc
+#: activity/post-form.php:25
+#, php-format
+msgid "What's new, %s?"
+msgstr "Què hi ha de nou, %s?"
+
+#@ cc
+#: activity/post-form.php:35
+msgid "Post Update"
+msgstr "Actualitzar la Publicació"
+
+#@ cc
+#: activity/post-form.php:42
+msgid "Post in"
+msgstr "Publicar a"
+
+#@ cc
+#: activity/post-form.php:45
+#: members/single/profile/profile-wp.php:8
+msgid "My Profile"
+msgstr "El meu Perfil"
+
+#@ cc
+#: admin/library.php:536
+msgid "Save Options"
+msgstr "Guardar Opcions"
+
+#@ cc_pro
+#: admin/post-metabox.php:7
+msgid "Custom Community Post Settings"
+msgstr "Ajustos de publicació de Custom Community"
+
+#@ cc
+#: admin/post-metabox.php:30
+#: admin/post-metabox.php:202
+msgid "Post template on"
+msgstr "Publicar plantilla a"
+
+#@ cc
+#: admin/post-metabox.php:40
+msgid "Hide avatar"
+msgstr "Ocultar Avatar"
+
+#@ cc
+#: admin/post-metabox.php:42
+msgid "Hide date/category"
+msgstr "Ocultat data/ categoría"
+
+#@ cc
+#: admin/post-metabox.php:44
+msgid "Hide tags"
+msgstr "Ocultar Etiquetes"
+
+#@ cc
+#: admin/post-metabox.php:47
+msgid "Hide comment-info"
+msgstr "Ocultar informació de comentaris"
+
+#@ cc
+#: admin/post-metabox.php:173
+msgid "klick"
+msgstr "clic"
+
+#@ cc
+#: admin/post-metabox.php:176
+msgid "Custom Community settings"
+msgstr "Ajustos de Custom Community"
+
+#@ cc
+#: admin/post-metabox.php:184
+msgid "Slideshow on"
+msgstr "Presentació activada"
+
+#@ cc
+#: admin/post-metabox.php:196
+msgid "Get The PRO Version for more options:"
+msgstr "Obté la versión PRO per a més opcions:"
+
+#@ cc
+#: admin/post-metabox.php:198
+msgid "Use custom post types and pages in the slideshow, show/hide caption, define the sliding time in ms, order and amount"
+msgstr "Utilitza tipus personalitzats de publicació i pàgines a la Presentació, amaga/ mostra la llegenda, defineix el temps de transició en minuts, ordre i quantitat"
+
+#@ cc
+#: archive.php:26
+#: archive.php:67
+#: core/includes/bp/templatetags.php:349
+#: index.php:50
+#: search-loop.php:43
+#: search.php:17
+#: search.php:53
+msgid "&larr; Previous Entries"
+msgstr "&larr; Entrades Prèvies"
+
+#@ cc
+#: archive.php:27
+#: archive.php:68
+#: core/includes/bp/templatetags.php:350
+#: index.php:51
+#: search-loop.php:44
+#: search.php:18
+#: search.php:54
+msgid "Next Entries &rarr;"
+msgstr "Properes Entrades &rarr;"
+
+#@ cc
+#: archive.php:40
+#: archive.php:46
+#: index.php:20
+#: search.php:30
+#: search.php:37
+#: single.php:44
+#, php-format
+msgid "by %s"
+msgstr "per %s"
+
+#@ cc
+#: archive.php:44
+#: index.php:28
+#: search.php:35
+#: single.php:54
+msgid "Permanent Link to"
+msgstr "Enllaç Permanent a"
+
+#@ cc
+#: archive.php:46
+#: index.php:30
+#: search.php:37
+#: single.php:56
+msgid "in"
+msgstr "en"
+
+#@ cc
+#: archive.php:53
+#: index.php:36
+#: search.php:43
+#: single.php:75
+msgid "Tags: "
+msgstr "Etiquetes: "
+
+#@ cc
+#: archive.php:53
+#: archive.php:55
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:80
+msgid "No Comments &#187;"
+msgstr "Sense Comentaris &#187;"
+
+#@ cc
+#: archive.php:53
+#: archive.php:55
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:80
+msgid "1 Comment &#187;"
+msgstr "1 Comentari &#187;"
+
+#@ cc
+#: archive.php:53
+#: archive.php:55
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:80
+msgid "% Comments &#187;"
+msgstr "% Comentaris &#187;"
+
+#@ cc
+#: archive.php:74
+#: index.php:57
+msgid "Not Found"
+msgstr "No trobat"
+
+#@ cc
+#: attachment.php:9
+#: search.php:10
+msgid "Blog"
+msgstr "Blog"
+
+#@ cc
+#: attachment.php:25
+msgid "<p class=\"serif\">Read the rest of this entry &rarr;</p>"
+msgstr "<p class=\"serif\">Llegeix la resta d'aquesta entrada &rarr;</p>"
+
+#@ cc
+#: attachment.php:27
+#: full-width.php:25
+msgid "<p><strong>Pages:</strong> "
+msgstr "<p><strong>Pàgines:</strong> "
+
+#@ cc
+#: attachment.php:38
+msgid "Sorry, no attachments matched your criteria."
+msgstr "Disculpa, cap adjunt concorda amb els teus criteris de cerca."
+
+#@ cc
+#: blogs/blogs-loop.php:90
+msgid "Sorry, there were no sites found."
+msgstr "Disculpa, no s' ha trobat cap lloc."
+
+#@ cc
+#: blogs/create.php:21
+#: blogs/index.php:23
+msgid "Create a Site"
+msgstr "Crear un Lloc"
+
+#@ cc
+#: blogs/create.php:21
+#: blogs/index.php:23
+msgid "Site Directory"
+msgstr "Directori de Llocs"
+
+#@ cc
+#: blogs/create.php:32
+msgid "Site registration is currently disabled"
+msgstr "El registreo de Llocs està deshabilitat"
+
+#@ cc
+#: blogs/index.php:35
+#, php-format
+msgid "All Sites <span>%s</span>"
+msgstr "Tots els Llocs <span>%s</span>"
+
+#@ cc
+#: blogs/index.php:39
+#, php-format
+msgid "My Sites <span>%s</span>"
+msgstr "Els Meus Llocs <span>%s</span>"
+
+#@ cc
+#: blogs/index.php:55
+#: forums/index.php:60
+#: forums/single/forum.php:34
+#: groups/index.php:57
+#: groups/single/forum.php:32
+#: groups/single/members.php:12
+#: members/index.php:55
+#: members/single/blogs.php:19
+#: members/single/forums.php:18
+#: members/single/friends.php:20
+#: members/single/groups.php:20
+msgid "Order By:"
+msgstr "Ordenar per:"
+
+#@ cc
+#: blogs/index.php:57
+#: forums/index.php:62
+#: forums/single/forum.php:36
+#: groups/index.php:59
+#: groups/single/forum.php:34
+#: groups/single/members.php:14
+#: members/index.php:57
+#: members/single/blogs.php:21
+#: members/single/forums.php:20
+#: members/single/friends.php:22
+#: members/single/groups.php:22
+msgid "Last Active"
+msgstr "Actiu mes Recent"
+
+#@ cc
+#: blogs/index.php:58
+#: members/single/blogs.php:22
+msgid "Newest"
+msgstr "Més nou"
+
+#@ cc
+#: blogs/index.php:59
+#: groups/index.php:62
+#: groups/single/members.php:19
+#: members/index.php:62
+#: members/single/blogs.php:23
+#: members/single/friends.php:24
+#: members/single/groups.php:25
+msgid "Alphabetical"
+msgstr "Alfabètic"
+
+#@ cc
+#: comments.php:3
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Aquesta Publicació està protegida per una clau. Introdueix la clau per veure els comentaris."
+
+#@ cc
+#: comments.php:19
+#, php-format
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Una opinió sobre &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s opiniones sobre &ldquo;%2$s&rdquo;"
+
+#@ cc
+#: comments.php:26
+#: comments.php:40
+msgid "Comment navigation"
+msgstr "Navegar per Comentaris"
+
+#@ cc
+#: comments.php:27
+#: comments.php:41
+msgid "&larr; Older Comments"
+msgstr "&larr; Comentaris més Antics"
+
+#@ cc
+#: comments.php:28
+#: comments.php:42
+msgid "Newer Comments &rarr;"
+msgstr "Comentaris més Recents &rarr;"
+
+#@ cc
+#: comments.php:52
+msgid "Comments are closed."
+msgstr "Els Comentaris estàn tancats."
+
+#@ cc
+#: core/includes/bp/buddydev-search.php:52
+msgid "Search Page"
+msgstr "Pàgina de Cerca"
+
+#@ cc
+#: core/includes/bp/templatetags.php:82
+msgid "My Favorites"
+msgstr "Els meus Favorits"
+
+#@ cc
+#: core/includes/bp/templatetags.php:83
+msgid "Accepted"
+msgstr "Acceptat"
+
+#@ cc
+#: core/includes/bp/templatetags.php:84
+msgid "Rejected"
+msgstr "Rebutjat"
+
+#@ cc
+#: core/includes/bp/templatetags.php:85
+msgid "Show all comments for this thread"
+msgstr "Mostrar tots els Comentaris d'aquest Fil."
+
+#@ cc
+#: core/includes/bp/templatetags.php:86
+msgid "Show all"
+msgstr "Mostrar tot"
+
+#@ cc
+#: core/includes/bp/templatetags.php:87
+msgid "comments"
+msgstr "comentaris"
+
+#@ cc
+#: core/includes/bp/templatetags.php:88
+msgid "Close"
+msgstr "Tancar"
+
+#@ cc
+#. translators: 1: comment author url, 2: comment author name, 3: comment permalink, 4: comment date/timestamp
+#: core/includes/bp/templatetags.php:142
+#, php-format
+msgid "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> said on <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> dijo en <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+
+#@ cc
+#: core/includes/bp/templatetags.php:149
+msgid "Your comment is awaiting moderation."
+msgstr "El teu comentari espera l'aprovació del Moderador."
+
+#@ cc
+#: core/includes/bp/templatetags.php:161
+msgid "Edit comment"
+msgstr "Editar comentari"
+
+#@ cc
+#: core/includes/bp/templatetags.php:161
+msgid "Edit"
+msgstr "Editar"
+
+#@ cc
+#: core/includes/bp/templatetags.php:231
+#, php-format
+msgid "Theme activated! This theme contains <a href=\"%s\">custom header image</a> support and <a href=\"%s\">sidebar widgets</a>."
+msgstr "Tema activat! Aquest tema conté suport per a <a href=\"%s\">imatge de capçalera</a> i <a href=\"%s\">ginys per a barra lateral</a>."
+
+#@ cc
+#: core/includes/bp/templatetags.php:300
+#: members/single/profile/profile-wp.php:15
+msgid "Name"
+msgstr "Nom"
+
+#@ cc
+#: core/includes/bp/templatetags.php:302
+msgid "Email"
+msgstr "Correu electrònic"
+
+#@ cc
+#: core/includes/bp/templatetags.php:304
+#: members/single/profile/profile-wp.php:33
+msgid "Website"
+msgstr "Lloc Web"
+
+#@ cc
+#: core/includes/bp/templatetags.php:312
+#, php-format
+msgid "You must be <a href=\"%1$s\">logged in</a> to post a comment."
+msgstr "Has d' haver <a href=\"%1$s\">iniciat la sessió</a> per a publicar un comentari."
+
+#@ cc
+#: core/includes/bp/templatetags.php:313
+msgid "Leave a reply"
+msgstr "Deixar una resposta"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:169
+#: searchform.php:5
+msgid "Search"
+msgstr "Cercar"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:196
+#: core/includes/theme-generator/theme-generator.php:200
+#: core/includes/theme-generator/theme-generator.php:205
+#: core/includes/theme-generator/theme-generator.php:208
+#: core/includes/theme-generator/theme-generator.php:229
+#: core/includes/theme-generator/theme-generator.php:237
+msgid "Home"
+msgstr "Inici"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:242
+#: core/includes/wp/widgets.php:34
+msgid "Community"
+msgstr "Comunitat"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:246
+#: core/includes/wp/widgets.php:38
+msgid "Activity"
+msgstr "Activitat"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:251
+#: core/includes/wp/widgets.php:43
+#: groups/single/admin.php:229
+msgid "Members"
+msgstr "Membres"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:256
+#: core/includes/wp/widgets.php:48
+msgid "Groups"
+msgstr "Grups"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:260
+#: core/includes/wp/widgets.php:53
+msgid "Forums"
+msgstr "Foros"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:267
+#: core/includes/wp/widgets.php:59
+msgid "Blogs"
+msgstr "Blogs"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:369
+msgid "20 widget areas all over the site"
+msgstr "20 àrees per a widgets en tot el lloc"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:382
+#: links.php:16
+#: sidebar.php:45
+msgid "Links"
+msgstr "Enllaços"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:395
+#: sidebar.php:39
+msgid "Archives"
+msgstr "Arxius"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:408
+#: sidebar.php:51
+msgid "Meta"
+msgstr "Meta"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:422
+#, php-format
+msgid "%s is proudly powered by <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> and <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
+msgstr "%s Funciona basat en <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> and <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:570
+#: core/includes/theme-generator/theme-generator.php:572
+#: single.php:63
+msgid "Read the rest of this entry &rarr;"
+msgstr "Llegeix la resta d'aquesta entrada &rarr;"
+
+#@ cc
+#: core/includes/wp/shortcodes.php:357
+msgid "read more"
+msgstr "llegeixr més"
+
+#@ cc
+#: core/includes/wp/shortcodes.php:586
+msgid "Empty Slideshow"
+msgstr "Presentació Buida"
+
+#@ cc
+#: core/includes/wp/shortcodes.php:587
+msgid "You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> for more."
+msgstr "No tens publicacions seleccionades per a la teva Presentació! <br>Revisi els ajustos del tema per a la seva presentació global o els ajustos de pàgina per a les presentacions de pàgina... <br>i publica! Revisa les <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\"> FAQ Preguntes Més Freqüents </a>per a més informació."
+
+#@ cc
+#: core/includes/wp/widgets.php:68
+msgid "@ Group"
+msgstr "@ Grup"
+
+#@ cc
+#: core/includes/wp/widgets.php:79
+msgid "@ Member"
+msgstr "@ Membre"
+
+#@ cc
+#: core/includes/wp/widgets.php:111
+msgid "Log Out"
+msgstr "Tancar Sessió"
+
+#@ cc
+#: core/includes/wp/widgets.php:128
+msgid "To start connecting please log in first."
+msgstr "Para empezar a conectarte por favor inicia sesión."
+
+#@ cc
+#: core/includes/wp/widgets.php:133
+#, php-format
+msgid " You can also <a href=\"%s\" title=\"Create an account\">create an account</a>."
+msgstr "També pots <a href=\"%s\" title=\"Crear un compte\">crear un compte</a>."
+
+#@ cc
+#: core/includes/wp/widgets.php:138
+#: registration/register.php:37
+msgid "Username"
+msgstr "Nom d' Usuari"
+
+#@ cc
+#: core/includes/wp/widgets.php:141
+msgid "Password"
+msgstr "Contrasenya"
+
+#@ cc
+#: core/includes/wp/widgets.php:144
+msgid "Remember Me"
+msgstr "Recordar-me"
+
+#@ cc
+#: core/includes/wp/widgets.php:147
+msgid "Log In"
+msgstr "Iniciar Sessió"
+
+#@ cc
+#: core/includes/wp/widgets.php:166
+msgid "Forum Topic Tags"
+msgstr "Etiquetes de Temes de Foros"
+
+#@ cc
+#: forums/forums-loop.php:24
+msgid "Topic Title"
+msgstr "Títol del Tema"
+
+#@ cc
+#: forums/forums-loop.php:25
+msgid "Latest Poster"
+msgstr "Publicat més Recentment"
+
+#@ cc
+#: forums/forums-loop.php:28
+msgid "Posted In Group"
+msgstr "Publicat en el Grup"
+
+#@ cc
+#: forums/forums-loop.php:32
+msgid "Freshness"
+msgstr "Fa"
+
+#@ cc
+#: forums/forums-loop.php:45
+msgid "Permalink"
+msgstr "Enllaç permanent"
+
+#@ cc
+#: forums/forums-loop.php:95
+msgid "Sorry, there were no forum topics found."
+msgstr "Disculpa, no trobem cap tema de Foro."
+
+#@ cc
+#: forums/index.php:23
+msgid "Forums Directory"
+msgstr "Directori de Foros"
+
+#@ cc
+#: forums/index.php:23
+#: forums/single/forum.php:19
+#: groups/single/forum.php:17
+msgid "New Topic"
+msgstr "Tema Nou"
+
+#@ cc
+#: forums/index.php:40
+#, php-format
+msgid "All Topics <span>%s</span>"
+msgstr "Tots els Temes <span>%s</span>"
+
+#@ cc
+#: forums/index.php:44
+#, php-format
+msgid "My Topics <span>%s</span>"
+msgstr "Els Meus Temes <span>%s</span>"
+
+#@ cc
+#: forums/index.php:63
+#: forums/single/forum.php:37
+#: groups/single/forum.php:35
+#: members/single/forums.php:21
+msgid "Most Posts"
+msgstr "Majoria de Publicacions"
+
+#@ cc
+#: forums/index.php:64
+#: forums/single/forum.php:38
+#: groups/single/forum.php:36
+#: members/single/forums.php:22
+msgid "Unreplied"
+msgstr "Sense respondre"
+
+#@ cc
+#: forums/index.php:100
+msgid "Create New Topic:"
+msgstr "Crear Nou Tema:"
+
+#@ cc
+#: forums/index.php:104
+#: forums/single/edit.php:49
+#: groups/single/forum/edit.php:49
+#: groups/single/forum.php:71
+msgid "Title:"
+msgstr "Títol:"
+
+#@ cc
+#: forums/index.php:107
+#: forums/single/edit.php:52
+#: groups/single/forum/edit.php:52
+#: groups/single/forum.php:74
+msgid "Content:"
+msgstr "Contingut:"
+
+#@ cc
+#: forums/index.php:110
+#: groups/single/forum/edit.php:55
+#: groups/single/forum.php:77
+msgid "Tags (comma separated):"
+msgstr "Etiquetes (separades amb comas):"
+
+#@ cc
+#: forums/index.php:113
+msgid "Post In Group Forum:"
+msgstr "Publicar en Foro del Grup:"
+
+#@ cc
+#. translators: no option picked in select box
+#: forums/index.php:116
+msgid "----"
+msgstr "----"
+
+#@ cc
+#: forums/index.php:133
+#: groups/single/forum.php:83
+msgid "Post Topic"
+msgstr "Publicar Tema"
+
+#@ cc
+#: forums/index.php:134
+msgid "Cancel"
+msgstr "Cancelar"
+
+#@ cc
+#: forums/index.php:145
+#, php-format
+msgid "You are not a member of any groups so you don't have any group forums you can post in. To start posting, first find a group that matches the topic subject you'd like to start. If this group does not exist, why not <a href='%s'>create a new group</a>? Once you have joined or created the group you can post your topic in that group's forum."
+msgstr "No ets membre de cap Grup, per la qual cosa no tens Fòrums de Grup en els quals puguis publicar. Per començar a publicar, primer busca un Grup que coincideixi amb el tema que vulguis iniciar. Si tal Grup no existeix, per què no<a href='%s'> crear un Grup nou?</a>  Una vegada t'hagis unit a o creat el Grup, pots publicar el teu tema en el seu Fòrum."
+
+#@ cc
+#: forums/single/edit.php:16
+#: forums/single/forum.php:25
+#: forums/single/topic.php:43
+#: groups/single/forum/edit.php:16
+#: groups/single/forum/topic.php:16
+#: groups/single/forum.php:23
+msgid "Forum Directory"
+msgstr "Directori de Foros"
+
+#@ cc
+#: forums/single/edit.php:25
+#: groups/single/forum/edit.php:25
+msgid "Edit:"
+msgstr "Editar:"
+
+#@ cc
+#: forums/single/edit.php:57
+#: forums/single/edit.php:73
+#: groups/single/admin.php:32
+#: groups/single/admin.php:117
+#: groups/single/forum/edit.php:60
+#: groups/single/forum/edit.php:76
+#: members/single/profile/edit.php:126
+#: members/single/settings/general.php:69
+#: members/single/settings/notifications.php:62
+msgid "Save Changes"
+msgstr "Guardar Canvis"
+
+#@ cc
+#: forums/single/edit.php:88
+#: groups/single/forum/edit.php:91
+msgid "This topic does not exist."
+msgstr "Aquest Tema no existeix."
+
+#@ cc
+#: forums/single/forum-header.php:13
+#: groups/groups-loop.php:47
+#, php-format
+msgid "active %s"
+msgstr "actiu %s"
+
+#@ cc
+#: forums/single/topic.php:37
+#: groups/single/forum/topic.php:10
+msgid "New Reply"
+msgstr "Nova Resposta"
+
+#@ cc
+#: forums/single/topic.php:97
+#, php-format
+msgid "%s said %s ago:"
+msgstr "%s diu fa %s :"
+
+#@ cc
+#: forums/single/topic.php:117
+#: groups/single/forum/topic.php:81
+msgid "Permanent link to this post"
+msgstr "Enllaç permanent a aquesta publicació"
+
+#@ cc
+#: forums/single/topic.php:153
+#: groups/single/forum/topic.php:117
+msgid "Add a reply:"
+msgstr "Afegir resposta:"
+
+#@ cc
+#: forums/single/topic.php:158
+#: groups/single/forum/topic.php:122
+msgid "Post Reply"
+msgstr "Publicar Resposta"
+
+#@ cc
+#: forums/single/topic.php:169
+#: groups/single/forum/topic.php:133
+msgid "This topic is closed, replies are no longer accepted."
+msgstr "Aquest Tema està tancat, ja no s' accepten respostes."
+
+#@ cc
+#: forums/single/topic.php:184
+#: groups/single/forum/topic.php:147
+msgid "There are no posts for this topic."
+msgstr "No hi ha publicacions per aquest Tema."
+
+#@ cc
+#: full-width.php:23
+#: page.php:17
+msgid "<p class=\"serif\">Read the rest of this page &rarr;</p>"
+msgstr "<p class=\"serif\">Llegeix la resta d'aquesta pàgina &rarr;</p>"
+
+#@ cc
+#: full-width.php:38
+#: single.php:92
+msgid "Edit this entry."
+msgstr "Editar aquesta entrada."
+
+#@ cc
+#: functions.php:59
+msgid "Header top menu"
+msgstr "Menu superior de capçalera"
+
+#@ cc
+#: functions.php:60
+msgid "Header bottom menu"
+msgstr "Menú inferior de capçalera."
+
+#@ cc
+#: functions.php:473
+msgid "Members Results"
+msgstr "Resultats de Membres"
+
+#@ cc
+#: functions.php:488
+msgid "Group Search"
+msgstr "Cerca de Grups"
+
+#@ cc
+#: functions.php:491
+msgid "View All matched Groups"
+msgstr "Veure tots els Grups que coincideixen"
+
+#@ cc
+#: functions.php:509
+msgid "Blog Search"
+msgstr "Cerca de Blogs"
+
+#@ cc
+#: functions.php:512
+msgid "View All matched Posts"
+msgstr "Veure totes les Publicacions que coincideixen"
+
+#@ cc
+#: functions.php:524
+msgid "Forums Search"
+msgstr "Cerca de Foros"
+
+#@ cc
+#: functions.php:526
+msgid "View All matched forum posts"
+msgstr "Veure totes les Publicacions a Foros que coincideixen"
+
+#@ cc
+#: functions.php:545
+msgid "Blogs Search"
+msgstr "Cerca de Blogs"
+
+#@ cc
+#: functions.php:547
+msgid "View All matched Blogs"
+msgstr "Veure tots els Blogs que coincideixen"
+
+#@ cc
+#: groups/create.php:18
+#: groups/index.php:23
+msgid "Create a Group"
+msgstr "Crear Grup"
+
+#@ cc
+#: groups/create.php:18
+#: groups/index.php:23
+msgid "Groups Directory"
+msgstr "Directori de Grups"
+
+#@ cc
+#: groups/create.php:39
+#: groups/single/admin.php:16
+msgid "Group Name (required)"
+msgstr "Nom de Grup (requerit)"
+
+#@ cc
+#: groups/create.php:42
+#: groups/single/admin.php:19
+msgid "Group Description (required)"
+msgstr "Descripció del Grup (requerido)"
+
+#@ cc
+#: groups/create.php:62
+#: groups/single/admin.php:47
+msgid "Enable discussion forum"
+msgstr "Habilitar Foros de discusió"
+
+#@ cc
+#: groups/create.php:69
+#, php-format
+msgid "<strong>Attention Site Admin:</strong> Group forums require the <a href=\"%s\">correct setup and configuration</a> of a bbPress installation."
+msgstr "<strong>Atenció Administrador del Lloc:</strong> Foros de Grup requereixen la <a href=\"%s\">correcta instalació i configuració de</a> bbPress."
+
+#@ cc
+#: groups/create.php:78
+#: groups/single/admin.php:56
+msgid "Privacy Options"
+msgstr "Opciones de Privacidad"
+
+#@ cc
+#: groups/create.php:82
+#: groups/single/admin.php:61
+msgid "This is a public group"
+msgstr "Aquest és un Grup públic"
+
+#@ cc
+#: groups/create.php:84
+#: groups/single/admin.php:63
+msgid "Any site member can join this group."
+msgstr "Qualsevol membre del lloc pot unir-se al Grup."
+
+#@ cc
+#: groups/create.php:85
+#: groups/create.php:94
+#: groups/single/admin.php:64
+#: groups/single/admin.php:74
+msgid "This group will be listed in the groups directory and in search results."
+msgstr "Aquest Grup estarà listat al directori de Grups i als resultats de cerca."
+
+#@ cc
+#: groups/create.php:86
+#: groups/single/admin.php:65
+msgid "Group content and activity will be visible to any site member."
+msgstr "El continigut i l' activitat del Grup serà visible per a qualsevol membre del lloc."
+
+#@ cc
+#: groups/create.php:91
+#: groups/single/admin.php:71
+msgid "This is a private group"
+msgstr "Aquest és un grup privat"
+
+#@ cc
+#: groups/create.php:93
+#: groups/single/admin.php:73
+msgid "Only users who request membership and are accepted can join the group."
+msgstr "Només els membres que sol·licitin unir-se i siguin acceptats podràn entrar al Grup."
+
+#@ cc
+#: groups/create.php:95
+#: groups/create.php:104
+#: groups/single/admin.php:75
+#: groups/single/admin.php:85
+msgid "Group content and activity will only be visible to members of the group."
+msgstr "El contingut i l'activitat del Grup només serà visible per als membres del Grup."
+
+#@ cc
+#: groups/create.php:100
+#: groups/single/admin.php:81
+msgid "This is a hidden group"
+msgstr "Aquest és un Grup ocult"
+
+#@ cc
+#: groups/create.php:102
+#: groups/single/admin.php:83
+msgid "Only users who are invited can join the group."
+msgstr "Només membres que siguin convidats podran entrar al Grup."
+
+#@ cc
+#: groups/create.php:103
+#: groups/single/admin.php:84
+msgid "This group will not be listed in the groups directory or search results."
+msgstr "Aquest Grup no sortirà llistat al directori de Grups ni tampoc als resultats de la cerca."
+
+#@ cc
+#: groups/create.php:111
+#: groups/single/admin.php:92
+msgid "Group Invitations"
+msgstr "Invitacions al Grup"
+
+#@ cc
+#: groups/create.php:113
+#: groups/single/admin.php:94
+msgid "Which members of this group are allowed to invite others?"
+msgstr "¿Quins membres d'aquest Grup tenen permis per a invitar a altres?"
+
+#@ cc
+#: groups/create.php:118
+#: groups/single/admin.php:99
+msgid "All group members"
+msgstr "Tots els membres del grup"
+
+#@ cc
+#: groups/create.php:123
+#: groups/single/admin.php:104
+msgid "Group admins and mods only"
+msgstr "Només administradors i moderadors de grup"
+
+#@ cc
+#: groups/create.php:128
+#: groups/single/admin.php:109
+msgid "Group admins only"
+msgstr "Només administradors de grup"
+
+#@ cc
+#: groups/create.php:154
+#: groups/single/admin.php:127
+msgid "Upload an image to use as an avatar for this group. The image will be shown on the main group page, and in search results."
+msgstr "Puja una imatge per emprar com a avatar per al Grup. La imatge es mostrarà a la pàgina principal del Grup, i en els resultats de la cerca."
+
+#@ cc
+#: groups/create.php:158
+#: groups/single/admin.php:131
+#: members/single/profile/change-avatar.php:18
+msgid "Upload Image"
+msgstr "Pujar Imatge"
+
+#@ cc
+#: groups/create.php:162
+msgid "To skip the avatar upload process, hit the \"Next Step\" button."
+msgstr "Per a saltar el procés de pujar un avatar, presioni el botó  \"Seguent Pas\" "
+
+#@ cc
+#: groups/create.php:169
+msgid "Crop Group Avatar"
+msgstr "Retallar Avatar de Grup"
+
+#@ cc
+#: groups/create.php:171
+#: groups/single/admin.php:151
+#: members/single/profile/change-avatar.php:33
+msgid "Avatar to crop"
+msgstr "Avatar a retallar"
+
+#@ cc
+#: groups/create.php:174
+#: groups/single/admin.php:154
+#: members/single/profile/change-avatar.php:36
+msgid "Avatar preview"
+msgstr "Vista prèvia de l'avatar"
+
+#@ cc
+#: groups/create.php:177
+#: groups/single/admin.php:157
+#: members/single/profile/change-avatar.php:39
+msgid "Crop Image"
+msgstr "Retallar Imatge"
+
+#@ cc
+#: groups/create.php:216
+#: groups/single/send-invites.php:22
+msgid "Select people to invite from your friends list."
+msgstr "Selecciona persones de la teva llista d'amics per a convidar-los."
+
+#@ cc
+#: groups/create.php:251
+#: groups/single/send-invites.php:73
+msgid "Once you have built up friend connections you will be able to invite others to your group. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new group."
+msgstr "Un cop que hagis desenvolupat connexions d'amistat, podràs convidar a altres al teu Grup. Pots enviar invitacions en qualsevol moment seleccionant l'opció \"Enviar Invitacions\" en el teu nou Grup."
+
+#@ cc
+#: groups/create.php:273
+msgid "Back to Previous Step"
+msgstr "Tornar al Pas Previ"
+
+#@ cc
+#: groups/create.php:280
+msgid "Next Step"
+msgstr "Seguent Pas"
+
+#@ cc
+#: groups/create.php:287
+msgid "Create Group and Continue"
+msgstr "Crear Grup i Continuar"
+
+#@ cc
+#: groups/create.php:294
+msgid "Finish"
+msgstr "Acabar"
+
+#@ cc
+#: groups/groups-loop.php:95
+msgid "There were no groups found."
+msgstr "No s'ha trobat cap Grup."
+
+#@ cc
+#: groups/index.php:37
+#, php-format
+msgid "All Groups <span>%s</span>"
+msgstr "Tots els Grups <span>%s</span>"
+
+#@ cc
+#: groups/index.php:60
+#: members/single/groups.php:23
+msgid "Most Members"
+msgstr "Majoria dels Membres"
+
+#@ cc
+#: groups/index.php:61
+#: members/single/groups.php:24
+msgid "Newly Created"
+msgstr "Recién Creat"
+
+#@ cc
+#: groups/single/admin.php:25
+msgid "Notify group members of changes via email"
+msgstr "Notificar als membres del grup dels canvis vía correu electrònic."
+
+#@ cc
+#: groups/single/admin.php:26
+#: registration/register.php:205
+msgid "Yes"
+msgstr "Sí"
+
+#@ cc
+#: groups/single/admin.php:27
+#: registration/register.php:206
+msgid "No"
+msgstr "No"
+
+#@ cc
+#: groups/single/admin.php:137
+msgid "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button."
+msgstr "Si vols treure  l'avatar actual sense pujar un de nou, utilitza el botó d'esborrar avatar."
+
+#@ cc
+#: groups/single/admin.php:139
+#: members/single/profile/change-avatar.php:24
+msgid "Delete Avatar"
+msgstr "Esborrar Avatar"
+
+#@ cc
+#: groups/single/admin.php:149
+msgid "Crop Avatar"
+msgstr "Retallar Avatar"
+
+#@ cc
+#: groups/single/admin.php:177
+msgid "Administrators"
+msgstr "Administradors"
+
+#@ cc
+#: groups/single/admin.php:185
+#: groups/single/admin.php:210
+#, php-format
+msgid "Profile picture of %s"
+msgstr "Imatge de perfil de %s "
+
+#@ cc
+#: groups/single/admin.php:189
+#: groups/single/admin.php:215
+msgid "Demote to Member"
+msgstr "Degradar a un Membre"
+
+#@ cc
+#: groups/single/admin.php:203
+msgid "Moderators"
+msgstr "Moderadors"
+
+#@ cc
+#: groups/single/admin.php:214
+#: groups/single/admin.php:270
+msgid "Promote to Admin"
+msgstr "Pujar a Administrador"
+
+#@ cc
+#: groups/single/admin.php:258
+msgid "(banned)"
+msgstr "(suspès)"
+
+#@ cc
+#: groups/single/admin.php:264
+msgid "Unban this member"
+msgstr "Aixecar la suspensió a aquest membre"
+
+#@ cc
+#: groups/single/admin.php:264
+msgid "Remove Ban"
+msgstr "Treure Suspensió"
+
+#@ cc
+#: groups/single/admin.php:268
+msgid "Kick and ban this member"
+msgstr "Expulsar i suspendre aquest membre"
+
+#@ cc
+#: groups/single/admin.php:268
+msgid "Kick &amp; Ban"
+msgstr "Expulsar &amp; Suspendre"
+
+#@ cc
+#: groups/single/admin.php:269
+msgid "Promote to Mod"
+msgstr "Pujar a Moderador"
+
+#@ cc
+#: groups/single/admin.php:274
+msgid "Remove this member"
+msgstr "Treure aquest Membre"
+
+#@ cc
+#: groups/single/admin.php:274
+msgid "Remove from group"
+msgstr "Treure el Grup"
+
+#@ cc
+#: groups/single/admin.php:288
+#: groups/single/members.php:104
+msgid "This group has no members."
+msgstr "Aquest Grup no té membres."
+
+#@ cc
+#: groups/single/admin.php:318
+#: members/single/friends/requests.php:37
+#: members/single/groups/invites.php:23
+msgid "Accept"
+msgstr "Acceptar"
+
+#@ cc
+#: groups/single/admin.php:320
+#: members/single/friends/requests.php:38
+#: members/single/groups/invites.php:24
+msgid "Reject"
+msgstr "Rebutjar"
+
+#@ cc
+#: groups/single/admin.php:333
+msgid "There are no pending membership requests."
+msgstr "No hi ha sol·licituts de pertenença pendents."
+
+#@ cc
+#: groups/single/admin.php:350
+msgid "WARNING: Deleting this group will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "ADVERTIMENT: Esborrar aquest Grup treurà per complet TOT el contingut associat a ell. No hi ha marxa enrere, així que vés amb compte amb aquesta opció."
+
+#@ cc
+#: groups/single/admin.php:353
+msgid "I understand the consequences of deleting this group."
+msgstr "Comprenc les conseqüències de borrar aquest grup."
+
+#@ cc
+#: groups/single/admin.php:358
+msgid "Delete Group"
+msgstr "Borrar Grup"
+
+#@ cc
+#: groups/single/forum/topic.php:67
+#, php-format
+msgid "%1$s said %2$s:"
+msgstr "%1$s diu %2$s:"
+
+#@ cc
+#: groups/single/forum/topic.php:112
+msgid "You will auto join this group when you reply to this topic."
+msgstr "Ingressaràs automàticament a aquest Grup en respondre a aquest tema."
+
+#@ cc
+#: groups/single/forum.php:65
+msgid "You will auto join this group when you start a new topic."
+msgstr "Ingressaràs automàticament a aquest Grup en iniciar un nou tema."
+
+#@ cc
+#: groups/single/forum.php:69
+msgid "Post a New Topic:"
+msgstr "Publicar Nou Tema:"
+
+#@ cc
+#: groups/single/group-header-sidebar.php:16
+#: groups/single/group-header.php:35
+#, php-format
+msgid "active %s ago"
+msgstr "actiu fa %s"
+
+#@ cc
+#: groups/single/group-header-sidebar.php:34
+#: groups/single/group-header.php:6
+msgid "Group Admins"
+msgstr "Administradors de Grup"
+
+#@ cc
+#: groups/single/group-header.php:14
+msgid "Group Mods"
+msgstr "Moderadors de Grup"
+
+#@ cc
+#: groups/single/members.php:15
+#: members/index.php:58
+#: members/single/friends.php:23
+msgid "Newest Registered"
+msgstr "Registrats mes Recentment"
+
+#@ cc
+#: groups/single/request-membership.php:4
+#, php-format
+msgid "You are requesting to become a member of the group '%s'."
+msgstr "Estas sol·licitant ser membre del Grup  '%s'."
+
+#@ cc
+#: groups/single/request-membership.php:7
+msgid "Comments (optional)"
+msgstr "Comentaris (opcional)"
+
+#@ cc
+#: groups/single/request-membership.php:12
+msgid "Send Request"
+msgstr "Enviar Sol·licitud"
+
+#@ cc
+#: groups/single/send-invites.php:60
+msgid "Send Invites"
+msgstr "Enviar Invitacions"
+
+#@ cc
+#: index.php:30
+#: single.php:56
+#, php-format
+msgid " by %s"
+msgstr "per %s"
+
+#@ cc
+#: index.php:58
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr "Disculpa, pero estas buscant quelcom que no existeix aquí."
+
+#@ cc
+#: members/index.php:23
+msgid "Members Directory"
+msgstr "Directori de Membres"
+
+#@ cc
+#: members/members-loop.php:108
+msgid "Sorry, no members were found."
+msgstr "Disculpa, no trobem cap membre."
+
+#@ cc
+#: members/single/friends/requests.php:68
+msgid "You have no pending friendship requests."
+msgstr "No tens sol·licituds d' amistat pendents."
+
+#@ cc
+#: members/single/groups/invites.php:14
+#, php-format
+msgid "%s members"
+msgstr "%s membres"
+
+#@ cc
+#: members/single/groups/invites.php:37
+msgid "You have no outstanding group invites."
+msgstr "No tens invitacions a grups pendents."
+
+#@ cc
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+msgid "Mention this user in a new public message, this will send the user a notification to get their attention."
+msgstr "Esmenta a aquest Membre en un missatge públic, aixi s' enviarà una notificació i cridarà la seva atenció."
+
+#@ cc
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+msgid "Mention this User"
+msgstr "Esmentar aquest Usuari"
+
+#@ cc
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+msgid "Send a private message to this user."
+msgstr "Enviar missatge privat a aquest usuari."
+
+#@ cc
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+msgid "Send Private Message"
+msgstr "Enviar Missatge Privat"
+
+#@ cc
+#: members/single/messages/compose.php:5
+msgid "Send To (Username or Friend's Name)"
+msgstr "Enviar a (nom d' usuari o nom del amic)"
+
+#@ cc
+#: members/single/messages/compose.php:14
+msgid "This is a notice to all users."
+msgstr "Aquest és un avis a tots els usuaris."
+
+#@ cc
+#: members/single/messages/compose.php:17
+msgid "Subject"
+msgstr "Tema"
+
+#@ cc
+#: members/single/messages/compose.php:20
+msgid "Message"
+msgstr "Missatge"
+
+#@ cc
+#: members/single/messages/compose.php:28
+msgid "Send Message"
+msgstr "Enviar Missatge"
+
+#@ cc
+#: members/single/messages/messages-loop.php:31
+msgid "From:"
+msgstr "De:"
+
+#@ cc
+#: members/single/messages/messages-loop.php:36
+msgid "To:"
+msgstr "Per a:"
+
+#@ cc
+#: members/single/messages/messages-loop.php:42
+msgid "View Message"
+msgstr "Veure Missatge"
+
+#@ cc
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/notices-loop.php:38
+#: members/single/messages/single.php:24
+msgid "Delete Message"
+msgstr "Borrar Missatge"
+
+#@ cc
+#: members/single/messages/messages-loop.php:68
+msgid "Sorry, no messages were found."
+msgstr "Disculpa, no trobem cap missatge."
+
+#@ cc
+#: members/single/messages/notices-loop.php:31
+msgid "Sent:"
+msgstr "Enviat:"
+
+#@ cc
+#: members/single/messages/notices-loop.php:49
+msgid "Sorry, no notices were found."
+msgstr "Disculpa, no trobem avisos."
+
+#@ cc
+#: members/single/messages/single.php:14
+msgid "You are alone in this conversation."
+msgstr "Estas sol en aquesta conversa."
+
+#@ cc
+#: members/single/messages/single.php:18
+#, php-format
+msgid "Conversation between %s and you."
+msgstr "Conversa entre %s i tu."
+
+#@ cc
+#: members/single/messages/single.php:75
+msgid "Send a Reply"
+msgstr "Enviar una Resposta"
+
+#@ cc
+#: members/single/messages/single.php:91
+msgid "Send Reply"
+msgstr "Enviar Resposta"
+
+#@ cc
+#: members/single/profile/change-avatar.php:1
+msgid "Change Avatar"
+msgstr "Canviar Avatar"
+
+#@ cc
+#: members/single/profile/change-avatar.php:7
+msgid "Your avatar will be used on your profile and throughout the site. If there is a <a href=\"http://gravatar.com\">Gravatar</a> associated with your account email we will use that, or you can upload an image from your computer."
+msgstr "El teu avatar serà utilitzat en el teu perfil i en tot el lloc. Si tens un Gravatar associat al teu compte de correu electrònic, ho utilitzarem, o pots pujar una imatge des del  teu ordinador."
+
+#@ cc
+#: members/single/profile/change-avatar.php:14
+msgid "Click below to select a JPG, GIF or PNG format photo from your computer and then click 'Upload Image' to proceed."
+msgstr "Fes clic a baix per seleccionar una foto en format *JPG, *GIF o *PNG i després fes clic a `Pujar Imatge´ per procedir."
+
+#@ cc
+#: members/single/profile/change-avatar.php:23
+msgid "If you'd like to delete your current avatar but not upload a new one, please use the delete avatar button."
+msgstr "Si vols esborrar el teu avatar actual sense pujar un de nou, utilitza el botó d'esborrar avatar."
+
+#@ cc
+#: members/single/profile/change-avatar.php:24
+msgid "Delete My Avatar"
+msgstr "Borrar Avatar"
+
+#@ cc
+#: members/single/profile/change-avatar.php:31
+msgid "Crop Your New Avatar"
+msgstr "Retallar el teu nou Avatar"
+
+#@ cc
+#: members/single/profile/change-avatar.php:55
+msgid "Your avatar will be used on your profile and throughout the site. To change your avatar, please create an account with <a href=\"http://gravatar.com\">Gravatar</a> using the same email address as you used to register with this site."
+msgstr "El teu avatar serà utilitzat en el teu perfil i en tot el lloc. Per a canviar  el teu avatar, crea un compte amb <a href=\"http://gravatar.com\">Gravatar</a> utilitzant la mateixa direcció de correu electrònic que vas fer servir per a registrar-te en aquest lloc."
+
+#@ cc
+#: members/single/profile/edit.php:10
+#, php-format
+msgid "Editing '%s' Profile Group"
+msgstr "Editant Perfil del Grup '%s' "
+
+#@ cc
+#: members/single/profile/edit.php:26
+#: members/single/profile/edit.php:33
+#: members/single/profile/edit.php:40
+#: members/single/profile/edit.php:49
+#: members/single/profile/edit.php:67
+#: members/single/profile/edit.php:83
+#: members/single/profile/edit.php:93
+#: registration/register.php:37
+#: registration/register.php:41
+#: registration/register.php:45
+#: registration/register.php:49
+#: registration/register.php:76
+#: registration/register.php:84
+#: registration/register.php:92
+#: registration/register.php:102
+#: registration/register.php:113
+#: registration/register.php:128
+#: registration/register.php:139
+#: registration/register.php:189
+#: registration/register.php:198
+msgid "(required)"
+msgstr "(requerit)"
+
+#@ cc
+#: members/single/profile/edit.php:58
+#: members/single/profile/edit.php:73
+#: registration/register.php:119
+msgid "Clear"
+msgstr "Buidar"
+
+#@ cc
+#: members/single/profile/profile-wp.php:8
+#, php-format
+msgid "%s's Profile"
+msgstr "Perfil de %s"
+
+#@ cc
+#: members/single/profile/profile-wp.php:24
+msgid "About Me"
+msgstr "Quelcom Entorn a Mi"
+
+#@ cc
+#: members/single/profile/profile-wp.php:42
+msgid "Jabber"
+msgstr "Jabber"
+
+#@ cc
+#: members/single/profile/profile-wp.php:51
+msgid "AOL Messenger"
+msgstr "AOL Messenger"
+
+#@ cc
+#: members/single/profile/profile-wp.php:60
+msgid "Yahoo Messenger"
+msgstr "Yahoo Messenger"
+
+#@ cc
+#: members/single/settings/delete-account.php:50
+msgid "Delete Account"
+msgstr "Borrar Compte"
+
+#@ cc
+#: members/single/settings/delete-account.php:55
+msgid "WARNING: Deleting your account will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "ADVERTIMENT: Esborrar el teu compte trurà per complet TOT el contingut associat al compte. No hi ha marxa enrere, així que vés amb compte amb aquesta opció."
+
+#@ cc
+#: members/single/settings/delete-account.php:58
+msgid "I understand the consequences of deleting my account."
+msgstr "Comprenc les conseqüències de borrar el meu compte."
+
+#@ cc
+#: members/single/settings/delete-account.php:63
+msgid "Delete My Account"
+msgstr "Borrar el Meu Compte"
+
+#@ cc
+#: members/single/settings/general.php:50
+msgid "General Settings"
+msgstr "Ajustos Generals"
+
+#@ cc
+#: members/single/settings/general.php:56
+msgid "Current Password <span>(required to update email or change current password)</span>"
+msgstr "Contrasenya Actual <span>(requerida per a actualitzar correu elctrònic o canviar de contrasenya)</span>"
+
+#@ cc
+#: members/single/settings/general.php:57
+msgid "Password Lost and Found"
+msgstr "Contrasenya Perduda"
+
+#@ cc
+#: members/single/settings/general.php:57
+msgid "Lost your password?"
+msgstr "Has perdut la teva contrasenya?"
+
+#@ cc
+#: members/single/settings/general.php:59
+msgid "Account Email"
+msgstr "Correu Electrónic del Compte"
+
+#@ cc
+#: members/single/settings/general.php:62
+msgid "Change Password <span>(leave blank for no change)</span>"
+msgstr "Canviar Contrasenya <span>(deixar en blanc per a no canviar)</span>"
+
+#@ cc
+#: members/single/settings/general.php:63
+msgid "New Password"
+msgstr "Nova Contrasenya"
+
+#@ cc
+#: members/single/settings/general.php:64
+msgid "Repeat New Password"
+msgstr "Repeteix la Nova Contrasenya"
+
+#@ cc
+#: members/single/settings/notifications.php:50
+msgid "Email Notification"
+msgstr "Notificació per Correu Electrònic"
+
+#@ cc
+#: members/single/settings/notifications.php:55
+msgid "Send a notification by email when:"
+msgstr "Enviar notificació per correu electrònic quan:"
+
+#@ cc
+#: page.php:19
+#: single.php:68
+msgid "<p class=\"cc_pagecount\"><strong>Pages:</strong> "
+msgstr "<p class=\"cc_pagecount\"><strong>Páginas:</strong> "
+
+#@ cc
+#: page.php:34
+msgid "Edit this page."
+msgstr "Editar aquesta pàgina."
+
+#@ cc
+#: registration/activate.php:12
+msgid "Account Activated"
+msgstr "Compte Activat"
+
+#@ cc
+#: registration/activate.php:17
+msgid "Your account was activated successfully! Your account details have been sent to you in a separate email."
+msgstr "El teu compte es va activar amb èxit! Els detalls del teu compte t'han estat enviats en un correu aparti."
+
+#@ cc
+#: registration/activate.php:19
+msgid "Your account was activated successfully! You can now log in with the username and password you provided when you signed up."
+msgstr "El teu compte es va activar amb èxit! Ara pots iniciar sessió amb el nom de l'usuari i contrasenya donada al registrar-te."
+
+#@ cc
+#: registration/activate.php:24
+msgid "Activate your Account"
+msgstr "Activa el  teu Compte"
+
+#@ cc
+#: registration/activate.php:28
+msgid "Please provide a valid activation key."
+msgstr "Si us plau, suministra una clau d' activació vàlida."
+
+#@ cc
+#: registration/activate.php:32
+msgid "Activation Key:"
+msgstr "Clau d' Activació:"
+
+#@ cc
+#: registration/activate.php:36
+msgid "Activate"
+msgstr "Activar"
+
+#@ cc
+#: registration/register.php:16
+msgid "User registration is currently not allowed."
+msgstr "El Registre de Membres està deshabilitat en aquest moment."
+
+#@ cc
+#: registration/register.php:23
+msgid "Create an Account"
+msgstr "Crear Compte"
+
+#@ cc
+#: registration/register.php:27
+msgid "Registering for this site is easy, just fill in the fields below and we'll get a new account set up for you in no time."
+msgstr "Registrar-te en aquest lloc és fàcil, només omple els camps d'abaix de seguida tindràs el teu compte configurat."
+
+#@ cc
+#: registration/register.php:35
+msgid "Account Details"
+msgstr "Detalles del compte"
+
+#@ cc
+#: registration/register.php:41
+msgid "Email Address"
+msgstr "Correu Electrònic"
+
+#@ cc
+#: registration/register.php:45
+msgid "Choose a Password"
+msgstr "Escull una Contrasenya"
+
+#@ cc
+#: registration/register.php:49
+msgid "Confirm Password"
+msgstr "Confirma la Contrasenya"
+
+#@ cc
+#: registration/register.php:65
+msgid "Profile Details"
+msgstr "Detalls del Perfil"
+
+#@ cc
+#: registration/register.php:183
+msgid "Blog Details"
+msgstr "Detalls de Blog"
+
+#@ cc
+#: registration/register.php:185
+msgid "Yes, I'd like to create a new site"
+msgstr "Si, voldria crear un nou lloc"
+
+#@ cc
+#: registration/register.php:189
+msgid "Blog URL"
+msgstr "URL del Blog"
+
+#@ cc
+#: registration/register.php:198
+msgid "Site Title"
+msgstr "Títol del Lloc"
+
+#@ cc
+#: registration/register.php:202
+msgid "I would like my site to appear in search engines, and in public listings around this network."
+msgstr "Voldria que el meu lloc aparegués en motors de cerca, i en els llistats públics de tot aquest lloc."
+
+#@ cc
+#: registration/register.php:219
+msgid "Complete Sign Up"
+msgstr "Completar Registre"
+
+#@ cc
+#: registration/register.php:230
+msgid "Sign Up Complete!"
+msgstr "¡Registre Complet!"
+
+#@ cc
+#: registration/register.php:236
+msgid "You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address."
+msgstr "¡Has creat el teu compte amb èxit! Per a començar a fer servir aquest lloc, et caldrà activar el teu compe per mitjà del correu que hem enviat a la teva adreça."
+
+#@ cc
+#: registration/register.php:238
+msgid "You have successfully created your account! Please log in using the username and password you have just created."
+msgstr "¡Has creat el teu compte amb èxit! Si us plau, inicia sessió amb el nom d' usuari i contrasenya que has creat. "
+
+#@ cc
+#: search-loop.php:34
+msgid "Read more..."
+msgstr "Llegir més..."
+
+#@ cc
+#: search-loop.php:51
+#, php-format
+msgid "We are sorry, but we could not find anything for the search term '%s'"
+msgstr "Ho sentim, però no hem trobat res per la cerca de `%s´"
+
+#@ cc
+#: search.php:14
+msgid "Search Results"
+msgstr "Resultats de la Cerca"
+
+#@ cc
+#: search.php:59
+msgid "No posts found. Try a different search?"
+msgstr "No s'han trobat publicacions. Proves amb una cerca diferent?"
+
+#@ cc
+#: sidebar.php:11
+msgid "Recent Posts"
+msgstr "Publicacions Recents"
+
+#@ cc
+#: sidebar.php:23
+msgid "Random Posts"
+msgstr "Publicacions Al Atzar"
+
+#@ cc
+#: sidebar.php:35
+msgid "Search by Tags!"
+msgstr "Cercar per Etiquetes"
+
+#@ cc
+#: single.php:87
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#@ cc
+#: single.php:88
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"
+
+#@ cc
+#: single.php:97
+msgid "Sorry, no posts matched your criteria."
+msgstr "Disculpa, cap publicació coincideix amb els teus criteris de cerca."
+
+#@ cc
+#: archive.php:13
+#, php-format
+msgid "Daily Archives: %s"
+msgstr "Arxius diaris:: %s"
+
+#@ cc
+#: archive.php:15
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr "Arxius mensuals: %s"
+
+#@ cc
+#: archive.php:17
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr "Arxius anuals: %s"
+
+#@ cc
+#: archive.php:19
+#, php-format
+msgid "You are browsing the Blog for %1$s."
+msgstr "Estàs en el blog de %1$s."
+
+#@ cc
+#: groups/single/group-header-sidebar.php:27
+msgid "Description"
+msgstr "Descripció"
+

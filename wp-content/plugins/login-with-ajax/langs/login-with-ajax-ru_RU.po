@@ -1,0 +1,329 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Login With Ajax\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-01-08 22:17+0300\n"
+"PO-Revision-Date: 2011-01-09 00:20+0300\n"
+"Last-Translator: kowack <kowack@gmail.com>\n"
+"Language-Team: kowack <kowack@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_p;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: UKRAINE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../login-with-ajax-admin.php:44
+msgid "New features in Login With AJAX (including registration!), check out the settings and widget pages!"
+msgstr "Появились новые приколы у  Login With AJAX (включая регистрацию!), так что проверьте настройки и страницу виджетов!"
+
+#: ../login-with-ajax-admin.php:46
+msgid "Dismiss"
+msgstr "Промах"
+
+#: ../login-with-ajax-admin.php:92
+msgid "Changes saved."
+msgstr "Изменения сохранены успешно!"
+
+#: ../login-with-ajax-admin.php:135
+msgid "General Settings"
+msgstr "Главные настройки"
+
+#: ../login-with-ajax-admin.php:141
+msgid "Default Template"
+msgstr "Шаблон по умолчанию."
+
+#: ../login-with-ajax-admin.php:150
+msgid "Choose the default theme you'd like to use. This can be overriden in the widget, shortcode and template tags."
+msgstr "Выберете тему по умолчанию которуую хотите использовать. Это может изменить виджет, shortcode и шаблон тегов."
+
+#: ../login-with-ajax-admin.php:151
+msgid "Further documentation for this feature coming soon..."
+msgstr "Документация по этой функции неготова и пока на подходе..."
+
+#: ../login-with-ajax-admin.php:157
+msgid "Disable refresh upon login?"
+msgstr "Выключить обновление страницы при входе?"
+
+#: ../login-with-ajax-admin.php:162
+msgid "If the user logs in and you check the button above, only the login widget will update itself without refreshing the page. Not a good idea if your site shows different content to users once logged in, as a refresh would be needed."
+msgstr "Обновить виджет без обновления всей страницы. Осторожно используй, если на странице есть елементы, что отображаются в зависимости от входа пользователя. "
+
+#: ../login-with-ajax-admin.php:163
+msgid "<strong>Experimental and not fully tested!</strong> please test and report any bugs on our forum."
+msgstr "<strong>Эксперементально и не тестилось!</strong> сообщайте о проблемах на наш форум."
+
+#: ../login-with-ajax-admin.php:168
+msgid "Redirection Settings"
+msgstr "Настройки редиректа"
+
+#: ../login-with-ajax-admin.php:173
+msgid "Global Login Redirect"
+msgstr "Переадрисация при входе"
+
+#: ../login-with-ajax-admin.php:177
+msgid "If you'd like to send the user to a specific URL after login, enter it here (e.g. http://wordpress.org/)"
+msgstr "Если ты хочешь отослать пользователя на определённый URL после входа, введите его здесь (например, http://wordpress.org/)"
+
+#: ../login-with-ajax-admin.php:178
+#: ../login-with-ajax-admin.php:188
+msgid "New!"
+msgstr "Новинка!"
+
+#: ../login-with-ajax-admin.php:178
+msgid "Use %USERNAME% and it will be replaced with the username of person logging in."
+msgstr "%USERNAME% будет измененно на логин вошедшего."
+
+#: ../login-with-ajax-admin.php:183
+msgid "Global Logout Redirect"
+msgstr "Переадресация при выходе"
+
+#: ../login-with-ajax-admin.php:187
+msgid "If you'd like to send the user to a specific URL after logout, enter it here (e.g. http://wordpress.org/)"
+msgstr "Если ты хочешь отослать пользователя на определённый URL после выхода, введите его здесь (например, http://wordpress.org/)"
+
+#: ../login-with-ajax-admin.php:188
+msgid "Enter %LASTURL% to send the user back to the page they were previously on."
+msgstr "Введите %LASTURL% и пользователь будет направлен на предыдущую страницу."
+
+#: ../login-with-ajax-admin.php:193
+msgid "Role-Based Custom Login Redirects"
+msgstr "Переадресация по группам при входе "
+
+#: ../login-with-ajax-admin.php:196
+msgid "If you would like a specific user role to be redirected to a custom URL upon login, place it here (blank value will default to the global redirect)"
+msgstr "Определённая группа пользователей будет переадресована на определённый адрес (по умолчанию глобальное правило)"
+
+#: ../login-with-ajax-admin.php:216
+msgid "Role-Based Custom Logout Redirects"
+msgstr "Переадресация по группам при выходе"
+
+#: ../login-with-ajax-admin.php:219
+msgid "If you would like a specific user role to be redirected to a custom URL upon logout, place it here (blank value will default to the global redirect)"
+msgstr "Редрект по ролям"
+
+#: ../login-with-ajax-admin.php:239
+msgid "Notification Settings"
+msgstr "Настройки оповещений"
+
+#: ../login-with-ajax-admin.php:241
+msgid "If you'd like to override the default Wordpress email users receive once registered, make sure you check the box below and enter a new email subject and message"
+msgstr "Если хотите перезаписать сообщение что отправляет WordPress новым пользователям, поставте галку ниже и редактируйте тему и само сообщение."
+
+#: ../login-with-ajax-admin.php:242
+msgid "If this feature doesn't work, please make sure that you don't have another plugin installed which also manages user registrations (e.g. BuddyPress and MU)."
+msgstr "Если что-то не пашет попробуй вырубить плагины связаные с регистрацией (типо там BuddyPress and MU)"
+
+#: ../login-with-ajax-admin.php:248
+msgid "Override Default Email?"
+msgstr "Перезапись страндартного e-mail письма?"
+
+#: ../login-with-ajax-admin.php:256
+msgid "Subject"
+msgstr "Тема"
+
+#: ../login-with-ajax-admin.php:261
+msgid "Your registration at %BLOGNAME%"
+msgstr "Успешная регистрация на %BLOGNAME%"
+
+#: ../login-with-ajax-admin.php:265
+msgid "<code>%USERNAME%</code> will be replaced with a username."
+msgstr "<code>%USERNAME%</code> логин."
+
+#: ../login-with-ajax-admin.php:266
+msgid "<code>%PASSWORD%</code> will be replaced with the user's password."
+msgstr "<code>%PASSWORD%</code> пароль."
+
+#: ../login-with-ajax-admin.php:267
+#: ../login-with-ajax-admin.php:291
+msgid "<code>%BLOGNAME%</code> will be replaced with the name of your blog."
+msgstr "<code>%BLOGNAME%</code> название блога."
+
+#: ../login-with-ajax-admin.php:268
+#: ../login-with-ajax-admin.php:292
+msgid "<code>%BLOGURL%</code> will be replaced with the url of your blog."
+msgstr "<br /><code>%BLOGURL%</code> ссылка блога."
+
+#: ../login-with-ajax-admin.php:273
+msgid "Message"
+msgstr "Сообщение"
+
+#: ../login-with-ajax-admin.php:278
+msgid ""
+"Thanks for signing up to our blog. \n"
+"\n"
+"You can login with the following credentials by visiting %BLOGURL%\n"
+"\n"
+"Username : %USERNAME%\n"
+"Password : %PASSWORD%\n"
+"\n"
+"We look forward to your next visit!\n"
+"\n"
+"The team at %BLOGNAME%"
+msgstr ""
+"Рад твоей регистрации на %BLOGURL%\n"
+"\n"
+"Краткая инфа:\n"
+"Твой логин : %USERNAME%\n"
+"Твой пароль : %PASSWORD%\n"
+"\n"
+"С нетерпением жду твоих советов, комментариев, пожеланий!\n"
+"\n"
+"Блог : %BLOGNAME%"
+
+#: ../login-with-ajax-admin.php:301
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: ../login-with-ajax-widget.php:5
+msgid "Login widget with AJAX capabilities."
+msgstr "AJAX вход/регистрация"
+
+#: ../login-with-ajax-widget.php:28
+msgid "Show profile link?"
+msgstr "Вкл. Profile link"
+
+#: ../login-with-ajax-widget.php:32
+msgid "AJAX Registration?"
+msgstr "Вкл. AJAX Registration"
+
+#: ../login-with-ajax-widget.php:37
+msgid "Template"
+msgstr "Шаблон"
+
+#: ../login-with-ajax.php:177
+msgid "Login Successful, redirecting..."
+msgstr "Вошли, переходим..."
+
+#: ../login-with-ajax.php:189
+msgid "Login successful, updating..."
+msgstr "Вошли, обновляемся..."
+
+#: ../login-with-ajax.php:199
+#: ../login-with-ajax.php:251
+msgid "An undefined error has ocurred"
+msgstr "Блииииин, непонятная ошибка, вот хрень."
+
+#: ../login-with-ajax.php:203
+msgid "Please supply your username and password."
+msgstr "Нужно ввести логин и пароль."
+
+#: ../login-with-ajax.php:222
+msgid "Registration complete. Please check your e-mail."
+msgstr "Вот и вся регистрация. Проверь свой e-mail."
+
+#: ../login-with-ajax.php:242
+msgid "We have sent you an email"
+msgstr "Отправил тебе на e-mail"
+
+#: ../pluggable.php:25
+#, php-format
+msgid "New user registration on your blog %s:"
+msgstr "Новый пользователь на твоём блоге %s:"
+
+#: ../pluggable.php:26
+#: ../pluggable.php:40
+#, php-format
+msgid "Username: %s"
+msgstr "Логин: %s"
+
+#: ../pluggable.php:27
+#, php-format
+msgid "E-mail: %s"
+msgstr ""
+
+#: ../pluggable.php:29
+#, php-format
+msgid "[%s] New User Registration"
+msgstr "[%s] Регистрация нового пользователя"
+
+#: ../pluggable.php:41
+#, php-format
+msgid "Password: %s"
+msgstr "Пароль: %s"
+
+#: ../pluggable.php:44
+#, php-format
+msgid "[%s] Your username and password"
+msgstr "[%s] Твой логин и пароль"
+
+#: ../widget/default/widget_in.php:11
+#: ../widget/default/widget_in.php:14
+msgid "Hi"
+msgstr "Рад видеть"
+
+#: ../widget/default/widget_in.php:35
+#: ../widget/default/widget_in.php:39
+msgid "Profile"
+msgstr "<br />Профиль"
+
+#: ../widget/default/widget_in.php:45
+msgid "Log Out"
+msgstr "<br />Выйти"
+
+#: ../widget/default/widget_in.php:50
+msgid "blog admin"
+msgstr "<br />Админка"
+
+#: ../widget/default/widget_out.php:10
+#: ../widget/default/widget_out.php:36
+msgid "Log In"
+msgstr "Войти"
+
+#: ../widget/default/widget_out.php:19
+#: ../widget/default/widget_out.php:94
+msgid "Username"
+msgstr "Логин"
+
+#: ../widget/default/widget_out.php:27
+msgid "Password"
+msgstr "Пароль"
+
+#: ../widget/default/widget_out.php:42
+msgid "Remember Me"
+msgstr "Запомнить меня"
+
+#: ../widget/default/widget_out.php:44
+msgid "Password Lost and Found"
+msgstr ""
+
+#: ../widget/default/widget_out.php:44
+msgid "Lost your password?"
+msgstr "Не помнишь пароль?"
+
+#: ../widget/default/widget_out.php:57
+msgid "Register"
+msgstr "Регистрация"
+
+#: ../widget/default/widget_out.php:69
+msgid "Forgotten Password"
+msgstr "Потеряный пароль"
+
+#: ../widget/default/widget_out.php:74
+msgid "Enter username or email"
+msgstr "Надо ввести e-mail"
+
+#: ../widget/default/widget_out.php:80
+msgid "Get New Password"
+msgstr "Получить новый пароль"
+
+#: ../widget/default/widget_out.php:81
+msgid "Cancel"
+msgstr " Отмена "
+
+#: ../widget/default/widget_out.php:91
+msgid "Register For This Site"
+msgstr ""
+
+#: ../widget/default/widget_out.php:98
+msgid "E-mail"
+msgstr ""
+
+#: ../widget/default/widget_out.php:102
+msgid "A password will be e-mailed to you."
+msgstr "Пароль будет отправлен тебе на e-mail."
+

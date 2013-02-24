@@ -21,11 +21,11 @@ if (isset($_GET["pgsql"])) {
 				$db = $adminer->database();
 				set_error_handler(array($this, '_error'));
 				$this->_string = "host='" . str_replace(":", "' port='", addcslashes($server, "'\\")) . "' user='" . addcslashes($username, "'\\") . "' password='" . addcslashes($password, "'\\") . "'";
-				$this->_link = @pg_connect($this->_string . ($db != "" ? " dbname='" . addcslashes($db, "'\\") . "'" : " dbname='template1'"), PGSQL_CONNECT_FORCE_NEW);
+				$this->_link = @pg_connect("$this->_string dbname='" . ($db != "" ? addcslashes($db, "'\\") : "postgres") . "'", PGSQL_CONNECT_FORCE_NEW);
 				if (!$this->_link && $db != "") {
 					// try to connect directly with database for performance
 					$this->_database = false;
-					$this->_link = @pg_connect("$this->_string dbname='template1'", PGSQL_CONNECT_FORCE_NEW);
+					$this->_link = @pg_connect("$this->_string dbname='postgres'", PGSQL_CONNECT_FORCE_NEW);
 				}
 				restore_error_handler();
 				if ($this->_link) {
@@ -53,11 +53,12 @@ if (isset($_GET["pgsql"])) {
 			}
 			
 			function close() {
-				$this->_link = @pg_connect("$this->_string dbname='template1'");
+				$this->_link = @pg_connect("$this->_string dbname='postgres'");
 			}
 			
 			function query($query, $unbuffered = false) {
 				$result = @pg_query($this->_link, $query);
+				$this->error = "";
 				if (!$result) {
 					$this->error = pg_last_error($this->_link);
 					return false;
@@ -132,7 +133,7 @@ if (isset($_GET["pgsql"])) {
 				global $adminer;
 				$db = $adminer->database();
 				$string = "pgsql:host='" . str_replace(":", "' port='", addcslashes($server, "'\\")) . "' options='-c client_encoding=utf8'";
-				$this->dsn($string . ($db != "" ? " dbname='" . addcslashes($db, "'\\") . "'" : ""), $username, $password);
+				$this->dsn("$string dbname='" . ($db != "" ? addcslashes($db, "'\\") : "postgres") . "'", $username, $password);
 				//! connect without DB in case of an error
 				return true;
 			}
@@ -161,6 +162,9 @@ if (isset($_GET["pgsql"])) {
 		$connection = new Min_DB;
 		$credentials = $adminer->credentials();
 		if ($connection->connect($credentials[0], $credentials[1], $credentials[2])) {
+			if ($connection->server_info >= 9) {
+				$connection->query("SET application_name = 'Adminer'");
+			}
 			return $connection;
 		}
 		return $connection->error;
@@ -171,7 +175,7 @@ if (isset($_GET["pgsql"])) {
 	}
 	
 	function limit($query, $where, $limit, $offset = 0, $separator = " ") {
-		return " $query$where" . (isset($limit) ? $separator . "LIMIT $limit" . ($offset ? " OFFSET $offset" : "") : "");
+		return " $query$where" . ($limit !== null ? $separator . "LIMIT $limit" . ($offset ? " OFFSET $offset" : "") : "");
 	}
 
 	function limit1($query, $where) {
@@ -202,7 +206,7 @@ if (isset($_GET["pgsql"])) {
 
 	function table_status($name = "") {
 		$return = array();
-		foreach (get_rows("SELECT relname AS \"Name\", CASE relkind WHEN 'r' THEN '' ELSE 'view' END AS \"Engine\", pg_relation_size(oid) AS \"Data_length\", pg_total_relation_size(oid) - pg_relation_size(oid) AS \"Index_length\", obj_description(oid, 'pg_class') AS \"Comment\", relhasoids AS \"Oid\"
+		foreach (get_rows("SELECT relname AS \"Name\", CASE relkind WHEN 'r' THEN 'table' ELSE 'view' END AS \"Engine\", pg_relation_size(oid) AS \"Data_length\", pg_total_relation_size(oid) - pg_relation_size(oid) AS \"Index_length\", obj_description(oid, 'pg_class') AS \"Comment\", relhasoids AS \"Oid\", reltuples as \"Rows\"
 FROM pg_class
 WHERE relkind IN ('r','v')
 AND relnamespace = (SELECT oid FROM pg_namespace WHERE nspname = current_schema())"
@@ -255,7 +259,7 @@ ORDER BY a.attnum"
 			$connection2 = $connection;
 		}
 		$return = array();
-		$table_oid = $connection2->result("SELECT oid FROM pg_class WHERE relname = " . q($table));
+		$table_oid = $connection2->result("SELECT oid FROM pg_class WHERE relnamespace = (SELECT oid FROM pg_namespace WHERE nspname = current_schema()) AND relname = " . q($table));
 		$columns = get_key_vals("SELECT attnum, attname FROM pg_attribute WHERE attrelid = $table_oid AND attnum > 0", $connection2);
 		foreach (get_rows("SELECT relname, indisunique, indisprimary, indkey FROM pg_index i, pg_class ci WHERE i.indrelid = $table_oid AND ci.oid = i.indexrelid", $connection2) as $row) {
 			$return[$row["relname"]]["type"] = ($row["indisprimary"] == "t" ? "PRIMARY" : ($row["indisunique"] == "t" ? "UNIQUE" : "INDEX"));
@@ -273,7 +277,7 @@ ORDER BY a.attnum"
 		$return = array();
 		foreach (get_rows("SELECT conname, pg_get_constraintdef(oid) AS definition
 FROM pg_constraint
-WHERE conrelid = (SELECT oid FROM pg_class WHERE relname = " . q($table) . ")
+WHERE conrelid = (SELECT pc.oid FROM pg_class AS pc INNER JOIN pg_namespace AS pn ON (pn.oid = pc.relnamespace) WHERE pc.relname = " . q($table) . " AND pn.nspname = current_schema())
 AND contype = 'f'::char
 ORDER BY conkey, conname") as $row) {
 			if (preg_match('~FOREIGN KEY\s*\((.+)\)\s*REFERENCES (.+)\((.+)\)(.*)$~iA', $row['definition'], $match)) {
@@ -284,8 +288,8 @@ ORDER BY conkey, conname") as $row) {
 					$row['table'] = $match2[2];
 				}
 				$row['target'] = array_map('trim', explode(',', $match[3]));
-				$row['on_delete'] = (preg_match("~ON DELETE ($on_actions)~", $match[4], $match2) ? $match2[1] : '');
-				$row['on_update'] = (preg_match("~ON UPDATE ($on_actions)~", $match[4], $match2) ? $match2[1] : '');
+				$row['on_delete'] = (preg_match("~ON DELETE ($on_actions)~", $match[4], $match2) ? $match2[1] : 'NO ACTION');
+				$row['on_update'] = (preg_match("~ON UPDATE ($on_actions)~", $match[4], $match2) ? $match2[1] : 'NO ACTION');
 				$return[$row['conname']] = $row;
 			}
 		}
@@ -570,10 +574,18 @@ AND typelem = 0"
 	}
 
 	function process_list() {
-		return get_rows("SELECT * FROM pg_stat_activity ORDER BY procpid");
+		global $connection;
+		return get_rows("SELECT * FROM pg_stat_activity ORDER BY " . ($connection->server_info < 9.2 ? "procpid" : "pid"));
 	}
 	
 	function show_status() {
+	}
+	
+	function convert_field($field) {
+	}
+	
+	function unconvert_field($field, $return) {
+		return $return;
 	}
 	
 	function support($feature) {
@@ -585,7 +597,7 @@ AND typelem = 0"
 	$structured_types = array();
 	foreach (array( //! arrays
 		lang('Numbers') => array("smallint" => 5, "integer" => 10, "bigint" => 19, "boolean" => 1, "numeric" => 0, "real" => 7, "double precision" => 16, "money" => 20),
-		lang('Date and time') => array("date" => 13, "time" => 17, "timestamp" => 20, "interval" => 0),
+		lang('Date and time') => array("date" => 13, "time" => 17, "timestamp" => 20, "timestamptz" => 21, "interval" => 0),
 		lang('Strings') => array("character" => 0, "character varying" => 0, "text" => 0, "tsquery" => 0, "tsvector" => 0, "uuid" => 0, "xml" => 0),
 		lang('Binary') => array("bit" => 0, "bit varying" => 0, "bytea" => 0),
 		lang('Network') => array("cidr" => 43, "inet" => 43, "macaddr" => 17, "txid_snapshot" => 0),

@@ -37,7 +37,7 @@
 			case 'resetconfirmed':
 				// Increase time limit before resetting
 				set_time_limit(0);
-				self::resetSettings();
+				self::resetSettings((isset($_GET['full']) && $_GET['full']));
 				echo '<p class="wp-piwik-eyecatcher"><strong>'.__('WP-Piwik reset done','wp-piwik').'</strong></p>';
 			default:
 		} 

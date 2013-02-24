@@ -1,0 +1,414 @@
+# Translation of the WordPress plugin Login With Ajax 3.0a by NetWebLogic.
+# Copyright (C) 2010 NetWebLogic
+# This file is distributed under the same license as the Login With Ajax package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Login With Ajax 3.0a\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/login-with-ajax\n"
+"POT-Creation-Date: 2010-06-04 16:10+0000\n"
+"PO-Revision-Date: 2010-06-05 22:55+0100\n"
+"Last-Translator: Ryszard Rysz <ryszard.rysz@gmail.com>\n"
+"Language-Team: POLISH <ryszard.rysz@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: login-with-ajax-admin.php:43
+msgid "New features in Login With AJAX (including registration!), check out the settings and widget pages!"
+msgstr "Nowe funkcje Logowania z Ajaxem (włączając rejestrację!), sprawdź ustawienia oraz strony widgeta"
+
+#: login-with-ajax-admin.php:45
+msgid "Dismiss"
+msgstr "Usuń"
+
+#: login-with-ajax-admin.php:89
+msgid "Changes saved."
+msgstr "Zapisano zmiany"
+
+#: login-with-ajax-admin.php:93
+msgid "There were issues when saving your settings. Please try again."
+msgstr "Pojawiły się problemy podczas zapisywania ustawień. Spróbuj ponownie."
+
+#: login-with-ajax-admin.php:137
+msgid "General Settings"
+msgstr "Ustawienia główne"
+
+#: login-with-ajax-admin.php:142
+msgid "Default Template"
+msgstr "Szablon domyślny"
+
+#: login-with-ajax-admin.php:151
+msgid "Choose the default theme you'd like to use. This can be overriden in the widget, shortcode and template tags."
+msgstr "Wybierz domyślny szablon, którego chciałbyś użyć. Może być nadpisany w widżecie, shortkodzie i tagach szablonu."
+
+#: login-with-ajax-admin.php:152
+msgid "Further documentation for this feature coming soon..."
+msgstr "Szersza dokumentacja wkrótce..."
+
+#: login-with-ajax-admin.php:157
+msgid "Disable refresh upon login?"
+msgstr "Wyłączyć odświeżanie podczas logowania?"
+
+#: login-with-ajax-admin.php:162
+msgid "If the user logs in and you check the button above, only the login widget will update itself without refreshing the page. Not a good idea if your site shows different content to users once logged in, as a refresh would be needed."
+msgstr "Jeżeli użytkownik loguje się i zaznaczysz powyższe pole, jedynie widget logowania zaktualizuje się bez odświeżania całej strony. Zły pomysł, jeśli witryna pokazuje inne treści dla użytkowników zalogowanych. Wtedy odświeżenie strony jest konieczne."
+
+#: login-with-ajax-admin.php:163
+msgid "<strong>Experimental and not fully tested!</strong> please test and report any bugs on our forum."
+msgstr "<strong>W fazie eksperymentalnej, nie w pełni przetestowany!</strong> Prosimy testować i raportować wszelkie błędy na naszym forum."
+
+#: login-with-ajax-admin.php:168
+msgid "Redirection Settings"
+msgstr "Ustawienia przekierowania"
+
+#: login-with-ajax-admin.php:173
+msgid "Global Login Redirect"
+msgstr "Przekierowanie po zalogowaniu"
+
+#: login-with-ajax-admin.php:177
+msgid "If you'd like to send the user to a specific URL after login, enter it here (e.g. http://wordpress.org/)"
+msgstr "Jeśli chcesz przekierować użytkownika po zalogowaniu, wpisz adres URL(np. http ://wordpress.org)"
+
+#: login-with-ajax-admin.php:178
+#: login-with-ajax-admin.php:188
+msgid "New!"
+msgstr "Nowość!"
+
+#: login-with-ajax-admin.php:178
+msgid "Use %USERNAME% and it will be replaced with the username of person logging in."
+msgstr "Użyj %USERNAME% aby wstawić nazwę użytkownika, który jest zalogowany."
+
+#: login-with-ajax-admin.php:183
+msgid "Global Logout Redirect"
+msgstr "Przekierowanie po wylogowaniu"
+
+#: login-with-ajax-admin.php:187
+msgid "If you'd like to send the user to a specific URL after logout, enter it here (e.g. http://wordpress.org/)"
+msgstr "Jeśli chcesz przekierować użytkownika po wylogowaniu, wpisz adres URL(np. http ://wordpress.org)"
+
+#: login-with-ajax-admin.php:188
+msgid "Enter %LASTURL% to send the user back to the page they were previously on."
+msgstr "Wpisz %LASTURL% aby odesłać użytkownika z powrotem na stronę którą oglądał."
+
+#: login-with-ajax-admin.php:193
+msgid "Role-Based Custom Login Redirects"
+msgstr "Przekierowanie po zalogowaniu na podstawie roli"
+
+#: login-with-ajax-admin.php:196
+msgid "If you would like a specific user role to be redirected to a custom URL upon login, place it here (blank value will default to the global redirect)"
+msgstr "Jeśli chcesz przekierować użytkownika po zalogowaniu na podstawie posiadanej roli, wpisz adres URL (puste pole będzie równoznaczne z globalnym przekierowaniem)"
+
+#: login-with-ajax-admin.php:216
+msgid "Role-Based Custom Logout Redirects"
+msgstr "Przekierowanie po wylogowaniu na podstawie roli"
+
+#: login-with-ajax-admin.php:219
+msgid "If you would like a specific user role to be redirected to a custom URL upon logout, place it here (blank value will default to the global redirect)"
+msgstr "Jeśli chcesz przekierować użytkownika po wylogowaniu na podstawie posiadanej roli, wpisz adres URL (puste pole będzie równoznaczne z globalnym przekierowaniem)"
+
+#: login-with-ajax-admin.php:239
+msgid "Notification Settings"
+msgstr "Ustawienia powiadomień"
+
+#: login-with-ajax-admin.php:241
+msgid "If you'd like to override the default Wordpress email users receive once registered, make sure you check the box below and enter a new email subject and message"
+msgstr "Jeśli chcesz zmienić domyślną wiadomość wysyłaną do użytkownika po zarejestrowaniu, zaznacz pole poniżej i wprowadź nowy temat i treść e-maila"
+
+#: login-with-ajax-admin.php:242
+msgid "If this feature doesn't work, please make sure that you don't have another plugin installed which also manages user registrations (e.g. BuddyPress and MU)."
+msgstr "Jeśli ta funkcja nie działa, upewnij się, że nie jest zainstalowany inny plugin umożliwiający rejestrację użytkowników (np. BuddyPress i MU)."
+
+#: login-with-ajax-admin.php:248
+msgid "Override Default Email?"
+msgstr "Zmienić domyślny e-mail?"
+
+#: login-with-ajax-admin.php:256
+msgid "Subject"
+msgstr "Temat"
+
+#: login-with-ajax-admin.php:261
+msgid "Your registration at %BLOGNAME%"
+msgstr "Twoja rejestracja na %BLOGNAME%"
+
+#: login-with-ajax-admin.php:265
+msgid "<code>%USERNAME%</code> will be replaced with a username."
+msgstr "<code>%USERNAME%</code> będzie zastąpione nazwą użytkownika."
+
+#: login-with-ajax-admin.php:266
+msgid "<code>%PASSWORD%</code> will be replaced with the user's password."
+msgstr "<code>%PASSWORD%</code> będzie zastąpione hasłem."
+
+#: login-with-ajax-admin.php:267
+#: login-with-ajax-admin.php:291
+msgid "<code>%BLOGNAME%</code> will be replaced with the name of your blog."
+msgstr "<code>%BLOGNAME%</code> będzie zastąpione nazwą twojego bloga."
+
+#: login-with-ajax-admin.php:268
+#: login-with-ajax-admin.php:292
+msgid "<code>%BLOGURL%</code> will be replaced with the url of your blog."
+msgstr "<code>%BLOGURL%</code> będzie zastąpione adresem url twojego bloga."
+
+#: login-with-ajax-admin.php:273
+msgid "Message"
+msgstr "Wiadomość"
+
+#: login-with-ajax-admin.php:278
+msgid ""
+"Thanks for signing up to our blog. \r\n"
+"\r\n"
+"You can login with the following credentials by visiting %BLOGURL%\r\n"
+"\r\n"
+"Username : %USERNAME%\r\n"
+"Password : %PASSWORD%\r\n"
+"\r\n"
+"We look forward to your next visit!\r\n"
+"\r\n"
+"The team at %BLOGNAME%"
+msgstr ""
+"Dziękujemy za zarejestrowanie się na naszym blogu. \r\n"
+"\r\n"
+"Możesz zalogować się pod adresem %BLOGURL% podając następujące dane \r\n"
+"\r\n"
+"Nazwa użytkownika : %USERNAME%\r\n"
+"Hasło : %PASSWORD%\r\n"
+"\r\n"
+"We look forward to your next visit!\r\n"
+"\r\n"
+"The team at %BLOGNAME%"
+
+#: login-with-ajax-admin.php:301
+msgid "Save Changes"
+msgstr "Zapisz zmiany"
+
+#: login-with-ajax-widget.php:5
+msgid "Login widget with AJAX capabilities."
+msgstr "Widget logowania z AJAXem"
+
+#: login-with-ajax-widget.php:28
+msgid "Show profile link?"
+msgstr "Pokazać link do profilu?"
+
+#: login-with-ajax-widget.php:32
+msgid "AJAX Registration?"
+msgstr "Rejestracja AJAXem?"
+
+#: login-with-ajax-widget.php:36
+msgid "Template"
+msgstr "Szablon"
+
+#: login-with-ajax.php:149
+msgid "Login Successful, redirecting..."
+msgstr "Pomyślnie zalogowano, przekierowanie..."
+
+#: login-with-ajax.php:161
+msgid "Login successful, updating..."
+msgstr "Pomyślnie zalogowano, aktualizowanie..."
+
+#: login-with-ajax.php:171
+#: login-with-ajax.php:219
+msgid "An undefined error has ocurred"
+msgstr "Nieokreślony błąd"
+
+#: login-with-ajax.php:190
+msgid "Registration complete. Please check your e-mail."
+msgstr "Rejestracja zakończona pomyślnie. Sprawdź swojego e-maila"
+
+#: login-with-ajax.php:210
+msgid "We have sent you an email"
+msgstr "Wysłaliśmy Ci e-maila"
+
+#: pluggable.php:26
+#, php-format
+msgid "New user registration on your blog %s:"
+msgstr "Rejestracja nowego użytkownika na twoim blogu %s:"
+
+#: pluggable.php:27
+#: pluggable.php:41
+#, php-format
+msgid "Username: %s"
+msgstr "Nazwa użytkownika: %s"
+
+#: pluggable.php:28
+#, php-format
+msgid "E-mail: %s"
+msgstr ""
+
+#: pluggable.php:30
+#, php-format
+msgid "[%s] New User Registration"
+msgstr "[%s]Rejestracja nowego użytkownika"
+
+#: pluggable.php:42
+#, php-format
+msgid "Password: %s"
+msgstr "Hasło: %s"
+
+#: pluggable.php:45
+#, php-format
+msgid "[%s] Your username and password"
+msgstr "[%s] Twoja nazwa użytkownika i hasło"
+
+#: widget/default/register.php:9
+#: widget/ie7-friendly/widget_out.php:88
+#: widget/inline-registration/widget_out.php:94
+msgid "Register For This Site"
+msgstr "Zarejestruj się na stronie"
+
+#: widget/default/register.php:12
+#: widget/default/widget_out.php:19
+#: widget/ie7-friendly/widget_out.php:17
+#: widget/ie7-friendly/widget_out.php:93
+#: widget/inline-registration/widget_out.php:19
+#: widget/inline-registration/widget_out.php:99
+#: widget/widget_out.php:19
+msgid "Username"
+msgstr "Nazwa użytkownika"
+
+#: widget/default/register.php:16
+#: widget/ie7-friendly/widget_out.php:99
+#: widget/inline-registration/widget_out.php:105
+msgid "E-mail"
+msgstr ""
+
+#: widget/default/register.php:20
+#: widget/ie7-friendly/widget_out.php:113
+#: widget/inline-registration/widget_out.php:119
+msgid "A password will be e-mailed to you."
+msgstr "Hasło zostanie wysłane na twojego e-maila."
+
+#: widget/default/register.php:21
+#: widget/default/widget_out.php:56
+#: widget/ie7-friendly/widget_out.php:53
+#: widget/ie7-friendly/widget_out.php:114
+#: widget/inline-registration/widget_out.php:55
+#: widget/inline-registration/widget_out.php:120
+#: widget/widget_out.php:56
+msgid "Register"
+msgstr "Zarejestruj się"
+
+#: widget/default/widget_in.php:11
+#: widget/default/widget_in.php:14
+#: widget/ie7-friendly/widget_in.php:11
+#: widget/ie7-friendly/widget_in.php:14
+#: widget/inline-registration/widget_in.php:11
+#: widget/inline-registration/widget_in.php:14
+#: widget/widget_in.php:11
+#: widget/widget_in.php:14
+msgid "Hi"
+msgstr "Witaj"
+
+#: widget/default/widget_in.php:33
+#: widget/ie7-friendly/widget_in.php:34
+#: widget/inline-registration/widget_in.php:33
+#: widget/widget_in.php:33
+msgid "Profile"
+msgstr "Profil"
+
+#: widget/default/widget_in.php:38
+#: widget/ie7-friendly/widget_in.php:40
+#: widget/ie7-friendly/widget_in.php:44
+#: widget/inline-registration/widget_in.php:38
+#: widget/widget_in.php:38
+msgid "Log Out"
+msgstr "Wyloguj się"
+
+#: widget/default/widget_in.php:43
+#: widget/inline-registration/widget_in.php:43
+#: widget/widget_in.php:43
+msgid "blog admin"
+msgstr "admin bloga"
+
+#: widget/default/widget_out.php:10
+#: widget/default/widget_out.php:35
+#: widget/ie7-friendly/widget_out.php:10
+#: widget/ie7-friendly/widget_out.php:32
+#: widget/inline-registration/widget_out.php:10
+#: widget/inline-registration/widget_out.php:35
+#: widget/widget_out.php:10
+#: widget/widget_out.php:35
+msgid "Log In"
+msgstr "Zaloguj się"
+
+#: widget/default/widget_out.php:27
+#: widget/ie7-friendly/widget_out.php:25
+#: widget/inline-registration/widget_out.php:27
+#: widget/widget_out.php:27
+msgid "Password"
+msgstr "Hasło"
+
+#: widget/default/widget_out.php:41
+#: widget/ie7-friendly/widget_out.php:38
+#: widget/inline-registration/widget_out.php:40
+#: widget/widget_out.php:41
+msgid "Remember Me"
+msgstr "Zapamiętaj mnie"
+
+#: widget/default/widget_out.php:43
+#: widget/ie7-friendly/widget_out.php:40
+#: widget/inline-registration/widget_out.php:42
+#: widget/widget_out.php:43
+msgid "Password Lost and Found"
+msgstr "Przywracanie hasła"
+
+#: widget/default/widget_out.php:43
+#: widget/ie7-friendly/widget_out.php:40
+#: widget/inline-registration/widget_out.php:42
+#: widget/widget_out.php:43
+msgid "Lost your password?"
+msgstr "Zapomniałeś hasło?"
+
+#: widget/default/widget_out.php:68
+#: widget/ie7-friendly/widget_out.php:63
+#: widget/inline-registration/widget_out.php:67
+#: widget/widget_out.php:68
+msgid "Forgotten Password"
+msgstr "Zapomniane hasło"
+
+#: widget/default/widget_out.php:73
+#: widget/ie7-friendly/widget_out.php:67
+#: widget/inline-registration/widget_out.php:72
+#: widget/widget_out.php:73
+msgid "Enter username or email"
+msgstr "Wpisz nazwę użytkownika lub e-mail"
+
+#: widget/default/widget_out.php:79
+#: widget/ie7-friendly/widget_out.php:72
+#: widget/inline-registration/widget_out.php:78
+#: widget/widget_out.php:79
+msgid "Get New Password"
+msgstr "Nowe hasło"
+
+#: widget/default/widget_out.php:80
+#: widget/ie7-friendly/widget_out.php:115
+#: widget/inline-registration/widget_out.php:79
+#: widget/inline-registration/widget_out.php:121
+#: widget/widget_out.php:80
+msgid "Cancel"
+msgstr "Anuluj"
+
+#. Plugin Name of the plugin/theme
+msgid "Login With Ajax"
+msgstr "Logowanie z Ajaxem"
+
+#. Plugin URI of the plugin/theme
+msgid "http://netweblogic.com/wordpress/plugins/login-with-ajax/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Ajax driven login widget. Customisable from within your template folder, and advanced settings from the admin area."
+msgstr "Widget logowania z AJAXem. Posiada możliwość dodawania własnych szablonów oraz zaawansowane ustawienia w panelu administracyjnym"
+
+#. Author of the plugin/theme
+msgid "NetWebLogic"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://netweblogic.com/"
+msgstr ""
+
+#. Tags of the plugin/theme
+msgid "Login, Ajax, Redirect, BuddyPress, MU, WPMU, sidebar, admin, widget"
+msgstr ""
+

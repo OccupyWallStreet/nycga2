@@ -1,0 +1,724 @@
+# Translation of the WordPress plugin WP-Piwik 0.8.0 by Andr&eacute; Br&auml;kling.
+# Copyright (C) 2010 Andr&eacute; Br&auml;kling
+# This file is distributed under the same license as the WP-Piwik package.
+#
+# Andr&eacute; Br&auml;kling <webmaster@braekling.de>, 2011.
+# Stef Binde <ste@vogliaditerra.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-Piwik 0.8.4\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-piwik\n"
+"POT-Creation-Date: 2010-07-19 18:06+0000\n"
+"PO-Revision-Date: 2013-01-21 17:15+0100\n"
+"Last-Translator: Stef Binde <ste@vogliaditerra.com>\n"
+"Language-Team: Italian <ste@vogliaditerra.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: dashboard/browsers.php:12 dashboard/browsers.php:33
+msgid "Browser"
+msgstr "Browser"
+
+#: dashboard/browsers.php:22 dashboard/pages.php:43 dashboard/screens.php:22
+#: dashboard/systems.php:22
+msgid "Others"
+msgstr "Altri "
+
+#: dashboard/browsers.php:34 dashboard/keywords.php:17 dashboard/pages.php:22
+#: dashboard/screens.php:33 dashboard/systems.php:35 dashboard/visitors.php:53
+#: dashboard/websites.php:19 wp-piwik.php:305
+msgid "Unique"
+msgstr "Unici"
+
+#: dashboard/browsers.php:35 dashboard/plugins.php:33 dashboard/screens.php:34
+#: dashboard/systems.php:36
+msgid "Percent"
+msgstr "Percentuale"
+
+#: dashboard/keywords.php:12
+msgid "Keywords"
+msgstr "Parole chiave"
+
+#: dashboard/keywords.php:17
+msgid "Keyword"
+msgstr "Parole chiavi"
+
+#: dashboard/overview.php:12
+msgid "Overview"
+msgstr "Resoconto"
+
+#: dashboard/overview.php:42 dashboard/visitors.php:24
+msgid "Visitors"
+msgstr "Visitatori"
+
+#: dashboard/overview.php:43
+msgid "Unique visitors"
+msgstr "Visitatori unici"
+
+#: dashboard/overview.php:44
+msgid "Page views"
+msgstr "Pagine viste"
+
+#: dashboard/overview.php:45
+msgid "Max. page views in one visit"
+msgstr "Massimo di pagine viste in una visita"
+
+#: dashboard/overview.php:46
+msgid "Total time spent"
+msgstr "Tempo di rimanenza"
+
+msgid "Time/visit"
+msgstr "Media durata per visita"
+
+#: dashboard/overview.php:47
+msgid "Bounce count"
+msgstr "Uscite"
+
+#: dashboard/overview.php:49 wp-piwik.php:563
+msgid "Shortcut"
+msgstr "Scorciatoia"
+
+#: dashboard/pages.php:13
+msgid "Pages"
+msgstr "Pagine"
+
+#: dashboard/pages.php:21
+msgid "Page"
+msgstr "Pagina"
+
+#: dashboard/pages.php:23 dashboard/plugins.php:32 dashboard/visitors.php:52
+msgid "Visits"
+msgstr "Visite"
+
+#: dashboard/plugins.php:12 dashboard/plugins.php:31
+msgid "Plugins"
+msgstr "Plugins"
+
+#: dashboard/screens.php:12 dashboard/screens.php:32
+msgid "Resolution"
+msgstr "Risoluzione"
+
+#: dashboard/systems.php:12 dashboard/systems.php:34
+msgid "Operating System"
+msgstr "Sistemi operativi"
+
+#: dashboard/visitors.php:51
+msgid "Date"
+msgstr "Data"
+
+#: dashboard/visitors.php:54
+msgid "Bounced"
+msgstr "Uscite"
+
+#: dashboard/visitors.php:67
+msgid "Unique TOTAL"
+msgstr "Unici totali"
+
+#: dashboard/visitors.php:67
+msgid "Sum"
+msgstr "Somma"
+
+#: dashboard/visitors.php:67
+msgid "Avg"
+msgstr "Media"
+
+#: dashboard/websites.php:12
+msgid "Websites"
+msgstr "Provenienze"
+
+#: dashboard/websites.php:18
+msgid "Website"
+msgstr "Pagina web"
+
+#: wp-piwik.php:110 wp-piwik.php:365
+msgid "Piwik Statistics"
+msgstr "Statistiche Piwik"
+
+#. #-#-#-#-#  plugin.pot (WP-Piwik 0.8.0)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: wp-piwik.php:111 wp-piwik.php:122 wp-piwik.php:123 wp-piwik.php:146
+msgid "WP-Piwik"
+msgstr "WP-Piwik"
+
+#: wp-piwik.php:130 wp-piwik.php:131
+msgid "WPMU-Piwik"
+msgstr "WPMU-Piwik"
+
+#: wp-piwik.php:142 wp-piwik.php:557
+msgid "yesterday"
+msgstr "ieri"
+
+#: wp-piwik.php:143 wp-piwik.php:558
+msgid "today"
+msgstr "oggi"
+
+#: wp-piwik.php:144 wp-piwik.php:559
+msgid "last30"
+msgstr "ultimi 30 giorni"
+
+#: wp-piwik.php:144 wp-piwik.php:559
+msgid "last 30 days"
+msgstr "ultimi 30 giorni"
+
+#: wp-piwik.php:179
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: wp-piwik.php:381
+msgid "Change"
+msgstr "Cambia"
+
+#: wp-piwik.php:382
+msgid "Currently shown stats:"
+msgstr "Statistiche mostrate attualmente:"
+
+#: wp-piwik.php:383
+msgid "Current shown stats: <strong>Overall</strong>"
+msgstr "Statistiche mostrate attualmente<strong>Tutte<strong>"
+
+#: wp-piwik.php:448
+msgid "WP-Piwik Settings"
+msgstr "Impostazioni di WP-Piwik"
+
+#: wp-piwik.php:455 wp-piwik.php:617
+msgid "Account settings"
+msgstr "Impostazioni Account"
+
+#: wp-piwik.php:457 wp-piwik.php:619
+msgid "Piwik URL"
+msgstr "URL di Piwik"
+
+#: wp-piwik.php:461 wp-piwik.php:623
+msgid "Auth token"
+msgstr "Auth Token"
+
+#: wp-piwik.php:467 wp-piwik.php:628
+msgid ""
+"To enable Piwik statistics, please enter your Piwik"
+" base URL (like http://mydomain.com/piwik) and your"
+" personal authentification token. You can get the token"
+" on the API page inside your Piwik interface. It looks"
+" like &quot;1234a5cd6789e0a12345b678cd9012ef&quot;."
+msgstr ""
+"Per abilitare le statistiche di Piwik devi inserire URL  della installazione"
+"di Piwik (p.e.. http://miosito.com/piwik) e la chiave personale di "
+"autenticazione (Token). La chiave si trova nell'interfaccia di Piwik sulla "
+"pagina API. Ha un aspetto simile a: "
+"&quot;1234a5cd6789e0a12345b678cd9012ef&quot;."
+
+#: wp-piwik.php:477
+msgid ""
+"<strong>Important note:</strong> If you do not host this blog on your own, "
+"your site admin is able to get your auth token from the database. So he is "
+"able to access your statistics. You should never use an auth token with more "
+"than simple view access!"
+msgstr " "
+
+#: wp-piwik.php:485 wp-piwik.php:489
+msgid "An error occured"
+msgstr "E' successo un errore"
+
+#: wp-piwik.php:486
+msgid ""
+"Please check URL and auth token. You need at least view access to one site."
+msgstr ""
+"Controlla URL e la chiave di autenticazione (token). Come minimo occorrono "
+"diritti di lettura per una pagina."
+
+#: wp-piwik.php:492
+msgid "Choose site"
+msgstr "Seleziona pagina"
+
+#: wp-piwik.php:511 wp-piwik.php:547 wp-piwik.php:584 wp-piwik.php:658
+msgid "Save settings"
+msgstr "Salva la configurazione"
+
+#: wp-piwik.php:515 wp-piwik.php:643
+msgid "Tracking settings"
+msgstr "Impostazioni Tracking"
+
+#: wp-piwik.php:521
+msgid "Add script"
+msgstr "Aggiungi script"
+
+#: wp-piwik.php:525
+msgid ""
+"If your template uses wp_footer(), WP-Piwik can automatically add the Piwik "
+"javascript code to your blog."
+msgstr ""
+"Se il tuo template usa wp_footer() Piwik ci può inserire il codice javascript "
+"nel  tuo blog automaticamente."
+
+#: wp-piwik.php:528
+msgid "Track 404"
+msgstr "Tracciamento 404"
+
+#: wp-piwik.php:532
+msgid "WP-Piwik can automatically add a 404-category to track 404-page-visits."
+msgstr ""
+"WP-Piwik può aggiungere in automatico una categoria per tracciare visite 404."
+
+#: wp-piwik.php:536 wp-piwik.php:644
+msgid "Tracking filter"
+msgstr "Filtro tracciamento"
+
+msgid "Choose users by user role you do <strong>not</strong> want to track."
+msgstr "Seleziona utenti per ruolo che <b>non</b> vuoi tracciare."
+
+msgid ""
+"Choose users by user role you do <strong>not</strong> want to track. Requires "
+"enabled &quot;Add script&quot;-functionality."
+msgstr ""
+"Seleziona utenti per ruolo che <b>non</b> vuoi tracciare. "
+"La funziona tracciamento deve essere abilita."
+
+#: wp-piwik.php:551
+msgid "Statistic view settings"
+msgstr "Impostazioni per le statistiche"
+
+#: wp-piwik.php:554
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: wp-piwik.php:556
+msgid "No"
+msgstr "No"
+
+#: wp-piwik.php:557 wp-piwik.php:558 wp-piwik.php:559
+msgid "Yes"
+msgstr "Sì"
+
+#: wp-piwik.php:562
+msgid "Display a dashboard widget to your WordPress dashboard."
+msgstr "Visualizza un widget per la dashboard di Wordpress."
+
+#: wp-piwik.php:567
+msgid "Display a shortcut to Piwik itself."
+msgstr "Visualizzare una scorciatoia per il Piwik principale."
+
+#: wp-piwik.php:568
+msgid "Display to"
+msgstr "visualizzare per"
+
+#: wp-piwik.php:579
+msgid "Choose user roles allowed to see the statistics page."
+msgstr "Seleziona il ruolo per poter  accedere alla pagina di statistiche."
+
+#: wp-piwik.php:612
+msgid "WPMU-Piwik Settings"
+msgstr "Impostazioni WPMU-Piwik"
+
+#: wp-piwik.php:636
+msgid ""
+"<strong>Important note:</strong> You have to choose a token which provides "
+"administration access. WPMU-Piwik will create new Piwik sites for each blog "
+"if it is shown the first time and it is not added yet. All users can access "
+"their own statistics only, while site admins can access all statistics. To "
+"avoid conflicts, you should use a clean Piwik installation without other "
+"sites added. The provided themes should use wp_footer, because it adds the "
+"Piwik javascript code to each page."
+msgstr ""
+
+#: wp-piwik.php:671
+msgid "If you like WP-Piwik, you can support its development by a donation:"
+msgstr ""
+"Se ti piace WP-Piwik e vuoi contribuire al suo sviluppo,  considera una "
+"donazione."
+
+#: wp-piwik.php:687
+msgid "My Amazon.de wishlist (German)"
+msgstr "Mia wishlist Amazon (tedesco)"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.braekling.de/wp-piwik-wpmu-piwik-wordpress/"
+msgstr "http://www.braekling.de/wp-piwik-wpmu-piwik-wordpress/"
+
+#. Description of the plugin/theme
+msgid ""
+"Adds Piwik stats to your dashboard menu and Piwik code to your wordpress "
+"footer."
+msgstr ""
+"Aggiunge le statistiche di  Piwik al menu della Dashboard è il codice di "
+"Piwik nel piè di pagina di Wordpress."
+
+#. Author of the plugin/theme
+msgid "Andr&eacute; Br&auml;kling"
+msgstr "Andr&eacute; Br&auml;kling"
+
+#. Author URI of the plugin/theme
+msgid "http://www.braekling.de"
+msgstr "http://www.braekling.de"
+
+msgid "Credits"
+msgstr "Ringraziamenti"
+
+msgid "Thank you very much for your donation"
+msgstr "Grazie per le vostre donazioni"
+
+msgid "and all people flattering this"
+msgstr "und alle Nutzern, die bei Flatter klicken"
+
+msgid ""
+"Graphs powered by <a href=\"http://www.jqplot.com/\">jqPlot</a>, an open "
+"source project by Chris Leonello. Give it a try! (License: GPL 2.0 and MIT)"
+msgstr ""
+"I grafici sono generati con <a href=\"http://www.jqplot.com/\">jqPlot</a> "
+"un progetto Open-Source di Chris Leonello. Provalo!"
+"(Licenza: GPL 2.0 e MIT)"
+
+msgid "Thank you very much"
+msgstr "Mille grazie"
+
+msgid ", and"
+msgstr ", e"
+
+msgid "for your translation work"
+msgstr "per il vostro lavoro di traduzione"
+
+msgid ""
+"Thank you very much, all users who send me mails containing criticism, "
+"commendation, feature requests and bug reports! You help me to make WP-Piwik "
+"much better."
+msgstr ""
+"Un ringraziamento sentito per tutti gli utenti che mi inviano critiche, "
+"proposte e bug reports! Mi aiutate di migliorare WP-Piwik."
+
+msgid ""
+"Thank <strong>you</strong> for using my plugin. It is the best commendation "
+"if my piece of code is really used!"
+msgstr ""
+"Grazie <strong> a te</strong> per usare il mio plugin. E' la più grande "
+"soddisfazione se il mio codice viene usato realmente!"
+
+msgid "Changes saved"
+msgstr "Cambiamenti salvati"
+
+msgid "installed"
+msgstr "installiert"
+
+msgid "Next you should connect to Piwik"
+msgstr "Als n&auml;chstes solltest Du eine Verbindung zu Piwik herstellen"
+
+msgid "Please validate your configuration"
+msgstr "Bitte &uuml;berpr&uuml;fe Deine Konfiguration"
+
+msgid "Default date"
+msgstr "Date  default"
+
+msgid "Default date shown on statistics page."
+msgstr "Il giorno che verrà mostrato sulla pagina delle statistiche."
+
+msgid "Dashboard data"
+msgstr "Dati del dashboard"
+
+msgid "Display an overview widget to your WordPress dashboard."
+msgstr "Visualizza un widget per il resoconto sulla dashboard di Wordpress."
+
+msgid "Board chart"
+msgstr "Board-Chart"
+
+msgid "Display a visitor graph widget to your WordPress dashboard."
+msgstr "Visualizza un grafico con le visite sul Dashboard di Wordpress."
+
+msgid "No data available."
+msgstr "Nessun dato disponibile."
+
+msgid ""
+"Check this to automatically choose your blog from your Piwik sites by URL. If "
+"your blog is not added to Piwik yet, WP-Piwik will add a new site."
+msgstr ""
+"Spunta questo per selezionare automaticamente il tuo blog tra i siti Piwik "
+"tramite l'URL. Se il tuo blog non è inserito in Piwik Wp-Piwik lo aggiungerà."
+
+msgid "If you add the Piwik javascript code by wp_footer(),"
+msgstr "Wenn Du den Piwik-Code per wp_footer() in Dein Blog einbindest,"
+
+msgid "WP-Piwik can automatically use js/index.php instead of piwik.js. See"
+msgstr ""
+"WP-Piwik può usare automaticamente js/index.php al posto di piwik.js. Vedi"
+
+msgid ""
+"WP-Piwik can automatically force the Tracking Code to sent data in POST. See"
+msgstr ""
+"WP-Piwik può automaticamente forzare l'invio del codice di tracciamento in "
+"POST. Vedi"
+
+msgid "Avoid mod_security"
+msgstr "Umgehe mod_security"
+
+msgid "Determined site"
+msgstr "Sito rilevato"
+
+msgid "Auto config"
+msgstr "Configurazione automatica"
+
+msgid "Use js/index.php"
+msgstr "Usa js/index.php"
+
+msgid "Show overview"
+msgstr "Visualizza resoconto"
+
+msgid "Hide overview"
+msgstr "Nessun resoconto"
+
+msgid "SEO <em>(slow!)</em>"
+msgstr "SEO <em>(lento!)</em>"
+
+msgid "Display SEO ranking data on statistics page. <em>(Slow!)</em>"
+msgstr ""
+"Visualizza dati SEO ranking sulla pagina delle statistiche. <em>(Lento!)</em>"
+
+msgid ""
+"Configure WP-Piwik widgets to be shown on your WordPress Home Dashboard."
+msgstr ""
+"Konfiguriere WP-Piwik-Widgets, die auf Deinem WordPress Home Dashboard "
+"erscheinen sollen."
+
+msgid "SEO data"
+msgstr "Dati SEO"
+
+msgid "the Piwik team itself"
+msgstr "das Piwik-Team selbst"
+
+msgid "Metabox support inspired by"
+msgstr "Supporto Metabox ispirato da"
+
+msgid "WP-Piwik support board"
+msgstr "WP-Piwik Support Board"
+
+msgid "no registration required, English &amp; German"
+msgstr "nessuna registrazione, inglese e tedesco"
+
+msgid "WordPress.org forum about WP-Piwik"
+msgstr "WordPress.org Forum di  WP-Piwik"
+
+msgid "WordPress.org registration required, English"
+msgstr "Registrazione presso Wordpress.org obbligatorio, in inglese"
+
+msgid "Please don't forget to vote the compatibility at the"
+msgstr "Non scordarti di dare una valutazione di compatibilità nella "
+
+msgid "Donate"
+msgstr "Donazioni"
+
+msgid "My Amazon.de wishlist"
+msgstr "Mia lista di desideri pressom Amazon.de"
+
+msgid "Piwik error"
+msgstr "Errore di Piwik"
+
+msgid "Important"
+msgstr "Wichtig"
+
+msgid "Thanks for using WP-Piwik!"
+msgstr "Grazie per usare WP-Piwik!"
+
+msgid "Auto site configuration is"
+msgstr "La configurazione automatico è"
+
+msgid "Tracking code insertion is"
+msgstr "L'inserimento del codice tracciamento è"
+
+msgid "enabled"
+msgstr "attivato"
+
+msgid "disabled"
+msgstr "disattivato"
+
+msgid "You are using Piwik"
+msgstr "Stai usando Piwik"
+
+msgid "and"
+msgstr "e"
+
+msgid ""
+"Error: cURL is not enabled and fopen is not allowed to open URLs. WP-Piwik "
+"won't be able to connect to Piwik."
+msgstr ""
+"Errore: cUrl non è attivato e fopen non ha i permessi per aprire Url. "
+"Wp-Piwik non può connettersi a Piwik."
+
+msgid ""
+"<strong>Important note:</strong> If you do not host this blog on your own, "
+"your site admin is able to get your auth token from the database."
+msgstr ""
+
+msgid "Add tracking code"
+msgstr "Inserisci codice tracciamento"
+
+msgid "Tracking code preview"
+msgstr "Previsione codice"
+
+msgid "Piwik Settings"
+msgstr "Impostazioni di Piwik"
+
+msgid "Statistics"
+msgstr "Statistiche"
+
+msgid ""
+"Either allow_url_fopen has to be enabled <em>or</em> cURL has to be available:"
+msgstr ""
+"O allow_url_fopen deve essere  attivato  <em>o</em> cURL deve essere "
+"disponibile:"
+
+msgid "cURL is"
+msgstr "cURL è"
+
+msgid "allow_url_fopen is"
+msgstr "allow_url_fopen è"
+
+msgid "not"
+msgstr "non"
+
+msgid "available"
+msgstr "disponibile"
+
+msgid "Test script result"
+msgstr ""
+
+msgid "Please confirm your reset request"
+msgstr ""
+
+msgid ""
+"YES, please reset <strong>all</strong> WP-Piwik settings <strong>except<"
+"/strong> auth token and Piwi URL."
+msgstr ""
+"Sì, resetta <strong>tutte </strong> le impostazioni di WP-Piwiki con "
+"eccezione del codice di autenticazione e l'Url di Piwik."
+
+msgid "WP-Piwik reset done"
+msgstr "WP-Piwik wurde zur&uuml;ckgesetzt"
+
+msgid "Get more debug information"
+msgstr "Ottieni più informazioni per il debug"
+
+msgid "Run test script"
+msgstr "Avvia script di test"
+
+msgid "Get site configuration details"
+msgstr "Ottieni dettagli sulla configurazione del sito"
+
+msgid "Reset WP-Piwik settings except auth token and Piwik URL"
+msgstr ""
+"Resetta tutte  le impostazioni di WP-Piwik, con eccezione del codice di "
+"autenticazione e l'URL di Piwik"
+
+msgid ""
+"You have to enter your auth token and the Piwik URL before you can access "
+"more debug functions."
+msgstr ""
+"Devi inserire il tuo codice di autenticazione e l'URL di Piwik prima che puoi "
+"usare più funzioni debug."
+
+msgid "Latest support threads on WordPress.org"
+msgstr "Gli ultimi thread di supporto su  WordPress.org"
+
+msgid ""
+"This will not affect Piwik itself. Resetting large networks may take some "
+"minutes."
+msgstr ""
+"Questo non avrà affetto su Piwik stesso. Resettare grandi reti potrebbe "
+"richiedere alcuni minuti."
+
+msgid ", and all people flattering this"
+msgstr ", è tutti che usano Flattr per donazioni a  WP-Piwik"
+
+msgid "Disable time limit"
+msgstr "Disattivare limite del tempo"
+
+msgid "Use set_time_limit(0) if stats page causes a time out."
+msgstr ""
+"Usa set_time_limit(0) nel caso che la pagina delle statistiche genera un "
+"timeout."
+
+msgid "in network mode"
+msgstr "im Netzwerk-Modus"
+
+msgid "To enable Piwik statistics, please enter"
+msgstr "Per attivare le statistiche di Piwik devi inserire"
+
+msgid ""
+"your Piwik base URL (like http://mydomain.com/piwik) or your Piwik server "
+"path (like /var/www/mydomain.com/httpdocs/piwik/)"
+msgstr ""
+"L'URL della tua installazione di Piwik (esempio: http://miosito.com/piwik) o "
+"il "
+"percorso server all'installazione di Piwik (esempio: "
+"/var/www/miodominio.com/httpdocs/piwik/)"
+
+msgid ""
+"your personal Piwik authentification token. You can get the token on the API "
+"page inside your Piwik interface. It looks like "
+"&quot;1234a5cd6789e0a12345b678cd9012ef&quot;."
+msgstr ""
+"La chiave personale di autenticazione (Token). La chiave puoi ottenere"
+"nell'interfaccia di Piwik sulla pagina API. Ha un aspetto simile a: "
+"&quot;1234a5cd6789e0a12345b678cd9012ef&quot;."
+
+msgid "No idea what I'm talking about?"
+msgstr "Non ci hai capito niente?"
+
+msgid "Get help."
+msgstr "Qui ottieni aiuto."
+
+msgid "Piwik path"
+msgstr "Percorso di Piwik "
+
+msgid "Disable cookies"
+msgstr "Disattivare cookies"
+
+msgid "Disable all tracking cookies for a visitor."
+msgstr "Disattiva tutti cookie per i visitatori."
+
+msgid "Show graph on WordPress Toolbar"
+msgstr "Visualizza un grafico nella barra degli strumenti di Wordpress"
+
+msgid "Display the last 30 days visitor stats on WordPress Toolbar."
+msgstr ""
+"Visualizza la statistica delle visite negli ultimi 30 giorni nella barra "
+"degli strumenti di Wordpress."
+
+msgid ""
+"Graphs powered by <a href=\"http://www.jqplot.com/\">jqPlot</a> (License: GPL "
+"2.0 and MIT) and <a href=\"http://omnipotent.net/jquery.sparkline/\">jQuery "
+"Sparklines</a> (License: New BSD License)."
+msgstr ""
+"I grafici sono generati con <a href=\"http://wwwjqplot.com/\">jqPlot</a> "
+"e <a href=\"http://omnipotent.net/jquery.sparkline/\">jQuery "
+"Sparklines</a> (Licenza: New BSD License)."
+
+msgid "Tabbed settings page suggested by the"
+msgstr "La pagina delle impostazioni usando i  tab    consigliato di"
+
+msgid ""
+"If you like to use the PHP API and also to enable tracking by WP-Piwik, "
+"please enter your Piwik URL, too. Otherwise your tracking code may be "
+"erroneous."
+msgstr ""
+
+msgid "Title"
+msgstr "Titolo"
+
+msgid "Site ID (Piwik)"
+msgstr "ID Pagina (Piwik)"
+
+msgid "Expert Settings"
+msgstr "Impostazioni per esperti"
+
+msgid "Disable SSL peer verification"
+msgstr "Disattivare verificazione Peer SSL"
+
+msgid "not recommended"
+msgstr "sconsigliato"
+
+msgid "Invalid path. Please enter the file path to Piwik."
+msgstr "Ung&uuml;ltiger Pfad. Bitte gib den Dateipfad von Piwik an."
+
+msgid "Enable shortcodes in post or page content."
+msgstr "Attiva scorciatoie nel contenuto di articoli e pagine. "
+
+

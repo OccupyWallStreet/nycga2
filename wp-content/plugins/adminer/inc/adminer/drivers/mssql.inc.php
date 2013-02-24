@@ -23,7 +23,7 @@ if (isset($_GET["mssql"])) {
 			}
 
 			function connect($server, $username, $password) {
-				$this->_link = @sqlsrv_connect($server, array("UID" => $username, "PWD" => $password));
+				$this->_link = @sqlsrv_connect($server, array("UID" => $username, "PWD" => $password, "CharacterSet" => "UTF-8"));
 				if ($this->_link) {
 					$info = sqlsrv_server_info($this->_link);
 					$this->server_info = $info['SQLServerVersion'];
@@ -43,6 +43,7 @@ if (isset($_GET["mssql"])) {
 
 			function query($query, $unbuffered = false) {
 				$result = sqlsrv_query($this->_link, $query); //! , array(), ($unbuffered ? array() : array("Scrollable" => "keyset"))
+				$this->error = "";
 				if (!$result) {
 					$this->_get_error();
 					return false;
@@ -52,6 +53,7 @@ if (isset($_GET["mssql"])) {
 
 			function multi_query($query) {
 				$this->_result = sqlsrv_query($this->_link, $query);
+				$this->error = "";
 				if (!$this->_result) {
 					$this->_get_error();
 					return false;
@@ -159,6 +161,7 @@ if (isset($_GET["mssql"])) {
 
 			function query($query, $unbuffered = false) {
 				$result = mssql_query($query, $this->_link); //! $unbuffered
+				$this->error = "";
 				if (!$result) {
 					$this->error = mssql_get_last_message();
 					return false;
@@ -252,7 +255,7 @@ if (isset($_GET["mssql"])) {
 	}
 
 	function limit($query, $where, $limit, $offset = 0, $separator = " ") {
-		return (isset($limit) ? " TOP (" . ($limit + $offset) . ")" : "") . " $query$where"; // seek later
+		return ($limit !== null ? " TOP (" . ($limit + $offset) . ")" : "") . " $query$where"; // seek later
 	}
 
 	function limit1($query, $where) {
@@ -588,6 +591,13 @@ WHERE sys1.xtype = 'TR' AND sys2.name = " . q($table)
 		return array();
 	}
 
+	function convert_field($field) {
+	}
+	
+	function unconvert_field($field, $return) {
+		return $return;
+	}
+	
 	function support($feature) {
 		return ereg('^(scheme|trigger|view|drop_col)$', $feature); //! routine|
 	}

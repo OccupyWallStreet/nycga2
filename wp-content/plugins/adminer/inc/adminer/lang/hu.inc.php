@@ -233,7 +233,6 @@ $translations = array(
 	'Geometry' => 'Geometria',
 	'Databases have been dropped.' => 'Adatbázis eldobva.',
 	'File exists.' => 'A fájl létezik.',
-	'Double click on a value to modify it.' => 'Kattints kétszer az értékre a szerkesztéshez.',
 	'Use edit link to modify this value.' => 'Használd a szerkesztés hivatkozást ezen érték módosításához.',
 	'Alter schema' => 'Séma módosítása',
 	'Create schema' => 'Séma létrehozása',
@@ -268,6 +267,5 @@ $translations = array(
 	'Copy' => 'Másolás',
 	'Permanent link' => 'Hivatkozás',
 	'Edit all' => 'Összes szerkesztése',
-	'Resend POST data?' => 'Újraküldi a POST adatokat?',
 	'HH:MM:SS' => 'óó:pp:mm',
 );

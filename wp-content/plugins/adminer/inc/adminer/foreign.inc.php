@@ -11,7 +11,7 @@ if ($_POST && !$error && !$_POST["add"] && !$_POST["change"] && !$_POST["change-
 			$target[$key] = $_POST["target"][$key];
 		}
 		query_redirect("ALTER TABLE " . table($TABLE)
-			. ($_GET["name"] != "" ? "\nDROP FOREIGN KEY " . idf_escape($_GET["name"]) . "," : "")
+			. ($_GET["name"] != "" ? "\nDROP " . ($jush == "sql" ? "FOREIGN KEY " : "CONSTRAINT ") . idf_escape($_GET["name"]) . "," : "")
 			. "\nADD FOREIGN KEY (" . implode(", ", array_map('idf_escape', $source)) . ") REFERENCES " . table($_POST["table"]) . " (" . implode(", ", array_map('idf_escape', $target)) . ")" //! reuse $_GET["name"] - check in older MySQL versions
 			. (ereg("^($on_actions)\$", $_POST["on_delete"]) ? " ON DELETE $_POST[on_delete]" : "")
 			. (ereg("^($on_actions)\$", $_POST["on_update"]) ? " ON UPDATE $_POST[on_update]" : "")
@@ -51,7 +51,7 @@ foreach (table_status() as $name => $table_status) {
 <p>
 <?php if ($row["db"] == "" && $row["ns"] == "") { ?>
 <?php echo lang('Target table'); ?>:
-<?php echo html_select("table", $referencable, $row["table"], "this.form['change-js'].value = '1'; if (!ajaxForm(this.form)) this.form.submit();"); ?>
+<?php echo html_select("table", $referencable, $row["table"], "this.form['change-js'].value = '1'; this.form.submit();"); ?>
 <input type="hidden" name="change-js" value="">
 <noscript><p><input type="submit" name="change" value="<?php echo lang('Change'); ?>"></noscript>
 <table cellspacing="0">
