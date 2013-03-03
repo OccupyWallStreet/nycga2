@@ -1,0 +1,638 @@
+# Copyright (C) 2010 P2
+# This file is distributed under the same license as the P2 package.
+msgid ""
+msgstr ""
+"Project-Id-Version: P2 1.3.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/p2\n"
+"POT-Creation-Date: 2011-07-21 17:06:27+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2011-08-01 15:11+0100\n"
+"Last-Translator: Daxeel <daxeel@gmail.com>\n"
+"Language-Team: Daxeel <daxeel@gmail.com>\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+#: 404.php:13
+#: author.php:36
+msgid "Not Found"
+msgstr "Non trovato"
+
+#: 404.php:14
+#: search.php:31
+msgid "Apologies, but the page you requested could not be found. Perhaps searching will help."
+msgstr "Spiacenti ma la pagina cercata non esiste. Prova con il campo di ricerca."
+
+#: attachment.php:44
+msgid "Full size is %s pixels"
+msgstr "Dimensioni massime immagine: %s pixel"
+
+#: attachment.php:47
+msgid "Link to full-size image"
+msgstr "Link all'immagine originale"
+
+#: attachment.php:68
+msgid "View file:"
+msgstr "Mostra file:"
+
+#: attachment.php:69
+#: entry.php:72
+#: entry.php:81
+#: entry.php:85
+#: inc/template-tags.php:111
+msgid "(More ...)"
+msgstr "(Continua...)"
+
+#: author.php:20
+msgctxt "Author name"
+msgid "Updates from %s"
+msgstr "Aggiornamenti da %s"
+
+#: author.php:24
+#: index.php:27
+#: search.php:15
+msgid "Toggle Comment Threads"
+msgstr "Mostra/nascondi commenti"
+
+#: author.php:24
+#: index.php:27
+#: search.php:15
+#: single.php:20
+msgid "Keyboard Shortcuts"
+msgstr "Scorciatoie da tastiera"
+
+#: author.php:37
+msgid "Apologies, but the page you requested could not be found."
+msgstr "Spiacenti ma la pagina cercata non esiste. "
+
+#: author.php:42
+#: index.php:48
+#: search.php:38
+#: tag.php:34
+msgid "&larr; Older posts"
+msgstr "&larr; Post più vecchi"
+
+#: author.php:43
+#: index.php:49
+#: search.php:39
+#: tag.php:35
+msgid "Newer posts &rarr;"
+msgstr "Post più nuovi &rarr;"
+
+#: comments.php:20
+msgid "&larr; Older Comments"
+msgstr "&larr; Commenti più vecchi"
+
+#: comments.php:21
+msgid "Newer Comments &rarr;"
+msgstr "Commenti più nuovi &rarr;"
+
+#: entry.php:17
+msgid "Posts by %1$s ( @%2$s )"
+msgstr "Articoli di %1$s ( @%2$s )"
+
+#: entry.php:38
+#: functions.php:301
+msgid "Permalink"
+msgstr "Permalink"
+
+#: entry.php:45
+#: entry.php:106
+#: entry.php:110
+#: functions.php:284
+#: functions.php:464
+msgid "Reply"
+msgstr "Rispondi"
+
+#: entry.php:50
+#: functions.php:306
+msgid "Edit"
+msgstr "Modifica"
+
+#: entry.php:57
+#: inc/ajax.php:152
+msgid "<br />Tags:"
+msgstr "<br />Tag:"
+
+#: entry.php:97
+msgid "Required fields are marked %s"
+msgstr "I campi obbligatori sono quello con il %s"
+
+#: entry.php:120
+msgid "Toggle Comments"
+msgstr "Mostra/Nascondi Commenti"
+
+#: entry.php:125
+msgid "Pages:"
+msgstr "Pagine:"
+
+#: footer.php:14
+msgid "Theme: %1$s by %2$s."
+msgstr "Tema: %1$s by %2$s."
+
+#: footer.php:22
+msgid "compose new post"
+msgstr "crea un nuovo articolo"
+
+#: footer.php:23
+msgid "next post/next comment"
+msgstr "articolo/commento successivo"
+
+#: footer.php:24
+msgid "previous post/previous comment"
+msgstr "articolo/commento precedente"
+
+#: footer.php:25
+msgid "reply"
+msgstr "rispondi"
+
+#: footer.php:26
+msgid "edit"
+msgstr "modifica"
+
+#: footer.php:27
+msgid "show/hide comments"
+msgstr "mostra/nascondi commenti"
+
+#: footer.php:28
+msgid "go to top"
+msgstr "vai in alto"
+
+#: footer.php:29
+msgid "go to login"
+msgstr "vai al login"
+
+#: footer.php:30
+msgid "show/hide help"
+msgstr "mostra/nascondi aiuto"
+
+#: footer.php:31
+msgid "shift"
+msgstr "shift"
+
+#: footer.php:31
+msgid "cancel"
+msgstr "cancella"
+
+#: functions.php:173
+msgid "Sidebar"
+msgstr "Barra laterale"
+
+#: functions.php:316
+msgid "Your comment is awaiting moderation."
+msgstr "Il tuo commento è in attesa di moderazione"
+
+#: functions.php:355
+msgid "Video Post"
+msgstr "Post con video"
+
+#: functions.php:357
+msgid "Image Post"
+msgstr "Post con immagini"
+
+#: functions.php:465
+msgid "Log in to Reply"
+msgstr "Fare il login per rispondere"
+
+#: functions.php:509
+msgid "http://wordpress.org/"
+msgstr "http://wordpress.org/"
+
+#: functions.php:509
+msgid "Proudly powered by %s."
+msgstr "Questo sito usa orgogliosamente %s."
+
+#: inc/ajax.php:22
+#: inc/ajax.php:88
+#: inc/ajax.php:99
+#: inc/ajax.php:160
+#: inc/ajax.php:189
+msgid "Error: not logged in."
+msgstr "Errore: utente non identificato."
+
+#: inc/ajax.php:27
+#: inc/ajax.php:106
+msgid "Error: not allowed to edit post."
+msgstr "Errore: non si è autorizzati a modificare il post."
+
+#: inc/ajax.php:168
+msgid "Error: not allowed to edit this comment."
+msgstr "Errore: non si è autorizzati a modificare questo commento."
+
+#: inc/ajax.php:194
+msgid "Error: not allowed to post."
+msgstr "Errore: non si è autorizzati a scrivere post."
+
+#: inc/ajax.php:205
+#: inc/js.php:130
+#: post-form.php:74
+#: post-form.php:75
+#: post-form.php:76
+msgid "Tag it"
+msgstr "Inserisci tag"
+
+#: inc/ajax.php:208
+#: inc/js.php:132
+#: post-form.php:16
+#: post-form.php:55
+#: post-form.php:56
+msgid "Post Title"
+msgstr "Títolo del post"
+
+#: inc/ajax.php:305
+msgid "Error: you must be logged in to post a comment."
+msgstr "Errore: devi essere identificato per inserire un commento."
+
+#: inc/ajax.php:316
+msgid "Error: please fill the required fields (name, email)."
+msgstr "Errore: si prega di inserire i campi richiesti (nome, email)."
+
+#: inc/ajax.php:318
+msgid "Error: please enter a valid email address."
+msgstr "Errore: si prega di inserire un indirizzo email valido."
+
+#: inc/ajax.php:322
+msgid "Error: Please type a comment."
+msgstr "Errore: si prega di scrivere un commento"
+
+#: inc/ajax.php:336
+msgid "Error: Unknown error occurred. Comment not posted."
+msgstr "Errore sconosciuto. Commento non inserito."
+
+#: inc/js.php:129
+msgid "Tags:"
+msgstr "Tag:"
+
+#: inc/js.php:131
+#: post-form.php:65
+#: post-form.php:67
+#: post-form.php:68
+#: post-form.php:69
+msgid "Citation"
+msgstr "Citazione"
+
+#: inc/js.php:133
+msgid "Go to homepage"
+msgstr "Vai alla pagina iniziale."
+
+#: inc/js.php:135
+msgid "%d new update(s)"
+msgstr "%d nuovo/i aggiornamento/i"
+
+#: inc/js.php:136
+msgid "%d new comment(s)"
+msgstr "%d nuovo/i commento/i"
+
+#: inc/js.php:137
+msgid "Jump to top"
+msgstr "Vai in cima."
+
+#: inc/js.php:138
+msgid "An error has occurred, your post was not posted"
+msgstr "Errore: il tuo articolo non è stato inserito."
+
+#: inc/js.php:139
+msgid "Your update has been posted"
+msgstr "Aggiornamento inserito."
+
+#: inc/js.php:140
+#: post-form.php:82
+msgid "Loading..."
+msgstr "Carico..."
+
+#: inc/js.php:141
+msgid "Cancel"
+msgstr "Cancella"
+
+#: inc/js.php:142
+msgid "Save"
+msgstr "Salva"
+
+#: inc/js.php:143
+#: single.php:18
+msgid "Hide threads"
+msgstr "Nascondi commenti"
+
+#: inc/js.php:144
+msgid "Show threads"
+msgstr "Mostra commenti"
+
+#: inc/js.php:145
+msgid "Your comments or posts will be lost if you continue."
+msgstr "Continuando, le modifiche al post o al commento saranno perse."
+
+#: inc/js.php:146
+#: inc/template-tags.php:222
+msgid "%1$s <em>on</em> %2$s"
+msgstr "%1$s <em>il</em> %2$s"
+
+#: inc/js.php:151
+msgid "After typing @, type a name or username to find a member of this site"
+msgstr "Dopo aver pigiato @, scrivi il nome o il nickname per trovare un membro di questo sito."
+
+#: inc/js.php:152
+msgid "No matches."
+msgstr "Nessun riscontro."
+
+#: inc/js.php:153
+msgid "Are you sure you would like to clear this comment? Its contents will be deleted."
+msgstr "Sicuri di eliminare questo commento? Tutto il contenuto verrà cancellato."
+
+#: inc/js.php:154
+msgid "Oops! Looks like you are not logged in."
+msgstr "Attenzione! Sembra tu non sia loggato/a."
+
+#: inc/js.php:155
+msgid "Please log in again"
+msgstr "Si prega di identificarsi di nuovo"
+
+#: inc/js.php:156
+msgid "Whoops! Looks like you are not connected to the server. P2 could not connect with WordPress."
+msgstr "Ah! Sembra non ci sia connessione al server. P2 potrebbe non connettersi con Wordpress."
+
+#: inc/options-page.php:10
+msgid "Theme Options"
+msgstr "Opzioni del tema P2"
+
+#: inc/options-page.php:62
+#: inc/options-page.php:172
+msgid "Whatcha' up to?"
+msgstr "Hai qualcosa da dire?"
+
+#: inc/options-page.php:89
+msgid "Options saved."
+msgstr "Opzioni salvate."
+
+#: inc/options-page.php:95
+msgid "P2 Options"
+msgstr "Opzioni di P2"
+
+#: inc/options-page.php:100
+msgid "Functionality Options"
+msgstr "Opzioni di funzionalità"
+
+#: inc/options-page.php:108
+msgid "Posting Access:"
+msgstr "Accesso alla pubblicazione:"
+
+#: inc/options-page.php:114
+msgid "Allow any WordPress.com member to post"
+msgstr "Qualsiasi utente di Wordpress.com può scrivere un articolo."
+
+#: inc/options-page.php:116
+msgid "Allow any registered member to post"
+msgstr "Qualsiasi utente registrato può scrivere un articolo."
+
+#: inc/options-page.php:124
+msgid "Hide Threads:"
+msgstr "Nascondi commenti:"
+
+#: inc/options-page.php:128
+msgid "Hide comment threads by default"
+msgstr "Commenti nascosti per default"
+
+#: inc/options-page.php:138
+msgid "Design Options"
+msgstr "Opzioni di design"
+
+#: inc/options-page.php:144
+msgid "Custom Background Color:"
+msgstr "Colore di sfondo personalizzato:"
+
+#: inc/options-page.php:146
+msgid "Pick a Color"
+msgstr "Scegli un colore"
+
+#: inc/options-page.php:152
+msgid "Background Image:"
+msgstr "Immagine di sfondo:"
+
+#: inc/options-page.php:154
+msgid "None"
+msgstr "Nessuna"
+
+#: inc/options-page.php:155
+msgid "Bubbles"
+msgstr "Bolle"
+
+#: inc/options-page.php:156
+msgid "Polka Dots"
+msgstr "Punti"
+
+#: inc/options-page.php:157
+msgid "Squares"
+msgstr "Quadrati"
+
+#: inc/options-page.php:158
+msgid "Plaid"
+msgstr "Tessuto scozzese"
+
+#: inc/options-page.php:159
+msgid "Stripes"
+msgstr "Strisce"
+
+#: inc/options-page.php:163
+msgid "Sidebar display:"
+msgstr "Mostrare la barra laterale:"
+
+#: inc/options-page.php:166
+msgid "Hide the Sidebar"
+msgstr "Nascondere la barra laterale"
+
+#: inc/options-page.php:170
+msgid "Post prompt:"
+msgstr "Inizio del post:"
+
+#: inc/options-page.php:173
+msgid "if empty, defaults to <strong>Whatcha up to?</strong>"
+msgstr "se vuoto, sarà usato <strong>Hai qualcosa da dire?</strong>"
+
+#: inc/options-page.php:177
+msgid "Post Titles:"
+msgstr "Titolo dei post:"
+
+#: inc/options-page.php:180
+msgid "Display titles"
+msgstr "Mostra titolo"
+
+#: inc/options-page.php:190
+msgid "Update Options"
+msgstr "Aggiorna opzioni"
+
+#: inc/options-page.php:245
+msgid "Hide Text"
+msgstr "Nascondi testo"
+
+#: inc/options-page.php:251
+msgid "Show Text"
+msgstr "Mostra testo"
+
+#: inc/template-tags.php:83
+msgid ", and "
+msgstr " e"
+
+#: inc/template-tags.php:94
+msgid " and %s others are discussing."
+msgstr " e altri %s hanno commentato."
+
+#: inc/template-tags.php:96
+msgid " and one other person are discussing."
+msgstr " e un'altra persona ha commentato."
+
+#: inc/template-tags.php:99
+msgid " is discussing."
+msgstr " ha commentato."
+
+#: inc/template-tags.php:101
+msgid " are discussing."
+msgstr " hanno commentato."
+
+#: inc/template-tags.php:145
+msgid "Hi, %s. %s"
+msgstr "Ciao, %s. %s"
+
+#: inc/template-tags.php:145
+msgid "Whatcha up to?"
+msgstr "Hai qualcosa da dire?"
+
+#: inc/widgets/recent-comments.php:5
+msgid "P2 Recent Comments"
+msgstr "P2 commenti recenti"
+
+#: inc/widgets/recent-comments.php:5
+msgid "Recent comments with avatars."
+msgstr "Commenti recenti con avatar."
+
+#: inc/widgets/recent-comments.php:30
+msgid "No avatar"
+msgstr "Senza avatar"
+
+#: inc/widgets/recent-comments.php:34
+#: inc/widgets/recent-tags.php:19
+msgid "Title:"
+msgstr "Titolo:"
+
+#: inc/widgets/recent-comments.php:40
+msgid "Number of comments to show:"
+msgstr "Numero di commenti da mostrare:"
+
+#: inc/widgets/recent-comments.php:46
+msgid "Avatars:"
+msgstr "Avatar:"
+
+#: inc/widgets/recent-comments.php:67
+msgid "Recent comments"
+msgstr "Commenti recenti"
+
+#: inc/widgets/recent-comments.php:126
+msgid "Anonymous"
+msgstr "Anonimo"
+
+#: inc/widgets/recent-comments.php:158
+msgid "%s on <a href='%s' class='tooltip' title='%s'>%s</a>"
+msgstr "%s su <a href='%s' class='tooltip' title='%s'>%s</a>"
+
+#: inc/widgets/recent-tags.php:5
+msgid "P2 Recent Tags"
+msgstr "P2 tag recenti"
+
+#: inc/widgets/recent-tags.php:5
+msgid "The tags from the latest posts."
+msgstr "I tag degli ultimi post."
+
+#: inc/widgets/recent-tags.php:25
+msgid "Number of tags to show:"
+msgstr "Numero di tag da mostrare:"
+
+#: inc/widgets/recent-tags.php:41
+msgid "Recent tags"
+msgstr "Tag recenti"
+
+#: inc/widgets/recent-tags.php:61
+msgid "All Updates RSS"
+msgstr "RSS degli aggiornamenti"
+
+#: index.php:17
+msgid "Recent Updates"
+msgstr "Aggiornamenti recenti"
+
+#: index.php:17
+msgid "Page %s"
+msgstr "Pagina %s"
+
+#: index.php:22
+msgctxt "Month name"
+msgid "Updates from %s"
+msgstr "Aggiornamenti da %s"
+
+#: index.php:41
+#: single.php:33
+msgid "No posts yet!"
+msgstr "Ancora nessun post!"
+
+#: post-form.php:34
+msgid "Status Update"
+msgstr "Aggiornamento di stato"
+
+#: post-form.php:35
+msgid "Blog Post"
+msgstr "Articolo o Post"
+
+#: post-form.php:36
+msgid "Quote"
+msgstr "Cita"
+
+#: post-form.php:37
+msgid "Link"
+msgstr "Link"
+
+#: post-form.php:77
+msgid "Post it"
+msgstr "Pubblica"
+
+#: search.php:13
+msgid "Search Results for: %s"
+msgstr "Risultati della ricerca per: %s"
+
+#: search.php:30
+#: tag.php:28
+msgid "No posts found!"
+msgstr "Nessun post trovato."
+
+#: single.php:40
+msgid "&larr;"
+msgstr "&larr;"
+
+#: single.php:41
+msgid "&rarr;"
+msgstr "&rarr;"
+
+#: tag.php:13
+msgid "Tagged: %s"
+msgstr "Tag: %s"
+
+#. Theme Name of the plugin/theme
+msgid "P2"
+msgstr "P2"
+
+#. Theme URI of the plugin/theme
+msgid "http://p2theme.com/"
+msgstr "http://p2theme.com/"
+
+#. Description of the plugin/theme
+msgid "A group blog theme for short update messages, inspired by Twitter. Featuring: Hassle-free posting from the front page. Perfect for group blogging, or as a liveblog theme. Dynamic page updates. Threaded comment display on the front page. In-line editing for posts and comments. Live tag suggestion based on previously used tags. A show/hide feature for comments, to keep things tidy. Real-time notifications when a new comment or update is posted. Super-handy keyboard shortcuts. Helvetica Neue for you modern font lovers."
+msgstr "Un blog di gruppo per piccoli messaggi di aggiornamento, inspirato da Twitter. Offre la facilità di pubblicare dalla pagina principale del blog. Tema perfetto per blog di gruppo o per discutere dal vivo. Aggiornamenti dinamici delle pagine. Commenti ad albero mostrati sulla pagina principale. Modifica di post e commenti dalla pagina principale. Sistema di tag con suggerimenti basati sui tag usati in precedenza. Possibilità di mostrare o nascondere i commenti per rendere il tutto più pulito. Notifica in tempo reale quando un commento od un aggiornamento è inserito. Scorciatoie di tastiera molto maneggevoli. Font Helvetica Neue per amanti dei font moderni."
+
+#. Author of the plugin/theme
+msgid "Automattic"
+msgstr "Automattic"
+
+#. Author URI of the plugin/theme
+msgid "http://automattic.com/"
+msgstr "http://automattic.com/"
+
+#. Tags of the plugin/theme
+msgid "blue, two-columns, fixed-width, rtl-language-support, right-sidebar, white, light, front-page-post-form, translation-ready, blog, business, education, lifestream, productivity, clean, corporate, geometric, light, minimal, modern"
+msgstr "Blu, due colonne, larghezza fissa, supporto per lingue da destra a sinistra, barra laterale destra, inserimento post dalla pagina principale del blog, tradotto, blog, affari, educazione, lifestream, produttività, pulito, corporate, geometrico, leggero, minimale, moderno "
+

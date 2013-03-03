@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS `wp_ust` (
+  `blog_id` bigint(20) unsigned NOT NULL,
+  `last_user_id` bigint(20) NULL DEFAULT NULL,
+  `last_ip` varchar(30),
+  `last_user_agent` varchar(255),
+  `spammed` DATETIME default '0000-00-00 00:00:00',
+  `certainty` int(3) NOT NULL default '0',
+  `ignore` int(1) NOT NULL default '0',
+  PRIMARY KEY  (`blog_id`)                           
+) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+INSERT INTO `wp_ust` (`blog_id`) SELECT blog_id FROM `wp_blogs` WHERE 1;
+
+UPDATE `wp_ust` u, `wp_blogs` b SET u.spammed = b.last_updated WHERE u.blog_id = b.blog_id AND b.spam = 1;
+
+152976-1362278610

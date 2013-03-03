@@ -1,0 +1,606 @@
+body,
+html {
+	background-color: #ddd;
+	color: #222;
+	font-family: Helvetica;
+	font-size: 12px;
+	margin: 0;
+	max-width: 320px;
+	overflow-x: hidden;
+	padding: 0;
+	width: 320px;
+}
+
+#header_img img,
+#sidebar,
+#postbox .avatar {
+	display: none;
+}
+
+
+/* =Header
+----------------------------------------------------- */
+
+body #header {
+	background: none;
+	box-shadow: none;
+	min-height: 0;
+	position: relative;
+	width: 320px;
+	height: auto;
+}
+body #header .sleeve {
+	background: none;
+	background-color: #666 !important;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#aaa), to(#666)) !important;
+	border-color: #555;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+	max-height: none;
+	min-height: 40px;
+	overflow: hidden;
+	position: relative;
+	width: 320px;
+	height: auto;
+}
+#header h1 {
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0 auto;
+	padding: 12px 0 12px 10px;
+	text-indent: 0;
+	text-shadow: 0px -1px 0px #555;
+	vertical-align: middle;
+}
+#header img#mobile-blavatar {
+	box-shadow: 0px -1px 0px #888;
+	display: inline !important;
+	float: left;
+	margin-top: -3px;
+	margin-right: 10px;
+	margin-left: 2px;
+}
+#header h1 a {
+	color: #fff !important;
+}
+#header small {
+	display: none;
+}
+#header a.secondary {
+	display: none;
+	height: 40px !important;
+}
+.home.logged-in #header .sleeve h1,
+.home.logged-in #header .sleeve h1 a {
+	width: 235px;
+}
+.home #header a#mobile-post-button {
+	background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#555) );
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255, 0.4), inset 0 1px 1px rgba(0,0,0, 0.3);
+	-webkit-border-radius: 5px;
+	color: #fff;
+	display: block !important;
+	font-size: 12px !important;
+	font-weight: bold;
+	padding: 5px 15px;
+	position: absolute;
+	top: 7px;
+	right: 10px;
+	text-shadow: 0px -1px 0px #555;
+	z-index: 999;
+}
+
+
+/* =Menu
+----------------------------------------------------- */
+
+#header h1.menu-toggle {
+	background: #999;
+	display: block;
+	font-size: 12px;
+	padding: 7px 0;
+	text-align: center;
+}
+.main-small-navigation .menu {
+	background: #fff;
+	display: none;
+	padding: 10px;
+}
+.main-small-navigation ul {
+	list-style: none;
+	margin: 0;
+}
+.main-small-navigation li {
+	border-top: 1px dotted #ccc;
+	line-height: 2;
+	padding: 0;
+}
+.main-small-navigation .menu > li:first-child {
+	border-top: none;
+}
+.main-small-navigation li a {
+	border-bottom: 0;
+	display: block;
+}
+.main-small-navigation li li a {
+	padding-left: 12px;
+}
+.main-small-navigation li li li a {
+	padding-left: 24px;
+}
+.main-small-navigation li li li li a {
+	padding-left: 36px;
+}
+
+
+/* =New Post Form
+----------------------------------------------------- */
+
+div#postbox {
+	background: #fff !important;
+	display: none;
+	padding: 5px 3px 5px 5px;
+}
+ul#post-types {
+	display:none;
+}
+form#new_post {
+	margin: 0;
+	padding: 0;
+}
+form#new_post label[for="posttext"] {
+	display: none;
+}
+#postbox textarea#posttext {
+	background-color: #fff;
+	border: 1px inset #e5e5e5 !important;
+	border-radius: 4px !important;
+	-webkit-box-shadow: inset 0 1px rgba( 0, 0, 0, 0.2 ) !important;
+	color: #666 !important;
+	font-family: Helvetica !important;
+	font-size: 13px !important;
+	height: 85px !important;
+	min-height: 85px !important;
+	padding-top: 5px !important;
+}
+#postbox input#tags {
+	border: 1px inset #e5e5e5 !important;
+	border-radius: 4px !important;
+	-webkit-box-shadow: inset 0 1px rgba( 0, 0, 0, 0.1 ) !important;
+	background-color: #fff;
+	color: #666 !important;
+	font-family: Helvetica !important;
+	font-size: 13px !important;
+	padding: 3px 1% !important;
+	width: 97% !important;
+}
+#postbox p.comment-subscription-form {
+	margin: 0;
+	text-align: right !important;
+}
+#postbox input#submit {
+	float: right !important;
+	margin: 5px 0 0 0 !important;
+}
+#postbox .postrow {
+	height: 65px;
+}
+
+
+/* =Main
+----------------------------------------------------- */
+
+#main {
+	float: none;
+	margin: 0;
+	padding: 0 10px 10px;
+}
+#main * {
+	font-size: 14px !important;
+}
+#main h2,
+#main h2 .controls,
+#main .controls #directions-keyboard,
+#main .controls .sep {
+	display: none;
+}
+
+
+/* =Posts
+----------------------------------------------------- */
+
+#main ul#postlist {
+	margin: 0px -10px;
+	clear: both;
+}
+#main ul#postlist li {
+	border-color: #e4e4e4;
+	margin: 0;
+	padding: 10px;
+	position: relative;
+}
+#main ul#postlist li.sticky {
+	background: none;
+	border: none;
+	border-radius: 0 !important;
+}
+#main ul#postlist > li > h4 {
+	background-color: #ccc;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+	color: #fff;
+	margin: -10px -10px -8px -10px;
+	padding: 7px 10px 7px 40px;
+	position: relative;
+	text-shadow: 0px 1px 0px #fff;
+}
+#main ul#postlist > li > .post-avatar .avatar {
+	position: relative;
+	z-index: 999;
+	top: 11px;
+}
+#main ul#postlist > li > a.post-avatar {
+	position: absolute;
+	top: 0;
+}
+#main ul#postlist li abbr {
+	color: #666;
+	display: block;
+	font-size: 10px !important;
+}
+#main ul#postlist li abbr em {
+	font-size: 10px !important;
+}
+#main ul#postlist li span.actions a,
+#main ul#postlist li span.tags {
+	display: none;
+}
+.single-action-links {
+	display: inline;
+}
+#main ul#postlist > li span.actions {
+	color: #e9e9e9;
+}
+#main ul#postlist li span.actions {
+	visibility: hidden;
+}
+#main ul#postlist li.hentry > h4 span.actions a.thepermalink {
+	background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc) );
+	-webkit-border-radius: 5px;
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255, 0.4), inset 0 1px 1px rgba(0,0,0, 0.3);
+	display: block;
+	position: absolute;
+	top: 9px;
+	right: 7px;
+	text-indent: -99999em;
+	width: 25.5px;
+	height: 25.5px;
+	visibility: visible;
+}
+#main ul#postlist li.hentry > h4 span.actions a.thepermalink:before {
+	background:  url( "i/link.png" ) 5px 5px no-repeat;
+	display: block;
+	content: '';
+	position:absolute;
+	width: 22px;
+	height: 22px;
+	visibility: visible;
+	z-index: 999;
+}
+#main ul#postlist li span.actions a.comment-reply-link {
+	background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc) );
+	-webkit-border-radius: 5px;
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255, 0.4), inset 0 1px 1px rgba(0,0,0, 0.3);
+	color: #777;
+	display: block;
+	font-size: 12px !important;
+	font-weight: bold;
+	padding: 5px 15px;
+	position: absolute;
+	top: 9px;
+	right: 7px;
+	right: 40px;
+	visibility: visible;
+}
+.single #main ul#postlist li span.actions a.comment-reply-link {
+	right: 7px;
+}
+#main ul#postlist li div.postcontent {
+	margin: 0;
+	padding: 0;
+}
+#main ul#postlist li div.postcontent *,
+#main ul#postlist li div.commentcontent * {
+	font-size: 13px !important;
+	line-height: 150% !important;
+}
+#main ul#postlist li div.postcontent img,
+#main ul#postlist li div.commentcontent img {
+	height: auto !important;
+	max-width: 98% !important;
+}
+#main div.wpl-likebox {
+	margin: 0 0 -7px 0 !important;
+}
+#main div.wpl-count {
+	font-size: 12px !important;
+}
+
+
+/* =Comments
+----------------------------------------------------- */
+
+#main ul.commentlist,
+#main ul.commentlist ul {
+	left: -20px;
+	margin: 0 !important;
+	padding: 0 !important;
+	position: relative;
+	width: 100%;
+}
+#main ul.commentlist > li:first-child {
+	padding-left: 0 !important;
+}
+#main ul.commentlist li {
+	padding-top: 12px !important;
+	padding-right: 0 !important;
+}
+#main ul.commentlist li:last-child {
+	padding-bottom: 0 !important;
+}
+#main ul.commentlist h4 {
+	margin-bottom: -0.2em;
+	margin-left: 22px;
+}
+#main ul.commentlist h4 a {
+	float: left;
+	font-size: 12px !important;
+	margin-right: 5px;
+}
+#main ul.commentlist h4 span.meta abbr {
+	float: left;
+	max-width: 41px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+#main ul.commentlist img.avatar {
+	position: relative;
+	top: -2px;
+	width: 15px;
+	height: 15px;
+}
+#main ul.commentlist li div.commentcontent {
+	clear: both;
+}
+#main ul#postlist li ul.commentlist span.actions {
+	color: #fff;
+}
+#main ul#postlist li ul.commentlist span.actions a.comment-reply-link {
+	background: none;
+	border: none;
+	-webkit-box-shadow: none !important;
+	color: #888;
+	font-size: 12px !important;
+	font-weight: normal;
+	padding: 0;
+	top: 0;
+	right: 0;
+}
+
+
+/* =Reply Form
+----------------------------------------------------- */
+
+#main #respond {
+	background: #fff;
+	padding: 0 15px 0 10px;
+	position: relative !important;
+	width: auto !important;
+	height: auto !important;
+}
+#main #respond h3#reply-title,
+#main #respond p.logged-in-as,
+#main #respond .comment-notes {
+	display: none;
+}
+#main #respond p.comment-subscription-form {
+	margin-right: -10px;
+}
+#main #respond p.comment-subscription-form * {
+	color: #666;
+	float: right !important;
+	font-size: 12px !important;
+	margin-left: 5px;
+}
+#main #respond input#comment-submit {
+	float: right;
+	margin-right: -5px;
+}
+#main #respond textarea#comment {
+	background-color: #fff;
+	border: 1px inset #e5e5e5 !important;
+	border-radius: 4px !important;
+	-webkit-box-shadow: inset 0 1px rgba( 0, 0, 0, 0.2 ) !important;
+	color: #666 !important;
+	font-family: Helvetica !important;
+	font-size: 13px !important;
+	min-height: 85px !important;
+	padding-top: 5px !important;
+	width: 99% !important;
+	height: 85px !important;
+}
+
+
+/* =Misc - Old CSS
+----------------------------------------------------- */
+
+.meta {
+	line-height: auto;
+	margin-top: 6px;
+	width: 100%;
+}
+#media-buttons {
+	display: none;
+}
+#main h4 {
+	clear: both;
+	line-height: 1.1em;
+	margin-bottom: .5em;
+}
+.avatar {
+	margin-bottom: -20px;
+	position: relative;
+	left: 0px;
+	top: 5px;
+}
+#main #respond.replying,
+#main .commentlist li #respond.replying {
+	margin-left: 0 !important;
+	position: absolute;
+	left: 0px !important;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+}
+.single #main .postcontent {
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
+li #respond textarea {
+	width: 80%;
+	height: 80%;
+}
+#main h4 {
+	margin-left: 30px;
+	position: relative;
+}
+h1 a {
+	display: block;
+	font-family: Helvetica;
+	width: 295px;
+}
+#footer {
+	border: none;
+	font-size: 8px;
+	min-width: 0;
+	padding: 10px 0;
+	width: 100%;
+}
+#footer p {
+	margin: 0 10px;
+}
+#main ul.commentlist,
+#main ul.commentlist ul {
+	margin-left: 20px !important;
+}
+#wrapper {
+	background: #fff;
+	border: none;
+	margin: 15px auto 0;
+	min-width: 0;
+	overflow: visible;
+	padding: 0;
+	position: static;
+	width: 100%;
+}
+.avatar {
+	width: 20px;
+	height: 20px;
+}
+.sleeve_main {
+	margin: 0;
+	width: auto;
+}
+#post-types {
+	font-size: 10px;
+	margin-left: 0;
+	padding-top: 4px;
+}
+#main ul#postlist ul li {
+	margin-left: 0;
+}
+.post h1 {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 12px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	margin-left: 0;
+	padding: 0;
+}
+h2 {
+	color: #555;
+	font-size: 12px;
+	font-weight: bold;
+}
+#postbox form {
+	padding: 5px;
+}
+#postbox textarea#posttext {
+	border: 1px solid #c6d9e9;
+	font: 1.4em/1.2em "Lucida Grande",Verdana,"Bitstream Vera Sans",Arial,sans-serif;
+	height: 50px;
+	margin-bottom: 10px;
+	padding: 2px;
+}
+#postbox input#tags,
+#commentform #comment {
+	border: 1px solid #c6d9e9;
+	font-size: 12px;
+	margin-bottom: 4px;
+	margin-left: 0;
+	padding: 2px;
+	width: 300px;
+}
+#postbox {
+	margin: 0;
+	padding: 0;
+}
+#postbox label {
+	color: #333;
+	display: block;
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 4px;
+	margin-left: 0;
+}
+#postbox .inputarea {
+	height: auto;
+	padding-left: 0;
+}
+#notify {
+	width: 70%;
+	top: 30%;
+	left: 15%;
+}
+#postbox {
+	padding-bottom: 30px;
+	position: relative;
+}
+#postbox input#submit {
+	clear: both;
+	display: block;
+	float: none;
+	font-size: 12px;
+	margin-top: 10px;
+	margin-left: 0;
+}
+form#new_post {
+	margin-top: 0;
+}
+#main ul {
+	list-style: none;
+	margin-top: 16px;
+	margin-left: 0;
+}
+#wpcombar {
+	display: none;
+}
+body {
+	padding-top: 0 !important;
+}
+.tags {
+	clear: both;
+	display: block;
+	padding-top: 4px;
+}

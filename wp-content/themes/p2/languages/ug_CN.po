@@ -1,0 +1,653 @@
+# Translation of the WordPress theme P2 1.1.6.1 by Automattic.
+# Copyright (C) 2010 Automattic
+# This file is distributed under the same license as the P2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: P2 1.1.6.1 Uyghur\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/p2\n"
+"POT-Creation-Date: 2011-02-22 19:04-0700\n"
+"PO-Revision-Date: 2011-05-21 00:58+0900\n"
+"Last-Translator: Y. Z. Moorshidi <uyghur.translation@gmail.com>\n"
+"Language-Team: Uyghur Translation Team <uyghur.translation@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 0;\n"
+"X-Poedit-Language: Uighur\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: 404.php:13
+msgid "Not Found"
+msgstr "تېپىلمىدى"
+
+#: 404.php:14
+#: search.php:31
+msgid "Apologies, but the page you requested could not be found. Perhaps searching will help."
+msgstr "كەچۈرۈڭ، ئىزدىگەن بېتىڭىز تېپىلمىدى. ئىزدەپ باقسىڭىز ياردىمى بولۇشى مۇمكىن."
+
+#: attachment.php:44
+#, php-format
+msgid "Full size is %s pixels"
+msgstr "تولۇق رازمېرى %s پىكسېل"
+
+#: attachment.php:47
+msgid "Link to full-size image"
+msgstr "ئەسلى سۈرەتكە ئۇلاش"
+
+#: attachment.php:68
+msgid "View file:"
+msgstr "ھۆججەتنى كۆرۈش:"
+
+#: attachment.php:69
+#: entry.php:69
+#: entry.php:80
+#: entry.php:85
+#: inc/template-tags.php:134
+msgid "(More ...)"
+msgstr "(تېخىمۇ كۆپ ...)"
+
+#: comments.php:20
+msgid "&larr; Older Comments"
+msgstr "&rarr; كونىراق ئىنكاسلار"
+
+#: comments.php:21
+msgid "Newer Comments &rarr;"
+msgstr "يېڭىراق ئىنكاسلار &larr;"
+
+#: entry.php:13
+#: entry.php:27
+#, php-format
+msgid "Posts by %1$s ( @%2$s )"
+msgstr "%1$s ( @%2$s ) يازمىلىرى"
+
+#: entry.php:41
+#: functions.php:170
+#: functions.php:290
+msgid "Permalink"
+msgstr "مۇقىم ئۇلانما"
+
+#: entry.php:43
+#: entry.php:47
+#: entry.php:110
+#: entry.php:118
+#: functions.php:282
+#: functions.php:544
+msgid "Reply"
+msgstr "جاۋاب"
+
+#: entry.php:51
+#: functions.php:170
+#: functions.php:286
+msgid "Edit"
+msgstr "تەھرىرلەي"
+
+#: entry.php:58
+#: inc/ajax.php:145
+msgid "<br />Tags:"
+msgstr "<br />خەتكۈچلەر:"
+
+#: entry.php:94
+msgid "Toggle Comments"
+msgstr "ئىنكاسلارنى يېيىش/يىغىش"
+
+#: entry.php:98
+msgid "Pages:"
+msgstr "بەتلەر:"
+
+#: entry.php:112
+#, php-format
+msgid "Required fields are marked %s"
+msgstr "%s بەلگىسى بارلارنى تولدۇرۇش تەلەپ قىلىنىدۇ"
+
+#: footer.php:14
+#, php-format
+msgid "Theme: %1$s by %2$s."
+msgstr "%1$s ئۇسلۇبى، %2$s تەمىنلىگەن."
+
+#: footer.php:22
+msgid "compose new post"
+msgstr "يېڭى يازما يازاي"
+
+#: footer.php:23
+msgid "next post/next comment"
+msgstr "كېيىنكى يازما / كېيىنكى ئىنكاس"
+
+#: footer.php:24
+msgid "previous post/previous comment"
+msgstr "ئالدىنقى يازما / ئالدىنقى ئىنكاس"
+
+#: footer.php:25
+msgid "reply"
+msgstr "جاۋاب"
+
+#: footer.php:26
+msgid "edit"
+msgstr "تەھرىرلەي"
+
+#: footer.php:27
+msgid "show/hide comments"
+msgstr "ئىنكاسنى كۆرسەت/يوشۇر"
+
+#: footer.php:28
+msgid "go to top"
+msgstr "چوققىغا باراي"
+
+#: footer.php:29
+msgid "go to login"
+msgstr "كىرىش بېتىگە باراي"
+
+#: footer.php:30
+msgid "show/hide help"
+msgstr "ياردەمنى كۆرسەت/يوشۇر"
+
+#: footer.php:31
+msgid "cancel"
+msgstr "بىكار قىل"
+
+#: functions.php:25
+msgid "Sidebar"
+msgstr "يان ئىستون"
+
+#: functions.php:170
+msgid "on"
+msgstr " "
+
+#: functions.php:175
+#: functions.php:288
+msgid "Your comment is awaiting moderation."
+msgstr "ئىنكاسىڭىز تەستىق كۈتۈۋاتىدۇ."
+
+#: functions.php:286
+msgid "Edit comment"
+msgstr "ئىنكاسنى تەھرىرلەي"
+
+#: functions.php:358
+msgid "Video Post"
+msgstr "سىنلىق يازما"
+
+#: functions.php:360
+msgid "Image Post"
+msgstr "رەسىملىك يازما"
+
+#: functions.php:545
+msgid "Log in to Reply"
+msgstr "كىرىپ جاۋاب قايتۇراي"
+
+#: functions.php:589
+msgid "http://wordpress.org/"
+msgstr "http://wordpress.org/"
+
+#: functions.php:589
+#, php-format
+msgid "Proudly powered by %s."
+msgstr "پەخىرلىك %sتە قۇرۇلدى."
+
+#: functions.php:780
+#: functions.php:789
+msgid "After typing @, type a name or username to find a member of this site"
+msgstr "بۇ توربەتتە ئەزا ئىزدەش ئۈچۈن @ بەلگىسىدىن كېيىن بىر ئىسىم ياكى قوللانچى نامىنى كىرگۈزۈڭ"
+
+#: functions.php:781
+#: functions.php:790
+msgid "No matches."
+msgstr "ماس نەتىجە يوق."
+
+#: inc/ajax.php:21
+#: inc/ajax.php:81
+#: inc/ajax.php:92
+#: inc/ajax.php:153
+#: inc/ajax.php:182
+msgid "Error: not logged in."
+msgstr "خاتالىق: تېخى كىرمىگەن."
+
+#: inc/ajax.php:26
+#: inc/ajax.php:99
+msgid "Error: not allowed to edit post."
+msgstr "خاتالىق: يازما تەھرىرلەشكە ئىجازەت بېرىلمىگەن."
+
+#: inc/ajax.php:161
+msgid "Error: not allowed to edit this comment."
+msgstr "خاتالىق: بۇ ئىنكاسنى تەھرىرلەشكە ئىجازەت بېرىلمىگەن."
+
+#: inc/ajax.php:187
+msgid "Error: not allowed to post."
+msgstr "خاتالىق: يازما يوللاشقا ئىجازەت بېرىلمىگەن."
+
+#: inc/ajax.php:197
+#: inc/js.php:57
+#: post-form.php:74
+#: post-form.php:75
+#: post-form.php:76
+msgid "Tag it"
+msgstr "خەتكۈچ قوشۇڭ"
+
+#: inc/ajax.php:200
+#: inc/js.php:59
+#: post-form.php:16
+#: post-form.php:55
+#: post-form.php:56
+msgid "Post Title"
+msgstr "يازما تېمىسى"
+
+#: inc/ajax.php:296
+msgid "Error: you must be logged in to post a comment."
+msgstr "كەچۈرۈڭ، ئىنكاس يېزىش ئۈچۈن چوقۇم تىزىملىتىپ كىرىشىڭىز كېرەك."
+
+#: inc/ajax.php:307
+msgid "Error: please fill the required fields (name, email)."
+msgstr "خاتالىق: زۆرۈر ئۇچۇرلار(ئىسىم، ئېلخەت) نى چوقۇم تولدۇرۇڭ."
+
+#: inc/ajax.php:309
+msgid "Error: please enter a valid email address."
+msgstr "خاتالىق: ئىناۋەتلىك ئېلخەت ئادرېسىنى كىرگۈزۈڭ."
+
+#: inc/ajax.php:313
+msgid "Error: Please type a comment."
+msgstr "خاتالىق: بىرەر ئىنكاس يېزىڭ."
+
+#: inc/ajax.php:327
+msgid "Error: Unknown error occurred. Comment not posted."
+msgstr "خاتالىق: نامەلۇم خاتالىق كۆرۈلگەچكە ئىنكاس يوللانمىدى."
+
+#: inc/js.php:56
+msgid "Tags:"
+msgstr "خەتكۈچلەر:"
+
+#: inc/js.php:58
+#: post-form.php:65
+#: post-form.php:67
+#: post-form.php:68
+#: post-form.php:69
+msgid "Citation"
+msgstr "پايدىلانما"
+
+#: inc/js.php:60
+msgid "Go to homepage"
+msgstr "باشبەتكە يۆتكەل"
+
+#: inc/js.php:62
+#, php-format
+msgid "%d new update(s)"
+msgstr "%d يېڭىلانما"
+
+#: inc/js.php:63
+#, php-format
+msgid "%d new comment(s)"
+msgstr "%d يېڭى ئىنكاس"
+
+#: inc/js.php:64
+msgid "Jump to top"
+msgstr "چوققىغا سەكرە"
+
+#: inc/js.php:65
+msgid "An error has occurred, your post was not posted"
+msgstr "خاتالىق كۆرۈلگەچكە يازمىڭىز يوللانمىدى"
+
+#: inc/js.php:66
+msgid "Your update has been posted"
+msgstr "يېڭىلانمىڭىز يوللاندى"
+
+#: inc/js.php:67
+#: post-form.php:82
+msgid "Loading..."
+msgstr "يۈكلىنىۋاتىدۇ ..."
+
+#: inc/js.php:68
+msgid "Cancel"
+msgstr "بىكار قىل"
+
+#: inc/js.php:69
+msgid "Save"
+msgstr "ساقلا"
+
+#: inc/js.php:70
+#: single.php:18
+msgid "Hide threads"
+msgstr "قاتلاملارنى يوشۇر"
+
+#: inc/js.php:71
+msgid "Show threads"
+msgstr "قاتلاملارنى كۆرسەت"
+
+#: inc/js.php:72
+msgid "Your comments or posts will be lost if you continue."
+msgstr "داۋاملاشتۇرسىڭىز ئىنكاس ياكى يازمىلىرىڭىز يوققا چىقىدۇ."
+
+#: inc/js.php:73
+#: inc/template-tags.php:275
+#, php-format
+msgid "%1$s <em>on</em> %2$s"
+msgstr "%1$s <em> </em> %2$s"
+
+#: inc/options-page.php:10
+msgid "Theme Options"
+msgstr "ئۇسلۇب تاللاشلىرى"
+
+#: inc/options-page.php:53
+#: inc/options-page.php:163
+msgid "Whatcha' up to?"
+msgstr "نېمە ئىش قىلىۋاتىسىز؟"
+
+#: inc/options-page.php:80
+msgid "Options saved."
+msgstr "تاللاشلار ساقلاندى."
+
+#: inc/options-page.php:86
+msgid "P2 Options"
+msgstr "P2 تاللاشلىرى"
+
+#: inc/options-page.php:91
+msgid "Functionality Options"
+msgstr "فۇنكسيىلىك تاللاشلار"
+
+#: inc/options-page.php:99
+msgid "Posting Access:"
+msgstr "يوللاش ئىجازىتى:"
+
+#: inc/options-page.php:105
+msgid "Allow any WordPress.com member to post"
+msgstr "خالىغان WordPress.com ئەزالىرىنىڭ يازما يېزىشىغا رۇخسەت"
+
+#: inc/options-page.php:107
+msgid "Allow any registered member to post"
+msgstr "خالىغان تىزىملاتقان ئەزانىڭ يازما يېزىشىغا رۇخسەت"
+
+#: inc/options-page.php:115
+msgid "Hide Threads:"
+msgstr "قاتلاملارنى يوشۇرۇش:"
+
+#: inc/options-page.php:119
+msgid "Hide comment threads by default"
+msgstr "دەسلەپتە ئىنكاس قاتلاملىرى يوشۇرۇلسۇن"
+
+#: inc/options-page.php:129
+msgid "Design Options"
+msgstr "لايىھە تاللاشلىرى"
+
+#: inc/options-page.php:135
+msgid "Custom Background Color:"
+msgstr "خاس تەگلىك رەڭگى:"
+
+#: inc/options-page.php:137
+msgid "Pick a Color"
+msgstr "بىر رەڭ تاللاڭ"
+
+#: inc/options-page.php:143
+msgid "Background Image:"
+msgstr "تەگلىك رەسىمى:"
+
+#: inc/options-page.php:145
+msgid "None"
+msgstr "يوق"
+
+#: inc/options-page.php:146
+msgid "Bubbles"
+msgstr "كۆپۈكچىلەر"
+
+#: inc/options-page.php:147
+msgid "Polka Dots"
+msgstr "رەڭلىك چەمبەرلەر"
+
+#: inc/options-page.php:148
+msgid "Squares"
+msgstr "چاقماقلار"
+
+#: inc/options-page.php:149
+msgid "Plaid"
+msgstr "كاتەكچىلەر"
+
+#: inc/options-page.php:150
+msgid "Stripes"
+msgstr "سىزىقچىلار"
+
+#: inc/options-page.php:154
+msgid "Sidebar display:"
+msgstr "يان ئىستون كۆرۈنۈشى:"
+
+#: inc/options-page.php:157
+msgid "Hide the Sidebar"
+msgstr "يان ئىستوننى يوشۇر"
+
+#: inc/options-page.php:161
+msgid "Post prompt:"
+msgstr "يازما ئەسكەرتمىسى:"
+
+#: inc/options-page.php:164
+msgid "if empty, defaults to <strong>Whatcha up to?</strong>"
+msgstr "بوش قويۇلسا، كۆڭۈلدىكى قىممىتى <strong>نېمە ئىش قىلىۋاتىسىز؟</strong> بولىدۇ"
+
+#: inc/options-page.php:168
+msgid "Post Titles:"
+msgstr "يازما تېمىسى:"
+
+#: inc/options-page.php:171
+msgid "Display titles"
+msgstr "تېمىلار كۆرسىتىلسۇن"
+
+#: inc/options-page.php:181
+msgid "Update Options"
+msgstr "تاللاشلارنى يېڭىلاش"
+
+#: inc/options-page.php:236
+msgid "Hide Text"
+msgstr "تېكىستنى يوشۇر"
+
+#: inc/options-page.php:242
+msgid "Show Text"
+msgstr "تېكىستنى كۆرسەت"
+
+#: inc/template-tags.php:106
+msgid ", and "
+msgstr "، يەنە"
+
+#: inc/template-tags.php:117
+#, php-format
+msgid " and %s others are discussing."
+msgstr " ۋە باشقا %s تورداش جاۋاب يازدى."
+
+#: inc/template-tags.php:119
+msgid " and one other person are discussing."
+msgstr " ۋە يەنە بىر تورداش جاۋاب يازدى."
+
+#: inc/template-tags.php:122
+msgid " is discussing."
+msgstr " جاۋاب يازدى."
+
+#: inc/template-tags.php:124
+msgid " are discussing."
+msgstr " جاۋاب يازدى."
+
+#: inc/template-tags.php:168
+#, php-format
+msgid "Hi, %s. %s"
+msgstr "ئەسسالامۇ ئەلەيكۇم، %s. %s"
+
+#: inc/template-tags.php:168
+msgid "Whatcha up to?"
+msgstr "نېمە ئىش قىلىۋاتىسىز؟"
+
+#: inc/widgets/recent-comments.php:5
+msgid "P2 Recent Comments"
+msgstr "يېقىنقى P2 ئىنكاسلىرى"
+
+#: inc/widgets/recent-comments.php:5
+msgid "Recent comments with avatars."
+msgstr "يېقىنقى ئاۋاتارلىق ئىنكاسلار."
+
+#: inc/widgets/recent-comments.php:30
+msgid "No avatar"
+msgstr "ئاۋاتارسىز"
+
+#: inc/widgets/recent-comments.php:34
+#: inc/widgets/recent-tags.php:19
+msgid "Title:"
+msgstr "تېما:"
+
+#: inc/widgets/recent-comments.php:40
+msgid "Number of comments to show:"
+msgstr "كۆرسىتىلىدىغان ئىنكاس سانى:"
+
+#: inc/widgets/recent-comments.php:46
+msgid "Avatars:"
+msgstr "ئاۋاتارلار:"
+
+#: inc/widgets/recent-comments.php:67
+msgid "Recent comments"
+msgstr "يېقىنقى ئىنكاسلار"
+
+#: inc/widgets/recent-comments.php:126
+msgid "Anonymous"
+msgstr "نامسىز"
+
+#: inc/widgets/recent-comments.php:157
+#, php-format
+msgid "%s on <a href='%s' class='tooltip' title='%s'>%s</a>"
+msgstr "%s يازغان ئىنكاس:<a href='%s' class='tooltip' title='%s'>%s</a>"
+
+#: inc/widgets/recent-tags.php:5
+msgid "P2 Recent Tags"
+msgstr "يېقىنقى P2 خەتكۈچلىرى"
+
+#: inc/widgets/recent-tags.php:5
+msgid "The tags from the latest posts."
+msgstr "ئەڭ يېڭى يازمىلاردىكى خەتكۈچلەر."
+
+#: inc/widgets/recent-tags.php:25
+msgid "Number of tags to show:"
+msgstr "كۆرسىتىلىدىغان خەتكۈچ سانى:"
+
+#: inc/widgets/recent-tags.php:41
+msgid "Recent tags"
+msgstr "يېقىنقى خەتكۈچلەر"
+
+#: inc/widgets/recent-tags.php:61
+msgid "All Updates RSS"
+msgstr "بارلىق يېڭىلانما RSSلىرى"
+
+#: index.php:17
+msgid "Recent Updates"
+msgstr "يېقىنقى يېڭىلانمىلار"
+
+#: index.php:17
+#, php-format
+msgid "Page %s"
+msgstr "%s- بەت"
+
+#: index.php:22
+#, php-format
+msgctxt "Author name"
+msgid "Updates from %s"
+msgstr "%s يېڭىلانمىلىرى"
+
+#: index.php:27
+#, php-format
+msgctxt "Author name"
+msgid "Posts Mentioning %s"
+msgstr "%s ئاپتورلۇقىدىكى يازمىلار"
+
+#: index.php:32
+#, php-format
+msgctxt "Month name"
+msgid "Updates from %s"
+msgstr "%sدىن كېيىنكى يېڭىلانمىلار"
+
+#: index.php:37
+#: search.php:15
+msgid "Toggle Comment Threads"
+msgstr "ئىنكاس قاتلاملىرىنى يېيىش/يىغىش"
+
+#: index.php:37
+#: search.php:15
+#: single.php:20
+msgid "Keyboard Shortcuts"
+msgstr "تېزلەتمە كۇنۇپكىلار"
+
+#: index.php:51
+#: single.php:33
+msgid "No posts yet!"
+msgstr "تېخى يازما يوق!"
+
+#: index.php:58
+#: search.php:38
+#: tag.php:34
+msgid "&larr; Older posts"
+msgstr "&rarr; كونىراق يازمىلار"
+
+#: index.php:59
+#: search.php:39
+#: tag.php:35
+msgid "Newer posts &rarr;"
+msgstr "يېڭىراق يازمىلار &larr;"
+
+#: post-form.php:34
+msgid "Status Update"
+msgstr "ھالەتنى يېڭىلاش"
+
+#: post-form.php:35
+msgid "Blog Post"
+msgstr "يېڭى يازما"
+
+#: post-form.php:36
+msgid "Quote"
+msgstr "نەقىل"
+
+#: post-form.php:37
+msgid "Link"
+msgstr "ئۇلانما"
+
+#: post-form.php:77
+msgid "Post it"
+msgstr "يوللاڭ"
+
+#: search.php:13
+#, php-format
+msgid "Search Results for: %s"
+msgstr "%s ئۈچۈن ئىزدەش نەتىجىسى"
+
+#: search.php:30
+#: tag.php:28
+msgid "No posts found!"
+msgstr "ھېچقانداق يازما تېپىلمىدى!"
+
+#: single.php:40
+msgid "&larr;"
+msgstr "&rarr;"
+
+#: single.php:41
+msgid "&rarr;"
+msgstr "&larr;"
+
+#: tag.php:13
+#, php-format
+msgid "Tagged: %s"
+msgstr "خەتكۈچلەر: %s"
+
+#. Theme Name of the plugin/theme
+msgid "P2"
+msgstr "P2"
+
+#. Theme URI of the plugin/theme
+msgid "http://p2theme.com/"
+msgstr "http://p2theme.com/"
+
+#. Description of the plugin/theme
+msgid "A group blog theme for short update messages, inspired by Twitter. Featuring: Hassle-free posting from the front page. Perfect for group blogging, or as a liveblog theme. Dynamic page updates. Threaded comment display on the front page. In-line editing for posts and comments. Live tag suggestion based on previously used tags. A show/hide feature for comments, to keep things tidy. Real-time notifications when a new comment or update is posted. Super-handy keyboard shortcuts. Helvetica Neue for you modern font lovers."
+msgstr "تۋىتتېرنىڭ قىسقا ئۇچۇر يېڭىلاش ئىقتىدارىنى ئىشقا ئاشۇرغان گۇرۇپپا بلوگى ئۇسلۇبى. ئالاھىدىلىكلىرى: ئالدى بەتتە يازما يوللاشقا بولىدۇ. گۇرۇپپا بلوگىغا ۋە ياكى لىنىيىدىكى بلوگقا ماس كېلىدۇ. بەتنى ھەرىكەتچان يېڭىلايدۇ. باش بەتتە ئىنكاسلار قاتلاملىق كۆرسىتىلىدۇ. يازما ۋە ئىنكاسلارنى شۇ يەردە تۇرۇپلا تەھرىرلەشكە بولىدۇ. ئىلگىرى ئىشلىتىلگەن خەتكۈچلەر ئاساسىدا خەتكۈچ تاللاپ بېرىدۇ. ئىنكاسلارنى كۆرسىتىش /يوشۇرۇش ئىقتىدارى بار بولۇپ، بەتنى كۆركەم ۋە پاكىز كۆرسەتكىلى بولىدۇ. يېڭى يازما ياكى ئىنكاس يوللىنىشى بىلەنلا ئەسكەرتىش بېرىدۇ. تېزلەتمە كونۇپكىلارمۇ تەمىنلەنگەن. خەت نۇسخىسغا Helvetica Neue ئىشلىتىلگەن."
+
+#. Author of the plugin/theme
+msgid "Automattic"
+msgstr "Automattic"
+
+#. Author URI of the plugin/theme
+msgid "http://automattic.com/"
+msgstr "http://automattic.com/"
+
+#. Tags of the plugin/theme
+msgid "blue, two-columns, fixed-width, rtl-language-support, right-sidebar, white, light, front-page-post-form, translation-ready, blog, business, education, lifestream, productivity, clean, corporate, geometric, light, minimal, modern"
+msgstr "كۆك, ئىككى ئىستونلۇق, مۇقىم كەڭلىكتە, ئوڭدىن سولغا يېزىقنى قوللايدىغان, يان ئىستونى ئوڭدا, ئاق, سۇس, ئالدى بەتتە يازما يوللايدىغان، تەرجىمىسى پۈتكەنلەر، بىلوگ، سودا، مائارىپ، ھاياتلىق، مەھسۇلات، پاكىزە، ھەمكارلىق، گېئومېتىرىيەلىك، يېنىك، كىچىك، زامانىۋىي"
+
+#~ msgid "<strong>%1$s</strong> is proudly powered by %2$s."
+#~ msgstr "<strong>%1$s</strong> پەخىرلىك %2$sتە قۇرۇلدى ."

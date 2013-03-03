@@ -1,0 +1,107 @@
+PulsePress Theme - Changes
+---------------------------
+1.3.13
+- better mention auto complete. 
+
+1.3.12
+- fixed getting rid of the constant meta_value found in inc\voting.php 
+- js error where some js stops working when you have Twitter Style enabled but don't have remove the frontend posting form.
+- popular, unpopular and most-voted on now ignores the order of the sticky post 
+- better namespacing of the js files that are using the wp_enqueue_script
+
+1.3.11
+- fix the screen size to be 320 by 240px
+- removed notices. 
+
+1.3.10
+- bug fix: comments get added properly via ajax
+
+1.3.9
+- bug fix: when uninstalling ( switching ) and switching back to it the voting table was not created again
+- renamed: functions that were badly named
+
+1.3.8 
+- Bug fix: url shortener stopped working.
+ 
+1.3.7 September 2011
+- Updates to category archive page so that is displays the sticky items properly
+
+1.3.6 September 2011
+- bug fix: clicking popular on pages return back the page not 404 error
+- bug fix: count still maintained with chrome when using backspace
+
+1.3.5 September 2011
+- bug fix: keyboard shortcuts work on the any page except for single pages
+- bug fix: votes are counted properly, as integers not string.
+- bug fix: options are now stores in a single array
+- bug fix: better styling for the table
+- bug fix: improved translation of stings
+- bug fix: removed any instance of prologue, wordpress and twentyten
+- bug fix: added theme options validation registration validation 
+- bug fix: credit link fixed 
+- bug fix: more information about the theme on blogs.ubc.ca/beta/pulsepress
+- bug fix: the single post page always display the categories
+- feature: added the ability for limiting comments to 140 characters
+- enhance: minified javascript files that are loaded for speed improvement 
+
+1.3.4 
+- bug fix: Allow user to vote even though you are not allowing them to post from the front end.
+- bug fix: Duplication of posts on category pages. 
+
+1.3.3
+- bug fix: toggling of comments works everywhere now
+- comments always display on single pages and posts
+- sticky posts will display in categories
+- ability to display categories
+- notice for when you click on started that displays when you don't have anything starred
+- styling for sub, sup, and table elements
+- renamed functions without prefixes
+- removed reference to get_users_of_blog
+- front end: posting bug 
+
+1.3.2 
+- bug fix: the main js in only loaded on the home page not on every page
+- bug fix: ajax https request when appropriate
+- bug fix: Most voted-on was hard coded. 
+- implemented nonce on the options page
+- big fix: bity api is returned not rendered
+
+1.3.1 - August 2011
+- added short-codes: leaderboard + latest-post
+- removed: displaying attachments should be part of a plugin not theme
+- added the ability to see the up and down votes
+- many bug fixes, nicer update colours
+
+1.3 - August 
+- Ability to display items using that are unpopular
+- Ability to display items that are most voted on
+- Ability to display attachments 
+- big fixes
+1.2 - July 
+- Votes count can be see in manage posts and users table
+- ability to hide enter box
+- ability to upload files from front end
+- ability to see attachments
+- lots of bug fixes
+
+1.1.1 - June 
+- Compatibility with 3.0 
+- Removed PHP Warnings 
+- Updated footer credit info
+- Added couple more options for changing default text
+
+1.1 - Jun 2011 - initial release 
+- 2 way voting
+- twitter like interface
+- improved mobile view
+- URL Shortener
+- Shy Feature
+- More theme options
+- Bug fixes 
+
+1.0 - Sep 2010 - Beta release
+- Enable favouring
+- enable one way voting
+
+
+
